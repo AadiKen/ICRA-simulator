@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "usv-bench-36-integrated-actuator-failure-smoke",
+  "scenario_id": "resources-actuator-failure",
+  "path": ["command", "actuator-state", "thrust", "wrench", "event", "metric"],
+  "event": {"type":"ACTUATOR_FAILURE","actuator_id":"port","step":1,"mode":"failed-off","previous_mode":"healthy","source":"usv-bench-36/resources-actuator-failure"},
+  "summary_row": {"scenario_id":"resources-actuator-failure","failure_category":"ACTUATOR_FAILURE","event_count":1,"finite_wrench":true}
+}

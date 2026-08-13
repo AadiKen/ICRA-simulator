@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "run_id": "thin-slice-otter",
+  "experiment_checksum": "67ecc0b33b1299207d624f1e460d523b33a490231c4116842c52aa32010edbca",
+  "created_at": "2026-07-31T00:00:00.000Z",
+  "software": {
+    "node": "v24.13.0",
+    "physics": "legacy-production-adapter"
+  },
+  "seeds": [
+    42
+  ],
+  "inputs": [],
+  "validation_scope": {
+    "vehicle": "MSS-validated planar3",
+    "api": "new MarineSimulation over legacy production physics"
+  },
+  "warnings": [
+    "This slice proves integration; it is not the final migrated-core acceptance run."
+  ],
+  "artifact_inventory": [
+    {
+      "path": "original_config.json",
+      "bytes": 1062,
+      "checksum_sha256": "f7a4b7b35c7c61215aeff6332688ce398a1629eb5ca8b2a55ff07e0e1f6543ef",
+      "content_role": "configuration"
+    },
+    {
+      "path": "resolved_config.json",
+      "bytes": 1062,
+      "checksum_sha256": "f7a4b7b35c7c61215aeff6332688ce398a1629eb5ca8b2a55ff07e0e1f6543ef",
+      "content_role": "configuration"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 153,
+      "checksum_sha256": "7be18c208d0080ac95fb6afde91ee246cb0a4e991855cbdeb3c9773703b8d336",
+      "content_role": "metrics"
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "reviewed-behavior-supersession-delta",
+  "policy": "actuator-integrated-capabilities-v1",
+  "capability_commit": "d543c6ec1b7a68d45d2ea4383a434679e17d3def",
+  "legacy": {
+    "path": "validation/pre-migration/supplemental/actuator-legacy-trace.json",
+    "sha256": "fc9422bbee912aecbcd3c48db13ef5047ddf0d81d49bb99fe518d74be31daf5c"
+  },
+  "candidate": {
+    "path": "validation/capability-goldens/actuator-integrated.json",
+    "sha256": "339cba41c5f009f6cbb89f957e640b25d0f31839578ca8dd2aa9af237baedbca"
+  },
+  "change_count": 19,
+  "changes": [
+    {
+      "path": "$.artifact_kind",
+      "before": "legacy-actuator-parity-golden",
+      "after": "integrated-actuator-capability-golden",
+      "justification": "The candidate is an explicitly versioned capability golden, not a replacement parity golden."
+    },
+    {
+      "path": "$.source_behavior",
+      "before": "core/forces/actuatorModel.js before actuator migration",
+      "after": "@bcod/core integrated-v1 opt-in behavior",
+      "justification": "The source is the opt-in integrated-v1 implementation committed after parity migration."
+    },
+    {
+      "path": "$.configuration.power",
+      "after": {
+        "idleW": 5,
+        "controlW": 10,
+        "maxW": 100
+      },
+      "justification": "Power parameters are required to distinguish actuator overhead from productive propulsion energy."
+    },
+    {
+      "path": "$.cases[2].samples[2].thrust_n",
+      "before": -6,
+      "after": 0,
+      "absolute_delta": 6,
+      "justification": "Commands strictly inside the dead zone intentionally produce zero thrust; exact thresholds remain active."
+    },
+    {
+      "path": "$.cases[2].samples[2].wrench_surge_n",
+      "before": -6,
+      "after": 0,
+      "absolute_delta": 6,
+      "justification": "Commands strictly inside the dead zone intentionally produce zero thrust; exact thresholds remain active."
+    },
+    {
+      "path": "$.cases[2].samples[2].wrench_yaw_nm",
+      "before": 3,
+      "after": 0,
+      "absolute_delta": 3,
+      "justification": "Commands strictly inside the dead zone intentionally produce zero thrust; exact thresholds remain active."
+    },
+    {
+      "path": "$.cases[2].samples[4].thrust_n",
+      "before": 10,
+      "after": 0,
+      "absolute_delta": 10,
+      "justification": "Commands strictly inside the dead zone intentionally produce zero thrust; exact thresholds remain active."
+    },
+    {
+      "path": "$.cases[2].samples[4].wrench_surge_n",
+      "before": 10,
+      "after": 0,
+      "absolute_delta": 10,
+      "justification": "Commands strictly inside the dead zone intentionally produce zero thrust; exact thresholds remain active."
+    },
+    {
+      "path": "$.cases[2].samples[4].wrench_yaw_nm",
+      "before": -5,
+      "after": 0,
+      "absolute_delta": 5,
+      "justification": "Commands strictly inside the dead zone intentionally produce zero thrust; exact thresholds remain active."
+    },
+    {
+      "path": "$.threshold_samples[4].thrust_n",
+      "before": -11.999999999999998,
+      "after": 0,
+      "absolute_delta": 11.999999999999998,
+      "justification": "Threshold-adjacent samples document the deliberate strict-inequality boundary rule."
+    },
+    {
+      "path": "$.threshold_samples[6].thrust_n",
+      "before": 20,
+      "after": 0,
+      "absolute_delta": 20,
+      "justification": "Threshold-adjacent samples document the deliberate strict-inequality boundary rule."
+    },
+    {
+      "path": "$.failure_mid_run.thrust_n[4]",
+      "before": 40,
+      "after": 0,
+      "absolute_delta": 40,
+      "justification": "Failed-off now removes the actuator wrench after the reviewed transition point."
+    },
+    {
+      "path": "$.failure_mid_run.thrust_n[5]",
+      "before": 48,
+      "after": 0,
+      "absolute_delta": 48,
+      "justification": "Failed-off now removes the actuator wrench after the reviewed transition point."
+    },
+    {
+      "path": "$.failure_mid_run.thrust_n[6]",
+      "before": 56,
+      "after": 0,
+      "absolute_delta": 56,
+      "justification": "Failed-off now removes the actuator wrench after the reviewed transition point."
+    },
+    {
+      "path": "$.failure_mid_run.thrust_n[7]",
+      "before": 63.9758468645688,
+      "after": 0,
+      "absolute_delta": 63.9758468645688,
+      "justification": "Failed-off now removes the actuator wrench after the reviewed transition point."
+    },
+    {
+      "path": "$.legacy_capability_findings.configured_dead_zone",
+      "before": "ignored; legacy conversion is continuous linear through zero",
+      "after": "active strictly inside ±0.2; exact thresholds remain productive",
+      "justification": "Capability status text now records functional dead-zone, failure, and opt-in version semantics."
+    },
+    {
+      "path": "$.legacy_capability_findings.failure_mode_command",
+      "before": "ignored; failed-off metadata does not alter thrust",
+      "after": "failed-off removes wrench and emits one ACTUATOR_FAILURE transition event",
+      "justification": "Capability status text now records functional dead-zone, failure, and opt-in version semantics."
+    },
+    {
+      "path": "$.legacy_capability_findings.migration_rule",
+      "before": "preserve these results for parity; implement dead-zone and failure semantics only in a separate post-parity change",
+      "after": "opt-in integrated-v1 behavior; immutable legacy golden remains authoritative for parity",
+      "justification": "Capability status text now records functional dead-zone, failure, and opt-in version semantics."
+    },
+    {
+      "path": "$.integrated_evidence",
+      "after": {
+        "energy": {
+          "sub_dead_zone_command": 0.1,
+          "actuator_energy_j": 6,
+          "propulsion_energy_j": 0
+        },
+        "failure_events": [
+          {
+            "type": "ACTUATOR_FAILURE",
+            "actuator_id": "legacy",
+            "step": 4,
+            "mode": "failed-off",
+            "previous_mode": "healthy",
+            "source": "command"
+          }
+        ],
+        "stuck": {
+          "wrench": [
+            8,
+            0,
+            -4
+          ],
+          "replay_wrench": [
+            8,
+            0,
+            -4
+          ],
+          "replay_bit_exact": true,
+          "diagnostics": {
+            "mode": "stuck-bias-rejection",
+            "rank": 0,
+            "condition_number": null,
+            "singular_values": [],
+            "bias_wrench": [
+              8,
+              0,
+              0,
+              0,
+              0,
+              -4
+            ],
+            "achieved_wrench": [
+              8,
+              0,
+              0,
+              0,
+              0,
+              -4
+            ],
+            "residual_wrench": [
+              -8,
+              0,
+              0,
+              0,
+              0,
+              4
+            ],
+            "reachable": false,
+            "degradation": "rank-deficient"
+          }
+        }
+      },
+      "justification": "New evidence records energy attribution, failure events, stuck-bias diagnostics, and checkpoint replay identity."
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "tests": [
+    {
+      "name": "testMassMatrixAndCoriolisInvariants",
+      "metrics": {
+        "mass": [
+          [
+            52.5,
+            0,
+            0,
+            0,
+            1.5,
+            0
+          ],
+          [
+            0,
+            87.5,
+            0,
+            -1.5,
+            0,
+            5
+          ],
+          [
+            0,
+            0,
+            95,
+            0,
+            -5,
+            0
+          ],
+          [
+            0,
+            -1.5,
+            0,
+            5.316666666666667,
+            0,
+            0
+          ],
+          [
+            1.5,
+            0,
+            -5,
+            0,
+            21.666666666666664,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0,
+            22.5
+          ]
+        ],
+        "coriolisPower": -8.881784197001252e-16,
+        "symmetric": true,
+        "positiveDefinite": true
+      }
+    },
+    {
+      "name": "testAnalyticBoxSubmersion",
+      "metrics": {
+        "halfVolume": 0.4,
+        "halfCentroidD": 0.1,
+        "fullVolume": 0.8
+      }
+    },
+    {
+      "name": "testHydrostaticDirections",
+      "metrics": {
+        "wrench": [
+          0,
+          0,
+          -2011.0500000000002,
+          -5.886000000000001,
+          9.4176,
+          0
+        ]
+      }
+    },
+    {
+      "name": "testStillWaterEquilibrium",
+      "metrics": {
+        "positionD": 0,
+        "velocityW": 0,
+        "quaternion": {
+          "w": 1,
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "name": "testHeaveRollPitchFreeDecay",
+      "metrics": {
+        "initial": 0.19,
+        "final": 2.067350925994266e-7,
+        "positionD": 2.5881298811169732e-11,
+        "roll": 2.8606956733146693e-10,
+        "pitch": -2.0642314173328397e-7,
+        "velocityW": -2.489447673967414e-10,
+        "rollRate": 4.3926767275168076e-10,
+        "pitchRate": -4.1124458543335966e-8
+      }
+    },
+    {
+      "name": "testQuaternionConstantRate",
+      "metrics": {
+        "roll": 0.1999999999999997,
+        "quaternion": {
+          "w": 0.9950041652780257,
+          "x": 0.09983341664682799,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "name": "testTimestepConvergenceAndDeterminism",
+      "metrics": {
+        "coarse": [
+          -2.1855585267689956e-9,
+          -5.594903709749358e-7,
+          0.00002133834615702424,
+          2.3114369215439782e-8,
+          0.0000015546473641633518,
+          -0.00004263824853690353
+        ],
+        "medium": [
+          -2.1822629881927987e-9,
+          -5.594981419402243e-7,
+          0.000021338429565227676,
+          2.3079594777330158e-8,
+          0.000001554693554719668,
+          -0.000042638522180120366
+        ],
+        "fine": [
+          -2.182090215829596e-9,
+          -5.594985812526178e-7,
+          0.000021338434439331617,
+          2.307777195446618e-8,
+          0.0000015546962279552781,
+          -0.00004263853847911932
+        ],
+        "coarseError": 3.0930037472786045e-10,
+        "mediumError": 1.7323567001293894e-11
+      }
+    },
+    {
+      "name": "testLongEquilibriumRunRemainsFinite",
+      "metrics": {
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "testInvalidInputsAreRejected",
+      "metrics": {
+        "rejectedMass": true,
+        "rejectedDt": true
+      }
+    }
+  ]
+}

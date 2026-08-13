@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "parametric-hull-regular-wave-response",
+  "status": "software-campaign-passed-physical-validation-blocked",
+  "is_physical_validation_evidence": false,
+  "vehicles": [
+    {
+      "vehicle_id": "vehicle-b-rudder",
+      "sea": "head",
+      "heading_rad": 0,
+      "validation_status": "model-structure-trajectory-scored-fail",
+      "plant": "coupled6",
+      "out_of_plane_dofs_free": true,
+      "coefficient_source": "artifacts/capytaine/vehicle-b-parametric.json",
+      "coefficient_status": "analytic-parametric-solver-output-pending-independent-validation",
+      "episode": {
+        "duration_s": 60,
+        "dt_s": 0.01,
+        "steps": 6000,
+        "wave_amplitude_m": 0.1,
+        "wave_period_s": 4,
+        "evaluation_frequency_rad_s": 1.5707963267948966,
+        "selection_method": "wave-encounter",
+        "approximation": "constant-coefficient-no-radiation-memory"
+      },
+      "metrics": {
+        "steady_state_rms": {
+          "heave_m": 0.06878163428353361,
+          "roll_rad": 1.314947937178315e-16,
+          "pitch_rad": 0.017528269051854877
+        },
+        "max_abs": {
+          "heave_m": 0.09885645867390902,
+          "roll_rad": 3.1619606629247346e-16,
+          "pitch_rad": 0.025888942884573354
+        },
+        "finite": true
+      },
+      "trace_rows": 6000,
+      "trace_checksum_sha256": "662c74e1db235268835c872411243ef8806927272c34ab2089085d509d7c26f4",
+      "trace_retention": "checksum-and-metrics-only"
+    },
+    {
+      "vehicle_id": "vehicle-b-rudder",
+      "sea": "beam",
+      "heading_rad": -1.5707963267948966,
+      "validation_status": "model-structure-trajectory-scored-fail",
+      "plant": "coupled6",
+      "out_of_plane_dofs_free": true,
+      "coefficient_source": "artifacts/capytaine/vehicle-b-parametric.json",
+      "coefficient_status": "analytic-parametric-solver-output-pending-independent-validation",
+      "episode": {
+        "duration_s": 60,
+        "dt_s": 0.01,
+        "steps": 6000,
+        "wave_amplitude_m": 0.1,
+        "wave_period_s": 4,
+        "evaluation_frequency_rad_s": 1.5707963267948966,
+        "selection_method": "wave-encounter",
+        "approximation": "constant-coefficient-no-radiation-memory"
+      },
+      "metrics": {
+        "steady_state_rms": {
+          "heave_m": 0.07861640634540337,
+          "roll_rad": 0.16792203372214545,
+          "pitch_rad": 0.000006402576782406375
+        },
+        "max_abs": {
+          "heave_m": 0.13669681471154105,
+          "roll_rad": 0.3473453215092628,
+          "pitch_rad": 0.000018863516804991413
+        },
+        "finite": true
+      },
+      "trace_rows": 6000,
+      "trace_checksum_sha256": "40749547797c149f84f0e1ffffa48814e0cbd81cc672372056581d7aa0a22765",
+      "trace_retention": "checksum-and-metrics-only"
+    },
+    {
+      "vehicle_id": "vehicle-c-azimuth",
+      "sea": "head",
+      "heading_rad": 0,
+      "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+      "plant": "coupled6",
+      "out_of_plane_dofs_free": true,
+      "coefficient_source": "artifacts/capytaine/vehicle-c-parametric.json",
+      "coefficient_status": "analytic-parametric-solver-output-pending-independent-validation",
+      "episode": {
+        "duration_s": 60,
+        "dt_s": 0.01,
+        "steps": 6000,
+        "wave_amplitude_m": 0.1,
+        "wave_period_s": 4,
+        "evaluation_frequency_rad_s": 1.5707963267948966,
+        "selection_method": "wave-encounter",
+        "approximation": "constant-coefficient-no-radiation-memory"
+      },
+      "metrics": {
+        "steady_state_rms": {
+          "heave_m": 0.06917418108740477,
+          "roll_rad": 1.5578273591559285e-17,
+          "pitch_rad": 0.017767312314496325
+        },
+        "max_abs": {
+          "heave_m": 0.09840353509963828,
+          "roll_rad": 2.918987842461903e-17,
+          "pitch_rad": 0.025222704325160293
+        },
+        "finite": true
+      },
+      "trace_rows": 6000,
+      "trace_checksum_sha256": "09e2fed9d1de2c4625b3d7d17d6a861b383ebdd6dfcf23d0645a9ec9213b0655",
+      "trace_retention": "checksum-and-metrics-only"
+    },
+    {
+      "vehicle_id": "vehicle-c-azimuth",
+      "sea": "beam",
+      "heading_rad": -1.5707963267948966,
+      "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+      "plant": "coupled6",
+      "out_of_plane_dofs_free": true,
+      "coefficient_source": "artifacts/capytaine/vehicle-c-parametric.json",
+      "coefficient_status": "analytic-parametric-solver-output-pending-independent-validation",
+      "episode": {
+        "duration_s": 60,
+        "dt_s": 0.01,
+        "steps": 6000,
+        "wave_amplitude_m": 0.1,
+        "wave_period_s": 4,
+        "evaluation_frequency_rad_s": 1.5707963267948966,
+        "selection_method": "wave-encounter",
+        "approximation": "constant-coefficient-no-radiation-memory"
+      },
+      "metrics": {
+        "steady_state_rms": {
+          "heave_m": 0.0692271907265904,
+          "roll_rad": 0.01810953251995558,
+          "pitch_rad": 9.448982696667164e-7
+        },
+        "max_abs": {
+          "heave_m": 0.0983185868857527,
+          "roll_rad": 0.03062370721451612,
+          "pitch_rad": 0.0000018535090997030896
+        },
+        "finite": true
+      },
+      "trace_rows": 6000,
+      "trace_checksum_sha256": "72181f7e06618409d73628f4476285e2d091f83a7658eeffb43994460ea5cb42",
+      "trace_retention": "checksum-and-metrics-only"
+    }
+  ],
+  "claim_limit": "Demonstrates deterministic bounded head- and beam-wave execution through production coupled6 with parametric Capytaine coefficients and the zero-speed viscous lower bound. It is not agreement with measured wave-response data.",
+  "limitations": [
+    "Constant coefficients omit Cummins radiation memory.",
+    "Encounter frequency is fixed for the episode.",
+    "Representative hull geometry and viscous damping are unvalidated design estimates.",
+    "No measured RAO or regular-wave trajectory is available."
+  ]
+}

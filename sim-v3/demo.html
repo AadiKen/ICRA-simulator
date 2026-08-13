@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BCOD Mission Demo</title>
+    <link rel="stylesheet" href="./demo.css?v=2">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "./vendor/three.module.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <main id="demoApp" class="demo-app">
+        <section id="demoViewport" class="demo-viewport" aria-label="BCOD 3D mission demo"></section>
+
+        <section id="heroOverlay" class="hero-overlay">
+            <h1>BCOD Mission Simulator</h1>
+            <p>Configure the boat, shape the environment, plot a route, and watch the live simulator execute the mission.</p>
+            <button id="launchDemo" class="primary-action" type="button" onclick="window.bcodOpenRenderModeModal ? window.bcodOpenRenderModeModal() : document.getElementById('renderModeModal').classList.remove('hidden')">Launch Demo</button>
+        </section>
+
+        <section id="renderModeModal" class="mode-modal hidden" aria-label="Choose render mode">
+            <div class="mode-dialog">
+                <h2>Choose Render Mode</h2>
+                <p>Select the visual style for this run. Physics and mission logic stay the same.</p>
+                <div class="mode-options">
+                    <button class="mode-card" data-render-mode="efficient" type="button" onclick="window.bcodLaunchWithRenderMode ? window.bcodLaunchWithRenderMode('efficient') : document.getElementById('heroOverlay').classList.add('hidden')">
+                        <strong>Efficient Mode</strong>
+                        <span>State-driven water, lower GPU cost, best for development and sensor debugging.</span>
+                    </button>
+                    <button class="mode-card selected" data-render-mode="cinematic" type="button" onclick="window.bcodLaunchWithRenderMode ? window.bcodLaunchWithRenderMode('cinematic') : document.getElementById('heroOverlay').classList.add('hidden')">
+                        <strong>Cinematic Mode</strong>
+                        <span>Sky reflections, richer water material, higher resolution mesh, best for demos.</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <aside id="demoPanel" class="demo-panel">
+            <header class="panel-top">
+                <div>
+                    <p id="stepEyebrow">Setup</p>
+                    <h2 id="stepTitle">Vehicle</h2>
+                </div>
+            </header>
+
+            <div id="stepContent" class="step-content"></div>
+
+            <section class="sensor-strip">
+                <div class="strip-header">
+                    <h3>Sensors</h3>
+                    <label>
+                        <input id="showSensors" type="checkbox" checked>
+                        <span>Show</span>
+                    </label>
+                </div>
+                <div id="sensorBadges" class="sensor-badges"></div>
+            </section>
+
+            <section id="missionStats" class="mission-stats"></section>
+
+            <footer class="panel-actions">
+                <button id="backStep" type="button">Back</button>
+                <button id="nextStep" type="button">Next</button>
+            </footer>
+        </aside>
+
+        <section id="sensorFeedDock" class="sensor-feed-dock"></section>
+    </main>
+
+    <script>
+        window.bcodOpenRenderModeModal = function () {
+            const modal = document.getElementById("renderModeModal");
+            if (!modal) return;
+            modal.style.display = "grid";
+            modal.classList.remove("hidden");
+        };
+        window.bcodLaunchWithRenderMode = function () {
+            document.getElementById("renderModeModal")?.classList.add("hidden");
+            document.getElementById("heroOverlay")?.classList.add("hidden");
+            document.getElementById("demoPanel")?.classList.add("show");
+        };
+    </script>
+    <script type="module" src="./demoRunner.js?v=24"></script>
+</body>
+</html>

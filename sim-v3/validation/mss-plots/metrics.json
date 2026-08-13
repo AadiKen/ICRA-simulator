@@ -1,0 +1,50 @@
+{
+  "referenceCommit": "c660120aa7ea16d0022064bd759d12a934ec4f76",
+  "acceptanceLimits": {
+    "positionRmseMeters": 0.25,
+    "headingRmseDegrees": 2,
+    "bodySpeedRmseMetersPerSecond": 0.1
+  },
+  "maneuvers": {
+    "constant-thrust": {
+      "positionRmseMeters": 0.006964850956193712,
+      "headingRmseDegrees": 0.0,
+      "bodySpeedRmseMetersPerSecond": 0.00028193186945403304,
+      "maxPositionErrorMeters": 0.012224360150817404,
+      "maxHeadingErrorDegrees": 0.0,
+      "maxBodySpeedErrorMetersPerSecond": 0.0035358590195902068
+    },
+    "coast-down": {
+      "positionRmseMeters": 0.00037611192328846293,
+      "headingRmseDegrees": 0.0,
+      "bodySpeedRmseMetersPerSecond": 0.0002752930573566479,
+      "maxPositionErrorMeters": 0.0008328610878929332,
+      "maxHeadingErrorDegrees": 0.0,
+      "maxBodySpeedErrorMetersPerSecond": 0.003631357376358557
+    },
+    "turning-circle": {
+      "positionRmseMeters": 0.0019371127668011614,
+      "headingRmseDegrees": 0.014616624667680125,
+      "bodySpeedRmseMetersPerSecond": 0.000301591132292573,
+      "maxPositionErrorMeters": 0.00300431453742145,
+      "maxHeadingErrorDegrees": 0.026417815236041732,
+      "maxBodySpeedErrorMetersPerSecond": 0.0038370997593088355
+    },
+    "zig-zag": {
+      "positionRmseMeters": 0.00706342404806041,
+      "headingRmseDegrees": 0.0015107058784339649,
+      "bodySpeedRmseMetersPerSecond": 0.00033175151179531243,
+      "maxPositionErrorMeters": 0.012400381450970279,
+      "maxHeadingErrorDegrees": 0.003407482874625388,
+      "maxBodySpeedErrorMetersPerSecond": 0.003540702920701175
+    },
+    "current-drift": {
+      "positionRmseMeters": 6.554417373756601e-05,
+      "headingRmseDegrees": 0.0,
+      "bodySpeedRmseMetersPerSecond": 7.409820242808147e-05,
+      "maxPositionErrorMeters": 0.00022376589671736086,
+      "maxHeadingErrorDegrees": 0.0,
+      "maxBodySpeedErrorMetersPerSecond": 0.0013814267198698146
+    }
+  }
+}

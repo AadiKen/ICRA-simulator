@@ -1,0 +1,80 @@
+{
+  "schema": "bcod-gazebo-parity-manifest-v1",
+  "vehicle": "otter",
+  "coefficientSource": "../core/vehicles/coefficients.js",
+  "maneuver": "coast-down",
+  "dt": 0.05,
+  "steps": 180,
+  "durationSec": 9,
+  "command": {
+    "type": "coastDown",
+    "surgeForce": 60,
+    "differentialForce": 0,
+    "thrustDurationSec": 2
+  },
+  "env": {
+    "waterV": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    }
+  },
+  "tolerances": {
+    "N": 0.8,
+    "E": 0.2,
+    "yaw": 0.1
+  },
+  "expectedGoldenCsv": "golden/otter/coast-down.csv",
+  "gazebo": {
+    "model": "models/otter/model.sdf",
+    "world": "worlds/otter_coast-down.sdf",
+    "actuationMode": "bodyWrench",
+    "commandTopics": [
+      "/world/bcod_parity_coast-down/wrench/persistent"
+    ],
+    "wrenchTopic": "/world/bcod_parity_coast-down/wrench",
+    "wrenchPersistentTopic": "/world/bcod_parity_coast-down/wrench/persistent",
+    "wrenchClearTopic": "/world/bcod_parity_coast-down/wrench/clear",
+    "wrenchEntity": {
+      "name": "otter::base_link",
+      "type": "LINK"
+    },
+    "currentTopic": "/ocean_current",
+    "currentEnu": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "evidenceScope": "planar maneuver implementation cross-check only",
+    "coupled6HydrostaticsValidated": false,
+    "fixtureStabilization": {
+      "method": "vertical CG reflected below primitive buoyancy center",
+      "sourceBodyNedCg": [
+        0.2,
+        0,
+        -0.2
+      ],
+      "gazeboFixtureCg": [
+        0.2,
+        0,
+        -0.2
+      ],
+      "reason": "Gazebo primitive collision buoyancy does not reproduce surface-vessel metacentric hydrostatics."
+    },
+    "effectors": [
+      {
+        "id": "port",
+        "type": "FixedThruster",
+        "gazeboPlugin": "ApplyLinkWrench",
+        "plannedGazeboPlugin": "Thruster"
+      },
+      {
+        "id": "starboard",
+        "type": "FixedThruster",
+        "gazeboPlugin": "ApplyLinkWrench",
+        "plannedGazeboPlugin": "Thruster"
+      }
+    ],
+    "hullPrimitiveCount": 1
+  }
+}

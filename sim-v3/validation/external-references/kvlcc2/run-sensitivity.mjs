@@ -1,0 +1,1 @@
+import{fileURLToPath}from"node:url";import{runSensitivity,writeArtifact}from"./campaign.mjs";const artifact=runSensitivity(),output=process.argv[2];if(output)writeArtifact(artifact,output);console.log(JSON.stringify(artifact,null,2));

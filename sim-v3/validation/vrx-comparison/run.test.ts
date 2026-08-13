@@ -1,0 +1,11 @@
+import assert from "node:assert/strict";
+import {existsSync,readFileSync} from "node:fs";
+import {run} from "./run.ts";
+const stored=JSON.parse(readFileSync("artifacts/vrx/construction-comparison.json","utf8")),artifact=existsSync(".cache/vrx/v3.1.2")?run():stored;
+assert.equal(artifact.comparison_role,"usability-and-setup-baseline-not-physics-validation");
+assert.equal(artifact.measured_setup.persistent_cache_launch_result,"wamv-spawned-sensors-initialized-scoring-plugin-running-then-intentional-timeout");
+assert.equal(artifact.measured_setup.runtime_exit_code,124);
+assert.equal(artifact.human_authoring_time.status,"not-measured");
+assert.ok(artifact.construction.vrx.required_fuel_assets>0);
+assert.deepEqual(stored,artifact);
+console.log("VRX construction-effort comparison tests passed.");

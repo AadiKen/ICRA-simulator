@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "experiment": {
+    "name": "thin-slice-otter",
+    "seed": 42,
+    "timestep_s": 0.05,
+    "duration_s": 1
+  },
+  "backend": {
+    "type": "node",
+    "parallel_environments": 1
+  },
+  "vehicle": {
+    "preset": "vehicle-a-otter",
+    "plant": "planar3",
+    "hydrodynamic_reference_speed_mps": 0
+  },
+  "mission": {
+    "type": "waypoint",
+    "waypoints": [
+      {
+        "north_m": 22,
+        "east_m": 22
+      }
+    ]
+  },
+  "metrics": [
+    "completion",
+    "propulsion_energy"
+  ],
+  "outputs": {
+    "directory": "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/bcod-demo-no-model/sim-v3/validation/thin-slice/artifacts/",
+    "state_hz": 20,
+    "sensor_artifacts": {
+      "mode": "summary",
+      "raw_plugins": [],
+      "max_bytes_per_run": 1000000000
+    }
+  },
+  "integrator": "rk4",
+  "sensors": [],
+  "resolution": {
+    "checksum_sha256": "67ecc0b33b1299207d624f1e460d523b33a490231c4116842c52aa32010edbca",
+    "hydrodynamic_reference_speed_mps": 0,
+    "warnings": [],
+    "ground_truth_exposed": false
+  }
+}

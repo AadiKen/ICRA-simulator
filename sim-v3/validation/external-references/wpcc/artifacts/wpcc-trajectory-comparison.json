@@ -1,0 +1,443 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "wpcc-trajectory-comparison",
+  "status": "architecture-variant-reference",
+  "dataset": {
+    "doi": "10.17632/j5zdrhr9bf.4",
+    "version": 4,
+    "license": "CC-BY-4.0",
+    "lock_checksum_sha256": "646ee0d13ddf873846945e48da40ab3b34c24cf5d97fc866c01abba4668ef004"
+  },
+  "convention": {
+    "confirmed": true,
+    "motion_reference_point": "[Lpp/2, 0, WL]",
+    "axes": {
+      "x": "forward",
+      "y": "starboard",
+      "z": "into-water"
+    },
+    "cg_offset_m": [
+      -0.23989669902912625,
+      0,
+      0
+    ]
+  },
+  "source_vessel": {
+    "id": "wPCC",
+    "architecture": "twin-screw twin-rudder",
+    "principal_particulars": {
+      "Lpp_m": 5.014563106796117,
+      "beam_m": 0.9466019417475728,
+      "draft_m": 0.2063106796116504,
+      "mass_kg": 441.0267843660858,
+      "displacement_m3": 0.4410267843660858,
+      "block_coefficient": 0.45034232324249973,
+      "yaw_inertia_kg_m2": 742.0462794081202,
+      "propeller_count": 2,
+      "propeller_diameter_m": 0.12135922330097086,
+      "rudder_area_each_m2": 0.030095732397021395,
+      "cg_x_from_midship_m": -0.23989669902912625,
+      "accelerometers": [
+        {
+          "id": 1,
+          "position_from_midship_wl_m": [
+            1.625,
+            0.025,
+            -0.35768932038834955
+          ]
+        },
+        {
+          "id": 2,
+          "position_from_midship_wl_m": [
+            -1.9,
+            0.43,
+            -0.35768932038834955
+          ]
+        },
+        {
+          "id": 3,
+          "position_from_midship_wl_m": [
+            -1.9,
+            -0.43,
+            -0.35768932038834955
+          ]
+        }
+      ]
+    },
+    "provenance": "ship_data.yml; checksum locked; never transferred into Vehicle B USV parameters"
+  },
+  "channel_policy": {
+    "gating": "measured position, heading, and accelerometers",
+    "diagnostic_only": "EKF-derived/model-conditioned velocity channels",
+    "velocity_channels_gate": false
+  },
+  "mode_inventory": {
+    "accepted_run_ids": [
+      "22765",
+      "22770",
+      "22772",
+      "22773"
+    ],
+    "excluded": [
+      {
+        "id": "22611",
+        "reason": "reference-speed calibration run; not a maneuver comparison"
+      },
+      {
+        "id": "22635",
+        "reason": "reference-speed calibration run; not a maneuver comparison"
+      },
+      {
+        "id": "22639",
+        "reason": "reference-speed calibration run; not a maneuver comparison"
+      }
+    ]
+  },
+  "runs": [
+    {
+      "id": "22611",
+      "source_file": "model tests/22611.csv",
+      "source_checksum_sha256": "67be6c2948d096a00002f7ab9170313f4fd070812b833457aaa0004404605074",
+      "samples": 3388,
+      "duration_s": 33.870003,
+      "test_type": "reference speed",
+      "comment": "12.0 kn",
+      "propulsion_mode": "motoring",
+      "mode_evidence": {
+        "both_propellers_powered": true,
+        "sail_actuator_channels_present": false,
+        "wind_course_channels_present": false,
+        "note": "Wind/Course metadata alone is not a sail-force actuator; Fan/* channels are treated as sail/wind-assist actuation evidence."
+      },
+      "gate_included": false,
+      "exclusion_reason": "reference-speed calibration run; not a maneuver comparison",
+      "measured_channels": {
+        "position": [
+          "x0",
+          "y0"
+        ],
+        "orientation": [
+          "roll",
+          "pitch",
+          "psi"
+        ],
+        "accelerometers": [
+          "Hull/Acc/X1",
+          "Hull/Acc/Y1",
+          "Hull/Acc/Y2",
+          "Hull/Acc/Z1",
+          "Hull/Acc/Z2",
+          "Hull/Acc/Z3"
+        ]
+      },
+      "velocity_channels": {
+        "present": [],
+        "role": "diagnostic-only",
+        "provenance": "EKF-derived/model-conditioned; never gating"
+      },
+      "imo_metrics": null
+    },
+    {
+      "id": "22635",
+      "source_file": "model tests/22635.csv",
+      "source_checksum_sha256": "ebfb6417725e5591c0455e63e0853dd57e5d062087d6ad10bbc9dbedbab56d49",
+      "samples": 6985,
+      "duration_s": 69.84001500000024,
+      "test_type": "reference speed",
+      "comment": "10.0 kn",
+      "propulsion_mode": "excluded-unresolved-or-sail-assisted",
+      "mode_evidence": {
+        "both_propellers_powered": true,
+        "sail_actuator_channels_present": true,
+        "wind_course_channels_present": true,
+        "note": "Wind/Course metadata alone is not a sail-force actuator; Fan/* channels are treated as sail/wind-assist actuation evidence."
+      },
+      "gate_included": false,
+      "exclusion_reason": "reference-speed calibration run; not a maneuver comparison",
+      "measured_channels": {
+        "position": [
+          "x0",
+          "y0"
+        ],
+        "orientation": [
+          "roll",
+          "pitch",
+          "psi"
+        ],
+        "accelerometers": [
+          "Hull/Acc/X1",
+          "Hull/Acc/Y1",
+          "Hull/Acc/Y2",
+          "Hull/Acc/Z1",
+          "Hull/Acc/Z2",
+          "Hull/Acc/Z3"
+        ]
+      },
+      "velocity_channels": {
+        "present": [],
+        "role": "diagnostic-only",
+        "provenance": "EKF-derived/model-conditioned; never gating"
+      },
+      "imo_metrics": null
+    },
+    {
+      "id": "22639",
+      "source_file": "model tests/22639.csv",
+      "source_checksum_sha256": "8fa5c2c0b2cec0c3da801bdc97ef11d51e22284d9d08676bee7b7f29a43c909e",
+      "samples": 7206,
+      "duration_s": 72.0499990000003,
+      "test_type": "reference speed",
+      "comment": "8.0 kn",
+      "propulsion_mode": "motoring",
+      "mode_evidence": {
+        "both_propellers_powered": true,
+        "sail_actuator_channels_present": false,
+        "wind_course_channels_present": true,
+        "note": "Wind/Course metadata alone is not a sail-force actuator; Fan/* channels are treated as sail/wind-assist actuation evidence."
+      },
+      "gate_included": false,
+      "exclusion_reason": "reference-speed calibration run; not a maneuver comparison",
+      "measured_channels": {
+        "position": [
+          "x0",
+          "y0"
+        ],
+        "orientation": [
+          "roll",
+          "pitch",
+          "psi"
+        ],
+        "accelerometers": [
+          "Hull/Acc/X1",
+          "Hull/Acc/Y1",
+          "Hull/Acc/Y2",
+          "Hull/Acc/Z1",
+          "Hull/Acc/Z2",
+          "Hull/Acc/Z3"
+        ]
+      },
+      "velocity_channels": {
+        "present": [],
+        "role": "diagnostic-only",
+        "provenance": "EKF-derived/model-conditioned; never gating"
+      },
+      "imo_metrics": null
+    },
+    {
+      "id": "22765",
+      "source_file": "model tests/22765.csv",
+      "source_checksum_sha256": "2faba5b4770a02ffb72b1448a6bd45656648a02df4578d1a781b9b2dab8e63da",
+      "samples": 6420,
+      "duration_s": 64.18999400000007,
+      "test_type": "zigzag",
+      "comment": "ZZ 10/10PS",
+      "propulsion_mode": "motoring",
+      "mode_evidence": {
+        "both_propellers_powered": true,
+        "sail_actuator_channels_present": false,
+        "wind_course_channels_present": false,
+        "note": "Wind/Course metadata alone is not a sail-force actuator; Fan/* channels are treated as sail/wind-assist actuation evidence."
+      },
+      "gate_included": true,
+      "exclusion_reason": null,
+      "measured_channels": {
+        "position": [
+          "x0",
+          "y0"
+        ],
+        "orientation": [
+          "roll",
+          "pitch",
+          "psi"
+        ],
+        "accelerometers": [
+          "Hull/Acc/X1",
+          "Hull/Acc/Y1",
+          "Hull/Acc/Y2",
+          "Hull/Acc/Z1",
+          "Hull/Acc/Z2",
+          "Hull/Acc/Z3"
+        ]
+      },
+      "velocity_channels": {
+        "present": [],
+        "role": "diagnostic-only",
+        "provenance": "EKF-derived/model-conditioned; never gating"
+      },
+      "imo_metrics": {
+        "advance_m": null,
+        "transfer_m": null,
+        "tactical_diameter_m": null,
+        "unavailable_reason": "Dataset contains zig-zag runs only; turning-circle metrics cannot be extracted.",
+        "first_overshoot_deg": 2.554999999999957,
+        "second_overshoot_deg": 2.389999999999993,
+        "reason": null
+      }
+    },
+    {
+      "id": "22770",
+      "source_file": "model tests/22770.csv",
+      "source_checksum_sha256": "d87f6cd9c315336adb849109a1ef89f3943f74aae8496dc64e56d218c8f66679",
+      "samples": 6027,
+      "duration_s": 60.260008,
+      "test_type": "zigzag",
+      "comment": "ZZ 10/10PS",
+      "propulsion_mode": "motoring",
+      "mode_evidence": {
+        "both_propellers_powered": true,
+        "sail_actuator_channels_present": false,
+        "wind_course_channels_present": true,
+        "note": "Wind/Course metadata alone is not a sail-force actuator; Fan/* channels are treated as sail/wind-assist actuation evidence."
+      },
+      "gate_included": true,
+      "exclusion_reason": null,
+      "measured_channels": {
+        "position": [
+          "x0",
+          "y0"
+        ],
+        "orientation": [
+          "roll",
+          "pitch",
+          "psi"
+        ],
+        "accelerometers": [
+          "Hull/Acc/X1",
+          "Hull/Acc/Y1",
+          "Hull/Acc/Y2",
+          "Hull/Acc/Z1",
+          "Hull/Acc/Z2",
+          "Hull/Acc/Z3"
+        ]
+      },
+      "velocity_channels": {
+        "present": [],
+        "role": "diagnostic-only",
+        "provenance": "EKF-derived/model-conditioned; never gating"
+      },
+      "imo_metrics": {
+        "advance_m": null,
+        "transfer_m": null,
+        "tactical_diameter_m": null,
+        "unavailable_reason": "Dataset contains zig-zag runs only; turning-circle metrics cannot be extracted.",
+        "first_overshoot_deg": 2.6549999999999936,
+        "second_overshoot_deg": 2.415000000000017,
+        "reason": null
+      }
+    },
+    {
+      "id": "22772",
+      "source_file": "model tests/22772.csv",
+      "source_checksum_sha256": "f454d6f4d5649c51cac1157faaba8ad5a6fd644dd91ce6ae7b64b3989a30d535",
+      "samples": 7107,
+      "duration_s": 71.05999499999984,
+      "test_type": "zigzag",
+      "comment": "ZZ 20/20SB",
+      "propulsion_mode": "motoring",
+      "mode_evidence": {
+        "both_propellers_powered": true,
+        "sail_actuator_channels_present": false,
+        "wind_course_channels_present": true,
+        "note": "Wind/Course metadata alone is not a sail-force actuator; Fan/* channels are treated as sail/wind-assist actuation evidence."
+      },
+      "gate_included": true,
+      "exclusion_reason": null,
+      "measured_channels": {
+        "position": [
+          "x0",
+          "y0"
+        ],
+        "orientation": [
+          "roll",
+          "pitch",
+          "psi"
+        ],
+        "accelerometers": [
+          "Hull/Acc/X1",
+          "Hull/Acc/Y1",
+          "Hull/Acc/Y2",
+          "Hull/Acc/Z1",
+          "Hull/Acc/Z2",
+          "Hull/Acc/Z3"
+        ]
+      },
+      "velocity_channels": {
+        "present": [],
+        "role": "diagnostic-only",
+        "provenance": "EKF-derived/model-conditioned; never gating"
+      },
+      "imo_metrics": {
+        "advance_m": null,
+        "transfer_m": null,
+        "tactical_diameter_m": null,
+        "unavailable_reason": "Dataset contains zig-zag runs only; turning-circle metrics cannot be extracted.",
+        "first_overshoot_deg": 7.199999999999988,
+        "second_overshoot_deg": 6.314999999999964,
+        "reason": null
+      }
+    },
+    {
+      "id": "22773",
+      "source_file": "model tests/22773.csv",
+      "source_checksum_sha256": "6317983038d5523f95281107615ed11c4cce2e81d48a0969cb9e38740765b0e3",
+      "samples": 6983,
+      "duration_s": 69.82000400000001,
+      "test_type": "zigzag",
+      "comment": "ZZ 20/20PS",
+      "propulsion_mode": "motoring",
+      "mode_evidence": {
+        "both_propellers_powered": true,
+        "sail_actuator_channels_present": false,
+        "wind_course_channels_present": true,
+        "note": "Wind/Course metadata alone is not a sail-force actuator; Fan/* channels are treated as sail/wind-assist actuation evidence."
+      },
+      "gate_included": true,
+      "exclusion_reason": null,
+      "measured_channels": {
+        "position": [
+          "x0",
+          "y0"
+        ],
+        "orientation": [
+          "roll",
+          "pitch",
+          "psi"
+        ],
+        "accelerometers": [
+          "Hull/Acc/X1",
+          "Hull/Acc/Y1",
+          "Hull/Acc/Y2",
+          "Hull/Acc/Z1",
+          "Hull/Acc/Z2",
+          "Hull/Acc/Z3"
+        ]
+      },
+      "velocity_channels": {
+        "present": [],
+        "role": "diagnostic-only",
+        "provenance": "EKF-derived/model-conditioned; never gating"
+      },
+      "imo_metrics": {
+        "advance_m": null,
+        "transfer_m": null,
+        "tactical_diameter_m": null,
+        "unavailable_reason": "Dataset contains zig-zag runs only; turning-circle metrics cannot be extracted.",
+        "first_overshoot_deg": 7.150000000000093,
+        "second_overshoot_deg": 6.069999999999905,
+        "reason": null
+      }
+    }
+  ],
+  "evidence_tiers": [
+    "kvlcc2-mmg-reference-reproduction",
+    "kvlcc2-experimental-maneuver-indices",
+    "kvlcc2-marin-trajectory-comparison",
+    "wpcc-trajectory-comparison"
+  ],
+  "parameterization": {
+    "required": "wPCC-specific twin-screw model",
+    "transfer_to_vehicle_b_usv_permitted": false
+  },
+  "claim_limit": "Raw measured free-running trajectory evidence for propeller/rudder maneuvering-model structure in a twin-screw architecture variant. It does not validate Vehicle B's single-screw configuration or USV-scale coefficients.",
+  "comparison_state": "reference-ingested; simulator-side wPCC twin-screw parameterization required before numerical gating"
+}

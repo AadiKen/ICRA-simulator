@@ -1,0 +1,10 @@
+import assert from "node:assert/strict";
+import {AbsolutePositioningDomain,RelativePositioningDomain} from "../src/domains/index.ts";
+import {RaycastSkyOcclusionService,SnapshotPlatformStateService,deterministicSkyDirections} from "../src/index.ts";
+
+const environment:any={wind_ned_mps:[0,0,0],current_ned_mps:[0,0,0],air_temperature_c:15,pressure_pa:101325,humidity_fraction:.5,rain_rate_mm_h:0,visibility_m:10000,fog_extinction_per_m:0,illumination_lux:10000,positioning:{sky_view_fraction:.8,visible_satellites:10,hdop:1,vdop:1.5,pdop:1.8,multipath_factor:.1,gnss_interference_factor:.2}};
+const clear={sample:()=>({clearFraction:1,blockedFraction:0,rayCount:32,modelVersion:"test"})},half={sample:()=>({clearFraction:.5,blockedFraction:.5,rayCount:32,modelVersion:"test"})};
+const clearEnv=AbsolutePositioningDomain.queryEnvironment({environment:()=>environment,skyOcclusion:clear},[0,0,0]),blockedEnv=AbsolutePositioningDomain.queryEnvironment({environment:()=>environment,skyOcclusion:half},[0,0,0]);assert.equal(clearEnv.skyViewFraction,.8);assert.equal(blockedEnv.skyViewFraction,.4);assert.equal(blockedEnv.visibleSatellites,5);assert.ok(blockedEnv.hdop>clearEnv.hdop);assert.ok(blockedEnv.multipathFactor>clearEnv.multipathFactor);
+assert.deepEqual(deterministicSkyDirections(),deterministicSkyDirections());const raycast=new RaycastSkyOcclusionService((_origin,direction)=>direction[0]>0?{distance_m:5}:null);const occlusion=raycast.sample([0,0,0]);assert.ok(occlusion.clearFraction>0&&occlusion.clearFraction<1);assert.equal(occlusion.rayCount,32);
+const platform=new SnapshotPlatformStateService(()=>({actuator_states:[],actuator_energy_j:0,propulsion_energy_j:0,actuator_power_w:0,vibration_rms_mps2:.25,component_temperature_c:{imu:30}})),relative=RelativePositioningDomain.queryEnvironment({platformState:platform},[0,0,0]);assert.equal(relative.vibrationRmsMps2,.25);assert.equal(relative.componentTemperatureC,30);assert.equal(Object.keys(RelativePositioningDomain.primitives).length,0);
+console.log("Positioning domain contract tests passed.");

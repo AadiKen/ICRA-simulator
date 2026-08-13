@@ -1,0 +1,9 @@
+import assert from "node:assert/strict";
+import {resolveExperiment} from "../../../packages/experiment-schema/src/index.ts";
+import {HeadlessMarineSimulation} from "../../../packages/core/src/simulation.ts";
+import {STANDARD_SENSOR_IDS} from "../../../packages/sensor-sdk/src/index.ts";
+import {LegacyProductionEngine} from "./legacy-production-engine.ts";
+
+assert.ok(STANDARD_SENSOR_IDS.includes("gps")&&STANDARD_SENSOR_IDS.includes("imu"));
+const config=resolveExperiment({schema_version:1,experiment:{name:"typed-positioning",seed:41,timestep_s:.05,duration_s:2},backend:{type:"node"},vehicle:{preset:"vehicle-a-otter",plant:"planar3"},sensors:[{plugin:"gps",enabled:true},{plugin:"imu",enabled:true}],mission:{type:"hold"}}),simulation=new HeadlessMarineSimulation(new LegacyProductionEngine());let result:any;simulation.reset(config);for(let step=0;step<12;step++)result=simulation.step({active_sensors:["gps","imu"]});assert.ok(result.observation.sensors.gps?.payload,"Production GPS declaration must resolve to typed output.");assert.ok(result.observation.sensors.imu?.payload,"Production IMU declaration must resolve to typed output.");assert.equal("pos" in result.observation.sensors.gps,false,"Production GPS must not leak the legacy exact-position shape.");const checkpoint=JSON.parse(JSON.stringify(simulation.saveCheckpoint())),first=[];for(let step=0;step<12;step++)first.push(simulation.step({active_sensors:["gps","imu"]}).observation.sensors);simulation.loadCheckpoint(checkpoint);const replay=[];for(let step=0;step<12;step++)replay.push(simulation.step({active_sensors:["gps","imu"]}).observation.sensors);assert.deepEqual(replay,first,"Production GPS/IMU checkpoint replay must be bit-identical.");simulation.dispose();
+console.log("Production typed positioning sensor tests passed.");

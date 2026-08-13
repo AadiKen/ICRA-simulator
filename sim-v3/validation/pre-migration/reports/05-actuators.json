@@ -1,0 +1,60 @@
+{
+  "passed": true,
+  "acceptance_policy": "validation/pre-migration/acceptance-policy.json",
+  "metric_delta_count": 0,
+  "rows": [
+    {
+      "surface": "mss-planar3",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "sixdof",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "waves",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "convergence",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "hydrostatics-large-angle",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "actuator-command-state-thrust-wrench",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "checkpoint-replay-mid-actuator-lag",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "gazebo-generation",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    }
+  ],
+  "deltas": [],
+  "component": "actuators",
+  "sequence_index": 5,
+  "golden_manifest_sha256": "dc4068870b0c9f52a309d209a1cc4165584cb44997887e99916d38302d6bcf52",
+  "supplemental_manifest_sha256": "3668faa977cb67de2225c539e8656bc70bb1e2659cd98b0747c0558bb28e1112",
+  "migration_scope": "Behavior-preserving move into @bcod/core with the legacy import path retained only as a compatibility facade.",
+  "behavior_mapping": {
+    "dead_zone": "configuration remains ignored for exact legacy parity",
+    "failure_mode": "command metadata remains ignored for exact legacy parity",
+    "lag_rate_saturation_order": "unchanged",
+    "checkpoint_state": "unchanged and replayed mid-transient"
+  },
+  "capability_gate": "Functional dead zones, failed-off/stuck behavior, events, energy, and integrated allocation remain a separate intentional behavior change."
+}

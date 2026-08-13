@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "committed_before_first_simulator_scoring": true,
+  "trajectory": {
+    "position_rmse_lpp_max": 0.5,
+    "wrapped_heading_rmse_deg_max": 15,
+    "rudder_input_replay_rmse_deg_max": 1e-12,
+    "propeller_input_replay_rmse_rps_max": 1e-12
+  },
+  "imo_percent": {
+    "advance": 5,
+    "tactical_diameter": 5,
+    "first_overshoot": 10,
+    "second_overshoot": 10
+  },
+  "status": "superseded-retained-not-deleted",
+  "superseded_reason": "Full-track RMSE is not a valid acceptance gate for course-unstable KVLCC2; it remains diagnostic in policy v2."
+}

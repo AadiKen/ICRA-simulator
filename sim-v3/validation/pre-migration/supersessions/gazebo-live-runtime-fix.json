@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "immutable-golden-supersession",
+  "reason": "The live Gazebo campaign exposed invalid graded-buoyancy configuration, non-isolated transport processes, and publisher startup loss. The legacy golden is retained; only the exact reviewed generator changes below are accepted.",
+  "original_golden": {
+    "path": "validation/pre-migration/golden/gazebo-generation.json",
+    "sha256": "abf3f83f7b6c48d69b63efc315a817f9a42d1708db67b0e5be1a3ff82aa93350"
+  },
+  "golden_manifest": {
+    "path": "validation/pre-migration/golden/manifest.json",
+    "sha256": "dc4068870b0c9f52a309d209a1cc4165584cb44997887e99916d38302d6bcf52"
+  },
+  "superseded_runtime_artifact": {
+    "path": "artifacts/external-runtime/2026-08-02-cross-checks.json",
+    "sha256": "e660292ef32461dea543e91b82ae95f5e33e9f5fd0a9e45d7b0db4da2f8105df"
+  },
+  "acceptance_runtime_artifact": {
+    "path": "artifacts/gazebo/live-cross-check/report.json",
+    "sha256": "d3196ff8f5930753d75418e5eec17ff2cc414222ed6b8ec3c0dccd2a63b12cc7",
+    "required_status": "passed-planar-implementation-cross-check"
+  },
+  "checksum_changes": [
+    {"path":"manifests/otter_coast-down.json","old_sha256":"bf23ec9f12df1e485e38f4b297986a2251729f9898b931d4159ba56fc9b39f35","new_sha256":"5c7347952aa5aeb6aa9cc9c83735f58cf3fc86972941a3c257b474edcd255c63"},
+    {"path":"manifests/otter_constant-thrust.json","old_sha256":"49417bbbc0e8c554143de6eaf89434e2059679959258a58c8c4c1a6a59a9d4a8","new_sha256":"d4fa6ec06053f24fe4e414aad16fa3a701acd8a7b59da6a6ddb6ce2bd6a0e376"},
+    {"path":"manifests/otter_current-drift.json","old_sha256":"3b8531b8d89f49655728318d70acc8e2dc8715d3715bf18de3860fde56903199","new_sha256":"1e8ab82f55541be1a28dff49ee61cd2f82ee40d467e346f4ab886b1c63bcf0ea"},
+    {"path":"manifests/otter_turning-circle.json","old_sha256":"97e13fbec5957b7eef98e10fd8c86b7ee390341025c23106a6e79598177cbe7d","new_sha256":"81e8be02ef6a2002776351d1464bad375be0978edef763d4580bd81febb2046b"},
+    {"path":"manifests/otter_yaw-turn.json","old_sha256":"8c904d9d44aa7602f29f2ef36f2cd749338f8a8c73a3f46c95f0b2df2608f06a","new_sha256":"73dc808d737a16800542621453a47f1128bd0f3f938038fcd36369d5a3fe61be"},
+    {"path":"manifests/otter_zig-zag.json","old_sha256":"f01b6c8e1b4d1982b119d4cfa86a5e24148ec7551663f8c4818d70b3b89b9a42","new_sha256":"b9d2183f7f5882f660c5fd814fe8228d60b842d3d18291af539bc2c74d790ef8"},
+    {"path":"models/otter/model.sdf","old_sha256":"5d6ffcd3eda8acc79ed6a1c9274c6fb97a888f49185b0e1f4f0ceacba336bb6b","new_sha256":"170d973cbcb4186679aeb887b652092966e67f27d53a32c34437f87b946dfb03"},
+    {"path":"worlds/otter_coast-down.sdf","old_sha256":"b4339a93ba62fda34973121502755d76cb7d349f594398d376595af32d869f62","new_sha256":"322760e6f4b39bbce6d79d9ca0068502ad2ea9745be88a49faa44ef14c299c1f"},
+    {"path":"worlds/otter_constant-thrust.sdf","old_sha256":"25598ea1141b8dd110855f1b9fc4e965c3fa7f6173f5a0d5c4a3eef580d30386","new_sha256":"b2e6308bb52995d417ca691b216ac9a75f2b7a5d3e80934f560e7cb0e72208d7"},
+    {"path":"worlds/otter_current-drift.sdf","old_sha256":"48a0522a766a59d5adc43ccc29ebfae0a67870cb30b790b91709ed3aae2d49c0","new_sha256":"d0854cfa61f23c3eebc208546381e63c537337fd4997b766cefb0e4b0bef217a"},
+    {"path":"worlds/otter_turning-circle.sdf","old_sha256":"dc97ec8739c6424db0c6739eefb27f5dcbb692e26dfddc0cd7ce12fd9f47252b","new_sha256":"40d8b0b09a25bd4487212f647c9a5ae6e138b78b01380248ba09f88040ccebd3"},
+    {"path":"worlds/otter_yaw-turn.sdf","old_sha256":"55a4140cb62534d8761c58e66cbf0679963407faf61383c45e0dcf0e0e7cc3d1","new_sha256":"d47ff94ddff899eacb0d6977d1375943377b0473009a935fd2661bc20afbf2fc"},
+    {"path":"worlds/otter_zig-zag.sdf","old_sha256":"944264a9cec5a2aa3b66bd0276672e3ea2778b6b6c647988c60810da9e657558","new_sha256":"e5bed84270596a89595282e175ba6bf9cef511975ab0324e237d9c352f574a43"}
+  ]
+}

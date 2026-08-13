@@ -1,0 +1,22 @@
+[project]
+name = "bcod-sim"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "gymnasium>=1.2,<2",
+  "numpy>=2.2,<3",
+  "pandas>=2.2,<3",
+  "pyarrow>=19,<20",
+  "pydantic>=2.10,<3",
+  "pyyaml>=6.0,<7",
+  "torch>=2.6,<3",
+]
+
+[project.optional-dependencies]
+hydrodynamics = ["capytaine>=2.3,<3", "joblib==1.5.2"]
+# rclpy is supplied by the pinned ROS 2 distribution, not PyPI.
+ros = []
+training = ["stable-baselines3>=2.6,<3"]
+
+[tool.uv]
+package = false

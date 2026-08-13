@@ -1,0 +1,7 @@
+import type {GrantedServices,Vec3} from "../runtime.ts";
+import type {DomainModule,NoiseProfile,UnitConventions} from "./types.ts";
+import type {PlatformStateSample} from "../services/platform-state.ts";
+
+export interface RelativePositioningParams{measurementStd:number;biasStd:number;driftStdPerSqrtS:number}
+export interface RelativePositioningEnvironment{vibrationRmsMps2:number;componentTemperatureC:number|null}
+export const RelativePositioningDomain:DomainModule<RelativePositioningParams,RelativePositioningEnvironment,Record<string,never>>={domain:"RELATIVE_POSITIONING",version:"1.0.0",units:{distance:"m",frequency:"Hz",pressure:"Pa",level:"m/s2 and rad/s",temperature:"degC",salinity:"PSU"},primitives:{},queryEnvironment(services:GrantedServices,_at:Vec3){if(!services.platformState)throw new Error("Relative positioning requires platform state.");const sample=services.platformState.sample() as PlatformStateSample,temperatures=Object.values(sample.component_temperature_c??{});return{vibrationRmsMps2:sample.vibration_rms_mps2??0,componentTemperatureC:temperatures.length?temperatures.reduce((sum,value)=>sum+value,0)/temperatures.length:null};},defaultNoiseProfile(params):NoiseProfile{if([params.measurementStd,params.biasStd,params.driftStdPerSqrtS].some((value)=>!Number.isFinite(value)||value<0))throw new Error("Relative-positioning noise values must be finite and non-negative.");return{...params,dropoutProbability:0};}};

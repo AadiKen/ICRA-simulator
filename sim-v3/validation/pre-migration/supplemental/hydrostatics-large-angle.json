@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "case": "25deg-roll-minus20deg-pitch",
+  "model_characterization": {
+    "coupled6": "constant linear stiffness using GM_T and GM_L",
+    "sampled_geometry_path": "nonlinear displaced-volume and center-of-buoyancy recomputation when submergedState is supplied"
+  },
+  "inputs": {
+    "roll_rad": 0.4363323129985824,
+    "pitch_rad": -0.3490658503988659,
+    "heave_displacement_m": 0.12,
+    "gm_transverse_m": 0.12,
+    "gm_longitudinal_m": 0.24
+  },
+  "outputs": {
+    "linear_coupled6_wrench": [0, 0, -2413.2599999999998, -25.682519943096565, 41.092031908954496, 0],
+    "nonlinear_restoring_wrench": [0, 0, 0, 19.4792883994864, -16.776088030124054, 0]
+  }
+}

@@ -1,0 +1,232 @@
+Current implementation status
+
+The core headless simulator now exists in schema.js and can be exercised by simulatorSmokeTest.js.
+The implementation is no longer just a future plan. The simulation layer has a v1 architecture and physics pass:
+
+Completed core pieces:
+* unified simState runtime container
+* simulator class owns all models and logs
+* logs are owned by simulator/logger, not simState
+* createInitialSimState builds pure runtime state from scenarioConfig
+* fixed-step simulator.step()
+* simulator.runSteps(n)
+* simulator.runUntilDone(maxSteps)
+* duration stop condition
+* collision stop condition
+* out-of-bounds stop condition
+* canonical controlCommand shape
+* heuristic/local control strategies
+* skipper guidance layer
+* boat linear and angular state
+* boat mass, inertia, damping, buoyancy, and water drag parameters
+* boat motion from combined guidance + environment acceleration
+* hull water sampling at center, bow, stern, port, and starboard
+* 3D-style waterFieldModel.sampleAt(pos, time)
+* waterSample with surfaceHeight, velocity, acceleration, normal, depth, submerged
+* water normals from wave gradients
+* GPS and IMU state-based sensor outputs
+* lidar, day camera, night camera, and EXO2 explicit placeholders
+* cumulative and per-step metrics
+* simulator-owned logs for boat states, metrics, and sensor activations
+* smoke test for core simulator behavior
+
+Known current limitations:
+* no browser/Three.js integration for the new simulator core yet
+* no rendered lidar raycasting yet
+* no rendered camera sensor outputs yet
+* EXO2 behavior is intentionally undefined
+* no controller network/API integration yet
+* no all-sensors-on benchmark yet
+* no seeded stochastic noise model yet
+* no per-sensor cadence scheduler yet
+* no replay UI or log export UI yet
+
+
+Milestone 1: Core Simulator Skeleton
+Status: complete for v1
+Goal: deterministic simulation loop with clean state/model separation and no renderer dependency.
+Implemented:
+* scenarioConfig, simConfig, boatConfig, sensorConfig, envConfig, goalConfig, controlConfig
+* simState as pure runtime state
+* simulator as owner of models and logs
+* createInitialSimState
+* fixed dt from simHz
+* step, runSteps, runUntilDone
+* stop reasons
+* smoke test
+Remaining:
+* strict validation
+* serialization/deserialization
+* preset system
+* seeded RNG
+
+
+Milestone 2: Mission + Boat Motion
+Status: v1 complete, needs tuning
+Goal: boat moves with simplified dynamics and can pursue waypoints.
+Implemented:
+* boatState with position, velocity, acceleration, orientation, angular velocity, angular acceleration
+* boatModel as behavior/model owner, not state owner
+* guidance from command waypoints
+* speed and turn limiting through skipperModel
+* combined guidance/environment integration
+* mission progress by waypoint tolerance
+* failure on collision and out of bounds
+Remaining:
+* tune damping, buoyancy, drag, and turn gains
+* add richer mission failure criteria if needed
+* add deterministic behavior tests beyond smoke test
+
+
+Milestone 3: Water Field + Hull Interaction
+Status: v1 complete, physics-ready
+Goal: shared water source for boat physics and future visuals.
+Implemented:
+* waterFieldModel.sampleAt(pos, time)
+* surface height-field internally, 3D sample interface externally
+* waterSample fields: pos, surfaceHeight, velocity, acceleration, normal, depth, submerged
+* Wave.gradientAt and waterFieldModel.normalAt
+* hull water sampling using boat-relative offsets rotated by heading
+* buoyancy and relative water drag from hull samples
+* torque from hull sample forces
+Remaining:
+* tune buoyancy stability
+* decide whether to add depth attenuation for wave velocity
+* use the same field for Three.js water mesh displacement
+
+
+Milestone 4: Sensor Layer
+Status: partial
+Goal: sensors produce observations only when active and eventually at their own frequencies.
+Implemented:
+* sensorConfig preserves sensor ids
+* active sensors can be referenced by id or name
+* GPS output from boat state
+* IMU output from boat state
+* placeholder outputs for lidar, day camera, night camera, and EXO2
+Remaining:
+* per-sensor frequency scheduling
+* latency queues
+* noise/degradation models
+* lidar from Three.js raycasting
+* day/night camera render targets
+* EXO2 model definition
+
+
+Milestone 5: Controller Loop
+Status: v1 mock complete
+Goal: closed-loop simulation with command waypoints and sensor activations.
+Implemented:
+* canonical controlCommand with waypoints and activeSensors
+* controlModel heuristic/local strategies
+* skipperModel converts command to acceleration/yaw guidance
+* controller cadence check
+Remaining:
+* remote BCOD adapter
+* command validation
+* command history logging
+* richer short-horizon trajectory support
+
+
+Milestone 6: Metrics + Logs
+Status: v1 complete
+Goal: track cost and produce run history without putting logs in state.
+Implemented:
+* metricState cumulative values
+* per-step metric values
+* metricModel cost accumulation
+* logger-owned logs
+* simulator.logs exposed for consumers
+* boat state snapshots
+* metric snapshots
+* sensor activation history
+Remaining:
+* all-sensors-on benchmark
+* mission event logging
+* predicted path logging
+* log export/replay helpers
+
+
+Milestone 7: Web Simulation Runner
+Status: next major work
+Goal: browser-side runner that owns a simulator instance and controls stepping.
+Steps:
+* convert browser integration to ES module imports with .js extensions
+* create simRunner.js
+* expose start, pause, reset, step once, run
+* use fixed simulation steps independent of render frames
+* bind controls to simulator.step/runSteps
+Pitfalls:
+* making requestAnimationFrame the source of simulation truth
+* rebuilding scenario state every frame
+
+
+Milestone 8: Rendering (Three.js)
+Status: not started for new core
+Goal: visualize simulator state without owning simulation truth.
+Steps:
+* build persistent Three.js scene
+* render water plane/mesh from waterFieldModel
+* render boat from sim.state.boat
+* render bounds, obstacles, zones, waypoints
+* sync meshes from sim.state each frame
+* keep scene objects stateless
+Pitfalls:
+* storing physics state in meshes
+* letting visuals drive physics
+
+
+Milestone 9: Renderer-backed Sensors
+Status: not started
+Goal: replace sensor placeholders that require the visual world.
+Steps:
+* implement lidar raycasting through Three.js scene
+* implement day camera render target
+* implement night camera render target
+* define EXO2 behavior before implementation
+* integrate sensor cadence and activation gating
+Pitfalls:
+* running expensive sensors every render frame
+* making sensor output depend on UI camera instead of sensor pose
+
+
+Milestone 10: UI Layer
+Status: not started for new core
+Goal: usable simulator interface around the headless core.
+Steps:
+* build scenario presets
+* build run controls
+* show state/metrics panels
+* show active sensor timeline
+* show stop reason and mission result
+* add log download
+Pitfalls:
+* embedding UI in the 3D scene
+* mixing UI state and simulation state
+
+
+Milestone 11: Results + Benchmark
+Status: not started
+Goal: communicate mission performance and BCOD value.
+Steps:
+* all-sensors-on benchmark
+* cost/energy comparison
+* sensor activation timeline
+* trajectory replay
+* mission summary
+Pitfalls:
+* showing raw logs without interpretation
+* overemphasizing visual polish before metrics are credible
+
+
+Milestone 12: Headless Prep
+Status: mostly satisfied structurally
+Goal: reusable simulation core for tests and future training rollouts.
+Implemented:
+* simulation runs without renderer
+* simulatorSmokeTest.js exercises core behavior
+Remaining:
+* clean Node/ES module setup
+* CLI runner
+* JSON scenario loader
+* stronger test coverage

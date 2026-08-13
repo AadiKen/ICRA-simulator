@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "source": "validation/hulls/vehicle-hull-specification.md",
+  "frame": {"origin":"midship-centreline-design-waterline","x":"forward","y":"starboard","z":"up"},
+  "rho_kg_m3": 1025,
+  "vehicles": {
+    "vehicle-b-rudder": {
+      "kind":"monohull","L":4.0,"B":1.2,"T":0.3,"a":0.75,"b":0.85,"hull_offsets_y_m":[0],"KG_m":0.32,
+      "expected":{"Cb":0.5008,"Cwp":0.7189,"volume_m3":0.7211,"waterplane_area_m2":3.4506,"KB_m":0.1836,"BM_T_m":0.4080,"BM_L_m":4.253,"GM_T_m":0.2716,"GM_L_m":4.117},
+      "mass":{"mass_kg":739.1,"lcg_m":0,"tcg_m":0,"kxx_m":0.456,"kyy_m":1.0,"kzz_m":1.0},
+      "actuators":{"propeller":{"diameter_m":0.16,"position_m":[-1.85,0,-0.20],"pitch_ratio":1.0},"rudder":{"span_m":0.24,"chord_m":0.14,"area_m2":0.0336,"position_m":[-1.96,0,-0.18],"max_angle_deg":35,"max_rate_deg_s":15}},
+      "aerodynamics":{"frontal_area_m2":0.60,"lateral_area_m2":1.80,"centre_of_pressure_z_m":0.38}
+    },
+    "vehicle-c-azimuth": {
+      "kind":"catamaran","L":3.5,"B":0.36,"T":0.25,"a":0.80,"b":0.90,"separation_m":1.62,"hull_offsets_y_m":[-0.81,0.81],"KG_m":0.30,
+      "expected":{"Cb":0.4854,"Cwp":0.7075,"volume_m3":0.3058,"waterplane_area_m2":1.7828,"KB_m":0.1541,"BM_T_m":3.8691,"BM_L_m":3.881,"GM_T_m":3.7232,"GM_L_m":3.735},
+      "mass":{"mass_kg":313.5,"lcg_m":0,"tcg_m":0,"kxx_m":0.792,"kyy_m":0.875,"kzz_m":0.875},
+      "actuators":{"azimuth_port":{"diameter_m":0.14,"position_m":[-1.50,-0.81,-0.18],"range_deg":180,"slew_rate_deg_s":30,"max_thrust_n":180},"azimuth_starboard":{"diameter_m":0.14,"position_m":[-1.50,0.81,-0.18],"range_deg":180,"slew_rate_deg_s":30,"max_thrust_n":180}},
+      "aerodynamics":{"frontal_area_m2":0.70,"lateral_area_m2":1.60,"centre_of_pressure_z_m":0.42}
+    }
+  },
+  "provenance": {
+    "design-assumption":["principal particulars","exponents","separation","KG","radii of gyration","actuator geometry","superstructure areas"],
+    "geometry-derived":["Cb","Cwp","volume","waterplane area","KB","BM_T","BM_L","GM_T","GM_L","hull projected areas"],
+    "measured":[]
+  }
+}

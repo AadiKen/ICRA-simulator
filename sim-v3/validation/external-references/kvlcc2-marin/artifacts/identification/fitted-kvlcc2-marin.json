@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "id": "kvlcc2-marin-turning-circle-identified",
+  "model_scale": 45.7,
+  "frame": {
+    "origin": "midship",
+    "x": "forward",
+    "y": "starboard",
+    "z": "down"
+  },
+  "nondimensionalization": {
+    "force": "0.5*rho*Lpp*d*U^2",
+    "yaw_moment": "0.5*rho*Lpp^2*d*U^2",
+    "mass": "0.5*rho*Lpp^2*d",
+    "yaw_inertia": "0.5*rho*Lpp^4*d"
+  },
+  "principal_particulars": {
+    "lpp": {
+      "value": 7,
+      "unit": "m",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 1",
+        "column": "L7-model"
+      }
+    },
+    "breadth": {
+      "value": 1.27,
+      "unit": "m",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 1",
+        "column": "L7-model"
+      }
+    },
+    "draft": {
+      "value": 0.46,
+      "unit": "m",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 1",
+        "column": "L7-model"
+      }
+    },
+    "displacement_volume": {
+      "value": 3.27,
+      "unit": "m^3",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 1",
+        "column": "L7-model"
+      }
+    },
+    "x_g": {
+      "value": 0.2436,
+      "unit": "m",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 1",
+        "column": "L7-model"
+      }
+    },
+    "block_coefficient": {
+      "value": 0.81,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 1",
+        "column": "L7-model"
+      }
+    },
+    "propeller_diameter": {
+      "value": 0.204,
+      "unit": "m",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 1",
+        "column": "L7-model"
+      }
+    },
+    "rudder_span": {
+      "value": 0.345,
+      "unit": "m",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 1",
+        "column": "L7-model"
+      }
+    },
+    "rudder_area": {
+      "value": 0.0539,
+      "unit": "m^2",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 1",
+        "column": "L7-model"
+      }
+    }
+  },
+  "hull_derivatives": {
+    "X_vv": {
+      "value": -0.04,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "X_vr": {
+      "value": -0.098,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "X_rr": {
+      "value": 0.011,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "X_vvvv": {
+      "value": 0.771,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "Y_v": {
+      "value": -0.315,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "Y_R": {
+      "value": -0.083,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "Y_vvv": {
+      "value": -1.607,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "Y_vvr": {
+      "value": 0.1486772060679964,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "Y_vrr": {
+      "value": -0.42444243895122763,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "Y_rrr": {
+      "value": 0.030391747890548056,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "N_v": {
+      "value": -0.137,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "N_R": {
+      "value": -0.0446368969024021,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "N_vvv": {
+      "value": -0.03,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "N_vvr": {
+      "value": -0.436973976874206,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "N_vrr": {
+      "value": 0.0823360738316413,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "N_rrr": {
+      "value": 0.0483684467012441,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    }
+  },
+  "added_mass": {
+    "m_x": {
+      "value": 0.022,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3",
+        "method": "Motora empirical charts",
+        "potential_flow": false
+      }
+    },
+    "m_y": {
+      "value": 0.223,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3",
+        "method": "Motora empirical charts",
+        "potential_flow": false
+      }
+    },
+    "J_z": {
+      "value": 0.011,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3",
+        "method": "Motora empirical charts",
+        "potential_flow": false
+      }
+    }
+  },
+  "interaction_coefficients": {
+    "t_P": {
+      "value": 0.22,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "t_R": {
+      "value": 0.387,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "a_H": {
+      "value": 0.312,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "x_H": {
+      "value": -0.464,
+      "unit": "Lpp",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "C1": {
+      "value": 2,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "C2_beta_P_positive": {
+      "value": 1.6,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "C2_beta_P_negative": {
+      "value": 1.1,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "gamma_R_beta_R_negative": {
+      "value": 0.395,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "gamma_R_beta_R_positive": {
+      "value": 0.64,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "l_R": {
+      "value": -0.71,
+      "unit": "Lpp",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "epsilon": {
+      "value": 1.09,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "kappa": {
+      "value": 0.5,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    },
+    "f_alpha": {
+      "value": 2.747,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3"
+      }
+    }
+  },
+  "propeller": {
+    "k0": {
+      "value": 0.32419097744360925,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "propeller open-water coefficients used with Table 3 model"
+      }
+    },
+    "k1": {
+      "value": -0.22090844758956307,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "propeller open-water coefficients used with Table 3 model"
+      }
+    },
+    "k2": {
+      "value": -0.14904909332153826,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "propeller open-water coefficients used with Table 3 model"
+      }
+    },
+    "w_P0": {
+      "value": 0.4,
+      "unit": "1",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "L7-model wake fraction accompanying Table 3"
+      }
+    }
+  },
+  "test_conditions": {
+    "approach_speed": {
+      "value": 15.5,
+      "unit": "kn-full-scale-equivalent",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Tables 4-5 maneuver setup"
+      }
+    },
+    "rudder_rate": {
+      "value": 1.76,
+      "unit": "deg/s-full-scale",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Tables 4-5 maneuver setup"
+      }
+    },
+    "yaw_gyration_radius_ratio": {
+      "value": 0.25,
+      "unit": "Lpp",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 1 / maneuver setup"
+      }
+    },
+    "propeller_revolutions": {
+      "value": "held-constant-at-initial-speed",
+      "unit": "policy",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Tables 4-5 maneuver setup"
+      }
+    }
+  },
+  "capytaine_overwrite_policy": {
+    "added_mass": "forbidden",
+    "reason": "MMG Stage-1 added mass comes from Motora empirical charts, not potential flow"
+  },
+  "identification": {
+    "plan": "validation/external-references/kvlcc2-marin/identification-plan.json",
+    "training_runs": [
+      "MARIN_FREE_KVLCC2_tc_-35_m",
+      "MARIN_FREE_KVLCC2_tc_35_m"
+    ],
+    "held_out_runs": [
+      "MARIN_FREE_KVLCC2_zz_-10_m",
+      "MARIN_FREE_KVLCC2_zz_10_m",
+      "MARIN_FREE_KVLCC2_zz_-20_m",
+      "MARIN_FREE_KVLCC2_zz_20_m"
+    ],
+    "fixed_added_mass": {
+      "m_x": {
+        "value": 0.022,
+        "unit": "nondimensional",
+        "provenance": {
+          "source": "Yasukawa & Yoshimura 2015",
+          "table": "Table 3",
+          "method": "Motora empirical charts",
+          "potential_flow": false
+        }
+      },
+      "m_y": {
+        "value": 0.223,
+        "unit": "nondimensional",
+        "provenance": {
+          "source": "Yasukawa & Yoshimura 2015",
+          "table": "Table 3",
+          "method": "Motora empirical charts",
+          "potential_flow": false
+        }
+      },
+      "J_z": {
+        "value": 0.011,
+        "unit": "nondimensional",
+        "provenance": {
+          "source": "Yasukawa & Yoshimura 2015",
+          "table": "Table 3",
+          "method": "Motora empirical charts",
+          "potential_flow": false
+        }
+      }
+    },
+    "objective": "heading, yaw-rate, and position residuals through 900 full-scale seconds plus ridge regularization",
+    "bounds": "each fitted coefficient constrained to baseline plus/minus twice max(abs(baseline), 0.05)"
+  }
+}

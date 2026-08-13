@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BCOD Simulator State Viewer</title>
+    <link rel="stylesheet" href="./threeSim.css">
+</head>
+<body>
+    <main class="app-shell">
+        <section id="viewport" class="viewport" aria-label="3D simulator viewport"></section>
+
+        <aside class="panel">
+            <header class="panel-header">
+                <h1>BCOD Sim</h1>
+                <p id="status">Paused</p>
+            </header>
+
+            <div class="controls">
+                <button id="startPause" type="button">Start</button>
+                <button id="stepOnce" type="button">Step</button>
+                <button id="reset" type="button">Reset</button>
+                <button id="runUntilDone" type="button">Run Until Done</button>
+                <button id="exportCSV" type="button">Export CSV</button>
+            </div>
+
+            <label class="field">
+                <span>Physics</span>
+                <select id="physicsMode">
+                    <option value="coupled6" selected>Coupled 6-DoF</option>
+                    <option value="planar3">Planar 3-DoF</option>
+                </select>
+            </label>
+
+            <label class="field">
+                <span>Water View</span>
+                <select id="waterMode">
+                    <option value="physics" selected>Physics</option>
+                    <option value="presentation">Presentation</option>
+                    <option value="height">Height</option>
+                    <option value="velocity">Velocity</option>
+                    <option value="normal">Normal</option>
+                    <option value="hull">Hull</option>
+                </select>
+            </label>
+
+            <label class="field">
+                <span>Run Speed <strong id="speedValue">1.0x</strong></span>
+                <input id="speed" type="range" min="0.2" max="8" value="1" step="0.2">
+            </label>
+
+            <section class="legend">
+                <h2>State Layers</h2>
+                <div><i class="swatch water"></i> Water mesh from `sampleAt()`</div>
+                <div><i class="swatch flow"></i> Flow vectors</div>
+                <div><i class="swatch hull"></i> Hull sample/depth points</div>
+                <div><i class="swatch path"></i> Goal path</div>
+                <div><i class="swatch trail"></i> Boat trajectory</div>
+            </section>
+
+            <section class="debug">
+                <h2>Runtime State</h2>
+                <div id="debug"></div>
+            </section>
+
+            <section class="sensor-feeds">
+                <h2>Sensor Feeds</h2>
+                <div id="sensorFeeds"></div>
+            </section>
+        </aside>
+    </main>
+
+    <script type="module" src="./webSimRunner.js?v=29"></script>
+</body>
+</html>

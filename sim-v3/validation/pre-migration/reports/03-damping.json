@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "acceptance_policy": "validation/pre-migration/acceptance-policy.json",
+  "metric_delta_count": 0,
+  "rows": [
+    {
+      "surface": "mss-planar3",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "sixdof",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "waves",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "convergence",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "gazebo-generation",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    }
+  ],
+  "deltas": [],
+  "component": "damping",
+  "sequence_index": 3,
+  "behavior_preserving_mapping": {
+    "legacy_linear6": "linearViscousDamping",
+    "legacy_quadratic6": "quadraticViscousDamping",
+    "potentialRadiationDamping": "zero until resolved Capytaine coefficients are supplied",
+    "runtime_guard_scope": "Explicit production coupled6 manifests require nonzero viscous damping; legacy zero-damping validation fixtures remain permitted."
+  },
+  "golden_manifest_sha256": "dc4068870b0c9f52a309d209a1cc4165584cb44997887e99916d38302d6bcf52"
+}

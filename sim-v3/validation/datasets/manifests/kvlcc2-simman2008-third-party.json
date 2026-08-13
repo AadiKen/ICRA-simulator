@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "kvlcc2-simman2008-third-party",
+  "title": "KVLCC2 MARIN and HSVA free-running model tests",
+  "version": "SIMMAN-2008-third-party-handoff",
+  "primaryOrigin": "SIMMAN 2008 workshop",
+  "thirdPartySource": "martinlarsalbert/System-identification-of-Vessel-Manoeuvring-Models",
+  "relatedPaper": "Alexandersson et al., System identification of Vessel Manoeuvring Models, Ocean Engineering 266 (2022) 112905",
+  "license": {"spdx": "NOASSERTION", "redistributionPermitted": false, "reason": "Source repository has no LICENSE; public GitHub visibility is not a redistribution grant and SIMMAN participant terms are unknown."},
+  "acquisition": {"mode": "third-party-redistribution-not-direct-simman-access", "localAcquisitionPermitted": true, "status": "cache-only-acquired-and-checksummed", "lockFile": "validation/datasets/locks/kvlcc2-simman2008-third-party.sha256", "inventoryFile": "validation/datasets/inventories/kvlcc2-simman2008-third-party.json", "anonymousReleasePermitted": false, "instructions": "validation/external-references/kvlcc2-marin/ACQUISITION.md"},
+  "marin": {
+    "model": "KVLCC2 MARIN L7, scale 45.7, single screw",
+    "expectedColumnCount": 11,
+    "expectedEffectiveSampleIntervalS": {"min": 0.134, "max": 0.136, "definition": "(last printed time-first printed time)/(row_count-1); printed scientific notation becomes quantized and may repeat at long durations"},
+    "columnMapping": [
+      {"column":1,"name":"time_s_full_scale_equivalent","status":"identified","evidence":"monotonic/quantized time; cadence equals model sampling scaled by sqrt(45.7)"},
+      {"column":2,"name":"global_x_m_full_scale_equivalent","status":"identified","evidence":"initial derivative agrees with full-scale surge speed; turning advance is about 3.1-3.3 full-scale Lpp"},
+      {"column":3,"name":"global_y_m_full_scale_equivalent","status":"identified","evidence":"turning/zig-zag track, body-to-global kinematics, and tactical diameter about 3.1-3.4 full-scale Lpp"},
+      {"column":4,"name":"roll_deg","status":"identified","evidence":"derivative correlates with column 8 on turning and zig-zag"},
+      {"column":5,"name":"heading_unwrapped_deg","status":"identified","evidence":"turn accumulation/zig-zag oscillation; derivative correlates with column 9"},
+      {"column":6,"name":"surge_velocity_mps_full_scale_equivalent","status":"identified-diagnostic","evidence":"about 8 m/s, matching the published 15.5-knot full-scale approach speed and global-position derivative"},
+      {"column":7,"name":"sway_velocity_mps_full_scale_equivalent","status":"identified-diagnostic","evidence":"body/global kinematic consistency and sign reversal with maneuvers"},
+      {"column":8,"name":"roll_rate_deg_s","status":"identified-diagnostic","evidence":"integrates consistently with column 4 on both maneuver classes"},
+      {"column":9,"name":"yaw_rate_deg_s","status":"identified-diagnostic","evidence":"integrates consistently with unwrapped heading on both maneuver classes"},
+      {"column":10,"name":"rudder_angle_deg","status":"identified","evidence":"35-degree step in turning runs and alternating 10/20-degree zig-zag commands; MARIN sign is opposite the MMG core input sign, established by negative delta producing positive measured yaw"},
+      {"column":11,"name":"propeller_revolutions_rpm_full_scale_equivalent","status":"identified-measured-input","evidence":"91.665 rpm nominal with ±0.4 rpm sample variation, zero speed correlation, and Froude consistency with the HMRI self-propulsion point within 3.5%; supplied clarification dated 2026-08-03"}
+    ],
+    "trajectoryScaling": {"representation":"full-scale-equivalent","fullScaleLppM":320,"modelLppM":7,"scaleFactor":45.7,"evidence":"8 m/s approach speed, roughly 1000 m advance, and Froude-scaled time are mutually consistent; model-scale interpretation is physically impossible"},
+    "propellerScaling": {"input":"per-sample full-scale-equivalent RPM","modelRpsFormula":"rpm_full_scale * sqrt(45.7) / 60","nominalModelRps":10.33,"constantMeanSubstitutionPermitted":false},
+    "rudderAdapter": {"modelRudderRadFormula":"-deg2rad(column_10)","rateHandling":"measured actual angle replayed directly; no second rate limiter","evidence":"Across all runs rudder/yaw-rate correlation is negative, while the MMG core convention gives positive yaw moment for positive rudder."},
+    "gatingChannels": ["global_x_m_full_scale_equivalent", "global_y_m_full_scale_equivalent", "heading_unwrapped_deg", "rudder_angle_deg", "propeller_revolutions_rpm_full_scale_equivalent"],
+    "diagnosticChannels": ["surge_velocity_mps_full_scale_equivalent", "sway_velocity_mps_full_scale_equivalent", "roll_deg", "roll_rate_deg_s", "yaw_rate_deg_s"]
+  },
+  "hsva": {"status": "preprocessed-cache-only-fallback-staged", "upstreamCommand": "kedro run --pipeline kvlcc2_hsva_create", "executedCompatibilityRoute": ".venv/bin/python validation/external-references/kvlcc2-marin/preprocess-hsva.py", "compatibilityReason": "Upstream pins Kedro 0.17.6/Python 3.7; the platform runs the archived pipeline's two pure transform nodes exactly under the pinned workspace Python.", "trackedPreprocessingManifest": "validation/external-references/kvlcc2-marin/hsva-preprocessing-manifest.json", "gatingPermitted": false},
+  "artifactContract": {"artifactKind": "kvlcc2-marin-trajectory-comparison", "status": "experimental-trajectory-reference", "distinctVehicleBEvidenceTiers": ["kvlcc2-mmg-reference-reproduction", "kvlcc2-experimental-maneuver-indices", "kvlcc2-marin-trajectory-comparison", "wpcc-trajectory-comparison"]},
+  "claimLimit": "Measured single-screw KVLCC2 model-scale trajectories support maneuvering-model structure at the MARIN model configuration; they do not validate Vehicle B USV-scale coefficients.",
+  "coefficientTransferToVehicleBPermitted": false
+}

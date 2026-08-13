@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "parameter_set_id": "vehicle-b-usv-bootstrap",
+  "stage": "usv-scale",
+  "source_vessel": "Vehicle-B-USV",
+  "may_validate_usv_coefficients": false,
+  "x_g_m": 0.0,
+  "resistance_n_per_mps2": 120.0,
+  "hull_derivatives": {"X_vv": -0.04, "X_vr": 0.01, "X_rr": -0.01, "X_vvvv": -0.02, "Y_v": -0.42, "Y_R": 0.12, "Y_vvv": -0.8, "Y_vvr": 0.18, "Y_vrr": -0.2, "Y_rrr": -0.08, "N_v": -0.12, "N_R": -0.18, "N_vvv": -0.1, "N_vvr": -0.12, "N_vrr": 0.04, "N_rrr": -0.06},
+  "interaction": {"C1": 2.0, "C2_beta_P_positive": 1.5, "C2_beta_P_negative": 1.5, "t_P": 0.15, "l_R": -0.7, "gamma_R_beta_R_negative": 0.45, "gamma_R_beta_R_positive": 0.45, "epsilon": 1.0, "kappa": 0.5, "f_alpha": 2.7, "t_R": 0.2, "a_H": 0.25, "x_H": -0.35},
+  "propeller": {"diameter_m": 0.32, "k0": 0.28, "k1": -0.22, "k2": -0.08, "w_P0": 0.18, "max_rps": 24.0, "time_constant_s": 0.35, "rate_rps2": 30.0},
+  "rudder": {"area_m2": 0.12, "span_m": 0.45, "x_m": -2.0, "max_angle_deg": 35.0, "time_constant_s": 0.2, "rate_deg_s": 25.0},
+  "command_mapping": {"max_surge_force_n": 1800.0, "max_yaw_moment_nm": 1200.0},
+  "provenance": {"kind": "estimated", "source": "Vehicle B USV engineering bootstrap; independently parameterized without KVLCC2/KCS coefficient transfer", "checksum_sha256": "326f996b5f70ff6817c35d44ce3de1aa2e1812f63ff603e16d3e2103c2bb1701", "uncertainty": "Uncalibrated coefficients; independent Vehicle B captive/free-running data required", "limitations": ["Not physical validation evidence.", "No KVLCC2 or KCS coefficient is transferred into this parameter set."]}
+}

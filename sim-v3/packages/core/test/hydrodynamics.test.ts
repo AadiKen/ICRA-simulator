@@ -1,0 +1,28 @@
+import assert from "node:assert/strict";
+import {applyResolvedHydrodynamicsToCoupled6,interpolateWaveExcitation,resolveEncounterFrequency,resolveFreeDecayHydrodynamics, resolveWaveHydrodynamics, solveFreeDecayFrequency, validateDamping, type FrequencyCoefficients,type WaveExcitationCoefficients} from "../src/hydrodynamics.ts";
+import{linearHydrostaticWrench}from"../src/hydrostatics.ts";
+
+const diagonal=(values:number[])=>values.map((v,i)=>values.map((_,j)=>i===j?v:0));
+const table: FrequencyCoefficients[]=[0.5,1,1.5,2,2.5].map((omega)=>({omega_rad_s:omega,added_mass:diagonal([10+omega,20+2*omega,30+omega]),radiation_damping:diagonal([2*omega,3*omega,4*omega])}));
+const provenance={potential:{method:"capytaine" as const,source:"fixture"},linearViscous:{method:"empirical" as const,source:"fixture"},quadraticViscous:{method:"ikeda" as const,source:"fixture"}};
+const damping={linearViscousDamping:diagonal([5,6,7]),quadraticViscousDamping:diagonal([1,2,3]),provenance};
+const excitation:WaveExcitationCoefficients[]=[.5,1,1.5,2,2.5].map((omega)=>({omega_rad_s:omega,heading_rad:0,complex_force:[[omega,0],[0,omega],[0,0],[0,0],[0,0],[omega,omega]]}));
+const resolved=resolveWaveHydrodynamics({table,excitation_table:excitation,damping,period_s:5,direction_rad:0,heading_rad:0,reference_speed_mps:0});
+assert.equal(resolved.approximation,"constant-coefficient-no-radiation-memory");
+assert.equal(resolved.selection_method,"wave-encounter");
+assert.match(resolved.warnings[0],/Cummins/);
+assert.ok(resolved.wave_excitation);assert.deepEqual(resolved.interpolation_bracket_rad_s,[1,1.5]);assert.equal(interpolateWaveExcitation(excitation,1.25,.01).complex_force[0][0],1.25);
+assert.throws(()=>validateDamping({...damping,potentialRadiationDamping:diagonal([1,1,1]),linearViscousDamping:diagonal([0,0,0]),quadraticViscousDamping:diagonal([0,0,0])}),/non-zero viscous/);
+const first=solveFreeDecayFrequency("roll",diagonal([100,120,140]),diagonal([150,200,250]),table);
+const second=solveFreeDecayFrequency("roll",diagonal([100,120,140]),diagonal([150,200,250]),table);
+assert.equal(first.frequency_rad_s,second.frequency_rad_s);
+assert.ok(first.iterations.length>0&&first.iterations.length<=50);
+assert.ok(Math.abs(first.iterations.at(-1)!.mode_vector[1])>Math.abs(first.iterations.at(-1)!.mode_vector[0]));assert.ok(first.iterations.every((iteration)=>iteration.added_mass.length===3&&iteration.radiation_damping.length===3));
+const free=resolveFreeDecayHydrodynamics({mode:"roll",rigid_body_mass:diagonal([100,120,140]),hydrostatic_stiffness:diagonal([150,200,250]),table,damping});assert.equal(free.selection_method,"free-decay-fixed-point");assert.ok(free.free_decay_iterations?.length);assert.match(free.warnings[0],/Cummins/);
+assert.throws(()=>solveFreeDecayFrequency("roll",diagonal([100,120,140]),diagonal([150,200,250]),table,{maxIterations:1,tolerance:0}),/did not converge/);
+assert.throws(()=>resolveWaveHydrodynamics({table,damping,period_s:.5,direction_rad:0,heading_rad:0,reference_speed_mps:0}),/outside the Capytaine grid/);
+const encounter=resolveEncounterFrequency(5,0,0,0);
+assert.ok(Math.abs(encounter.encounter-2*Math.PI/5)<1e-12);
+const resolved6={...resolved,added_mass:diagonal([1,2,3,4,5,6]),damping:{...resolved.damping,potentialRadiationDamping:diagonal([1,2,3,4,5,6]),linearViscousDamping:diagonal([2,3,4,5,6,7]),quadraticViscousDamping:diagonal([1,1,1,1,1,1])}};const runtime=applyResolvedHydrodynamicsToCoupled6({massProps:{mass:10}},resolved6,diagonal([1,2,3,4,5,6]));assert.equal(runtime.addedMass.matrix6[0][0],1);assert.equal(runtime.damping.potentialRadiationMatrix6[0][0],1);assert.equal(runtime.restoring.hydrostaticStiffnessMatrix6[2][2],3);assert.equal(runtime.hydrodynamics.wave_excitation.omega_rad_s,resolved.evaluation_frequency_rad_s);
+const restoring=linearHydrostaticWrench(runtime,{position:{D:.2},eulerAngles:{roll:.1,pitch:-.1}},0);assert.ok(restoring.every((value,index)=>Math.abs(value-[0,0,-.6,-.4,.5,0][index])<1e-12));
+console.log("Hydrodynamics tests passed.");

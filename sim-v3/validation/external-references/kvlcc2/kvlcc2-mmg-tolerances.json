@@ -1,0 +1,12 @@
+{
+  "schema_version":1,
+  "committed_before_execution":true,
+  "evidence_tier":"kvlcc2-mmg-reference-reproduction",
+  "policy":"Percentage tolerances apply to the published MMG Cal. column, not the experimental column or Vehicle B USV coefficients.",
+  "metrics":{
+    "advance":{"tolerance_percent":5,"reason":"Scalar turning index from the same equations and parameter set."},
+    "tactical-diameter":{"tolerance_percent":5,"reason":"Scalar turning index from the same equations and parameter set."},
+    "first-overshoot":{"tolerance_percent":10,"reason":"Allows deterministic timestep and heading-switch interpolation sensitivity."},
+    "second-overshoot":{"tolerance_percent":10,"reason":"Allows accumulated deterministic switching-event interpolation sensitivity."}
+  }
+}

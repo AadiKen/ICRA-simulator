@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "acceptance_policy": "validation/pre-migration/acceptance-policy.json",
+  "metric_delta_count": 0,
+  "rows": [
+    {
+      "surface": "mss-planar3",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "sixdof",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "waves",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "convergence",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "hydrostatics-large-angle",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "actuator-command-state-thrust-wrench",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "checkpoint-replay-mid-actuator-lag",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "gazebo-generation",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    }
+  ],
+  "deltas": [],
+  "component": "waves",
+  "sequence_index": 7,
+  "golden_manifest_sha256": "dc4068870b0c9f52a309d209a1cc4165584cb44997887e99916d38302d6bcf52",
+  "supplemental_manifest_sha256": "3668faa977cb67de2225c539e8656bc70bb1e2659cd98b0747c0558bb28e1112",
+  "evidence_scope": "Migration parity only. A green gate does not validate wave physics; radiation damping remains zero until resolved Capytaine coefficients, followed by free-decay and frequency-response evidence."
+}

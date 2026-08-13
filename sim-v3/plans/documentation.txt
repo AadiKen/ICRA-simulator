@@ -1,0 +1,1049 @@
+Current implementation snapshot
+The simulator core has been refactored since this document was first drafted.
+Current code status:
+* schema.js contains the headless simulation core.
+* simState is the single runtime state container and stores mutable simulation truth only.
+* simulator owns the behavior models: boatModel, goalModel, controlModel, sensorModel, skipperModel, envModel, metricModel, and logger.
+* logs are owned by simulator/logger and exposed as sim.logs. They are not stored in simState.
+* createInitialSimState builds pure runtime state from scenarioConfig.
+* simulator.step(), simulator.runSteps(n), and simulator.runUntilDone(maxSteps) provide the core stepping API.
+* waterFieldModel exposes a 3D field-style sampleAt(pos, time) API while remaining internally implemented as a 2D surface height-field.
+* boat physics includes hull water samples, buoyancy, relative water drag, torque, angular damping, translational damping, collision failure, and out-of-bounds failure.
+* GPS and IMU are implemented as state-based sensors. Lidar, day camera, night camera, and EXO2 intentionally return placeholders until the Three.js/sensor layer exists.
+* simulatorSmokeTest.js provides the current smoke test for the headless simulator.
+
+1. Scenario Schema Layer
+Purpose
+Defines all static inputs required to instantiate a simulation run.
+Deliverables
+Canonical ScenarioConfig
+Validation/parsing utilities
+Defaults/preset system
+Core objects
+type ScenarioConfig = {
+ simulation: SimulationConfig;
+ boat: BoatConfig;
+ sensors: SensorSuiteConfig;
+ environment: EnvironmentConfig;
+ mission: MissionConfig;
+ controller: ControllerConfig;
+};
+SimulationConfig
+type SimulationConfig = {
+ simHz: number;               // core sim step frequency
+ durationSec: number;
+ seed: number;
+ allowGroundTruth: boolean;
+};
+BoatConfig
+type BoatConfig = {
+ maxSpeed: number;
+ maxAcceleration: number;
+ maxDeceleration: number;
+ maxTurnRate: number;
+ basePowerDraw: number;
+ movementPowerFactor: number;
+ startPos: Vec3;
+ startOrientation: Vec3;
+ dimensions: Vec3;
+ mass: number;
+ transDrag: number;
+ angularDrag: number;
+ buoyancyStrength: number;
+ waterDragStrength: number;
+};
+SensorSuiteConfig
+type SensorSuiteConfig = {
+ gps?: GPSSensorConfig;
+ imu?: IMUSensorConfig;
+ dayCamera?: CameraSensorConfig;
+ nightCamera?: CameraSensorConfig;
+ lidar?: LidarSensorConfig;
+ exo2?: EXO2SensorConfig;
+};
+EnvironmentConfig
+type EnvironmentConfig = {
+ bounds: { width: number; height: number };
+ obstacles: ObstacleConfig[];
+ deniedZones: ZoneConfig[];
+ favoredZones: ZoneConfig[];
+ waterField: WaterFieldConfig;
+ visibility: VisibilityConfig;
+ timeOfDay: "day" | "night" | "dusk" | "dawn";
+};
+MissionConfig
+type MissionConfig = {
+ waypoints: WaypointConfig[];
+ toleranceRadius: number;
+ energyBudget?: number;
+ sensorPenaltyWeights?: Record<string, number>;
+};
+ControllerConfig
+type ControllerConfig = {
+ mode: "local" | "remote_bcod";
+ controlHz: number;
+ strategy: "heuristic" | "local" | "remote";
+ timeout: number;
+};
+Build tasks
+Create schema files
+Add strict validation
+Add serialization/deserialization
+Add presets for boat/environment/mission
+Add version field for future compatibility
+
+2. Runtime State Layer
+Purpose
+Holds the live simulation state. This is the only authoritative runtime state.
+Deliverables
+SimulationState
+immutable or controlled mutation update path
+state reset/init utilities
+Core objects
+type SimulationState = {
+ timeSec: number;
+ tick: number;
+ boat: BoatState;
+ mission: MissionState;
+ sensors: SensorRuntimeState;
+ environment: EnvironmentRuntimeState;
+ controller: ControllerRuntimeState;
+ metrics: MetricsState;
+};
+Logs are explicitly not part of SimulationState in the current implementation.
+They are owned by simulator/logger and are read through sim.logs.
+BoatState
+type BoatState = {
+ position: Vec3;
+ velocity: Vec3;
+ acceleration: Vec3;
+ environmentAcceleration: Vec3;
+ guidanceAcceleration: Vec3;
+ buoyancyAcceleration: Vec3;
+ waterDragAcceleration: Vec3;
+ orientation: Vec3;
+ headingRad: number;
+ angularVelocity: Vec3;
+ angularAcceleration: Vec3;
+ environmentAngularAcceleration: Vec3;
+ guidanceAngularAcceleration: Vec3;
+ waterVelocity: Vec3;
+ waterHeight: number;
+ powerDraw: number;
+};
+MissionState
+type MissionState = {
+ activeWaypointIndex: number;
+ completed: boolean;
+ failed: boolean;
+ waypointHistory: WaypointHitRecord[];
+};
+SensorRuntimeState
+type SensorRuntimeState = {
+ activeSet: SensorActivationSet;
+ schedules: Record<string, SensorScheduleState>;
+ latestOutputs: Partial<SensorOutputBundle>;
+ latencyQueues: Record<string, DelayedObservationQueue>;
+};
+ControllerRuntimeState
+type ControllerRuntimeState = {
+ lastCommand?: ControllerCommand;
+ pendingRequest: boolean;
+ lastUpdateTimeSec: number;
+ commandHistory: ControllerCommand[];
+};
+MetricsState
+type MetricsState = {
+ totalEnergy: number;
+ totalSensorCost: number;
+ movementCost: number;
+ strategicPenalty: number;
+ lastSensorCost: number;
+ lastMovementCost: number;
+ lastTotalCost: number;
+ lastSpeed: number;
+ benchmarkAllOnCost?: number;
+};
+Build tasks
+Define state types
+Implement initializeSimulationState(config)
+Implement resetSimulationState(config)
+Create controlled update pipeline
+Add history buffers for replay/results
+
+3. Simulation Clock / Scheduler Layer
+Purpose
+Coordinates:
+core sim stepping
+controller updates
+sensor sampling
+rendering sync
+Deliverables
+fixed-step scheduler
+separate frequencies for sim/controller/sensors
+pause/resume/reset
+deterministic seeded stepping
+Rules
+simulation uses fixed dt = 1 / simHz
+controller updates at controlConfig.controlHz
+each sensor has independent frequency
+render loop never drives simulation truth
+Core API
+interface SimulationClock {
+ start(): void;
+ pause(): void;
+ resume(): void;
+ reset(): void;
+ stepOnce(): void;
+}
+Build tasks
+Implement fixed-timestep stepping
+Add controller cadence checks
+Add per-sensor due checks
+Add replay-safe deterministic stepping
+
+4. Boat Dynamics Layer
+Purpose
+Advances boat motion using a simplified dynamic model.
+Inputs
+current boat state
+local target from controller
+local water field sample
+stochastic disturbance sample
+Outputs
+updated boat state
+Model requirements
+capability-limited motion
+no spline-following truth
+current-driven drift
+heading correction under turn-rate limits
+acceleration/deceleration limits
+Recommended structure
+interface BoatDynamicsModel {
+ update(
+   state: BoatState,
+   control: LowLevelGuidanceCommand,
+   env: LocalEnvironmentSample,
+   dt: number,
+   rng: RNG
+ ): BoatState;
+}
+Low-level guidance command
+Generated from BCOD short-horizon path:
+type LowLevelGuidanceCommand = {
+ targetPoint: Vec2;
+ desiredCruiseSpeed?: number;
+};
+Update sequence
+choose current local target point
+compute heading error to target
+clamp turn response by maxTurnRate
+compute desired forward speed
+clamp acceleration/deceleration
+update velocity in heading direction
+add current drift vector
+apply wave/disturbance perturbation
+update position
+recompute derived acceleration/power draw
+Build tasks
+Implement heading controller
+Implement speed controller
+Implement current drift application
+Implement disturbance perturbation
+Implement waypoint tolerance hit check hook
+
+5. Water / Disturbance Field Layer
+Purpose
+Single shared source for:
+boat motion disturbances
+wave visuals
+Deliverables
+WaterField.sampleAt(pos, time)
+WaterField.normalAt(x, z, time)
+authored region support
+procedural perturbation support
+Core API
+type WaterSample = {
+ pos: Vec3;
+ surfaceHeight: number;
+ velocity: Vec3;
+ acceleration: Vec3;
+ normal: Vec3;
+ depth: number;
+ submerged: boolean;
+};
+
+interface WaterField {
+ sampleAt(pos: Vec3, time: number): WaterSample;
+ heightAt(x: number, z: number, time: number): number;
+ velocityAt(x: number, z: number, time: number): Vec3;
+ accelerationAt(x: number, z: number, time: number): Vec3;
+ normalAt(x: number, z: number, time: number): Vec3;
+}
+Recommended model
+Hybrid:
+surface height-field with a 3D sample interface
+Gerstner-like waves
+optional future depth attenuation for wave velocity
+Motion consumers
+velocity → relative water drag
+surfaceHeight/depth/normal → buoyancy
+per-hull-point forces → roll/pitch/yaw torque
+Render consumers
+surfaceHeight → mesh displacement
+normal → water shading and boat interaction debug views
+velocity/current → flow visualization
+Build tasks
+Implement constant field
+Implement zoned field
+Add interpolation between zones
+Add optional low-cost noise overlay
+Connect same field to both dynamics and rendering
+
+6. Environment Layer
+Purpose
+Represents spatial environment features affecting sensing and mission execution.
+Components
+obstacles
+denied zones
+favored zones
+visibility conditions
+time of day
+water field
+Core APIs
+interface EnvironmentModel {
+ getLocalSample(pos: Vec2, t: number): LocalEnvironmentSample;
+ getZoneModifiers(pos: Vec2): ZoneModifierSet;
+ queryObstacleSet(bounds: AABB): ObstacleRuntimeRef[];
+}
+LocalEnvironmentSample
+type LocalEnvironmentSample = {
+ water: WaterSample;
+ visibility: number;
+ timeOfDay: "day" | "night" | "dusk" | "dawn";
+ zoneModifiers: ZoneModifierSet;
+};
+Build tasks
+obstacle geometry representation
+zone membership queries
+visibility model
+time-of-day model
+efficient spatial lookup structures
+
+7. Mission / Waypoint Layer
+Purpose
+Tracks mission progress and waypoint completion.
+Deliverables
+ordered mandatory checkpoint logic
+tolerance checking
+mission completion/failure logic
+Core API
+interface MissionManager {
+ getActiveWaypoint(state: MissionState, config: MissionConfig): WaypointConfig | null;
+ updateMissionProgress(state: MissionState, boat: BoatState, config: MissionConfig): MissionState;
+}
+Rules
+waypoints must be hit in order
+success requires all waypoints hit within tolerance
+failure can include budget overrun or timeout later
+Build tasks
+waypoint hit detection
+active waypoint transition
+completion flagging
+waypoint history logging
+
+8. Sensor Scheduling Layer
+Purpose
+Ensures sensors sample only when due.
+Deliverables
+per-sensor frequency scheduling
+on/off activation handling
+latency queue support
+Core API
+interface SensorScheduler {
+ isDue(sensorId: string, t: number): boolean;
+ markSampled(sensorId: string, t: number): void;
+}
+Rules
+no sensor sim every frame by default
+sampling only if:
+sensor is enabled on boat
+controller has activated it
+schedule says it is due
+Build tasks
+implement per-sensor clocks
+implement sensor activation gating
+add delayed delivery queue support
+
+9. Sensor Simulation Layer
+Purpose
+Transforms world + state into sensor observations.
+Deliverables
+common sensor interface
+per-sensor simulators
+environment-conditioned degradation
+seeded noise
+Core interface
+interface SensorSimulator<TOutput> {
+ sample(ctx: SensorSampleContext): TOutput;
+}
+SensorSampleContext
+type SensorSampleContext = {
+ simState: SimulationState;
+ scenario: ScenarioConfig;
+ env: LocalEnvironmentSample;
+ rendererHooks?: RendererSensorHooks;
+ rng: RNG;
+};
+Per-sensor implementations
+GPS
+output: noisy position estimate
+effects: zone degradation, denied failure, seeded jitter
+IMU
+output: acceleration + angular motion-derived values
+effects: bias/noise/drift later
+Day/Night Camera
+output: RGB image
+source: dedicated sensor camera render target
+effects: visibility/time-of-day degradation
+Lidar
+output: point cloud
+source: raycast sweep against obstacle geometry / scene proxies
+effects: range limits, dropout/noise
+EXO2
+output: sampled water chemistry / map match features
+source: water field or chemistry field sample
+Build tasks
+define common output formats
+implement cheap sensors first: GPS, IMU, EXO2
+implement lidar second
+implement camera render target third
+add condition-based degradation hooks
+
+10. Observation / Latency Layer
+Purpose
+Packages sensor outputs and applies delayed delivery before BCOD receives them.
+Deliverables
+observation bundle format
+per-sensor latency queues
+optional stale observation semantics
+Core object
+type ObservationBundle = {
+ timeSec: number;
+ sensors: Partial<SensorOutputBundle>;
+ missionStateSummary: MissionStateSummary;
+ optionalGroundTruth?: GroundTruthSnapshot;
+};
+Build tasks
+define observation bundle schema
+implement enqueue-on-sample
+implement dequeue-on-latency expiration
+define dropped/missing observation behavior
+
+11. Controller Integration Layer
+Purpose
+Boundary between simulator and BCOD.
+Deliverables
+controller input schema
+controller output schema
+mock controller
+remote BCOD adapter
+Core schemas
+Input to controller
+type ControllerInput = {
+ timeSec: number;
+ observations: ObservationBundle;
+ mission: MissionStateSummary;
+ boatStateEstimate?: BoatEstimate;
+ configSummary?: ControllerRelevantConfig;
+};
+Output from controller
+type ControllerCommand = {
+ predictedPath: Vec2[];              // short horizon
+ activeSensors: SensorActivationSet;
+};
+Modes
+mock: local rule-based controller
+remote_bcod: HTTP/websocket bridge later
+Build tasks
+define adapter interface
+build mock controller first
+add timeout/error handling
+add response validation
+store command history for replay/results
+
+12. Guidance Translation Layer
+Purpose
+Converts BCOD short-horizon output into low-level boat guidance.
+Deliverables
+local target selection policy
+path consumption logic
+fallbacks for short/empty paths
+Core API
+interface GuidanceTranslator {
+ toLowLevelCommand(
+   cmd: ControllerCommand,
+   state: SimulationState,
+   scenario: ScenarioConfig
+ ): LowLevelGuidanceCommand;
+}
+Rules
+choose first viable future point as immediate target
+optionally smooth target switching
+handle path exhaustion gracefully
+Build tasks
+nearest-forward target policy
+smoothing/interpolation
+degenerate output handling
+
+13. Metrics / Cost Layer
+Purpose
+Tracks mission value and benchmark statistics.
+Deliverables
+movement cost accumulation
+sensor cost accumulation
+strategic penalty accumulation
+all-on benchmark estimation
+Core API
+interface MetricsEngine {
+ update(state: SimulationState, scenario: ScenarioConfig, dt: number): MetricsState;
+}
+Required metrics
+total energy
+total movement cost
+total sensor cost
+total strategic sensor penalty
+mission completion status
+all-on benchmark cost
+Build tasks
+define cost formulas
+implement per-step accumulation
+implement benchmark estimator
+log time series for result charts
+
+14. Logging / Replay Layer
+Purpose
+Stores everything needed for:
+results
+replay
+debugging
+later export
+Ownership
+Logs are owned by simulator/logger, not SimulationState.
+The current runtime access path is sim.logs.
+Deliverables
+compressed state history
+sensor activation history
+metric history
+controller command history
+Core object
+type SimulationLogs = {
+ boatStates: BoatStateSample[];
+ metrics: MetricsSample[];
+ sensorActivations: SensorActivationSample[];
+ uncertaintySamples: UncertaintySample[];
+ predictedPaths: PredictedPathSample[];
+ missionEvents: MissionEvent[];
+};
+Build tasks
+log at sim tick or sampled intervals
+allow replay from logs
+avoid full-frame image history by default unless needed
+
+15. Rendering Layer (Three.js)
+Purpose
+Visualizes simulation state only.
+Responsibilities
+boat/world rendering
+obstacles/zones rendering
+trajectory/predicted-path rendering
+uncertainty visualization
+water rendering
+sensor camera render targets
+Non-responsibilities
+no source-of-truth state
+no mission logic
+no controller logic
+no form/UI ownership
+Core submodules
+WorldRenderer
+BoatRenderer
+WaterRenderer
+PathRenderer
+ZoneRenderer
+SensorCameraManager
+Build tasks
+bind visual objects to runtime state
+implement low-cost persistent scene
+update renderables from logs/state each frame
+implement sensor cameras as offscreen render targets
+
+16. Water Rendering Layer
+Purpose
+Renders waves consistent with the disturbance field.
+Deliverables
+water mesh
+displacement/normal animation driven by WaterField.sample
+low-poly stylized visuals
+Core API
+interface WaterRenderer {
+ update(t: number, waterField: WaterField): void;
+}
+Recommended implementation
+grid mesh over water area
+shader or CPU-updated vertex displacement
+parameters derived from local waveDirection, waveAmplitude, waveFrequency
+Rules
+visuals derive from same field as motion
+visuals do not define physics directly
+Build tasks
+create water mesh
+sample field over mesh/grid
+animate with directional sine/Gerstner-lite waves
+tune for stylized low-cost visuals
+
+17. Application UI Layer (DOM/HTML/CSS)
+Purpose
+Owns product workflow and user controls.
+Deliverables
+overlay panels
+step flow
+config forms
+run controls
+results panels
+Flow
+boat/sensor config
+environment config
+waypoint planning
+run
+results
+Rules
+world stays visible throughout
+panels drive config/state changes
+camera motion is optional polish, not navigation architecture
+Build tasks
+build panel manager
+build validation/error states
+build run control bar
+build metric/result cards
+
+18. Interaction / Editing Layer
+Purpose
+Allows user to create and edit mission/environment content in-world.
+Deliverables
+waypoint placement
+obstacle placement
+zone placement
+object selection/edit handles
+Build tasks
+raycast world picking
+add/edit/remove waypoints
+zone polygon or brush editor
+obstacle placement controls
+sync editor actions back into ScenarioConfig
+
+19. Results / Analytics Layer
+Purpose
+Presents run outcome with minimal clutter.
+Required outputs
+mission completion
+total energy/cost
+all-on benchmark comparison
+sensor activation timeline
+predicted path / actual path
+uncertainty display
+Build tasks
+summary cards
+timeline plots
+benchmark comparison row
+mission event list
+replay scrubber later
+
+20. Performance Layer
+Purpose
+Keeps app usable on average laptop.
+Hard rules
+one persistent scene
+no scene-as-navigation architecture
+no hidden heavy 3D screens
+camera/lidar sampling only when due
+use simplified proxy geometry for lidar/collision if needed
+keep image readback low-frequency and low-resolution
+throttle logging density where possible
+Build tasks
+profile render cost
+profile sensor cost separately
+add debug perf overlays
+reduce geometry complexity in sensing paths
+
+20. Overall Runtime Flowchart
+[User submits ScenarioConfig]
+          |
+          v
+[Scenario Schema Layer]
+- validate config
+- fill defaults
+- reject invalid fields
+- freeze canonical scenario
+          |
+          v
+[Runtime State Layer]
+- initialize SimulationState from ScenarioConfig
+- initialize boat state
+- initialize mission state
+- initialize sensor runtime state
+- initialize metrics/log buffers
+- initialize controller runtime state
+          |
+          v
+[Simulation Clock / Scheduler Layer]
+- create fixed-step clock
+- compute dt
+- register controller cadence
+- register sensor cadences
+          |
+          v
+[Environment Layer + Water Field Layer]
+- instantiate environment model
+- instantiate water/disturbance field
+- build spatial query structures
+          |
+          v
+[Mission / Waypoint Layer]
+- load ordered waypoint list
+- set active waypoint = first waypoint
+          |
+          v
+[Controller Integration Layer]
+- initialize controller adapter
+- mock controller OR remote BCOD endpoint
+          |
+          v
+[Rendering Layer]
+- instantiate persistent Three.js scene
+- create boat/world render objects
+- create water renderer
+- create path/zone renderers
+- create sensor cameras
+          |
+          v
+[UI Layer]
+- switch app into "run-ready" mode
+- expose run/start/reset controls
+          |
+          v
+==================== RUN START ====================
+          |
+          v
+[Simulation Clock triggers fixed update tick]
+          |
+          v
+[Environment Sampling]
+- sample local water field at boat position
+- sample zone modifiers
+- sample visibility / time-of-day effects
+          |
+          v
+[Sensor Scheduling Layer]
+- determine which sensors are due this tick
+- gate by active sensor set
+          |
+          v
+[Sensor Simulation Layer]
+- generate outputs for due + active sensors
+- enqueue delayed observations if latency applies
+          |
+          v
+[Observation / Latency Layer]
+- release observations whose latency expired
+- build ObservationBundle for controller
+          |
+          v
+[Controller Cadence Check]
+Is controller due this tick?
+    |                    \
+   yes                    no
+    |                      |
+    v                      v
+[Controller Integration]   [Reuse prior command]
+- send ObservationBundle
+- receive ControllerCommand
+- validate command
+- store command history
+          |
+          v
+[Guidance Translation Layer]
+- convert predictedPath into low-level target
+- produce local guidance command
+          |
+          v
+[Boat Dynamics Layer]
+- apply heading/speed control
+- enforce turn/accel/decel limits
+- apply current drift
+- apply disturbance noise
+- update boat state
+          |
+          v
+[Mission / Waypoint Layer]
+- check tolerance hit on active waypoint
+- advance waypoint if reached
+- mark mission complete if final reached
+          |
+          v
+[Metrics / Cost Layer]
+- accumulate movement cost
+- accumulate active sensor cost
+- accumulate strategic penalties
+- update benchmark estimates
+          |
+          v
+[Logging / Replay Layer]
+- log boat state
+- log metrics
+- log sensor activations
+- log controller path
+- log uncertainty values
+          |
+          v
+[Rendering Layer]
+- update boat mesh from state
+- update predicted path visuals
+- update uncertainty visuals
+- update water visuals from water field
+- update overlays/telemetry
+          |
+          v
+[UI Layer]
+- refresh metrics panels
+- refresh mission progress
+- refresh results if mission completed
+          |
+          v
+[Termination Check]
+- completed?
+- failed?
+- timeout?
+    |                   	 \
+   yes                 	   no
+    |                   	   |
+    v                   	   |
+[Finalize results] <------- 
+- stop clock
+- compute summaries
+- show results screen
+
+21. Tickwise Flowchart
+1. Read current SimulationState
+2. Sample local environment
+3. Determine which sensors are due
+4. Sample active due sensors
+5. Process sensor latency queues
+6. If controller update is due:
+      send observations to controller
+      receive path + active sensors
+7. Translate controller output into low-level guidance
+8. Advance boat dynamics by dt
+9. Update mission progress
+10. Update metrics/cost
+11. Append logs
+12. Push updated state to renderer/UI
+13. Repeat
+
+22. Ownership Layout
+A. Scenario Schema Layer
+Runs:
+once at scenario submission
+optionally again on reset/load/import
+Owns:
+config validation
+normalization
+defaults
+compatibility/versioning
+Does not own:
+live runtime state
+rendering
+simulation stepping
+
+B. Runtime State Layer
+Runs:
+once at initialization
+then continuously read/write during simulation
+Owns:
+all authoritative live state
+Does not own:
+visualization logic
+UI logic
+controller transport details
+
+C. Simulation Clock / Scheduler Layer
+Runs:
+continuously while simulation is active
+Owns:
+fixed tick cadence
+controller cadence
+sensor due checks
+Does not own:
+boat physics
+sensor logic itself
+
+D. Environment + Water Field Layer
+Runs:
+every tick, sampled as needed
+Owns:
+local environment query
+local water/disturbance query
+zone modifiers
+visibility/time-of-day state
+Does not own:
+how boat responds physically
+how water is rendered
+
+E. Sensor Scheduling Layer
+Runs:
+every tick
+Owns:
+“is sensor X due right now?”
+activation gating
+Does not own:
+how a sensor produces data
+
+F. Sensor Simulation Layer
+Runs:
+only when a sensor is due and active
+Owns:
+creating GPS/IMU/lidar/camera/EXO2 outputs
+condition-based degradation
+noise models
+Does not own:
+controller update cadence
+UI display of outputs
+
+G. Observation / Latency Layer
+Runs:
+every tick
+Owns:
+delayed delivery queues
+final controller-facing observation bundle
+Does not own:
+actual sensor generation
+BCOD logic
+
+H. Controller Integration Layer
+Runs:
+only at controller cadence
+Owns:
+sending controller input
+receiving controller output
+command validation
+transport abstraction
+Does not own:
+low-level boat dynamics
+rendering of predicted path
+
+I. Guidance Translation Layer
+Runs:
+whenever a valid controller command exists
+Owns:
+converting BCOD path to local target/speed objective
+Does not own:
+actual physical movement update
+
+J. Boat Dynamics Layer
+Runs:
+every tick
+Owns:
+heading/speed update
+limits enforcement
+current drift incorporation
+disturbance incorporation
+state propagation
+Does not own:
+waypoint completion
+controller communication
+
+K. Mission / Waypoint Layer
+Runs:
+every tick after movement update
+Owns:
+active waypoint progression
+tolerance hit detection
+mission completion flags
+Does not own:
+boat motion itself
+
+L. Metrics / Cost Layer
+Runs:
+every tick after state update
+Owns:
+energy accumulation
+sensor cost accumulation
+strategic penalties
+benchmark tracking
+
+M. Logging / Replay Layer
+Runs:
+every tick or sampled interval
+Owns:
+history buffers
+state logs
+command logs
+metrics logs
+
+N. Rendering Layer
+Runs:
+every animation frame
+also consumes updated runtime state after each simulation tick
+Owns:
+visual world
+water mesh
+boat mesh
+path lines
+uncertainty rendering
+sensor render targets
+Does not own:
+simulation truth
+
+O. UI Layer
+Runs:
+event-driven + per-frame/per-tick updates as needed
+Owns:
+user controls
+panel state
+metrics display
+results screen
+Does not own:
+simulation state truth
+Three.js scene objects
+
+23. Pseudocode
+function startSimulation(userConfig: ScenarioConfigInput) {
+  const scenario = validateAndNormalizeScenario(userConfig);
+
+  const sim = new simulator(scenario);
+  const renderer = createRenderer(scenario);
+  const ui = createUIBridge();
+
+  const clock = createSimulationClock({
+    simHz: scenario.simulation.simHz,
+    onTick: (dt, t) => {
+      sim.step();
+
+      renderer.syncFromState(sim.state);
+      ui.syncFromState(sim.state, sim.logs);
+
+      if (!sim.simStatus()) {
+        clock.stop();
+        ui.showResults(buildResultsSummary(sim.state, sim.logs));
+      }
+    },
+  });
+
+  return {
+    scenario,
+    sim,
+    clock,
+    renderer,
+    ui,
+  };
+}

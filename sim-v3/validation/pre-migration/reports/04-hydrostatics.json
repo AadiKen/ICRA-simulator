@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "acceptance_policy": "validation/pre-migration/acceptance-policy.json",
+  "metric_delta_count": 0,
+  "rows": [
+    {
+      "surface": "mss-planar3",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "sixdof",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "waves",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "convergence",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "hydrostatics-large-angle",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "checkpoint-replay-mid-actuator-lag",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    },
+    {
+      "surface": "gazebo-generation",
+      "metric_delta_count": 0,
+      "checksum_changes": 0
+    }
+  ],
+  "deltas": [],
+  "component": "hydrostatics",
+  "sequence_index": 4,
+  "golden_manifest_sha256": "dc4068870b0c9f52a309d209a1cc4165584cb44997887e99916d38302d6bcf52",
+  "supplemental_manifest_sha256": "4d7436eda42c1113d197e43745a2a7c185e8c906ec9435be5c83ba3d2bce8e0e",
+  "model_scope": "coupled6 uses constant linear stiffness from GM_T/GM_L; the sampled-geometry path recomputes displaced volume and center of buoyancy nonlinearly. Large-angle parity is not nonlinear coupled6 validation."
+}

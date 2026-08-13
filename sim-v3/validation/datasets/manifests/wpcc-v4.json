@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "wpcc-v4",
+  "title": "wPCC manoeuvring model tests",
+  "version": "4",
+  "published": "2024-06-11",
+  "doi": "10.17632/j5zdrhr9bf.4",
+  "primaryLandingPage": "https://data.mendeley.com/datasets/j5zdrhr9bf/4",
+  "contributors": ["Martin Alexandersson (RISE / Chalmers)", "SSPA Maritime Dynamics Laboratory"],
+  "license": {
+    "spdx": "CC-BY-4.0",
+    "sourceStatement": "Mendeley Data version-4 landing page labels the dataset CC BY 4.0.",
+    "attributionRequired": true,
+    "redistributionPermitted": true
+  },
+  "acquisition": {
+    "mode": "primary-source-user-supplied-archive",
+    "localAcquisitionPermitted": true,
+    "status": "acquired-and-checksummed",
+    "reason": "Version-4 archive supplied by the user; extracted raw files are cache-only and locked by SHA-256.",
+    "lockFile": "validation/datasets/locks/wpcc-v4.sha256",
+    "inventoryFile": "validation/datasets/inventories/wpcc-v4.json",
+    "fetchScript": "validation/external-references/wpcc/fetch.mjs"
+  },
+  "coordinateConvention": {
+    "status": "confirmed-v4-primary-metadata",
+    "motionReferencePoint": "[Lpp/2, 0, WL]",
+    "bodyAxes": {"x": "positive forward", "y": "positive starboard", "z": "positive into water"},
+    "reuseAdapter": "KVLCC2 MMG midship-fixed NED/SNAME path",
+    "rejectIfUnconfirmed": true
+  },
+  "channelPolicy": {
+    "gating": ["x0", "y0", "psi", "Hull/Acc/X1", "Hull/Acc/Y1", "Hull/Acc/Y2", "Hull/Acc/Z1", "Hull/Acc/Z2", "Hull/Acc/Z3"],
+    "diagnosticOnly": ["u", "v", "r"],
+    "diagnosticReason": "Higher states are EKF-derived using a manoeuvring-model predictor; they are not independent measurements."
+  },
+  "propulsionModePolicy": {
+    "accepted": "calm-water motoring mode only",
+    "classificationBasis": "Dataset contains powered twin-propeller/rudder channels and no sail or wind-force channels; reference-speed runs are non-maneuver calibration runs.",
+    "silentExclusionForbidden": true
+  },
+  "artifactContract": {
+    "artifactKind": "wpcc-trajectory-comparison",
+    "evidenceStatus": "architecture-variant-reference",
+    "distinctFrom": ["kvlcc2-mmg-reference-reproduction", "kvlcc2-experimental-maneuver-indices"]
+  },
+  "scientificScope": {
+    "sourceArchitecture": "twin-screw, twin-rudder wind-powered car carrier in motoring mode",
+    "targetArchitecture": "Vehicle B single-screw propeller/rudder USV",
+    "claimLimit": "Raw free-running trajectory evidence for propeller/rudder maneuvering-model structure in a twin-screw architecture variant; does not validate Vehicle B's single-screw configuration or USV-scale coefficients.",
+    "coefficientTransferToVehicleBPermitted": false
+  },
+  "evidenceAdmissible": true
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version":1,
+  "changes":[
+    {"path_prefix":"$.artifact_kind","justification":"The candidate is an explicitly versioned capability golden, not a replacement parity golden."},
+    {"path_prefix":"$.source_behavior","justification":"The source is the opt-in integrated-v1 implementation committed after parity migration."},
+    {"path_prefix":"$.configuration.power","justification":"Power parameters are required to distinguish actuator overhead from productive propulsion energy."},
+    {"path_prefix":"$.cases[2]","justification":"Commands strictly inside the dead zone intentionally produce zero thrust; exact thresholds remain active."},
+    {"path_prefix":"$.threshold_samples","justification":"Threshold-adjacent samples document the deliberate strict-inequality boundary rule."},
+    {"path_prefix":"$.failure_mid_run","justification":"Failed-off now removes the actuator wrench after the reviewed transition point."},
+    {"path_prefix":"$.legacy_capability_findings","justification":"Capability status text now records functional dead-zone, failure, and opt-in version semantics."},
+    {"path_prefix":"$.integrated_evidence","justification":"New evidence records energy attribution, failure events, stuck-bias diagnostics, and checkpoint replay identity."}
+  ]
+}

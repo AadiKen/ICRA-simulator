@@ -1,0 +1,498 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "combined-damping-validation",
+  "vehicle_id": "vehicle-c-azimuth",
+  "status": "software-gate-passed-physical-validation-blocked",
+  "evidence_scope": "deterministic composition, dissipativity, and free-decay extraction",
+  "is_software_validation_evidence": true,
+  "is_physical_validation_evidence": false,
+  "source_resolved_artifact": {
+    "path": "artifacts/capytaine/vehicle-c-parametric-resolved.json",
+    "checksum_sha256": "286467782639636d930568a5d2974b7fa238c80e6d7b38f93e7347c82c9e7ea0",
+    "capytaine_artifact_checksum_sha256": "ff4340ea8327c2e5aef81f005aac6a7132b22729450c7b1fa88677d2a43f451d",
+    "mesh_checksum_sha256": "34b450e7c1c478cee5b3ac4cb9ecea5c749bb50e60e78eb454ac95ff733ed3cc"
+  },
+  "approximation": {
+    "kind": "constant-coefficient-no-radiation-memory",
+    "warning": "No Cummins convolution; fixed episode coefficients omit radiation memory and time-varying encounter frequency."
+  },
+  "damping_provenance": {
+    "potential": {
+      "method": "capytaine",
+      "source": "artifacts/capytaine/vehicle-c-parametric.json",
+      "checksum": "34b450e7c1c478cee5b3ac4cb9ecea5c749bb50e60e78eb454ac95ff733ed3cc",
+      "uncertainty": "Analytic representative hull; physical-vessel validation absent",
+      "operating_range": "0.3-8 rad/s",
+      "fit_data": "Capytaine frequency-domain BEM solve",
+      "limitations": [
+        "Potential-flow radiation damping only; excludes viscous effects."
+      ]
+    },
+    "linearViscous": {
+      "method": "empirical",
+      "source": "Vehicle C engineering bootstrap diagonal estimate",
+      "checksum": "033b50bb3e28b7e5262fa5b25c2880e908024441c051e440471790177c58a7d9",
+      "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+      "operating_range": "zero-speed small-amplitude free decay; bootstrap only",
+      "fit_data": "none",
+      "limitations": [
+        "Not fitted to Vehicle C measurements.",
+        "Not a complete Ikeda-method calculation."
+      ]
+    },
+    "quadraticViscous": {
+      "method": "empirical",
+      "source": "Vehicle C engineering bootstrap diagonal estimate",
+      "checksum": "116769c3c41f24e326a0e7eb5b3b893ee5a99368216973fd14374fd4e8e8a88b",
+      "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+      "operating_range": "zero-speed free decay up to 10 deg roll initial displacement; bootstrap only",
+      "fit_data": "none",
+      "limitations": [
+        "No dual-hull viscous interaction or appendage calibration.",
+        "No bilge-keel or hull-section integration has been performed."
+      ]
+    }
+  },
+  "acceptance": {
+    "viscous_required": true,
+    "all_components_separately_provenanced": true,
+    "combined_decay_must_exceed_radiation_only": true,
+    "dissipative_sample_required": true,
+    "non_finite_output_allowed": false
+  },
+  "modes": {
+    "heave": {
+      "evaluation_frequency_rad_s": 6.20538330025353,
+      "natural_period_s": 1.0125378245245347,
+      "frequency_selection": {
+        "method": "free-decay-fixed-point",
+        "iteration_count": 12,
+        "selected_mode_vector": [
+          0.9999992293385349,
+          4.055772301597902e-20,
+          -0.0012415000348189825
+        ]
+      },
+      "damping": {
+        "linearViscousDamping": [
+          [
+            190,
+            0,
+            0
+          ],
+          [
+            0,
+            2.192923674034241,
+            0
+          ],
+          [
+            0,
+            0,
+            280
+          ]
+        ],
+        "quadraticViscousDamping": [
+          [
+            230,
+            0,
+            0
+          ],
+          [
+            0,
+            0.006614752497696677,
+            0
+          ],
+          [
+            0,
+            0,
+            360
+          ]
+        ],
+        "provenance": {
+          "potential": {
+            "method": "capytaine",
+            "source": "artifacts/capytaine/vehicle-c-parametric.json",
+            "checksum": "34b450e7c1c478cee5b3ac4cb9ecea5c749bb50e60e78eb454ac95ff733ed3cc",
+            "uncertainty": "Analytic representative hull; physical-vessel validation absent",
+            "operating_range": "0.3-8 rad/s",
+            "fit_data": "Capytaine frequency-domain BEM solve",
+            "limitations": [
+              "Potential-flow radiation damping only; excludes viscous effects."
+            ]
+          },
+          "linearViscous": {
+            "method": "empirical",
+            "source": "Vehicle C engineering bootstrap diagonal estimate",
+            "checksum": "033b50bb3e28b7e5262fa5b25c2880e908024441c051e440471790177c58a7d9",
+            "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+            "operating_range": "zero-speed small-amplitude free decay; bootstrap only",
+            "fit_data": "none",
+            "limitations": [
+              "Not fitted to Vehicle C measurements.",
+              "Not a complete Ikeda-method calculation."
+            ]
+          },
+          "quadraticViscous": {
+            "method": "empirical",
+            "source": "Vehicle C engineering bootstrap diagonal estimate",
+            "checksum": "116769c3c41f24e326a0e7eb5b3b893ee5a99368216973fd14374fd4e8e8a88b",
+            "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+            "operating_range": "zero-speed free decay up to 10 deg roll initial displacement; bootstrap only",
+            "fit_data": "none",
+            "limitations": [
+              "No dual-hull viscous interaction or appendage calibration.",
+              "No bilge-keel or hull-section integration has been performed."
+            ]
+          }
+        },
+        "potentialRadiationDamping": [
+          [
+            447.3420496423815,
+            -2.138003315429569e-14,
+            0.054566366532792884
+          ],
+          [
+            -1.2777019027383268e-13,
+            81.73039067824932,
+            -1.2350390909222853e-14
+          ],
+          [
+            0.053268413994401125,
+            8.610842100657335e-15,
+            230.40632722549108
+          ]
+        ]
+      },
+      "dissipation_sample": {
+        "minimum_total_power": 0.008392338049980854,
+        "sample_count": 78
+      },
+      "radiation_only_diagnostic": {
+        "initial_displacement": 0.05,
+        "positive_peak_count": 29,
+        "logarithmic_decrement": 0.48840434693841756,
+        "damping_ratio": 0.0774981866098007,
+        "settling_time_s": 8.138,
+        "equilibrium_error": -2.6689286130408303e-8,
+        "trace_checksum_sha256": "eb88c1a957bd821791e2c3da3db9598de03c1dc8dd9e8d476bc0ae528a775ed8",
+        "simulation": {
+          "method": "rk4",
+          "dt_s": 0.002,
+          "duration_s": 30,
+          "steps": 15000
+        }
+      },
+      "combined": {
+        "initial_displacement": 0.05,
+        "positive_peak_count": 29,
+        "logarithmic_decrement": 0.6996208945105887,
+        "damping_ratio": 0.11066420717976598,
+        "settling_time_s": 5.222,
+        "equilibrium_error": -4.915180117827166e-11,
+        "trace_checksum_sha256": "2e628f779b5508f3e71359b14871dd1a8d24d22009291cf21f3ea7cb98268cc7",
+        "simulation": {
+          "method": "rk4",
+          "dt_s": 0.002,
+          "duration_s": 30,
+          "steps": 15000
+        }
+      },
+      "viscous_effect": {
+        "logarithmic_decrement_increase": 0.21121654757217118,
+        "damping_ratio_increase": 0.033166020569965274,
+        "settling_time_change_s": -2.9159999999999995
+      }
+    },
+    "roll": {
+      "evaluation_frequency_rad_s": 6.962408221089081,
+      "natural_period_s": 0.9024442560187531,
+      "frequency_selection": {
+        "method": "free-decay-fixed-point",
+        "iteration_count": 11,
+        "selected_mode_vector": [
+          6.445451129527064e-19,
+          1,
+          0
+        ]
+      },
+      "damping": {
+        "linearViscousDamping": [
+          [
+            190,
+            0,
+            0
+          ],
+          [
+            0,
+            2.192923674034241,
+            0
+          ],
+          [
+            0,
+            0,
+            280
+          ]
+        ],
+        "quadraticViscousDamping": [
+          [
+            230,
+            0,
+            0
+          ],
+          [
+            0,
+            0.006614752497696677,
+            0
+          ],
+          [
+            0,
+            0,
+            360
+          ]
+        ],
+        "provenance": {
+          "potential": {
+            "method": "capytaine",
+            "source": "artifacts/capytaine/vehicle-c-parametric.json",
+            "checksum": "34b450e7c1c478cee5b3ac4cb9ecea5c749bb50e60e78eb454ac95ff733ed3cc",
+            "uncertainty": "Analytic representative hull; physical-vessel validation absent",
+            "operating_range": "0.3-8 rad/s",
+            "fit_data": "Capytaine frequency-domain BEM solve",
+            "limitations": [
+              "Potential-flow radiation damping only; excludes viscous effects."
+            ]
+          },
+          "linearViscous": {
+            "method": "empirical",
+            "source": "Vehicle C engineering bootstrap diagonal estimate",
+            "checksum": "033b50bb3e28b7e5262fa5b25c2880e908024441c051e440471790177c58a7d9",
+            "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+            "operating_range": "zero-speed small-amplitude free decay; bootstrap only",
+            "fit_data": "none",
+            "limitations": [
+              "Not fitted to Vehicle C measurements.",
+              "Not a complete Ikeda-method calculation."
+            ]
+          },
+          "quadraticViscous": {
+            "method": "empirical",
+            "source": "Vehicle C engineering bootstrap diagonal estimate",
+            "checksum": "116769c3c41f24e326a0e7eb5b3b893ee5a99368216973fd14374fd4e8e8a88b",
+            "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+            "operating_range": "zero-speed free decay up to 10 deg roll initial displacement; bootstrap only",
+            "fit_data": "none",
+            "limitations": [
+              "No dual-hull viscous interaction or appendage calibration.",
+              "No bilge-keel or hull-section integration has been performed."
+            ]
+          }
+        },
+        "potentialRadiationDamping": [
+          [
+            353.33223298939384,
+            -3.0345009125780123e-14,
+            0.05928465929353799
+          ],
+          [
+            -1.098402383308638e-13,
+            115.9852490401035,
+            1.1967106413428664e-14
+          ],
+          [
+            0.0652253357803858,
+            -2.949030577815149e-14,
+            181.4813325720913
+          ]
+        ]
+      },
+      "dissipation_sample": {
+        "minimum_total_power": 0.011817823886166272,
+        "sample_count": 78
+      },
+      "radiation_only_diagnostic": {
+        "initial_displacement": 0.17453292519943295,
+        "positive_peak_count": 33,
+        "logarithmic_decrement": 0.22190077661813543,
+        "damping_ratio": 0.03529460151512909,
+        "settling_time_s": 15.836,
+        "equilibrium_error": 0.000022908457108832202,
+        "trace_checksum_sha256": "e8af26dee1fddce0390d43464b935d9353165a157f309bd1143420a5811526ac",
+        "simulation": {
+          "method": "rk4",
+          "dt_s": 0.002,
+          "duration_s": 30,
+          "steps": 15000
+        }
+      },
+      "combined": {
+        "initial_displacement": 0.17453292519943295,
+        "positive_peak_count": 33,
+        "logarithmic_decrement": 0.22610282224310713,
+        "damping_ratio": 0.035962104817672966,
+        "settling_time_s": 15.404,
+        "equilibrium_error": 0.000020453642218779342,
+        "trace_checksum_sha256": "6c0adcbc64338db759f7169ec6f7d38dd72ee08d777d6c1109d3b6255d7e1dce",
+        "simulation": {
+          "method": "rk4",
+          "dt_s": 0.002,
+          "duration_s": 30,
+          "steps": 15000
+        }
+      },
+      "viscous_effect": {
+        "logarithmic_decrement_increase": 0.004202045624971701,
+        "damping_ratio_increase": 0.0006675033025438787,
+        "settling_time_change_s": -0.4320000000000004
+      }
+    },
+    "pitch": {
+      "evaluation_frequency_rad_s": 6.034427705344044,
+      "natural_period_s": 1.0412230643869087,
+      "frequency_selection": {
+        "method": "free-decay-fixed-point",
+        "iteration_count": 11,
+        "selected_mode_vector": [
+          0.0009212643638370496,
+          -4.048461451291882e-17,
+          0.9999995756358959
+        ]
+      },
+      "damping": {
+        "linearViscousDamping": [
+          [
+            190,
+            0,
+            0
+          ],
+          [
+            0,
+            2.192923674034241,
+            0
+          ],
+          [
+            0,
+            0,
+            280
+          ]
+        ],
+        "quadraticViscousDamping": [
+          [
+            230,
+            0,
+            0
+          ],
+          [
+            0,
+            0.006614752497696677,
+            0
+          ],
+          [
+            0,
+            0,
+            360
+          ]
+        ],
+        "provenance": {
+          "potential": {
+            "method": "capytaine",
+            "source": "artifacts/capytaine/vehicle-c-parametric.json",
+            "checksum": "34b450e7c1c478cee5b3ac4cb9ecea5c749bb50e60e78eb454ac95ff733ed3cc",
+            "uncertainty": "Analytic representative hull; physical-vessel validation absent",
+            "operating_range": "0.3-8 rad/s",
+            "fit_data": "Capytaine frequency-domain BEM solve",
+            "limitations": [
+              "Potential-flow radiation damping only; excludes viscous effects."
+            ]
+          },
+          "linearViscous": {
+            "method": "empirical",
+            "source": "Vehicle C engineering bootstrap diagonal estimate",
+            "checksum": "033b50bb3e28b7e5262fa5b25c2880e908024441c051e440471790177c58a7d9",
+            "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+            "operating_range": "zero-speed small-amplitude free decay; bootstrap only",
+            "fit_data": "none",
+            "limitations": [
+              "Not fitted to Vehicle C measurements.",
+              "Not a complete Ikeda-method calculation."
+            ]
+          },
+          "quadraticViscous": {
+            "method": "empirical",
+            "source": "Vehicle C engineering bootstrap diagonal estimate",
+            "checksum": "116769c3c41f24e326a0e7eb5b3b893ee5a99368216973fd14374fd4e8e8a88b",
+            "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+            "operating_range": "zero-speed free decay up to 10 deg roll initial displacement; bootstrap only",
+            "fit_data": "none",
+            "limitations": [
+              "No dual-hull viscous interaction or appendage calibration.",
+              "No bilge-keel or hull-section integration has been performed."
+            ]
+          }
+        },
+        "potentialRadiationDamping": [
+          [
+            468.5718713971325,
+            -1.935551221928766e-14,
+            0.053500855314245394
+          ],
+          [
+            -1.3181923214384872e-13,
+            73.99476728116557,
+            -1.7841903945432138e-14
+          ],
+          [
+            0.050568235148303074,
+            1.7215056074441467e-14,
+            241.4548427191208
+          ]
+        ]
+      },
+      "dissipation_sample": {
+        "minimum_total_power": 0.0076187757102724775,
+        "sample_count": 78
+      },
+      "radiation_only_diagnostic": {
+        "initial_displacement": 0.17453292519943295,
+        "positive_peak_count": 28,
+        "logarithmic_decrement": 0.4000308778177828,
+        "damping_ratio": 0.06353824654094581,
+        "settling_time_s": 9.988,
+        "equilibrium_error": -4.269450866942631e-8,
+        "trace_checksum_sha256": "d8981fa5eecd795415308ad4cf0e5c709d802c78d73bf2224148f1bbfcf98c8d",
+        "simulation": {
+          "method": "rk4",
+          "dt_s": 0.002,
+          "duration_s": 30,
+          "steps": 15000
+        }
+      },
+      "combined": {
+        "initial_displacement": 0.17453292519943295,
+        "positive_peak_count": 28,
+        "logarithmic_decrement": 0.8769505885661586,
+        "damping_ratio": 0.13823113867339903,
+        "settling_time_s": 3.838,
+        "equilibrium_error": -1.7714801300672768e-12,
+        "trace_checksum_sha256": "283b8691f95da057976c3cf5ccf42af5b97c9c8ade6f5ed5f8e5bdf771e3a443",
+        "simulation": {
+          "method": "rk4",
+          "dt_s": 0.002,
+          "duration_s": 30,
+          "steps": 15000
+        }
+      },
+      "viscous_effect": {
+        "logarithmic_decrement_increase": 0.4769197107483758,
+        "damping_ratio_increase": 0.07469289213245323,
+        "settling_time_change_s": -6.1499999999999995
+      }
+    }
+  },
+  "limitations": [
+    "Capytaine and the current hull meshes are bootstrap solver outputs, not reviewed physical validation evidence.",
+    "Viscous coefficients are engineering bootstrap estimates and are not fitted to independent Vehicle B/C free-decay measurements.",
+    "Radiation-only traces are diagnostic counterfactuals and are invalid production coupled6 configurations.",
+    "The constant-coefficient model omits Cummins radiation memory.",
+    "Independent free-decay measurements and reviewed meshes are required before claiming physical damping validation."
+  ]
+}

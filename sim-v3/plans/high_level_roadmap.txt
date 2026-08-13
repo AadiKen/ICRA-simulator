@@ -1,0 +1,644 @@
+﻿1. Purpose
+The BCOD simulator is a marine mission simulation platform with two long-term purposes:
+1. Interactive evaluation and demonstration
+   * Prospective users and demo presenters can configure a boat, environment, and mission, then observe how the BCOD system navigates while selectively activating sensors.
+   * The simulator should clearly communicate the value of the model in terms of mission completion, reduced sensor usage, and lower energy/cost footprint.
+2. Training-data generation
+   * The same simulation core should later support headless execution for generating realistic training rollouts and sensor outputs.
+   * The interactive app is not the training system itself, but it should be built on top of a simulation architecture that can later be reused in a headless runner.
+The simulator is therefore not just a visualization tool. It is a physics-grounded simulation engine with a polished interactive shell.
+________________
+
+
+2. Guiding principle
+The simulator should be designed as:
+* a realistic underlying simulation layer
+* with a clean, smooth, UX-focused application layer on top
+When realism and presentation conflict:
+* the simulation core should remain grounded and internally consistent
+* the interactive UX may simplify what is exposed, but should not fake the underlying mechanics in a way that breaks credibility
+This means the demo layer can be clean and approachable, while the actual boat motion, environment effects, and sensor outputs remain meaningfully connected to the modeled world.
+________________
+
+
+3. Success criteria
+A successful version of the simulator should let a user:
+* configure a realistic mission scenario manually
+* define a boat with meaningful motion constraints
+* define an environment with obstacles and sensing conditions
+* run a BCOD-controlled mission in a way that is physics-consistent enough to stand in for real testing at a high level
+* visualize the system’s decisions, including:
+   * predicted path
+   * uncertainty
+   * active sensors
+   * energy/cost usage
+* compare BCOD’s selective sensing footprint against an all-sensors-on benchmark
+* do all of the above in a browser on an average laptop with smooth interaction
+Longer-term success includes:
+* exposing the same simulation core to a headless training pipeline
+* producing reproducible stochastic rollouts using seeded randomness
+________________
+
+
+4. Primary users
+A. Prospective users / customers
+Care most about:
+* whether the system appears credible
+* whether it works in scenarios relevant to them
+* whether it saves sensing cost / energy
+* whether it can complete missions reliably
+They care less about technical detail and more about:
+* clarity
+* smoothness
+* confidence in the system’s value
+B. Demo presenters
+Care most about:
+* clean flow
+* easy setup
+* stable behavior
+* visually clear outcomes
+* quick reruns and easy scenario adjustment
+C. Research team
+Care most about:
+* realism of the simulation layer
+* meaningful sensor/environment interaction
+* extensibility
+* integration with BCOD and future training loops
+* reuse in headless mode later
+________________
+
+
+5. Core use cases
+Interactive mode
+The simulator should support these main tasks:
+* test different sensor layouts or sensing assumptions
+* test the system in user-relevant mission scenarios
+* define a survey region or mission by waypoints
+* stress test the system under harder environmental conditions
+* demonstrate how BCOD reaches waypoints while reducing sensing cost
+* inspect how uncertainty and sensor activation evolve over time
+Future training/data mode
+The simulator should later support:
+* taking scenario/environment specification files as input
+* stepping in closed loop with BCOD or another controller
+* receiving short-horizon trajectory and sensor activation decisions
+* generating sensor outputs at each relevant sampling point
+* returning reproducible, realistic rollouts for training or evaluation
+Parameter sweeps and bulk environment randomization are explicitly separate concerns and do not need to define the interactive app structure right now.
+________________
+
+
+6. Scope and non-goals
+In scope
+* realistic-enough marine mission simulation
+* simplified but meaningful boat dynamics
+* meaningful environmental effects on motion and sensing
+* real rendered camera frames
+* sampled lidar point clouds
+* waypoint mission execution
+* BCOD interaction loop
+* energy/cost accounting
+* polished browser-based demo application
+Out of scope for now
+* full high-fidelity hydrodynamic simulation
+* AAA visual realism
+* real-world geospatial import
+* multi-run comparison dashboard
+* advanced export workflows
+* full headless pipeline implementation
+* large-scale dataset orchestration
+* complex multi-sensor-per-type boat layouts
+________________
+
+
+7. System architecture overview
+The simulator should be designed as four logical layers.
+Layer 1: Simulation core
+Responsible for:
+* boat state and motion update
+* environment state
+* sensor simulation
+* mission state
+* stochastic effects
+* energy/cost accounting
+* simulation stepping
+This is the most important layer.
+Layer 2: Controller interface
+Responsible for the closed-loop interaction with BCOD:
+* simulator provides observations
+* BCOD returns:
+   * short-horizon predicted trajectory
+   * sensor activation set
+* simulator advances state and repeats
+This should be defined as a clean interface, not entangled with UI code.
+Layer 3: Interactive application layer
+Responsible for:
+* scenario editing
+* mission setup
+* run controls
+* result visualization
+* user flow across configuration stages
+This should sit on top of the simulation core, not contain the simulation logic itself.
+Layer 4: Rendering / UI presentation
+Responsible for:
+* Three.js world rendering
+* overlays
+* panels
+* motion cues
+* visual polish
+This layer should not define application state or simulate physics.
+________________
+
+
+8. Architectural direction
+The simulator should move away from a “multiple hidden scenes/screens in 3D space” architecture.
+Current pattern
+* all elements exist in the world
+* camera moves between them
+* transitions are created by moving objects into view
+This has caused:
+* clunky feel
+* high memory use
+* poor extensibility
+* weak separation of render state and application state
+Target pattern
+Use:
+* one persistent world
+* one persistent boat/environment scene
+* HTML/CSS overlay panels for stage-specific controls
+* camera motion only when it adds continuity or emphasis
+This preserves the seamless flow you want while avoiding the cost and rigidity of scene-as-navigation.
+________________
+
+
+9. Simulation model
+9.1 Boat dynamics target
+The simulator should use a Level 2 simplified dynamic model:
+* more realistic than pure kinematics
+* less complex than full marine hydrodynamics
+The motion model should include:
+* position
+* velocity
+* orientation
+* heading
+* angular velocity
+* acceleration
+* angular acceleration
+* power draw
+Boat parameters should include:
+* max speed
+* max acceleration
+* max deceleration
+* max turn rate
+* dimensions
+* mass
+* translational damping
+* angular damping
+* buoyancy strength
+* water drag strength
+Possible future additions:
+* turn effectiveness vs speed
+* response lag
+* depth-dependent wave velocity
+Motion behavior goal
+The boat should not simply follow a spline.
+Instead, it should attempt to satisfy waypoint or short-horizon trajectory objectives within its physical capabilities.
+If the controller asks for behavior the boat cannot physically execute, the boat should do the best it can, then require the controller to readjust on later steps.
+Current implementation note
+The headless simulator now implements a v1 simplified dynamics model in schema.js.
+The boat samples water at hull points, computes buoyancy and relative water drag, integrates linear/angular acceleration, and fails the mission on collision or out-of-bounds.
+________________
+
+
+9.2 Environmental motion effects
+Environmental motion effects should include:
+Water current
+Should affect:
+* forward progress
+* lateral drift
+Example:
+If the controller commands the boat toward a waypoint while a strong sideways current exists, the boat should deviate and require corrective replanning.
+Waves
+Should affect motion at a simplified level, not just visuals.
+They do not need to become full fluid simulation, but should contribute to:
+* motion disturbance
+* possible sensor instability in future extensions
+Current implementation note
+Water now exposes waterFieldModel.sampleAt(pos, time), returning surface height, velocity, acceleration, normal, depth, and submerged state.
+Internally, water remains a 2D surface height-field, but the interface is 3D and can be shared with future wind/atmosphere field models.
+Waves are mechanically meaningful in the headless simulator through hull sampling, buoyancy, drag, and torque.
+________________
+
+
+10. Controller / BCOD interaction loop
+At each simulation cycle:
+1. Simulator gathers observations from active sensors
+2. Simulator optionally exposes ground truth if requested
+3. BCOD returns:
+   * a short-horizon predicted trajectory
+   * a sensor activation set
+4. Simulator advances the boat toward those objectives within its capabilities
+5. Environment and stochastic effects perturb the outcome
+6. Sensor outputs are generated again at sensor-specific frequencies
+7. Energy/cost metrics are updated
+8. Repeat
+Important frequencies
+The system should distinguish between:
+* simulation/controller frequency
+* individual sensor frequencies
+This means BCOD may update at one rate while sensors sample at different rates.
+That distinction should be explicit in the simulator core.
+________________
+
+
+11. Stochasticity model
+The simulator should be stochastic but reproducible.
+Randomness sources for the first realistic version
+* sensor noise
+* current disturbances
+* partial observability
+* latency
+Requirement
+All stochastic behavior should be seeded so runs are reproducible.
+This is important both for debugging and future training workflows.
+________________
+
+
+12. Sensor model
+12.1 General sensor assumptions
+For the first version, assume:
+* at most one of each sensor type per boat
+* sensors affect observation only
+* sensors remain physically conditioned by the environment
+Each sensor model should support:
+* on/off activation
+* static power cost
+* degradation under conditions
+* range limits
+* field of view
+Not required yet:
+* complex mounting layouts
+* multiple instances per type
+* deep calibration systems
+________________
+
+
+12.2 Sensor list
+GPS
+Output:
+* position estimate
+Target realism:
+* should eventually include realistic degradation and failure in denied conditions rather than remaining exact
+IMU
+Output:
+* simulated acceleration and rotation-derived readings
+Should be based on actual simulated motion state, not arbitrary synthetic values.
+Day camera
+Output:
+* rendered RGB image facing forward
+Should degrade with:
+* low light / night
+* poor visibility
+Night camera
+Output:
+* rendered RGB or night-appropriate image facing forward
+Should outperform day camera in dark conditions.
+Lidar
+Output:
+* sampled point cloud from scene geometry
+Should reflect:
+* range
+* field of view
+* environmental limits where appropriate
+EXO2 water sensor
+Output:
+* water chemistry match / water feature observation tied to known maps or modeled fields
+This can stay abstract initially if needed, but it must plug into the same observation loop.
+________________
+
+
+12.3 Environment-conditioned sensing
+Environment should influence sensing in meaningful ways.
+Examples:
+* fog / atmospheric visibility reduces camera effectiveness
+* time of day affects day vs night camera quality
+* denied zones degrade sensor effectiveness or availability
+* favored zones improve sensor performance
+* range and geometry affect lidar returns
+This is a key part of the simulator’s credibility since BCOD’s value is tied to sensing decisions.
+________________
+
+
+13. Environment model
+The environment should support the following categories.
+Motion-affecting environment
+* water current
+* waves
+Sensing-affecting environment
+* static obstacles
+* atmospheric visibility
+* time of day
+* denied zones
+* favored zones
+Rain and fog can initially be collapsed into a more general visibility condition variable if that simplifies the model.
+Important note
+Right now many of these elements exist visually or structurally but do not meaningfully affect the simulation.
+That must change for the environment layer to be useful.
+________________
+
+
+14. Mission model
+A mission is currently defined as:
+* an ordered sequence of mandatory waypoint checkpoints
+Success condition
+A mission succeeds when:
+* all waypoints are visited in order
+* each is reached within tolerance radius
+* mission is completed under energy budget
+User-defined mission parameters
+For now the user should be able to define:
+* waypoint positions
+* waypoint tolerance radius
+* sensor cost preferences beyond raw energy
+   * for example, avoiding a sensor because it reveals position
+Input style
+For now:
+* waypoint creation is manual
+Future additions can include:
+* imported mission files
+* generated survey patterns
+* region-coverage mission templates
+________________
+
+
+15. Results model
+15.1 What a prospect should understand
+The final results experience should clearly show:
+* mission completion status
+* fewer sensors were used than an all-on strategy
+* energy/cost was reduced
+* the boat still completed the mission robustly
+* BCOD adapted over time rather than blindly sensing everything
+15.2 What should be visualized during or after a run
+The simulator should display:
+* boat trajectory
+* next few predicted waypoints / short-horizon path
+* uncertainty
+* sensor activations over time
+* energy/cost usage over time
+* all-on benchmark cost footprint
+15.3 Benchmark requirement
+Every run should generate an all-sensors-on reference footprint so the BCOD strategy can be evaluated against something intuitive.
+Even if the UI only presents a single run, that baseline should still be computed.
+________________
+
+
+16. Interactive application flow
+The interactive app should feel like a seamless mission setup and execution flow centered on the boat/world.
+Recommended flow
+1. Configure boat and sensors
+2. Configure environment
+3. Set mission waypoints
+4. Run simulation
+5. Review results
+Interaction style
+* world remains visible throughout
+* panels appear and disappear as the user progresses
+* camera movement can support transitions, but should not be the primary screen architecture
+This preserves continuity while keeping the app efficient and manageable.
+________________
+
+
+17. Screen / panel structure
+Panel 1: Boat + sensor configuration
+Purpose:
+* define vehicle capabilities and installed sensors
+Inputs:
+* max speed
+* acceleration
+* deceleration
+* max turn rate
+* enabled sensor types
+* sensor cost assumptions
+Outputs:
+* validated boat configuration object
+________________
+
+
+Panel 2: Environment configuration
+Purpose:
+* define the mission environment
+Inputs:
+* obstacles
+* current settings
+* wave settings
+* atmospheric visibility
+* time of day
+* denied/favored zones
+Outputs:
+* environment configuration object
+________________
+
+
+Panel 3: Waypoint planning
+Purpose:
+* define ordered mission checkpoints
+Inputs:
+* clicked waypoint positions
+* tolerance radius
+* mission-related cost preferences
+Outputs:
+* ordered waypoint list and mission settings
+________________
+
+
+Panel 4: Run view
+Purpose:
+* show simulation execution in time
+Displays:
+* boat motion
+* predicted trajectory
+* uncertainty
+* sensor activations
+* current energy/cost
+* mission progress
+Controls:
+* start
+* pause
+* reset
+* replay
+________________
+
+
+Panel 5: Results view
+Purpose:
+* summarize run outcome and BCOD value
+Displays:
+* mission success/failure
+* total energy/cost
+* active sensor timeline
+* uncertainty summary
+* all-on benchmark comparison
+________________
+
+
+18. UX and visual direction
+The application should feel like:
+* a research tool
+* a robotics interface
+* with hints of a lightweight defense demo
+* and an overall tone that feels premium with engineering credibility
+What matters most visually
+1. clean overlay UI
+2. polished visuals
+3. smooth animations
+4. fast interactions
+5. cohesive layout
+The 3D world does not need photorealism.
+A stylized low-poly world is acceptable and may even be preferable if it feels intentional and clean.
+That is a strong insight, because it means effort should go into:
+* clarity
+* cohesion
+* responsiveness
+rather than chasing realism in rendering.
+________________
+
+
+19. Performance requirements
+The interactive app should run on:
+   * an average laptop in the browser
+Priority order in demo mode:
+   1. accuracy
+   2. smoothness
+   3. fast reruns
+This means rendering and UI architecture should never make the app feel heavy if they are not contributing to simulation quality.
+________________
+
+
+20. Current-state gap analysis
+20.1 What exists now
+   * headless simulation core in schema.js
+   * unified simState runtime container
+   * simulator-owned models and logs
+   * fixed-step simulator.step(), runSteps(), and runUntilDone()
+   * createInitialSimState scenario initializer
+   * canonical controlCommand with waypoints and activeSensors
+   * simplified boat dynamics with linear/angular state
+   * 3D water sample API backed by a 2D surface height-field
+   * hull water sampling, buoyancy, relative water drag, and torque
+   * collision and out-of-bounds failure
+   * GPS and IMU state-based sensors
+   * explicit placeholders for lidar, day camera, night camera, and EXO2
+   * cumulative and per-step metrics
+   * simulator-owned logs for boat states, metrics, and sensor activations
+   * simulatorSmokeTest.js for core smoke testing
+20.2 Main weaknesses
+   * no web runner has been wired to the new simulator core yet
+   * no Three.js rendering layer for the new core yet
+   * lidar and camera sensors require renderer-backed implementations
+   * EXO2 behavior is still undefined
+   * no remote BCOD adapter yet
+   * no all-sensors-on benchmark yet
+   * no per-sensor cadence scheduler yet
+   * no seeded noise/degradation model yet
+   * no UI for presets, run controls, metrics, logs, or replay yet
+20.3 Biggest missing pieces
+If I had to rank them:
+Tier 1
+   * wire the web app to the new simulator class
+   * create a browser simRunner with start/pause/reset/step
+   * render boat/water/obstacles/waypoints from sim.state
+   * keep UI/render state separate from sim.state
+   * implement log/metric panels
+Tier 2
+   * implement renderer-backed lidar and camera sensors
+   * define EXO2 behavior
+   * add per-sensor scheduling and degradation
+   * implement benchmark accounting
+   * formalize remote BCOD adapter
+Tier 3
+   * export pipeline
+   * replay tooling
+   * real-world map import
+   * richer multi-sensor placement
+________________
+
+
+21. Recommended build order
+This is the part I would use as your actual roadmap.
+Phase 1 — Core architecture cleanup
+   * define canonical scenario/state schema
+   * define boat state object
+   * define environment state object
+   * define mission state object
+   * define simulation step/update loop
+   * separate render layer from simulation state
+   * status: mostly complete in schema.js
+Phase 2 — Motion realism
+   * implement simplified dynamic boat model
+   * add current-driven drift
+   * connect waypoint-following to physical limits
+   * add hull buoyancy and relative water drag
+   * status: v1 complete, tuning and deterministic tests remain
+Phase 3 — Sensor loop
+   * define sensor interface
+   * implement on/off behavior
+   * add power cost accounting
+   * add degradation under environmental conditions
+   * connect rendered camera and lidar sampling properly
+   * define ground-truth toggle
+   * status: GPS/IMU and placeholders exist; rendered sensors remain
+Phase 4 — BCOD integration contract
+   * define controller API/interface
+   * simulator sends active observations
+   * controller returns short-horizon path + sensor activation set
+   * integrate controller/simulator frequencies
+   * status: canonical local command exists; remote adapter remains
+Phase 5 — UI/product restructuring
+   * replace camera-as-navigation architecture
+   * move to persistent world + overlay panels
+   * create cohesive layout, visual system, and controls
+   * make transitions smooth but lightweight
+Phase 6 — Results and storytelling
+   * show sensor timeline
+   * show cost/energy savings
+   * show all-on baseline
+   * show uncertainty and predicted trajectory clearly
+Phase 7 — Headless preparation
+   * isolate simulation core further
+   * define reusable config schema
+   * reduce render dependency
+   * prepare extraction to separate runner later
+________________
+
+
+22. Strong recommendation on implementation philosophy
+You should think of this project as:
+not
+ “a Three.js app with some simulator features”
+but rather:
+a simulator with a Three.js front-end
+That distinction will probably fix a lot of the messiness you are feeling right now.
+Once the simulation state, step loop, and BCOD interface are clean, the rest becomes much easier:
+   * the UI gets simpler
+   * performance gets better
+   * headless reuse becomes possible
+   * polish becomes intentional instead of decorative
+________________
+
+
+23. One thing I would add that you did not explicitly ask for
+You said you did not understand what a researcher would inspect on the results screen. What I mean is this:
+A prospect mainly wants:
+   * “Did it work?”
+   * “Did it save energy?”
+   * “Why is this better?”
+A researcher may want:
+   * where uncertainty spiked
+   * where the controller changed sensor strategy
+   * whether drift/current caused repeated correction
+   * whether one environment factor broke a sensor
+   * whether the controller frequency and sensor frequency interacted badly
+That does not mean you need a separate researcher mode right now.
+It just means the underlying results structure should be rich enough that, later, you can expose deeper debugging views without redesigning everything.
+________________

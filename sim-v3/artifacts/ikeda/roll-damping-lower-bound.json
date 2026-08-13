@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "ikeda-zero-speed-lower-bound",
+  "status": "software-estimate-not-physical-validation",
+  "method_scope": "Kato-Tamiya friction plus Ikeda sectional eddy damping at zero speed; Capytaine radiation reported separately; no bilge keel or lift.",
+  "source_checksums": {
+    "hull_spec_sha256": "785134d4b9c362cca1faf1af5d59c6439d1fd0ab44c7717f6fc267ffd9b9223b",
+    "ikeda_himeno_tanaka_1978_sha256": "96814901663b8642e836edc61a15843b24578517c89c0d0f6de64939fdc0a875"
+  },
+  "reference_implementation": {
+    "repository": "https://github.com/martinlarsalbert/rolldecay-estimators",
+    "commit": "c74642ce2b5299d4aa849c277fbaf8688f79f760",
+    "license": "BSD-3-Clause",
+    "license_sha256": "29e87305af8bb7f1b3991b1f100cb960e93a29902ab3c173bcedf9174d2ebdc7",
+    "use": "Equations independently adapted into this tracked implementation; runtime does not depend on the repository."
+  },
+  "assumptions": {
+    "water_density_kg_m3": 1025.0,
+    "kinematic_viscosity_m2_s": 1.19e-06,
+    "roll_amplitude_rad": 0.17453292519943295,
+    "forward_speed_mps": 0,
+    "bilge_keel_component": 0,
+    "lift_component": 0,
+    "radiation_double_counted": false
+  },
+  "vehicles": {
+    "vehicle-b-rudder": {
+      "evaluation_frequency_rad_s": 3.1722259873511423,
+      "components_Nms_per_rad": {
+        "potential_radiation": 34.934270438329534,
+        "friction_equivalent_linear": 1.1099326722941965,
+        "eddy_equivalent_linear": 0.0006546244009324621,
+        "bilge_keel": 0,
+        "lift": 0
+      },
+      "viscous_linear_roll_Nms_per_rad": 1.1099326722941965,
+      "viscous_quadratic_roll_Nms2_per_rad2": 0.0013929381840742732,
+      "combined_equivalent_linear_Nms_per_rad": 36.044857735024664,
+      "sectional_geometry": {
+        "sections_per_hull": 401,
+        "section_area_coefficient": 0.6965820107444815,
+        "demihull_count": 1
+      },
+      "wetted_surface_approximation_m2": 4.44384,
+      "provenance": {
+        "potential_radiation": "Capytaine parametric-hull solve",
+        "friction": "Kato-Tamiya/Ikeda engineering estimate",
+        "eddy": "Ikeda Lewis-form sectional integration",
+        "geometry": "analytic generalized Wigley design assumption"
+      },
+      "limitations": [
+        "Representative design geometry is not measured.",
+        "No bilge keel is specified, so its component is zero.",
+        "Zero-speed lift is zero.",
+        "The result is an unvalidated lower-bound estimate, not free-decay validation.",
+        "Potential wave-making/radiation damping is supplied by Capytaine and excluded from the viscous subtotal."
+      ]
+    },
+    "vehicle-c-azimuth": {
+      "evaluation_frequency_rad_s": 6.962408221089081,
+      "components_Nms_per_rad": {
+        "potential_radiation": 115.9852490401035,
+        "friction_equivalent_linear": 2.192923674034241,
+        "eddy_equivalent_linear": 0.0068229047659900555,
+        "bilge_keel": 0,
+        "lift": 0
+      },
+      "viscous_linear_roll_Nms_per_rad": 2.192923674034241,
+      "viscous_quadratic_roll_Nms2_per_rad2": 0.006614752497696677,
+      "combined_equivalent_linear_Nms_per_rad": 118.18499561890374,
+      "sectional_geometry": {
+        "sections_per_hull": 401,
+        "section_area_coefficient": 0.6861727670126413,
+        "demihull_count": 2
+      },
+      "wetted_surface_approximation_m2": 4.198207999999999,
+      "provenance": {
+        "potential_radiation": "Capytaine parametric-hull solve",
+        "friction": "Kato-Tamiya/Ikeda engineering estimate",
+        "eddy": "Ikeda Lewis-form sectional integration",
+        "geometry": "analytic generalized Wigley design assumption"
+      },
+      "limitations": [
+        "Representative design geometry is not measured.",
+        "No bilge keel is specified, so its component is zero.",
+        "Zero-speed lift is zero.",
+        "The result is an unvalidated lower-bound estimate, not free-decay validation.",
+        "Potential wave-making/radiation damping is supplied by Capytaine and excluded from the viscous subtotal."
+      ]
+    }
+  }
+}

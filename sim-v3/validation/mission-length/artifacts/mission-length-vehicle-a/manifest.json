@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "run_id": "mission-length-vehicle-a",
+  "experiment_checksum": "9bd38a4a24af9c7636aa01e7e19264803f234ec8fbb1cb3cf20ea096e2bb9ceb",
+  "created_at": "2026-07-31T00:00:00.000Z",
+  "software": {
+    "node": "v24.13.0",
+    "physics": "legacy-production-adapter",
+    "parquet": "pyarrow-19"
+  },
+  "seeds": [
+    42
+  ],
+  "inputs": [],
+  "validation_scope": {
+    "vehicle": "MSS-validated planar3",
+    "purpose": "mission-length artifact stress"
+  },
+  "warnings": [
+    "Controller holds initial station while mission termination runs to 300 seconds; this stresses artifacts rather than navigation quality."
+  ]
+}

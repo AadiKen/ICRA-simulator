@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "aero4river-v1",
+  "title": "AERO4River's Experimental Tests - 3DoF Autonomous Surface Vessel",
+  "version": "1",
+  "published": "2021-03-22",
+  "doi": "10.17632/tf4ym6fsvc.1",
+  "primaryLandingPage": "https://data.mendeley.com/datasets/tf4ym6fsvc/1",
+  "relatedPublication": "https://doi.org/10.1109/ACCESS.2021.3067448",
+  "license": {
+    "spdx": "CC-BY-4.0",
+    "sourceStatement": "Mendeley Data landing page labels version 1 CC BY 4.0",
+    "attributionRequired": true
+  },
+  "acquisition": {
+    "mode": "direct-primary-source",
+    "localAcquisitionPermitted": true,
+    "status": "acquired-and-checksummed",
+    "reason": "All six version-1 MATLAB files were downloaded from Mendeley public-files URLs and locked by SHA-256",
+    "lockFile": "validation/datasets/locks/aero4river-v1.sha256",
+    "inventoryFile": "validation/datasets/inventories/aero4river-v1.json"
+  },
+  "scientificScope": {
+    "identificationExperiments": 3,
+    "validationExperiments": 3,
+    "plantDegreesOfFreedom": 3,
+    "propulsion": "air propulsion with azimuth control",
+    "claimLimit": "Applied surge/sway/yaw wrench response projected from the BCOD coupled6 plant; not dual water-azimuth or full six-axis validation"
+  },
+  "documentedVariables": [
+    { "name": "x", "unit": "m", "meaning": "position x-axis" },
+    { "name": "y", "unit": "m", "meaning": "position y-axis" },
+    { "name": "yaw", "unit": "rad", "meaning": "yaw angle" },
+    { "name": "u", "unit": "m/s", "meaning": "surge velocity" },
+    { "name": "v", "unit": "m/s", "meaning": "sway velocity" },
+    { "name": "r", "unit": "rad/s", "meaning": "yaw rate" },
+    { "name": "fx", "unit": "N", "meaning": "propulsion force on x-axis" },
+    { "name": "fy", "unit": "N", "meaning": "propulsion force on y-axis" },
+    { "name": "tn", "landingPageName": "Tn", "unit": "N m", "meaning": "torque on z-axis" },
+    { "name": "t", "unit": "s", "meaning": "experiment time" }
+  ],
+  "coordinateConvention": {
+    "status": "resolved-v1",
+    "transform": "validation/aero4river/aero4river-coordinate-transform-v1.json",
+    "basis": ["Associated publication Section II-B equations 1-5", "Raw-track kinematic and yaw-rate sign consistency checks"],
+    "mapping": "Source x/y/yaw, u/v/r, and fx/fy/tn map identically to N/E/yaw, SNAME planar velocity, and body generalized wrench; source origin retained"
+  },
+  "expectedContainer": "MATLAB data files",
+  "evidenceAdmissible": true,
+  "remainingEvidenceGate": "No dataset-import gate remains. Vehicle C behavioral validation still requires same-vessel data; AERO4River supports only reference-neutral applied-wrench pipeline evidence."
+}

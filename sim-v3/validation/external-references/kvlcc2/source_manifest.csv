@@ -1,0 +1,25 @@
+tier,item,status_in_package,source_url,action_or_note
+1,KVLCC2 hull IGES,scripted_download,https://simman2014.dk/wp-content/uploads/2015/07/KVLCC2-Hull.zip,Run fetch_public_assets.sh; route verified IGES to Capytaine mesh preparation; not required by coefficient-based MMG Stage 1
+1,KVLCC2 rudder drawing,scripted_download,https://simman2014.dk/wp-content/uploads/2015/07/KVLCC2-Rudder-please-note-the-drawing-of-the-rudder-is-in-scale-1-58.00.zip,Drawing is scale 1:58
+1,KVLCC2 propeller drawing NMRI,scripted_download,https://simman2014.dk/wp-content/uploads/2015/07/KVLCC2-Propeller-NMRI.zip,Preferred reliable source archive
+1,KVLCC2 propeller drawing HMRI,scripted_download,https://simman2014.dk/wp-content/uploads/2015/07/KVLCC2-propeller-HMRI.zip,Secondary reliable source archive
+1,KVLCC2 propeller open-water data NMRI,scripted_download,https://simman2014.dk/wp-content/uploads/2015/07/KVLCC2-Propeller-Openwater-Data-NMRI-Model.zip,Use for KT/KQ curves and inflow implementation
+1,KVLCC2 propeller open-water data HMRI,included,https://simman2014.dk/wp-content/uploads/2015/07/KVLCC2-Propeller-Openwater-Data-HMRI.pdf,One-page tabular dataset
+1,KVLCC2 propeller drawing INSEAN,broken_upstream,https://simman2014.dk/wp-content/uploads/2015/07/KVLCC2-Propeller-INSEAN.zipc,Malformed .zipc link currently returns 404; do not block on it
+1,Yasukawa and Yoshimura 2015 MMG,included,https://link.springer.com/content/pdf/10.1007/s00773-014-0293-y.pdf,Primary coefficient and published maneuver comparison source
+1,ITTC 7.5-02-06-06 Rev 01 2024,upstream_unavailable_current,https://ittc.info/media/12240/75-02-06-06.pdf,Official benchmark page still exposes this URL but direct retrieval returned 404 on 2026-07-31; optional guideline and not a KVLCC2 comparison dependency
+2,NOAA ENC charts,manual_subset,https://distribution.charts.noaa.gov/ENC/,Choose only geographic test areas and preserve chart edition metadata
+2,NOAA Coastal Relief Model,manual_subset,https://www.ncei.noaa.gov/products/coastal-relief-model,Select regional grids; not for navigation
+2,NOAA CO-OPS API,api,https://api.tidesandcurrents.noaa.gov/api/prod/,No bulk download needed; record station/product/datum/time-zone parameters
+2,NDBC historical observations,manual_subset,https://www.ndbc.noaa.gov/historical_data.shtml,Choose station IDs and years matching scenarios
+2,ERA5 single-level reanalysis,account_required,https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels,Register and accept dataset terms; subset variables/time/area
+2,USGS 3DEP,manual_subset,https://www.usgs.gov/3d-elevation-program,Select terrain tiles covering the same test regions
+2,Natural Earth,manual_download,https://www.naturalearthdata.com/downloads/,Use as low-resolution global fallback only
+3,VRX repository,optional_clone,https://github.com/osrf/vrx,Set FETCH_VRX=1 when running script
+3,VRX paper,manual_download,https://doi.org/10.23919/OCEANS40490.2019.8962724,Citation and feature/setup comparison source
+3,ROS 2 pinned Linux environment,infrastructure,N/A,"Pin OS, ROS 2, Gazebo, compiler, and dependency versions in Docker"
+3,NVIDIA runner,infrastructure,N/A,"Record GPU model, driver, CUDA version, power mode, and benchmark protocol"
+4,MarineGym,included,https://arxiv.org/pdf/2503.09203,Highest-priority GPU-parallel marine simulation comparison
+4,LOTUSim,included,https://arxiv.org/pdf/2607.03072,Multi-domain marine simulator positioning comparison
+4,Marine simulator review,included,https://arxiv.org/pdf/2504.06245,"Related-work coverage for Stonefish, DAVE, HoloOcean, MARUS, and UNav-Sim"
+4,Ikeda roll-damping method,included,https://www.jstage.jst.go.jp/article/jjasnaoe1968/1978/143/1978_143_113/_pdf/-char/en,Original forward-speed component method reference

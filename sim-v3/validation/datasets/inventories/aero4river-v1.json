@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "datasetId": "aero4river-v1",
+  "container": "MATLAB v5 little-endian",
+  "inspectionTool": "GNU Octave",
+  "commonVariables": ["fx", "fy", "r", "t", "tn", "u", "v", "x", "y", "yaw"],
+  "commonShape": "1xN double",
+  "allValuesFinite": true,
+  "nominalSamplePeriodSeconds": 0.1,
+  "notes": [
+    "The landing page writes torque as Tn, while all six MATLAB files use lowercase tn.",
+    "Floating-point spacing around 0.1 s is retained as source data; the importer must derive integer sample indices and must not accumulate time."
+  ],
+  "files": [
+    {"path":"Identification_Experimental_Tests_track1.mat","samples":295,"startSeconds":0,"endSeconds":29.4},
+    {"path":"Identification_Experimental_Tests_track2.mat","samples":218,"startSeconds":0,"endSeconds":21.7},
+    {"path":"Identification_Experimental_Tests_track3.mat","samples":328,"startSeconds":0,"endSeconds":32.7},
+    {"path":"Validation_Experimental_Tests_track1.mat","samples":513,"startSeconds":0,"endSeconds":51.2},
+    {"path":"Validation_Experimental_Tests_track2.mat","samples":347,"startSeconds":0,"endSeconds":34.6},
+    {"path":"Validation_Experimental_Tests_track3.mat","samples":358,"startSeconds":0,"endSeconds":35.7}
+  ]
+}

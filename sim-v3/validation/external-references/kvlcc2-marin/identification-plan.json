@@ -1,0 +1,39 @@
+{
+  "schema_version": 2,
+  "status": "precommitted-before-identification",
+  "strategy": "steady-yaw identification to transient-yaw validation",
+  "coefficient_groups": {
+    "fixed_added_mass": {
+      "coefficients": ["m_x", "m_y", "J_z"],
+      "dimensional_roles": ["X_u_dot", "Y_v_dot", "N_r_dot"],
+      "source": "Yasukawa & Yoshimura 2015 Table 3",
+      "method": "Motora empirical charts, geometry-derived",
+      "fit_permitted": false,
+      "reason": "Turning-circle data weakly observes transient added yaw inertia. These geometry-derived terms are fixed before optimization rather than inferred from an insensitive dataset.",
+      "model_mismatch_limitation": "Values originate from the HMRI KVLCC2 geometry and are retained for the MARIN model as a documented geometry-transfer assumption."
+    },
+    "captive_identified": {
+      "source": "captive.csv; all r=0",
+      "coefficients": ["X_vv", "Y_v", "N_v", "Y_vvv", "N_vvv", "rudder force chain", "a_H", "x_H"],
+      "free_running_data_used": false
+    },
+    "turning_circle_identified": {
+      "source_runs": ["MARIN_FREE_KVLCC2_tc_-35_m", "MARIN_FREE_KVLCC2_tc_35_m"],
+      "coefficients": ["Y_r", "N_r", "Y_rrr", "N_rrr", "Y_vvr", "Y_vrr", "N_vvr", "N_vrr", "X_vr"],
+      "evidence_role": "identification; never reported as held-out validation"
+    },
+    "held_out_validation": {
+      "source_runs": ["MARIN_FREE_KVLCC2_zz_-10_m", "MARIN_FREE_KVLCC2_zz_10_m", "MARIN_FREE_KVLCC2_zz_-20_m", "MARIN_FREE_KVLCC2_zz_20_m"],
+      "evidence_role": "held-out transient-yaw validation; no coefficient fitting permitted"
+    }
+  },
+  "failure_interpretation": {
+    "precommitted": true,
+    "rule": "If held-out zig-zag overshoot metrics fail after turning-circle damping identification, report a yaw-transient observability and data-coverage limitation, not automatically a simulator defect.",
+    "basis": "captive.csv contains no yaw-rate excitation and steady portions of turning circles constrain yaw damping much more strongly than added yaw inertia",
+    "prohibited_response": "Do not move any held-out zig-zag into identification or relax its tolerance after observing the result.",
+    "additional_evidence_needed": ["pure-yaw captive test", "PMM or circular-motion captive test", "independent yaw-transient dataset"]
+  },
+  "provenance_requirement": "Every fitted coefficient must identify captive, turning-circle, or retained-literature provenance separately.",
+  "usv_transfer_permitted": false
+}

@@ -1,0 +1,1066 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "kvlcc2-operating-point-sensitivity",
+  "validation_label": "sensitivity_analysis",
+  "claim_limit": "Uncertainty analysis only. No row is selected or represented as the historical Yasukawa operating point.",
+  "resolved_configuration": {
+    "case": {
+      "schema_version": 1,
+      "id": "marin_l7_experiment",
+      "validation_label": "experimental_validation",
+      "applicable_configuration": "MARIN L7",
+      "model_parameters": {
+        "base": "../kvlcc2-l7.json",
+        "geometry_configuration": "MARIN L7",
+        "coefficient_configuration": "L3 captive tests applied by the published MMG method",
+        "allowed_for_case": "MARIN L7"
+      },
+      "operating_point": {
+        "configuration": "marin_l7_experiment",
+        "scale": {
+          "value": 45.7,
+          "units": "1",
+          "source_document": "Yasukawa & Yoshimura 2015",
+          "location": "Table 1",
+          "status": "published",
+          "applicable_configuration": "MARIN L7"
+        },
+        "speed_mps": {
+          "value": 1.1795373694404232,
+          "units": "m/s",
+          "source_document": "Yasukawa & Yoshimura 2015",
+          "location": "Section 5.1, 15.5 kn full-scale equivalent",
+          "status": "inferred",
+          "applicable_configuration": "MARIN L7"
+        },
+        "propeller_rps": {
+          "value": 10.3333333,
+          "units": "rps",
+          "source_document": "MARIN L7 free-running test documentation",
+          "location": "620 rpm operating point supplied for validation",
+          "status": "published",
+          "applicable_configuration": "MARIN L7"
+        },
+        "rudder_rate_rad_s": {
+          "value": 0.20765774587667277,
+          "units": "rad/s",
+          "source_document": "Yasukawa & Yoshimura 2015",
+          "location": "Section 5.1, 1.76 deg/s full-scale Froude-scaled",
+          "status": "inferred",
+          "applicable_configuration": "MARIN L7"
+        },
+        "resistance_model": {
+          "value": {
+            "type": "equilibrium_at_fixed_shaft_rate",
+            "propeller_rps": 10.3333333
+          },
+          "units": "configuration",
+          "source_document": "BCOD-Sim validation protocol",
+          "location": "straight-ahead trim assumption",
+          "status": "assumed",
+          "applicable_configuration": "MARIN L7"
+        },
+        "maneuvers": {
+          "value": [
+            "turn_port_35",
+            "turn_starboard_35",
+            "zigzag_port_10",
+            "zigzag_starboard_10",
+            "zigzag_port_20",
+            "zigzag_starboard_20"
+          ],
+          "units": "IDs",
+          "source_document": "Yasukawa & Yoshimura 2015",
+          "location": "Tables 4-5 Exp.",
+          "status": "published",
+          "applicable_configuration": "MARIN L7"
+        },
+        "targets": {
+          "value": "fixtures/kvlcc2-experimental-maneuver-indices.json",
+          "units": "path",
+          "source_document": "Yasukawa & Yoshimura 2015",
+          "location": "Tables 4-5 Exp.",
+          "status": "published",
+          "applicable_configuration": "MARIN L7"
+        }
+      }
+    },
+    "model": {
+      "schema_version": 1,
+      "id": "kvlcc2-l7",
+      "model_scale": 45.7,
+      "frame": {
+        "origin": "midship",
+        "x": "forward",
+        "y": "starboard",
+        "z": "down"
+      },
+      "nondimensionalization": {
+        "force": "0.5*rho*Lpp*d*U^2",
+        "yaw_moment": "0.5*rho*Lpp^2*d*U^2",
+        "mass": "0.5*rho*Lpp^2*d",
+        "yaw_inertia": "0.5*rho*Lpp^4*d"
+      },
+      "principal_particulars": {
+        "lpp": {
+          "value": 7,
+          "unit": "m",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "breadth": {
+          "value": 1.27,
+          "unit": "m",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "draft": {
+          "value": 0.46,
+          "unit": "m",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "displacement_volume": {
+          "value": 3.27,
+          "unit": "m^3",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "x_g": {
+          "value": 0.25,
+          "unit": "m",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "block_coefficient": {
+          "value": 0.81,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "propeller_diameter": {
+          "value": 0.216,
+          "unit": "m",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "rudder_span": {
+          "value": 0.345,
+          "unit": "m",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "rudder_area": {
+          "value": 0.0539,
+          "unit": "m^2",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        }
+      },
+      "hull_derivatives": {
+        "X_vv": {
+          "value": -0.04,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "X_vr": {
+          "value": 0.002,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "X_rr": {
+          "value": 0.011,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "X_vvvv": {
+          "value": 0.771,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "Y_v": {
+          "value": -0.315,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "Y_R": {
+          "value": 0.083,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "Y_vvv": {
+          "value": -1.607,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "Y_vvr": {
+          "value": 0.379,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "Y_vrr": {
+          "value": -0.391,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "Y_rrr": {
+          "value": 0.008,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "N_v": {
+          "value": -0.137,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "N_R": {
+          "value": -0.049,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "N_vvv": {
+          "value": -0.03,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "N_vvr": {
+          "value": -0.294,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "N_vrr": {
+          "value": 0.055,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "N_rrr": {
+          "value": -0.013,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        }
+      },
+      "added_mass": {
+        "m_x": {
+          "value": 0.022,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "method": "Motora empirical charts",
+            "potential_flow": false,
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "m_y": {
+          "value": 0.223,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "method": "Motora empirical charts",
+            "potential_flow": false,
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "J_z": {
+          "value": 0.011,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "method": "Motora empirical charts",
+            "potential_flow": false,
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        }
+      },
+      "interaction_coefficients": {
+        "t_P": {
+          "value": 0.22,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "t_R": {
+          "value": 0.387,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "a_H": {
+          "value": 0.312,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "x_H": {
+          "value": -0.464,
+          "unit": "Lpp",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "C1": {
+          "value": 2,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "C2_beta_P_positive": {
+          "value": 1.6,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "C2_beta_P_negative": {
+          "value": 1.1,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "gamma_R_beta_R_negative": {
+          "value": 0.395,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "gamma_R_beta_R_positive": {
+          "value": 0.64,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "l_R": {
+          "value": -0.71,
+          "unit": "Lpp",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "epsilon": {
+          "value": 1.09,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "kappa": {
+          "value": 0.5,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "f_alpha": {
+          "value": 2.747,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        }
+      },
+      "propeller": {
+        "k0": {
+          "value": 0.2931,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "propeller open-water coefficients used with Table 3 model",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "k1": {
+          "value": -0.2753,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "propeller open-water coefficients used with Table 3 model",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "k2": {
+          "value": -0.1385,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "propeller open-water coefficients used with Table 3 model",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "w_P0": {
+          "value": 0.4,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "L7-model wake fraction accompanying Table 3",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        }
+      },
+      "test_conditions": {
+        "approach_speed": {
+          "value": 15.5,
+          "unit": "kn-full-scale-equivalent",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Tables 4-5 maneuver setup",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "rudder_rate": {
+          "value": 1.76,
+          "unit": "deg/s-full-scale",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Tables 4-5 maneuver setup",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "yaw_gyration_radius_ratio": {
+          "value": 0.25,
+          "unit": "Lpp",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1 / maneuver setup",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        },
+        "propeller_revolutions": {
+          "value": "held-constant-at-initial-speed",
+          "unit": "policy",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Tables 4-5 maneuver setup",
+            "status": "published",
+            "applicable_configuration": "MARIN L7"
+          }
+        }
+      },
+      "capytaine_overwrite_policy": {
+        "added_mass": "forbidden",
+        "reason": "MMG Stage-1 added mass comes from Motora empirical charts, not potential flow"
+      }
+    },
+    "solver": {
+      "method": "rk4",
+      "dt_s": 0.02
+    },
+    "baseline_trim": {
+      "ship_speed_mps": 1.1795373694404232,
+      "shaft_rate_rps": 10.3333333,
+      "shaft_rate_rpm": 619.999998,
+      "advance_coefficient": 0.31707993904445764,
+      "thrust_coefficient": 0.19188314602845633,
+      "propeller_thrust_n": 45.71477386108383,
+      "effective_propeller_thrust_n": 35.65752361164539,
+      "hull_resistance_n": 35.65752361164539,
+      "thrust_deduction": 0.22,
+      "effective_wake_fraction": 0.4,
+      "net_surge_force_residual_n": 0,
+      "normalized_surge_force_residual": 0,
+      "resistance_details": {
+        "type": "equilibrium_at_fixed_shaft_rate",
+        "assumption": "Resistance inferred solely to trim straight-ahead net surge force; not a measured resistance curve."
+      },
+      "passed": true,
+      "tolerance": 1e-10
+    }
+  },
+  "baseline_resistance_provenance": {
+    "value": {
+      "type": "equilibrium_at_fixed_shaft_rate",
+      "propeller_rps": 10.3333333
+    },
+    "units": "configuration",
+    "source_document": "BCOD-Sim validation protocol",
+    "location": "straight-ahead trim assumption",
+    "status": "assumed",
+    "applicable_configuration": "MARIN L7"
+  },
+  "shaft_rates_rps": [
+    9.9,
+    10.233,
+    10.3333333,
+    11,
+    11.8338
+  ],
+  "resistance_factors": [
+    0.9,
+    1,
+    1.1
+  ],
+  "rows": [
+    {
+      "propeller_rps": 9.9,
+      "resistance_factor": 0.9,
+      "resistance_n": 32.09177125048085,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.3309588578676833,
+        "thrust_coefficient": 0.18681659989327706,
+        "effective_thrust_n": 31.865396402631514,
+        "residual_n": -0.22637484784933903,
+        "normalized_residual": 0.007053984215531484
+      },
+      "outputs": {
+        "port_advance_lpp": 3.415585486355179,
+        "port_tactical_diameter_lpp": 3.402717325522764,
+        "starboard_advance_lpp": 3.443712393035866,
+        "starboard_tactical_diameter_lpp": 3.4095679572921465,
+        "port_first_overshoot_deg": 5.78975284041371,
+        "port_second_overshoot_deg": 17.61637617904096,
+        "starboard_first_overshoot_deg": 8.428435079340975,
+        "starboard_second_overshoot_deg": 11.069847890570646,
+        "port_turn_duration_s": 121.92,
+        "starboard_turn_duration_s": 118.62,
+        "port_turn_speed_loss_percent": 66.01979128035829,
+        "starboard_turn_speed_loss_percent": 65.63602171689628
+      }
+    },
+    {
+      "propeller_rps": 9.9,
+      "resistance_factor": 1,
+      "resistance_n": 35.65752361164539,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.3309588578676833,
+        "thrust_coefficient": 0.18681659989327706,
+        "effective_thrust_n": 31.865396402631514,
+        "residual_n": -3.7921272090138736,
+        "normalized_residual": 0.10634858579397821
+      },
+      "outputs": {
+        "port_advance_lpp": 3.402887844943886,
+        "port_tactical_diameter_lpp": 3.375971844132398,
+        "starboard_advance_lpp": 3.4301601455117483,
+        "starboard_tactical_diameter_lpp": 3.3811627682413863,
+        "port_first_overshoot_deg": 5.775542742882214,
+        "port_second_overshoot_deg": 17.128773716018117,
+        "starboard_first_overshoot_deg": 8.405366387140454,
+        "starboard_second_overshoot_deg": 10.82157150112634,
+        "port_turn_duration_s": 122.62,
+        "starboard_turn_duration_s": 119.32000000000001,
+        "port_turn_speed_loss_percent": 66.35427020100283,
+        "starboard_turn_speed_loss_percent": 65.99997088036099
+      }
+    },
+    {
+      "propeller_rps": 9.9,
+      "resistance_factor": 1.1,
+      "resistance_n": 39.22327597280993,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.3309588578676833,
+        "thrust_coefficient": 0.18681659989327706,
+        "effective_thrust_n": 31.865396402631514,
+        "residual_n": -7.357879570178415,
+        "normalized_residual": 0.18758962344907115
+      },
+      "outputs": {
+        "port_advance_lpp": 3.3902849218404993,
+        "port_tactical_diameter_lpp": 3.3496134160197393,
+        "starboard_advance_lpp": 3.4167198843295297,
+        "starboard_tactical_diameter_lpp": 3.3531941309830624,
+        "port_first_overshoot_deg": 5.761491584311534,
+        "port_second_overshoot_deg": 16.685283950156087,
+        "starboard_first_overshoot_deg": 8.38227795382561,
+        "starboard_second_overshoot_deg": 10.55733900578701,
+        "port_turn_duration_s": 123.22,
+        "starboard_turn_duration_s": 119.92,
+        "port_turn_speed_loss_percent": 66.67518938895628,
+        "starboard_turn_speed_loss_percent": 66.34817603351857
+      }
+    },
+    {
+      "propeller_rps": 10.233,
+      "resistance_factor": 0.9,
+      "resistance_n": 32.09177125048085,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.3201888686494737,
+        "thrust_coefficient": 0.19075285820322627,
+        "effective_thrust_n": 34.76245782716323,
+        "residual_n": 2.670686576682378,
+        "normalized_residual": 0.08322029207541361
+      },
+      "outputs": {
+        "port_advance_lpp": 3.3736222414316672,
+        "port_tactical_diameter_lpp": 3.3720498608813125,
+        "starboard_advance_lpp": 3.3994527636679464,
+        "starboard_tactical_diameter_lpp": 3.376947942149634,
+        "port_first_overshoot_deg": 5.7302669548469805,
+        "port_second_overshoot_deg": 17.323923049013292,
+        "starboard_first_overshoot_deg": 8.334050369485734,
+        "starboard_second_overshoot_deg": 10.93772184263089,
+        "port_turn_duration_s": 118.62,
+        "starboard_turn_duration_s": 115.42,
+        "port_turn_speed_loss_percent": 64.90896656262603,
+        "starboard_turn_speed_loss_percent": 64.52200717134698
+      }
+    },
+    {
+      "propeller_rps": 10.233,
+      "resistance_factor": 1,
+      "resistance_n": 35.65752361164539,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.3201888686494737,
+        "thrust_coefficient": 0.19075285820322627,
+        "effective_thrust_n": 34.76245782716323,
+        "residual_n": -0.8950657844821563,
+        "normalized_residual": 0.02510173713212762
+      },
+      "outputs": {
+        "port_advance_lpp": 3.361103287200717,
+        "port_tactical_diameter_lpp": 3.345722931795503,
+        "starboard_advance_lpp": 3.3861154583563864,
+        "starboard_tactical_diameter_lpp": 3.3490141761069694,
+        "port_first_overshoot_deg": 5.719249835711203,
+        "port_second_overshoot_deg": 16.895092698866858,
+        "starboard_first_overshoot_deg": 8.256692942725433,
+        "starboard_second_overshoot_deg": 10.653385379357129,
+        "port_turn_duration_s": 119.32000000000001,
+        "starboard_turn_duration_s": 116.02,
+        "port_turn_speed_loss_percent": 65.2518503952727,
+        "starboard_turn_speed_loss_percent": 64.89453349721096
+      }
+    },
+    {
+      "propeller_rps": 10.233,
+      "resistance_factor": 1.1,
+      "resistance_n": 39.22327597280993,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.3201888686494737,
+        "thrust_coefficient": 0.19075285820322627,
+        "effective_thrust_n": 34.76245782716323,
+        "residual_n": -4.460818145646698,
+        "normalized_residual": 0.1137288519382979
+      },
+      "outputs": {
+        "port_advance_lpp": 3.348679406085266,
+        "port_tactical_diameter_lpp": 3.3197816295202434,
+        "starboard_advance_lpp": 3.3728894502649895,
+        "starboard_tactical_diameter_lpp": 3.3215139770436832,
+        "port_first_overshoot_deg": 5.665193573631939,
+        "port_second_overshoot_deg": 16.404101549123325,
+        "starboard_first_overshoot_deg": 8.238140016564131,
+        "starboard_second_overshoot_deg": 10.43334516360185,
+        "port_turn_duration_s": 119.92,
+        "starboard_turn_duration_s": 116.62,
+        "port_turn_speed_loss_percent": 65.5804900585291,
+        "starboard_turn_speed_loss_percent": 65.2504910339615
+      }
+    },
+    {
+      "propeller_rps": 10.3333333,
+      "resistance_factor": 0.9,
+      "resistance_n": 32.09177125048085,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.31707993904445764,
+        "thrust_coefficient": 0.19188314602845633,
+        "effective_thrust_n": 35.65752361164539,
+        "residual_n": 3.5657523611645345,
+        "normalized_residual": 0.11111111111111097
+      },
+      "outputs": {
+        "port_advance_lpp": 3.3612374842522383,
+        "port_tactical_diameter_lpp": 3.3630476397287388,
+        "starboard_advance_lpp": 3.3864011616945597,
+        "starboard_tactical_diameter_lpp": 3.3673747527169478,
+        "port_first_overshoot_deg": 5.693344700989899,
+        "port_second_overshoot_deg": 17.268832422144296,
+        "starboard_first_overshoot_deg": 8.263312804937712,
+        "starboard_second_overshoot_deg": 10.919833235397451,
+        "port_turn_duration_s": 117.72,
+        "starboard_turn_duration_s": 114.52,
+        "port_turn_speed_loss_percent": 64.57476757508516,
+        "starboard_turn_speed_loss_percent": 64.18593005038262
+      }
+    },
+    {
+      "propeller_rps": 10.3333333,
+      "resistance_factor": 1,
+      "resistance_n": 35.65752361164539,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.31707993904445764,
+        "thrust_coefficient": 0.19188314602845633,
+        "effective_thrust_n": 35.65752361164539,
+        "residual_n": 0,
+        "normalized_residual": 0
+      },
+      "outputs": {
+        "port_advance_lpp": 3.348772570890928,
+        "port_tactical_diameter_lpp": 3.336845432596854,
+        "starboard_advance_lpp": 3.3731284124217527,
+        "starboard_tactical_diameter_lpp": 3.3395811081636415,
+        "port_first_overshoot_deg": 5.6833827288787475,
+        "port_second_overshoot_deg": 16.789432826648305,
+        "starboard_first_overshoot_deg": 8.24586915798158,
+        "starboard_second_overshoot_deg": 10.62938804848697,
+        "port_turn_duration_s": 118.32000000000001,
+        "starboard_turn_duration_s": 115.12,
+        "port_turn_speed_loss_percent": 64.91976776230584,
+        "starboard_turn_speed_loss_percent": 64.56126647400791
+      }
+    },
+    {
+      "propeller_rps": 10.3333333,
+      "resistance_factor": 1.1,
+      "resistance_n": 39.22327597280993,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.31707993904445764,
+        "thrust_coefficient": 0.19188314602845633,
+        "effective_thrust_n": 35.65752361164539,
+        "residual_n": -3.5657523611645416,
+        "normalized_residual": 0.09090909090909098
+      },
+      "outputs": {
+        "port_advance_lpp": 3.336402811339411,
+        "port_tactical_diameter_lpp": 3.3110285704684173,
+        "starboard_advance_lpp": 3.3599667697228823,
+        "starboard_tactical_diameter_lpp": 3.3122202857933227,
+        "port_first_overshoot_deg": 5.673565272722115,
+        "port_second_overshoot_deg": 16.35175813960033,
+        "starboard_first_overshoot_deg": 8.170373316329094,
+        "starboard_second_overshoot_deg": 10.39014553918188,
+        "port_turn_duration_s": 118.92,
+        "starboard_turn_duration_s": 115.72,
+        "port_turn_speed_loss_percent": 65.25052166794596,
+        "starboard_turn_speed_loss_percent": 64.91930895822259
+      }
+    },
+    {
+      "propeller_rps": 11,
+      "resistance_factor": 0.9,
+      "resistance_n": 32.09177125048085,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.29786297208091495,
+        "thrust_coefficient": 0.19881027829216683,
+        "effective_thrust_n": 41.865634368286976,
+        "residual_n": 9.773863117806123,
+        "normalized_residual": 0.30455979015678897
+      },
+      "outputs": {
+        "port_advance_lpp": 3.281896797304089,
+        "port_tactical_diameter_lpp": 3.305881350832827,
+        "starboard_advance_lpp": 3.3029004295546143,
+        "starboard_tactical_diameter_lpp": 3.3066031845436887,
+        "port_first_overshoot_deg": 5.5789220107169655,
+        "port_second_overshoot_deg": 16.766743282388916,
+        "starboard_first_overshoot_deg": 8.038305833491137,
+        "starboard_second_overshoot_deg": 10.66324768356526,
+        "port_turn_duration_s": 111.72,
+        "starboard_turn_duration_s": 108.72,
+        "port_turn_speed_loss_percent": 62.350413230856844,
+        "starboard_turn_speed_loss_percent": 61.954378701672596
+      }
+    },
+    {
+      "propeller_rps": 11,
+      "resistance_factor": 1,
+      "resistance_n": 35.65752361164539,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.29786297208091495,
+        "thrust_coefficient": 0.19881027829216683,
+        "effective_thrust_n": 41.865634368286976,
+        "residual_n": 6.208110756641588,
+        "normalized_residual": 0.17410381114111026
+      },
+      "outputs": {
+        "port_advance_lpp": 3.269791821353432,
+        "port_tactical_diameter_lpp": 3.2804917346130615,
+        "starboard_advance_lpp": 3.29005319120349,
+        "starboard_tactical_diameter_lpp": 3.279718855885195,
+        "port_first_overshoot_deg": 5.574963643104523,
+        "port_second_overshoot_deg": 16.319033902888336,
+        "starboard_first_overshoot_deg": 7.969647701707014,
+        "starboard_second_overshoot_deg": 10.412214922005141,
+        "port_turn_duration_s": 112.32000000000001,
+        "starboard_turn_duration_s": 109.22,
+        "port_turn_speed_loss_percent": 62.71156358366592,
+        "starboard_turn_speed_loss_percent": 62.34609462314526
+      }
+    },
+    {
+      "propeller_rps": 11,
+      "resistance_factor": 1.1,
+      "resistance_n": 39.22327597280993,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.29786297208091495,
+        "thrust_coefficient": 0.19881027829216683,
+        "effective_thrust_n": 41.865634368286976,
+        "residual_n": 2.6423583954770464,
+        "normalized_residual": 0.06736710103737288
+      },
+      "outputs": {
+        "port_advance_lpp": 3.257781155531966,
+        "port_tactical_diameter_lpp": 3.255482416839652,
+        "starboard_advance_lpp": 3.2773150046752586,
+        "starboard_tactical_diameter_lpp": 3.253259608047736,
+        "port_first_overshoot_deg": 5.571127013591131,
+        "port_second_overshoot_deg": 15.908837683846695,
+        "starboard_first_overshoot_deg": 7.960639353108668,
+        "starboard_second_overshoot_deg": 10.229711307920528,
+        "port_turn_duration_s": 112.82000000000001,
+        "starboard_turn_duration_s": 109.72,
+        "port_turn_speed_loss_percent": 63.05815497742098,
+        "starboard_turn_speed_loss_percent": 62.720186449102094
+      }
+    },
+    {
+      "propeller_rps": 11.8338,
+      "resistance_factor": 0.9,
+      "resistance_n": 32.09177125048085,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.27687578739627716,
+        "thrust_coefficient": 0.2062586578017912,
+        "effective_thrust_n": 50.26828980653304,
+        "residual_n": 18.176518556052187,
+        "normalized_residual": 0.5663918770385675
+      },
+      "outputs": {
+        "port_advance_lpp": 3.1895358201007,
+        "port_tactical_diameter_lpp": 3.2403725987299627,
+        "starboard_advance_lpp": 3.2059252026952545,
+        "starboard_tactical_diameter_lpp": 3.236998384994894,
+        "port_first_overshoot_deg": 5.496709093736644,
+        "port_second_overshoot_deg": 16.294819679521467,
+        "starboard_first_overshoot_deg": 7.782862500569582,
+        "starboard_second_overshoot_deg": 10.47881634550771,
+        "port_turn_duration_s": 105.02,
+        "starboard_turn_duration_s": 102.22,
+        "port_turn_speed_loss_percent": 59.56664616651618,
+        "starboard_turn_speed_loss_percent": 59.16145728047124
+      }
+    },
+    {
+      "propeller_rps": 11.8338,
+      "resistance_factor": 1,
+      "resistance_n": 35.65752361164539,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.27687578739627716,
+        "thrust_coefficient": 0.2062586578017912,
+        "effective_thrust_n": 50.26828980653304,
+        "residual_n": 14.610766194887653,
+        "normalized_residual": 0.40975268933471093
+      },
+      "outputs": {
+        "port_advance_lpp": 3.177875509104829,
+        "port_tactical_diameter_lpp": 3.2159513351824196,
+        "starboard_advance_lpp": 3.1935950829322057,
+        "starboard_tactical_diameter_lpp": 3.2111912281417694,
+        "port_first_overshoot_deg": 5.453434812964053,
+        "port_second_overshoot_deg": 15.826751882509683,
+        "starboard_first_overshoot_deg": 7.7222820389462505,
+        "starboard_second_overshoot_deg": 10.249021795239837,
+        "port_turn_duration_s": 105.52,
+        "starboard_turn_duration_s": 102.62,
+        "port_turn_speed_loss_percent": 59.94829498431631,
+        "starboard_turn_speed_loss_percent": 59.57326564731848
+      }
+    },
+    {
+      "propeller_rps": 11.8338,
+      "resistance_factor": 1.1,
+      "resistance_n": 39.22327597280993,
+      "initial_equilibrium": {
+        "advance_coefficient": 0.27687578739627716,
+        "thrust_coefficient": 0.2062586578017912,
+        "effective_thrust_n": 50.26828980653304,
+        "residual_n": 11.045013833723111,
+        "normalized_residual": 0.2815933539406462
+      },
+      "outputs": {
+        "port_advance_lpp": 3.1663076591158896,
+        "port_tactical_diameter_lpp": 3.191902040818121,
+        "starboard_advance_lpp": 3.181370936541164,
+        "starboard_tactical_diameter_lpp": 3.185797411406323,
+        "port_first_overshoot_deg": 5.4564477285190005,
+        "port_second_overshoot_deg": 15.517416463045425,
+        "starboard_first_overshoot_deg": 7.722455295062247,
+        "starboard_second_overshoot_deg": 10.038187446579247,
+        "port_turn_duration_s": 106.02,
+        "starboard_turn_duration_s": 103.12,
+        "port_turn_speed_loss_percent": 60.31495820281817,
+        "starboard_turn_speed_loss_percent": 59.96848682757193
+      }
+    }
+  ]
+}

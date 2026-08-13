@@ -1,0 +1,647 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "kvlcc2-operating-point-campaign",
+  "validation_label": "diagnostic",
+  "configuration_id": "l3_coefficient_diagnostic",
+  "claim_limit": "Coefficient/equilibrium diagnostic only; not an exact reproduction of the authors' L7 simulation.",
+  "resolved_configuration": {
+    "case": {
+      "schema_version": 1,
+      "id": "l3_coefficient_diagnostic",
+      "validation_label": "diagnostic",
+      "applicable_configuration": "L3",
+      "model_parameters": {
+        "base": "../kvlcc2-l7.json",
+        "geometry_configuration": "L7-equivalent dimensionalization for the L3 coefficient diagnostic",
+        "coefficient_configuration": "L3 captive tests",
+        "allowed_for_case": "L3"
+      },
+      "operating_point": {
+        "configuration": "l3_coefficient_diagnostic",
+        "scale": {
+          "value": 110,
+          "units": "1",
+          "source_document": "Yasukawa & Yoshimura 2015",
+          "location": "Table 1",
+          "status": "published",
+          "applicable_configuration": "L3"
+        },
+        "speed_mps": {
+          "value": 1.1795373694404232,
+          "units": "m/s L7-equivalent",
+          "source_document": "BCOD-Sim diagnostic transform",
+          "location": "Froude-scaled coefficient diagnostic",
+          "status": "inferred",
+          "applicable_configuration": "L3"
+        },
+        "propeller_rps": {
+          "value": "solve_equilibrium",
+          "units": "method",
+          "source_document": "BCOD-Sim validation protocol",
+          "location": "R0-prime diagnostic",
+          "status": "inferred",
+          "applicable_configuration": "L3"
+        },
+        "rudder_rate_rad_s": {
+          "value": 0.20765774587667277,
+          "units": "rad/s L7-equivalent",
+          "source_document": "Yasukawa & Yoshimura 2015",
+          "location": "Section 5.1",
+          "status": "inferred",
+          "applicable_configuration": "L3"
+        },
+        "resistance_model": {
+          "value": {
+            "type": "nondimensional_r0_prime",
+            "r0_prime": 0.022
+          },
+          "units": "configuration",
+          "source_document": "Yasukawa & Yoshimura 2015",
+          "location": "printed R0-prime diagnostic input",
+          "status": "published",
+          "applicable_configuration": "L3"
+        },
+        "maneuvers": {
+          "value": [],
+          "units": "IDs",
+          "source_document": "BCOD-Sim validation protocol",
+          "location": "equilibrium only",
+          "status": "assumed",
+          "applicable_configuration": "L3"
+        },
+        "targets": {
+          "value": null,
+          "units": "none",
+          "source_document": "BCOD-Sim validation protocol",
+          "location": "diagnostic only",
+          "status": "assumed",
+          "applicable_configuration": "L3"
+        }
+      }
+    },
+    "model": {
+      "schema_version": 1,
+      "id": "kvlcc2-l7",
+      "model_scale": 45.7,
+      "frame": {
+        "origin": "midship",
+        "x": "forward",
+        "y": "starboard",
+        "z": "down"
+      },
+      "nondimensionalization": {
+        "force": "0.5*rho*Lpp*d*U^2",
+        "yaw_moment": "0.5*rho*Lpp^2*d*U^2",
+        "mass": "0.5*rho*Lpp^2*d",
+        "yaw_inertia": "0.5*rho*Lpp^4*d"
+      },
+      "principal_particulars": {
+        "lpp": {
+          "value": 7,
+          "unit": "m",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "breadth": {
+          "value": 1.27,
+          "unit": "m",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "draft": {
+          "value": 0.46,
+          "unit": "m",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "displacement_volume": {
+          "value": 3.27,
+          "unit": "m^3",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "x_g": {
+          "value": 0.25,
+          "unit": "m",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "block_coefficient": {
+          "value": 0.81,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "propeller_diameter": {
+          "value": 0.216,
+          "unit": "m",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "rudder_span": {
+          "value": 0.345,
+          "unit": "m",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "rudder_area": {
+          "value": 0.0539,
+          "unit": "m^2",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1",
+            "column": "L7-model",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        }
+      },
+      "hull_derivatives": {
+        "X_vv": {
+          "value": -0.04,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "X_vr": {
+          "value": 0.002,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "X_rr": {
+          "value": 0.011,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "X_vvvv": {
+          "value": 0.771,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "Y_v": {
+          "value": -0.315,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "Y_R": {
+          "value": 0.083,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "Y_vvv": {
+          "value": -1.607,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "Y_vvr": {
+          "value": 0.379,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "Y_vrr": {
+          "value": -0.391,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "Y_rrr": {
+          "value": 0.008,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "N_v": {
+          "value": -0.137,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "N_R": {
+          "value": -0.049,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "N_vvv": {
+          "value": -0.03,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "N_vvr": {
+          "value": -0.294,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "N_vrr": {
+          "value": 0.055,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "N_rrr": {
+          "value": -0.013,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        }
+      },
+      "added_mass": {
+        "m_x": {
+          "value": 0.022,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "method": "Motora empirical charts",
+            "potential_flow": false,
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "m_y": {
+          "value": 0.223,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "method": "Motora empirical charts",
+            "potential_flow": false,
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "J_z": {
+          "value": 0.011,
+          "unit": "nondimensional",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "method": "Motora empirical charts",
+            "potential_flow": false,
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        }
+      },
+      "interaction_coefficients": {
+        "t_P": {
+          "value": 0.22,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "t_R": {
+          "value": 0.387,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "a_H": {
+          "value": 0.312,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "x_H": {
+          "value": -0.464,
+          "unit": "Lpp",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "C1": {
+          "value": 2,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "C2_beta_P_positive": {
+          "value": 1.6,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "C2_beta_P_negative": {
+          "value": 1.1,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "gamma_R_beta_R_negative": {
+          "value": 0.395,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "gamma_R_beta_R_positive": {
+          "value": 0.64,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "l_R": {
+          "value": -0.71,
+          "unit": "Lpp",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "epsilon": {
+          "value": 1.09,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "kappa": {
+          "value": 0.5,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "f_alpha": {
+          "value": 2.747,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        }
+      },
+      "propeller": {
+        "k0": {
+          "value": 0.2931,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "propeller open-water coefficients used with Table 3 model",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "k1": {
+          "value": -0.2753,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "propeller open-water coefficients used with Table 3 model",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "k2": {
+          "value": -0.1385,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "propeller open-water coefficients used with Table 3 model",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "w_P0": {
+          "value": 0.4,
+          "unit": "1",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "L7-model wake fraction accompanying Table 3",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        }
+      },
+      "test_conditions": {
+        "approach_speed": {
+          "value": 15.5,
+          "unit": "kn-full-scale-equivalent",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Tables 4-5 maneuver setup",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "rudder_rate": {
+          "value": 1.76,
+          "unit": "deg/s-full-scale",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Tables 4-5 maneuver setup",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "yaw_gyration_radius_ratio": {
+          "value": 0.25,
+          "unit": "Lpp",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Table 1 / maneuver setup",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        },
+        "propeller_revolutions": {
+          "value": "held-constant-at-initial-speed",
+          "unit": "policy",
+          "provenance": {
+            "source": "Yasukawa & Yoshimura 2015",
+            "table": "Tables 4-5 maneuver setup",
+            "status": "published",
+            "applicable_configuration": "L3"
+          }
+        }
+      },
+      "capytaine_overwrite_policy": {
+        "added_mass": "forbidden",
+        "reason": "MMG Stage-1 added mass comes from Motora empirical charts, not potential flow"
+      }
+    },
+    "solver": {
+      "method": "rk4",
+      "dt_s": 0.02,
+      "equilibrium_tolerance": 1e-10
+    }
+  },
+  "equilibrium": {
+    "ship_speed_mps": 1.1795373694404232,
+    "shaft_rate_rps": 11.856992082169882,
+    "shaft_rate_rpm": 711.4195249301929,
+    "advance_coefficient": 0.2763342228942816,
+    "thrust_coefficient": 0.2064492449573561,
+    "propeller_thrust_n": 64.75916324441192,
+    "effective_propeller_thrust_n": 50.5121473306413,
+    "hull_resistance_n": 50.51214733063601,
+    "thrust_deduction": 0.22,
+    "effective_wake_fraction": 0.4,
+    "net_surge_force_residual_n": 5.286437954055145e-12,
+    "normalized_surge_force_residual": 1.0465676542023242e-13,
+    "resistance_details": {
+      "type": "nondimensional_r0_prime"
+    },
+    "passed": true,
+    "tolerance": 1e-10
+  },
+  "maneuvers": {},
+  "comparisons": []
+}

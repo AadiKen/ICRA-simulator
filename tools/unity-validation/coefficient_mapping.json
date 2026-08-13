@@ -1,0 +1,63 @@
+{
+  "_readme": "Fill in the coupled6_value fields from your vehicle's actual coupled6 config (diagonal terms only -- Unity's FossenDynamics has no off-diagonal added-mass/damping coupling). unity_field is the exact public field name on the FossenDynamics component to set. For damping, sum coupled6's potential-radiation + viscous contributions into a single best-fit linear/quadratic pair per axis -- see VALIDATION_HARNESS_SPEC.md section 2.2.",
+
+  "added_mass": {
+    "surge_Xudot": {"unity_field": "XdotU", "coupled6_value": 54.235796881098786, "notes": "matched-terms diagonal of the production symmetrized 6x6 added-mass matrix", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.addedMass.matrix6[0][0]; installed and symmetrized by backends/node/src/vehicle-b-production.ts buildVehicleBProductionConfiguration()"},
+    "sway_Yvdot":  {"unity_field": "YdotV", "coupled6_value": 461.0377084052841, "notes": "matched-terms diagonal of the production symmetrized 6x6 added-mass matrix", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.addedMass.matrix6[1][1]; installed and symmetrized by backends/node/src/vehicle-b-production.ts buildVehicleBProductionConfiguration()"},
+    "heave_Zwdot": {"unity_field": "ZdotW", "coupled6_value": 2358.279858573144, "notes": "out-of-plane matched-terms diagonal; off-diagonal coupling remains excluded", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.addedMass.matrix6[2][2]; installed and symmetrized by backends/node/src/vehicle-b-production.ts buildVehicleBProductionConfiguration()"},
+    "roll_Kpdot":  {"unity_field": "KdotP", "coupled6_value": 37.345527904028685, "notes": "out-of-plane matched-terms diagonal; off-diagonal coupling remains excluded", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.addedMass.matrix6[3][3]; installed and symmetrized by backends/node/src/vehicle-b-production.ts buildVehicleBProductionConfiguration()"},
+    "pitch_Mqdot": {"unity_field": "MdotQ", "coupled6_value": 1042.1008350474044, "notes": "out-of-plane matched-terms diagonal; off-diagonal coupling remains excluded", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.addedMass.matrix6[4][4]; installed and symmetrized by backends/node/src/vehicle-b-production.ts buildVehicleBProductionConfiguration()"},
+    "yaw_Nrdot":   {"unity_field": "NdotR", "coupled6_value": 437.66708164789463, "notes": "matched-terms diagonal of the production symmetrized 6x6 added-mass matrix", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.addedMass.matrix6[5][5]; installed and symmetrized by backends/node/src/vehicle-b-production.ts buildVehicleBProductionConfiguration()"}
+  },
+
+  "damping_linear": {
+    "surge_Xu": {"unity_field": "Xu", "coupled6_value": 83.89507500796789, "notes": "matched diagonal = potential-radiation[0][0] 3.8950750079678884 + linear-viscous[0][0] 80 at the resolved 1.5707963267948966 rad/s frequency; production CoupledSixPlant suppresses this generic planar term because MMG replaces indices 0,1,5", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.damping.potentialRadiationMatrix6[0][0] + linearViscousMatrix6[0][0]; suppression in core/coupledSixPlant.js CoupledSixPlant.derivative()"},
+    "sway_Yv":  {"unity_field": "Yv", "coupled6_value": 220.18899709268246, "notes": "matched diagonal = potential-radiation[1][1] 10.188997092682468 + linear-viscous[1][1] 210 at the resolved frequency; production suppresses this generic planar term in favor of MMG", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.damping.potentialRadiationMatrix6[1][1] + linearViscousMatrix6[1][1]; suppression in core/coupledSixPlant.js CoupledSixPlant.derivative()"},
+    "heave_Zw": {"unity_field": "Zw", "coupled6_value": 1760.5929782744743, "notes": "out-of-plane matched diagonal = potential-radiation[2][2] 1440.5929782744743 + linear-viscous[2][2] 320", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.damping.potentialRadiationMatrix6[2][2] + linearViscousMatrix6[2][2]"},
+    "roll_Kp":  {"unity_field": "Kp", "coupled6_value": 1.7426377487781255, "notes": "out-of-plane matched diagonal = potential-radiation[3][3] 0.632705076483929 + linear-viscous[3][3] 1.1099326722941965; the viscous term is the tracked zero-speed Ikeda lower bound", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.damping.potentialRadiationMatrix6[3][3] + linearViscousMatrix6[3][3]; viscous origin packages/vehicle-sdk/src/index.ts VEHICLES['vehicle-b-rudder'].damping.roll_viscous_decomposition"},
+    "pitch_Mq": {"unity_field": "Mq", "coupled6_value": 467.2801198508301, "notes": "out-of-plane matched diagonal = potential-radiation[4][4] 57.28011985083007 + linear-viscous[4][4] 410", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.damping.potentialRadiationMatrix6[4][4] + linearViscousMatrix6[4][4]"},
+    "yaw_Nr":   {"unity_field": "Nr", "coupled6_value": 520.2494739370004, "notes": "matched diagonal = potential-radiation[5][5] 0.24947393700035958 + linear-viscous[5][5] 520 at the resolved frequency; production suppresses this generic planar term in favor of MMG", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.damping.potentialRadiationMatrix6[5][5] + linearViscousMatrix6[5][5]; suppression in core/coupledSixPlant.js CoupledSixPlant.derivative()"}
+  },
+
+  "damping_quadratic": {
+    "surge_Xuu": {"unity_field": "Xuu", "coupled6_value": 45, "notes": "diagonal quadratic-viscous approximation; production suppresses this generic planar term in favor of MMG", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.damping.quadraticViscousMatrix6[0][0]; suppression in core/coupledSixPlant.js CoupledSixPlant.derivative()"},
+    "sway_Yvv":  {"unity_field": "Yvv", "coupled6_value": 300, "notes": "diagonal quadratic-viscous approximation; production suppresses this generic planar term in favor of MMG", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.damping.quadraticViscousMatrix6[1][1]; suppression in core/coupledSixPlant.js CoupledSixPlant.derivative()"},
+    "heave_Zww": {"unity_field": "Zww", "coupled6_value": 380, "notes": "out-of-plane diagonal quadratic-viscous term", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.damping.quadraticViscousMatrix6[2][2]"},
+    "roll_Kpp":  {"unity_field": "Kpp", "coupled6_value": 0.0013929381840742732, "notes": "out-of-plane diagonal quadratic-viscous term from the tracked zero-speed Ikeda eddy lower bound", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.damping.quadraticViscousMatrix6[3][3]; origin packages/vehicle-sdk/src/index.ts VEHICLES['vehicle-b-rudder'].damping.roll_viscous_decomposition.eddy_equivalent_quadratic"},
+    "pitch_Mqq": {"unity_field": "Mqq", "coupled6_value": 500, "notes": "out-of-plane diagonal quadratic-viscous term", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.damping.quadraticViscousMatrix6[4][4]"},
+    "yaw_Nrr":   {"unity_field": "Nrr", "coupled6_value": 650, "notes": "diagonal quadratic-viscous approximation; production suppresses this generic planar term in favor of MMG", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.damping.quadraticViscousMatrix6[5][5]; suppression in core/coupledSixPlant.js CoupledSixPlant.derivative()"}
+  },
+
+  "rigid_body": {
+    "mass_kg": {"unity_field": "Rigidbody.mass", "coupled6_value": 739.1, "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.massProps.mass; spread into VehicleParameters by backends/node/src/vehicle-b-production.ts buildVehicleBProductionConfiguration()"},
+    "inertia_Ixx": {"unity_field": "Rigidbody.inertiaTensor.z", "coupled6_value": 153.7, "notes": "SNAME Ix is roll about body-forward x; body-forward maps to Unity local +z", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.massProps.inertia.Ix"},
+    "inertia_Iyy": {"unity_field": "Rigidbody.inertiaTensor.x", "coupled6_value": 739.1, "notes": "SNAME Iy is pitch about body-starboard y; body-starboard maps to Unity local +x", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.massProps.inertia.Iy"},
+    "inertia_Izz": {"unity_field": "Rigidbody.inertiaTensor.y", "coupled6_value": 739.1, "notes": "SNAME Iz is yaw about body-down z; the same physical axis is Unity local y (opposite direction does not change scalar diagonal inertia)", "source": "artifacts/capytaine/vehicle-b-parametric-resolved.json runtime_parameters.massProps.inertia.Iz"},
+    "cg_offset": {"unity_field": "Rigidbody.centerOfMass", "coupled6_value": [0, 0, 0], "notes": "For a nonzero SNAME [x_forward,y_starboard,z_down] vector, enter Unity local [y_starboard,-z_down,x_forward]", "source": "packages/vehicle-sdk/config/vehicle-b-usv-bootstrap.json x_g_m = 0; backends/node/src/vehicle-b-production.ts sets massProps.cg to {x: configuration.x_g_m, y: 0, z: 0}"}
+  },
+
+  "thrust": {
+    "propeller_diameter_m": {"unity_field": "ReplayThruster.propellerDiameter", "coupled6_value": 0.32, "source": "packages/vehicle-sdk/config/vehicle-b-usv-bootstrap.json propeller.diameter_m; mapped to DP by packages/core/src/vehicle-b-mmg.js createVehicleBMmgParameters()"},
+    "water_density_kg_m3": {"unity_field": "ReplayThruster.waterDensity", "coupled6_value": 1025, "source": "packages/core/src/vehicle-b-mmg.js createVehicleBMmgParameters() default rho; production restoring density also set in backends/node/src/vehicle-b-production.ts"},
+    "propeller_k0": {"unity_field": "ReplayThruster.k0", "coupled6_value": 0.28, "source": "packages/vehicle-sdk/config/vehicle-b-usv-bootstrap.json propeller.k0"},
+    "propeller_k1": {"unity_field": "ReplayThruster.k1", "coupled6_value": -0.22, "source": "packages/vehicle-sdk/config/vehicle-b-usv-bootstrap.json propeller.k1"},
+    "propeller_k2": {"unity_field": "ReplayThruster.k2", "coupled6_value": -0.08, "source": "packages/vehicle-sdk/config/vehicle-b-usv-bootstrap.json propeller.k2"},
+    "nominal_wake_fraction": {"unity_field": "ReplayThruster.wP0", "coupled6_value": 0.18, "notes": "Unity uses the nominal straight-line wake fraction; production MMG modifies wP with sideslip and yaw rate", "source": "packages/vehicle-sdk/config/vehicle-b-usv-bootstrap.json propeller.w_P0; dynamic wake calculation in packages/core/src/mmg.js MmgManeuveringModel.computeComponents()"},
+    "thrust_deduction_fraction": {"unity_field": "ReplayThruster.thrustDeduction", "coupled6_value": 0.15, "source": "packages/vehicle-sdk/config/vehicle-b-usv-bootstrap.json interaction.t_P; applied as (1-t_P)*thrust in packages/core/src/mmg.js MmgManeuveringModel.computeComponents()"},
+    "lag_time_constant_s": {"unity_field": "ReplayThruster.lagTimeConstant", "coupled6_value": 0.35, "notes": "Vehicle B first-order propeller RPS lag", "source": "packages/vehicle-sdk/config/vehicle-b-usv-bootstrap.json propeller.time_constant_s; exact exponential response applied by packages/core/src/vehicle-b-mmg.js VehicleBMmgForceModel.prepareStep()"}
+  },
+
+  "environment": {
+    "water_density_kg_m3": {"unity_field": "Constants.waterDensity", "coupled6_value": 1025, "source": "backends/node/src/vehicle-b-production.ts buildVehicleBProductionConfiguration(): restoring.waterDensity = 1025; also default rho in packages/core/src/vehicle-b-mmg.js createVehicleBMmgParameters()"},
+    "gravity_m_s2": {"unity_field": "Constants.gravity / Physics.gravity", "coupled6_value": 9.80665, "source": "backends/node/src/vehicle-b-production.ts buildVehicleBProductionConfiguration(): restoring.gravity = 9.80665"}
+  },
+
+  "excluded_terms": {
+    "_note": "coupled6 terms with no Unity FossenDynamics equivalent -- report separately as 'full coupled6' vs 'matched-terms' gap, not tuned away.",
+    "off_diagonal_added_mass_coupling": true,
+    "off_diagonal_damping_coupling": true,
+    "frequency_dependent_radiation_damping": true,
+    "wave_excitation_forcing": true,
+    "full_6dof_coriolis_coupling_beyond_surge_sway_yaw": true
+  }
+}

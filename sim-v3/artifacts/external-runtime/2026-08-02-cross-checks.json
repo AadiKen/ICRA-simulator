@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "external-runtime-cross-check-report",
+  "run_date": "2026-08-02",
+  "repository_commit": "3f1f2bee1a27aa2d9b8630f44703e28e5efb573b",
+  "overall_status": "blocked-and-failed",
+  "acceptance_decision": "needs-more-work",
+  "environment": {
+    "os": "macOS 26.5.1 arm64 (build 25F80)",
+    "node": "24.13.0",
+    "npm": "11.6.2",
+    "python": "3.12.4",
+    "octave": "11.3.0",
+    "gazebo_sim": "8.14.0",
+    "gazebo_homebrew_formula": "gz-sim8 8.14.0_2",
+    "jpeg_xl": "0.12.0",
+    "gdal": "3.13.2",
+    "capytaine": "2.3.1",
+    "pytorch": "2.13.0"
+  },
+  "checks": [
+    {
+      "id": "gazebo-harmonic-dependency-gate",
+      "kind": "external-runtime",
+      "status": "passed",
+      "command": "gz sim --version",
+      "evidence": "Gazebo Sim 8.14.0 launched with Homebrew jpeg-xl 0.12.0 and GDAL 3.13.2 installed.",
+      "claim_limit": "Dependency availability only; this does not validate motion."
+    },
+    {
+      "id": "gazebo-harmonic-topic-cross-check",
+      "kind": "external-runtime",
+      "status": "passed",
+      "command": "node gazebo/listGazeboTopics.js --manifest gazebo/generated/manifests/otter_constant-thrust.json",
+      "evidence": {
+        "missing_expected_command_topics": [],
+        "pose_topic": "/world/bcod_parity_constant-thrust/pose/info",
+        "command_topic": "/world/bcod_parity_constant-thrust/wrench/persistent"
+      },
+      "claim_limit": "World loading and Gazebo Transport wiring only."
+    },
+    {
+      "id": "gazebo-harmonic-live-constant-thrust",
+      "kind": "external-runtime",
+      "status": "failed",
+      "command": "node gazebo/captureGazeboLog.js --manifest gazebo/generated/manifests/otter_constant-thrust.json --out /private/tmp/bcod-gazebo-constant-thrust.csv --wrench-log /private/tmp/bcod-gazebo-constant-thrust-wrench.json --timeout-sec 20 --diagnose",
+      "evidence": {
+        "commands_published": 120,
+        "failure": "Captured 'constant-thrust' moved -7.0397 m in N under positive surge.",
+        "classification": "live coordinate-or-wrench-transport failure"
+      },
+      "claim_limit": "Gazebo cannot currently be cited as a successful trajectory cross-check. Generated-file and dry-run tests remain software tests only."
+    },
+    {
+      "id": "capytaine-vehicle-b-bem-reproduction",
+      "kind": "external-runtime",
+      "status": "passed",
+      "command": "CAPYTAINE_CACHE_DIR=.cache/capytaine .venv/bin/python validation/capytaine/generate.py validation/capytaine/vehicle-b-bootstrap.json /private/tmp/bcod-capytaine-vehicle-b-runtime.json",
+      "evidence": {
+        "solver_completion": "100%",
+        "runtime_seconds": 6.5,
+        "runtime_output_sha256": "1eb799e6b467af68c4ceadaf95796fdb78ef21fcbfd43ae0bee6bd767c9e1a52",
+        "committed_output_sha256": "1eb799e6b467af68c4ceadaf95796fdb78ef21fcbfd43ae0bee6bd767c9e1a52",
+        "byte_exact": true
+      },
+      "claim_limit": "Reproducible execution of the bootstrap-mesh potential-flow solver, not physical validation."
+    },
+    {
+      "id": "mss-pinned-reference-replay",
+      "kind": "external-reference-replay",
+      "status": "passed",
+      "command": "npm run test:mss",
+      "evidence": {
+        "reference_commit": "c660120aa7ea16d0022064bd759d12a934ec4f76",
+        "maneuvers_passed": 5,
+        "maneuvers_total": 5
+      },
+      "claim_limit": "Compared against already-pinned MSS traces. The MSS source tree was not present, so Octave did not regenerate those traces in this campaign."
+    },
+    {
+      "id": "mss-octave-regeneration",
+      "kind": "external-runtime",
+      "status": "blocked",
+      "evidence": "Octave 11.3.0 is installed, but MSS_ROOT is unset and no pinned MSS source checkout was found.",
+      "required_to_unblock": "Provide the MSS checkout at commit c660120aa7ea16d0022064bd759d12a934ec4f76 and set MSS_ROOT."
+    },
+    {
+      "id": "vrx-head-to-head-runtime",
+      "kind": "external-runtime",
+      "status": "blocked",
+      "evidence": "No VRX checkout or installed VRX runtime was found; Docker Desktop's client is installed but its daemon is not running.",
+      "required_to_unblock": "Use the pinned Linux ROS 2 / Gazebo / VRX environment and start its container runtime."
+    },
+    {
+      "id": "ros2-bridge-runtime",
+      "kind": "external-runtime",
+      "status": "blocked",
+      "evidence": "ros2 is not installed on this host.",
+      "required_to_unblock": "Run on the pinned supported Linux ROS 2 runner."
+    },
+    {
+      "id": "cuda-tensor-runtime",
+      "kind": "external-runtime",
+      "status": "blocked",
+      "evidence": "nvidia-smi is absent and torch.cuda.is_available() is false.",
+      "required_to_unblock": "Run on the pinned NVIDIA Linux CUDA runner."
+    },
+    {
+      "id": "mps-tensor-runtime",
+      "kind": "external-runtime",
+      "status": "blocked",
+      "evidence": "torch.backends.mps.is_available() is false for the installed PyTorch 2.13.0 environment.",
+      "required_to_unblock": "Install a compatible MPS-enabled PyTorch build or use the designated MPS runner."
+    }
+  ],
+  "input_checksums": {
+    "capytaine_vehicle_b_bootstrap": "1eb799e6b467af68c4ceadaf95796fdb78ef21fcbfd43ae0bee6bd767c9e1a52",
+    "gazebo_manifest": "49417bbbc0e8c554143de6eaf89434e2059679959258a58c8c4c1a6a59a9d4a8",
+    "gazebo_world": "25598ea1141b8dd110855f1b9fc4e965c3fa7f6173f5a0d5c4a3eef580d30386",
+    "gazebo_model": "5d6ffcd3eda8acc79ed6a1c9274c6fb97a888f49185b0e1f4f0ceacba336bb6b"
+  },
+  "next_actions": [
+    "Repair and regression-test Gazebo's NED-to-ENU wrench publication against the live constant-thrust run before running the remaining Gazebo maneuvers.",
+    "Run VRX and ROS 2 on a pinned Linux runner after their dependency gate passes.",
+    "Run CUDA equivalence on a pinned NVIDIA runner.",
+    "Restore the pinned MSS source checkout if fresh Octave trace generation is required."
+  ]
+}

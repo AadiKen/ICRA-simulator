@@ -1,0 +1,75 @@
+{
+  "referenceCommit": "c660120aa7ea16d0022064bd759d12a934ec4f76",
+  "results": [
+    {
+      "name": "constant-thrust",
+      "samples": 1200,
+      "metrics": {
+        "positionRmse": 0.006964850956193762,
+        "headingRmse": 0,
+        "headingRmseDegrees": 0,
+        "bodySpeedRmse": 0.00028193186945403624,
+        "maxPositionError": 0.012224360150817404,
+        "maxHeadingErrorDegrees": 0,
+        "maxBodySpeedError": 0.0035358590195902068
+      },
+      "passed": true
+    },
+    {
+      "name": "coast-down",
+      "samples": 1200,
+      "metrics": {
+        "positionRmse": 0.0003761119232884668,
+        "headingRmse": 0,
+        "headingRmseDegrees": 0,
+        "bodySpeedRmse": 0.0002752930573566475,
+        "maxPositionError": 0.0008328610878931553,
+        "maxHeadingErrorDegrees": 0,
+        "maxBodySpeedError": 0.003631357376358557
+      },
+      "passed": true
+    },
+    {
+      "name": "turning-circle",
+      "samples": 1200,
+      "metrics": {
+        "positionRmse": 0.0019371127668011661,
+        "headingRmse": 0.00025510822597924333,
+        "headingRmseDegrees": 0.014616624667680307,
+        "bodySpeedRmse": 0.00030159113229256994,
+        "maxPositionError": 0.0030043145374214495,
+        "maxHeadingErrorDegrees": 0.026417815236041736,
+        "maxBodySpeedError": 0.0038370997593088632
+      },
+      "passed": true
+    },
+    {
+      "name": "zig-zag",
+      "samples": 1200,
+      "metrics": {
+        "positionRmse": 0.007063424048060536,
+        "headingRmse": 0.00002636679160790615,
+        "headingRmseDegrees": 0.00151070587843398,
+        "bodySpeedRmse": 0.00033175151179531286,
+        "maxPositionError": 0.012400381450977355,
+        "maxHeadingErrorDegrees": 0.003407482874624991,
+        "maxBodySpeedError": 0.0035407029207011748
+      },
+      "passed": true
+    },
+    {
+      "name": "current-drift",
+      "samples": 1200,
+      "metrics": {
+        "positionRmse": 0.00006554417373756144,
+        "headingRmse": 0,
+        "headingRmseDegrees": 0,
+        "bodySpeedRmse": 0.00007409820242808151,
+        "maxPositionError": 0.00022376589671736086,
+        "maxHeadingErrorDegrees": 0,
+        "maxBodySpeedError": 0.0013814267198698216
+      },
+      "passed": true
+    }
+  ]
+}

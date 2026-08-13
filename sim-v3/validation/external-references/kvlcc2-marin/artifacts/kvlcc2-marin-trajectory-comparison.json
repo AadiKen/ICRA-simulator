@@ -1,0 +1,598 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "kvlcc2-marin-trajectory-comparison",
+  "status": "experimental-trajectory-scored-fail",
+  "source_access": "third-party redistribution; not direct SIMMAN access",
+  "redistribution_permitted": false,
+  "anonymous_release_included": false,
+  "reference_model": {
+    "id": "kvlcc2-marin",
+    "scale": 45.7,
+    "architecture": "single screw, single rudder",
+    "config": "validation/external-references/kvlcc2-marin/kvlcc2-marin.json"
+  },
+  "trajectory_scaling": {
+    "representation": "full-scale-equivalent",
+    "full_scale_lpp_m": 320,
+    "model_lpp_m": 7,
+    "scale_factor": 45.7
+  },
+  "propeller_input": {
+    "source_column": 11,
+    "provenance": "measured",
+    "units": "rpm full-scale-equivalent",
+    "model_conversion": "rpm * sqrt(45.7) / 60",
+    "samplewise": true,
+    "mean_substitution": false
+  },
+  "column_mapping_manifest": "validation/datasets/manifests/kvlcc2-simman2008-third-party.json",
+  "gating_channels": [
+    "global_x_m_full_scale_equivalent",
+    "global_y_m_full_scale_equivalent",
+    "heading_unwrapped_deg",
+    "rudder_angle_deg",
+    "propeller_revolutions_rpm_full_scale_equivalent"
+  ],
+  "unused_channels": [],
+  "runs": [
+    {
+      "id": "MARIN_FREE_KVLCC2_tc_-35_m",
+      "maneuver": "turning-circle",
+      "direction": "negative-rudder",
+      "source_checksum_sha256": "65b54ac82aa6b48e5851f7898a6349688ed3391c86c7ff79eeaa758125fb815d",
+      "samples": 15753,
+      "effective_sample_interval_s": 0.13522092432706959,
+      "column_count": 11,
+      "rudder_range_deg": [
+        -35.2,
+        -0.19
+      ],
+      "mapping_evidence": {
+        "position_window_s": 10,
+        "rate_window_s": 100,
+        "position_kinematic_rmse_mps": 0.4192007817820358,
+        "heading_rate_correlation": 0.6986765879344164,
+        "roll_rate_correlation": 0.9641569834340248,
+        "passed": true
+      },
+      "gating_metrics": {
+        "advance_m_full_scale": 1041.1696041168111,
+        "advance_lpp": 3.2536550128650346,
+        "transfer_m_full_scale": 433.7531071511103,
+        "transfer_lpp": 1.3554784598472198,
+        "tactical_diameter_m_full_scale": 1068.0095106517142,
+        "tactical_diameter_lpp": 3.337529720786607
+      }
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_tc_35_m",
+      "maneuver": "turning-circle",
+      "direction": "positive-rudder",
+      "source_checksum_sha256": "9bba1c548ed2972f24249d862f254cfe3d0cb68475078cde0e9b5f9f2ead5b7f",
+      "samples": 15288,
+      "effective_sample_interval_s": 0.1354091711912082,
+      "column_count": 11,
+      "rudder_range_deg": [
+        -1.17,
+        35
+      ],
+      "mapping_evidence": {
+        "position_window_s": 10,
+        "rate_window_s": 100,
+        "position_kinematic_rmse_mps": 0.3822300538771694,
+        "heading_rate_correlation": 0.7146861032120777,
+        "roll_rate_correlation": 0.9502586922553922,
+        "passed": true
+      },
+      "gating_metrics": {
+        "advance_m_full_scale": 998.9364381041448,
+        "advance_lpp": 3.1216763690754528,
+        "transfer_m_full_scale": 384.78682182840396,
+        "transfer_lpp": 1.2024588182137623,
+        "tactical_diameter_m_full_scale": 981.400428423338,
+        "tactical_diameter_lpp": 3.066876338822931
+      }
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_zz_-10_m",
+      "maneuver": "zig-zag-10/10",
+      "direction": "negative-rudder",
+      "source_checksum_sha256": "b4de80bc3fbcd60cb4b2ea25a08a6831c7008fb0150425cfc8ad3690766da241",
+      "samples": 4177,
+      "effective_sample_interval_s": 0.1352969348659004,
+      "column_count": 11,
+      "rudder_range_deg": [
+        -10.2,
+        9.97
+      ],
+      "mapping_evidence": {
+        "position_window_s": 10,
+        "rate_window_s": 100,
+        "position_kinematic_rmse_mps": 0.342152970068847,
+        "heading_rate_correlation": 0.4424039712446305,
+        "roll_rate_correlation": 0.955877295619804,
+        "passed": true
+      },
+      "gating_metrics": {
+        "first_overshoot_deg": 8.024999999999999,
+        "second_overshoot_deg": 22.074999999999996
+      }
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_zz_-20_m",
+      "maneuver": "zig-zag-20/20",
+      "direction": "negative-rudder",
+      "source_checksum_sha256": "6db9f281ee2c1f35b7b2b28925710280d14126e60e444f53e2ca6ad7d4aaefd0",
+      "samples": 5057,
+      "effective_sample_interval_s": 0.13528481012658228,
+      "column_count": 11,
+      "rudder_range_deg": [
+        -20.3,
+        20.2
+      ],
+      "mapping_evidence": {
+        "position_window_s": 10,
+        "rate_window_s": 100,
+        "position_kinematic_rmse_mps": 0.36385646480759126,
+        "heading_rate_correlation": 0.4734880015376689,
+        "roll_rate_correlation": 0.9561807942807127,
+        "passed": true
+      },
+      "gating_metrics": {
+        "first_overshoot_deg": 12.772000000000006,
+        "second_overshoot_deg": 15.827999999999996
+      }
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_zz_10_m",
+      "maneuver": "zig-zag-10/10",
+      "direction": "positive-rudder",
+      "source_checksum_sha256": "80fe4bc493d5fe0923ee7fb7581c8351bac35c9c4201fb48c4cae52deb6c166a",
+      "samples": 3844,
+      "effective_sample_interval_s": 0.13531095498308612,
+      "column_count": 11,
+      "rudder_range_deg": [
+        -9.95,
+        10.7
+      ],
+      "mapping_evidence": {
+        "position_window_s": 10,
+        "rate_window_s": 100,
+        "position_kinematic_rmse_mps": 0.41209962033367414,
+        "heading_rate_correlation": 0.4198256720382571,
+        "roll_rate_correlation": 0.9637893264187116,
+        "passed": true
+      },
+      "gating_metrics": {
+        "first_overshoot_deg": 9.387,
+        "second_overshoot_deg": 15.113
+      }
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_zz_20_m",
+      "maneuver": "zig-zag-20/20",
+      "direction": "positive-rudder",
+      "source_checksum_sha256": "62af7e3af28c99e35aa363caf618e5a70588f9c8742b0bc4df9ac9d802c16be3",
+      "samples": 4481,
+      "effective_sample_interval_s": 0.13526785714285713,
+      "column_count": 11,
+      "rudder_range_deg": [
+        -20.3,
+        20.1
+      ],
+      "mapping_evidence": {
+        "position_window_s": 10,
+        "rate_window_s": 100,
+        "position_kinematic_rmse_mps": 0.3159794644589576,
+        "heading_rate_correlation": 0.5682268842467264,
+        "roll_rate_correlation": 0.9548382415544013,
+        "passed": true
+      },
+      "gating_metrics": {
+        "first_overshoot_deg": 15.590000000000003,
+        "second_overshoot_deg": 12.809999999999995
+      }
+    }
+  ],
+  "port_starboard_aggregated": false,
+  "imo_metrics_extracted_from": "measured trajectories",
+  "published_index_consistency": {
+    "role": "independent check of column mapping and metric extraction; not simulator validation",
+    "all_within_10_percent": true,
+    "rows": [
+      {
+        "id": "turn-port-35-advance",
+        "trajectory_value": 3.2536550128650346,
+        "published_value": 3.25,
+        "unit": "Lpp",
+        "absolute_percent_difference": 0.1124619343087556
+      },
+      {
+        "id": "turn-port-35-tactical-diameter",
+        "trajectory_value": 3.337529720786607,
+        "published_value": 3.34,
+        "unit": "Lpp",
+        "absolute_percent_difference": 0.07396045549080973
+      },
+      {
+        "id": "turn-starboard-35-advance",
+        "trajectory_value": 3.1216763690754528,
+        "published_value": 3.11,
+        "unit": "Lpp",
+        "absolute_percent_difference": 0.3754459509791925
+      },
+      {
+        "id": "turn-starboard-35-tactical-diameter",
+        "trajectory_value": 3.066876338822931,
+        "published_value": 3.08,
+        "unit": "Lpp",
+        "absolute_percent_difference": 0.4260928953593788
+      },
+      {
+        "id": "zigzag-port-10-first-overshoot",
+        "trajectory_value": 8.024999999999999,
+        "published_value": 8.2,
+        "unit": "deg",
+        "absolute_percent_difference": 2.1341463414634236
+      },
+      {
+        "id": "zigzag-port-10-second-overshoot",
+        "trajectory_value": 22.074999999999996,
+        "published_value": 21.9,
+        "unit": "deg",
+        "absolute_percent_difference": 0.7990867579908547
+      },
+      {
+        "id": "zigzag-port-20-first-overshoot",
+        "trajectory_value": 12.772000000000006,
+        "published_value": 13.7,
+        "unit": "deg",
+        "absolute_percent_difference": 6.773722627737181
+      },
+      {
+        "id": "zigzag-starboard-10-first-overshoot",
+        "trajectory_value": 9.387,
+        "published_value": 9.5,
+        "unit": "deg",
+        "absolute_percent_difference": 1.1894736842105216
+      },
+      {
+        "id": "zigzag-starboard-10-second-overshoot",
+        "trajectory_value": 15.113,
+        "published_value": 15,
+        "unit": "deg",
+        "absolute_percent_difference": 0.7533333333333303
+      },
+      {
+        "id": "zigzag-starboard-20-first-overshoot",
+        "trajectory_value": 15.590000000000003,
+        "published_value": 15.1,
+        "unit": "deg",
+        "absolute_percent_difference": 3.245033112582806
+      }
+    ]
+  },
+  "hsva": {
+    "status": "available-pending-preprocessing",
+    "required_command": "kedro run --pipeline kvlcc2_hsva_create",
+    "used": false
+  },
+  "vehicle_b_evidence_tiers": [
+    "kvlcc2-mmg-reference-reproduction",
+    "kvlcc2-experimental-maneuver-indices",
+    "kvlcc2-marin-trajectory-comparison",
+    "wpcc-trajectory-comparison"
+  ],
+  "comparison_status": "simulator-to-trajectory-scoring-failed",
+  "claim": "Strongest KVLCC2 evidence tier: raw measured free-running trajectories on a single-screw model-scale hull, reported in full-scale-equivalent coordinates.",
+  "claim_limit": "Does not validate Vehicle B's USV-scale coefficients; no KVLCC2 coefficient is transferred into the Vehicle B USV parameterization.",
+  "simulator_scoring": {
+    "executed": true,
+    "plant": "MMG planar maneuvering model using kvlcc2-marin geometry and Yasukawa/HMRI coefficient structure",
+    "parameterization": {
+      "geometry": "kvlcc2-marin",
+      "coefficient_source": "kvlcc2-l7 literature MMG hull/interaction coefficients with MARIN measured open-water KT fit",
+      "rudder_input": "measured MARIN column 10 per sample with explicit MARIN-to-MMG sign inversion; actual angle replay, no second rate limiter",
+      "propeller_input": "measured MARIN column 11 per sample",
+      "straight_resistance": "initial self-propulsion equilibrium trim; reported per run",
+      "no_fit_to_trajectories": true
+    },
+    "acceptance_policy": "validation/external-references/kvlcc2-marin/trajectory-tolerances.json",
+    "acceptance_policy_supersession": {
+      "retained": "validation/external-references/kvlcc2-marin/trajectory-tolerances-v1-full-track.json",
+      "reason": "course-unstable full-track divergence is diagnostic"
+    },
+    "identification_plan": "validation/external-references/kvlcc2-marin/identification-plan.json",
+    "runs": [
+      {
+        "id": "MARIN_FREE_KVLCC2_tc_-35_m",
+        "maneuver": "turning-circle",
+        "direction": "negative-rudder",
+        "steps": 15752,
+        "model_dt_s": 0.020002570062367886,
+        "measured_inputs": {
+          "rudder_column": 10,
+          "rudder_sign_transform": "model=-source",
+          "rudder_rate_handling": "measured-actual-angle-no-second-limiter",
+          "propeller_column": 11,
+          "propeller_model_rps": {
+            "min": 10.286736781463357,
+            "max": 10.37687248162952,
+            "mean": 10.327842025377732
+          },
+          "samplewise": true
+        },
+        "straight_resistance_trim_n": 33.288225435003284,
+        "trajectory": {
+          "full_track_position_rmse_lpp": 0.40929274394807297,
+          "full_track_wrapped_heading_rmse_deg": 10.161781159863162,
+          "bounded_window_full_scale_s": 300,
+          "bounded_window_heading_rmse_deg": 4.336745393095854,
+          "rudder_input_replay_rmse_deg": 1.0341141929881307e-15,
+          "propeller_input_replay_rmse_rps": 0
+        },
+        "trajectory_passed": true,
+        "imo": [
+          {
+            "metric": "advance_lpp",
+            "reference": 3.2536550128650346,
+            "actual": 3.4637324128244615,
+            "absolute_percent_error": 6.456658715468469,
+            "tolerance_percent": 5,
+            "passed": false
+          },
+          {
+            "metric": "tactical_diameter_lpp",
+            "reference": 3.337529720786607,
+            "actual": 3.3460471728110592,
+            "absolute_percent_error": 0.2552022824367533,
+            "tolerance_percent": 5,
+            "passed": true
+          }
+        ],
+        "passed": false
+      },
+      {
+        "id": "MARIN_FREE_KVLCC2_tc_35_m",
+        "maneuver": "turning-circle",
+        "direction": "positive-rudder",
+        "steps": 15287,
+        "model_dt_s": 0.020030416500392865,
+        "measured_inputs": {
+          "rudder_column": 10,
+          "rudder_sign_transform": "model=-source",
+          "rudder_rate_handling": "measured-actual-angle-no-second-limiter",
+          "propeller_column": 11,
+          "propeller_model_rps": {
+            "min": 10.286736781463357,
+            "max": 10.365605519108751,
+            "mean": 10.327883637197507
+          },
+          "samplewise": true
+        },
+        "straight_resistance_trim_n": 33.71436807265412,
+        "trajectory": {
+          "full_track_position_rmse_lpp": 0.6801141519015446,
+          "full_track_wrapped_heading_rmse_deg": 17.770729495569817,
+          "bounded_window_full_scale_s": 300,
+          "bounded_window_heading_rmse_deg": 9.09461933183609,
+          "rudder_input_replay_rmse_deg": 2.396148957626746e-16,
+          "propeller_input_replay_rmse_rps": 0
+        },
+        "trajectory_passed": true,
+        "imo": [
+          {
+            "metric": "advance_lpp",
+            "reference": 3.1216763690754528,
+            "actual": 3.381802045254048,
+            "absolute_percent_error": 8.332884175807012,
+            "tolerance_percent": 5,
+            "passed": false
+          },
+          {
+            "metric": "tactical_diameter_lpp",
+            "reference": 3.066876338822931,
+            "actual": 3.3123250374726867,
+            "absolute_percent_error": 8.003214721854707,
+            "tolerance_percent": 5,
+            "passed": false
+          }
+        ],
+        "passed": false
+      },
+      {
+        "id": "MARIN_FREE_KVLCC2_zz_-10_m",
+        "maneuver": "zig-zag-10/10",
+        "direction": "negative-rudder",
+        "steps": 4176,
+        "model_dt_s": 0.020013813929661412,
+        "measured_inputs": {
+          "rudder_column": 10,
+          "rudder_sign_transform": "model=-source",
+          "rudder_rate_handling": "measured-actual-angle-no-second-limiter",
+          "propeller_column": 11,
+          "propeller_model_rps": {
+            "min": 10.286736781463357,
+            "max": 10.365605519108751,
+            "mean": 10.327684743670652
+          },
+          "samplewise": true
+        },
+        "straight_resistance_trim_n": 33.37064389012682,
+        "trajectory": {
+          "full_track_position_rmse_lpp": 0.6192266288765709,
+          "full_track_wrapped_heading_rmse_deg": 5.812586413475907,
+          "bounded_window_full_scale_s": 300,
+          "bounded_window_heading_rmse_deg": 5.801726603304627,
+          "rudder_input_replay_rmse_deg": 1.9721622205366873e-16,
+          "propeller_input_replay_rmse_rps": 0
+        },
+        "trajectory_passed": true,
+        "imo": [
+          {
+            "metric": "first_overshoot_deg",
+            "reference": 8.024999999999999,
+            "actual": 19.967255379012137,
+            "absolute_percent_error": 148.8131511403382,
+            "tolerance_percent": 10,
+            "passed": false
+          },
+          {
+            "metric": "second_overshoot_deg",
+            "reference": 22.074999999999996,
+            "actual": 20.012585233223326,
+            "absolute_percent_error": 9.34276225040394,
+            "tolerance_percent": 10,
+            "passed": true
+          }
+        ],
+        "passed": false
+      },
+      {
+        "id": "MARIN_FREE_KVLCC2_zz_-20_m",
+        "maneuver": "zig-zag-20/20",
+        "direction": "negative-rudder",
+        "steps": 5056,
+        "model_dt_s": 0.020012020376267918,
+        "measured_inputs": {
+          "rudder_column": 10,
+          "rudder_sign_transform": "model=-source",
+          "rudder_rate_handling": "measured-actual-angle-no-second-limiter",
+          "propeller_column": 11,
+          "propeller_model_rps": {
+            "min": 10.286736781463357,
+            "max": 10.365605519108751,
+            "mean": 10.327967268124747
+          },
+          "samplewise": true
+        },
+        "straight_resistance_trim_n": 33.66090221650886,
+        "trajectory": {
+          "full_track_position_rmse_lpp": 1.3768479219345762,
+          "full_track_wrapped_heading_rmse_deg": 17.676517188175193,
+          "bounded_window_full_scale_s": 300,
+          "bounded_window_heading_rmse_deg": 8.632412500205575,
+          "rudder_input_replay_rmse_deg": 8.460784046196212e-16,
+          "propeller_input_replay_rmse_rps": 0
+        },
+        "trajectory_passed": true,
+        "imo": [
+          {
+            "metric": "first_overshoot_deg",
+            "reference": 12.772000000000006,
+            "actual": 39.95869770597156,
+            "absolute_percent_error": 212.86171082032212,
+            "tolerance_percent": 10,
+            "passed": false
+          },
+          {
+            "metric": "second_overshoot_deg",
+            "reference": 15.827999999999996,
+            "actual": 24.491989382528768,
+            "absolute_percent_error": 54.73837113045725,
+            "tolerance_percent": 10,
+            "passed": false
+          }
+        ],
+        "passed": false
+      },
+      {
+        "id": "MARIN_FREE_KVLCC2_zz_10_m",
+        "maneuver": "zig-zag-10/10",
+        "direction": "positive-rudder",
+        "steps": 3843,
+        "model_dt_s": 0.020015887857033864,
+        "measured_inputs": {
+          "rudder_column": 10,
+          "rudder_sign_transform": "model=-source",
+          "rudder_rate_handling": "measured-actual-angle-no-second-limiter",
+          "propeller_column": 11,
+          "propeller_model_rps": {
+            "min": 10.298003743984129,
+            "max": 10.37687248162952,
+            "mean": 10.32779390952494
+          },
+          "samplewise": true
+        },
+        "straight_resistance_trim_n": 33.436627670288004,
+        "trajectory": {
+          "full_track_position_rmse_lpp": 0.18520902951475499,
+          "full_track_wrapped_heading_rmse_deg": 6.895319372291604,
+          "bounded_window_full_scale_s": 300,
+          "bounded_window_heading_rmse_deg": 2.155099111626257,
+          "rudder_input_replay_rmse_deg": 5.761190984058717e-16,
+          "propeller_input_replay_rmse_rps": 0
+        },
+        "trajectory_passed": true,
+        "imo": [
+          {
+            "metric": "first_overshoot_deg",
+            "reference": 9.387,
+            "actual": 6.073790197958164,
+            "absolute_percent_error": 35.295726025799894,
+            "tolerance_percent": 10,
+            "passed": false
+          },
+          {
+            "metric": "second_overshoot_deg",
+            "reference": 15.113,
+            "actual": 8.316344729252595,
+            "absolute_percent_error": 44.972244231770034,
+            "tolerance_percent": 10,
+            "passed": false
+          }
+        ],
+        "passed": false
+      },
+      {
+        "id": "MARIN_FREE_KVLCC2_zz_20_m",
+        "maneuver": "zig-zag-20/20",
+        "direction": "positive-rudder",
+        "steps": 4480,
+        "model_dt_s": 0.02000951260429094,
+        "measured_inputs": {
+          "rudder_column": 10,
+          "rudder_sign_transform": "model=-source",
+          "rudder_rate_handling": "measured-actual-angle-no-second-limiter",
+          "propeller_column": 11,
+          "propeller_model_rps": {
+            "min": 10.286736781463357,
+            "max": 10.365605519108751,
+            "mean": 10.327667543745948
+          },
+          "samplewise": true
+        },
+        "straight_resistance_trim_n": 33.36287216241269,
+        "trajectory": {
+          "full_track_position_rmse_lpp": 0.26657218233209307,
+          "full_track_wrapped_heading_rmse_deg": 5.244405608547842,
+          "bounded_window_full_scale_s": 300,
+          "bounded_window_heading_rmse_deg": 3.019133402441535,
+          "rudder_input_replay_rmse_deg": 7.564570545007404e-16,
+          "propeller_input_replay_rmse_rps": 0
+        },
+        "trajectory_passed": true,
+        "imo": [
+          {
+            "metric": "first_overshoot_deg",
+            "reference": 15.590000000000003,
+            "actual": 13.941744658529117,
+            "absolute_percent_error": 10.5725166226484,
+            "tolerance_percent": 10,
+            "passed": false
+          },
+          {
+            "metric": "second_overshoot_deg",
+            "reference": 12.809999999999995,
+            "actual": 5.402007383956477,
+            "absolute_percent_error": 57.82976281064419,
+            "tolerance_percent": 10,
+            "passed": false
+          }
+        ],
+        "passed": false
+      }
+    ],
+    "passed": false
+  }
+}

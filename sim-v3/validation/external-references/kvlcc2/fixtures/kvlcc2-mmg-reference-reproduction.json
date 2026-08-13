@@ -1,0 +1,23 @@
+{
+  "schema_version":1,
+  "artifact_kind":"kvlcc2-mmg-reference-reproduction",
+  "evidence_status":"reference-reproduction-only",
+  "reference":"Yasukawa & Yoshimura 2015",
+  "vessel":"KVLCC2 L7 model",
+  "scale":45.7,
+  "source_table_column":"Tables 4-5 Cal.",
+  "gate_status":"blocked-pending-precommitted-per-metric-tolerances",
+  "trajectory_overlays_gating":false,
+  "metrics":[
+    {"id":"turn-port-35-advance","maneuver":"turning-circle","direction":"port","rudder_deg":35,"metric":"advance","value":3.31,"unit":"Lpp","source_table":"Table 4"},
+    {"id":"turn-port-35-tactical-diameter","maneuver":"turning-circle","direction":"port","rudder_deg":35,"metric":"tactical-diameter","value":3.36,"unit":"Lpp","source_table":"Table 4"},
+    {"id":"turn-starboard-35-advance","maneuver":"turning-circle","direction":"starboard","rudder_deg":-35,"metric":"advance","value":3.26,"unit":"Lpp","source_table":"Table 4"},
+    {"id":"turn-starboard-35-tactical-diameter","maneuver":"turning-circle","direction":"starboard","rudder_deg":-35,"metric":"tactical-diameter","value":3.26,"unit":"Lpp","source_table":"Table 4"},
+    {"id":"zigzag-port-10-first-overshoot","maneuver":"zig-zag-10-10","direction":"port","metric":"first-overshoot","value":5.2,"unit":"deg","source_table":"Table 5"},
+    {"id":"zigzag-port-10-second-overshoot","maneuver":"zig-zag-10-10","direction":"port","metric":"second-overshoot","value":15.8,"unit":"deg","source_table":"Table 5"},
+    {"id":"zigzag-port-20-first-overshoot","maneuver":"zig-zag-20-20","direction":"port","metric":"first-overshoot","value":10.9,"unit":"deg","source_table":"Table 5"},
+    {"id":"zigzag-starboard-10-first-overshoot","maneuver":"zig-zag-10-10","direction":"starboard","metric":"first-overshoot","value":7.6,"unit":"deg","source_table":"Table 5"},
+    {"id":"zigzag-starboard-10-second-overshoot","maneuver":"zig-zag-10-10","direction":"starboard","metric":"second-overshoot","value":10.2,"unit":"deg","source_table":"Table 5"},
+    {"id":"zigzag-starboard-20-first-overshoot","maneuver":"zig-zag-20-20","direction":"starboard","metric":"first-overshoot","value":14.5,"unit":"deg","source_table":"Table 5"}
+  ]
+}

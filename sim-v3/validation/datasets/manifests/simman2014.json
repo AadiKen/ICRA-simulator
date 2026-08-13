@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "simman2014",
+  "title": "SIMMAN 2014 KVLCC2/KCS free-running benchmark data",
+  "version": "2014",
+  "primaryLandingPage": "https://simman2014.dk/",
+  "license": {
+    "spdx": null,
+    "sourceStatement": "No explicit dataset license was established from the public workshop landing pages",
+    "attributionRequired": true
+  },
+  "acquisition": {
+    "mode": "request-from-primary-source",
+    "localAcquisitionPermitted": false,
+    "status": "blocked",
+    "reason": "Official SIMMAN 2014 page instructs users to request access; reuse terms and exact primary files must be obtained before ingestion"
+  },
+  "scientificScope": {
+    "hulls": ["KVLCC2", "KCS"],
+    "maneuvers": ["turning-circle", "zig-zag"],
+    "claimLimit": "Supports an optional propeller/rudder/hull model structure cross-check at the published benchmark scale; it is not independent validation of Vehicle B and coefficients must not transfer to Vehicle B's USV parameterization"
+  },
+  "releaseIsolation": {
+    "required": true,
+    "warning": "SIMMAN 2020 states that much of the 2008/2014 model-test data was replaced; releases must not be mixed"
+  },
+  "coordinateConvention": {
+    "status": "blocked-on-test-package",
+    "requiredBeforeImport": [
+      "Record hull and exact dataset release",
+      "Record model/full scale and nondimensionalization",
+      "Record earth-fixed and body-fixed axis definitions",
+      "Record heading, rudder, yaw-rate, force, and moment signs",
+      "Record time origin, sampling, propulsion/RPM control, water depth, and initial speed",
+      "Record every conversion into the reference-neutral trajectory schema"
+    ]
+  },
+  "requiredArtifacts": [
+    "Official free-running data files",
+    "Official model-test specification and column definitions",
+    "Explicit access/reuse terms",
+    "Local SHA-256 lock"
+  ],
+  "evidenceAdmissible": false
+}

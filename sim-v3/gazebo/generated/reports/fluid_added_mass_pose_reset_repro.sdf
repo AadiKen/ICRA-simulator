@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <world name="fluid_added_mass_pose_reset_repro">
+    <physics name="default_physics" type="dart">
+      <max_step_size>0.05</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <gravity>0 0 0</gravity>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-apply-link-wrench-system" name="gz::sim::systems::ApplyLinkWrench"/>
+
+    <model name="otter_fluid_added_mass_repro">
+      <pose>0 0 0 0 0 0</pose>
+      <link name="base_link">
+        <inertial>
+          <pose>0.2 0 0 0 0 0</pose>
+          <mass>55</mass>
+          <inertia>
+            <ixx>5.9074583333</ixx>
+            <iyy>18.8947916667</iyy>
+            <izz>14.66</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <fluid_added_mass>
+            <xx>5.5</xx>
+            <yy>82.5</yy>
+            <yr>-16.5</yr>
+            <zz>82.5</zz>
+            <zq>16.5</zq>
+            <qq>3.3</qq>
+            <rr>10.8</rr>
+          </fluid_added_mass>
+        </inertial>
+        <collision name="hull_collision">
+          <pose>0.2 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2 1.08 0.13</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="hull_visual">
+          <pose>0.2 0 0 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>2 1.08 0.13</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

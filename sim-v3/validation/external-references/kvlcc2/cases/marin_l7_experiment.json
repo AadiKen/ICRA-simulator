@@ -1,0 +1,17 @@
+{
+  "schema_version":1,
+  "id":"marin_l7_experiment",
+  "validation_label":"experimental_validation",
+  "applicable_configuration":"MARIN L7",
+  "model_parameters":{"base":"../kvlcc2-l7.json","geometry_configuration":"MARIN L7","coefficient_configuration":"L3 captive tests applied by the published MMG method","allowed_for_case":"MARIN L7"},
+  "operating_point":{
+    "configuration":"marin_l7_experiment",
+    "scale":{"value":45.7,"units":"1","source_document":"Yasukawa & Yoshimura 2015","location":"Table 1","status":"published","applicable_configuration":"MARIN L7"},
+    "speed_mps":{"value":1.1795373694404232,"units":"m/s","source_document":"Yasukawa & Yoshimura 2015","location":"Section 5.1, 15.5 kn full-scale equivalent","status":"inferred","applicable_configuration":"MARIN L7"},
+    "propeller_rps":{"value":10.3333333,"units":"rps","source_document":"MARIN L7 free-running test documentation","location":"620 rpm operating point supplied for validation","status":"published","applicable_configuration":"MARIN L7"},
+    "rudder_rate_rad_s":{"value":0.20765774587667277,"units":"rad/s","source_document":"Yasukawa & Yoshimura 2015","location":"Section 5.1, 1.76 deg/s full-scale Froude-scaled","status":"inferred","applicable_configuration":"MARIN L7"},
+    "resistance_model":{"value":{"type":"equilibrium_at_fixed_shaft_rate","propeller_rps":10.3333333},"units":"configuration","source_document":"BCOD-Sim validation protocol","location":"straight-ahead trim assumption","status":"assumed","applicable_configuration":"MARIN L7"},
+    "maneuvers":{"value":["turn_port_35","turn_starboard_35","zigzag_port_10","zigzag_starboard_10","zigzag_port_20","zigzag_starboard_20"],"units":"IDs","source_document":"Yasukawa & Yoshimura 2015","location":"Tables 4-5 Exp.","status":"published","applicable_configuration":"MARIN L7"},
+    "targets":{"value":"fixtures/kvlcc2-experimental-maneuver-indices.json","units":"path","source_document":"Yasukawa & Yoshimura 2015","location":"Tables 4-5 Exp.","status":"published","applicable_configuration":"MARIN L7"}
+  }
+}

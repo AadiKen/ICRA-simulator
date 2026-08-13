@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "id": "aero4river-to-bcod-ned-sname-v1",
+  "status": "resolved-from-primary-publication-and-data-consistency",
+  "source": {
+    "dataset_doi": "10.17632/tf4ym6fsvc.1",
+    "publication_doi": "10.1109/ACCESS.2021.3067448",
+    "publication_locations": ["Section II-B, equations 1-5", "Section IV-D, validation tracks"],
+    "basis": "The paper defines eta=[x,y,psi], nu=[u,v,r], tau=[Fx,Fy,tau_psi], and the conventional marine Jacobian. Dataset derivatives independently confirm the same signs."
+  },
+  "mapping": {
+    "earth": {"north_m": "x", "east_m": "y", "down_m": "0", "origin": "source experiment origin retained"},
+    "attitude": {"roll_rad": "0", "pitch_rad": "0", "yaw_rad": "yaw"},
+    "body_velocity": {"u_mps": "u", "v_mps": "v", "w_mps": "0", "p_rad_s": "0", "q_rad_s": "0", "r_rad_s": "r"},
+    "wrench": {"surge_n": "fx", "sway_n": "fy", "heave_n": "0", "roll_nm": "0", "pitch_nm": "0", "yaw_nm": "tn", "application": "net generalized body wrench about the model body-frame origin"},
+    "time": {"time_s": "t", "schedule": "source timestamps; interval input is zero-order held from the previous sample"}
+  },
+  "data_consistency_validation": {
+    "method": "central numerical derivative compared with xdot=cos(psi)u-sin(psi)v, ydot=sin(psi)u+cos(psi)v, psidot=r; first/last two samples excluded",
+    "tracks": [
+      {"track": 1, "correct_rms": {"xdot_mps": 0.012987678844776078, "ydot_mps": 0.017745100232581766, "yaw_rate_rad_s": 0.006588927433489833}, "sign_flipped_rms": {"body_v_combined_mps": 0.3725910945007423, "yaw_rate_rad_s": 0.4252937976713023}},
+      {"track": 2, "correct_rms": {"xdot_mps": 0.05140790615528237, "ydot_mps": 0.04698162817667683, "yaw_rate_rad_s": 0.05437028917906791}, "sign_flipped_rms": {"body_v_combined_mps": 0.7002712707780297, "yaw_rate_rad_s": 2.168724076505887}},
+      {"track": 3, "correct_rms": {"xdot_mps": 0.06047293061875256, "ydot_mps": 0.050509082208556336, "yaw_rate_rad_s": 0.033514164766444456}, "sign_flipped_rms": {"body_v_combined_mps": 0.7091675540982105, "yaw_rate_rad_s": 1.5358751749296777}}
+    ]
+  },
+  "limitations": [
+    "The source has no measured heave, roll, or pitch channels.",
+    "The source wrench is treated as a net generalized wrench; individual aerial-thruster locations are not replayed.",
+    "Mapping source x/y to N/E is a naming normalization; comparisons are invariant to the geodetic orientation of the experiment origin."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "experiment": {
+    "name": "vrx-equivalent-stationkeeping",
+    "seed": 2027,
+    "timestep_s": 0.05,
+    "duration_s": 300
+  },
+  "backend": { "type": "node" },
+  "vehicle": { "preset": "vehicle-c-azimuth", "plant": "coupled6" },
+  "environment": {
+    "current_mps": [0.2, 0, 0],
+    "wind_mps": [3, 0, 0]
+  },
+  "sensors": [
+    { "plugin": "gps", "enabled": true },
+    { "plugin": "imu", "enabled": true },
+    { "plugin": "camera", "enabled": true },
+    { "plugin": "lidar", "enabled": true }
+  ],
+  "mission": {
+    "type": "station-keeping",
+    "waypoints": [{ "north_m": 0, "east_m": 0 }]
+  },
+  "metrics": ["completion", "cross_track_rmse", "propulsion_energy"],
+  "outputs": {
+    "directory": "runs/vrx-equivalent-stationkeeping",
+    "state_hz": 20,
+    "sensor_artifacts": { "mode": "summary", "max_bytes_per_run": 1000000 }
+  }
+}

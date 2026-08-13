@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "decision": "hybrid",
+  "committed_before_migration": true,
+  "bit_exact": [
+    "step_count",
+    "trace_row_count",
+    "sensor_sample_indices",
+    "controller_invocation_indices",
+    "termination_reason",
+    "event_order",
+    "resolved_manifest",
+    "same-backend checkpoint replay",
+    "gazebo_generated_file_checksums"
+  ],
+  "tolerance_bounded": {
+    "mss_position_rmse_m_delta": {"absolute": 1e-6, "reason": "permits operation-order roundoff while remaining 250000x tighter than the MSS acceptance bound"},
+    "mss_heading_rmse_rad_delta": {"absolute": 1e-7, "reason": "permits operation-order roundoff while remaining over 300000x tighter than the MSS acceptance bound"},
+    "mss_body_speed_rmse_mps_delta": {"absolute": 1e-7, "reason": "permits operation-order roundoff while remaining 1000000x tighter than the MSS acceptance bound"},
+    "coupled6_invariants": {"absolute": 1e-10, "relative": 1e-8, "reason": "algebraic invariant computations may be reassociated but must remain near machine precision"},
+    "wave_response": {"absolute": 1e-10, "relative": 1e-8, "reason": "trigonometric and matrix operation order may change without permitting observable physical drift"},
+    "convergence_metrics": {"absolute": 1e-9, "relative": 1e-6, "reason": "derived error ratios amplify near-zero roundoff; convergence order and pass classification remain bit-exact"},
+    "actuator_trace": {"absolute": 0, "relative": 0, "reason": "actuator migration must preserve command clamping, conversion, lag/rate ordering, state, and wrench assembly operation order exactly"}
+  },
+  "rule": "Thresholds may only be changed in a reviewed commit that predates the component whose delta motivates the change; never fit a tolerance to an observed migration delta."
+}

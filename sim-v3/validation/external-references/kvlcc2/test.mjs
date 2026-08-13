@@ -1,0 +1,26 @@
+import assert from "node:assert/strict";
+import {spawnSync} from "node:child_process";
+import {mkdtempSync} from "node:fs";
+import {tmpdir} from "node:os";
+import {join} from "node:path";
+import {fileURLToPath} from "node:url";
+import {load,requireCache,validateMetricFixture,validateVehicle} from "./validate.mjs";
+
+requireCache();
+const vehicle=validateVehicle(JSON.parse(JSON.stringify(load("kvlcc2-l7.json"))));
+const tolerances=load("kvlcc2-mmg-tolerances.json");
+assert.deepEqual({lpp:vehicle.principal_particulars.lpp.value,breadth:vehicle.principal_particulars.breadth.value,draft:vehicle.principal_particulars.draft.value,volume:vehicle.principal_particulars.displacement_volume.value,xG:vehicle.principal_particulars.x_g.value,Cb:vehicle.principal_particulars.block_coefficient.value,DP:vehicle.principal_particulars.propeller_diameter.value,HR:vehicle.principal_particulars.rudder_span.value,AR:vehicle.principal_particulars.rudder_area.value},{lpp:7,breadth:1.27,draft:0.46,volume:3.27,xG:0.25,Cb:0.810,DP:0.216,HR:0.345,AR:0.0539});
+assert.deepEqual(Object.fromEntries(Object.entries(vehicle.hull_derivatives).map(([key,value])=>[key,value.value])),{X_vv:-0.040,X_vr:0.002,X_rr:0.011,X_vvvv:0.771,Y_v:-0.315,Y_R:0.083,Y_vvv:-1.607,Y_vvr:0.379,Y_vrr:-0.391,Y_rrr:0.008,N_v:-0.137,N_R:-0.049,N_vvv:-0.030,N_vvr:-0.294,N_vrr:0.055,N_rrr:-0.013});
+assert.deepEqual(Object.fromEntries(Object.entries(vehicle.added_mass).map(([key,value])=>[key,value.value])),{m_x:0.022,m_y:0.223,J_z:0.011});
+assert.deepEqual(Object.fromEntries(Object.entries(vehicle.interaction_coefficients).map(([key,value])=>[key,value.value])),{t_P:0.220,t_R:0.387,a_H:0.312,x_H:-0.464,C1:2.0,C2_beta_P_positive:1.6,C2_beta_P_negative:1.1,gamma_R_beta_R_negative:0.395,gamma_R_beta_R_positive:0.640,l_R:-0.710,epsilon:1.09,kappa:0.50,f_alpha:2.747});
+assert.deepEqual([vehicle.propeller.k0.value,vehicle.propeller.k1.value,vehicle.propeller.k2.value,vehicle.propeller.w_P0.value],[0.2931,-0.2753,-0.1385,0.40]);
+assert.deepEqual(Object.fromEntries(Object.entries(tolerances.metrics).map(([id,value])=>[id,value.tolerance_percent])),{advance:5,"tactical-diameter":5,"first-overshoot":10,"second-overshoot":10});
+assert.deepEqual([vehicle.test_conditions.approach_speed.value,vehicle.test_conditions.rudder_rate.value,vehicle.test_conditions.yaw_gyration_radius_ratio.value,vehicle.test_conditions.propeller_revolutions.value],[15.5,1.76,0.25,"held-constant-at-initial-speed"]);
+const calculated=validateMetricFixture(load("fixtures/kvlcc2-mmg-reference-reproduction.json"));
+const experimental=validateMetricFixture(load("fixtures/kvlcc2-experimental-maneuver-indices.json"));
+assert.deepEqual(calculated.metrics.map(({value})=>value),[3.31,3.36,3.26,3.26,5.2,15.8,10.9,7.6,10.2,14.5]);
+assert.deepEqual(experimental.metrics.map(({value})=>value),[3.25,3.34,3.11,3.08,8.2,21.9,13.7,9.5,15.0,15.1]);
+assert.notDeepEqual(calculated.metrics.map(({value})=>value),experimental.metrics.map(({value})=>value));
+const missing=spawnSync(process.execPath,[fileURLToPath(new URL("validate.mjs",import.meta.url))],{encoding:"utf8",env:{...process.env,BCOD_KVLCC2_CACHE:mkdtempSync(join(tmpdir(),"bcod-kvlcc2-missing-"))}});
+assert.notEqual(missing.status,0);assert.match(missing.stderr,/run fetch_public_assets\.sh/);
+console.log("KVLCC2 config, conventions, cache error, and metric fixtures passed.");

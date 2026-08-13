@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "artifact_kind": "offline-control-baselines",
+  "status": "passed-real-ppo-software-baselines-not-physical-validation",
+  "backend": "cpu",
+  "training": {
+    "algorithm": "PPO",
+    "implementation": "stable-baselines3",
+    "implementation_version": "2.9.0",
+    "algorithmic_novelty_claim": false,
+    "seed": 2027,
+    "total_timesteps": 16384,
+    "actor_sha256": "e5ee820ea8ceaac5c9dc1efcb339329996b28a949c79ec85708312c295af59de",
+    "checkpoint": "checkpoints/ppo-cpu.zip",
+    "actor_export": "checkpoints/ppo-actor.json"
+  },
+  "policies": {
+    "pid": [
+      {
+        "seed": 41,
+        "steps": 80,
+        "return": -1.6524298043672294,
+        "terminal_error": 0.2480534166097641,
+        "finite": true
+      },
+      {
+        "seed": 42,
+        "steps": 80,
+        "return": -3.5376245148539405,
+        "terminal_error": 0.2835707366466522,
+        "finite": true
+      },
+      {
+        "seed": 43,
+        "steps": 80,
+        "return": -2.3678199405870695,
+        "terminal_error": 0.25921836495399475,
+        "finite": true
+      }
+    ],
+    "mpc": [
+      {
+        "seed": 41,
+        "steps": 80,
+        "return": -1.3790581907970025,
+        "terminal_error": 0.15950216352939606,
+        "finite": true
+      },
+      {
+        "seed": 42,
+        "steps": 80,
+        "return": -3.198523657344254,
+        "terminal_error": 0.20718611776828766,
+        "finite": true
+      },
+      {
+        "seed": 43,
+        "steps": 80,
+        "return": -1.931021440879227,
+        "terminal_error": 0.1759793758392334,
+        "finite": true
+      }
+    ],
+    "ppo": [
+      {
+        "seed": 41,
+        "steps": 80,
+        "return": -3.7326478293073486,
+        "terminal_error": 0.58184814453125,
+        "finite": true
+      },
+      {
+        "seed": 42,
+        "steps": 80,
+        "return": -13.005180146041795,
+        "terminal_error": 1.3744219541549683,
+        "finite": true
+      },
+      {
+        "seed": 43,
+        "steps": 80,
+        "return": -9.933735034273056,
+        "terminal_error": 1.624643325805664,
+        "finite": true
+      }
+    ]
+  },
+  "claim_limit": "PID, MPC, and PPO are conventional software baselines. Training uses the Gym contract's transport-neutral stabilization task; production USV-Bench scoring is a separate artifact and is not physical validation.",
+  "external_backends": {
+    "cuda": "blocked-external-infrastructure",
+    "mps": "blocked-external-infrastructure"
+  }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <world name="bcod_parity_coast-down">
+    <physics name="parity_physics" type="dart">
+      <max_step_size>0.05</max_step_size>
+      <real_time_factor>1</real_time_factor>
+    </physics>
+    <gravity>0 0 -9.81</gravity>
+    <include>
+      <uri>model://otter</uri>
+      <pose>0 0 0 0 0 1.5707963268</pose>
+    </include>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-apply-link-wrench-system" name="gz::sim::systems::ApplyLinkWrench"/>
+
+    <plugin filename="gz-sim-buoyancy-system" name="gz::sim::systems::Buoyancy">
+      <graded_buoyancy>
+        <default_density>1025</default_density>
+        <density_change>
+          <above_depth>0</above_depth>
+          <density>0</density>
+        </density_change>
+      </graded_buoyancy>
+      <enable>otter</enable>
+    </plugin>
+    <!-- BCOD parity metadata: current ENU 0 0 0 -->
+  </world>
+</sdf>

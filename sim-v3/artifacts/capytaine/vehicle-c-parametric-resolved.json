@@ -1,0 +1,2675 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "resolved-capytaine-hydrodynamics",
+  "vehicle_id": "vehicle-c-azimuth",
+  "status": "analytic-parametric-solver-output-pending-independent-validation",
+  "is_validation_evidence": false,
+  "source_artifact": {
+    "path": "artifacts/capytaine/vehicle-c-parametric.json",
+    "checksum_sha256": "ff4340ea8327c2e5aef81f005aac6a7132b22729450c7b1fa88677d2a43f451d",
+    "mesh_checksum_sha256": "34b450e7c1c478cee5b3ac4cb9ecea5c749bb50e60e78eb454ac95ff733ed3cc",
+    "input_config_checksum_sha256": "a794e7cc39b6bf95c42a6e9a1cbb87efda6a1db55c8d8376ac6421381191d7f3",
+    "capytaine_version": "2.3.1"
+  },
+  "approximation": {
+    "kind": "constant-coefficient-no-radiation-memory",
+    "warning": "No Cummins convolution; fixed episode coefficients omit radiation memory and time-varying encounter frequency."
+  },
+  "hydrostatics_comparison": {
+    "reference_displaced_volume_m3": 0.3058,
+    "geometry_bootstrap": {
+      "gm_transverse_m": 3.7232,
+      "gm_longitudinal_m": 3.735
+    },
+    "capytaine_mesh_derived": {
+      "gm_transverse_m": 3.72167734815193,
+      "gm_longitudinal_m": 3.7304285900899186
+    },
+    "capytaine_minus_bootstrap": {
+      "gm_transverse_m": -0.001522651848069767,
+      "gm_longitudinal_m": -0.004571409910081314
+    },
+    "resolution_policy": "report-both-no-automatic-overwrite"
+  },
+  "damping_provenance": {
+    "potential": {
+      "method": "capytaine",
+      "source": "artifacts/capytaine/vehicle-c-parametric.json",
+      "checksum": "34b450e7c1c478cee5b3ac4cb9ecea5c749bb50e60e78eb454ac95ff733ed3cc",
+      "uncertainty": "Analytic representative hull; physical-vessel validation absent",
+      "operating_range": "0.3-8 rad/s",
+      "fit_data": "Capytaine frequency-domain BEM solve",
+      "limitations": [
+        "Potential-flow radiation damping only; excludes viscous effects."
+      ]
+    },
+    "linearViscous": {
+      "method": "empirical",
+      "source": "Vehicle C engineering bootstrap diagonal estimate",
+      "checksum": "033b50bb3e28b7e5262fa5b25c2880e908024441c051e440471790177c58a7d9",
+      "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+      "operating_range": "zero-speed small-amplitude free decay; bootstrap only",
+      "fit_data": "none",
+      "limitations": [
+        "Not fitted to Vehicle C measurements.",
+        "Not a complete Ikeda-method calculation."
+      ]
+    },
+    "quadraticViscous": {
+      "method": "empirical",
+      "source": "Vehicle C engineering bootstrap diagonal estimate",
+      "checksum": "116769c3c41f24e326a0e7eb5b3b893ee5a99368216973fd14374fd4e8e8a88b",
+      "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+      "operating_range": "zero-speed free decay up to 10 deg roll initial displacement; bootstrap only",
+      "fit_data": "none",
+      "limitations": [
+        "No dual-hull viscous interaction or appendage calibration.",
+        "No bilge-keel or hull-section integration has been performed."
+      ]
+    }
+  },
+  "wave_episode": {
+    "approximation": "constant-coefficient-no-radiation-memory",
+    "evaluation_frequency_rad_s": 1.5707963267948966,
+    "selection_method": "wave-encounter",
+    "intrinsic_wave_frequency_rad_s": 1.5707963267948966,
+    "reference_speed_mps": 0,
+    "encounter_angle_rad": 0,
+    "added_mass": [
+      [
+        9.958991485466719,
+        -2.500523748364926e-14,
+        -0.020489844702190455,
+        4.080205823490783e-15,
+        -32.67049873151518,
+        -2.962341764456955e-14
+      ],
+      [
+        7.545572358391783e-16,
+        590.5509112680145,
+        3.934885771569337e-14,
+        -29.419617740763037,
+        2.6102150543986715e-14,
+        -0.5733888815735474
+      ],
+      [
+        -0.03373956177739719,
+        3.4855035898572496e-13,
+        620.6460827895884,
+        -1.0843290743375581e-13,
+        0.07363547466413968,
+        -3.94019425035789e-13
+      ],
+      [
+        -4.2618659284791433e-16,
+        -29.43942540066579,
+        -3.532455245788442e-14,
+        240.82007040992568,
+        6.986700569394192e-16,
+        0.10253510318230748
+      ],
+      [
+        -32.73330073485791,
+        8.084955923397646e-14,
+        0.033844405579123285,
+        -1.436455784395841e-14,
+        170.71350660502264,
+        8.736113846203028e-14
+      ],
+      [
+        -5.42164537168779e-15,
+        -0.6097131403994948,
+        -8.831138114471105e-15,
+        0.10903126725508559,
+        8.831138114471105e-15,
+        517.9371726415533
+      ]
+    ],
+    "damping": {
+      "linearViscousDamping": [
+        [
+          65,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          130,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          190,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2.192923674034241,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          280,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          360
+        ]
+      ],
+      "quadraticViscousDamping": [
+        [
+          40,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          180,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          230,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0.006614752497696677,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          360,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          420
+        ]
+      ],
+      "provenance": {
+        "potential": {
+          "method": "capytaine",
+          "source": "artifacts/capytaine/vehicle-c-parametric.json",
+          "checksum": "34b450e7c1c478cee5b3ac4cb9ecea5c749bb50e60e78eb454ac95ff733ed3cc",
+          "uncertainty": "Analytic representative hull; physical-vessel validation absent",
+          "operating_range": "0.3-8 rad/s",
+          "fit_data": "Capytaine frequency-domain BEM solve",
+          "limitations": [
+            "Potential-flow radiation damping only; excludes viscous effects."
+          ]
+        },
+        "linearViscous": {
+          "method": "empirical",
+          "source": "Vehicle C engineering bootstrap diagonal estimate",
+          "checksum": "033b50bb3e28b7e5262fa5b25c2880e908024441c051e440471790177c58a7d9",
+          "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+          "operating_range": "zero-speed small-amplitude free decay; bootstrap only",
+          "fit_data": "none",
+          "limitations": [
+            "Not fitted to Vehicle C measurements.",
+            "Not a complete Ikeda-method calculation."
+          ]
+        },
+        "quadraticViscous": {
+          "method": "empirical",
+          "source": "Vehicle C engineering bootstrap diagonal estimate",
+          "checksum": "116769c3c41f24e326a0e7eb5b3b893ee5a99368216973fd14374fd4e8e8a88b",
+          "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+          "operating_range": "zero-speed free decay up to 10 deg roll initial displacement; bootstrap only",
+          "fit_data": "none",
+          "limitations": [
+            "No dual-hull viscous interaction or appendage calibration.",
+            "No bilge-keel or hull-section integration has been performed."
+          ]
+        }
+      },
+      "potentialRadiationDamping": [
+        [
+          0.7190803606089828,
+          -2.1089307206553872e-15,
+          0.00028976104628724355,
+          2.442323523218276e-16,
+          -2.591962783301083,
+          -2.5419870575681933e-15
+        ],
+        [
+          -1.9125985714460032e-16,
+          5.805730281039617,
+          -8.048610515617902e-15,
+          6.9073527839718984,
+          -5.056587054109246e-16,
+          -0.003994296504556996
+        ],
+        [
+          -0.02361965294676566,
+          1.5395106887369715e-13,
+          476.92128868999447,
+          -6.962377554987583e-14,
+          0.061191874037309676,
+          -4.234914827986165e-13
+        ],
+        [
+          -3.291394318058566e-17,
+          6.913530377157791,
+          0,
+          8.202520238105915,
+          1.909322886214996e-16,
+          -0.0046972243641047046
+        ],
+        [
+          -2.597611904685411,
+          1.0635866376830654e-14,
+          0.0014554401214993814,
+          5.896233415812927e-18,
+          9.362913663619075,
+          8.926254945230339e-15
+        ],
+        [
+          -2.620548184805696e-18,
+          -0.0031769469895415884,
+          2.850556697231779e-14,
+          -0.003706773993001608,
+          0,
+          0.04186607178219224
+        ]
+      ]
+    },
+    "wave_excitation": {
+      "omega_rad_s": 1.5707963267948966,
+      "heading_rad": 0,
+      "complex_force": [
+        [
+          -0.35735248216698606,
+          -743.32395036459
+        ],
+        [
+          -1.6097221031235803e-14,
+          -3.2194442062471607e-14
+        ],
+        [
+          -15285.463814250823,
+          751.5484681139194
+        ],
+        [
+          4.7285372590742004e-14,
+          -4.8794808345190113e-14
+        ],
+        [
+          1.29499977501776,
+          2701.2091114876243
+        ],
+        [
+          -4.05952542541274e-13,
+          -4.65323682216233e-15
+        ]
+      ]
+    },
+    "interpolation_bracket_rad_s": [
+      1.5,
+      2
+    ],
+    "warnings": [
+      "Coefficients are fixed for the episode; Cummins radiation-memory convolution and time-varying encounter-frequency effects are omitted."
+    ]
+  },
+  "runtime_parameters": {
+    "massProps": {
+      "mass": 313.5,
+      "inertia": {
+        "Ix": 196.6,
+        "Iy": 240,
+        "Iz": 240
+      }
+    },
+    "geometry": {
+      "length": 3.5,
+      "beam": 1.98,
+      "draft": 0.25
+    },
+    "addedMass": {
+      "matrix6": [
+        [
+          9.958991485466719,
+          -2.500523748364926e-14,
+          -0.020489844702190455,
+          4.080205823490783e-15,
+          -32.67049873151518,
+          -2.962341764456955e-14
+        ],
+        [
+          7.545572358391783e-16,
+          590.5509112680145,
+          3.934885771569337e-14,
+          -29.419617740763037,
+          2.6102150543986715e-14,
+          -0.5733888815735474
+        ],
+        [
+          -0.03373956177739719,
+          3.4855035898572496e-13,
+          620.6460827895884,
+          -1.0843290743375581e-13,
+          0.07363547466413968,
+          -3.94019425035789e-13
+        ],
+        [
+          -4.2618659284791433e-16,
+          -29.43942540066579,
+          -3.532455245788442e-14,
+          240.82007040992568,
+          6.986700569394192e-16,
+          0.10253510318230748
+        ],
+        [
+          -32.73330073485791,
+          8.084955923397646e-14,
+          0.033844405579123285,
+          -1.436455784395841e-14,
+          170.71350660502264,
+          8.736113846203028e-14
+        ],
+        [
+          -5.42164537168779e-15,
+          -0.6097131403994948,
+          -8.831138114471105e-15,
+          0.10903126725508559,
+          8.831138114471105e-15,
+          517.9371726415533
+        ]
+      ]
+    },
+    "damping": {
+      "potentialRadiationMatrix6": [
+        [
+          0.7190803606089828,
+          -2.1089307206553872e-15,
+          0.00028976104628724355,
+          2.442323523218276e-16,
+          -2.591962783301083,
+          -2.5419870575681933e-15
+        ],
+        [
+          -1.9125985714460032e-16,
+          5.805730281039617,
+          -8.048610515617902e-15,
+          6.9073527839718984,
+          -5.056587054109246e-16,
+          -0.003994296504556996
+        ],
+        [
+          -0.02361965294676566,
+          1.5395106887369715e-13,
+          476.92128868999447,
+          -6.962377554987583e-14,
+          0.061191874037309676,
+          -4.234914827986165e-13
+        ],
+        [
+          -3.291394318058566e-17,
+          6.913530377157791,
+          0,
+          8.202520238105915,
+          1.909322886214996e-16,
+          -0.0046972243641047046
+        ],
+        [
+          -2.597611904685411,
+          1.0635866376830654e-14,
+          0.0014554401214993814,
+          5.896233415812927e-18,
+          9.362913663619075,
+          8.926254945230339e-15
+        ],
+        [
+          -2.620548184805696e-18,
+          -0.0031769469895415884,
+          2.850556697231779e-14,
+          -0.003706773993001608,
+          0,
+          0.04186607178219224
+        ]
+      ],
+      "linearViscousMatrix6": [
+        [
+          65,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          130,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          190,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2.192923674034241,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          280,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          360
+        ]
+      ],
+      "quadraticViscousMatrix6": [
+        [
+          40,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          180,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          230,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0.006614752497696677,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          360,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          420
+        ]
+      ]
+    },
+    "restoring": {
+      "hydrostaticStiffnessMatrix6": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          17911.312317271782,
+          0,
+          5.300884974024367e-12,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          11439.860831326525,
+          1.3949697300064123e-13,
+          0.7185877584949675
+        ],
+        [
+          0,
+          0,
+          5.300884974024367e-12,
+          1.3949697300064123e-13,
+          11466.760796182847,
+          -2.0280270167991336e-11
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "hydrodynamics": {
+      "approximation": "constant-coefficient-no-radiation-memory",
+      "evaluation_frequency_rad_s": 1.5707963267948966,
+      "selection_method": "wave-encounter",
+      "interpolation_bracket_rad_s": [
+        1.5,
+        2
+      ],
+      "wave_excitation": {
+        "omega_rad_s": 1.5707963267948966,
+        "heading_rad": 0,
+        "complex_force": [
+          [
+            -0.35735248216698606,
+            -743.32395036459
+          ],
+          [
+            -1.6097221031235803e-14,
+            -3.2194442062471607e-14
+          ],
+          [
+            -15285.463814250823,
+            751.5484681139194
+          ],
+          [
+            4.7285372590742004e-14,
+            -4.8794808345190113e-14
+          ],
+          [
+            1.29499977501776,
+            2701.2091114876243
+          ],
+          [
+            -4.05952542541274e-13,
+            -4.65323682216233e-15
+          ]
+        ]
+      },
+      "warnings": [
+        "Coefficients are fixed for the episode; Cummins radiation-memory convolution and time-varying encounter-frequency effects are omitted."
+      ]
+    }
+  },
+  "free_decay": {
+    "heave": {
+      "hydrodynamics": {
+        "approximation": "constant-coefficient-no-radiation-memory",
+        "evaluation_frequency_rad_s": 6.20538330025353,
+        "selection_method": "free-decay-fixed-point",
+        "added_mass": [
+          [
+            151.55830962095473,
+            8.586013838514375e-15,
+            0.019719545389353756
+          ],
+          [
+            9.87534707494969e-15,
+            -28.610859737103084,
+            7.175385504629429e-15
+          ],
+          [
+            0.01771673300301644,
+            5.4849245826307746e-15,
+            72.00519352092488
+          ]
+        ],
+        "damping": {
+          "linearViscousDamping": [
+            [
+              190,
+              0,
+              0
+            ],
+            [
+              0,
+              2.192923674034241,
+              0
+            ],
+            [
+              0,
+              0,
+              280
+            ]
+          ],
+          "quadraticViscousDamping": [
+            [
+              230,
+              0,
+              0
+            ],
+            [
+              0,
+              0.006614752497696677,
+              0
+            ],
+            [
+              0,
+              0,
+              360
+            ]
+          ],
+          "provenance": {
+            "potential": {
+              "method": "capytaine",
+              "source": "artifacts/capytaine/vehicle-c-parametric.json",
+              "checksum": "34b450e7c1c478cee5b3ac4cb9ecea5c749bb50e60e78eb454ac95ff733ed3cc",
+              "uncertainty": "Analytic representative hull; physical-vessel validation absent",
+              "operating_range": "0.3-8 rad/s",
+              "fit_data": "Capytaine frequency-domain BEM solve",
+              "limitations": [
+                "Potential-flow radiation damping only; excludes viscous effects."
+              ]
+            },
+            "linearViscous": {
+              "method": "empirical",
+              "source": "Vehicle C engineering bootstrap diagonal estimate",
+              "checksum": "033b50bb3e28b7e5262fa5b25c2880e908024441c051e440471790177c58a7d9",
+              "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+              "operating_range": "zero-speed small-amplitude free decay; bootstrap only",
+              "fit_data": "none",
+              "limitations": [
+                "Not fitted to Vehicle C measurements.",
+                "Not a complete Ikeda-method calculation."
+              ]
+            },
+            "quadraticViscous": {
+              "method": "empirical",
+              "source": "Vehicle C engineering bootstrap diagonal estimate",
+              "checksum": "116769c3c41f24e326a0e7eb5b3b893ee5a99368216973fd14374fd4e8e8a88b",
+              "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+              "operating_range": "zero-speed free decay up to 10 deg roll initial displacement; bootstrap only",
+              "fit_data": "none",
+              "limitations": [
+                "No dual-hull viscous interaction or appendage calibration.",
+                "No bilge-keel or hull-section integration has been performed."
+              ]
+            }
+          },
+          "potentialRadiationDamping": [
+            [
+              447.3420496423815,
+              -2.138003315429569e-14,
+              0.054566366532792884
+            ],
+            [
+              -1.2777019027383268e-13,
+              81.73039067824932,
+              -1.2350390909222853e-14
+            ],
+            [
+              0.053268413994401125,
+              8.610842100657335e-15,
+              230.40632722549108
+            ]
+          ]
+        },
+        "free_decay_iterations": [
+          {
+            "iteration": 0,
+            "input_frequency_rad_s": 4.377010853626396,
+            "modal_frequency_rad_s": 7.694377840500038,
+            "relaxed_frequency_rad_s": 6.035694347063217,
+            "modal_assurance": 1,
+            "mode_vector": [
+              0.9999999944352933,
+              -7.690792386459539e-22,
+              -0.00010549603457726852
+            ],
+            "added_mass": [
+              [
+                -10.961680166770535,
+                -1.0848629018844098e-14,
+                -0.004521962932445174
+              ],
+              [
+                1.0286681216522874e-14,
+                254.53713470081837,
+                1.6406279613232246e-15
+              ],
+              [
+                0.01291549471602835,
+                -3.2884067882606523e-15,
+                76.1103470524473
+              ]
+            ],
+            "radiation_damping": [
+              [
+                504.3469960057141,
+                -3.541283299305203e-14,
+                -0.0005266498549076279
+              ],
+              [
+                -7.8274004728564e-14,
+                634.0289995139342,
+                8.291260445941784e-15
+              ],
+              [
+                0.07536586321045216,
+                -3.196963752298267e-14,
+                462.59511561489273
+              ]
+            ]
+          },
+          {
+            "iteration": 1,
+            "input_frequency_rad_s": 6.035694347063217,
+            "modal_frequency_rad_s": 6.168408049790689,
+            "relaxed_frequency_rad_s": 6.1020511984269525,
+            "modal_assurance": 0.9999982271289669,
+            "mode_vector": [
+              0.9999989675322591,
+              5.805537391926108e-20,
+              -0.001436987966400238
+            ],
+            "added_mass": [
+              [
+                157.24015048350466,
+                6.710461013632623e-15,
+                0.02126827966456388
+              ],
+              [
+                1.215280407659182e-14,
+                -43.854979637479715,
+                7.769868766087485e-15
+              ],
+              [
+                0.019343568656583487,
+                6.171510884596417e-15,
+                74.82739070644418
+              ]
+            ],
+            "radiation_damping": [
+              [
+                468.41457570909483,
+                -1.9370512270493812e-14,
+                0.05350874988454228
+              ],
+              [
+                -1.3178923204143643e-13,
+                74.05208195006391,
+                -1.780121630653545e-14
+              ],
+              [
+                0.050588241274323736,
+                1.7151305856815318e-14,
+                241.37298221805577
+              ]
+            ]
+          },
+          {
+            "iteration": 2,
+            "input_frequency_rad_s": 6.1020511984269525,
+            "modal_frequency_rad_s": 6.18301714804497,
+            "relaxed_frequency_rad_s": 6.142534173235961,
+            "modal_assurance": 0.9999999936935434,
+            "mode_vector": [
+              0.9999990784948494,
+              5.049066255840615e-20,
+              -0.0013575748420818993
+            ],
+            "added_mass": [
+              [
+                155.0182670756568,
+                7.44389579347908e-15,
+                0.020662647252023852
+              ],
+              [
+                1.1262204701063978e-14,
+                -37.89376778849293,
+                7.537396134975438e-15
+              ],
+              [
+                0.01870739470638001,
+                5.9030213669740526e-15,
+                73.7237707262524
+              ]
+            ],
+            "radiation_damping": [
+              [
+                460.17416610211774,
+                -2.0156335248900733e-14,
+                0.053922330788946045
+              ],
+              [
+                -1.3021758608462258e-13,
+                77.0546839546248,
+                -1.5669671477606678e-14
+              ],
+              [
+                0.05163632259883902,
+                1.381155819858591e-14,
+                237.08447267387334
+              ]
+            ]
+          },
+          {
+            "iteration": 3,
+            "input_frequency_rad_s": 6.142534173235961,
+            "modal_frequency_rad_s": 6.1919810078262385,
+            "relaxed_frequency_rad_s": 6.1672575905311,
+            "modal_assurance": 0.9999999978220284,
+            "mode_vector": [
+              0.999999140762178,
+              4.634032440307605e-20,
+              -0.0013109061390907352
+            ],
+            "added_mass": [
+              [
+                153.66274088386382,
+                7.891349539495749e-15,
+                0.020293163149078967
+              ],
+              [
+                1.0718868009472308e-14,
+                -34.25695283790319,
+                7.395569277979082e-15
+              ],
+              [
+                0.01831927782815348,
+                5.7392213349500935e-15,
+                73.05047446612818
+              ]
+            ],
+            "radiation_damping": [
+              [
+                455.1468586322899,
+                -2.0635749976775735e-14,
+                0.05417464814563749
+              ],
+              [
+                -1.2925875662887259e-13,
+                78.88651079411447,
+                -1.4369259028245736e-14
+              ],
+              [
+                0.05227573584684813,
+                1.177404560511715e-14,
+                234.46813961590956
+              ]
+            ]
+          },
+          {
+            "iteration": 4,
+            "input_frequency_rad_s": 6.1672575905311,
+            "modal_frequency_rad_s": 6.197474552666628,
+            "relaxed_frequency_rad_s": 6.182366071598864,
+            "modal_assurance": 0.999999999223399,
+            "mode_vector": [
+              0.9999991769056379,
+              4.3963281816423406e-20,
+              -0.0012830385991764808
+            ],
+            "added_mass": [
+              [
+                152.83490548262918,
+                8.164614677130383e-15,
+                0.02006751496724146
+              ],
+              [
+                1.0387046056630253e-14,
+                -32.035908211789874,
+                7.308953988818105e-15
+              ],
+              [
+                0.018082250396623284,
+                5.639186775637415e-15,
+                72.639284713378
+              ]
+            ],
+            "radiation_damping": [
+              [
+                452.07662426750045,
+                -2.092853405281284e-14,
+                0.0543287412509421
+              ],
+              [
+                -1.2867318847679836e-13,
+                80.0052284668844,
+                -1.3575082221995082e-14
+              ],
+              [
+                0.05266623285526095,
+                1.0529713281959444e-14,
+                232.87031499258887
+              ]
+            ]
+          },
+          {
+            "iteration": 5,
+            "input_frequency_rad_s": 6.182366071598864,
+            "modal_frequency_rad_s": 6.200838864634766,
+            "relaxed_frequency_rad_s": 6.191602468116814,
+            "modal_assurance": 0.9999999997177665,
+            "mode_vector": [
+              0.9999991983193137,
+              4.2566270410352453e-20,
+              -0.0012662388121926495
+            ],
+            "added_mass": [
+              [
+                152.3290152435303,
+                8.331607011124785e-15,
+                0.019929621356395935
+              ],
+              [
+                1.0184269651065622e-14,
+                -30.678627772613282,
+                7.256023382953808e-15
+              ],
+              [
+                0.017937402925941356,
+                5.578055653371607e-15,
+                72.38800664285391
+              ]
+            ],
+            "radiation_damping": [
+              [
+                450.2004039529592,
+                -2.1107454410663988e-14,
+                0.05442290755232252
+              ],
+              [
+                -1.2831534776109607e-13,
+                80.68887687104498,
+                -1.3089760751323852e-14
+              ],
+              [
+                0.05290486558908548,
+                9.769301761092079e-15,
+                231.89388431624405
+              ]
+            ]
+          },
+          {
+            "iteration": 6,
+            "input_frequency_rad_s": 6.191602468116814,
+            "modal_frequency_rad_s": 6.202898298750743,
+            "relaxed_frequency_rad_s": 6.197250383433778,
+            "modal_assurance": 0.9999999998962489,
+            "mode_vector": [
+              0.9999992111651289,
+              4.173229904083363e-20,
+              -0.0012560529924787074
+            ],
+            "added_mass": [
+              [
+                152.01974505138324,
+                8.433695858131468e-15,
+                0.019845321679853423
+              ],
+              [
+                1.0060304622557508e-14,
+                -29.848869952084183,
+                7.22366486448294e-15
+              ],
+              [
+                0.017848852086989383,
+                5.540683843306661e-15,
+                72.2343906780712
+              ]
+            ],
+            "radiation_damping": [
+              [
+                449.05339819490774,
+                -2.1216835318171148e-14,
+                0.05448047504003206
+              ],
+              [
+                -1.2809658594608175e-13,
+                81.10681747747456,
+                -1.279306503971068e-14
+              ],
+              [
+                0.05305075097239305,
+                9.304432904186648e-15,
+                231.29695462764326
+              ]
+            ]
+          },
+          {
+            "iteration": 7,
+            "input_frequency_rad_s": 6.197250383433778,
+            "modal_frequency_rad_s": 6.204158622697282,
+            "relaxed_frequency_rad_s": 6.200704503065531,
+            "modal_assurance": 0.9999999999615949,
+            "mode_vector": [
+              0.999999218929929,
+              4.122968930658962e-20,
+              -0.0012498558044421184
+            ],
+            "added_mass": [
+              [
+                151.83063105525787,
+                8.496121627919467e-15,
+                0.01979377371594409
+              ],
+              [
+                9.98450190210065e-15,
+                -29.34148572547272,
+                7.203878124951922e-15
+              ],
+              [
+                0.01779470460223438,
+                5.517831552580697e-15,
+                72.14045686321813
+              ]
+            ],
+            "radiation_damping": [
+              [
+                448.35202170279257,
+                -2.1283720071515433e-14,
+                0.05451567667900046
+              ],
+              [
+                -1.279628164393932e-13,
+                81.36238177119532,
+                -1.2611640146264307e-14
+              ],
+              [
+                0.053139957654815426,
+                9.020172702473437e-15,
+                230.931941245547
+              ]
+            ]
+          },
+          {
+            "iteration": 8,
+            "input_frequency_rad_s": 6.200704503065531,
+            "modal_frequency_rad_s": 6.204929783072646,
+            "relaxed_frequency_rad_s": 6.202817143069089,
+            "modal_assurance": 0.9999999999857236,
+            "mode_vector": [
+              0.9999992236452656,
+              4.0925020745805774e-20,
+              -0.0012460773917006593
+            ],
+            "added_mass": [
+              [
+                151.71497380298044,
+                8.534299621896168e-15,
+                0.019762248308050442
+              ],
+              [
+                9.938142909414659e-15,
+                -29.031182592436007,
+                7.191777064361092e-15
+              ],
+              [
+                0.01776158939430262,
+                5.503855679785655e-15,
+                72.08300935988983
+              ]
+            ],
+            "radiation_damping": [
+              [
+                447.92307789349223,
+                -2.1324625065061894e-14,
+                0.054537205095311056
+              ],
+              [
+                -1.2788100645230027e-13,
+                81.518678315066,
+                -1.2500685351269523e-14
+              ],
+              [
+                0.05319451416562449,
+                8.846326479900965e-15,
+                230.70870845642145
+              ]
+            ]
+          },
+          {
+            "iteration": 9,
+            "input_frequency_rad_s": 6.202817143069089,
+            "modal_frequency_rad_s": 6.205401588933197,
+            "relaxed_frequency_rad_s": 6.204109366001143,
+            "modal_assurance": 0.9999999999946794,
+            "mode_vector": [
+              0.9999992265168768,
+              4.073968423683133e-20,
+              -0.0012437707378292532
+            ],
+            "added_mass": [
+              [
+                151.6442344644767,
+                8.55765039312868e-15,
+                0.019742966451906152
+              ],
+              [
+                9.909788401489466e-15,
+                -28.841392173466005,
+                7.184375703836502e-15
+              ],
+              [
+                0.017741335170227787,
+                5.495307629602324e-15,
+                72.04787279643085
+              ]
+            ],
+            "radiation_damping": [
+              [
+                447.6607233871583,
+                -2.13496437485253e-14,
+                0.05455037250071674
+              ],
+              [
+                -1.2783096908537345e-13,
+                81.61427382599263,
+                -1.2432822172375035e-14
+              ],
+              [
+                0.05322788251399617,
+                8.739997075181489e-15,
+                230.57217279156572
+              ]
+            ]
+          },
+          {
+            "iteration": 10,
+            "input_frequency_rad_s": 6.204109366001143,
+            "modal_frequency_rad_s": 6.205690227998479,
+            "relaxed_frequency_rad_s": 6.204899796999811,
+            "modal_assurance": 0.999999999998014,
+            "mode_vector": [
+              0.999999228268702,
+              4.0626696024428156e-20,
+              -0.0012423614612622346
+            ],
+            "added_mass": [
+              [
+                151.60096585493653,
+                8.571933187176407e-15,
+                0.019731172461145655
+              ],
+              [
+                9.892445008717225e-15,
+                -28.725304467437425,
+                7.17984856822316e-15
+              ],
+              [
+                0.017728946418345597,
+                5.4900791067812815e-15,
+                72.02638107376217
+              ]
+            ],
+            "radiation_damping": [
+              [
+                447.5002509409103,
+                -2.1364946742147866e-14,
+                0.05455842651048283
+              ],
+              [
+                -1.2780036309812833e-13,
+                81.6727460272256,
+                -1.2391312802173828e-14
+              ],
+              [
+                0.05324829268558151,
+                8.674959352285588e-15,
+                230.48865902827774
+              ]
+            ]
+          },
+          {
+            "iteration": 11,
+            "input_frequency_rad_s": 6.204899796999811,
+            "modal_frequency_rad_s": 6.205866803507249,
+            "relaxed_frequency_rad_s": 6.20538330025353,
+            "modal_assurance": 0.9999999999992579,
+            "mode_vector": [
+              0.9999992293385349,
+              4.055772301597902e-20,
+              -0.0012415000348189825
+            ],
+            "added_mass": [
+              [
+                151.57449917538656,
+                8.580669731686546e-15,
+                0.019723958275679774
+              ],
+              [
+                9.88183634752634e-15,
+                -28.65429557328061,
+                7.177079395632892e-15
+              ],
+              [
+                0.017721368427520964,
+                5.486880907451677e-15,
+                72.01323494905664
+              ]
+            ],
+            "radiation_damping": [
+              [
+                447.40209264886937,
+                -2.137430732555159e-14,
+                0.054563353012578385
+              ],
+              [
+                -1.2778164193132087e-13,
+                81.70851248769338,
+                -1.2365922219691234e-14
+              ],
+              [
+                0.053260777243709215,
+                8.635176872819774e-15,
+                230.43757506615265
+              ]
+            ]
+          }
+        ],
+        "selected_mode_vector": [
+          0.9999992293385349,
+          4.055772301597902e-20,
+          -0.0012415000348189825
+        ],
+        "interpolation_bracket_rad_s": [
+          6,
+          8
+        ],
+        "warnings": [
+          "Free-decay uses constant added mass and radiation damping at the converged modal frequency; Cummins radiation memory is omitted."
+        ]
+      },
+      "metrics": {
+        "mode": "heave",
+        "initial_displacement": 0.05,
+        "natural_period_s": 1.0125378245245347,
+        "positive_peak_count": 29,
+        "logarithmic_decrement": 0.6996208945105887,
+        "damping_ratio": 0.11066420717976598,
+        "settling_time_s": 5.222,
+        "equilibrium_error": -4.915180117827166e-11,
+        "combined_damping": true,
+        "viscous_damping_nonzero": true,
+        "simulation": {
+          "method": "rk4",
+          "dt_s": 0.002,
+          "duration_s": 30
+        }
+      }
+    },
+    "roll": {
+      "hydrodynamics": {
+        "approximation": "constant-coefficient-no-radiation-memory",
+        "evaluation_frequency_rad_s": 6.962408221089081,
+        "selection_method": "free-decay-fixed-point",
+        "added_mass": [
+          [
+            126.21019444725826,
+            1.695332474523318e-14,
+            0.012810253888384214
+          ],
+          [
+            -2.8495902606599797e-16,
+            39.396977212939774,
+            4.523246779731951e-15
+          ],
+          [
+            0.010459011691760509,
+            2.4218911257069276e-15,
+            59.41466502285628
+          ]
+        ],
+        "damping": {
+          "linearViscousDamping": [
+            [
+              190,
+              0,
+              0
+            ],
+            [
+              0,
+              2.192923674034241,
+              0
+            ],
+            [
+              0,
+              0,
+              280
+            ]
+          ],
+          "quadraticViscousDamping": [
+            [
+              230,
+              0,
+              0
+            ],
+            [
+              0,
+              0.006614752497696677,
+              0
+            ],
+            [
+              0,
+              0,
+              360
+            ]
+          ],
+          "provenance": {
+            "potential": {
+              "method": "capytaine",
+              "source": "artifacts/capytaine/vehicle-c-parametric.json",
+              "checksum": "34b450e7c1c478cee5b3ac4cb9ecea5c749bb50e60e78eb454ac95ff733ed3cc",
+              "uncertainty": "Analytic representative hull; physical-vessel validation absent",
+              "operating_range": "0.3-8 rad/s",
+              "fit_data": "Capytaine frequency-domain BEM solve",
+              "limitations": [
+                "Potential-flow radiation damping only; excludes viscous effects."
+              ]
+            },
+            "linearViscous": {
+              "method": "empirical",
+              "source": "Vehicle C engineering bootstrap diagonal estimate",
+              "checksum": "033b50bb3e28b7e5262fa5b25c2880e908024441c051e440471790177c58a7d9",
+              "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+              "operating_range": "zero-speed small-amplitude free decay; bootstrap only",
+              "fit_data": "none",
+              "limitations": [
+                "Not fitted to Vehicle C measurements.",
+                "Not a complete Ikeda-method calculation."
+              ]
+            },
+            "quadraticViscous": {
+              "method": "empirical",
+              "source": "Vehicle C engineering bootstrap diagonal estimate",
+              "checksum": "116769c3c41f24e326a0e7eb5b3b893ee5a99368216973fd14374fd4e8e8a88b",
+              "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+              "operating_range": "zero-speed free decay up to 10 deg roll initial displacement; bootstrap only",
+              "fit_data": "none",
+              "limitations": [
+                "No dual-hull viscous interaction or appendage calibration.",
+                "No bilge-keel or hull-section integration has been performed."
+              ]
+            }
+          },
+          "potentialRadiationDamping": [
+            [
+              353.33223298939384,
+              -3.0345009125780123e-14,
+              0.05928465929353799
+            ],
+            [
+              -1.098402383308638e-13,
+              115.9852490401035,
+              1.1967106413428664e-14
+            ],
+            [
+              0.0652253357803858,
+              -2.949030577815149e-14,
+              181.4813325720913
+            ]
+          ]
+        },
+        "free_decay_iterations": [
+          {
+            "iteration": 0,
+            "input_frequency_rad_s": 5.238064297312786,
+            "modal_frequency_rad_s": 5.301389333102762,
+            "relaxed_frequency_rad_s": 5.269726815207774,
+            "modal_assurance": 1,
+            "mode_vector": [
+              -5.2769166588559707e-17,
+              1,
+              0
+            ],
+            "added_mass": [
+              [
+                137.45447850552455,
+                1.5363128423485814e-14,
+                0.019503113775271797
+              ],
+              [
+                2.3796492000115092e-14,
+                210.44398494112457,
+                -3.750935525855013e-15
+              ],
+              [
+                0.011756709053643366,
+                -1.408837217565447e-14,
+                58.4851088478365
+              ]
+            ],
+            "radiation_damping": [
+              [
+                406.2572974388844,
+                -4.510796189318217e-15,
+                0.08122830100345665
+              ],
+              [
+                -1.1819763391093425e-13,
+                692.2285872186295,
+                3.013802804496448e-14
+              ],
+              [
+                0.09041312779660686,
+                6.514623859931292e-14,
+                257.5830852240583
+              ]
+            ]
+          },
+          {
+            "iteration": 1,
+            "input_frequency_rad_s": 5.269726815207774,
+            "modal_frequency_rad_s": 5.372477927310037,
+            "relaxed_frequency_rad_s": 5.321102371258905,
+            "modal_assurance": 1,
+            "mode_vector": [
+              -5.164050810941355e-17,
+              1,
+              0
+            ],
+            "added_mass": [
+              [
+                138.32634569857385,
+                1.4987168996623807e-14,
+                0.01959000374841534
+              ],
+              [
+                2.333254206909389e-14,
+                199.74324559813982,
+                -3.2669877529794514e-15
+              ],
+              [
+                0.012086204349500248,
+                -1.324046368102952e-14,
+                59.188887871233504
+              ]
+            ],
+            "radiation_damping": [
+              [
+                409.0244659475619,
+                -5.110731444949079e-15,
+                0.08006715999865097
+              ],
+              [
+                -1.187975691665651e-13,
+                666.4729176264566,
+                2.8098248175819543e-14
+              ],
+              [
+                0.08873476198379697,
+                6.322644578129417e-14,
+                257.0053305940891
+              ]
+            ]
+          },
+          {
+            "iteration": 2,
+            "input_frequency_rad_s": 5.321102371258905,
+            "modal_frequency_rad_s": 5.4941699167643625,
+            "relaxed_frequency_rad_s": 5.407636144011634,
+            "modal_assurance": 1,
+            "mode_vector": [
+              -4.981838751658197e-17,
+              1,
+              0
+            ],
+            "added_mass": [
+              [
+                139.74103615352146,
+                1.4377137770687786e-14,
+                0.019730991294014934
+              ],
+              [
+                2.2579737577513267e-14,
+                182.38024131252362,
+                -2.4817347919341443e-15
+              ],
+              [
+                0.012620842943216113,
+                -1.1864648575726998e-14,
+                60.33083870357295
+              ]
+            ],
+            "radiation_damping": [
+              [
+                413.51446959452375,
+                -6.0841855288895426e-15,
+                0.07818309427230814
+              ],
+              [
+                -1.1977102325050557e-13,
+                624.681805145898,
+                2.478850429042197e-14
+              ],
+              [
+                0.08601144802701374,
+                6.011139271268468e-14,
+                256.0678667614833
+              ]
+            ]
+          },
+          {
+            "iteration": 3,
+            "input_frequency_rad_s": 5.407636144011634,
+            "modal_frequency_rad_s": 5.7192722525088415,
+            "relaxed_frequency_rad_s": 5.563454198260238,
+            "modal_assurance": 1,
+            "mode_vector": [
+              -4.6774901443067616e-17,
+              1,
+              0
+            ],
+            "added_mass": [
+              [
+                142.12385225816968,
+                1.3349639334959346e-14,
+                0.019968461896177136
+              ],
+              [
+                2.1311760784486682e-14,
+                153.13508305748078,
+                -1.1591038267943465e-15
+              ],
+              [
+                0.013521354745509844,
+                -9.547311678126691e-15,
+                62.25426924945558
+              ]
+            ],
+            "radiation_damping": [
+              [
+                421.07715085987934,
+                -7.723810692285986e-15,
+                0.07500969182285738
+              ],
+              [
+                -1.2141064841390203e-13,
+                554.2914695770293,
+                1.9213778734874063e-14
+              ],
+              [
+                0.0814244683583932,
+                5.4864592189816064e-14,
+                254.48886132602144
+              ]
+            ]
+          },
+          {
+            "iteration": 4,
+            "input_frequency_rad_s": 5.563454198260238,
+            "modal_frequency_rad_s": 6.205513476556946,
+            "relaxed_frequency_rad_s": 5.884483837408592,
+            "modal_assurance": 1,
+            "mode_vector": [
+              -4.137413271343867e-17,
+              1,
+              0
+            ],
+            "added_mass": [
+              [
+                146.41449806324135,
+                1.1499462208669186e-14,
+                0.020396066125058877
+              ],
+              [
+                1.902856347970308e-14,
+                100.47444536039652,
+                1.2225071549195842e-15
+              ],
+              [
+                0.015142871898844503,
+                -5.374571776280796e-15,
+                65.71771705264072
+              ]
+            ],
+            "radiation_damping": [
+              [
+                434.6949817042293,
+                -1.0676221000195818e-14,
+                0.0692954674305599
+              ],
+              [
+                -1.2436305872181185e-13,
+                427.5422850986307,
+                9.175583687980633e-15
+              ],
+              [
+                0.0731648695438966,
+                4.54168792045046e-14,
+                251.64560664319728
+              ]
+            ]
+          },
+          {
+            "iteration": 5,
+            "input_frequency_rad_s": 5.884483837408592,
+            "modal_frequency_rad_s": 7.788687341037667,
+            "relaxed_frequency_rad_s": 6.836585589223129,
+            "modal_assurance": 1,
+            "mode_vector": [
+              -3.055869800078555e-17,
+              1,
+              0
+            ],
+            "added_mass": [
+              [
+                155.25445233656268,
+                7.687569561968451e-15,
+                0.02127705281147456
+              ],
+              [
+                1.4324525745476643e-14,
+                -8.02148984262351,
+                6.129305136310955e-15
+              ],
+              [
+                0.018483659775564865,
+                3.222462703512349e-15,
+                72.85340748227301
+              ]
+            ],
+            "radiation_damping": [
+              [
+                462.7515977557301,
+                -1.6759028415143795e-14,
+                0.05752253518905478
+              ],
+              [
+                -1.3044586613675984e-13,
+                166.4028096272699,
+                -1.15059615228425e-14
+              ],
+              [
+                0.05614773991976784,
+                2.5951895476671063e-14,
+                245.7876909527754
+              ]
+            ]
+          },
+          {
+            "iteration": 6,
+            "input_frequency_rad_s": 6.836585589223129,
+            "modal_frequency_rad_s": 7.135345427621585,
+            "relaxed_frequency_rad_s": 6.985965508422357,
+            "modal_assurance": 1,
+            "mode_vector": [
+              -3.162150783277024e-18,
+              1,
+              0
+            ],
+            "added_mass": [
+              [
+                130.42322162273825,
+                1.5562621413086543e-14,
+                0.01395862459198208
+              ],
+              [
+                1.4037521629692018e-15,
+                28.09361744623567,
+                4.9640500680462864e-15
+              ],
+              [
+                0.011665293772572218,
+                2.9309878812248922e-15,
+                61.50729551441495
+              ]
+            ],
+            "radiation_damping": [
+              [
+                368.95729661274055,
+                -2.88549698413373e-14,
+                0.05850044731222598
+              ],
+              [
+                -1.1282031689974945e-13,
+                110.29186126031047,
+                7.925374854377508e-15
+              ],
+              [
+                0.06323801498456917,
+                -2.3157638819269497e-14,
+                189.61299564141797
+              ]
+            ]
+          },
+          {
+            "iteration": 7,
+            "input_frequency_rad_s": 6.985965508422357,
+            "modal_frequency_rad_s": 6.931361958731151,
+            "relaxed_frequency_rad_s": 6.9586637335767545,
+            "modal_assurance": 1,
+            "mode_vector": [
+              1.369561652715818e-18,
+              1,
+              0
+            ],
+            "added_mass": [
+              [
+                125.42140557641811,
+                1.7213700780171195e-14,
+                0.012595248859252476
+              ],
+              [
+                -6.01129925633589e-16,
+                41.51326177881437,
+                4.440716875800704e-15
+              ],
+              [
+                0.010233164138254097,
+                2.3265748986314038e-15,
+                59.022869866126925
+              ]
+            ],
+            "radiation_damping": [
+              [
+                350.4068124357367,
+                -3.0623983448927995e-14,
+                0.059431484285989634
+              ],
+              [
+                -1.0928228968456805e-13,
+                117.05120013204403,
+                1.2723824264967275e-14
+              ],
+              [
+                0.06559741420790052,
+                -3.0675946651529965e-14,
+                179.95887257756823
+              ]
+            ]
+          },
+          {
+            "iteration": 8,
+            "input_frequency_rad_s": 6.9586637335767545,
+            "modal_frequency_rad_s": 6.967338191079866,
+            "relaxed_frequency_rad_s": 6.9630009623283105,
+            "modal_assurance": 1,
+            "mode_vector": [
+              5.336150925656628e-19,
+              1,
+              0
+            ],
+            "added_mass": [
+              [
+                126.33557433650176,
+                1.6911937347883853e-14,
+                0.012844429455175133
+              ],
+              [
+                -2.3470290071324377e-16,
+                39.06058868834705,
+                4.536365106570353e-15
+              ],
+              [
+                0.010494910703893358,
+                2.437041869379449e-15,
+                59.476941805874965
+              ]
+            ],
+            "radiation_damping": [
+              [
+                353.79723562643346,
+                -3.0300665485762983e-14,
+                0.05926132110765289
+              ],
+              [
+                -1.0992892561089808e-13,
+                115.81581354882414,
+                1.1846824289882182e-14
+              ],
+              [
+                0.06516619301892418,
+                -2.930184530807867e-14,
+                181.72333125202658
+              ]
+            ]
+          },
+          {
+            "iteration": 9,
+            "input_frequency_rad_s": 6.9630009623283105,
+            "modal_frequency_rad_s": 6.961585475314314,
+            "relaxed_frequency_rad_s": 6.962293218821312,
+            "modal_assurance": 1,
+            "mode_vector": [
+              6.661834246589671e-19,
+              1,
+              0
+            ],
+            "added_mass": [
+              [
+                126.19034718359936,
+                1.6959876247171043e-14,
+                0.012804843997779872
+              ],
+              [
+                -2.9291442127626044e-16,
+                39.45022651615501,
+                4.52117018759986e-15
+              ],
+              [
+                0.010453328984883083,
+                2.4194928080332456e-15,
+                59.40480679328009
+              ]
+            ],
+            "radiation_damping": [
+              [
+                353.2586244546033,
+                -3.035202859214212e-14,
+                0.05928835365896913
+              ],
+              [
+                -1.0982619939813981e-13,
+                116.01207017456841,
+                1.1986146715935578e-14
+              ],
+              [
+                0.06523469790366831,
+                -2.952013851018998e-14,
+                181.44302490062373
+              ]
+            ]
+          },
+          {
+            "iteration": 10,
+            "input_frequency_rad_s": 6.962293218821312,
+            "modal_frequency_rad_s": 6.962523223356851,
+            "relaxed_frequency_rad_s": 6.962408221089081,
+            "modal_assurance": 1,
+            "mode_vector": [
+              6.445451129527064e-19,
+              1,
+              0
+            ],
+            "added_mass": [
+              [
+                126.21404516689566,
+                1.69520536381627e-14,
+                0.012811303502696002
+              ],
+              [
+                -2.834155389089882e-16,
+                39.38664590777388,
+                4.523649675276611e-15
+              ],
+              [
+                0.010460114237247003,
+                2.422356441688085e-15,
+                59.41657769348289
+              ]
+            ],
+            "radiation_damping": [
+              [
+                353.3465143450138,
+                -3.0343647225347464e-14,
+                0.05928394252140467
+              ],
+              [
+                -1.0984296213172912e-13,
+                115.9800452663765,
+                1.1963412258505088e-14
+              ],
+              [
+                0.06522351936314104,
+                -2.948451770131271e-14,
+                181.4887649368403
+              ]
+            ]
+          }
+        ],
+        "selected_mode_vector": [
+          6.445451129527064e-19,
+          1,
+          0
+        ],
+        "interpolation_bracket_rad_s": [
+          6,
+          8
+        ],
+        "warnings": [
+          "Free-decay uses constant added mass and radiation damping at the converged modal frequency; Cummins radiation memory is omitted."
+        ]
+      },
+      "metrics": {
+        "mode": "roll",
+        "initial_displacement": 0.17453292519943295,
+        "natural_period_s": 0.9024442560187531,
+        "positive_peak_count": 33,
+        "logarithmic_decrement": 0.22610282224310713,
+        "damping_ratio": 0.035962104817672966,
+        "settling_time_s": 15.404,
+        "equilibrium_error": 0.000020453642218779342,
+        "combined_damping": true,
+        "viscous_damping_nonzero": true,
+        "simulation": {
+          "method": "rk4",
+          "dt_s": 0.002,
+          "duration_s": 30
+        }
+      }
+    },
+    "pitch": {
+      "hydrodynamics": {
+        "approximation": "constant-coefficient-no-radiation-memory",
+        "evaluation_frequency_rad_s": 6.034427705344044,
+        "selection_method": "free-decay-fixed-point",
+        "added_mass": [
+          [
+            157.28256253533772,
+            6.696460965840214e-15,
+            0.021279840178127157
+          ],
+          [
+            1.216980413462546e-14,
+            -43.96876923824553,
+            7.77430628123597e-15
+          ],
+          [
+            0.01935571215720804,
+            6.1766359020918525e-15,
+            74.84845697285519
+          ]
+        ],
+        "damping": {
+          "linearViscousDamping": [
+            [
+              190,
+              0,
+              0
+            ],
+            [
+              0,
+              2.192923674034241,
+              0
+            ],
+            [
+              0,
+              0,
+              280
+            ]
+          ],
+          "quadraticViscousDamping": [
+            [
+              230,
+              0,
+              0
+            ],
+            [
+              0,
+              0.006614752497696677,
+              0
+            ],
+            [
+              0,
+              0,
+              360
+            ]
+          ],
+          "provenance": {
+            "potential": {
+              "method": "capytaine",
+              "source": "artifacts/capytaine/vehicle-c-parametric.json",
+              "checksum": "34b450e7c1c478cee5b3ac4cb9ecea5c749bb50e60e78eb454ac95ff733ed3cc",
+              "uncertainty": "Analytic representative hull; physical-vessel validation absent",
+              "operating_range": "0.3-8 rad/s",
+              "fit_data": "Capytaine frequency-domain BEM solve",
+              "limitations": [
+                "Potential-flow radiation damping only; excludes viscous effects."
+              ]
+            },
+            "linearViscous": {
+              "method": "empirical",
+              "source": "Vehicle C engineering bootstrap diagonal estimate",
+              "checksum": "033b50bb3e28b7e5262fa5b25c2880e908024441c051e440471790177c58a7d9",
+              "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+              "operating_range": "zero-speed small-amplitude free decay; bootstrap only",
+              "fit_data": "none",
+              "limitations": [
+                "Not fitted to Vehicle C measurements.",
+                "Not a complete Ikeda-method calculation."
+              ]
+            },
+            "quadraticViscous": {
+              "method": "empirical",
+              "source": "Vehicle C engineering bootstrap diagonal estimate",
+              "checksum": "116769c3c41f24e326a0e7eb5b3b893ee5a99368216973fd14374fd4e8e8a88b",
+              "uncertainty": "Uncalibrated; replace with independent free-decay identification",
+              "operating_range": "zero-speed free decay up to 10 deg roll initial displacement; bootstrap only",
+              "fit_data": "none",
+              "limitations": [
+                "No dual-hull viscous interaction or appendage calibration.",
+                "No bilge-keel or hull-section integration has been performed."
+              ]
+            }
+          },
+          "potentialRadiationDamping": [
+            [
+              468.5718713971325,
+              -1.935551221928766e-14,
+              0.053500855314245394
+            ],
+            [
+              -1.3181923214384872e-13,
+              73.99476728116557,
+              -1.7841903945432138e-14
+            ],
+            [
+              0.050568235148303074,
+              1.7215056074441467e-14,
+              241.4548427191208
+            ]
+          ]
+        },
+        "free_decay_iterations": [
+          {
+            "iteration": 0,
+            "input_frequency_rad_s": 5.416103147741009,
+            "modal_frequency_rad_s": 6.157422871984747,
+            "relaxed_frequency_rad_s": 5.786763009862878,
+            "modal_assurance": 1,
+            "mode_vector": [
+              0.0008216154932562344,
+              2.6872035289383137e-17,
+              0.9999996624739339
+            ],
+            "added_mass": [
+              [
+                142.3570018389943,
+                1.3249102483155831e-14,
+                0.019991697500151895
+              ],
+              [
+                2.1187694031197238e-14,
+                150.27355447581132,
+                -1.0296893686217358e-15
+              ],
+              [
+                0.013609466433534303,
+                -9.320568991080465e-15,
+                62.44246968365737
+              ]
+            ],
+            "radiation_damping": [
+              [
+                421.8171307364163,
+                -7.884241838780958e-15,
+                0.0746991863459832
+              ],
+              [
+                -1.2157107956039699e-13,
+                547.404040370901,
+                1.866831283679116e-14
+              ],
+              [
+                0.08097564967494392,
+                5.435121252103215e-14,
+                254.33436159157714
+              ]
+            ]
+          },
+          {
+            "iteration": 1,
+            "input_frequency_rad_s": 5.786763009862878,
+            "modal_frequency_rad_s": 6.075231015309595,
+            "relaxed_frequency_rad_s": 5.930997012586237,
+            "modal_assurance": 0.9999999924596719,
+            "mode_vector": [
+              0.000908450522987455,
+              -2.729866282729068e-18,
+              0.9999995873587384
+            ],
+            "added_mass": [
+              [
+                152.56358662912555,
+                8.847902623237214e-15,
+                0.021008882095893022
+              ],
+              [
+                1.5756426118957246e-14,
+                25.00447187702224,
+                4.6356849191458454e-15
+              ],
+              [
+                0.01746673013369795,
+                6.055413312891815e-16,
+                70.6813165322176
+              ]
+            ],
+            "radiation_damping": [
+              [
+                454.2112157961129,
+                -1.4907433104608536e-14,
+                0.061106193957545754
+              ],
+              [
+                -1.2859427082622458e-13,
+                245.8931822782581,
+                -5.210537467022609e-15
+              ],
+              [
+                0.06132772265822791,
+                3.1877000470383895e-14,
+                247.57082963890934
+              ]
+            ]
+          },
+          {
+            "iteration": 2,
+            "input_frequency_rad_s": 5.930997012586237,
+            "modal_frequency_rad_s": 6.044125954315872,
+            "relaxed_frequency_rad_s": 5.987561483451055,
+            "modal_assurance": 0.9999999992370274,
+            "mode_vector": [
+              0.0009360724696833454,
+              -2.5844866788441775e-17,
+              0.9999995618840697
+            ],
+            "added_mass": [
+              [
+                156.5352510278242,
+                7.135274045253148e-15,
+                0.021404696751713637
+              ],
+              [
+                1.3642969575913077e-14,
+                -23.741192402013667,
+                6.840238726976399e-15
+              ],
+              [
+                0.01896769810969961,
+                4.468065358231967e-15,
+                73.88727968126194
+              ]
+            ],
+            "radiation_damping": [
+              [
+                466.8166501314464,
+                -1.764035104820013e-14,
+                0.05581678471331564
+              ],
+              [
+                -1.3132718876981617e-13,
+                128.56696929607676,
+                -1.450245847523403e-14
+              ],
+              [
+                0.053682170904621504,
+                2.3131663050890795e-14,
+                244.93895231478768
+              ]
+            ]
+          },
+          {
+            "iteration": 3,
+            "input_frequency_rad_s": 5.987561483451055,
+            "modal_frequency_rad_s": 6.0320572032921,
+            "relaxed_frequency_rad_s": 6.009809343371577,
+            "modal_assurance": 0.9999999998984626,
+            "mode_vector": [
+              0.0009461490399879545,
+              -3.89112775339296e-17,
+              0.9999995524008969
+            ],
+            "added_mass": [
+              [
+                158.09282476857322,
+                6.46362985960686e-15,
+                0.021559923994557167
+              ],
+              [
+                1.2814132070221913e-14,
+                -42.85785459564488,
+                7.704801987223216e-15
+              ],
+              [
+                0.019556335031261106,
+                5.982837351391682e-15,
+                75.1445671843039
+              ]
+            ],
+            "radiation_damping": [
+              [
+                471.76014271805184,
+                -1.871212368486974e-14,
+                0.05374242894811367
+              ],
+              [
+                -1.323989614064858e-13,
+                82.55496775273139,
+                -1.8146485439910706e-14
+              ],
+              [
+                0.05068380310474978,
+                1.9701990613548044e-14,
+                243.9068049333856
+              ]
+            ]
+          },
+          {
+            "iteration": 4,
+            "input_frequency_rad_s": 6.009809343371577,
+            "modal_frequency_rad_s": 6.030972872207181,
+            "relaxed_frequency_rad_s": 6.020391107789379,
+            "modal_assurance": 0.9999999999674807,
+            "mode_vector": [
+              0.0009404464674296431,
+              -4.172144010203012e-17,
+              0.9999995577801233
+            ],
+            "added_mass": [
+              [
+                158.1068802790351,
+                6.4243569928159e-15,
+                0.02150452953043595
+              ],
+              [
+                1.2500216101869268e-14,
+                -46.18037614961738,
+                7.860553522685641e-15
+              ],
+              [
+                0.01959173240623574,
+                6.276245392216824e-15,
+                75.25789948849655
+              ]
+            ],
+            "radiation_damping": [
+              [
+                471.6290596502933,
+                -1.9063972248190182e-14,
+                0.053347416984965715
+              ],
+              [
+                -1.3240231208604368e-13,
+                72.88080328968041,
+                -1.8632706117034048e-14
+              ],
+              [
+                0.05017939744890614,
+                1.8454100951605753e-14,
+                243.04587782870345
+              ]
+            ]
+          },
+          {
+            "iteration": 5,
+            "input_frequency_rad_s": 6.020391107789379,
+            "modal_frequency_rad_s": 6.03265696403593,
+            "relaxed_frequency_rad_s": 6.026524035912654,
+            "modal_assurance": 0.9999999999290572,
+            "mode_vector": [
+              0.0009320237064242402,
+              -4.1176627928484846e-17,
+              0.9999995656658112
+            ],
+            "added_mass": [
+              [
+                157.75256197877712,
+                6.541316039194029e-15,
+                0.021407950814273626
+              ],
+              [
+                1.2358194402695827e-14,
+                -45.22975630955273,
+                7.823481682092575e-15
+              ],
+              [
+                0.01949028330593267,
+                6.233430027024831e-15,
+                75.08190791570243
+              ]
+            ],
+            "radiation_damping": [
+              [
+                470.3149817310556,
+                -1.9189285512166748e-14,
+                0.053413369717926366
+              ],
+              [
+                -1.3215168555809056e-13,
+                73.35962087067927,
+                -1.8292793888497612e-14
+              ],
+              [
+                0.050346532408428644,
+                1.7921519579705343e-14,
+                242.3619997246734
+              ]
+            ]
+          },
+          {
+            "iteration": 6,
+            "input_frequency_rad_s": 6.026524035912654,
+            "modal_frequency_rad_s": 6.033633667880427,
+            "relaxed_frequency_rad_s": 6.0300788518965405,
+            "modal_assurance": 0.9999999999764544,
+            "mode_vector": [
+              0.000927171301838978,
+              -4.0863989097503937e-17,
+              0.9999995701765962
+            ],
+            "added_mass": [
+              [
+                157.54720788257484,
+                6.6091026007240816e-15,
+                0.021351976186501222
+              ],
+              [
+                1.2275882149409333e-14,
+                -44.67880063510323,
+                7.801995763036174e-15
+              ],
+              [
+                0.019431485924346382,
+                6.208615303607579e-15,
+                74.97990756645703
+              ]
+            ],
+            "radiation_damping": [
+              [
+                469.5533747713023,
+                -1.9261913970948948e-14,
+                0.05345159428566488
+              ],
+              [
+                -1.3200642864052615e-13,
+                73.63713166117523,
+                -1.8095789194050895e-14
+              ],
+              [
+                0.05044339968435416,
+                1.7612848629880996e-14,
+                241.96564094257448
+              ]
+            ]
+          },
+          {
+            "iteration": 7,
+            "input_frequency_rad_s": 6.0300788518965405,
+            "modal_frequency_rad_s": 6.03420000985422,
+            "relaxed_frequency_rad_s": 6.032139430875381,
+            "modal_assurance": 0.9999999999921441,
+            "mode_vector": [
+              0.0009243684578166894,
+              -4.068381080786146e-17,
+              0.999999572771386
+            ],
+            "added_mass": [
+              [
+                157.42817892791192,
+                6.648393580102302e-15,
+                0.02131953173297139
+              ],
+              [
+                1.2228171674450067e-14,
+                -44.35945137834072,
+                7.789541925822541e-15
+              ],
+              [
+                0.019397405324073188,
+                6.194231998656624e-15,
+                74.920785322633
+              ]
+            ],
+            "radiation_damping": [
+              [
+                469.11192616151095,
+                -1.9304011448854182e-14,
+                0.05347375030993953
+              ],
+              [
+                -1.319222336847157e-13,
+                73.79798464590402,
+                -1.7981599785232942e-14
+              ],
+              [
+                0.05049954665589108,
+                1.7433934348783742e-14,
+                241.73590035119014
+              ]
+            ]
+          },
+          {
+            "iteration": 8,
+            "input_frequency_rad_s": 6.032139430875381,
+            "modal_frequency_rad_s": 6.034528367763206,
+            "relaxed_frequency_rad_s": 6.0333338993192935,
+            "modal_assurance": 0.9999999999973708,
+            "mode_vector": [
+              0.0009227470261595614,
+              -4.0579714587182735e-17,
+              0.9999995742688721
+            ],
+            "added_mass": [
+              [
+                157.35918279338244,
+                6.671168926711466e-15,
+                0.021300725032645247
+              ],
+              [
+                1.2200515896424653e-14,
+                -44.17433789613068,
+                7.782322954352672e-15
+              ],
+              [
+                0.019377650217528283,
+                6.1858945949871976e-15,
+                74.88651461681928
+              ]
+            ],
+            "radiation_damping": [
+              [
+                468.8560367625385,
+                -1.932841360593543e-14,
+                0.05348659323572865
+              ],
+              [
+                -1.318734293705532e-13,
+                73.89122443117512,
+                -1.791540893415006e-14
+              ],
+              [
+                0.050532092720103394,
+                1.7330225181188442e-14,
+                241.60272928541943
+              ]
+            ]
+          },
+          {
+            "iteration": 9,
+            "input_frequency_rad_s": 6.0333338993192935,
+            "modal_frequency_rad_s": 6.034718733548308,
+            "relaxed_frequency_rad_s": 6.034026316433801,
+            "modal_assurance": 0.9999999999991186,
+            "mode_vector": [
+              0.0009218082138392912,
+              -4.0519488168490244e-17,
+              0.999999575134718
+            ],
+            "added_mass": [
+              [
+                157.31918738127072,
+                6.6843712514479526e-15,
+                0.021289823237419542
+              ],
+              [
+                1.2184484502101777e-14,
+                -44.06703202952072,
+                7.778138288922804e-15
+              ],
+              [
+                0.01936619865385791,
+                6.181061601110448e-15,
+                74.86664870676901
+              ]
+            ],
+            "radiation_damping": [
+              [
+                468.7077037865434,
+                -1.934255895386738e-14,
+                0.05349403797322241
+              ],
+              [
+                -1.318451386746893e-13,
+                73.94527330887756,
+                -1.7877039677884646e-14
+              ],
+              [
+                0.05055095889658795,
+                1.7270107452477654e-14,
+                241.52553319765047
+              ]
+            ]
+          },
+          {
+            "iteration": 10,
+            "input_frequency_rad_s": 6.034026316433801,
+            "modal_frequency_rad_s": 6.0348290942542855,
+            "relaxed_frequency_rad_s": 6.034427705344044,
+            "modal_assurance": 0.9999999999997043,
+            "mode_vector": [
+              0.0009212643638370496,
+              -4.048461451291882e-17,
+              0.9999995756358959
+            ],
+            "added_mass": [
+              [
+                157.29600258472877,
+                6.692024459571961e-15,
+                0.021283503614970244
+              ],
+              [
+                1.2175191320808337e-14,
+                -44.00482827779632,
+                7.775712495276354e-15
+              ],
+              [
+                0.019359560338117004,
+                6.1782599802793376e-15,
+                74.8551327088503
+              ]
+            ],
+            "radiation_damping": [
+              [
+                468.62171717739665,
+                -1.9350758819714533e-14,
+                0.053498353586313704
+              ],
+              [
+                -1.3182873894299498e-13,
+                73.9766047083229,
+                -1.7854797541774245e-14
+              ],
+              [
+                0.05056189536255304,
+                1.723525802262726e-14,
+                241.48078367528626
+              ]
+            ]
+          }
+        ],
+        "selected_mode_vector": [
+          0.0009212643638370496,
+          -4.048461451291882e-17,
+          0.9999995756358959
+        ],
+        "interpolation_bracket_rad_s": [
+          6,
+          8
+        ],
+        "warnings": [
+          "Free-decay uses constant added mass and radiation damping at the converged modal frequency; Cummins radiation memory is omitted."
+        ]
+      },
+      "metrics": {
+        "mode": "pitch",
+        "initial_displacement": 0.17453292519943295,
+        "natural_period_s": 1.0412230643869087,
+        "positive_peak_count": 28,
+        "logarithmic_decrement": 0.8769505885661586,
+        "damping_ratio": 0.13823113867339903,
+        "settling_time_s": 3.838,
+        "equilibrium_error": -1.7714801300672768e-12,
+        "combined_damping": true,
+        "viscous_damping_nonzero": true,
+        "simulation": {
+          "method": "rk4",
+          "dt_s": 0.002,
+          "duration_s": 30
+        }
+      }
+    }
+  },
+  "limitations": [
+    "No viscous damping.",
+    "No experimental validation claim.",
+    "Frequency-domain coefficients require a documented time-domain approximation or radiation-memory model.",
+    "Representative analytic parametric geometry is not physical-vessel validation."
+  ]
+}

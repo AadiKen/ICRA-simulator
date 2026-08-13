@@ -1,0 +1,52 @@
+{
+  "tests": [
+    {
+      "name": "testParityLinearUsesDispersion",
+      "metrics": {
+        "wavenumber": 0.6283185307179586,
+        "omega": 2.482701106928334,
+        "expectedK": 0.6283185307179586
+      }
+    },
+    {
+      "name": "testParityLinearHeightAndNormal",
+      "metrics": {
+        "heightOrigin": 1,
+        "heightQuarter": 6.123233995736766e-17,
+        "normal": {
+          "x": 0.532018044501408,
+          "y": 0.8467330159648304,
+          "z": 0
+        }
+      }
+    },
+    {
+      "name": "testParityLinearVelocityAndCurrent",
+      "metrics": {
+        "velocityAtCrest": {
+          "x": 2.682701106928334,
+          "y": 0,
+          "z": -0.1
+        },
+        "velocityAtQuarter": {
+          "x": 0.20000000000000015,
+          "y": 2.482701106928334,
+          "z": -0.1
+        },
+        "omega": 2.482701106928334
+      }
+    },
+    {
+      "name": "testLegacyModeRemainsDefault",
+      "metrics": {
+        "heightOrigin": 0,
+        "velocity": {
+          "x": 0,
+          "y": -0.6283185307179586,
+          "z": 0
+        },
+        "omega": 0.6283185307179586
+      }
+    }
+  ]
+}

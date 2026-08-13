@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "kvlcc2-operating-point-campaign",
+  "configuration_id": "yasukawa_l7_unresolved",
+  "validation_label": "blocked_missing_primary_source",
+  "gate_status": "blocked",
+  "missing_inputs": [
+    "final_extrapolated_resistance",
+    "exact_propeller_revolution_rate",
+    "resistance_form_factor_and_residual_decomposition",
+    "scale_model_correlation_allowance",
+    "operating_point_wake_and_thrust_deduction"
+  ],
+  "insertion_point": "cases/yasukawa_l7_unresolved.json",
+  "claim": "No historical operating point is guessed; adding primary-source values requires configuration changes only."
+}

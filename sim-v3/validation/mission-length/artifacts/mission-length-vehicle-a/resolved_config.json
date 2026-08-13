@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "experiment": {
+    "name": "mission-length-vehicle-a",
+    "seed": 42,
+    "timestep_s": 0.02,
+    "duration_s": 300
+  },
+  "backend": {
+    "type": "node",
+    "parallel_environments": 1
+  },
+  "vehicle": {
+    "preset": "vehicle-a-otter",
+    "plant": "planar3",
+    "hydrodynamic_reference_speed_mps": 0
+  },
+  "mission": {
+    "type": "artifact-stress-station-keeping",
+    "waypoints": [
+      {
+        "north_m": 80,
+        "east_m": 80
+      }
+    ]
+  },
+  "metrics": [
+    "station_keeping_rmse",
+    "propulsion_energy",
+    "max_roll",
+    "max_pitch",
+    "step_latency"
+  ],
+  "outputs": {
+    "directory": "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/bcod-demo-no-model/sim-v3/validation/mission-length/artifacts/",
+    "state_hz": 50,
+    "sensor_artifacts": {
+      "mode": "summary",
+      "raw_plugins": [],
+      "max_bytes_per_run": 1000000000
+    }
+  },
+  "integrator": "rk4",
+  "sensors": [],
+  "resolution": {
+    "checksum_sha256": "9bd38a4a24af9c7636aa01e7e19264803f234ec8fbb1cb3cf20ea096e2bb9ceb",
+    "hydrodynamic_reference_speed_mps": 0,
+    "warnings": [],
+    "ground_truth_exposed": false
+  }
+}

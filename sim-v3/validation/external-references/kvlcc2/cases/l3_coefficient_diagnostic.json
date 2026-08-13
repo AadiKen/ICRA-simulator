@@ -1,0 +1,17 @@
+{
+  "schema_version":1,
+  "id":"l3_coefficient_diagnostic",
+  "validation_label":"diagnostic",
+  "applicable_configuration":"L3",
+  "model_parameters":{"base":"../kvlcc2-l7.json","geometry_configuration":"L7-equivalent dimensionalization for the L3 coefficient diagnostic","coefficient_configuration":"L3 captive tests","allowed_for_case":"L3"},
+  "operating_point":{
+    "configuration":"l3_coefficient_diagnostic",
+    "scale":{"value":110,"units":"1","source_document":"Yasukawa & Yoshimura 2015","location":"Table 1","status":"published","applicable_configuration":"L3"},
+    "speed_mps":{"value":1.1795373694404232,"units":"m/s L7-equivalent","source_document":"BCOD-Sim diagnostic transform","location":"Froude-scaled coefficient diagnostic","status":"inferred","applicable_configuration":"L3"},
+    "propeller_rps":{"value":"solve_equilibrium","units":"method","source_document":"BCOD-Sim validation protocol","location":"R0-prime diagnostic","status":"inferred","applicable_configuration":"L3"},
+    "rudder_rate_rad_s":{"value":0.20765774587667277,"units":"rad/s L7-equivalent","source_document":"Yasukawa & Yoshimura 2015","location":"Section 5.1","status":"inferred","applicable_configuration":"L3"},
+    "resistance_model":{"value":{"type":"nondimensional_r0_prime","r0_prime":0.022},"units":"configuration","source_document":"Yasukawa & Yoshimura 2015","location":"printed R0-prime diagnostic input","status":"published","applicable_configuration":"L3"},
+    "maneuvers":{"value":[],"units":"IDs","source_document":"BCOD-Sim validation protocol","location":"equilibrium only","status":"assumed","applicable_configuration":"L3"},
+    "targets":{"value":null,"units":"none","source_document":"BCOD-Sim validation protocol","location":"diagnostic only","status":"assumed","applicable_configuration":"L3"}
+  }
+}

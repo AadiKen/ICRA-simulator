@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "yasukawa-yoshimura-2015-kvlcc2",
+  "title": "Introduction of MMG standard method for ship maneuvering predictions",
+  "version": "JMST-2015",
+  "doi": "10.1007/s00773-014-0293-y",
+  "primaryLandingPage": "https://doi.org/10.1007/s00773-014-0293-y",
+  "citation": "Yasukawa, H.; Yoshimura, Y. Journal of Marine Science and Technology 20, 37–52 (2015)",
+  "acquisition": {
+    "mode": "published-paper-reference",
+    "localAcquisitionPermitted": true,
+    "status": "acquired-checksummed-and-transcribed",
+    "reason": "The legitimately acquired source is cache-only; tracked checksums, coefficient config, conventions, and separate calculated/experimental scalar targets make the acquisition reproducible without redistributing the PDF"
+  },
+  "scientificScope": {
+    "hull": "KVLCC2",
+    "stage": "model-structure",
+    "maneuvers": ["turning-circle", "zig-zag"],
+    "claimLimit": "Tests the MMG hull/propeller/rudder model structure at KVLCC2 model and full scale; it does not validate or supply Vehicle B USV-scale coefficients"
+  },
+  "artifactContract": {
+    "artifactKind": "kvlcc2-mmg-reference-reproduction",
+    "evidenceStatus": "reference-reproduction-only",
+    "experimentalEvidenceStatus": "published-experimental-indices-validation-target",
+    "gatingComparison": "published-imo-maneuver-metrics",
+    "requiredMetrics": ["advance", "tactical-diameter", "first-overshoot", "second-overshoot"],
+    "toleranceForm": "absolute percentage of each published scalar value, fixed before executing the reproduction",
+    "trajectoryOverlayRole": "qualitative-non-gating",
+    "warning": "The Cal. target is reference reproduction. The distinct Exp. target is published MARIN L7-model experimental-index validation, not full-trajectory or Vehicle B USV validation."
+  },
+  "remainingGate": ["Resolve the blocked primary L7 operating-point inputs for exact published-calculation reproduction", "Acquire independent Vehicle B USV maneuver data before coefficient validation"],
+  "coefficientTransferToVehicleBPermitted": false,
+  "simmanRole": "optional additional cross-check when authorized raw files and reuse terms become available",
+  "evidenceAdmissible": false
+}

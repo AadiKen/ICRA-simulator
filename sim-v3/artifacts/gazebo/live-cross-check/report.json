@@ -1,0 +1,320 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gazebo-harmonic-live-cross-check",
+  "status": "passed-planar-implementation-cross-check",
+  "gazebo_version": "8.14.0",
+  "evidence_scope": "Planar maneuver implementation cross-check using a stabilized primitive-buoyancy fixture.",
+  "is_coupled6_hydrostatics_validation": false,
+  "supersedes": {
+    "artifact": "artifacts/external-runtime/2026-08-02-cross-checks.json",
+    "artifact_sha256": "e660292ef32461dea543e91b82ae95f5e33e9f5fd0a9e45d7b0db4da2f8105df",
+    "check_id": "gazebo-harmonic-live-constant-thrust",
+    "reason": "The retained failed campaign exposed invalid uniform-fluid buoyancy and non-isolated Gazebo Transport processes; this campaign executes the repaired fixture."
+  },
+  "limitations": [
+    "The fixture reflects the vertical CG below the primitive buoyancy center for stability.",
+    "Gazebo primitive buoyancy does not reproduce the Otter metacentric hydrostatics.",
+    "Gazebo is an implementation cross-check, not an independent hydrodynamic oracle."
+  ],
+  "results": [
+    {
+      "maneuver": "constant-thrust",
+      "passed": true,
+      "runtime": {
+        "manifest": "gazebo/generated/manifests/otter_constant-thrust.json",
+        "world": "gazebo/generated/worlds/otter_constant-thrust.sdf",
+        "topic": "/world/bcod_parity_constant-thrust/pose/info",
+        "out": "artifacts/gazebo/live-cross-check/constant-thrust.csv",
+        "rawSamples": 151,
+        "samples": 120,
+        "commandTransitions": 1,
+        "appliedWrenchSamples": 120,
+        "wrenchLog": "artifacts/gazebo/live-cross-check/constant-thrust-wrenches.csv",
+        "commandTopics": [
+          "/world/bcod_parity_constant-thrust/wrench/persistent"
+        ],
+        "configuredCurrent": null
+      },
+      "comparison": {
+        "count": 120,
+        "rowCountMatch": true,
+        "rmse": {
+          "N": 0.0692591502737178,
+          "E": 7.083021033392601e-14,
+          "yaw": 7.59472593406655e-15
+        },
+        "maxAbs": {
+          "N": 0.10493923570772345,
+          "E": 8.77197448665e-14,
+          "yaw": 1.82076576039e-14
+        },
+        "tolerances": {
+          "N": 0.5,
+          "E": 0.2,
+          "yaw": 0.1
+        },
+        "passed": true
+      },
+      "artifacts": {
+        "trajectory": {
+          "path": "artifacts/gazebo/live-cross-check/constant-thrust.csv",
+          "sha256": "adc24442e4fe5c5b8015c0346ae79466b53bba55a14b3fd2fd132f992c246d1f"
+        },
+        "wrenchLog": {
+          "path": "artifacts/gazebo/live-cross-check/constant-thrust-wrenches.csv",
+          "sha256": "5c1278b38d896e7b27f70092957a8becfd80ed657eaf430e839927b06070b7fa"
+        }
+      }
+    },
+    {
+      "maneuver": "turning-circle",
+      "passed": true,
+      "runtime": {
+        "manifest": "gazebo/generated/manifests/otter_turning-circle.json",
+        "world": "gazebo/generated/worlds/otter_turning-circle.sdf",
+        "topic": "/world/bcod_parity_turning-circle/pose/info",
+        "out": "artifacts/gazebo/live-cross-check/turning-circle.csv",
+        "rawSamples": 189,
+        "samples": 160,
+        "commandTransitions": 1,
+        "appliedWrenchSamples": 160,
+        "wrenchLog": "artifacts/gazebo/live-cross-check/turning-circle-wrenches.csv",
+        "commandTopics": [
+          "/world/bcod_parity_turning-circle/wrench/persistent"
+        ],
+        "configuredCurrent": null
+      },
+      "comparison": {
+        "count": 160,
+        "rowCountMatch": true,
+        "rmse": {
+          "N": 0.06150024380693238,
+          "E": 0.08121772772359001,
+          "yaw": 0.019191842152357568
+        },
+        "maxAbs": {
+          "N": 0.08348657030917472,
+          "E": 0.14702370037409684,
+          "yaw": 0.03027599735584008
+        },
+        "tolerances": {
+          "N": 0.8,
+          "E": 0.8,
+          "yaw": 0.15
+        },
+        "passed": true
+      },
+      "artifacts": {
+        "trajectory": {
+          "path": "artifacts/gazebo/live-cross-check/turning-circle.csv",
+          "sha256": "4cb5f68f439b35b30af6cca6df005343863dacadca7b802158aa74ee97ac2566"
+        },
+        "wrenchLog": {
+          "path": "artifacts/gazebo/live-cross-check/turning-circle-wrenches.csv",
+          "sha256": "0c6a6797c88867139a55d34a8b55180f79e0c1e7aba90dd452beb30dee74a685"
+        }
+      }
+    },
+    {
+      "maneuver": "yaw-turn",
+      "passed": true,
+      "runtime": {
+        "manifest": "gazebo/generated/manifests/otter_yaw-turn.json",
+        "world": "gazebo/generated/worlds/otter_yaw-turn.sdf",
+        "topic": "/world/bcod_parity_yaw-turn/pose/info",
+        "out": "artifacts/gazebo/live-cross-check/yaw-turn.csv",
+        "rawSamples": 210,
+        "samples": 180,
+        "commandTransitions": 1,
+        "appliedWrenchSamples": 180,
+        "wrenchLog": "artifacts/gazebo/live-cross-check/yaw-turn-wrenches.csv",
+        "commandTopics": [
+          "/world/bcod_parity_yaw-turn/wrench/persistent"
+        ],
+        "configuredCurrent": null
+      },
+      "comparison": {
+        "count": 180,
+        "rowCountMatch": true,
+        "rmse": {
+          "N": 0.20925830552913186,
+          "E": 0.015286582955467925,
+          "yaw": 0.01027787022895003
+        },
+        "maxAbs": {
+          "N": 0.25424859678680267,
+          "E": 0.02437474359931993,
+          "yaw": 0.02287571663612964
+        },
+        "tolerances": {
+          "N": 0.5,
+          "E": 0.2,
+          "yaw": 0.1
+        },
+        "passed": true
+      },
+      "artifacts": {
+        "trajectory": {
+          "path": "artifacts/gazebo/live-cross-check/yaw-turn.csv",
+          "sha256": "a3c2e026eaff3b58f96981350263e18964d0cf41ab5cd365e0b40139359b9bbb"
+        },
+        "wrenchLog": {
+          "path": "artifacts/gazebo/live-cross-check/yaw-turn-wrenches.csv",
+          "sha256": "0e412a618f92f37c4cdffb7697cf8796bef7be04fe6e379d0c4ebb728828fac9"
+        }
+      }
+    },
+    {
+      "maneuver": "zig-zag",
+      "passed": true,
+      "runtime": {
+        "manifest": "gazebo/generated/manifests/otter_zig-zag.json",
+        "world": "gazebo/generated/worlds/otter_zig-zag.sdf",
+        "topic": "/world/bcod_parity_zig-zag/pose/info",
+        "out": "artifacts/gazebo/live-cross-check/zig-zag.csv",
+        "rawSamples": 270,
+        "samples": 240,
+        "commandTransitions": 6,
+        "appliedWrenchSamples": 240,
+        "wrenchLog": "artifacts/gazebo/live-cross-check/zig-zag-wrenches.csv",
+        "commandTopics": [
+          "/world/bcod_parity_zig-zag/wrench/persistent"
+        ],
+        "configuredCurrent": null
+      },
+      "comparison": {
+        "count": 240,
+        "rowCountMatch": true,
+        "rmse": {
+          "N": 0.0764824774628176,
+          "E": 0.01675649421126346,
+          "yaw": 0.028596001809212856
+        },
+        "maxAbs": {
+          "N": 0.10749295866585928,
+          "E": 0.03989766163423791,
+          "yaw": 0.04208527700912363
+        },
+        "tolerances": {
+          "N": 1,
+          "E": 1,
+          "yaw": 0.2
+        },
+        "passed": true
+      },
+      "artifacts": {
+        "trajectory": {
+          "path": "artifacts/gazebo/live-cross-check/zig-zag.csv",
+          "sha256": "8d0f0db0989ac8cc823498faed4d492b8c04ea52bc4b2781ea2767ef257a85fc"
+        },
+        "wrenchLog": {
+          "path": "artifacts/gazebo/live-cross-check/zig-zag-wrenches.csv",
+          "sha256": "0df37e27270d2cff73c4f0028da60b2e46e3eb999951d98396519c9cf016cda6"
+        }
+      }
+    },
+    {
+      "maneuver": "coast-down",
+      "passed": true,
+      "runtime": {
+        "manifest": "gazebo/generated/manifests/otter_coast-down.json",
+        "world": "gazebo/generated/worlds/otter_coast-down.sdf",
+        "topic": "/world/bcod_parity_coast-down/pose/info",
+        "out": "artifacts/gazebo/live-cross-check/coast-down.csv",
+        "rawSamples": 210,
+        "samples": 180,
+        "commandTransitions": 2,
+        "appliedWrenchSamples": 180,
+        "wrenchLog": "artifacts/gazebo/live-cross-check/coast-down-wrenches.csv",
+        "commandTopics": [
+          "/world/bcod_parity_coast-down/wrench/persistent"
+        ],
+        "configuredCurrent": null
+      },
+      "comparison": {
+        "count": 180,
+        "rowCountMatch": true,
+        "rmse": {
+          "N": 0.029090070838227153,
+          "E": 7.226204293358158e-14,
+          "yaw": 1.311199102928458e-14
+        },
+        "maxAbs": {
+          "N": 0.058551536735773846,
+          "E": 8.77080551592e-14,
+          "yaw": 1.99351646302e-14
+        },
+        "tolerances": {
+          "N": 0.8,
+          "E": 0.2,
+          "yaw": 0.1
+        },
+        "passed": true
+      },
+      "artifacts": {
+        "trajectory": {
+          "path": "artifacts/gazebo/live-cross-check/coast-down.csv",
+          "sha256": "b034750db39641255a9d35896d5a03536b79dfca1ca8a07324c5cb0cd3b7139b"
+        },
+        "wrenchLog": {
+          "path": "artifacts/gazebo/live-cross-check/coast-down-wrenches.csv",
+          "sha256": "b27beb2d682dfe3914df2881d5d365c449087dcba6b57a7224d5b57cc3e8782f"
+        }
+      }
+    },
+    {
+      "maneuver": "current-drift",
+      "passed": true,
+      "runtime": {
+        "manifest": "gazebo/generated/manifests/otter_current-drift.json",
+        "world": "gazebo/generated/worlds/otter_current-drift.sdf",
+        "topic": "/world/bcod_parity_current-drift/pose/info",
+        "out": "artifacts/gazebo/live-cross-check/current-drift.csv",
+        "rawSamples": 150,
+        "samples": 120,
+        "commandTransitions": 1,
+        "appliedWrenchSamples": 120,
+        "wrenchLog": "artifacts/gazebo/live-cross-check/current-drift-wrenches.csv",
+        "commandTopics": [
+          "/world/bcod_parity_current-drift/wrench/persistent"
+        ],
+        "configuredCurrent": {
+          "topic": "/ocean_current",
+          "x": 0.3,
+          "y": 0,
+          "z": 0
+        }
+      },
+      "comparison": {
+        "count": 120,
+        "rowCountMatch": true,
+        "rmse": {
+          "N": 0.03066526295057999,
+          "E": 0.1731650077726086,
+          "yaw": 0.020674172283179575
+        },
+        "maxAbs": {
+          "N": 0.052156501421984615,
+          "E": 0.20566150352090484,
+          "yaw": 0.030895906278714653
+        },
+        "tolerances": {
+          "N": 0.3,
+          "E": 0.5,
+          "yaw": 0.15
+        },
+        "passed": true
+      },
+      "artifacts": {
+        "trajectory": {
+          "path": "artifacts/gazebo/live-cross-check/current-drift.csv",
+          "sha256": "a3211d84554a74faa6525032b88a4ee7cf4ae438e854d099bfc82b55ed0d23d5"
+        },
+        "wrenchLog": {
+          "path": "artifacts/gazebo/live-cross-check/current-drift-wrenches.csv",
+          "sha256": "5435bfceb834e22469b014b42e5cf6fc4816bb85bbfc4f8f4c2b710a5aa1ead3"
+        }
+      }
+    }
+  ]
+}

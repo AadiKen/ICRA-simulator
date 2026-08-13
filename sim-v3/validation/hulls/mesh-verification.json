@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "parametric-wigley-mesh-verification",
+  "source": "validation/hulls/vehicle-hull-specification.md",
+  "source_sha256": "951dcb5413fdc0e1aba2136375220c3c8c06cc641da3519ae2087ebabc71b52c",
+  "machine_spec": "validation/hulls/hull-spec.json",
+  "machine_spec_sha256": "785134d4b9c362cca1faf1af5d59c6439d1fd0ab44c7717f6fc267ffd9b9223b",
+  "frame_assertion": "midship/centreline/DWL x-forward y-starboard z-up; generated solver mesh reflects y to Capytaine y-left",
+  "vehicles": {
+    "vehicle-b-rudder": {
+      "analytic": {
+        "Cb": 0.5007617603195904,
+        "Cwp": 0.7188841408413554,
+        "volume_m3": 0.7210969348602101,
+        "waterplane_area_m2": 3.450643876038506,
+        "KB_m": 0.18360152885024322,
+        "BM_T_m": 0.4080107333501843,
+        "BM_L_m": 4.253573764848598,
+        "GM_T_m": 0.2716122622004275,
+        "GM_L_m": 4.117175293698841
+      },
+      "spec_table": {
+        "Cb": 0.5008,
+        "Cwp": 0.7189,
+        "volume_m3": 0.7211,
+        "waterplane_area_m2": 3.4506,
+        "KB_m": 0.1836,
+        "BM_T_m": 0.408,
+        "BM_L_m": 4.253,
+        "GM_T_m": 0.2716,
+        "GM_L_m": 4.117
+      },
+      "densities": {
+        "p0800": {
+          "requested_panels_per_hull": 800,
+          "nx": 20,
+          "nz": 10,
+          "actual_panels_total": 836,
+          "actual_panels_per_hull": 836,
+          "mesh_sha256": "86d2d0b1a55a769f7cd27604cfe5f8251e0880f35a74d6bdef4a937bc6d7e6c4",
+          "hydrostatics": {
+            "Cb": 0.49634044280428596,
+            "Cwp": 0.715944571279276,
+            "volume_m3": 0.7147302376381718,
+            "waterplane_area_m2": 3.436533942140525,
+            "KB_m": 0.18361089550426737,
+            "BM_T_m": 0.40743712261652826,
+            "BM_L_m": 4.265362745554782,
+            "GM_T_m": 0.27104801812079565,
+            "GM_L_m": 4.128973641059049
+          },
+          "quality": {
+            "watertight": true,
+            "outward_normals": true,
+            "minimum_panel_area_m2": 3.6988774039318086e-05,
+            "vertices": 421,
+            "panels": 836
+          },
+          "path": "artifacts/generated/hulls/vehicle-b-rudder/vehicle-b-rudder-p0800.mar"
+        },
+        "p1600": {
+          "requested_panels_per_hull": 1600,
+          "nx": 28,
+          "nz": 14,
+          "actual_panels_total": 1620,
+          "actual_panels_per_hull": 1620,
+          "mesh_sha256": "1c0cf5e0cd5884387ad4438483128d2442afdc8e2ae716166bbe815a139870e5",
+          "hydrostatics": {
+            "Cb": 0.4984980042217541,
+            "Cwp": 0.7173808061834612,
+            "volume_m3": 0.7178371260793259,
+            "waterplane_area_m2": 3.4434278696806135,
+            "KB_m": 0.18360577568514586,
+            "BM_T_m": 0.40771992159132076,
+            "BM_L_m": 4.259555303118384,
+            "GM_T_m": 0.27132569727646666,
+            "GM_L_m": 4.1231610788035296
+          },
+          "quality": {
+            "watertight": true,
+            "outward_normals": true,
+            "minimum_panel_area_m2": 9.630473863653416e-06,
+            "vertices": 813,
+            "panels": 1620
+          },
+          "path": "artifacts/generated/hulls/vehicle-b-rudder/vehicle-b-rudder-p1600.mar"
+        },
+        "p3200": {
+          "requested_panels_per_hull": 3200,
+          "nx": 40,
+          "nz": 20,
+          "actual_panels_total": 3276,
+          "actual_panels_per_hull": 3276,
+          "mesh_sha256": "2a26068aad0a4fb0b549066a569bd43617e905457ec3587892f14ee29cb4e2c5",
+          "hydrostatics": {
+            "Cb": 0.49965031652111414,
+            "Cwp": 0.7181464518856661,
+            "volume_m3": 0.7194964557904043,
+            "waterplane_area_m2": 3.4471029690511967,
+            "KB_m": 0.18360348139131893,
+            "BM_T_m": 0.4078688144748435,
+            "BM_L_m": 4.256493611422062,
+            "GM_T_m": 0.27147229586616245,
+            "GM_L_m": 4.12009709281338
+          },
+          "quality": {
+            "watertight": true,
+            "outward_normals": true,
+            "minimum_panel_area_m2": 2.312646160669561e-06,
+            "vertices": 1641,
+            "panels": 3276
+          },
+          "path": "artifacts/generated/hulls/vehicle-b-rudder/vehicle-b-rudder-p3200.mar"
+        },
+        "p6400": {
+          "requested_panels_per_hull": 6400,
+          "nx": 56,
+          "nz": 28,
+          "actual_panels_total": 6380,
+          "actual_panels_per_hull": 6380,
+          "mesh_sha256": "f287e08b46b694d123707dc17af15add8ca1e2ba0784ed5599f0fdee36744a1c",
+          "hydrostatics": {
+            "Cb": 0.5001941333290235,
+            "Cwp": 0.7185074781908635,
+            "volume_m3": 0.7202795519937938,
+            "waterplane_area_m2": 3.4488358953161447,
+            "KB_m": 0.1836024970565472,
+            "BM_T_m": 0.4079384925449655,
+            "BM_L_m": 4.2550601047979395,
+            "GM_T_m": 0.2715409896015127,
+            "GM_L_m": 4.118662601854487
+          },
+          "quality": {
+            "watertight": true,
+            "outward_normals": true,
+            "minimum_panel_area_m2": 6.020592731487317e-07,
+            "vertices": 3193,
+            "panels": 6380
+          },
+          "path": "artifacts/generated/hulls/vehicle-b-rudder/vehicle-b-rudder-p6400.mar"
+        }
+      },
+      "finest_relative_error": {
+        "Cb": -0.0012097976656879133,
+        "Cwp": -0.0005460033511427384,
+        "volume_m3": -0.0011377728556457856,
+        "waterplane_area_m2": -0.0005112457786632646,
+        "KB_m": 1.3600525856066469e-05,
+        "BM_T_m": -0.00015075356626095772,
+        "BM_L_m": 0.00048438861931328196,
+        "GM_T_m": -0.00021726950842166677,
+        "GM_L_m": 0.00040383819637764023
+      }
+    },
+    "vehicle-c-azimuth": {
+      "analytic": {
+        "Cb": 0.4854488260132011,
+        "Cwp": 0.7074731749070678,
+        "volume_m3": 0.3058327603883167,
+        "waterplane_area_m2": 1.782832400765811,
+        "KB_m": 0.15412112393991512,
+        "BM_T_m": 3.869059358862103,
+        "BM_L_m": 3.8810101593220536,
+        "GM_T_m": 3.723180482802018,
+        "GM_L_m": 3.7351312832619685
+      },
+      "spec_table": {
+        "Cb": 0.4854,
+        "Cwp": 0.7075,
+        "volume_m3": 0.3058,
+        "waterplane_area_m2": 1.7828,
+        "KB_m": 0.1541,
+        "BM_T_m": 3.8691,
+        "BM_L_m": 3.881,
+        "GM_T_m": 3.7232,
+        "GM_L_m": 3.735
+      },
+      "densities": {
+        "p0800": {
+          "requested_panels_per_hull": 800,
+          "nx": 20,
+          "nz": 10,
+          "actual_panels_total": 1672,
+          "actual_panels_per_hull": 836,
+          "mesh_sha256": "a35a6511c0d051946cc7b9013719c2151d54f47061a5b439a35e6aaff99d4afc",
+          "hydrostatics": {
+            "Cb": 0.4811264608797835,
+            "Cwp": 0.704578861732383,
+            "volume_m3": 0.3031096703542636,
+            "waterplane_area_m2": 1.7755387315656053,
+            "KB_m": 0.15410969154481238,
+            "BM_T_m": 3.887555036652988,
+            "BM_L_m": 3.893622099717276,
+            "GM_T_m": 3.741664728197801,
+            "GM_L_m": 3.7477317912620887
+          },
+          "quality": {
+            "watertight": true,
+            "outward_normals": true,
+            "minimum_panel_area_m2": 2.6933906998272814e-05,
+            "vertices": 842,
+            "panels": 1672
+          },
+          "path": "artifacts/generated/hulls/vehicle-c-azimuth/vehicle-c-azimuth-p0800.mar"
+        },
+        "p1600": {
+          "requested_panels_per_hull": 1600,
+          "nx": 28,
+          "nz": 14,
+          "actual_panels_total": 3240,
+          "actual_panels_per_hull": 1620,
+          "mesh_sha256": "6b58663fc6c45b5cb6698a0ae2fa39caade0f01e9d45612b34c037214b78813c",
+          "hydrostatics": {
+            "Cb": 0.4832358665334816,
+            "Cwp": 0.7059931529345623,
+            "volume_m3": 0.3044385959160934,
+            "waterplane_area_m2": 1.7791027453950972,
+            "KB_m": 0.15411473764566816,
+            "BM_T_m": 3.8784973448373328,
+            "BM_L_m": 3.8874171818673284,
+            "GM_T_m": 3.7326120824830014,
+            "GM_L_m": 3.7415319195129966
+          },
+          "quality": {
+            "watertight": true,
+            "outward_normals": true,
+            "minimum_panel_area_m2": 7.017843422837405e-06,
+            "vertices": 1626,
+            "panels": 3240
+          },
+          "path": "artifacts/generated/hulls/vehicle-c-azimuth/vehicle-c-azimuth-p1600.mar"
+        },
+        "p3200": {
+          "requested_panels_per_hull": 3200,
+          "nx": 40,
+          "nz": 20,
+          "actual_panels_total": 6552,
+          "actual_panels_per_hull": 3276,
+          "mesh_sha256": "4ca3f3c3921a9e8a402d608b9e594bfabb9e9e1df3dd569fbc01e0c9fdd2b45e",
+          "hydrostatics": {
+            "Cb": 0.48436239334023895,
+            "Cwp": 0.706747003125844,
+            "volume_m3": 0.30514830780435054,
+            "waterplane_area_m2": 1.781002447877127,
+            "KB_m": 0.15411785521550195,
+            "BM_T_m": 3.8736844572186637,
+            "BM_L_m": 3.884140671079613,
+            "GM_T_m": 3.727802312434166,
+            "GM_L_m": 3.738258526295115
+          },
+          "quality": {
+            "watertight": true,
+            "outward_normals": true,
+            "minimum_panel_area_m2": 1.6858527223093352e-06,
+            "vertices": 3282,
+            "panels": 6552
+          },
+          "path": "artifacts/generated/hulls/vehicle-c-azimuth/vehicle-c-azimuth-p3200.mar"
+        },
+        "p6400": {
+          "requested_panels_per_hull": 6400,
+          "nx": 56,
+          "nz": 28,
+          "actual_panels_total": 12760,
+          "actual_panels_per_hull": 6380,
+          "mesh_sha256": "34b450e7c1c478cee5b3ac4cb9ecea5c749bb50e60e78eb454ac95ff733ed3cc",
+          "hydrostatics": {
+            "Cb": 0.48489400077503364,
+            "Cwp": 0.7071024222080186,
+            "volume_m3": 0.3054832204882712,
+            "waterplane_area_m2": 1.7818981039642068,
+            "KB_m": 0.15411942402569861,
+            "BM_T_m": 3.871419252517193,
+            "BM_L_m": 3.882604730473811,
+            "GM_T_m": 3.7255386765428913,
+            "GM_L_m": 3.73672415449951
+          },
+          "quality": {
+            "watertight": true,
+            "outward_normals": true,
+            "minimum_panel_area_m2": 4.389486970783487e-07,
+            "vertices": 6386,
+            "panels": 12760
+          },
+          "path": "artifacts/generated/hulls/vehicle-c-azimuth/vehicle-c-azimuth-p6400.mar"
+        }
+      },
+      "finest_relative_error": {
+        "Cb": -0.0010424376286904782,
+        "Cwp": -0.000561947409161078,
+        "volume_m3": -0.001035904224096845,
+        "waterplane_area_m2": -0.0005058873882618126,
+        "KB_m": 0.00012604818753165334,
+        "BM_T_m": 0.0005994294583218044,
+        "BM_L_m": 0.00041348376032237973,
+        "GM_T_m": 0.000628136157845788,
+        "GM_L_m": 0.0004616210172717299
+      }
+    }
+  }
+}

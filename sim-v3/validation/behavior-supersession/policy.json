@@ -1,0 +1,13 @@
+{
+  "schema_version":1,
+  "default":"forbidden",
+  "allowed":[{
+    "id":"actuator-integrated-capabilities-v1",
+    "legacy_golden":"validation/pre-migration/supplemental/actuator-legacy-trace.json",
+    "legacy_manifest":"validation/pre-migration/supplemental/manifest.json",
+    "candidate_golden":"validation/capability-goldens/actuator-integrated.json",
+    "delta_artifact":"validation/capability-goldens/actuator-legacy-to-integrated.delta.json",
+    "required_change_commit":"capability implementation commit, which must predate the golden/delta commit",
+    "scope":"dead-zone, failed-off, stuck, energy, failure events, and integrated allocation only"
+  }]
+}

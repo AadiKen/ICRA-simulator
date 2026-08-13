@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "parametric-hull-capytaine-convergence",
+  "frequencies_rad_s": [
+    1.5,
+    2.0
+  ],
+  "frequency_basis": "4 s regular-wave operating point and its interpolation bracket",
+  "chosen_density": "p6400",
+  "is_validation_evidence": false,
+  "validation_status_unchanged": true,
+  "vehicles": {
+    "vehicle-b-rudder": {
+      "densities": [
+        {
+          "density": "p0800",
+          "panels_total": 798,
+          "panels_per_hull": 836,
+          "frequencies": [
+            {
+              "omega_rad_s": 1.5,
+              "added_mass_relative_frobenius_error": 0.006167540655443204,
+              "radiation_damping_relative_frobenius_error": 0.004151333900303436
+            },
+            {
+              "omega_rad_s": 2.0,
+              "added_mass_relative_frobenius_error": 0.007102108595371939,
+              "radiation_damping_relative_frobenius_error": 0.004952085924578316
+            }
+          ]
+        },
+        {
+          "density": "p1600",
+          "panels_total": 1566,
+          "panels_per_hull": 1620,
+          "frequencies": [
+            {
+              "omega_rad_s": 1.5,
+              "added_mass_relative_frobenius_error": 0.0031798433402164604,
+              "radiation_damping_relative_frobenius_error": 0.0014950643422086314
+            },
+            {
+              "omega_rad_s": 2.0,
+              "added_mass_relative_frobenius_error": 0.0036929362172602935,
+              "radiation_damping_relative_frobenius_error": 0.0020289005748937937
+            }
+          ]
+        },
+        {
+          "density": "p3200",
+          "panels_total": 3198,
+          "panels_per_hull": 3276,
+          "frequencies": [
+            {
+              "omega_rad_s": 1.5,
+              "added_mass_relative_frobenius_error": 0.0012495532492376332,
+              "radiation_damping_relative_frobenius_error": 0.00031291842252600667
+            },
+            {
+              "omega_rad_s": 2.0,
+              "added_mass_relative_frobenius_error": 0.001447031974441784,
+              "radiation_damping_relative_frobenius_error": 0.0005626335061934458
+            }
+          ]
+        },
+        {
+          "density": "p6400",
+          "panels_total": 6270,
+          "panels_per_hull": 6380,
+          "frequencies": [
+            {
+              "omega_rad_s": 1.5,
+              "added_mass_relative_frobenius_error": 0.0,
+              "radiation_damping_relative_frobenius_error": 0.0
+            },
+            {
+              "omega_rad_s": 2.0,
+              "added_mass_relative_frobenius_error": 0.0,
+              "radiation_damping_relative_frobenius_error": 0.0
+            }
+          ]
+        }
+      ],
+      "chosen_density_residual": [
+        {
+          "omega_rad_s": 1.5,
+          "added_mass_relative_change": 0.0012495532492376332,
+          "radiation_damping_relative_change": 0.00031291842252600667
+        },
+        {
+          "omega_rad_s": 2.0,
+          "added_mass_relative_change": 0.001447031974441784,
+          "radiation_damping_relative_change": 0.0005626335061934458
+        }
+      ],
+      "hydrostatics_no_overwrite": {
+        "analytic": {
+          "GM_T_m": 0.2716,
+          "GM_L_m": 4.117
+        },
+        "capytaine_mesh_derived": {
+          "GM_T_m": 0.27108929718405506,
+          "GM_L_m": 4.111394372153218
+        },
+        "signed_delta": {
+          "GM_T_m": -0.0005107028159449523,
+          "GM_L_m": -0.005605627846781758
+        },
+        "resolution_policy": "report-both-no-automatic-overwrite"
+      }
+    },
+    "vehicle-c-azimuth": {
+      "densities": [
+        {
+          "density": "p0800",
+          "panels_total": 1596,
+          "panels_per_hull": 836,
+          "frequencies": [
+            {
+              "omega_rad_s": 1.5,
+              "added_mass_relative_frobenius_error": 0.015695730256761097,
+              "radiation_damping_relative_frobenius_error": 0.001600673011837585
+            },
+            {
+              "omega_rad_s": 2.0,
+              "added_mass_relative_frobenius_error": 0.016888720235406697,
+              "radiation_damping_relative_frobenius_error": 0.0019828568104240597
+            }
+          ]
+        },
+        {
+          "density": "p1600",
+          "panels_total": 3132,
+          "panels_per_hull": 1620,
+          "frequencies": [
+            {
+              "omega_rad_s": 1.5,
+              "added_mass_relative_frobenius_error": 0.009050271859615053,
+              "radiation_damping_relative_frobenius_error": 0.00030754197126675126
+            },
+            {
+              "omega_rad_s": 2.0,
+              "added_mass_relative_frobenius_error": 0.009750594190483483,
+              "radiation_damping_relative_frobenius_error": 0.0007623983746296401
+            }
+          ]
+        },
+        {
+          "density": "p3200",
+          "panels_total": 6396,
+          "panels_per_hull": 3276,
+          "frequencies": [
+            {
+              "omega_rad_s": 1.5,
+              "added_mass_relative_frobenius_error": 0.0037758607360559113,
+              "radiation_damping_relative_frobenius_error": 0.00014492544128834298
+            },
+            {
+              "omega_rad_s": 2.0,
+              "added_mass_relative_frobenius_error": 0.004067952489223161,
+              "radiation_damping_relative_frobenius_error": 0.0003056641351515855
+            }
+          ]
+        },
+        {
+          "density": "p6400",
+          "panels_total": 12540,
+          "panels_per_hull": 6380,
+          "frequencies": [
+            {
+              "omega_rad_s": 1.5,
+              "added_mass_relative_frobenius_error": 0.0,
+              "radiation_damping_relative_frobenius_error": 0.0
+            },
+            {
+              "omega_rad_s": 2.0,
+              "added_mass_relative_frobenius_error": 0.0,
+              "radiation_damping_relative_frobenius_error": 0.0
+            }
+          ]
+        }
+      ],
+      "chosen_density_residual": [
+        {
+          "omega_rad_s": 1.5,
+          "added_mass_relative_change": 0.0037758607360559113,
+          "radiation_damping_relative_change": 0.00014492544128834298
+        },
+        {
+          "omega_rad_s": 2.0,
+          "added_mass_relative_change": 0.004067952489223161,
+          "radiation_damping_relative_change": 0.0003056641351515855
+        }
+      ],
+      "hydrostatics_no_overwrite": {
+        "analytic": {
+          "GM_T_m": 3.7232,
+          "GM_L_m": 3.735
+        },
+        "capytaine_mesh_derived": {
+          "GM_T_m": 3.72167734815193,
+          "GM_L_m": 3.7304285900899186
+        },
+        "signed_delta": {
+          "GM_T_m": -0.001522651848069767,
+          "GM_L_m": -0.004571409910081314
+        },
+        "resolution_policy": "report-both-no-automatic-overwrite"
+      }
+    }
+  }
+}

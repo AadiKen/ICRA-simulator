@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bcod-sim.invalid/schemas/capytaine-input-v1.json",
+  "title": "BCOD-Sim Capytaine coefficient-generation input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "vehicle_id", "mesh", "frequency_grid_rad_s", "wave_heading_grid_rad", "water_density_kg_m3", "gravity_m_s2", "water_depth_m", "hydrostatics_comparison"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "vehicle_id": {"type": "string", "minLength": 1},
+    "mesh": {
+      "type": "object", "additionalProperties": false,
+      "required": ["coordinate_system", "center_of_mass_m"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "format": {"enum": ["gdf", "mar", "nemoh", "stl", "med", "msh"]},
+        "remove_waterplane_lid": {"type": "boolean"},
+        "coordinate_system": {"const": "capytaine_x_forward_y_left_z_up"},
+        "center_of_mass_m": {"type": "array", "items": {"type": "number"}, "minItems": 3, "maxItems": 3},
+        "generator": {"const": "parallelepiped"},
+        "size_m": {"type":"array","items":{"type":"number","exclusiveMinimum":0},"minItems":3,"maxItems":3},
+        "center_m": {"type":"array","items":{"type":"number"},"minItems":3,"maxItems":3},
+        "resolution": {"type":"array","items":{"type":"integer","minimum":2},"minItems":3,"maxItems":3},
+        "provenance": {"type":"object","required":["status","source"],"properties":{"status":{"enum":["bootstrap","reviewed"]},"source":{"type":"string"}}}
+      },
+      "oneOf":[{"required":["path","format"]},{"required":["generator","size_m","center_m","resolution","provenance"]}]
+    },
+    "frequency_grid_rad_s": {"type": "array", "items": {"type": "number", "exclusiveMinimum": 0}, "minItems": 2},
+    "wave_heading_grid_rad": {"type": "array", "items": {"type": "number"}, "minItems": 1},
+    "water_density_kg_m3": {"type": "number", "exclusiveMinimum": 0},
+    "gravity_m_s2": {"type": "number", "exclusiveMinimum": 0},
+    "water_depth_m": {"oneOf": [{"type": "number", "exclusiveMinimum": 0}, {"const": "infinite"}]},
+    "hydrostatics_comparison": {
+      "type": "object", "additionalProperties": false,
+      "required": ["reference_displaced_volume_m3", "geometry_bootstrap_gm_transverse_m", "geometry_bootstrap_gm_longitudinal_m"],
+      "properties": {
+        "reference_displaced_volume_m3": {"type": "number", "exclusiveMinimum": 0},
+        "geometry_bootstrap_gm_transverse_m": {"type": "number", "exclusiveMinimum": 0},
+        "geometry_bootstrap_gm_longitudinal_m": {"type": "number", "exclusiveMinimum": 0}
+      }
+    },
+    "solver": {"type": "object", "additionalProperties": false, "properties": {"jobs": {"type": "integer", "minimum": 1}}}
+  }
+}

@@ -1,0 +1,940 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-integrated-allocation-conditioning",
+  "status": "passed-control-allocation-composability-only",
+  "is_vehicle_c_behavioral_validation": false,
+  "claim": "Control allocation and composability demonstrated; Vehicle C behavioral dynamics remain independently unvalidated.",
+  "desired_wrench": [
+    120,
+    35,
+    50
+  ],
+  "cases": [
+    {
+      "id": "both-parallel",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            -1,
+            -0.65,
+            0
+          ],
+          "azimuth": 0
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            -1,
+            0.65,
+            0
+          ],
+          "azimuth": 0
+        }
+      ],
+      "failure": null,
+      "diagnostics": {
+        "mode": "nominal",
+        "rank": 2,
+        "condition_number": null,
+        "singular_values": [
+          707.1067811865476,
+          459.6194077712559,
+          0
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          119.99999999759999,
+          0,
+          0,
+          0,
+          0,
+          49.99999999763314
+        ],
+        "residual_wrench": [
+          2.4000144094316056e-9,
+          35,
+          0,
+          0,
+          0,
+          2.3668604853810393e-9
+        ],
+        "reachable": false,
+        "degradation": "rank-deficient"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "through-cg",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "azimuth": 0
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            0,
+            0,
+            0
+          ],
+          "azimuth": 0
+        }
+      ],
+      "failure": null,
+      "diagnostics": {
+        "mode": "nominal",
+        "rank": 1,
+        "condition_number": null,
+        "singular_values": [
+          707.1067811865476,
+          0,
+          0
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          119.9999999976,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "residual_wrench": [
+          2.4000001985768904e-9,
+          35,
+          0,
+          0,
+          0,
+          50
+        ],
+        "reachable": false,
+        "degradation": "rank-deficient"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "coincident-lines",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            -1,
+            0,
+            0
+          ],
+          "azimuth": 0
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            -1,
+            0,
+            0
+          ],
+          "azimuth": 0
+        }
+      ],
+      "failure": null,
+      "diagnostics": {
+        "mode": "nominal",
+        "rank": 1,
+        "condition_number": null,
+        "singular_values": [
+          707.1067811865476,
+          0,
+          0
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          119.9999999976,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "residual_wrench": [
+          2.4000001985768904e-9,
+          35,
+          0,
+          0,
+          0,
+          50
+        ],
+        "reachable": false,
+        "degradation": "rank-deficient"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "near-parallel-near-cg",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            0.00001,
+            -0.00001,
+            0
+          ],
+          "azimuth": 0
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            0.00001,
+            0.00001,
+            0
+          ],
+          "azimuth": 0.000001
+        }
+      ],
+      "failure": null,
+      "diagnostics": {
+        "mode": "nominal",
+        "rank": 2,
+        "condition_number": null,
+        "singular_values": [
+          707.1067811864591,
+          0.007079897598128626,
+          0
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          250.01495291737135,
+          -0.00024998504708271196,
+          0,
+          0,
+          0,
+          0.007499847970975816
+        ],
+        "residual_wrench": [
+          -130.01495291737135,
+          35.000249985047084,
+          0,
+          0,
+          0,
+          49.992500152029024
+        ],
+        "reachable": false,
+        "degradation": "rank-deficient"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "singularity-sweep-0",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            1,
+            -1,
+            0
+          ],
+          "azimuth": 0
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            1,
+            1,
+            0
+          ],
+          "azimuth": 1
+        }
+      ],
+      "failure": null,
+      "diagnostics": {
+        "mode": "nominal",
+        "rank": 3,
+        "condition_number": 145615999.79442394,
+        "singular_values": [
+          790.8527070584099,
+          383.7025397778393,
+          0.000005431083865611682
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          91.13873564483374,
+          43.20195949096352,
+          0,
+          0,
+          0,
+          78.86137676971376
+        ],
+        "residual_wrench": [
+          28.861264355166256,
+          -8.201959490963517,
+          0,
+          0,
+          0,
+          -28.861376769713758
+        ],
+        "reachable": false,
+        "degradation": "infeasible"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "singularity-sweep-1",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            0.1,
+            -0.1,
+            0
+          ],
+          "azimuth": 0
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            0.1,
+            0.1,
+            0
+          ],
+          "azimuth": 0.1
+        }
+      ],
+      "failure": null,
+      "diagnostics": {
+        "mode": "nominal",
+        "rank": 3,
+        "condition_number": 968259728.3699275,
+        "singular_values": [
+          706.2328956309341,
+          75.75238479254932,
+          7.293837334532982e-7
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          161.96118832503393,
+          -3.982473502450865,
+          0,
+          0,
+          0,
+          23.736250947054224
+        ],
+        "residual_wrench": [
+          -41.96118832503393,
+          38.982473502450866,
+          0,
+          0,
+          0,
+          26.263749052945776
+        ],
+        "reachable": false,
+        "degradation": "infeasible"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "singularity-sweep-2",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            0.01,
+            -0.01,
+            0
+          ],
+          "azimuth": 0
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            0.01,
+            0.01,
+            0
+          ],
+          "azimuth": 0.01
+        }
+      ],
+      "failure": null,
+      "diagnostics": {
+        "mode": "nominal",
+        "rank": 2,
+        "condition_number": null,
+        "singular_values": [
+          707.0979432630112,
+          7.873923199528581,
+          2.3762651570812072e-8
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          271.90405172312006,
+          -2.2810355177929607,
+          0,
+          0,
+          0,
+          7.25814912759087
+        ],
+        "residual_wrench": [
+          -151.90405172312006,
+          37.28103551779296,
+          0,
+          0,
+          0,
+          42.74185087240913
+        ],
+        "reachable": false,
+        "degradation": "rank-deficient"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "singularity-sweep-3",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            0.001,
+            -0.001,
+            0
+          ],
+          "azimuth": 0
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            0.001,
+            0.001,
+            0
+          ],
+          "azimuth": 0.001
+        }
+      ],
+      "failure": null,
+      "diagnostics": {
+        "mode": "nominal",
+        "rank": 2,
+        "condition_number": null,
+        "singular_values": [
+          707.1066927982903,
+          0.7902530384576528,
+          6.4504548987847634e-9
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          252.29540786929678,
+          -0.24770467469893362,
+          0,
+          0,
+          0,
+          0.7474568874560044
+        ],
+        "residual_wrench": [
+          -132.29540786929678,
+          35.24770467469893,
+          0,
+          0,
+          0,
+          49.252543112544
+        ],
+        "reachable": false,
+        "degradation": "rank-deficient"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "singularity-sweep-4",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            0.0001,
+            -0.0001,
+            0
+          ],
+          "azimuth": 0
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            0.0001,
+            0.0001,
+            0
+          ],
+          "azimuth": 0.0001
+        }
+      ],
+      "failure": null,
+      "diagnostics": {
+        "mode": "nominal",
+        "rank": 2,
+        "condition_number": null,
+        "singular_values": [
+          707.1067803026641,
+          0.07905377907766598,
+          6.585445077929105e-10
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          250.23101428497634,
+          -0.0249768986547587,
+          0,
+          0,
+          0,
+          0.0749744008816369
+        ],
+        "residual_wrench": [
+          -130.23101428497634,
+          35.02497689865476,
+          0,
+          0,
+          0,
+          49.925025599118364
+        ],
+        "reachable": false,
+        "degradation": "rank-deficient"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "singularity-sweep-5",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            0.00001,
+            -0.00001,
+            0
+          ],
+          "azimuth": 0
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            0.00001,
+            0.00001,
+            0
+          ],
+          "azimuth": 0.00001
+        }
+      ],
+      "failure": null,
+      "diagnostics": {
+        "mode": "nominal",
+        "rank": 2,
+        "condition_number": null,
+        "singular_values": [
+          707.1067811777087,
+          0.007905662527495458,
+          0
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          250.02676762342494,
+          -0.0024997323238490753,
+          0,
+          0,
+          0,
+          0.007499707326442512
+        ],
+        "residual_wrench": [
+          -130.02676762342494,
+          35.00249973232385,
+          0,
+          0,
+          0,
+          49.992500292673554
+        ],
+        "reachable": false,
+        "degradation": "rank-deficient"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "singularity-sweep-6",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            0.000001,
+            -0.000001,
+            0
+          ],
+          "azimuth": 0
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            0.000001,
+            0.000001,
+            0
+          ],
+          "azimuth": 0.000001
+        }
+      ],
+      "failure": null,
+      "diagnostics": {
+        "mode": "nominal",
+        "rank": 2,
+        "condition_number": null,
+        "singular_values": [
+          707.1067811864591,
+          0.0007905690988141798,
+          0
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          250.03922768932995,
+          -0.0002499607723107534,
+          0,
+          0,
+          0,
+          0.0007499605223498977
+        ],
+        "residual_wrench": [
+          -130.03922768932995,
+          35.00024996077231,
+          0,
+          0,
+          0,
+          49.99925003947765
+        ],
+        "reachable": false,
+        "degradation": "rank-deficient"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "singularity-sweep-7",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            1e-7,
+            -1e-7,
+            0
+          ],
+          "azimuth": 0
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            1e-7,
+            1e-7,
+            0
+          ],
+          "azimuth": 1e-7
+        }
+      ],
+      "failure": null,
+      "diagnostics": {
+        "mode": "nominal",
+        "rank": 2,
+        "condition_number": null,
+        "singular_values": [
+          707.1067811865466,
+          0.00007905693834193167,
+          0
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          250.3691887360643,
+          -0.00002496308112639365,
+          0,
+          0,
+          0,
+          0.00007496307863008545
+        ],
+        "residual_wrench": [
+          -130.3691887360643,
+          35.000024963081124,
+          0,
+          0,
+          0,
+          49.99992503692137
+        ],
+        "reachable": false,
+        "degradation": "rank-deficient"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "failed-off-port",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            -1,
+            -0.65,
+            0
+          ],
+          "azimuth": -0.35
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            -1,
+            0.65,
+            0
+          ],
+          "azimuth": 0.35
+        }
+      ],
+      "failure": {
+        "id": "azimuth-port",
+        "mode": "failed-off"
+      },
+      "diagnostics": {
+        "mode": "failed-off-reduced-set",
+        "rank": 2,
+        "condition_number": null,
+        "singular_values": [
+          690.8587618185977,
+          0.000005527808328609331,
+          0
+        ],
+        "bias_wrench": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "achieved_wrench": [
+          37.911938360372964,
+          13.838937795790777,
+          0,
+          0,
+          0,
+          -38.481697730033204
+        ],
+        "residual_wrench": [
+          82.08806163962703,
+          21.161062204209223,
+          0,
+          0,
+          0,
+          88.4816977300332
+        ],
+        "reachable": false,
+        "degradation": "rank-deficient"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    },
+    {
+      "id": "stuck-port-nonzero",
+      "placements": [
+        {
+          "id": "azimuth-port",
+          "pos": [
+            -1,
+            -0.65,
+            0
+          ],
+          "azimuth": -0.35
+        },
+        {
+          "id": "azimuth-starboard",
+          "pos": [
+            -1,
+            0.65,
+            0
+          ],
+          "azimuth": 0.35
+        }
+      ],
+      "failure": {
+        "id": "azimuth-port",
+        "mode": "stuck"
+      },
+      "diagnostics": {
+        "mode": "stuck-bias-rejection",
+        "rank": 2,
+        "condition_number": null,
+        "singular_values": [
+          690.8587618185977,
+          0.000005527808328609331,
+          0
+        ],
+        "bias_wrench": [
+          75.1498170277903,
+          -27.43182459643611,
+          0,
+          0,
+          0,
+          76.27920566449981
+        ],
+        "achieved_wrench": [
+          118.74231994559227,
+          -11.519318870459966,
+          0,
+          0,
+          0,
+          32.03157304195239
+        ],
+        "residual_wrench": [
+          1.2576800544077287,
+          46.51931887045997,
+          0,
+          0,
+          0,
+          17.96842695804761
+        ],
+        "reachable": false,
+        "degradation": "rank-deficient"
+      },
+      "finite": true,
+      "limits_respected": true,
+      "angle_continuity": true,
+      "checkpoint_replay_exact": true,
+      "passed": true
+    }
+  ],
+  "summary": {
+    "case_count": 14,
+    "rank_deficient": 12,
+    "infeasible": 14,
+    "artifact_checksum_sha256": "f3c4677c0252aa619741b5cc4fe73b731c94b2f53278063a1106f5b8570228e3"
+  },
+  "limitations": [
+    "Bootstrap geometry and actuator parameters are not physical validation evidence.",
+    "This campaign validates the integrated command/allocation/actuator path, not hydrodynamic response."
+  ]
+}

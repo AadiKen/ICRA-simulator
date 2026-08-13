@@ -1,0 +1,20 @@
+{
+  "schema_version": 2,
+  "policy_status": "active-scientific-supersession",
+  "supersedes": "trajectory-tolerances-v1-full-track.json",
+  "supersession_reason": "KVLCC2 is course-unstable, so full-track errors diverge and are diagnostic rather than acceptance evidence.",
+  "trajectory": {
+    "bounded_window_full_scale_s": 300,
+    "bounded_window_heading_rmse_deg_max": 15,
+    "rudder_input_replay_rmse_deg_max": 1e-12,
+    "propeller_input_replay_rmse_rps_max": 1e-12
+  },
+  "imo_percent": {
+    "advance": 5,
+    "tactical_diameter": 5,
+    "first_overshoot": 10,
+    "second_overshoot": 10
+  },
+  "diagnostic_only": ["full_track_position_rmse_lpp", "full_track_wrapped_heading_rmse_deg"],
+  "justification": "Acceptance uses measured-input identity, a fixed early-response heading window, and scalar IMO metrics. Full-track position and heading remain reported but cannot independently fail a course-unstable hull."
+}

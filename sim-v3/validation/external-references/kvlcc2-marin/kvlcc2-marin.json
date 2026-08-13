@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "id": "kvlcc2-marin",
+  "physical_model": "MARIN KVLCC2 L7 free-running model",
+  "model_scale": 45.7,
+  "frame": {"origin":"midship","x":"forward","y":"starboard","z":"down"},
+  "principal_particulars": {
+    "lpp_m": 7.0, "breadth_m": 1.27, "draft_m": 0.46, "displacement_m3": 3.27,
+    "mass_kg": 3270, "yaw_inertia_kg_m2": 10014.375, "block_coefficient": 0.81,
+    "x_g_m": 0.2436, "propeller_diameter_m": 0.204, "rudder_area_m2": 0.0539,
+    "rudder_span_m": 0.345
+  },
+  "provenance": "cache-only ship_data.yml from third-party SIMMAN-2008 redistribution; checksum locked",
+  "discrepancy_resolution": {
+    "kvlcc2_l7_unmodified": true,
+    "reason": "MARIN and Yasukawa/HMRI configurations describe different physical models/scales; neither value overwrites the other.",
+    "propeller_diameter": {"marin_m":0.204,"yasukawa_hmri_m":0.216},
+    "x_g": {"marin_m":0.2436,"yasukawa_hmri_m":0.25}
+  },
+  "propeller_operating_point": {"status":"resolved-measured-per-sample","source_column":11,"input_units":"rpm full-scale-equivalent","model_scale_conversion":"n_model_rps = n_full_rpm * sqrt(45.7) / 60","nominal_model_rps":10.33,"use_mean":false,"provenance":{"kind":"measured","source":"SIMMAN 2008 MARIN free-running trajectory channel; identity clarified 2026-08-03","uncertainty":"±0.4 rpm observed control noise retained sample-by-sample"}},
+  "propeller_open_water_fit": {"form":"KT = k0 + k1*J + k2*J^2","k0":0.32419097744360925,"k1":-0.22090844758956307,"k2":-0.14904909332153826,"fit_rmse":0.0007307067497327979,"source":"cache-only MARIN open_water_characteristics.csv","provenance":"measured open-water data; deterministic unweighted quadratic least-squares fit"},
+  "coefficient_transfer_to_vehicle_b_usv_permitted": false
+}
