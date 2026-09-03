@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN_APPROVED",
+  "approved_contract_path": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+  "content_sha256": "63eb33ad66078e1f28b20504d4187c9d0efd42538dd018f592a307f0f98b55a2",
+  "approval": "Explicit user approval",
+  "last_authorized_revision": true,
+  "reauthorized_on": "2026-09-03",
+  "reauthorization_scope": "Third revision: discounted whole-episode potential shaping with k=5 and a bounded final-leg curriculum followed by one full-episode fine-tune.",
+  "immutability_rule": "Do not revise route, disturbance envelope, terminal criterion, base reward, timeout, C3 thresholds, action/observation spaces, full-episode budget, or final evaluation seeds. Do not attempt a fourth revision without a new diagnostic round and explicit discussion.",
+  "approved_thresholds": {
+    "absolute_return": -1074.46134596905,
+    "absolute_success_rate": 0.33,
+    "terminal_radius_m": 2,
+    "variant": "pass-through",
+    "timeout_s": 120,
+    "both_must_pass": true
+  }
+}

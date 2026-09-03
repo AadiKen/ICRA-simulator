@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "external-simulator-short-conformance",
+  "host_class": "local",
+  "paper_measurement_eligible": false,
+  "status": "blocked-port-not-faithfully-runnable",
+  "simulator": "VRX",
+  "known_gazebo_version_deviation": "VRX v3.0.1 uses Gazebo Sim 8.10.0; standalone Gazebo uses 8.15.0. This accepted difference is not reconciled.",
+  "task_contract_sha256": "ce9a7c64c2d7725f0fcbc9c041a4bba61540bf8534f26b7f2f3e80f9744b2021",
+  "episodes": 3,
+  "episode_length_steps": 200,
+  "comparison": "same serialized reset state and fixed action sequence against Node reference",
+  "per_state_divergence": null,
+  "reason": "VRX port is not runnable locally."
+}

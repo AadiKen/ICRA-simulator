@@ -1,0 +1,1416 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "terminal-radius-sweep-n200",
+  "status": "complete-halt-before-contract-revision",
+  "seed_set": {
+    "first": 10000,
+    "count": 200,
+    "extension": "original 50 plus 150 new fixed seeds"
+  },
+  "bootstrap": {
+    "resamples": 20000,
+    "seed": 20270901,
+    "paired_by_seed": true
+  },
+  "cells": [
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 2,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.02,
+        "los_mpc": 0.005,
+        "best_classical": 0.02
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.005,
+          0.04
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.005,
+          0.04
+        ]
+      },
+      "gap": 0.02,
+      "separation_ratio": 0.5714285714285714,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.035,
+        "los_mpc": 0.015,
+        "best_classical": 0.035
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.01,
+          0.06
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.01,
+          0.06
+        ]
+      },
+      "gap": 0.035,
+      "separation_ratio": 0.7000000000000002,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.055,
+        "los_mpc": 0.03,
+        "best_classical": 0.055
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.025,
+          0.09
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.025,
+          0.09
+        ]
+      },
+      "gap": 0.055,
+      "separation_ratio": 0.8461538461538461,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.07,
+        "los_mpc": 0.03,
+        "best_classical": 0.07
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.035,
+          0.105
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.035,
+          0.105
+        ]
+      },
+      "gap": 0.07,
+      "separation_ratio": 1.0000000000000002,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.08,
+        "los_pid": 0.27,
+        "los_mpc": 0.4,
+        "best_classical": 0.4
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.335,
+          0.47
+        ],
+        "untrained_95_ci": [
+          0.045,
+          0.12
+        ],
+        "gap_95_ci": [
+          0.245,
+          0.395
+        ]
+      },
+      "gap": 0.32,
+      "separation_ratio": 2.133333333333333,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.105,
+        "los_pid": 0.31,
+        "los_mpc": 0.425,
+        "best_classical": 0.425
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.355,
+          0.495
+        ],
+        "untrained_95_ci": [
+          0.065,
+          0.15
+        ],
+        "gap_95_ci": [
+          0.245,
+          0.3951249999999891
+        ]
+      },
+      "gap": 0.32,
+      "separation_ratio": 2.1315570358036515,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.125,
+        "los_pid": 0.32,
+        "los_mpc": 0.435,
+        "best_classical": 0.435
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.365,
+          0.505
+        ],
+        "untrained_95_ci": [
+          0.08,
+          0.17
+        ],
+        "gap_95_ci": [
+          0.235,
+          0.385
+        ]
+      },
+      "gap": 0.31,
+      "separation_ratio": 2.0666666666666664,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 12,
+      "rates": {
+        "untrained": 0.135,
+        "los_pid": 0.32,
+        "los_mpc": 0.435,
+        "best_classical": 0.435
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.365,
+          0.505
+        ],
+        "untrained_95_ci": [
+          0.09,
+          0.185
+        ],
+        "gap_95_ci": [
+          0.22499999999999998,
+          0.375
+        ]
+      },
+      "gap": 0.3,
+      "separation_ratio": 1.9999999999999996,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 15,
+      "rates": {
+        "untrained": 0.15,
+        "los_pid": 0.325,
+        "los_mpc": 0.44,
+        "best_classical": 0.44
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.37,
+          0.51
+        ],
+        "untrained_95_ci": [
+          0.1,
+          0.2
+        ],
+        "gap_95_ci": [
+          0.215,
+          0.365
+        ]
+      },
+      "gap": 0.29000000000000004,
+      "separation_ratio": 1.9333333333333336,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 2,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.005,
+        "los_mpc": 0.0,
+        "best_classical": 0.005
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.0,
+          0.015
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.0,
+          0.015
+        ]
+      },
+      "gap": 0.005,
+      "separation_ratio": 0.33333333333333337,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.005,
+        "los_mpc": 0.005,
+        "best_classical": 0.005
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.0,
+          0.015
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.0,
+          0.015
+        ]
+      },
+      "gap": 0.005,
+      "separation_ratio": 0.33333333333333337,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.015,
+        "los_mpc": 0.02,
+        "best_classical": 0.02
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.005,
+          0.04
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.005,
+          0.04
+        ]
+      },
+      "gap": 0.02,
+      "separation_ratio": 0.5714285714285714,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.025,
+        "los_mpc": 0.025,
+        "best_classical": 0.025
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.005,
+          0.05
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.005,
+          0.05
+        ]
+      },
+      "gap": 0.025,
+      "separation_ratio": 0.5555555555555555,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.03,
+        "los_mpc": 0.035,
+        "best_classical": 0.035
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.01,
+          0.06
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.01,
+          0.06
+        ]
+      },
+      "gap": 0.035,
+      "separation_ratio": 0.7000000000000002,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.045,
+        "los_mpc": 0.055,
+        "best_classical": 0.055
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.025,
+          0.09
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.025,
+          0.09
+        ]
+      },
+      "gap": 0.055,
+      "separation_ratio": 0.8461538461538461,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.07,
+        "los_mpc": 0.08,
+        "best_classical": 0.08
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.045,
+          0.12
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.045,
+          0.12
+        ]
+      },
+      "gap": 0.08,
+      "separation_ratio": 1.0666666666666667,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 12,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.095,
+        "los_mpc": 0.085,
+        "best_classical": 0.095
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.055,
+          0.135
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.055,
+          0.135
+        ]
+      },
+      "gap": 0.095,
+      "separation_ratio": 1.1874999999999998,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 15,
+      "rates": {
+        "untrained": 0.005,
+        "los_pid": 0.16,
+        "los_mpc": 0.13,
+        "best_classical": 0.16
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.11,
+          0.21
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.015
+        ],
+        "gap_95_ci": [
+          0.105,
+          0.21
+        ]
+      },
+      "gap": 0.155,
+      "separation_ratio": 1.4761904761904763,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 2,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.095,
+        "los_mpc": 0.33,
+        "best_classical": 0.33
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.265,
+          0.395
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.265,
+          0.395
+        ]
+      },
+      "gap": 0.33,
+      "separation_ratio": 2.5384615384615383,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.115,
+        "los_mpc": 0.425,
+        "best_classical": 0.425
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.355,
+          0.495
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.355,
+          0.495
+        ]
+      },
+      "gap": 0.425,
+      "separation_ratio": 3.035714285714285,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.13,
+        "los_mpc": 0.53,
+        "best_classical": 0.53
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.46,
+          0.6
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.46,
+          0.6
+        ]
+      },
+      "gap": 0.53,
+      "separation_ratio": 3.785714285714287,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.185,
+        "los_mpc": 0.555,
+        "best_classical": 0.555
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.485,
+          0.625
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.485,
+          0.625
+        ]
+      },
+      "gap": 0.555,
+      "separation_ratio": 3.9642857142857144,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.085,
+        "los_pid": 0.385,
+        "los_mpc": 0.715,
+        "best_classical": 0.715
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.65,
+          0.775
+        ],
+        "untrained_95_ci": [
+          0.05,
+          0.125
+        ],
+        "gap_95_ci": [
+          0.555,
+          0.7000000000000001
+        ]
+      },
+      "gap": 0.63,
+      "separation_ratio": 4.344827586206896,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.11,
+        "los_pid": 0.425,
+        "los_mpc": 0.73,
+        "best_classical": 0.73
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.67,
+          0.79
+        ],
+        "untrained_95_ci": [
+          0.07,
+          0.155
+        ],
+        "gap_95_ci": [
+          0.545,
+          0.6950000000000001
+        ]
+      },
+      "gap": 0.62,
+      "separation_ratio": 4.133333333333333,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.135,
+        "los_pid": 0.435,
+        "los_mpc": 0.735,
+        "best_classical": 0.735
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.675,
+          0.795
+        ],
+        "untrained_95_ci": [
+          0.09,
+          0.185
+        ],
+        "gap_95_ci": [
+          0.5249999999999999,
+          0.675
+        ]
+      },
+      "gap": 0.6,
+      "separation_ratio": 3.9999999999999964,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 12,
+      "rates": {
+        "untrained": 0.15,
+        "los_pid": 0.44,
+        "los_mpc": 0.735,
+        "best_classical": 0.735
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.675,
+          0.795
+        ],
+        "untrained_95_ci": [
+          0.1,
+          0.2
+        ],
+        "gap_95_ci": [
+          0.51,
+          0.66
+        ]
+      },
+      "gap": 0.585,
+      "separation_ratio": 3.899999999999999,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 15,
+      "rates": {
+        "untrained": 0.17,
+        "los_pid": 0.46,
+        "los_mpc": 0.74,
+        "best_classical": 0.74
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.68,
+          0.8
+        ],
+        "untrained_95_ci": [
+          0.12,
+          0.225
+        ],
+        "gap_95_ci": [
+          0.495,
+          0.645
+        ]
+      },
+      "gap": 0.57,
+      "separation_ratio": 3.799999999999999,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 2,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.035,
+        "los_mpc": 0.205,
+        "best_classical": 0.205
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.15,
+          0.26
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.15,
+          0.26
+        ]
+      },
+      "gap": 0.205,
+      "separation_ratio": 1.8636363636363633,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.05,
+        "los_mpc": 0.36,
+        "best_classical": 0.36
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.295,
+          0.425
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.295,
+          0.425
+        ]
+      },
+      "gap": 0.36,
+      "separation_ratio": 2.769230769230769,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.06,
+        "los_mpc": 0.455,
+        "best_classical": 0.455
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.385,
+          0.525
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.385,
+          0.525
+        ]
+      },
+      "gap": 0.455,
+      "separation_ratio": 3.25,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.09,
+        "los_mpc": 0.49,
+        "best_classical": 0.49
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.42,
+          0.56
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.42,
+          0.56
+        ]
+      },
+      "gap": 0.49,
+      "separation_ratio": 3.4999999999999982,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.005,
+        "los_pid": 0.105,
+        "los_mpc": 0.515,
+        "best_classical": 0.515
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.445,
+          0.585
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.015
+        ],
+        "gap_95_ci": [
+          0.44,
+          0.58
+        ]
+      },
+      "gap": 0.51,
+      "separation_ratio": 3.642857142857144,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.005,
+        "los_pid": 0.14,
+        "los_mpc": 0.58,
+        "best_classical": 0.58
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.51,
+          0.65
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.015
+        ],
+        "gap_95_ci": [
+          0.505,
+          0.645
+        ]
+      },
+      "gap": 0.575,
+      "separation_ratio": 4.107142857142857,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.005,
+        "los_pid": 0.17,
+        "los_mpc": 0.63,
+        "best_classical": 0.63
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.565,
+          0.695
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.015
+        ],
+        "gap_95_ci": [
+          0.555,
+          0.695
+        ]
+      },
+      "gap": 0.625,
+      "separation_ratio": 4.464285714285717,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 12,
+      "rates": {
+        "untrained": 0.005,
+        "los_pid": 0.185,
+        "los_mpc": 0.665,
+        "best_classical": 0.665
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.6,
+          0.73
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.015
+        ],
+        "gap_95_ci": [
+          0.595,
+          0.725
+        ]
+      },
+      "gap": 0.66,
+      "separation_ratio": 5.076923076923077,
+      "qualifies": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 15,
+      "rates": {
+        "untrained": 0.015,
+        "los_pid": 0.255,
+        "los_mpc": 0.695,
+        "best_classical": 0.695
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.63,
+          0.755
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.035
+        ],
+        "gap_95_ci": [
+          0.615,
+          0.745
+        ]
+      },
+      "gap": 0.6799999999999999,
+      "separation_ratio": 5.23076923076923,
+      "qualifies": false
+    }
+  ],
+  "selection_rule": "Among Amendment-7 K0-approved 120 s pass-through cells only, maximize (best_classical-untrained)/CI_width(gap), subject to best classical 40-70% and radius <=10 m; smaller radius breaks ties. All variants/timeouts remain reported but are not selectable.",
+  "selected_candidate": {
+    "timeout_s": 120,
+    "variant": "pass_through",
+    "radius_m": 6,
+    "rates": {
+      "untrained": 0.08,
+      "los_pid": 0.27,
+      "los_mpc": 0.4,
+      "best_classical": 0.4
+    },
+    "best_classical_policy": "LOS-SPEEDCAP-v2",
+    "bootstrap_95_ci": {
+      "classical_95_ci": [
+        0.335,
+        0.47
+      ],
+      "untrained_95_ci": [
+        0.045,
+        0.12
+      ],
+      "gap_95_ci": [
+        0.245,
+        0.395
+      ]
+    },
+    "gap": 0.32,
+    "separation_ratio": 2.133333333333333,
+    "qualifies": true
+  },
+  "all_qualifying_cells": [
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.08,
+        "los_pid": 0.27,
+        "los_mpc": 0.4,
+        "best_classical": 0.4
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.335,
+          0.47
+        ],
+        "untrained_95_ci": [
+          0.045,
+          0.12
+        ],
+        "gap_95_ci": [
+          0.245,
+          0.395
+        ]
+      },
+      "gap": 0.32,
+      "separation_ratio": 2.133333333333333,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.105,
+        "los_pid": 0.31,
+        "los_mpc": 0.425,
+        "best_classical": 0.425
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.355,
+          0.495
+        ],
+        "untrained_95_ci": [
+          0.065,
+          0.15
+        ],
+        "gap_95_ci": [
+          0.245,
+          0.3951249999999891
+        ]
+      },
+      "gap": 0.32,
+      "separation_ratio": 2.1315570358036515,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.125,
+        "los_pid": 0.32,
+        "los_mpc": 0.435,
+        "best_classical": 0.435
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.365,
+          0.505
+        ],
+        "untrained_95_ci": [
+          0.08,
+          0.17
+        ],
+        "gap_95_ci": [
+          0.235,
+          0.385
+        ]
+      },
+      "gap": 0.31,
+      "separation_ratio": 2.0666666666666664,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.115,
+        "los_mpc": 0.425,
+        "best_classical": 0.425
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.355,
+          0.495
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.355,
+          0.495
+        ]
+      },
+      "gap": 0.425,
+      "separation_ratio": 3.035714285714285,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.13,
+        "los_mpc": 0.53,
+        "best_classical": 0.53
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.46,
+          0.6
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.46,
+          0.6
+        ]
+      },
+      "gap": 0.53,
+      "separation_ratio": 3.785714285714287,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.185,
+        "los_mpc": 0.555,
+        "best_classical": 0.555
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.485,
+          0.625
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.485,
+          0.625
+        ]
+      },
+      "gap": 0.555,
+      "separation_ratio": 3.9642857142857144,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.06,
+        "los_mpc": 0.455,
+        "best_classical": 0.455
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.385,
+          0.525
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.385,
+          0.525
+        ]
+      },
+      "gap": 0.455,
+      "separation_ratio": 3.25,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.09,
+        "los_mpc": 0.49,
+        "best_classical": 0.49
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.42,
+          0.56
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.0
+        ],
+        "gap_95_ci": [
+          0.42,
+          0.56
+        ]
+      },
+      "gap": 0.49,
+      "separation_ratio": 3.4999999999999982,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.005,
+        "los_pid": 0.105,
+        "los_mpc": 0.515,
+        "best_classical": 0.515
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.445,
+          0.585
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.015
+        ],
+        "gap_95_ci": [
+          0.44,
+          0.58
+        ]
+      },
+      "gap": 0.51,
+      "separation_ratio": 3.642857142857144,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.005,
+        "los_pid": 0.14,
+        "los_mpc": 0.58,
+        "best_classical": 0.58
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.51,
+          0.65
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.015
+        ],
+        "gap_95_ci": [
+          0.505,
+          0.645
+        ]
+      },
+      "gap": 0.575,
+      "separation_ratio": 4.107142857142857,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.005,
+        "los_pid": 0.17,
+        "los_mpc": 0.63,
+        "best_classical": 0.63
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.565,
+          0.695
+        ],
+        "untrained_95_ci": [
+          0.0,
+          0.015
+        ],
+        "gap_95_ci": [
+          0.555,
+          0.695
+        ]
+      },
+      "gap": 0.625,
+      "separation_ratio": 4.464285714285717,
+      "qualifies": true
+    }
+  ],
+  "decision": {
+    "contract_revision_applied": false,
+    "human_approval_required": true
+  }
+}

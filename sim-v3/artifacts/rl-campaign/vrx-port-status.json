@@ -1,0 +1,247 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "external-simulator-port-status",
+  "host_class": "local",
+  "paper_measurement_eligible": false,
+  "status": "gate-7-failed-runtime-exporter-unwired",
+  "gate_7": {
+    "short_conformance": "not-run: the WAM-V ROS adapter has no launched node subscribing/exporting state in the VRX container",
+    "full_conformance": "not-run",
+    "per_state_divergence": null,
+    "implemented_sources": ["validation/rl-campaign/ports/shared-actuators.ts", "validation/rl-campaign/ports/task-trace-bridge.ts", "validation/rl-campaign/ports/simulator-actuator-adapters.ts"],
+    "config_gaps": ["VRX accepts Newton thrust Float64 topics rather than the frozen normalized action; the adapter converts after shared lag.", "VRX v3.0.1 Gazebo Sim 8.10 differs from standalone 8.15."]
+  },
+  "simulator": "VRX",
+  "known_gazebo_version_deviation": "VRX v3.0.1 uses Gazebo Sim 8.10.0; standalone Gazebo uses 8.15.0. This accepted difference is not reconciled.",
+  "controller_implementation": "validation/rl-campaign/ports/portable-controllers.ts",
+  "controller_wiring": {
+    "status": "adapter contract defined; executable simulator adapter unavailable",
+    "controllers": [
+      "LOS-PID-v2",
+      "LOS-SPEEDCAP-v2"
+    ]
+  },
+  "task_contract": {
+    "task_id": "common-waypoint-transit-v1",
+    "content_sha256": "ce9a7c64c2d7725f0fcbc9c041a4bba61540bf8534f26b7f2f3e80f9744b2021",
+    "timing": {
+      "physics_timestep_s": 0.05,
+      "control_interval_s": 0.1,
+      "episode_length_steps": 2400,
+      "episode_length_s": 120
+    },
+    "observation": {
+      "encoding": "fixed float64 reference vector; identical ordering and units in every port",
+      "components": [
+        {
+          "id": "imu",
+          "size": 6,
+          "fields": [
+            "linear_accel_x",
+            "linear_accel_y",
+            "linear_accel_z",
+            "angular_rate_x",
+            "angular_rate_y",
+            "angular_rate_z"
+          ],
+          "physical_counterpart": "SeaRobotics IMU",
+          "dropout_probability": 0
+        },
+        {
+          "id": "gps",
+          "size": 5,
+          "fields": [
+            "relative_goal_north_m",
+            "relative_goal_east_m",
+            "ground_speed_north_m_s",
+            "ground_speed_east_m_s",
+            "fix_valid"
+          ],
+          "source": "SeaRobotics positioning interface/GPS; exact receiver model is not confirmed in available field records",
+          "physical_counterpart": "SeaRobotics positioning interface",
+          "dropout_probability": 0,
+          "portability_note": "Use each simulator's standard GPS/NavSat output converted to the contract's local tangent frame."
+        },
+        {
+          "id": "previous_action",
+          "size": 4,
+          "physical_counterpart": "actuator command stream; field logging remains required"
+        }
+      ],
+      "explicitly_excluded": [
+        "radar",
+        "camera-derived features",
+        "lidar",
+        "EXO2",
+        "sensor-energy state",
+        "privileged simulator state",
+        "true wind/current vector"
+      ]
+    },
+    "action": {
+      "encoding": {
+        "size": 4,
+        "range": [
+          -1,
+          1
+        ],
+        "fields": [
+          "effector_0",
+          "effector_1",
+          "steer_0",
+          "steer_1"
+        ],
+        "unused_fields_must_be_zero": true
+      },
+      "topology_mapping": {
+        "vehicle-a-otter": {
+          "plant": "planar3",
+          "mapping": [
+            "port fixed-thruster",
+            "starboard fixed-thruster",
+            "unused",
+            "unused"
+          ]
+        },
+        "vehicle-b-rudder": {
+          "plant": "coupled6",
+          "mapping": [
+            "propeller",
+            "unused",
+            "rudder",
+            "unused"
+          ]
+        },
+        "vehicle-c-azimuth": {
+          "plant": "coupled6",
+          "mapping": [
+            "port thrust",
+            "starboard thrust",
+            "port azimuth",
+            "starboard azimuth"
+          ]
+        }
+      },
+      "fairness": {
+        "status": "OPEN_RESERVED_GATE_5",
+        "not_resolved_by_this_contract": true,
+        "question": "Compare policies in topology-native normalized actuator space, a common body-wrench space followed by each simulator's allocator, or both?",
+        "options": [
+          "topology-native normalized actuators",
+          "common body wrench plus frozen allocator",
+          "report both as separate conditions"
+        ],
+        "required_before": "Any cross-vehicle or cross-simulator training comparison",
+        "prohibition": "No figure pipeline may imply action-space fairness is settled before Gate 5 approval."
+      }
+    },
+    "reward": {
+      "formula": "2*progress_m - 0.02*cross_track_m - 0.05*sum(delta_action^2) + terminal",
+      "constants": {
+        "progress_per_m": 2,
+        "cross_track_per_m": -0.02,
+        "action_delta_squared": -0.05,
+        "success": 100,
+        "object_collision": -100,
+        "grounding": -100,
+        "timeout": -10,
+        "allocation_failure": -25,
+        "instability": -100
+      }
+    },
+    "termination": {
+      "success": "After ordered leg advancement, the final waypoint is entered within a 6.0 m center-point radius. Pass-through only: no terminal speed limit and no hold requirement.",
+      "object_collision": "Vehicle collision geometry intersects an object geometry; termination_reason=collision and collision_type=object.",
+      "grounding": "Keel clearance against bathymetry is <=0 m; termination_reason=grounding and collision_type=grounding, never object.",
+      "timeout": "2400 physics steps (120 s) without a prior terminal condition.",
+      "allocation_failure": "Allocator returns infeasible/non-finite output or commanded-wrench residual exceeds 20% of requested norm for 10 consecutive control intervals.",
+      "instability": "Any non-finite state or abs(roll/pitch)>60 degrees for 1.0 continuous second.",
+      "precedence": [
+        "instability",
+        "grounding",
+        "object_collision",
+        "allocation_failure",
+        "success",
+        "timeout"
+      ],
+      "final_leg_activation": "A reportable intermediate state: ordered intermediate legs have advanced and the final leg is active. It is not success.",
+      "intermediate_advancement": "Intermediate legs use the existing 6.0 m radius or the frozen corridor-bounded plane-crossing rule."
+    },
+    "reset_randomization": {
+      "seeded": true,
+      "route_rotation_deg": [
+        -20,
+        20
+      ],
+      "start_position_offset_m": [
+        -1,
+        1
+      ],
+      "start_heading_deg": [
+        -10,
+        10
+      ],
+      "wind_speed_m_s": [
+        0,
+        8
+      ],
+      "wind_direction_deg": [
+        0,
+        360
+      ],
+      "current_speed_m_s": [
+        0,
+        1
+      ],
+      "current_direction_deg": [
+        0,
+        360
+      ],
+      "gps_dropout_probability": [
+        0,
+        0
+      ],
+      "object_layout": "none; shoreline/bathymetry remains fixed and identical across ports"
+    },
+    "route": {
+      "start_local_m": [
+        10000,
+        10000
+      ],
+      "unrotated_relative_waypoints_m": [
+        [
+          20,
+          0
+        ],
+        [
+          35,
+          15
+        ],
+        [
+          50,
+          5
+        ]
+      ]
+    },
+    "intermediate_plane_crossing_lateral_corridor_m": 15.361124064575238
+  },
+  "required_elements": [
+    "15-element float64 observation vector",
+    "four-field normalized action vector with two zero unused fields",
+    "frozen reward and constants",
+    "seeded reset randomization",
+    "6 m pass-through terminal / 120 s timeout",
+    "6 m intermediate advancement and 15.361124064575238 m plane corridor",
+    "wind/current disturbance",
+    "ordered three-waypoint sequence"
+  ],
+  "faithful_port_completed": false,
+  "unported_elements": [
+    {
+      "element": "runtime adapter and simulator task plugin",
+      "faithful": false,
+      "reason": "The source-built VRX v3.0.1 container is available, but this repository has no task plugin or normalized trace bridge that can faithfully implement and test the frozen contract."
+    }
+  ],
+  "prohibition": "No approximate substitute may be marked conformant."
+}

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-p3-v5-curriculum-disposition",
+  "status": "THIRD_REVISION_FAILED_AT_PHASE_1_GATE",
+  "task_contract_content_sha256": "63eb33ad66078e1f28b20504d4187c9d0efd42538dd018f592a307f0f98b55a2",
+  "phase_1": {
+    "name": "final-leg-isolation",
+    "maximum_steps": 1500000,
+    "executed_steps_nominal": 1500000,
+    "convergence_rule": "At least 90% success on 50 fixed curriculum validation episodes at two consecutive checkpoints.",
+    "converged": false,
+    "success_rate_by_checkpoint": [
+      {"steps": 250000, "success_rate": 0.0},
+      {"steps": 500000, "success_rate": 0.02},
+      {"steps": 750000, "success_rate": 0.06},
+      {"steps": 1000000, "success_rate": 0.08},
+      {"steps": 1250000, "success_rate": 0.10},
+      {"steps": 1500000, "success_rate": 0.08}
+    ],
+    "peak_success_rate": 0.10,
+    "peak_checkpoint_steps": 1250000,
+    "final_success_rate": 0.08,
+    "final_median_base_return": -1647.6748481544369,
+    "final_median_shaped_return": 3845.034114278348
+  },
+  "phase_2": {
+    "full_episode_fine_tuning_started": false,
+    "reason": "The frozen Phase 1 convergence prerequisite was not met."
+  },
+  "gate_3": {
+    "executed": false,
+    "result": null,
+    "reason": "No eligible full-episode checkpoint exists because Phase 2 was correctly withheld."
+  },
+  "interpretation": {
+    "finding": "Final-leg isolation plus discounted potential shaping did not produce reliable terminal completion under the bounded curriculum. Success improved from 0% to a transient 10%, then ended at 8%, far below convergence.",
+    "shaped_return_note": "Shaped return is training telemetry and is not comparable with the unchanged C3 base-return threshold.",
+    "diagnostic_implication": "The third revision did not validate the diagnosed remedy. Further changes require a new diagnostic round rather than another reward or curriculum tweak."
+  },
+  "artifacts": {
+    "protocol": "artifacts/rl-campaign/surveyor/p3-v5-curriculum-training-protocol.json",
+    "phase_1_report": "artifacts/rl-campaign/surveyor/p3-v5-curriculum-local/phase-1-report.json",
+    "training_state": "artifacts/rl-campaign/surveyor/p3-v5-curriculum-local/training-state.json",
+    "last_checkpoint": "artifacts/rl-campaign/surveyor/p3-v5-curriculum-local/phase1-1500000.zip",
+    "training_log": "artifacts/rl-campaign/surveyor/p3-v5-curriculum-local/training.log"
+  },
+  "decision": {
+    "further_tuning_performed": false,
+    "fourth_revision_authorized": false,
+    "full_episode_training_authorized_from_failed_curriculum": false,
+    "required_next_action": "Stop and perform a new diagnostic review before proposing any further Surveyor contract or training change."
+  }
+}

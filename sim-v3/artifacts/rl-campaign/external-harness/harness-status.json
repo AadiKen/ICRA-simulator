@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "external-simulator-harness",
+  "generated_at": "2026-09-02T03:04:05.536Z",
+  "gazebo": {
+    "runtime": "Gazebo Harmonic",
+    "sdf_valid": true,
+    "stdout": "Valid.\n",
+    "stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\n",
+    "trace": null,
+    "reason": "Launch/command/odometry trace wiring requires a generated task world and Transport process; validation retained separately."
+  },
+  "vrx": {
+    "runtime": "VRX",
+    "exporter_launch_valid": true,
+    "stdout": "Arguments (pass arguments as '<name>:=<value>'):\n\n    'output':\n        no description given\n        (default: '/tmp/vrx-trace-samples.jsonl')\n",
+    "stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\n",
+    "trace": null,
+    "reason": "Episode world launch and command-trace driver remain required before a trace can be compared."
+  },
+  "next": "Run only when a reference trace and simulator-produced trace-schema-v1 JSON are present; conformance.ts computes separate yaw divergence."
+}

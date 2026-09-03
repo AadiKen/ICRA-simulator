@@ -38,6 +38,8 @@ export interface VectorMarineSimulation {
   step(actions: unknown[], mask?: boolean[]): VectorStepResult;
   saveCheckpoint(): VectorSimulationCheckpoint;
   loadCheckpoint(checkpoint: VectorSimulationCheckpoint): void;
+  getGroundTruth(index:number):unknown;
+  getMetrics(index:number):Record<string,number>;
   dispose(): void;
 }
 
@@ -70,8 +72,11 @@ export class DeterministicVectorMarineSimulation implements VectorMarineSimulati
   }
   saveCheckpoint(): VectorSimulationCheckpoint {this.#assertLive();return{version:1,checkpoints:this.#simulations.map((simulation,index)=>{if(!this.#observations[index])throw new Error(`Vector slot ${index} has not been reset.`);return simulation.saveCheckpoint();}),active:[...this.#active],observations:structuredClone(this.#observations)};}
   loadCheckpoint(checkpoint: VectorSimulationCheckpoint): void {this.#assertLive();if(checkpoint.version!==1||checkpoint.checkpoints.length!==this.size||checkpoint.active.length!==this.size||checkpoint.observations.length!==this.size)throw new Error("Vector checkpoint is incompatible.");checkpoint.checkpoints.forEach((value,index)=>this.#simulations[index].loadCheckpoint(value));this.#active=[...checkpoint.active];this.#observations=structuredClone(checkpoint.observations);}
+  getGroundTruth(index:number):unknown{this.#assertIndex(index);return structuredClone(this.#simulations[index].getGroundTruth());}
+  getMetrics(index:number):Record<string,number>{this.#assertIndex(index);return structuredClone(this.#simulations[index].getMetrics());}
   dispose():void{if(!this.#disposed)this.#simulations.forEach((simulation)=>simulation.dispose());this.#disposed=true;this.#active.fill(false);}
   #assertLength(value:unknown[],name:string){if(value.length!==this.size)throw new Error(`${name} must contain exactly ${this.size} entries.`);}
+  #assertIndex(index:number){this.#assertLive();if(!Number.isInteger(index)||index<0||index>=this.size)throw new Error("Vector index is out of range.");if(!this.#observations[index])throw new Error(`Vector slot ${index} has not been reset.`);}
   #assertMask(mask:boolean[]){this.#assertLength(mask,"mask");if(mask.some((value)=>typeof value!=="boolean"))throw new Error("mask entries must be boolean.");}
   #assertLive(){if(this.#disposed)throw new Error("Vector simulation has been disposed.");}
 }

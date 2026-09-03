@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-gate-7-divergence-diagnostic",
+  "status": "COMPLETE_HALTED_FOR_REVIEW",
+  "contract_content_sha256": "cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb",
+  "scope": "Diagnosis only. No vehicle physics, force coefficient, joint definition, or environment model was changed.",
+  "held_out_seeds": [20000, 20001, 20002, 20003, 20004, 20005, 20006, 20007, 20008, 20009, 20010, 20011, 20012, 20013, 20014, 20015, 20016, 20017, 20018, 20019],
+  "check_1_odometry_reporting_artifact": {
+    "finding": "Confirmed identical 10-sample VRX odometry startup artifact on all 20 full-thrust traces. Samples 0-9 contain a harmonic-decay velocity initialization sequence; sample 10 is the first ordinary sample on every seed.",
+    "confirmed_warmup": {
+      "excluded_sample_indices": [0, 9],
+      "included_from_sample_index": 10,
+      "excluded_duration_s": 0.5,
+      "cross_seed_consistency": "20/20 traces"
+    },
+    "startup_artifact_max_abs_divergence": {
+      "surge_m_s": 238111.5290994248,
+      "sway_m_s": 152927.72679258382,
+      "yaw_rate_rad_s": 33.572707908975794
+    },
+    "warmup_excluded_divergence": {
+      "sample_population": 47800,
+      "surge_m_s": {"max_abs": 2.6107008006298456, "mean_abs": 0.6987853136183204},
+      "sway_m_s": {"max_abs": 2.6399799915204873, "mean_abs": 0.550074084785032},
+      "yaw_rate_rad_s": {"max_abs": 13.166875411976953, "mean_abs": 0.8127185211606753}
+    },
+    "assessment": "The readable velocity divergence remains a real failure after removing the reporting artifact.",
+    "single_next_fix": "Keep the 0.5 s measured warm-up exclusion in VRX summary reporting and retain the raw startup samples in trace artifacts; do not alter vehicle physics to compensate for a publisher initialization artifact.",
+    "report_updated": "artifacts/rl-campaign/vrx-gate7-full/gate-7-result.json"
+  },
+  "check_2_graded_thrust": {
+    "method": "Twenty seeds, 2400 samples per seed, identical reset/disturbance/fixed trace and shared actuator lag, with only the first two normalized commands multiplied by 0.25, 0.50, 0.75, or 1.00 before lag and force bounds.",
+    "integrity": {
+      "scale_0_25_valid_traces": 20,
+      "scale_0_50_valid_traces": 20,
+      "scale_0_75_valid_traces": 20,
+      "scale_1_00_valid_traces": 20
+    },
+    "aggregate_results": [
+      {"command_scale": 0.25, "terminal_position_divergence_mean_m": 12.828906369568722, "terminal_position_divergence_range_m": [11.51574703605397, 18.08412129796537], "time_mean_position_divergence_m": 9.19768260672565, "terminal_circular_yaw_divergence_mean_rad": 0.7599007518914312},
+      {"command_scale": 0.50, "terminal_position_divergence_mean_m": 13.30354300909483, "terminal_position_divergence_range_m": [7.172217497469281, 33.876763913798555], "time_mean_position_divergence_m": 14.810801430920794, "terminal_circular_yaw_divergence_mean_rad": 1.3749183873792763},
+      {"command_scale": 0.75, "terminal_position_divergence_mean_m": 4.412230487088179, "terminal_position_divergence_range_m": [2.3589940569567815, 6.880344628590116], "time_mean_position_divergence_m": 15.708418251908729, "terminal_circular_yaw_divergence_mean_rad": 1.9174582915623735},
+      {"command_scale": 1.00, "terminal_position_divergence_mean_m": 6.0962005096107665, "terminal_position_divergence_range_m": [0.335540999204078, 15.95481068630932], "time_mean_position_divergence_m": 12.64998383340668, "terminal_circular_yaw_divergence_mean_rad": 2.4436362188768306}
+    ],
+    "scaling_analysis": {
+      "terminal_position_linear_fit_r_squared": 0.6763282672295055,
+      "terminal_position_linear_fit_slope_m_per_unit_scale": -11.635772040752206,
+      "time_mean_position_linear_fit_r_squared": 0.25170737960508427,
+      "terminal_yaw_linear_fit_r_squared": 0.9986400287827144,
+      "terminal_yaw_linear_fit_slope_rad_per_unit_scale": 2.2374985220557178,
+      "interpretation": "Position divergence is non-monotonic and already large at 25%, rejecting a single global thrust-gain explanation. Circular yaw divergence, however, scales almost perfectly with command magnitude; the non-linear position error is consistent with an accumulating yaw-channel mismatch rotating subsequent thrust and relative-flow forces."
+    },
+    "finding": "Mixed but diagnostic pattern: not a global force-scale mismatch; evidence localizes first to the commanded yaw response (differential thrust moment or yaw damping/coupling), with position divergence becoming non-linear downstream.",
+    "single_next_fix": "Before changing any broad hydrodynamic coefficient, isolate pure differential-thrust yaw response and align the VRX yaw moment arm/sign and nR/nRR damping mapping to Node. The near-perfect yaw scaling supports this narrower correction; it does not support retuning surge gain or all damping terms together."
+  },
+  "check_3_environment_downstream_test": {
+    "method": "For each seed at 30, 60, and 119.95 s, correlate Node-to-VRX position divergence with the preregistered paired environment-response error at the same sample. Pearson and rank correlations were computed for relative and absolute environment-vector error.",
+    "per_checkpoint": [
+      {"time_s": 30, "kinematic_position_divergence_mean_m": 12.460657354070701, "kinematic_range_m": [2.215207161695362, 13.050522256477239], "pearson_relative_environment_error": -0.9924486885407195, "spearman_relative_environment_error": 0.6406015037593985, "pearson_absolute_environment_error": -0.9986964668305329, "spearman_absolute_environment_error": -0.7127819548872181},
+      {"time_s": 60, "kinematic_position_divergence_mean_m": 17.008948381830862, "kinematic_range_m": [4.815856212555028, 17.68801357184751], "pearson_relative_environment_error": -0.9995322329924429, "spearman_relative_environment_error": -0.5473684210526316, "pearson_absolute_environment_error": -0.9995149898849619, "spearman_absolute_environment_error": -0.27669172932330827},
+      {"time_s": 119.95, "kinematic_position_divergence_mean_m": 6.0962005096107665, "kinematic_range_m": [0.335540999204078, 15.95481068630932], "pearson_relative_environment_error": 0.9895489812189707, "spearman_relative_environment_error": 0.9007518796992481, "pearson_absolute_environment_error": 0.9976023883829185, "spearman_absolute_environment_error": 0.9849624060150376}
+    ],
+    "pooled_all_checkpoints": {
+      "pearson_relative_environment_error": 0.14237786661303545,
+      "spearman_relative_environment_error": 0.3513753820505696,
+      "pearson_absolute_environment_error": -0.7471870720609126,
+      "spearman_absolute_environment_error": -0.8435120866907474
+    },
+    "counterexample": "At 30 s, seed 20006 has the worst relative environment-vector divergence (628.7%) while belonging to the small-kinematic-divergence end of the checkpoint range. Environment error also falls substantially from 30 to 120 s while kinematic divergence peaks near 60 s. Only the terminal cross-seed slice is strongly positively correlated.",
+    "finding": "No consistent positive timestamp-matched relationship exists. Kinematic divergence can amplify environmental differences, especially terminally, but it does not explain the early environment failure; the moving-body environment coupling has an independent defect or mismatch.",
+    "single_next_fix": "After the yaw-channel check, audit the moving-frame relative-velocity calculation and NED/ENU force transformation for wind/current using a prescribed body-velocity replay. Do not retune the geometry-derived wind/current coefficients until that transform/sign audit is complete."
+  },
+  "ordered_next_action": "First isolate and correct the yaw response under pure differential thrust; then repeat the moving-frame environment transform audit. No implementation is authorized by this diagnostic artifact.",
+  "approved_followup": {
+    "status": "completed in approved order",
+    "result_artifact": "artifacts/rl-campaign/vrx-gate7-full/yaw-and-frame-audit-result.json",
+    "summary": "Pure yaw sign/moment mapping was confirmed and did not justify coefficient tuning. The moving-frame audit found and replaced the incompatible stock world-axis wind adapter; current signs and transforms were confirmed."
+  },
+  "halted_for_review": true
+}

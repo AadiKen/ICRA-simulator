@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-third-contract-revision-proposal",
+  "status": "APPROVED_IMPLEMENTED_NOT_EXECUTED",
+  "generated_at": "2026-09-03",
+  "base_contract": {
+    "path": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+    "content_sha256": "cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb"
+  },
+  "scope_guards": {
+    "route_unchanged": true,
+    "disturbance_unchanged": true,
+    "terminal_radius_unchanged": true,
+    "timeout_unchanged": true,
+    "observation_unchanged_from_v2": true,
+    "action_space_unchanged": true,
+    "c3_thresholds_unchanged": {
+      "median_return_min": -1074.46134596905,
+      "success_rate_min": 0.33
+    }
+  },
+  "shaping_scale_derivation": {
+    "source": "artifacts/rl-campaign/surveyor/p3-v4-time-aware-reward-transition-diagnostic.json",
+    "eligible_final_leg_episodes": 6,
+    "legs_1_2_reward": {
+      "signed_mean": -109.6292849970141,
+      "mean_absolute_magnitude": 120.84640765616602,
+      "median_absolute_magnitude": 57.197385588180786,
+      "q75_absolute_magnitude": 123.93561899896332,
+      "maximum_absolute_magnitude": 385.88255469424314
+    },
+    "final_leg_entry_distance_m": {
+      "mean": 29.432507482708427,
+      "median": 29.10298217700374,
+      "q75": 30.12301586003324,
+      "maximum": 33.895768900987086
+    },
+    "important_correction": "The retained six-episode decomposition does not show a large positive mean legs-1-2 reward; its signed mean is negative. Absolute magnitude is used as the conservative scale so k is not weakened by cancellation.",
+    "selected_k": 5.0,
+    "calculation": "5.0 * 29.10298217700374 m = 145.5149108850187 reward units for closing the median entry distance.",
+    "margin_over_mean_absolute_legs_1_2_reward": 0.204134403310109,
+    "not_fitted_to_success_rate": true
+  },
+  "potential_shaping_issue_requiring_approval": {
+    "ppo_discount_gamma": 0.99,
+    "requested_literal_form": "Phi(s') - Phi(s)",
+    "policy_invariant_discounted_form": "gamma * Phi(s') - Phi(s)",
+    "potential": "Phi(s) = -5.0 * distance_to_final_waypoint_m",
+    "second_issue": "Gating a state potential only after final-leg activation creates a discontinuity. If Phi=0 before activation and Phi=-k*d immediately after it, the transition into the final leg receives a large negative shaping reward and can reinforce avoidance.",
+    "recommended_resolution": "Use gamma*Phi(s')-Phi(s) across every episode state, with the absorbing terminal state's potential set to zero. This is the standard policy-invariant discounted construction and avoids an activation-boundary penalty. It leaves the base reward and optimal-policy set unchanged while providing dense information about the final waypoint.",
+    "literal_final_leg_only_alternative": "Apply Phi(s')-Phi(s) only to transitions whose starting state is already on the final leg, initializing the entry distance as the phase baseline. This directly targets the leg and avoids an entry penalty, but it must not be described as provably policy invariant under gamma=0.99."
+  },
+  "curriculum_candidate": {
+    "phase_1": "final-leg isolation",
+    "reset": {
+      "position": "second route waypoint, which is the canonical leg-2 endpoint and start of the final segment",
+      "heading": "bearing from waypoint 2 to waypoint 3 plus the existing seeded [-10,10] degree heading perturbation",
+      "velocity_body_mps": [0, 0, 0],
+      "disturbance": "same frozen seed mapping and ranges as the full task",
+      "active_waypoint_index": 2,
+      "observation_and_action_spaces": "unchanged trace-schema-v2 / two-thruster PPO interface",
+      "terminal_rule": "unchanged 2 m pass-through",
+      "timeout_s": 120
+    },
+    "training_seed_protocol": "same PPO seed 7319 and existing environment reset-seed construction",
+    "validation_seeds": {
+      "first": 30000,
+      "count": 50,
+      "separate_from_final_gate_seeds": true
+    },
+    "checkpoint_interval_steps": 250000,
+    "convergence_rule": "At least 90% success on the fixed 50-episode curriculum validation set at two consecutive checkpoints.",
+    "maximum_phase_1_steps": 1500000,
+    "failure_rule": "If phase 1 does not meet the convergence rule by 1.5M steps, stop and report; do not enter full-episode fine-tuning.",
+    "phase_2": {
+      "initialization": "converged phase-1 checkpoint",
+      "full_episode_training_steps": 3000000,
+      "budget_note": "The full-episode budget remains 3M as requested. Curriculum adds at most 1.5M preliminary steps, so total training may reach 4.5M.",
+      "learning_rate_schedule": "retain the approved linear decay within the 3M full-episode phase; optimizer state continues from curriculum unless approval specifies reinitialization",
+      "final_evaluation_seeds": {
+        "first": 10000,
+        "count": 50
+      }
+    }
+  },
+  "contract_finalization": {
+    "performed": true,
+    "new_canonical_hash": "63eb33ad66078e1f28b20504d4187c9d0efd42538dd018f592a307f0f98b55a2",
+    "approved_resolution": "gamma*Phi(s')-Phi(s) across all states, with absorbing terminal potential zero",
+    "training_started": false,
+    "runtime_code_changed": true,
+    "long_run_executed": false
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "scope-frozen-fig3-planar3-only",
+  "finding": "The PyTorch tensor backend implements only Vehicle A planar3. Vehicles B and C use coupled6, so long-horizon Node-to-tensor parity for coupled6 cannot currently be measured.",
+  "figure_impact": {
+    "Fig 3": "GPU/tensor claims are restricted to Vehicle A planar3 until this work package passes.",
+    "Fig 6": "All three vehicles can run affordably through the authoritative persistent Node bridge, but this is a different backend from a tensor-only Fig 3.",
+    "cross_figure_risk": "Backend scope must be printed directly in captions; otherwise the paper would imply unsupported three-vehicle GPU coverage."
+  },
+  "implementation_scope": [
+    "Batched coupled6 rigid-body state and RK4 integration",
+    "Full mass/added-mass, Coriolis, damping, hydrostatics, wind/current/wave force ordering parity",
+    "Vehicle B propeller/rudder internal state and Vehicle C dual-azimuth actuator/allocation state",
+    "Checkpoint schema v3 including filters, integrator, allocator and RNG state",
+    "Float64 CPU reference parity for 2400 steps before any CUDA path",
+    "Float32 CUDA determinism and divergence characterization only after CPU acceptance"
+  ],
+  "estimate": {
+    "engineering": "large; approximately 2-4 focused engineer-weeks plus validation, not a wrapper change",
+    "paper_deadline_decision": "Decision taken: Fig 3 and every GPU/tensor claim are limited to Vehicle A planar3. Fig 6 uses the authoritative Node bridge and makes no GPU claim. A figure guard enforces this boundary."
+  },
+  "current_affordability": {
+    "observed_node_bridge_batch64_steps_per_s": 7894,
+    "three_million_steps_nominal_seconds": 380,
+    "interpretation": "Approximately 6.3 minutes of simulator stepping before training and evaluation overhead; the Node path makes the three-vehicle transfer matrix computationally plausible today."
+  }
+}

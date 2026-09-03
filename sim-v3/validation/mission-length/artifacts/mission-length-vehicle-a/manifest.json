@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "run_id": "mission-length-vehicle-a",
-  "experiment_checksum": "9bd38a4a24af9c7636aa01e7e19264803f234ec8fbb1cb3cf20ea096e2bb9ceb",
+  "experiment_checksum": "3ebfce397a5185a43f2f2bfb6120d20fe8d35785fae04210e5647c96921374d0",
   "created_at": "2026-07-31T00:00:00.000Z",
   "software": {
     "node": "v24.13.0",
@@ -18,5 +18,25 @@
   },
   "warnings": [
     "Controller holds initial station while mission termination runs to 300 seconds; this stresses artifacts rather than navigation quality."
+  ],
+  "artifact_inventory": [
+    {
+      "path": "original_config.json",
+      "bytes": 1154,
+      "checksum_sha256": "ab1a2561f571b60ba68e0baa851fe46be583dcd30755d18ee7f4eae918ec8321",
+      "content_role": "configuration"
+    },
+    {
+      "path": "resolved_config.json",
+      "bytes": 1154,
+      "checksum_sha256": "ab1a2561f571b60ba68e0baa851fe46be583dcd30755d18ee7f4eae918ec8321",
+      "content_role": "configuration"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 741,
+      "checksum_sha256": "085ed65bc08758ca65def8c6349f466ebc56c92e8ded73319413052ebecca224",
+      "content_role": "metrics"
+    }
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-surveyor-stock-physics-configuration",
+  "configuration": "vrx:surveyor-stock-physics",
+  "container_tag": "leadcat/vrx:surveyor-stock-physics-v3.0.1",
+  "local_image_id": "sha256:2ec9c371807e9a1eadaef6ba158344729f5b75dbef4aa8b1186f0d24683e4fc8",
+  "base_configuration": "vrx:stock",
+  "vehicle": "Surveyor",
+  "custom_dynamics_or_physics_changes": false,
+  "included": [
+    "Surveyor hull, inertial, sensor, and thruster model serialization",
+    "VRX built-in Surface buoyancy system",
+    "VRX built-in SimpleHydrodynamics system",
+    "Gazebo built-in thruster, pose publisher, and odometry publisher systems"
+  ],
+  "excluded": [
+    "libVrxCurrentRelativeVelocity.so",
+    "libVrxSurveyorRelativeWind.so",
+    "wind-frame diagnostic correction",
+    "diagnostic force injection",
+    "patched VRX source or libraries"
+  ],
+  "model_source": "artifacts/rl-campaign/vrx-surveyor-runtime/models/surveyor/model.sdf",
+  "world_source": "artifacts/rl-campaign/vrx-surveyor-runtime/worlds/surveyor-vrx.sdf",
+  "policy_training_allowed": true,
+  "baseline_comparison_allowed": true,
+  "note": "This is distinct from unmodified stock VRX because it adds the Surveyor vehicle asset, but it does not change or supplement the stock simulator's dynamics implementations."
+}

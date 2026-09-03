@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "decision": "persistent-batched-node-service",
+  "status": "recommended-before-build",
+  "evaluated_at": "2026-08-31T00:00:00.000Z",
+  "alternatives": [
+    {
+      "id": "persistent-batched-node-service",
+      "advantages": ["Executes the authoritative production engine", "Supports planar3 and coupled6", "Preserves checkpoint and sensor semantics", "One persistent process can own a deterministic vector batch"],
+      "costs": ["IPC and serialization overhead", "No GPU acceleration"]
+    },
+    {
+      "id": "in-process-pytorch-tensor-backend",
+      "advantages": ["In-process Python API", "Batched tensor execution", "Potential MPS/CUDA acceleration"],
+      "blocking_gaps": ["Only Vehicle A planar3 is implemented", "No coupled6 plant", "No production sensor/task lifecycle", "Current implementation hard-codes float64, which MPS does not support"]
+    }
+  ],
+  "rationale": "The bridge must preserve the production simulator across both dynamics models. Selecting the current tensor backend would silently substitute an incomplete simulator reproduction. The persistent batched Node service is therefore the reference bridge; tensor remains an optimization candidate that must independently pass parity before use.",
+  "prohibitions": ["No Node process per Gym step", "No tensor result described as coupled6 parity until a coupled6 tensor plant exists", "No local throughput number is paper measurement"]
+}

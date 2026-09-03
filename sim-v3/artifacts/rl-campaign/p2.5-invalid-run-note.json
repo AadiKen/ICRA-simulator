@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "invalid_artifact": "artifacts/rl-campaign/p2.5-reference-calibration-invalid-legacy-boundary.json",
+  "reason": "The approved task has no world-boundary terminal condition, but the legacy demo world's 90 m by 70 m boundary terminated 82 of 150 episodes. The artifact cannot freeze a learnability threshold.",
+  "correction": "For mission.type=rl-common-waypoint-v1 only, obstacles remain empty and legacy bounds are expanded to 20 km. Controller gains, episode seeds, route, reward, bootstrap, and threshold rule are unchanged.",
+  "classification": "harness/task-conformance defect, not controller tuning",
+  "p3_started": false
+  ,"additional_invalid_artifact": {
+    "path": "artifacts/rl-campaign/p2.5-reference-calibration-invalid-wrench-index.json",
+    "reason": "The harness constructed desiredWrench as [surge,yaw,0,0,0,0], applying yaw demand as sway. Correct production order is [surge,0,0,0,0,yaw]. Zero successes in that artifact are not controller evidence."
+  }
+  ,"dummy_goal_invalid_artifact": {
+    "path": "artifacts/rl-campaign/p2.5-reference-calibration-invalid-dummy-goal.json",
+    "reason": "The unused legacy goal at (9999,9999) was within its completion radius after the common task was centered at (10000,10000), terminating every episode after one step. It is moved to (19000,19000), outside the approved task route."
+  }
+}

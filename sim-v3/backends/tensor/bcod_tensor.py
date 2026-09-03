@@ -13,6 +13,7 @@ class VehicleAPlanar3Config:
     environments: int
     timestep_s: float = 0.02
     device: str = "cpu"
+    numerics_mode: str = "float64"
     experiment_seed: str | int = 0
     environment_indices: tuple[int, ...] | None = None
     mass_kg: float = 55.0
@@ -63,7 +64,11 @@ class VehicleAPlanar3TensorBackend:
             raise RuntimeError("CUDA was requested but is unavailable")
         self.config = config
         self.device = torch.device(config.device)
-        self.dtype = torch.float64
+        if config.numerics_mode not in {"float64", "float32"}:
+            raise ValueError("numerics_mode must be float64 or float32")
+        if config.device == "mps" and config.numerics_mode != "float32":
+            raise ValueError("MPS requires numerics_mode=float32")
+        self.dtype = torch.float64 if config.numerics_mode == "float64" else torch.float32
         shape3 = (config.environments, 3)
         shape2 = (config.environments, 2)
         self.pose_ned_yaw = torch.zeros(shape3, dtype=self.dtype, device=self.device)

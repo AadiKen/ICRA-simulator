@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "usv-bench-36-complete-controller-campaign",
+  "status": "passed",
+  "exact_match_gate": {
+    "status": "passed",
+    "reference": "artifacts/baselines/usv-bench-policy-report.json",
+    "controllers": [
+      "pid",
+      "mpc"
+    ],
+    "rows": 216
+  },
+  "configuration": {
+    "scenarios": 36,
+    "vehicles": 3,
+    "controllers": [
+      "pid",
+      "mpc",
+      "ppo"
+    ],
+    "pid_mpc_seeds": 1,
+    "ppo_seeds": 5
+  },
+  "executed_runs": 756,
+  "manifest_complete_runs": 756,
+  "failure_taxonomy": {
+    "counts": {
+      "collision": 0,
+      "timeout": 729,
+      "instability": 0,
+      "allocation saturation": 0,
+      "other": 0
+    },
+    "total": 729,
+    "other_rate": 0,
+    "other_exceeds_5_percent": false
+  },
+  "files": {
+    "heatmap": "heatmap.csv",
+    "ppo_variance": "ppo-variance.json",
+    "ppo_variance_csv": "ppo-variance.csv",
+    "failures": "failure-taxonomy.json",
+    "rows": "rows.json"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "campaign_stage": "P3-portable-terminal-revision-awaiting-human-approval",
+  "mpc_v1": {
+    "status": "parked-incomplete",
+    "handoff": "artifacts/rl-campaign/mpc-v1-handoff.md",
+    "downstream_dependency": false,
+    "reason": "Structural defects were identified, but the prescribed single-solve diagnostic was not run. MPC-v1 is excluded from reference calibration, terminal-radius selection, and P3-v3 gating."
+  },
+  "nomenclature_correction": "2026-09-01: LOS-MPC-v2 was renamed LOS-SPEEDCAP-v2 everywhere. It is retained unchanged as a line-of-sight speed-cap heuristic; the name correction does not invalidate its measurements.",
+  "generated_at": "2026-08-31T00:00:00.000Z",
+  "paper_measurement_eligible": false,
+  "host_class": "local",
+  "host": {
+    "os": "Darwin 25.5.0",
+    "arch": "arm64",
+    "device": "CPU",
+    "numerics_mode": "float64",
+    "blas_backend": "Accelerate",
+    "node": "v24.13.0",
+    "python": "3.12.4"
+  },
+  "git": {
+    "sha": "adb48e979def0d4a9eac26db9d114e803e47024b",
+    "dirty": true,
+    "dirty_path_count_at_validation": 62
+  },
+  "locks": {
+    "universal_uv_lock_sha256": "9de637decc945ef69947f38fe577f8d3efbbedfac55325937b2a59f7809b1b72",
+    "npm_lock_sha256": "7ca84324a458607fbf6d74fdc47a729ca2938c84a93ba25c57af2ee78ccfa7ba",
+    "arm64_descriptor_sha256": "9a790a53ddad48cbfa9a0ebb5fdf48f7be69108bea7d2b74d08e184852d6f1bb",
+    "x86_64_descriptor_sha256": "89d5ce5c98d5ba45bc9eb7075c75c3dcf49b429a7d27cd75921335e30af630bf",
+    "uv_lock_check": "passed-55-packages",
+    "x86_64_runtime_verification": "blocked-until-CodeNimbus-access"
+  },
+  "task_definition": {
+    "canonical_content_sha256": "ce9a7c64c2d7725f0fcbc9c041a4bba61540bf8534f26b7f2f3e80f9744b2021",
+    "file_sha256": "1941bfb944b2e7b1705e40260e9cae1710bc84819fe14c889a36e6c4256778ec",
+    "status": "p3-v3-terminal-revision-pending-human-approval"
+  },
+  "validation": {
+    "figure_and_table_queries": 9,
+    "schema_contract": "passed",
+    "task_contract_hash_and_constraints": "passed",
+    "runner_forced_kill_resume": "passed",
+    "runner_completed_no_op": "passed",
+    "runner_dual_lock_manifest": "passed",
+    "existing_metrics_artifact_tests": "passed",
+    "tensor_backend_tests": "passed-12",
+    "python_bridge_tests": "passed-5",
+    "vector_simulation_tests": "passed",
+    "git_diff_check": "passed"
+  },
+  "gate": {
+    "id": "P3-learnability",
+    "status": "failed-and-halted",
+    "protocol_sha256": "8e26aba4edb3274f66a5c4d8eb7e23f998d35821d40fae067125db167c07cff5",
+    "report_sha256": "ab895af925ff23eb14b0a0fa260d434654e8ae4e637fedf0c09dfeb362297f4a",
+    "model_sha256": "d5ee555541462fafd3f930f3a596324b63b364ef5e8bc816324f5f43a5a509f0",
+    "diagnosis_sha256": "44bfce0332a35a3a62cfe7fb2aaca3c8110fb01b0e4d0bb91375a2db1fa88970",
+    "criterion_binding_sha256": "68817df2de026d69b10b93bfe69ccbbdcb69c810dbb3ae9f7f7bd11cc4218033",
+    "baseline_validity_sha256": "fbb7df6f7771a176130a083e1d3cbd84a5d17ec50db82dc6a742436cb9d870d1",
+    "corrected_p2_5_protocol_sha256": "7064fb8a6824a3854fb8401ba5641f9d56fa87a37b0c739215f172cceabf5c5e",
+    "corrected_advancement_rescore_sha256": "0a5de4fcc8fe7a65b42efe32580cc9779e80ae0371e4065c4f87d95ce43c1a3b",
+    "corrected_p2_5_sha256": "39eb947b69f6c75861e90686e99091b140bfb8d1dcd0077a0eac9f575f43b556",
+    "corridor_protocol_sha256": "23dd77172c4e658bbaa743bab31ff400691175b8cc3bb04e4575ff5dee237af2",
+    "corridor_corrected_p2_5_sha256": "e086f7bff37ebbdebc963d33db80dd279ff090506396dc83cc008dd10ec05155",
+    "los_terminal_counterfactual_sha256": "0271bbea196a9f303bf2aef79032d2fe2a3fcca489941f7768e7eeaa4f9ff4c3",
+    "terminal_radius_sweep_sha256": "5eba91ed1f9aa8664c751a1ba56ba42fb9fa4051263c04d81f3f70c8a27468f8",
+    "ppo_corridor_rescore_sha256": "5a929900a956374cd9f5d44233235de24f9453e16a0dfdf916bda7b6124cf996",
+    "terminal_radius_sweep_n200_sha256": "4a35fd89154b65ad495af5bb2818c4ef7299f2f32c0012bfe3e9b83c1d964d34",
+    "ppo_terminal_radius_diagnostic_sha256": "84cc3cab9229d6eacfb0f582041a032f2be0971cd5c6ee8fe2a2ddcb2872ea35",
+    "mpc_horizon_adequacy_check_sha256": "d901fd4f035efa3129e1a9ef8669967a2daca8d931c3e106f1a19b35f6fb28af",
+    "observed": {
+      "median_return": -171.07409880660225,
+      "normalized_score": 1.2205471091003932,
+      "success_rate": 0.06
+    },
+    "required": {
+      "median_return_min": -1038.1762339848315,
+      "normalized_score_min": 0.5,
+      "success_rate_min": 0.2
+    },
+    "decision_required": "MPC-v1 has been parked-incomplete following structural review; see artifacts/rl-campaign/mpc-v1-handoff.md. It is not a downstream dependency. The active decision is human review of the already-selected 6 m / 120 s pass-through portable-task contract and its frozen C3 thresholds.",
+    "downstream_work_started": false
+  }
+}

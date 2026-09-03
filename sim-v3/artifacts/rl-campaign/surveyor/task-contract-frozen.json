@@ -1,0 +1,746 @@
+{
+  "schema_version": 1,
+  "contract_version": "4.0.0-surveyor-rate-corrected-shaping-scale",
+  "status": "FROZEN_FOURTH_REVISION_APPROVED",
+  "version_note": "Explicitly authorized on 2026-09-03 after the corrected-rate diagnostic: enforce the existing 0.1 s control interval by holding each action for two 0.05 s physics steps and reduce the already discounted potential-shaping scale from k=5 to k=0.1757208861220446. Route, disturbance, terminal radius, base reward, timeout, observation/action spaces, C3 thresholds, curriculum gate, and evaluation seeds are unchanged.",
+  "created_at": "2026-08-31T00:00:00.000Z",
+  "tasks": [
+    {
+      "task_id": "common-waypoint-transit-v1",
+      "version": "1.2.0-surveyor-final-candidate",
+      "portable": true,
+      "allowed_simulators": [
+        "bcod-sim",
+        "VRX",
+        "Gazebo Harmonic"
+      ],
+      "figure_eligibility": [
+        "Fig 1B",
+        "Fig 1C",
+        "Fig 3",
+        "Fig 5",
+        "Tables T1-T3",
+        "ablations"
+      ],
+      "purpose": "Credible simulator comparison using only capabilities with direct, reproducible counterparts in all three simulators.",
+      "classical_control_justification": "LOS-PID-v2 and LOS-SPEEDCAP-v2 are the frozen classical calibration references. MPC-v1 is parked-incomplete and is not used for terminal calibration or treated as a downstream dependency. PPO is not required to beat either classical controller; it must exceed the frozen untrained-policy thresholds.",
+      "timing": {
+        "physics_timestep_s": 0.05,
+        "control_interval_s": 0.1,
+        "episode_length_steps": 2400,
+        "episode_length_s": 120
+      },
+      "observation": {
+        "encoding": "fixed float64 reference vector; identical ordering and units in every port",
+        "components": [
+          {
+            "id": "imu",
+            "size": 6,
+            "fields": [
+              "linear_accel_x",
+              "linear_accel_y",
+              "linear_accel_z",
+              "angular_rate_x",
+              "angular_rate_y",
+              "angular_rate_z"
+            ],
+            "physical_counterpart": "SeaRobotics IMU",
+            "dropout_probability": 0
+          },
+          {
+            "id": "gps",
+            "size": 5,
+            "fields": [
+              "relative_goal_north_m",
+              "relative_goal_east_m",
+              "ground_speed_north_m_s",
+              "ground_speed_east_m_s",
+              "fix_valid"
+            ],
+            "source": "SeaRobotics positioning interface/GPS; exact receiver model is not confirmed in available field records",
+            "physical_counterpart": "SeaRobotics positioning interface",
+            "dropout_probability": 0,
+            "portability_note": "Use each simulator's standard GPS/NavSat output converted to the contract's local tangent frame."
+          },
+          {
+            "id": "previous_action",
+            "size": 4,
+            "physical_counterpart": "actuator command stream; field logging remains required"
+          },
+          {
+            "id": "time_remaining",
+            "size": 1,
+            "fields": [
+              "normalized_time_remaining"
+            ],
+            "normalization": "remaining episode physics steps / 2400; 1.0 at reset and 0.0 at the 120 s limit",
+            "range": [
+              0,
+              1
+            ],
+            "append_only_note": "Field 16; the prior 15 fields retain their exact ordering."
+          }
+        ],
+        "explicitly_excluded": [
+          "radar",
+          "camera-derived features",
+          "lidar",
+          "EXO2",
+          "sensor-energy state",
+          "privileged simulator state",
+          "true wind/current vector"
+        ]
+      },
+      "action": {
+        "encoding": {
+          "size": 4,
+          "range": [
+            -1,
+            1
+          ],
+          "fields": [
+            "effector_0",
+            "effector_1",
+            "steer_0",
+            "steer_1"
+          ],
+          "unused_fields_must_be_zero": true
+        },
+        "topology_mapping": {
+          "vehicle-a-otter": {
+            "plant": "planar3",
+            "mapping": [
+              "port fixed-thruster",
+              "starboard fixed-thruster",
+              "unused",
+              "unused"
+            ]
+          },
+          "vehicle-b-rudder": {
+            "plant": "coupled6",
+            "mapping": [
+              "propeller",
+              "unused",
+              "rudder",
+              "unused"
+            ]
+          },
+          "vehicle-c-azimuth": {
+            "plant": "coupled6",
+            "mapping": [
+              "port thrust",
+              "starboard thrust",
+              "port azimuth",
+              "starboard azimuth"
+            ]
+          },
+          "surveyor": {
+            "plant": "planar3",
+            "mapping": [
+              "port fixed-thruster",
+              "starboard fixed-thruster",
+              "unused",
+              "unused"
+            ],
+            "allocator": "yaw-first coupled envelope"
+          }
+        },
+        "fairness": {
+          "status": "OPEN_RESERVED_GATE_5",
+          "not_resolved_by_this_contract": true,
+          "question": "Compare policies in topology-native normalized actuator space, a common body-wrench space followed by each simulator's allocator, or both?",
+          "options": [
+            "topology-native normalized actuators",
+            "common body wrench plus frozen allocator",
+            "report both as separate conditions"
+          ],
+          "required_before": "Any cross-vehicle or cross-simulator training comparison",
+          "prohibition": "No figure pipeline may imply action-space fairness is settled before Gate 5 approval."
+        }
+      },
+      "reward": {
+        "formula": "base_reward + gamma*Phi(s') - Phi(s), where base_reward = 2*progress_m - 0.02*cross_track_m - 0.05*sum(delta_action^2) + terminal",
+        "constants": {
+          "progress_per_m": 2,
+          "cross_track_per_m": -0.02,
+          "action_delta_squared": -0.05,
+          "success": 100,
+          "object_collision": -100,
+          "grounding": -100,
+          "timeout": -10,
+          "allocation_failure": -25,
+          "instability": -100
+        },
+        "potential_shaping": {
+          "potential": "Phi(s) = -0.1757208861220446 * distance_to_final_waypoint_m",
+          "k": 0.1757208861220446,
+          "gamma": 0.99,
+          "transition_term": "gamma * Phi(s') - Phi(s)",
+          "scope": "all episode states; not gated at final-leg activation",
+          "absorbing_terminal_potential": 0,
+          "policy_invariance_basis": "Ng, Harada, and Russell (1999) discounted potential-based reward shaping",
+          "scale_derivation": "At the contract-correct 10 Hz control rate, the retained 30-episode 1.25M-checkpoint replay accumulated a median 2845.4215718712667 shaping units with k=5. Linear scaling to the 100-point terminal bonus gives k=5*100/2845.4215718712667=0.1757208861220446. This scale is not fitted to success rate.",
+          "gate_reporting_rule": "C3 return is computed from base_reward only so the unchanged threshold remains comparable; shaped reward is training signal and auxiliary telemetry."
+        }
+      },
+      "termination": {
+        "success": "After ordered corridor-bounded leg advancement, the final waypoint is entered within a 2.0 m center-point radius. Pass-through only: no terminal speed limit and no hold requirement.",
+        "object_collision": "Vehicle collision geometry intersects an object geometry; termination_reason=collision and collision_type=object.",
+        "grounding": "Keel clearance against bathymetry is <=0 m; termination_reason=grounding and collision_type=grounding, never object.",
+        "timeout": "2400 physics steps (120 s) without a prior terminal condition.",
+        "allocation_failure": "Allocator returns infeasible/non-finite output or commanded-wrench residual exceeds 20% of requested norm for 10 consecutive control intervals.",
+        "instability": "Any non-finite state or abs(roll/pitch)>60 degrees for 1.0 continuous second.",
+        "precedence": [
+          "instability",
+          "grounding",
+          "object_collision",
+          "allocation_failure",
+          "success",
+          "timeout"
+        ],
+        "final_leg_activation": "A reportable intermediate state: ordered intermediate legs have advanced and the final leg is active. It is not success.",
+        "intermediate_advancement": "Intermediate legs use the existing 6.0 m radius or the frozen corridor-bounded plane-crossing rule."
+      },
+      "reset_randomization": {
+        "seeded": true,
+        "route_rotation_deg": [
+          -20,
+          20
+        ],
+        "start_position_offset_m": [
+          -1,
+          1
+        ],
+        "start_heading_deg": [
+          -10,
+          10
+        ],
+        "wind_speed_m_s": [
+          0,
+          10.855635130041462
+        ],
+        "wind_direction_deg": [
+          0,
+          360
+        ],
+        "current_speed_m_s": [
+          0,
+          1.3569543912551827
+        ],
+        "current_direction_deg": [
+          0,
+          360
+        ],
+        "gps_dropout_probability": [
+          0,
+          0
+        ],
+        "object_layout": "none; shoreline/bathymetry remains fixed and identical across ports",
+        "route_relative_m": [
+          [
+            27.139087825103655,
+            0
+          ],
+          [
+            47.49340369393139,
+            20.35431586882774
+          ],
+          [
+            67.84771956275914,
+            6.784771956275914
+          ]
+        ]
+      },
+      "learnability": {
+        "status": "FROZEN_FOURTH_REVISION",
+        "algorithm": "PPO",
+        "named_baseline": "frozen-untrained-policy-v1",
+        "baseline_definition": "Frozen randomly initialized policy evaluated without training on the identical fixed evaluation episodes",
+        "reference_definition": "Return reference is LOS-SPEEDCAP-v2 and success reference is LOS-PID-v2 from the final n=200 rescaled Surveyor calibration. MPC-v1 remains parked-incomplete.",
+        "normalized_score_formula": "(R_policy - R_untrained) / (R_reference - R_untrained)",
+        "normalized_score_threshold": 0.5,
+        "denominator_guard": "P2.5 fails if R_reference <= R_untrained or if the paired-bootstrap 95% confidence interval for the reference-minus-untrained gap includes zero; no threshold may be frozen from an unresolved gap",
+        "evaluation": {
+          "p3_local": {
+            "training_seeds": 1,
+            "evaluation_episodes": 50,
+            "aggregation": "Median return over 50 fixed evaluation episodes for the single trained seed; evaluation seeds and scenarios are frozen by P2.5 and distinct from training resets"
+          },
+          "cluster_multi_seed": {
+            "aggregation": "Compute the 50-episode median independently for each trained seed, report every per-seed median, then report median and bootstrap interval across trained seeds; never pool episodes across trained seeds"
+          }
+        },
+        "timestep_budget": 3000000,
+        "episode_count_rationale": {
+          "minimum_full_length_episodes": 1250,
+          "expected_episode_steps_range": [
+            600,
+            1200
+          ],
+          "expected_episode_count_range": [
+            2500,
+            5000
+          ],
+          "statement": "Three million steps is frozen before P3. Early success/failure termination is expected to make episodes shorter than the 2,400-step cap; P2.5 records the observed reference episode-length distribution without changing this budget."
+        },
+        "absolute_return_threshold": {
+          "status": "FROZEN",
+          "value": -1074.46134596905,
+          "rule": "R_untrained + 0.5 * (R_reference - R_untrained)",
+          "untrained_median": -2188.016903917009,
+          "reference_policy": "LOS-SPEEDCAP-v2",
+          "reference_median": 39.09421197890923,
+          "reference_minus_untrained_95_ci": [
+            1801.8741164388314,
+            2476.5877748528146
+          ],
+          "calibration_artifact": "artifacts/rl-campaign/surveyor/p2.5-rescaled.json"
+        },
+        "failure_action": "Report and halt. This is the last authorized task revision; do not alter the route, disturbances, terminal criterion, thresholds, controllers, reward, or timeout without new explicit authorization.",
+        "reference_calibration": {
+          "return_reference": "P2.5 corrected-corridor artifact; LOS-SPEEDCAP-v2 median return -85.57209088776064, frozen-untrained median return -1185.7829283299516.",
+          "terminal_reference": "n=200 fixed replay; LOS-SPEEDCAP-v2 success .40, frozen-untrained success .08 at 6 m pass-through / 120 s.",
+          "terminal_calibration_intent": "The radius was calibrated before RL evaluation to give the best classical reference a non-degenerate rate. This is criterion calibration, not fitting a criterion to PPO outcomes.",
+          "limitation": "The 40% classical rate is at the approved band floor and its bootstrap interval reaches below that floor; this is retained as a stated limitation."
+        },
+        "absolute_success_rate_threshold": {
+          "status": "FROZEN",
+          "value": 0.33,
+          "normalized_threshold": 0.5,
+          "formula": "S_untrained + 0.5 * (S_reference - S_untrained)",
+          "terminal_definition": {
+            "radius_m": 2,
+            "variant": "pass-through",
+            "timeout_s": 120
+          },
+          "untrained_rate": 0,
+          "reference_policy": "LOS-PID-v2",
+          "reference_rate": 0.66,
+          "reference_minus_untrained_95_ci": [
+            0.595,
+            0.725
+          ],
+          "calibration_artifact": "artifacts/rl-campaign/surveyor/terminal-radius-sweep-rescaled.json"
+        },
+        "reporting": {
+          "required_per_policy": [
+            "success_rate",
+            "final_leg_activation_rate"
+          ],
+          "interpretation_guard": "closest_final_m is conditional on final-leg activation and must never be presented as unconditional terminal-accuracy evidence."
+        },
+        "curriculum": {
+          "phase_1": {
+            "name": "final-leg-isolation",
+            "reset_position": "second route waypoint (canonical leg-2 endpoint)",
+            "reset_heading": "bearing from waypoint 2 to waypoint 3 plus the existing seeded [-10,10] degree perturbation",
+            "reset_velocity_body_mps": [0, 0, 0],
+            "active_waypoint_index": 2,
+            "disturbance": "unchanged frozen seed mapping and magnitude ranges",
+            "terminal_radius_m": 2,
+            "timeout_s": 120,
+            "ppo_seed": 7319,
+            "checkpoint_interval_steps": 250000,
+            "validation_seeds": {
+              "first": 30000,
+              "count": 50,
+              "excluded_from_final_gate_evaluation": true
+            },
+            "convergence_rule": "At least 90% success on the fixed curriculum validation set at two consecutive checkpoints.",
+            "maximum_steps": 1500000,
+            "failure_rule": "Stop without full-episode fine-tuning if convergence is not reached by 1.5M steps."
+          },
+          "phase_2": {
+            "name": "full-episode-fine-tuning",
+            "initialization": "converged phase-1 policy and optimizer state",
+            "timesteps": 3000000,
+            "learning_rate": "linear decay from 3e-4 to 0 within phase 2",
+            "ppo_seed": 7319,
+            "final_evaluation_seeds": {
+              "first": 10000,
+              "count": 50
+            }
+          },
+          "maximum_total_training_steps": 4500000
+        },
+        "C3": {
+          "rule": "A policy passes C3 only if both thresholds pass on the frozen evaluation protocol.",
+          "absolute_return_threshold": -1074.46134596905,
+          "absolute_success_rate_threshold": 0.33,
+          "both_must_pass": true
+        }
+      },
+      "vehicle": {
+        "preset": "surveyor",
+        "canonical_id": "searobotics-surveyor-m1.8",
+        "model_artifact": "artifacts/rl-campaign/surveyor-vehicle-model.json",
+        "model_status": "documented two-body approximation; not manufacturer CAD or measured mass properties"
+      }
+    },
+    {
+      "task_id": "showcase-sensor-constrained-transit-v1",
+      "version": "1.0.0-draft",
+      "portable": false,
+      "allowed_simulators": [
+        "bcod-sim"
+      ],
+      "figure_eligibility": [
+        "Fig 6",
+        "Fig 7",
+        "bcod-sim capability argument"
+      ],
+      "explicit_exclusion": "Must not appear in Fig 5, simulator-comparison tables, or competitor ablations.",
+      "purpose": "Demonstrate partial-observation navigation and sensor-energy scheduling without claiming competitor fairness.",
+      "classical_control_justification": "Intermittent localization, perception validity, disturbance inference, and a finite sensing budget jointly require belief/history and a sensing policy. PID has neither; conventional MPC is not optimal without an observation-transition model and joint sensing decisions.",
+      "timing": {
+        "physics_timestep_s": 0.05,
+        "control_interval_s": 0.1,
+        "episode_length_steps": 2400,
+        "episode_length_s": 120
+      },
+      "observation": {
+        "encoding": "fixed float64 reference vector",
+        "components": [
+          {
+            "id": "imu",
+            "size": 6,
+            "physical_counterpart": "SeaRobotics IMU",
+            "dropout_probability": 0
+          },
+          {
+            "id": "gps",
+            "size": 5,
+            "fields": [
+              "relative_goal_north_m",
+              "relative_goal_east_m",
+              "ground_speed_north_m_s",
+              "ground_speed_east_m_s",
+              "fix_valid"
+            ],
+            "source": "SeaRobotics positioning interface/GPS",
+            "physical_counterpart": "SeaRobotics positioning interface",
+            "dropout_model": {
+              "type": "seeded Gilbert-Elliott",
+              "good_to_bad_probability_per_control_step": 0.01,
+              "bad_to_good_probability_per_control_step": 0.1
+            },
+            "flag": "Exact physical GPS receiver and real dropout statistics are not yet confirmed."
+          },
+          {
+            "id": "rplidar_ranges",
+            "size": 32,
+            "physical_counterpart": "SeaRobotics short-range RPLidar",
+            "normalization": "clip(range_m/12,0,1); no return=1"
+          },
+          {
+            "id": "camera_free_space",
+            "size": 8,
+            "physical_counterpart": "Camera hardware exists; the eight-sector extractor is a separate perception pipeline",
+            "normalization": "[0,1]",
+            "sim_to_real_risk": "The same frozen extractor must run on the boat companion computer. Simulator rendering will not reproduce the real CV pipeline's lighting, spray, glare, blur, occlusion, or calibration failures; this is an explicit unvalidated sim-to-real risk."
+          },
+          {
+            "id": "previous_action",
+            "size": 4,
+            "physical_counterpart": "actuator command stream; field logging remains required"
+          },
+          {
+            "id": "sensor_energy_fraction",
+            "size": 1,
+            "physical_counterpart": "No confirmed physical energy meter",
+            "flag_no_physical_counterpart": true
+          },
+          {
+            "id": "validity_mask",
+            "size": 4,
+            "fields": [
+              "imu",
+              "gps",
+              "lidar",
+              "camera"
+            ],
+            "physical_counterpart": "Derived from physical timestamps and device health when available"
+          }
+        ],
+        "auxiliary_logged_not_policy_observation": [
+          {
+            "id": "exo2",
+            "reason": "Water-quality measurements do not inform waypoint transit. EXO2 is retained only as synchronized auxiliary telemetry and is excluded from the policy observation."
+          }
+        ],
+        "explicitly_excluded": [
+          "radar",
+          "privileged simulator state",
+          "true wind/current vector"
+        ]
+      },
+      "action": {
+        "encoding": {
+          "size": 4,
+          "range": [
+            -1,
+            1
+          ],
+          "fields": [
+            "effector_0",
+            "effector_1",
+            "steer_0",
+            "steer_1"
+          ],
+          "unused_fields_must_be_zero": true
+        },
+        "topology_mapping": {
+          "vehicle-a-otter": {
+            "plant": "planar3",
+            "mapping": [
+              "port fixed-thruster",
+              "starboard fixed-thruster",
+              "unused",
+              "unused"
+            ]
+          },
+          "vehicle-b-rudder": {
+            "plant": "coupled6",
+            "mapping": [
+              "propeller",
+              "unused",
+              "rudder",
+              "unused"
+            ]
+          },
+          "vehicle-c-azimuth": {
+            "plant": "coupled6",
+            "mapping": [
+              "port thrust",
+              "starboard thrust",
+              "port azimuth",
+              "starboard azimuth"
+            ]
+          }
+        },
+        "fairness": {
+          "status": "OPEN_RESERVED_GATE_5",
+          "not_resolved_by_this_contract": true,
+          "question": "Compare policies in topology-native normalized actuator space, a common body-wrench space followed by each simulator's allocator, or both?",
+          "options": [
+            "topology-native normalized actuators",
+            "common body wrench plus frozen allocator",
+            "report both as separate conditions"
+          ],
+          "required_before": "Any cross-vehicle or cross-simulator training comparison",
+          "prohibition": "No figure pipeline may imply action-space fairness is settled before Gate 5 approval."
+        },
+        "sensor_action": {
+          "id": "sensor_duty",
+          "range": [
+            -1,
+            1
+          ],
+          "rule": "camera and lidar active when >0; request applied at next control interval"
+        }
+      },
+      "reward": {
+        "formula": "2*progress_m - 0.02*cross_track_m - 0.05*sum(delta_action^2) - 0.10*sensor_energy_used_fraction + terminal",
+        "constants": {
+          "progress_per_m": 2,
+          "cross_track_per_m": -0.02,
+          "action_delta_squared": -0.05,
+          "sensor_energy_fraction": -0.1,
+          "success": 100,
+          "object_collision": -100,
+          "grounding": -100,
+          "timeout": -10,
+          "allocation_failure": -25,
+          "instability": -100
+        }
+      },
+      "termination": {
+        "success": "All ordered waypoint reference points entered within a 2.0 m center-point radius and final speed is <=0.5 m/s for 2.0 continuous seconds.",
+        "object_collision": "Vehicle collision geometry intersects an object geometry; termination_reason=collision and collision_type=object.",
+        "grounding": "Keel clearance against bathymetry is <=0 m; termination_reason=grounding and collision_type=grounding, never object.",
+        "timeout": "2400 physics steps without a prior terminal condition.",
+        "allocation_failure": "Allocator returns infeasible/non-finite output or commanded-wrench residual exceeds 20% of requested norm for 10 consecutive control intervals.",
+        "instability": "Any non-finite state or abs(roll/pitch)>60 degrees for 1.0 continuous second.",
+        "precedence": [
+          "instability",
+          "grounding",
+          "object_collision",
+          "allocation_failure",
+          "success",
+          "timeout"
+        ]
+      },
+      "sensor_budget": {
+        "budget_units": 3600,
+        "camera": {
+          "hz": 10,
+          "energy_units_per_sample": 4
+        },
+        "rplidar": {
+          "hz": 10,
+          "energy_units_per_sample": 2
+        },
+        "imu": {
+          "hz": 100,
+          "always_on": true,
+          "charged_to_budget": false
+        },
+        "gps": {
+          "hz": 10,
+          "always_on": true,
+          "charged_to_budget": false
+        }
+      },
+      "reset_randomization": {
+        "seeded": true,
+        "route_rotation_deg": [
+          -20,
+          20
+        ],
+        "start_position_offset_m": [
+          -1,
+          1
+        ],
+        "start_heading_deg": [
+          -10,
+          10
+        ],
+        "wind_speed_m_s": [
+          0,
+          8
+        ],
+        "wind_direction_deg": [
+          0,
+          360
+        ],
+        "current_speed_m_s": [
+          0,
+          1
+        ],
+        "current_direction_deg": [
+          0,
+          360
+        ],
+        "gps_dropout_model": "seeded parameters above",
+        "object_layout": "fixed catalog selected by seed; catalog checksum is part of config"
+      },
+      "learnability": {
+        "status": "PENDING_P2_5_REFERENCE_CALIBRATION",
+        "algorithm": "PPO",
+        "named_baseline": "frozen-untrained-policy-v1",
+        "baseline_definition": "Frozen randomly initialized policy evaluated without training on the identical fixed evaluation episodes",
+        "reference_definition": "The better median return of frozen PID-v1 and MPC-v1 on those identical episodes",
+        "normalized_score_formula": "(R_policy - R_untrained) / (R_reference - R_untrained)",
+        "normalized_score_threshold": 0.5,
+        "denominator_guard": "P2.5 fails if R_reference <= R_untrained or if the paired-bootstrap 95% confidence interval for the reference-minus-untrained gap includes zero; no threshold may be frozen from an unresolved gap",
+        "evaluation": {
+          "p3_local": {
+            "training_seeds": 1,
+            "evaluation_episodes": 50,
+            "aggregation": "Median return over 50 fixed evaluation episodes for the single trained seed; evaluation seeds and scenarios are frozen by P2.5 and distinct from training resets"
+          },
+          "cluster_multi_seed": {
+            "aggregation": "Compute the 50-episode median independently for each trained seed, report every per-seed median, then report median and bootstrap interval across trained seeds; never pool episodes across trained seeds"
+          }
+        },
+        "timestep_budget": 3000000,
+        "episode_count_rationale": {
+          "minimum_full_length_episodes": 1250,
+          "expected_episode_steps_range": [
+            600,
+            1200
+          ],
+          "expected_episode_count_range": [
+            2500,
+            5000
+          ],
+          "statement": "Three million steps is frozen before P3. Early success/failure termination is expected to make episodes shorter than the 2,400-step cap; P2.5 records the observed reference episode-length distribution without changing this budget."
+        },
+        "absolute_return_threshold": {
+          "status": "TO_BE_DERIVED_AND_FROZEN_BY_P2_5",
+          "rule": "R_untrained + 0.5 * (R_reference - R_untrained)",
+          "prohibition": "No guessed absolute threshold and no change after P2.5."
+        },
+        "failure_action": "Report and halt. Do not tune reward constants, hyperparameters, normalized threshold, or timestep budget after P2.5 freezes the reference artifact."
+      }
+    }
+  ],
+  "figure_guard": {
+    "rules": [
+      {
+        "figures": [
+          "Fig 5",
+          "simulator-comparison tables",
+          "competitor ablations"
+        ],
+        "requires": {
+          "portable": true
+        }
+      },
+      {
+        "figures": [
+          "Fig 6",
+          "Fig 7"
+        ],
+        "requires": {
+          "portable": false,
+          "simulator": "bcod-sim"
+        }
+      }
+    ],
+    "failure_mode": "hard error before reading metrics; task_id and task_portable are mandatory episode columns"
+  },
+  "conformance": {
+    "applies_to_task_id": "common-waypoint-transit-v1",
+    "initial_state": "canonical serialized state and reset seed",
+    "action_trace": "2400-step deterministic chirp/step sequence covering every active topology dimension",
+    "state_fields": [
+      "position",
+      "orientation",
+      "linear_velocity",
+      "angular_velocity",
+      "actuator_internal_state",
+      "gps_observation"
+    ],
+    "reference": "bcod-sim local CPU float64",
+    "tolerances": {
+      "local_cpu_float64_abs": 1e-12,
+      "local_mps_float32_abs": 0.00001,
+      "external_simulator_abs": 0.0001
+    },
+    "negative_control": "Perturb wind speed by +0.1 m/s; comparison must fail before a passing result is trusted",
+    "port_rule": "Each port records first divergence step and maximum magnitude. No port is conformant merely because it runs."
+  },
+  "p2_5": {
+    "gate": "P2.5 reference calibration",
+    "before": "P3 local learnability probe",
+    "runs": [
+      "frozen-untrained-policy-v1",
+      "PID-v1",
+      "MPC-v1"
+    ],
+    "task_id": "common-waypoint-transit-v1",
+    "episodes": 50,
+    "shared_episode_set": true,
+    "no_training": true,
+    "outputs": [
+      "raw paired per-episode returns",
+      "mean, median, standard deviation, min, max and interquartile range per controller",
+      "episode-length distribution",
+      "success rate",
+      "paired-bootstrap 95% confidence interval for reference-minus-untrained median gap",
+      "derived absolute return threshold",
+      "reference artifact checksum"
+    ],
+    "bootstrap": {
+      "resamples": 10000,
+      "seed": 20270831,
+      "paired_by_episode": true,
+      "acceptance": "95% interval lower bound must be >0; otherwise the gap is not distinguishable from episode variation and P3 must not start"
+    },
+    "freeze_rule": "After this artifact is written and reviewed, replace the pending absolute threshold with the derived numeric value, re-hash, and do not alter it from P3 results."
+  },
+  "approval_scope": "Explicit 2026-09-03 third revision: discounted whole-episode potential shaping with k=5 and a bounded final-leg curriculum followed by one 3M-step full-episode fine-tune. Route, disturbance, terminal radius, base reward, timeout, C3 thresholds, action and observation spaces, and final evaluation seeds remain unchanged.",
+  "content_sha256": "905347f3e894841aa7e6613dfc286e585a0bf284f5f21820600cc09c0e6358ba",
+  "hash_scope": "canonical JSON of every field except content_sha256 and hash_scope"
+}

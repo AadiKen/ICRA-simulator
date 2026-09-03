@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-task-rescale",
+  "status": "ONE_DELIBERATE_RESCALE_FIXED_BEFORE_RUN",
+  "vehicle": "surveyor",
+  "diagnostic": {
+    "source_path": "artifacts/rl-campaign/surveyor/pre-rescale-transit-diagnostic.json",
+    "median": 66.325,
+    "q1": 62.7375,
+    "q3": 71.7125,
+    "iqr": 8.975000000000009,
+    "fraction_successful_with_more_than_30s_remaining": 0.9476744186046512,
+    "success_rate": 0.86,
+    "achieved_speed_over_ground_mps": {
+      "mean": 0.7994198486926982,
+      "median": 0.814350119290926
+    }
+  },
+  "derivation": {
+    "target_median_timeout_fraction": 0.75,
+    "target_median_transit_s": 90,
+    "measured_pre_rescale_median_transit_s": 66.325,
+    "scale_factor": 1.3569543912551827,
+    "formula": "90 s / 66.325 s",
+    "justification": "Scale distance by measured time headroom so median transit consumes 75% of the unchanged 120 s timeout. The factor was fixed without inspecting rescaled success rates."
+  },
+  "route": {
+    "waypoint_count_unchanged": true,
+    "original_relative_m": [
+      [
+        20,
+        0
+      ],
+      [
+        35,
+        15
+      ],
+      [
+        50,
+        5
+      ]
+    ],
+    "scaled_relative_m": [
+      [
+        27.139087825103655,
+        0
+      ],
+      [
+        47.49340369393139,
+        20.35431586882774
+      ],
+      [
+        67.84771956275914,
+        6.784771956275914
+      ]
+    ],
+    "original_polyline_length_m": 59.24095981291637,
+    "scaled_polyline_length_m": 80.38728056030868
+  },
+  "disturbance": {
+    "model_unchanged": true,
+    "directions_and_seed_mapping_unchanged": true,
+    "scale_factor": 1.3569543912551827,
+    "current_speed_range_mps": [
+      0,
+      1.3569543912551827
+    ],
+    "wind_speed_range_mps": [
+      0,
+      10.855635130041462
+    ]
+  },
+  "unchanged": {
+    "terminal_criterion": true,
+    "success_band": [
+      0.4,
+      0.7
+    ],
+    "selection_rule": true,
+    "timeout_s": 120,
+    "controllers": true,
+    "waypoint_count": true,
+    "reward_structure": true,
+    "observation_space": true,
+    "action_space": true,
+    "intermediate_advancement": true
+  },
+  "decision": {
+    "one_rescale_only": true,
+    "threshold_derived": false,
+    "contract_touched": false,
+    "halt_after_measurement": true
+  }
+}

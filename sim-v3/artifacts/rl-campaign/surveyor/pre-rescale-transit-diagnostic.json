@@ -1,0 +1,1236 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-pre-rescale-transit-diagnostic",
+  "status": "COMPLETE_BEFORE_RESCALE",
+  "vehicle": "surveyor",
+  "criterion": {
+    "variant": "pass-through",
+    "radius_m": 2,
+    "timeout_s": 120
+  },
+  "replay": {
+    "policy": "LOS-SPEEDCAP-v2",
+    "seeds": [
+      10000,
+      10199
+    ],
+    "episodes": 200,
+    "deterministic_replay_of_completed_episode_set": true,
+    "task_changed": false
+  },
+  "successful_episodes": 172,
+  "success_rate": 0.86,
+  "transit_time_s": {
+    "median": 66.325,
+    "q1": 62.7375,
+    "q3": 71.7125,
+    "iqr": 8.975000000000009,
+    "fraction_successful_with_more_than_30s_remaining": 0.9476744186046512
+  },
+  "achieved_speed_over_ground_mps": {
+    "mean": 0.7994198486926982,
+    "median": 0.814350119290926
+  },
+  "raw": [
+    {
+      "seed": 10000,
+      "success": true,
+      "transit_time_s": 66.9,
+      "mean_speed_over_ground_mps": 0.7963444945018077
+    },
+    {
+      "seed": 10001,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.898562386199049
+    },
+    {
+      "seed": 10002,
+      "success": true,
+      "transit_time_s": 69.10000000000001,
+      "mean_speed_over_ground_mps": 0.7797985721626598
+    },
+    {
+      "seed": 10003,
+      "success": true,
+      "transit_time_s": 77.9,
+      "mean_speed_over_ground_mps": 0.7149814287422406
+    },
+    {
+      "seed": 10004,
+      "success": true,
+      "transit_time_s": 68.35000000000001,
+      "mean_speed_over_ground_mps": 0.8247488742769811
+    },
+    {
+      "seed": 10005,
+      "success": true,
+      "transit_time_s": 70,
+      "mean_speed_over_ground_mps": 0.846607700179719
+    },
+    {
+      "seed": 10006,
+      "success": true,
+      "transit_time_s": 82.35000000000001,
+      "mean_speed_over_ground_mps": 0.6563287817877858
+    },
+    {
+      "seed": 10007,
+      "success": true,
+      "transit_time_s": 58.050000000000004,
+      "mean_speed_over_ground_mps": 0.9373759205123866
+    },
+    {
+      "seed": 10008,
+      "success": true,
+      "transit_time_s": 66.60000000000001,
+      "mean_speed_over_ground_mps": 0.8066025110852966
+    },
+    {
+      "seed": 10009,
+      "success": true,
+      "transit_time_s": 65,
+      "mean_speed_over_ground_mps": 0.8359692788008516
+    },
+    {
+      "seed": 10010,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 1.0442456239082334
+    },
+    {
+      "seed": 10011,
+      "success": true,
+      "transit_time_s": 74.5,
+      "mean_speed_over_ground_mps": 0.709361666047331
+    },
+    {
+      "seed": 10012,
+      "success": true,
+      "transit_time_s": 62.800000000000004,
+      "mean_speed_over_ground_mps": 0.8942650454861375
+    },
+    {
+      "seed": 10013,
+      "success": true,
+      "transit_time_s": 64.15,
+      "mean_speed_over_ground_mps": 0.8875644587197862
+    },
+    {
+      "seed": 10014,
+      "success": true,
+      "transit_time_s": 55.800000000000004,
+      "mean_speed_over_ground_mps": 1.0882218467688762
+    },
+    {
+      "seed": 10015,
+      "success": true,
+      "transit_time_s": 66.85000000000001,
+      "mean_speed_over_ground_mps": 0.8352163679969073
+    },
+    {
+      "seed": 10016,
+      "success": true,
+      "transit_time_s": 66.5,
+      "mean_speed_over_ground_mps": 0.8119362229574253
+    },
+    {
+      "seed": 10017,
+      "success": true,
+      "transit_time_s": 58.400000000000006,
+      "mean_speed_over_ground_mps": 0.9317537222100193
+    },
+    {
+      "seed": 10018,
+      "success": true,
+      "transit_time_s": 64.60000000000001,
+      "mean_speed_over_ground_mps": 0.8403038835066513
+    },
+    {
+      "seed": 10019,
+      "success": true,
+      "transit_time_s": 65.10000000000001,
+      "mean_speed_over_ground_mps": 0.8855872633855587
+    },
+    {
+      "seed": 10020,
+      "success": true,
+      "transit_time_s": 96.5,
+      "mean_speed_over_ground_mps": 0.5758871666258001
+    },
+    {
+      "seed": 10021,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.41310574349260526
+    },
+    {
+      "seed": 10022,
+      "success": true,
+      "transit_time_s": 64.05,
+      "mean_speed_over_ground_mps": 0.8099294443286714
+    },
+    {
+      "seed": 10023,
+      "success": true,
+      "transit_time_s": 83.5,
+      "mean_speed_over_ground_mps": 0.6932443653535431
+    },
+    {
+      "seed": 10024,
+      "success": true,
+      "transit_time_s": 58.550000000000004,
+      "mean_speed_over_ground_mps": 0.9268377433935822
+    },
+    {
+      "seed": 10025,
+      "success": true,
+      "transit_time_s": 58.2,
+      "mean_speed_over_ground_mps": 0.9217404544437234
+    },
+    {
+      "seed": 10026,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.4987537593978893
+    },
+    {
+      "seed": 10027,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.4718600698138946
+    },
+    {
+      "seed": 10028,
+      "success": true,
+      "transit_time_s": 62.2,
+      "mean_speed_over_ground_mps": 0.8584555287773474
+    },
+    {
+      "seed": 10029,
+      "success": true,
+      "transit_time_s": 78.10000000000001,
+      "mean_speed_over_ground_mps": 0.6932596237477756
+    },
+    {
+      "seed": 10030,
+      "success": true,
+      "transit_time_s": 53.25,
+      "mean_speed_over_ground_mps": 1.1589001802120515
+    },
+    {
+      "seed": 10031,
+      "success": true,
+      "transit_time_s": 55.6,
+      "mean_speed_over_ground_mps": 0.941863171477557
+    },
+    {
+      "seed": 10032,
+      "success": true,
+      "transit_time_s": 58.85,
+      "mean_speed_over_ground_mps": 0.928467996269124
+    },
+    {
+      "seed": 10033,
+      "success": true,
+      "transit_time_s": 66.3,
+      "mean_speed_over_ground_mps": 0.8505713699143804
+    },
+    {
+      "seed": 10034,
+      "success": true,
+      "transit_time_s": 68.35000000000001,
+      "mean_speed_over_ground_mps": 0.8021181379201849
+    },
+    {
+      "seed": 10035,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.787554515183101
+    },
+    {
+      "seed": 10036,
+      "success": true,
+      "transit_time_s": 84.15,
+      "mean_speed_over_ground_mps": 0.7186671478146116
+    },
+    {
+      "seed": 10037,
+      "success": true,
+      "transit_time_s": 64.9,
+      "mean_speed_over_ground_mps": 0.8352409480387913
+    },
+    {
+      "seed": 10038,
+      "success": true,
+      "transit_time_s": 59.75,
+      "mean_speed_over_ground_mps": 0.9253154382334219
+    },
+    {
+      "seed": 10039,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.6535061463327008
+    },
+    {
+      "seed": 10040,
+      "success": true,
+      "transit_time_s": 61.7,
+      "mean_speed_over_ground_mps": 0.8492773540500811
+    },
+    {
+      "seed": 10041,
+      "success": true,
+      "transit_time_s": 64,
+      "mean_speed_over_ground_mps": 0.8484743635513321
+    },
+    {
+      "seed": 10042,
+      "success": true,
+      "transit_time_s": 67.10000000000001,
+      "mean_speed_over_ground_mps": 0.7993292486286654
+    },
+    {
+      "seed": 10043,
+      "success": true,
+      "transit_time_s": 68.5,
+      "mean_speed_over_ground_mps": 0.781681464913339
+    },
+    {
+      "seed": 10044,
+      "success": true,
+      "transit_time_s": 58.85,
+      "mean_speed_over_ground_mps": 0.9221807084703109
+    },
+    {
+      "seed": 10045,
+      "success": true,
+      "transit_time_s": 61.400000000000006,
+      "mean_speed_over_ground_mps": 0.8942060093546819
+    },
+    {
+      "seed": 10046,
+      "success": true,
+      "transit_time_s": 64.65,
+      "mean_speed_over_ground_mps": 0.8646788057550878
+    },
+    {
+      "seed": 10047,
+      "success": true,
+      "transit_time_s": 56.95,
+      "mean_speed_over_ground_mps": 1.0855417048364995
+    },
+    {
+      "seed": 10048,
+      "success": true,
+      "transit_time_s": 63.7,
+      "mean_speed_over_ground_mps": 0.8516855435456346
+    },
+    {
+      "seed": 10049,
+      "success": true,
+      "transit_time_s": 69.35000000000001,
+      "mean_speed_over_ground_mps": 0.7820137754011046
+    },
+    {
+      "seed": 10050,
+      "success": true,
+      "transit_time_s": 67.2,
+      "mean_speed_over_ground_mps": 0.8294416739533043
+    },
+    {
+      "seed": 10051,
+      "success": true,
+      "transit_time_s": 71.3,
+      "mean_speed_over_ground_mps": 0.7413284585377691
+    },
+    {
+      "seed": 10052,
+      "success": true,
+      "transit_time_s": 63.300000000000004,
+      "mean_speed_over_ground_mps": 0.8437175736546325
+    },
+    {
+      "seed": 10053,
+      "success": true,
+      "transit_time_s": 68.75,
+      "mean_speed_over_ground_mps": 0.8160384444272893
+    },
+    {
+      "seed": 10054,
+      "success": true,
+      "transit_time_s": 67.95,
+      "mean_speed_over_ground_mps": 0.786015645154318
+    },
+    {
+      "seed": 10055,
+      "success": true,
+      "transit_time_s": 76.2,
+      "mean_speed_over_ground_mps": 0.7129846353275857
+    },
+    {
+      "seed": 10056,
+      "success": true,
+      "transit_time_s": 68.3,
+      "mean_speed_over_ground_mps": 0.7666470080562324
+    },
+    {
+      "seed": 10057,
+      "success": true,
+      "transit_time_s": 70.55,
+      "mean_speed_over_ground_mps": 0.7855070508102889
+    },
+    {
+      "seed": 10058,
+      "success": true,
+      "transit_time_s": 72.75,
+      "mean_speed_over_ground_mps": 0.7899228479224095
+    },
+    {
+      "seed": 10059,
+      "success": true,
+      "transit_time_s": 73.55,
+      "mean_speed_over_ground_mps": 0.7248913194341905
+    },
+    {
+      "seed": 10060,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.409761722903568
+    },
+    {
+      "seed": 10061,
+      "success": true,
+      "transit_time_s": 57.95,
+      "mean_speed_over_ground_mps": 0.963294949828193
+    },
+    {
+      "seed": 10062,
+      "success": true,
+      "transit_time_s": 67.2,
+      "mean_speed_over_ground_mps": 1.0187977525797804
+    },
+    {
+      "seed": 10063,
+      "success": true,
+      "transit_time_s": 105.2,
+      "mean_speed_over_ground_mps": 0.570792914824004
+    },
+    {
+      "seed": 10064,
+      "success": true,
+      "transit_time_s": 66.15,
+      "mean_speed_over_ground_mps": 0.8113777026445024
+    },
+    {
+      "seed": 10065,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.718454355142512
+    },
+    {
+      "seed": 10066,
+      "success": true,
+      "transit_time_s": 68.2,
+      "mean_speed_over_ground_mps": 0.9311661529594067
+    },
+    {
+      "seed": 10067,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.5125059350845931
+    },
+    {
+      "seed": 10068,
+      "success": true,
+      "transit_time_s": 88.60000000000001,
+      "mean_speed_over_ground_mps": 0.6173895305779568
+    },
+    {
+      "seed": 10069,
+      "success": true,
+      "transit_time_s": 53.7,
+      "mean_speed_over_ground_mps": 0.9881023464666906
+    },
+    {
+      "seed": 10070,
+      "success": true,
+      "transit_time_s": 66.10000000000001,
+      "mean_speed_over_ground_mps": 0.8223881801811774
+    },
+    {
+      "seed": 10071,
+      "success": true,
+      "transit_time_s": 71.4,
+      "mean_speed_over_ground_mps": 0.744722832914329
+    },
+    {
+      "seed": 10072,
+      "success": true,
+      "transit_time_s": 67.10000000000001,
+      "mean_speed_over_ground_mps": 0.8160439501262021
+    },
+    {
+      "seed": 10073,
+      "success": true,
+      "transit_time_s": 75.45,
+      "mean_speed_over_ground_mps": 0.7463931830771366
+    },
+    {
+      "seed": 10074,
+      "success": true,
+      "transit_time_s": 53.150000000000006,
+      "mean_speed_over_ground_mps": 1.1383377855188734
+    },
+    {
+      "seed": 10075,
+      "success": true,
+      "transit_time_s": 66.2,
+      "mean_speed_over_ground_mps": 0.8200969120351947
+    },
+    {
+      "seed": 10076,
+      "success": true,
+      "transit_time_s": 67.5,
+      "mean_speed_over_ground_mps": 0.8033853499607383
+    },
+    {
+      "seed": 10077,
+      "success": true,
+      "transit_time_s": 89.45,
+      "mean_speed_over_ground_mps": 0.6201807283906077
+    },
+    {
+      "seed": 10078,
+      "success": true,
+      "transit_time_s": 78.30000000000001,
+      "mean_speed_over_ground_mps": 0.71342297478504
+    },
+    {
+      "seed": 10079,
+      "success": true,
+      "transit_time_s": 71.10000000000001,
+      "mean_speed_over_ground_mps": 0.7729168014015241
+    },
+    {
+      "seed": 10080,
+      "success": true,
+      "transit_time_s": 62.45,
+      "mean_speed_over_ground_mps": 0.8714588823821087
+    },
+    {
+      "seed": 10081,
+      "success": true,
+      "transit_time_s": 62.1,
+      "mean_speed_over_ground_mps": 0.8529141942483867
+    },
+    {
+      "seed": 10082,
+      "success": true,
+      "transit_time_s": 67.2,
+      "mean_speed_over_ground_mps": 0.8016085311971353
+    },
+    {
+      "seed": 10083,
+      "success": true,
+      "transit_time_s": 66.65,
+      "mean_speed_over_ground_mps": 0.7848877097512017
+    },
+    {
+      "seed": 10084,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.826793641710219
+    },
+    {
+      "seed": 10085,
+      "success": true,
+      "transit_time_s": 73.45,
+      "mean_speed_over_ground_mps": 0.9096140068321424
+    },
+    {
+      "seed": 10086,
+      "success": true,
+      "transit_time_s": 63.45,
+      "mean_speed_over_ground_mps": 0.8675812952516789
+    },
+    {
+      "seed": 10087,
+      "success": true,
+      "transit_time_s": 65.35000000000001,
+      "mean_speed_over_ground_mps": 0.8318363712606345
+    },
+    {
+      "seed": 10088,
+      "success": true,
+      "transit_time_s": 73.7,
+      "mean_speed_over_ground_mps": 0.8166962070440067
+    },
+    {
+      "seed": 10089,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.6411235738933452
+    },
+    {
+      "seed": 10090,
+      "success": true,
+      "transit_time_s": 106.30000000000001,
+      "mean_speed_over_ground_mps": 0.5886703847948356
+    },
+    {
+      "seed": 10091,
+      "success": true,
+      "transit_time_s": 79.60000000000001,
+      "mean_speed_over_ground_mps": 0.6680489309567549
+    },
+    {
+      "seed": 10092,
+      "success": true,
+      "transit_time_s": 91.10000000000001,
+      "mean_speed_over_ground_mps": 0.6189008845129532
+    },
+    {
+      "seed": 10093,
+      "success": true,
+      "transit_time_s": 55.050000000000004,
+      "mean_speed_over_ground_mps": 1.1108525882110314
+    },
+    {
+      "seed": 10094,
+      "success": true,
+      "transit_time_s": 63.5,
+      "mean_speed_over_ground_mps": 0.8706207012113871
+    },
+    {
+      "seed": 10095,
+      "success": true,
+      "transit_time_s": 62.75,
+      "mean_speed_over_ground_mps": 0.8836060801897758
+    },
+    {
+      "seed": 10096,
+      "success": true,
+      "transit_time_s": 86.35000000000001,
+      "mean_speed_over_ground_mps": 0.6477343721757726
+    },
+    {
+      "seed": 10097,
+      "success": true,
+      "transit_time_s": 93.10000000000001,
+      "mean_speed_over_ground_mps": 0.6124680367812066
+    },
+    {
+      "seed": 10098,
+      "success": true,
+      "transit_time_s": 79.95,
+      "mean_speed_over_ground_mps": 0.6822420270830056
+    },
+    {
+      "seed": 10099,
+      "success": true,
+      "transit_time_s": 60.45,
+      "mean_speed_over_ground_mps": 0.8806654719786746
+    },
+    {
+      "seed": 10100,
+      "success": true,
+      "transit_time_s": 63.650000000000006,
+      "mean_speed_over_ground_mps": 0.8545456563207794
+    },
+    {
+      "seed": 10101,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.8026011167870173
+    },
+    {
+      "seed": 10102,
+      "success": true,
+      "transit_time_s": 67.55,
+      "mean_speed_over_ground_mps": 0.8234655168776467
+    },
+    {
+      "seed": 10103,
+      "success": true,
+      "transit_time_s": 60.95,
+      "mean_speed_over_ground_mps": 0.9197642420527362
+    },
+    {
+      "seed": 10104,
+      "success": true,
+      "transit_time_s": 69.45,
+      "mean_speed_over_ground_mps": 0.79622084791935
+    },
+    {
+      "seed": 10105,
+      "success": true,
+      "transit_time_s": 62.7,
+      "mean_speed_over_ground_mps": 0.8521465273009858
+    },
+    {
+      "seed": 10106,
+      "success": true,
+      "transit_time_s": 59.800000000000004,
+      "mean_speed_over_ground_mps": 0.8994409038513483
+    },
+    {
+      "seed": 10107,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.45146415410304247
+    },
+    {
+      "seed": 10108,
+      "success": true,
+      "transit_time_s": 63.7,
+      "mean_speed_over_ground_mps": 0.8440419236976442
+    },
+    {
+      "seed": 10109,
+      "success": true,
+      "transit_time_s": 62.900000000000006,
+      "mean_speed_over_ground_mps": 0.85971871561509
+    },
+    {
+      "seed": 10110,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.7199601893550194
+    },
+    {
+      "seed": 10111,
+      "success": true,
+      "transit_time_s": 72.95,
+      "mean_speed_over_ground_mps": 0.7659388629535245
+    },
+    {
+      "seed": 10112,
+      "success": true,
+      "transit_time_s": 64.85000000000001,
+      "mean_speed_over_ground_mps": 0.829223199210037
+    },
+    {
+      "seed": 10113,
+      "success": true,
+      "transit_time_s": 62.6,
+      "mean_speed_over_ground_mps": 0.8484315375562752
+    },
+    {
+      "seed": 10114,
+      "success": true,
+      "transit_time_s": 61.6,
+      "mean_speed_over_ground_mps": 0.9194630760421975
+    },
+    {
+      "seed": 10115,
+      "success": true,
+      "transit_time_s": 70.65,
+      "mean_speed_over_ground_mps": 0.7587832220378582
+    },
+    {
+      "seed": 10116,
+      "success": true,
+      "transit_time_s": 60.5,
+      "mean_speed_over_ground_mps": 0.904626246780283
+    },
+    {
+      "seed": 10117,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.6675766500374032
+    },
+    {
+      "seed": 10118,
+      "success": true,
+      "transit_time_s": 55.6,
+      "mean_speed_over_ground_mps": 0.982904136757411
+    },
+    {
+      "seed": 10119,
+      "success": true,
+      "transit_time_s": 54.75,
+      "mean_speed_over_ground_mps": 1.154370888557618
+    },
+    {
+      "seed": 10120,
+      "success": true,
+      "transit_time_s": 66.3,
+      "mean_speed_over_ground_mps": 0.8147460250639624
+    },
+    {
+      "seed": 10121,
+      "success": true,
+      "transit_time_s": 57.550000000000004,
+      "mean_speed_over_ground_mps": 0.9731867263582501
+    },
+    {
+      "seed": 10122,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.43307958326811613
+    },
+    {
+      "seed": 10123,
+      "success": true,
+      "transit_time_s": 76.9,
+      "mean_speed_over_ground_mps": 0.7178482320406464
+    },
+    {
+      "seed": 10124,
+      "success": true,
+      "transit_time_s": 80.5,
+      "mean_speed_over_ground_mps": 0.6701068195162357
+    },
+    {
+      "seed": 10125,
+      "success": true,
+      "transit_time_s": 67.2,
+      "mean_speed_over_ground_mps": 0.8172647828151838
+    },
+    {
+      "seed": 10126,
+      "success": true,
+      "transit_time_s": 64.2,
+      "mean_speed_over_ground_mps": 0.8450834063256178
+    },
+    {
+      "seed": 10127,
+      "success": true,
+      "transit_time_s": 67.25,
+      "mean_speed_over_ground_mps": 0.8114108922451904
+    },
+    {
+      "seed": 10128,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.6783914679562781
+    },
+    {
+      "seed": 10129,
+      "success": true,
+      "transit_time_s": 65.8,
+      "mean_speed_over_ground_mps": 0.8602967260291985
+    },
+    {
+      "seed": 10130,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.4198372652625013
+    },
+    {
+      "seed": 10131,
+      "success": true,
+      "transit_time_s": 90.30000000000001,
+      "mean_speed_over_ground_mps": 0.6079689944076736
+    },
+    {
+      "seed": 10132,
+      "success": true,
+      "transit_time_s": 65.5,
+      "mean_speed_over_ground_mps": 0.8250646945458507
+    },
+    {
+      "seed": 10133,
+      "success": true,
+      "transit_time_s": 56.550000000000004,
+      "mean_speed_over_ground_mps": 0.9704662137058429
+    },
+    {
+      "seed": 10134,
+      "success": true,
+      "transit_time_s": 63.95,
+      "mean_speed_over_ground_mps": 0.8221518566493288
+    },
+    {
+      "seed": 10135,
+      "success": true,
+      "transit_time_s": 71.65,
+      "mean_speed_over_ground_mps": 0.7639788571521571
+    },
+    {
+      "seed": 10136,
+      "success": true,
+      "transit_time_s": 59.25,
+      "mean_speed_over_ground_mps": 0.9311807091066161
+    },
+    {
+      "seed": 10137,
+      "success": true,
+      "transit_time_s": 67.45,
+      "mean_speed_over_ground_mps": 0.7781086634270264
+    },
+    {
+      "seed": 10138,
+      "success": true,
+      "transit_time_s": 63.150000000000006,
+      "mean_speed_over_ground_mps": 0.9951534691040399
+    },
+    {
+      "seed": 10139,
+      "success": true,
+      "transit_time_s": 67.65,
+      "mean_speed_over_ground_mps": 0.8035207272978553
+    },
+    {
+      "seed": 10140,
+      "success": true,
+      "transit_time_s": 92.95,
+      "mean_speed_over_ground_mps": 0.6149993421098457
+    },
+    {
+      "seed": 10141,
+      "success": true,
+      "transit_time_s": 71.25,
+      "mean_speed_over_ground_mps": 0.7451649347018794
+    },
+    {
+      "seed": 10142,
+      "success": true,
+      "transit_time_s": 55.1,
+      "mean_speed_over_ground_mps": 1.0749289363177328
+    },
+    {
+      "seed": 10143,
+      "success": true,
+      "transit_time_s": 63,
+      "mean_speed_over_ground_mps": 0.8710967115789269
+    },
+    {
+      "seed": 10144,
+      "success": true,
+      "transit_time_s": 73.10000000000001,
+      "mean_speed_over_ground_mps": 0.745481156122196
+    },
+    {
+      "seed": 10145,
+      "success": true,
+      "transit_time_s": 56.1,
+      "mean_speed_over_ground_mps": 0.9896571996377876
+    },
+    {
+      "seed": 10146,
+      "success": true,
+      "transit_time_s": 71.9,
+      "mean_speed_over_ground_mps": 0.7342048057876298
+    },
+    {
+      "seed": 10147,
+      "success": true,
+      "transit_time_s": 64.35000000000001,
+      "mean_speed_over_ground_mps": 0.8422192183866601
+    },
+    {
+      "seed": 10148,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.9842002593338227
+    },
+    {
+      "seed": 10149,
+      "success": true,
+      "transit_time_s": 53.050000000000004,
+      "mean_speed_over_ground_mps": 1.164802223471352
+    },
+    {
+      "seed": 10150,
+      "success": true,
+      "transit_time_s": 66.2,
+      "mean_speed_over_ground_mps": 0.8173665100935681
+    },
+    {
+      "seed": 10151,
+      "success": true,
+      "transit_time_s": 76.4,
+      "mean_speed_over_ground_mps": 0.6919217370913386
+    },
+    {
+      "seed": 10152,
+      "success": true,
+      "transit_time_s": 82,
+      "mean_speed_over_ground_mps": 0.6457354317507072
+    },
+    {
+      "seed": 10153,
+      "success": true,
+      "transit_time_s": 57.6,
+      "mean_speed_over_ground_mps": 0.963458877937579
+    },
+    {
+      "seed": 10154,
+      "success": true,
+      "transit_time_s": 66.10000000000001,
+      "mean_speed_over_ground_mps": 0.8712171398964822
+    },
+    {
+      "seed": 10155,
+      "success": true,
+      "transit_time_s": 66,
+      "mean_speed_over_ground_mps": 0.8078573394953356
+    },
+    {
+      "seed": 10156,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.5224635771225691
+    },
+    {
+      "seed": 10157,
+      "success": true,
+      "transit_time_s": 65.8,
+      "mean_speed_over_ground_mps": 0.8191914340551474
+    },
+    {
+      "seed": 10158,
+      "success": true,
+      "transit_time_s": 64.10000000000001,
+      "mean_speed_over_ground_mps": 0.8574657113448226
+    },
+    {
+      "seed": 10159,
+      "success": true,
+      "transit_time_s": 69.55,
+      "mean_speed_over_ground_mps": 0.7611754607045796
+    },
+    {
+      "seed": 10160,
+      "success": true,
+      "transit_time_s": 56.6,
+      "mean_speed_over_ground_mps": 0.9206125788117805
+    },
+    {
+      "seed": 10161,
+      "success": true,
+      "transit_time_s": 70.45,
+      "mean_speed_over_ground_mps": 0.7878981971212766
+    },
+    {
+      "seed": 10162,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.394805019512825
+    },
+    {
+      "seed": 10163,
+      "success": true,
+      "transit_time_s": 65.2,
+      "mean_speed_over_ground_mps": 0.8129452467056535
+    },
+    {
+      "seed": 10164,
+      "success": true,
+      "transit_time_s": 76.45,
+      "mean_speed_over_ground_mps": 0.7415733806963952
+    },
+    {
+      "seed": 10165,
+      "success": true,
+      "transit_time_s": 71.65,
+      "mean_speed_over_ground_mps": 0.7928066669296437
+    },
+    {
+      "seed": 10166,
+      "success": true,
+      "transit_time_s": 60.150000000000006,
+      "mean_speed_over_ground_mps": 0.8947936633920383
+    },
+    {
+      "seed": 10167,
+      "success": true,
+      "transit_time_s": 49.6,
+      "mean_speed_over_ground_mps": 1.045885791157206
+    },
+    {
+      "seed": 10168,
+      "success": true,
+      "transit_time_s": 78.05000000000001,
+      "mean_speed_over_ground_mps": 0.6893598752609038
+    },
+    {
+      "seed": 10169,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.5676872441796061
+    },
+    {
+      "seed": 10170,
+      "success": true,
+      "transit_time_s": 65.75,
+      "mean_speed_over_ground_mps": 0.8785256562776684
+    },
+    {
+      "seed": 10171,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.8124680187767491
+    },
+    {
+      "seed": 10172,
+      "success": true,
+      "transit_time_s": 62.050000000000004,
+      "mean_speed_over_ground_mps": 0.8518427232566903
+    },
+    {
+      "seed": 10173,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.702545323296969
+    },
+    {
+      "seed": 10174,
+      "success": true,
+      "transit_time_s": 66.60000000000001,
+      "mean_speed_over_ground_mps": 0.8169512531410197
+    },
+    {
+      "seed": 10175,
+      "success": true,
+      "transit_time_s": 112.5,
+      "mean_speed_over_ground_mps": 0.505762245897913
+    },
+    {
+      "seed": 10176,
+      "success": true,
+      "transit_time_s": 68.10000000000001,
+      "mean_speed_over_ground_mps": 0.7898764348553762
+    },
+    {
+      "seed": 10177,
+      "success": true,
+      "transit_time_s": 68.35000000000001,
+      "mean_speed_over_ground_mps": 0.7978463416287871
+    },
+    {
+      "seed": 10178,
+      "success": true,
+      "transit_time_s": 86.55000000000001,
+      "mean_speed_over_ground_mps": 0.6735263379355187
+    },
+    {
+      "seed": 10179,
+      "success": true,
+      "transit_time_s": 87.15,
+      "mean_speed_over_ground_mps": 0.6396187588429175
+    },
+    {
+      "seed": 10180,
+      "success": true,
+      "transit_time_s": 66.35000000000001,
+      "mean_speed_over_ground_mps": 0.8139542135178897
+    },
+    {
+      "seed": 10181,
+      "success": true,
+      "transit_time_s": 67.25,
+      "mean_speed_over_ground_mps": 0.8350314610507776
+    },
+    {
+      "seed": 10182,
+      "success": true,
+      "transit_time_s": 54.800000000000004,
+      "mean_speed_over_ground_mps": 1.0203822178796516
+    },
+    {
+      "seed": 10183,
+      "success": true,
+      "transit_time_s": 65.35000000000001,
+      "mean_speed_over_ground_mps": 0.8325949373442492
+    },
+    {
+      "seed": 10184,
+      "success": true,
+      "transit_time_s": 89.45,
+      "mean_speed_over_ground_mps": 0.6301157338704613
+    },
+    {
+      "seed": 10185,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.9725022386595199
+    },
+    {
+      "seed": 10186,
+      "success": true,
+      "transit_time_s": 57.35,
+      "mean_speed_over_ground_mps": 0.9700135443720406
+    },
+    {
+      "seed": 10187,
+      "success": true,
+      "transit_time_s": 64.85000000000001,
+      "mean_speed_over_ground_mps": 0.8071945171433124
+    },
+    {
+      "seed": 10188,
+      "success": true,
+      "transit_time_s": 84.9,
+      "mean_speed_over_ground_mps": 0.6475177186556879
+    },
+    {
+      "seed": 10189,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.6326640146967935
+    },
+    {
+      "seed": 10190,
+      "success": true,
+      "transit_time_s": 77.25,
+      "mean_speed_over_ground_mps": 0.6760861640668274
+    },
+    {
+      "seed": 10191,
+      "success": true,
+      "transit_time_s": 52.650000000000006,
+      "mean_speed_over_ground_mps": 1.1717846725431953
+    },
+    {
+      "seed": 10192,
+      "success": true,
+      "transit_time_s": 68.10000000000001,
+      "mean_speed_over_ground_mps": 0.7794911102313442
+    },
+    {
+      "seed": 10193,
+      "success": false,
+      "transit_time_s": null,
+      "mean_speed_over_ground_mps": 0.46311139657412526
+    },
+    {
+      "seed": 10194,
+      "success": true,
+      "transit_time_s": 77.05000000000001,
+      "mean_speed_over_ground_mps": 0.8216963652384348
+    },
+    {
+      "seed": 10195,
+      "success": true,
+      "transit_time_s": 105.15,
+      "mean_speed_over_ground_mps": 0.5408789221973779
+    },
+    {
+      "seed": 10196,
+      "success": true,
+      "transit_time_s": 65.2,
+      "mean_speed_over_ground_mps": 0.8081913114680831
+    },
+    {
+      "seed": 10197,
+      "success": true,
+      "transit_time_s": 65.95,
+      "mean_speed_over_ground_mps": 0.822684634543162
+    },
+    {
+      "seed": 10198,
+      "success": true,
+      "transit_time_s": 66.3,
+      "mean_speed_over_ground_mps": 0.8175139534945879
+    },
+    {
+      "seed": 10199,
+      "success": true,
+      "transit_time_s": 74.85000000000001,
+      "mean_speed_over_ground_mps": 0.7106135316248474
+    }
+  ]
+}

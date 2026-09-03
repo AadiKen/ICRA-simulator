@@ -1,0 +1,8201 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "terminal-radius-sweep",
+  "status": "complete-halt-before-contract-revision",
+  "provenance": {
+    "new_training_performed": false,
+    "new_rollouts_performed": false,
+    "method": "Deterministic reconstruction of retained corridor-corrected trajectories; prior artifacts lacked per-step terminal traces."
+  },
+  "seed_set": {
+    "first": 10100,
+    "count": 50
+  },
+  "source_corridor_p2_5_sha256": "57bb765dec0743eca43a0baf4639cb440774de1736488b211e3b786ab548ebc0",
+  "radii_m": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    15
+  ],
+  "raw": [
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10100,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10101,
+      "final_leg_time_s": 35.6,
+      "closest_final_m_120": 11.903574768630675,
+      "closest_final_m_240": 11.903574768630675,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10102,
+      "final_leg_time_s": 123.95,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 16.776851594733643,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10103,
+      "final_leg_time_s": 82.2,
+      "closest_final_m_120": 5.949589111956594,
+      "closest_final_m_240": 5.949589111956594,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10104,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10105,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10106,
+      "final_leg_time_s": 32.4,
+      "closest_final_m_120": 5.999254094054208,
+      "closest_final_m_240": 5.999254094054208,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10107,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10108,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10109,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10110,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10111,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10112,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10113,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10114,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10115,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10116,
+      "final_leg_time_s": 116.60000000000001,
+      "closest_final_m_120": 33.534591379229354,
+      "closest_final_m_240": 33.534591379229354,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10117,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10118,
+      "final_leg_time_s": 45.2,
+      "closest_final_m_120": 5.977318528874301,
+      "closest_final_m_240": 5.977318528874301,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10119,
+      "final_leg_time_s": 32.5,
+      "closest_final_m_120": 5.953199827546813,
+      "closest_final_m_240": 5.953199827546813,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10120,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10121,
+      "final_leg_time_s": 33.050000000000004,
+      "closest_final_m_120": 5.963578947473207,
+      "closest_final_m_240": 5.963578947473207,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10122,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10123,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10124,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10125,
+      "final_leg_time_s": 52.050000000000004,
+      "closest_final_m_120": 13.598186731026935,
+      "closest_final_m_240": 13.598186731026935,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10126,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10127,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10128,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10129,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10130,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10131,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10132,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10133,
+      "final_leg_time_s": 104.80000000000001,
+      "closest_final_m_120": 5.993981693696262,
+      "closest_final_m_240": 5.993981693696262,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10134,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10135,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10136,
+      "final_leg_time_s": 109.65,
+      "closest_final_m_120": 27.569213173772383,
+      "closest_final_m_240": 27.569213173772383,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10137,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10138,
+      "final_leg_time_s": 101.80000000000001,
+      "closest_final_m_120": 5.999298073153252,
+      "closest_final_m_240": 5.199913224052509,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10139,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10140,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10141,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10142,
+      "final_leg_time_s": 35.25,
+      "closest_final_m_120": 9.469124801339657,
+      "closest_final_m_240": 9.469124801339657,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10143,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10144,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10145,
+      "final_leg_time_s": 113.35000000000001,
+      "closest_final_m_120": 39.23457526373907,
+      "closest_final_m_240": 39.23457526373907,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10146,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10147,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10148,
+      "final_leg_time_s": 29.85,
+      "closest_final_m_120": 5.968241902677111,
+      "closest_final_m_240": 5.968241902677111,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10149,
+      "final_leg_time_s": 32.550000000000004,
+      "closest_final_m_120": 5.989089310595757,
+      "closest_final_m_240": 5.989089310595757,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10100,
+      "final_leg_time_s": 75.60000000000001,
+      "closest_final_m_120": 3.479870723010387,
+      "closest_final_m_240": 3.479870723010387,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10101,
+      "final_leg_time_s": 60.25,
+      "closest_final_m_120": 5.993571362922178,
+      "closest_final_m_240": 5.993571362922178,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10102,
+      "final_leg_time_s": 65.10000000000001,
+      "closest_final_m_120": 5.999291054444042,
+      "closest_final_m_240": 5.999291054444042,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10103,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10104,
+      "final_leg_time_s": 68.55,
+      "closest_final_m_120": 5.983565317586843,
+      "closest_final_m_240": 5.983565317586843,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10105,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10106,
+      "final_leg_time_s": 62.300000000000004,
+      "closest_final_m_120": 6.840553800745541,
+      "closest_final_m_240": 6.840553800745541,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10107,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10108,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10109,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10110,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10111,
+      "final_leg_time_s": 74.95,
+      "closest_final_m_120": 5.984091910363872,
+      "closest_final_m_240": 5.984091910363872,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10112,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10113,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10114,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10115,
+      "final_leg_time_s": 86.7,
+      "closest_final_m_120": 1.671439657127165,
+      "closest_final_m_240": 0.8819462618469137,
+      "pass_through_120": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10116,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10117,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10118,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10119,
+      "final_leg_time_s": 110.7,
+      "closest_final_m_120": 3.268520615951473,
+      "closest_final_m_240": 0.534639078730637,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10120,
+      "final_leg_time_s": 188.55,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 12.115928396444987,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10121,
+      "final_leg_time_s": 49.6,
+      "closest_final_m_120": 5.989429329899314,
+      "closest_final_m_240": 5.989429329899314,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": true,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10122,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10123,
+      "final_leg_time_s": 101.75,
+      "closest_final_m_120": 5.986778624745154,
+      "closest_final_m_240": 4.075239807538496,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10124,
+      "final_leg_time_s": 133.70000000000002,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 1.3950284241641786,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10125,
+      "final_leg_time_s": 70.25,
+      "closest_final_m_120": 5.9913456350519585,
+      "closest_final_m_240": 5.9913456350519585,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10126,
+      "final_leg_time_s": 227.9,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 14.970266120313271,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10127,
+      "final_leg_time_s": 73.35000000000001,
+      "closest_final_m_120": 5.981275068438483,
+      "closest_final_m_240": 5.981275068438483,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10128,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10129,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10130,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10131,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10132,
+      "final_leg_time_s": 195.55,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 12.661593736890554,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10133,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10134,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10135,
+      "final_leg_time_s": 80.60000000000001,
+      "closest_final_m_120": 1.3516168950227863,
+      "closest_final_m_240": 0.3688792176896237,
+      "pass_through_120": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": true,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10136,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10137,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10138,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10139,
+      "final_leg_time_s": 83.4,
+      "closest_final_m_120": 5.991778862237512,
+      "closest_final_m_240": 4.959110359504627,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10140,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10141,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10142,
+      "final_leg_time_s": 205.05,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 5.996932388698536,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10143,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10144,
+      "final_leg_time_s": 88.25,
+      "closest_final_m_120": 2.797993876825833,
+      "closest_final_m_240": 1.5543600345150543,
+      "pass_through_120": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10145,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10146,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10147,
+      "final_leg_time_s": 66.3,
+      "closest_final_m_120": 5.991860373422462,
+      "closest_final_m_240": 5.991860373422462,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10148,
+      "final_leg_time_s": 42.75,
+      "closest_final_m_120": 5.980326895893642,
+      "closest_final_m_240": 5.980326895893642,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10149,
+      "final_leg_time_s": 68.10000000000001,
+      "closest_final_m_120": 4.34859181729546,
+      "closest_final_m_240": 4.34859181729546,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10100,
+      "final_leg_time_s": 104.85000000000001,
+      "closest_final_m_120": 5.987548949222654,
+      "closest_final_m_240": 5.987548949222654,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10101,
+      "final_leg_time_s": 54.1,
+      "closest_final_m_120": 8.86511680961381,
+      "closest_final_m_240": 8.86511680961381,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10102,
+      "final_leg_time_s": 86.25,
+      "closest_final_m_120": 5.996651564038226,
+      "closest_final_m_240": 1.7924538413082418,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10103,
+      "final_leg_time_s": 117.75,
+      "closest_final_m_120": 5.99964743236311,
+      "closest_final_m_240": 4.600288729292487,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10104,
+      "final_leg_time_s": 80.05000000000001,
+      "closest_final_m_120": 5.981045646789959,
+      "closest_final_m_240": 1.2523788166384504,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10105,
+      "final_leg_time_s": 142.70000000000002,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 1.6296591959530393,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10106,
+      "final_leg_time_s": 93.2,
+      "closest_final_m_120": 6.297777830591106,
+      "closest_final_m_240": 3.4010444985200214,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10107,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10108,
+      "final_leg_time_s": 143.9,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 1.9949676760112516,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10109,
+      "final_leg_time_s": 130.3,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 1.761479410134361,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10110,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10111,
+      "final_leg_time_s": 88.65,
+      "closest_final_m_120": 5.986973149719867,
+      "closest_final_m_240": 1.2447275447325656,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10112,
+      "final_leg_time_s": 131.0,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 2.8279398698324396,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10113,
+      "final_leg_time_s": 138.20000000000002,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 1.744270415641193,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10114,
+      "final_leg_time_s": 137.45000000000002,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 5.988472577432339,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10115,
+      "final_leg_time_s": 105.0,
+      "closest_final_m_120": 5.980310564037201,
+      "closest_final_m_240": 1.4931946468535402,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10116,
+      "final_leg_time_s": 64.05,
+      "closest_final_m_120": 5.998038581446074,
+      "closest_final_m_240": 5.998038581446074,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10117,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10118,
+      "final_leg_time_s": 122.80000000000001,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 0.1741776344481215,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10119,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10120,
+      "final_leg_time_s": 133.15,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 3.4401181445016698,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10121,
+      "final_leg_time_s": 70.2,
+      "closest_final_m_120": 3.6997421850274845,
+      "closest_final_m_240": 0.12785554029542107,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10122,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10123,
+      "final_leg_time_s": 134.5,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 1.0798449180895433,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10124,
+      "final_leg_time_s": 171.60000000000002,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 2.2806272873378433,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10125,
+      "final_leg_time_s": 89.45,
+      "closest_final_m_120": 5.987401050708398,
+      "closest_final_m_240": 0.47010822730665586,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10126,
+      "final_leg_time_s": 119.30000000000001,
+      "closest_final_m_120": 5.961164381474416,
+      "closest_final_m_240": 1.1888523327329865,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10127,
+      "final_leg_time_s": 91.30000000000001,
+      "closest_final_m_120": 5.987789363968561,
+      "closest_final_m_240": 0.17214410869176214,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10128,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10129,
+      "final_leg_time_s": 99.4,
+      "closest_final_m_120": 5.98638455214156,
+      "closest_final_m_240": 1.287427180472876,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10130,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10131,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10132,
+      "final_leg_time_s": 114.0,
+      "closest_final_m_120": 5.998884351889045,
+      "closest_final_m_240": 3.6218716447304633,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10133,
+      "final_leg_time_s": 178.65,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 5.987608756947255,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10134,
+      "final_leg_time_s": 206.85000000000002,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 5.997440519266028,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10135,
+      "final_leg_time_s": 89.10000000000001,
+      "closest_final_m_120": 5.852356726042226,
+      "closest_final_m_240": 0.7336048894649206,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10136,
+      "final_leg_time_s": 74.10000000000001,
+      "closest_final_m_120": 5.99328789977207,
+      "closest_final_m_240": 1.9875359540286954,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10137,
+      "final_leg_time_s": 223.25,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 5.99956954981738,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10138,
+      "final_leg_time_s": 188.65,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 5.988468369931577,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10139,
+      "final_leg_time_s": 100.25,
+      "closest_final_m_120": 5.991349041535507,
+      "closest_final_m_240": 2.2813835139234686,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10140,
+      "final_leg_time_s": null,
+      "closest_final_m_120": null,
+      "closest_final_m_240": null,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10141,
+      "final_leg_time_s": 146.55,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 1.2268239571460897,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10142,
+      "final_leg_time_s": 56.800000000000004,
+      "closest_final_m_120": 2.568136792555354,
+      "closest_final_m_240": 2.568136792555354,
+      "pass_through_120": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10143,
+      "final_leg_time_s": 71.25,
+      "closest_final_m_120": 5.996515884237731,
+      "closest_final_m_240": 5.996515884237731,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10144,
+      "final_leg_time_s": 103.10000000000001,
+      "closest_final_m_120": 5.9866219917059444,
+      "closest_final_m_240": 0.5123293031533823,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10145,
+      "final_leg_time_s": 57.150000000000006,
+      "closest_final_m_120": 5.168306726030302,
+      "closest_final_m_240": 1.4229326816455348,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10146,
+      "final_leg_time_s": 212.60000000000002,
+      "closest_final_m_120": null,
+      "closest_final_m_240": 5.992627975927446,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10147,
+      "final_leg_time_s": 88.15,
+      "closest_final_m_120": 5.983281455507132,
+      "closest_final_m_240": 3.0322070188228767,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false,
+        "12": false,
+        "15": false
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10148,
+      "final_leg_time_s": 64.55,
+      "closest_final_m_120": 5.980041948146891,
+      "closest_final_m_240": 5.980041948146891,
+      "pass_through_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10149,
+      "final_leg_time_s": 72.0,
+      "closest_final_m_120": 2.4247102136355445,
+      "closest_final_m_240": 2.4247102136355445,
+      "pass_through_120": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_120": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "pass_through_240": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      },
+      "full_240": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true,
+        "12": true,
+        "15": true
+      }
+    }
+  ],
+  "cells": [
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 2,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.04,
+        "los_mpc": 0.0,
+        "best_classical": 0.04
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.06,
+        "los_mpc": 0.04,
+        "best_classical": 0.06
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.1,
+        "los_mpc": 0.06,
+        "best_classical": 0.1
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.12,
+        "los_mpc": 0.06,
+        "best_classical": 0.12
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.18,
+        "los_pid": 0.34,
+        "los_mpc": 0.46,
+        "best_classical": 0.46
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.18,
+        "los_pid": 0.36,
+        "los_mpc": 0.48,
+        "best_classical": 0.48
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.2,
+        "los_pid": 0.36,
+        "los_mpc": 0.5,
+        "best_classical": 0.5
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 12,
+      "rates": {
+        "untrained": 0.22,
+        "los_pid": 0.36,
+        "los_mpc": 0.5,
+        "best_classical": 0.5
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 15,
+      "rates": {
+        "untrained": 0.24,
+        "los_pid": 0.36,
+        "los_mpc": 0.5,
+        "best_classical": 0.5
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 2,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.0,
+        "los_mpc": 0.0,
+        "best_classical": 0.0
+      },
+      "normalized_success_gap": null,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.0,
+        "los_mpc": 0.02,
+        "best_classical": 0.02
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.02,
+        "los_mpc": 0.06,
+        "best_classical": 0.06
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.04,
+        "los_mpc": 0.06,
+        "best_classical": 0.06
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.04,
+        "los_mpc": 0.08,
+        "best_classical": 0.08
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.06,
+        "los_mpc": 0.1,
+        "best_classical": 0.1
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.1,
+        "los_mpc": 0.1,
+        "best_classical": 0.1
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 12,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.14,
+        "los_mpc": 0.1,
+        "best_classical": 0.14
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 15,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.2,
+        "los_mpc": 0.2,
+        "best_classical": 0.2
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 2,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.1,
+        "los_mpc": 0.4,
+        "best_classical": 0.4
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.1,
+        "los_mpc": 0.5,
+        "best_classical": 0.5
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.12,
+        "los_mpc": 0.58,
+        "best_classical": 0.58
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.18,
+        "los_mpc": 0.6,
+        "best_classical": 0.6
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.18,
+        "los_pid": 0.38,
+        "los_mpc": 0.8,
+        "best_classical": 0.8
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.18,
+        "los_pid": 0.4,
+        "los_mpc": 0.8,
+        "best_classical": 0.8
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.2,
+        "los_pid": 0.4,
+        "los_mpc": 0.82,
+        "best_classical": 0.82
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 12,
+      "rates": {
+        "untrained": 0.22,
+        "los_pid": 0.4,
+        "los_mpc": 0.82,
+        "best_classical": 0.82
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 15,
+      "rates": {
+        "untrained": 0.24,
+        "los_pid": 0.46,
+        "los_mpc": 0.82,
+        "best_classical": 0.82
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 2,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.04,
+        "los_mpc": 0.24,
+        "best_classical": 0.24
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.04,
+        "los_mpc": 0.42,
+        "best_classical": 0.42
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.06,
+        "los_mpc": 0.52,
+        "best_classical": 0.52
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.1,
+        "los_mpc": 0.54,
+        "best_classical": 0.54
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.1,
+        "los_mpc": 0.54,
+        "best_classical": 0.54
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.14,
+        "los_mpc": 0.62,
+        "best_classical": 0.62
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.16,
+        "los_mpc": 0.7,
+        "best_classical": 0.7
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 12,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.2,
+        "los_mpc": 0.72,
+        "best_classical": 0.72
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 15,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.26,
+        "los_mpc": 0.76,
+        "best_classical": 0.76
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    }
+  ],
+  "closest_approach": [
+    {
+      "policy": "LOS-PID-v2",
+      "closest_final_m": {
+        "timeout_120": {
+          "count": 18,
+          "min": 1.3516168950227863,
+          "q1": 3.479870723010387,
+          "median": 5.983565317586843,
+          "q3": 5.9913456350519585,
+          "q95": 5.999291054444042,
+          "max": 6.840553800745541
+        },
+        "timeout_240": {
+          "count": 23,
+          "min": 0.3688792176896237,
+          "q1": 3.479870723010387,
+          "median": 5.983565317586843,
+          "q3": 5.993571362922178,
+          "q95": 12.115928396444987,
+          "max": 14.970266120313271
+        }
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "closest_final_m": {
+        "timeout_120": {
+          "count": 25,
+          "min": 2.4247102136355445,
+          "q1": 5.980041948146891,
+          "median": 5.986973149719867,
+          "q3": 5.996515884237731,
+          "q95": 5.99964743236311,
+          "max": 8.86511680961381
+        },
+        "timeout_240": {
+          "count": 41,
+          "min": 0.12785554029542107,
+          "q1": 1.2523788166384504,
+          "median": 2.2806272873378433,
+          "q3": 5.980041948146891,
+          "q95": 5.998038581446074,
+          "max": 8.86511680961381
+        }
+      }
+    }
+  ],
+  "selection_rule": "Smallest radius where best classical is 40-70%; prefer 120 s pass-through; do not select above 10 m.",
+  "decision": {
+    "contract_revision_applied": false,
+    "human_approval_required": true
+  }
+}

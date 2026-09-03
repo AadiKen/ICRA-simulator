@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-validation-scoping",
+  "status": "scoped-halt-before-build",
+  "review_required": true,
+  "build_started": false,
+  "vehicle": {
+    "id": "vehicle-c-azimuth",
+    "plant": "coupled6",
+    "actuation_topology": "dual water azimuth thrusters",
+    "production_path": "coupled6-dual-azimuth-parametric-hydrodynamics",
+    "current_validation_status": "allocation-demonstrated-dynamics-unvalidated"
+  },
+  "what_exists": {
+    "plant": "A runnable coupled6 production plant exists, with parametric-hull Capytaine hydrodynamics, empirical viscous damping, hydrostatics, and two rate-limited azimuth thrusters.",
+    "allocation": "The integrated allocation/composability campaign passes finite-output, thrust-limit, angle-continuity, failure-mode, and checkpoint-replay checks. It deliberately includes rank-deficient and infeasible geometries as diagnostics.",
+    "external_campaign": "AERO4River has three checksum-locked applied-wrench replays through the actual unconstrained Vehicle C coupled6 plant; all are deterministic and numerically stable."
+  },
+  "reference_target_assessment": {
+    "same_vessel_target": "absent",
+    "marin_target": "absent",
+    "available_external_target": {
+      "name": "AERO4River v1",
+      "configuration": "20.8 kg vessel with four aerial azimuth thrusters",
+      "compatibility": "not a dual-water-azimuth Vehicle C match",
+      "result": "descriptive only; position RMSE is 9.43-11.40 m, yaw RMSE is 1.21-1.75 rad, and no post-hoc tolerance is valid"
+    },
+    "conclusion": "There is no defensible reference dataset that can currently validate Vehicle C behavioral dynamics or dual-water-azimuth propulsion."
+  },
+  "allocation_risk_assessment": {
+    "risk_exists": true,
+    "implemented_limits": {
+      "forward_thrust_per_thruster_n": 500,
+      "reverse_thrust_per_thruster_n": 250,
+      "azimuth_slew_deg_s": 30,
+      "thrust_dynamics_and_azimuth_dynamics": "first-order response with rate limits"
+    },
+    "what_is_covered": "Static/step allocation behavior, singular and near-singular geometry, failed-off/stuck modes, thrust limits, and azimuth state continuity.",
+    "what_is_missing": "A dynamic reachable-wrench-envelope campaign that records desired wrench, allocated commands, actual azimuth/thrust states, residual wrench, saturation, and slew-limit occupancy during representative transients. Current least-squares allocation computes commands against the current azimuth state and does not plan over future azimuth slew.",
+    "disposition": "Treat this as a proactive software verification gap, not a demonstrated source of behavioral mismatch. It cannot substitute for physical validation data."
+  },
+  "what_validation_requires": [
+    "Independent Vehicle C or geometrically and propulsively matched dual-water-azimuth command, actuator, and trajectory measurements.",
+    "A preregistered maneuver set (straight-line, turning circles, 10/10 and 20/20 zig-zags, acceleration/coast-down, and low-speed station-keeping) with fixed channel-wise tolerances.",
+    "Measured thrust/azimuth channels or calibrated actuator maps, plus hull geometry, mass/inertia, and free-decay or captive-test data sufficient to identify damping and maneuvering terms.",
+    "A dynamic allocation-envelope audit before controller-transfer claims."
+  ],
+  "effort_assessment": {
+    "relative_to_vehicle_b": "larger",
+    "reason": "Vehicle B has six measured MARIN trajectories for model-structure diagnostics, while Vehicle C has no same-configuration reference target and requires new reference acquisition or a newly justified surrogate-validation protocol before a physical claim is possible.",
+    "figure_6_readiness": "The A/B/C topology contrast is real (A differential thrust, B propeller/rudder, C dual azimuth), but Vehicle C should not be presented as behaviorally validated in a heterogeneous-transfer matrix until the missing evidence is obtained."
+  },
+  "next_review_decision": "Decide whether Figure 6 may use Vehicle C only as allocation/composability and simulator-transfer evidence, or whether to defer it pending matched validation data. Do not start a parameter-tuning build from the AERO4River mismatch."
+}

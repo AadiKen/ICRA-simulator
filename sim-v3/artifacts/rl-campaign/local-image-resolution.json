@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "local-image-resolution",
+  "host_class": "local",
+  "paper_measurement_eligible": false,
+  "status": "local-images-resolved-and-launched-under-emulation",
+  "required_images": [
+    "VRX v3.0.1 digest-pinned image",
+    "Gazebo Harmonic 8.15.0 digest-pinned image"
+  ],
+  "local_image_inventory": {
+    "available": false,
+    "exit_code": null,
+    "output": "Docker daemon unavailable; local image inventory cannot be queried."
+  },
+  "verified_images": [
+    {
+      "role": "VRX",
+      "reference": "icra27-vrx:v3.0.1",
+      "digest": "sha256:28052fbd68ffd466f672588fb78b5f0c4f40e5d1f6a605ae8aa8fcd521babaff",
+      "architecture": "linux/amd64",
+      "launch_verification": "ROS 2 Jazzy environment and vrx_gz package initialized under Docker Desktop emulation",
+      "embedded_gazebo_version": "8.10.0",
+      "deviation": "VRX v3.0.1 image embeds Gazebo Sim 8.10.0; do not represent it as Gazebo 8.15.0."
+    },
+    {
+      "role": "Gazebo Harmonic",
+      "reference": "icra27-gazebo-harmonic:harmonic-8.15.0",
+      "digest": "sha256:c3d437139e410906f4a99bbf8d3a87747b916ad8fd10e836515a63a5e8fb0184",
+      "architecture": "linux/amd64",
+      "launch_verification": "gz sim --version completed under Docker Desktop emulation",
+      "gazebo_version": "8.15.0"
+    }
+  ],
+  "actions": {
+    "pull_attempted": false,
+    "pull_reason": "Both digest-pinned images were already cached locally.",
+    "launch_attempted": true,
+    "launch_verified": true
+  },
+  "deviations": [
+    "Host `gz sim` is 8.14.0 and is not used as a substitute for the containerized 8.15.0 image.",
+    "VRX v3.0.1 image embeds Gazebo Sim 8.10.0; do not represent it as Gazebo 8.15.0."
+  ],
+  "blockers": [],
+  "claim_limit": "Container initialization is local correctness evidence only; it is not a native-runtime measurement."
+}

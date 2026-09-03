@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "verified_on_host_class": "local",
+  "images": [
+    {
+      "role": "VRX",
+      "reference": "icra27-vrx:v3.0.1",
+      "digest": "sha256:28052fbd68ffd466f672588fb78b5f0c4f40e5d1f6a605ae8aa8fcd521babaff",
+      "architecture": "linux/amd64",
+      "launch_verification": "ROS 2 Jazzy environment and vrx_gz package initialized under Docker Desktop emulation",
+      "embedded_gazebo_version": "8.10.0",
+      "deviation": "VRX v3.0.1 image embeds Gazebo Sim 8.10.0; do not represent it as Gazebo 8.15.0."
+    },
+    {
+      "role": "Gazebo Harmonic",
+      "reference": "icra27-gazebo-harmonic:harmonic-8.15.0",
+      "digest": "sha256:c3d437139e410906f4a99bbf8d3a87747b916ad8fd10e836515a63a5e8fb0184",
+      "architecture": "linux/amd64",
+      "launch_verification": "gz sim --version completed under Docker Desktop emulation",
+      "gazebo_version": "8.15.0"
+    }
+  ]
+}

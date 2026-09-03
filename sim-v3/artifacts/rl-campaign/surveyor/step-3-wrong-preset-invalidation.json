@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "STRUCTURAL_HALT_WRONG_VEHICLE_PRESET",
+  "finding": "The Surveyor calibration driver passed vehicle.preset='surveyor'. resolveExperiment preserves that alias, while LegacyProductionEngine activates the Surveyor production model only for vehicle.preset='searobotics-surveyor-m1.8'. The runs therefore used the default demo/bootstrap vehicle parameters.",
+  "direct_evidence": {
+    "alias_resolution": "surveyor => surveyor",
+    "alias_vehicle_path": null,
+    "alias_allocation_for_70N_surge_minus_40Nm_yaw": {"port_n": 18.333333333333332, "starboard_n": 51.66666666666667},
+    "implied_lateral_offset_m": 1.2,
+    "canonical_vehicle_path_vehicle_id": "searobotics-surveyor-m1.8",
+    "canonical_allocation_for_same_request": {"port_n": -51.212121212121204, "starboard_n": 70},
+    "canonical_thruster_lateral_offsets_m": [-0.33, 0.33]
+  },
+  "invalidated_as_surveyor_evidence": [
+    "artifacts/rl-campaign/surveyor/p2.5-reference.json",
+    "artifacts/rl-campaign/surveyor/terminal-radius-sweep.json",
+    "artifacts/rl-campaign/surveyor/actuator-scale-speed-diagnostic.json",
+    "artifacts/rl-campaign/surveyor/allocation-saturation-diagnostic.json"
+  ],
+  "not_run": [
+    "post-fix canonical-Surveyor five-episode diagnostic",
+    "post-fix full P2.5 calibration",
+    "post-fix terminal-radius sweep"
+  ],
+  "allocator_fix_state": "The approved yaw-priority coupled-envelope implementation and model-artifact declaration are present and pass focused tests with the canonical Surveyor preset, but campaign reruns are halted pending acknowledgement of the wrong-vehicle structural mismatch.",
+  "calibration_scope_changed": false,
+  "contract_changed": false,
+  "frozen": false
+}

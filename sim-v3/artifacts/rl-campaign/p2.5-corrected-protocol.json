@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "predeclared-before-held-out-tuning-or-corrected-evaluation",
+  "amendment": "P3 Amendment 4 / F2.3",
+  "task_contract_changed": false,
+  "reward_changed": false,
+  "final_success_changed": false,
+  "evaluation_seeds": {"first": 10000, "count": 50},
+  "held_out_tuning_seeds": {"first": 20000, "count": 20},
+  "route_relative_m": [[20, 0], [35, 15], [50, 5]],
+  "episode_steps": 2400,
+  "dt_s": 0.05,
+  "advancement": {
+    "scope": "intermediate waypoints only; applies identically to every controller",
+    "radius_m": 6,
+    "plane_crossing": "advance after crossing the waypoint-normal plane in the direction of the next leg",
+    "rationale": "three approximate vehicle lengths; independent of the unchanged 2 m final success radius"
+  },
+  "los": {
+    "formula": "desired_heading = leg_heading - atan2(signed_cross_track, lookahead_m)",
+    "full_route_available": true,
+    "grid": {
+      "lookahead_m": [4, 8, 12],
+      "yaw_kp_nm_per_rad": [70, 100],
+      "yaw_kd_nm_per_rad_s": [20, 35],
+      "target_speed_mps": [1, 1.5]
+    }
+  },
+  "selection": {
+    "paired": true,
+    "lexicographic_objective": ["success_count_max", "waypoints_reached_sum_max", "median_return_max", "mean_cross_track_min"],
+    "prohibition": "No evaluation seed or P3 result may influence gain selection. The grid and objective are frozen before held-out tuning."
+  },
+  "controllers": {
+    "frozen-untrained-policy-v1": "retained fixed MLP; full route and corrected advancement supplied by harness",
+    "LOS-PID-v2": "LOS heading reference with proportional speed and PD yaw inner loops",
+    "LOS-SPEEDCAP-v2": "same LOS reference; receding target-speed law using stopping-distance and heading-error constraints, with PD yaw inner loop"
+  },
+  "thresholds": {
+    "return": "untrained_median + 0.5 * (best_classical_median - untrained_median)",
+    "success": "untrained_rate + 0.5 * (best_classical_rate - untrained_rate)",
+    "both_must_pass": true,
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20270831,
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-yaw-and-moving-frame-audit",
+  "status": "COMPLETE_HALTED_BEFORE_FULL_RERUN",
+  "contract_content_sha256": "cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb",
+  "execution_order": ["pure differential-thrust yaw isolation", "moving-frame current/wind audit"],
+  "yaw_isolation": {
+    "method": "20 s, 400 samples, calm environment, constant normalized port/starboard commands [-0.5,+0.5], identical shared 0.35 s actuator lag",
+    "sign": "matched",
+    "moment_arm_serialization": "matched: Node NED y=[-0.33,+0.33] maps to Gazebo FLU y=[+0.33,-0.33]",
+    "selected_samples": [
+      {"step": 40, "node_r_rad_s": -0.9928107844401256, "vrx_r_rad_s": -0.9802431040124662, "relative_rate_difference": 0.012658686453276903},
+      {"step": 100, "node_r_rad_s": -1.1073716387524595, "vrx_r_rad_s": -1.1166582385888213, "relative_rate_difference": 0.008386163697332812},
+      {"step": 399, "node_r_rad_s": -1.0774979323359273, "vrx_r_rad_s": -1.0977483331365148, "relative_rate_difference": 0.018793911517478532}
+    ],
+    "terminal_circular_yaw_difference_rad": 0.4967446798279511,
+    "finding": "Yaw sign and moment arm are correct. Steady rate differs by only 1.9%; the accumulated angle difference is consistent with that small persistent rate offset. The former 7.8 rad raw statistic also crossed the +/-pi serialization boundary and was not a circular angle metric.",
+    "action": "No yaw coefficient or physics change made. The isolation result does not justify tuning nR/nRR or changing thruster placement."
+  },
+  "moving_frame_audit": {
+    "current": {
+      "frame_mapping": "NED [N,E] -> Gazebo ENU [E,N]; Gazebo FLU lateral velocity is the negative of Node body-starboard velocity",
+      "relative_velocity_sign": "matched: both evaluate hull velocity minus current for damping",
+      "correction": "VRX adds damping(v-current)-damping(v) because SimpleHydrodynamics already applies damping(v)",
+      "source_result": "no sign or frame defect found"
+    },
+    "wind": {
+      "defect_found": "Stock vrx::USVWind applies independent X/Y quadratic drag in world coordinates and does not rotate Surveyor frontal/side projected areas with hull heading. Its coeff_vector is therefore not a serialization of Node WindLoad for a turning anisotropic craft.",
+      "replacement": "vrx_surveyor::SurveyorRelativeWind",
+      "replacement_source": "validation/rl-campaign/ports/vrx-current-system/SurveyorRelativeWind.cc",
+      "replacement_binary": "artifacts/rl-campaign/vrx-current-plugin/libVrxSurveyorRelativeWind.so",
+      "source_sha256": "f12964e20beda3dabc5b0e0b2a97fc4294c74225ea9404bc515393ce044b1d1d",
+      "binary_sha256": "eba5eae0560f6f72a06b91858e931f15ee311eb97b319efb4d92206b28144950",
+      "equation": "Transform wind-world minus hull-world velocity into body coordinates; Fx=0.5*rho*Cd*A_front*speed*u_rel and Fy=0.5*rho*Cd*A_side*speed*v_rel; rotate force back to ENU.",
+      "coefficients": {"air_density_kg_m3": 1.225, "drag_coefficient": 1.1, "frontal_area_m2": 0.3822, "side_area_m2": 0.7686},
+      "coefficient_provenance": "unchanged shared Surveyor geometry-derived estimate"
+    },
+    "prescribed_velocity_test": {
+      "cases": 3,
+      "headings_rad_ned": [0, 1.5707963267948966, -0.7853981633974483],
+      "result": "exact agreement to 1e-12 for relative body velocity and world force after NED/ENU and starboard/left conversion",
+      "negative_control": "stock USVWind world-axis formula diverges for an oblique heading",
+      "test": "validation/rl-campaign/ports/environment-frame-audit.test.ts"
+    }
+  },
+  "post_fix_short_isolation": {
+    "seed": 20000,
+    "duration_s": 9.6,
+    "commands": "zero thrust",
+    "paired_calm_subtraction": true,
+    "combined_wind_current": {"relative_vector_divergence": 0.3426206608661987, "magnitude_divergence": 0.34261504689905725, "direction_difference_deg": 0.09698439376101313},
+    "current_only": {"relative_vector_divergence": 0.3651810824868714, "magnitude_divergence": 0.3649163396256401, "direction_difference_deg": 0.6818278165844585},
+    "wind_only": {"relative_vector_divergence": 0.42123409465984996, "magnitude_divergence_with_0_5m_denominator": 0.2542110470992422, "direction_difference_deg": 32.632999575954436, "node_induced_displacement_m": 0.2420147617927598},
+    "interpretation": "The corrected combined force direction now agrees essentially exactly. Magnitude remains 34.3% high, slightly outside the preregistered 30% band, and the current-only response accounts for most of the combined displacement and residual scale error. The very small wind-only displacement makes its angle sensitive to millimetre-scale settling differences."
+  },
+  "verification": {
+    "plugin_build": "passed against pinned gz-sim 8.10.0 runtime",
+    "frame_tests": "passed",
+    "shared_actuator_tests": "passed",
+    "full_gate_7_rerun": "not run; the short corrected response remains outside tolerance"
+  },
+  "next_evidence_needed": "A prescribed-force or planar-constraint comparison is needed to separate the remaining current-response scale difference from VRX 3D hull motion before any damping coefficient is changed.",
+  "halted_for_review": true
+}

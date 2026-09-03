@@ -2,6 +2,8 @@ import {AcousticDomain} from "./domains/acoustic.ts";
 import type {GrantedServices,SampleContext,SensorPlugin as TypedSensorPlugin,SensorPluginMetadata,SensorPluginStateDTO,SensorSample as TypedSensorSample} from "./runtime.ts";
 import {GpsPlugin} from "./plugins/gps.ts";
 import {ImuPlugin} from "./plugins/imu.ts";
+import {HygrometerPlugin} from "./plugins/hygrometer.ts";
+import {FanRangefinderPlugin} from "./plugins/fan-rangefinder.ts";
 import {AnemometerPlugin,BarometerPlugin,CameraPlugin,InsGpsFusionPlugin,LidarPlugin,MagnetometerPlugin,PlatformTelemetryPlugin,RadarPlugin,WaterQualityPlugin} from "./plugins/remaining.ts";
 
 export * from "./runtime.ts";
@@ -58,11 +60,13 @@ export const BUILT_IN_SENSOR_REGISTRY:Readonly<Record<string,BuiltInSensorRegist
   imu:{create:()=>new ImuPlugin(),defaultConfig:{},legacyAliases:["imu"]},
   camera:{create:()=>new CameraPlugin(),defaultConfig:{},legacyAliases:["dayCam","nightCam"]},
   lidar:{create:()=>new LidarPlugin(),defaultConfig:{},legacyAliases:["lidar"]},
+  "fan-rangefinder":{create:()=>new FanRangefinderPlugin(),defaultConfig:{},legacyAliases:[]},
   radar:{create:()=>new RadarPlugin(),defaultConfig:{},legacyAliases:[]},
   "single-beam-depth-sounder":{create:()=>new DepthSounderPlugin(),defaultConfig:{mount_m:[0,0,0],direction_body:[0,0,1],min_range_m:.2,max_range_m:100,frequency_hz:200000},legacyAliases:[]},
   "survey-sonar-38khz":{create:()=>new SurveySonar38KhzPlugin(),defaultConfig:{mount_m:[0,0,0],direction_body:[0,0,1],min_range_m:1,max_range_m:1000,frequency_hz:38000},legacyAliases:[]},
   anemometer:{create:()=>new AnemometerPlugin(),defaultConfig:{},legacyAliases:[]},
   barometer:{create:()=>new BarometerPlugin(),defaultConfig:{},legacyAliases:[]},
+  hygrometer:{create:()=>new HygrometerPlugin(),defaultConfig:{},legacyAliases:[]},
   "water-quality":{create:()=>new WaterQualityPlugin(),defaultConfig:{},legacyAliases:["exo2"]},
   "platform-telemetry":{create:()=>new PlatformTelemetryPlugin(),defaultConfig:{},legacyAliases:[]},
   magnetometer:{create:()=>new MagnetometerPlugin(),defaultConfig:{},legacyAliases:[]},

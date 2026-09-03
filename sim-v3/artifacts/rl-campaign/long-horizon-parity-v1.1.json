@@ -1,0 +1,704 @@
+{
+  "schema_version": 1,
+  "protocol_version": "1.1.0",
+  "protocol_sha256": "c28034ac1ad3d18cd898bbc71249a99648bc89d672eab546a559ff703b7ec75e",
+  "retained_v1_failure": "artifacts/rl-campaign/long-horizon-parity.json",
+  "rollout_steps": 2400,
+  "negative_control": {
+    "detected": true,
+    "parameter": "thruster_tau_s",
+    "reference": 0.25,
+    "perturbed": 0.251,
+    "result": {
+      "passed": false,
+      "first_nonzero_step": 1,
+      "maxima": {
+        "position_m": {
+          "value": 0.0020073352120677512,
+          "step": 1620
+        },
+        "yaw_rad": {
+          "value": 0.00044881282764264174,
+          "step": 2313
+        },
+        "yaw_circular_diagnostic_rad": {
+          "value": 0.00044881282764264174,
+          "step": 2313
+        },
+        "linear_velocity_m_s": {
+          "value": 0.0006156968676461483,
+          "step": 1695
+        },
+        "yaw_rate_rad_s": {
+          "value": 0.0002875222003290781,
+          "step": 2400
+        },
+        "acceleration": {
+          "value": 0.0005281154106586694,
+          "step": 5
+        },
+        "thruster_force_n": {
+          "value": 0.03801976414926145,
+          "step": 6
+        },
+        "energy_j": {
+          "value": 0.0,
+          "step": null
+        }
+      },
+      "log_samples": [
+        {
+          "step": 1,
+          "raw_max_abs": 0.015500083185636448,
+          "circular_yaw_physical_max_abs": 0.015500083185636448
+        },
+        {
+          "step": 2,
+          "raw_max_abs": 0.025826748156067225,
+          "circular_yaw_physical_max_abs": 0.025826748156067225
+        },
+        {
+          "step": 4,
+          "raw_max_abs": 0.036039687500133866,
+          "circular_yaw_physical_max_abs": 0.036039687500133866
+        },
+        {
+          "step": 8,
+          "raw_max_abs": 0.03598034897300906,
+          "circular_yaw_physical_max_abs": 0.03598034897300906
+        },
+        {
+          "step": 16,
+          "raw_max_abs": 0.020412883331225373,
+          "circular_yaw_physical_max_abs": 0.020412883331225373
+        },
+        {
+          "step": 32,
+          "raw_max_abs": 0.017607839356632127,
+          "circular_yaw_physical_max_abs": 0.017607839356632127
+        },
+        {
+          "step": 64,
+          "raw_max_abs": 0.014890241088821199,
+          "circular_yaw_physical_max_abs": 0.014890241088821199
+        },
+        {
+          "step": 128,
+          "raw_max_abs": 0.014583381159503972,
+          "circular_yaw_physical_max_abs": 0.014583381159503972
+        },
+        {
+          "step": 256,
+          "raw_max_abs": 0.027377646202793482,
+          "circular_yaw_physical_max_abs": 0.027377646202793482
+        },
+        {
+          "step": 512,
+          "raw_max_abs": 0.010817337854470921,
+          "circular_yaw_physical_max_abs": 0.010817337854470921
+        },
+        {
+          "step": 1024,
+          "raw_max_abs": 0.011013355285953708,
+          "circular_yaw_physical_max_abs": 0.011013355285953708
+        },
+        {
+          "step": 1600,
+          "raw_max_abs": 0.008743053176388571,
+          "circular_yaw_physical_max_abs": 0.008743053176388571
+        },
+        {
+          "step": 2048,
+          "raw_max_abs": 0.008084623113351341,
+          "circular_yaw_physical_max_abs": 0.008084623113351341
+        },
+        {
+          "step": 2400,
+          "raw_max_abs": 0.02654489518370884,
+          "circular_yaw_physical_max_abs": 0.02654489518370884
+        }
+      ],
+      "reference_sha256": "5dd33cffc108a71f01b6baf07f0bde8b1afc43897d8e6988a5abdbf155d33ea6",
+      "candidate_sha256": "37ee7f784f1ea890e4489a35aed83d2ab6600a4ec50c06bb8920ccc186cf6314"
+    }
+  },
+  "cells": [
+    {
+      "plant": "planar3",
+      "initial_condition": "rest-calm",
+      "passed": true,
+      "first_nonzero_step": 1,
+      "maxima": {
+        "position_m": {
+          "value": 5.81756864903582e-13,
+          "step": 2226
+        },
+        "yaw_rad": {
+          "value": 1.0080825063596421e-13,
+          "step": 2400
+        },
+        "yaw_circular_diagnostic_rad": {
+          "value": 1.0080825063596421e-13,
+          "step": 2400
+        },
+        "linear_velocity_m_s": {
+          "value": 2.220446049250313e-16,
+          "step": 1780
+        },
+        "yaw_rate_rad_s": {
+          "value": 5.551115123125783e-17,
+          "step": 210
+        },
+        "acceleration": {
+          "value": 5.551115123125783e-16,
+          "step": 348
+        },
+        "thruster_force_n": {
+          "value": 1.4210854715202004e-14,
+          "step": 663
+        },
+        "energy_j": {
+          "value": 0.0,
+          "step": null
+        }
+      },
+      "log_samples": [
+        {
+          "step": 1,
+          "raw_max_abs": 1.3552527156068805e-20,
+          "circular_yaw_physical_max_abs": 1.3552527156068805e-20
+        },
+        {
+          "step": 2,
+          "raw_max_abs": 5.421010862427522e-20,
+          "circular_yaw_physical_max_abs": 5.421010862427522e-20
+        },
+        {
+          "step": 4,
+          "raw_max_abs": 4.440892098500626e-16,
+          "circular_yaw_physical_max_abs": 4.440892098500626e-16
+        },
+        {
+          "step": 8,
+          "raw_max_abs": 3.469446951953614e-18,
+          "circular_yaw_physical_max_abs": 3.469446951953614e-18
+        },
+        {
+          "step": 16,
+          "raw_max_abs": 2.0816681711721685e-17,
+          "circular_yaw_physical_max_abs": 2.0816681711721685e-17
+        },
+        {
+          "step": 32,
+          "raw_max_abs": 1.1102230246251565e-16,
+          "circular_yaw_physical_max_abs": 1.1102230246251565e-16
+        },
+        {
+          "step": 64,
+          "raw_max_abs": 3.608224830031759e-16,
+          "circular_yaw_physical_max_abs": 3.608224830031759e-16
+        },
+        {
+          "step": 128,
+          "raw_max_abs": 7.105427357601002e-15,
+          "circular_yaw_physical_max_abs": 7.105427357601002e-15
+        },
+        {
+          "step": 256,
+          "raw_max_abs": 2.4424906541753444e-15,
+          "circular_yaw_physical_max_abs": 2.4424906541753444e-15
+        },
+        {
+          "step": 512,
+          "raw_max_abs": 1.1546319456101628e-14,
+          "circular_yaw_physical_max_abs": 1.1546319456101628e-14
+        },
+        {
+          "step": 1024,
+          "raw_max_abs": 2.930988785010413e-14,
+          "circular_yaw_physical_max_abs": 2.930988785010413e-14
+        },
+        {
+          "step": 1600,
+          "raw_max_abs": 8.126832540256146e-14,
+          "circular_yaw_physical_max_abs": 8.126832540256146e-14
+        },
+        {
+          "step": 2048,
+          "raw_max_abs": 4.192202140984591e-13,
+          "circular_yaw_physical_max_abs": 4.192202140984591e-13
+        },
+        {
+          "step": 2400,
+          "raw_max_abs": 4.938272013532696e-13,
+          "circular_yaw_physical_max_abs": 4.938272013532696e-13
+        }
+      ],
+      "reference_sha256": "5dd33cffc108a71f01b6baf07f0bde8b1afc43897d8e6988a5abdbf155d33ea6",
+      "candidate_sha256": "f457f08878f6e8b1895adce4f05244ff9f433fe79b0c77c5aa57d16234990679"
+    },
+    {
+      "plant": "planar3",
+      "initial_condition": "offset-turn",
+      "passed": true,
+      "first_nonzero_step": 2,
+      "maxima": {
+        "position_m": {
+          "value": 5.471179065352771e-13,
+          "step": 2202
+        },
+        "yaw_rad": {
+          "value": 7.061018436615996e-14,
+          "step": 1721
+        },
+        "yaw_circular_diagnostic_rad": {
+          "value": 7.061018436615996e-14,
+          "step": 1721
+        },
+        "linear_velocity_m_s": {
+          "value": 1.5987211554602254e-14,
+          "step": 1725
+        },
+        "yaw_rate_rad_s": {
+          "value": 7.0915495697931874e-15,
+          "step": 1574
+        },
+        "acceleration": {
+          "value": 5.440092820663267e-15,
+          "step": 2315
+        },
+        "thruster_force_n": {
+          "value": 1.4210854715202004e-14,
+          "step": 663
+        },
+        "energy_j": {
+          "value": 0.0,
+          "step": null
+        }
+      },
+      "log_samples": [
+        {
+          "step": 1,
+          "raw_max_abs": 0.0,
+          "circular_yaw_physical_max_abs": 0.0
+        },
+        {
+          "step": 2,
+          "raw_max_abs": 1.1102230246251565e-16,
+          "circular_yaw_physical_max_abs": 1.1102230246251565e-16
+        },
+        {
+          "step": 4,
+          "raw_max_abs": 4.440892098500626e-16,
+          "circular_yaw_physical_max_abs": 4.440892098500626e-16
+        },
+        {
+          "step": 8,
+          "raw_max_abs": 1.1102230246251565e-16,
+          "circular_yaw_physical_max_abs": 1.1102230246251565e-16
+        },
+        {
+          "step": 16,
+          "raw_max_abs": 8.881784197001252e-16,
+          "circular_yaw_physical_max_abs": 8.881784197001252e-16
+        },
+        {
+          "step": 32,
+          "raw_max_abs": 1.7763568394002505e-15,
+          "circular_yaw_physical_max_abs": 1.7763568394002505e-15
+        },
+        {
+          "step": 64,
+          "raw_max_abs": 3.552713678800501e-15,
+          "circular_yaw_physical_max_abs": 3.552713678800501e-15
+        },
+        {
+          "step": 128,
+          "raw_max_abs": 1.5987211554602254e-14,
+          "circular_yaw_physical_max_abs": 1.5987211554602254e-14
+        },
+        {
+          "step": 256,
+          "raw_max_abs": 3.552713678800501e-14,
+          "circular_yaw_physical_max_abs": 3.552713678800501e-14
+        },
+        {
+          "step": 512,
+          "raw_max_abs": 9.170442183403793e-14,
+          "circular_yaw_physical_max_abs": 9.170442183403793e-14
+        },
+        {
+          "step": 1024,
+          "raw_max_abs": 4.346523141407488e-14,
+          "circular_yaw_physical_max_abs": 4.346523141407488e-14
+        },
+        {
+          "step": 1600,
+          "raw_max_abs": 1.8740564655672642e-13,
+          "circular_yaw_physical_max_abs": 1.8740564655672642e-13
+        },
+        {
+          "step": 2048,
+          "raw_max_abs": 4.192202140984591e-13,
+          "circular_yaw_physical_max_abs": 4.192202140984591e-13
+        },
+        {
+          "step": 2400,
+          "raw_max_abs": 4.192202140984591e-13,
+          "circular_yaw_physical_max_abs": 4.192202140984591e-13
+        }
+      ],
+      "reference_sha256": "4ba77977f93f1cfc6c201374f47a6dc56bdb8b90099745124efe079947b05da0",
+      "candidate_sha256": "8835d4e27b7a3b303d0b54cf8189b50e35e8e85dc9cc794e56287c8a1a4107c5"
+    },
+    {
+      "plant": "planar3",
+      "initial_condition": "cross-current",
+      "passed": true,
+      "first_nonzero_step": 1,
+      "maxima": {
+        "position_m": {
+          "value": 3.979039320256561e-12,
+          "step": 2113
+        },
+        "yaw_rad": {
+          "value": 6.283185307179519,
+          "step": 1282
+        },
+        "yaw_circular_diagnostic_rad": {
+          "value": 6.166407526317164e-13,
+          "step": 1906
+        },
+        "linear_velocity_m_s": {
+          "value": 5.480060849549773e-13,
+          "step": 1780
+        },
+        "yaw_rate_rad_s": {
+          "value": 8.280875984922886e-14,
+          "step": 1719
+        },
+        "acceleration": {
+          "value": 1.9041712651102216e-13,
+          "step": 1787
+        },
+        "thruster_force_n": {
+          "value": 1.4210854715202004e-14,
+          "step": 663
+        },
+        "energy_j": {
+          "value": 0.0,
+          "step": null
+        }
+      },
+      "log_samples": [
+        {
+          "step": 1,
+          "raw_max_abs": 4.163336342344337e-17,
+          "circular_yaw_physical_max_abs": 4.163336342344337e-17
+        },
+        {
+          "step": 2,
+          "raw_max_abs": 1.3877787807814457e-17,
+          "circular_yaw_physical_max_abs": 1.3877787807814457e-17
+        },
+        {
+          "step": 4,
+          "raw_max_abs": 4.440892098500626e-16,
+          "circular_yaw_physical_max_abs": 4.440892098500626e-16
+        },
+        {
+          "step": 8,
+          "raw_max_abs": 3.3306690738754696e-16,
+          "circular_yaw_physical_max_abs": 3.3306690738754696e-16
+        },
+        {
+          "step": 16,
+          "raw_max_abs": 1.1102230246251565e-15,
+          "circular_yaw_physical_max_abs": 1.1102230246251565e-15
+        },
+        {
+          "step": 32,
+          "raw_max_abs": 1.7763568394002505e-15,
+          "circular_yaw_physical_max_abs": 1.7763568394002505e-15
+        },
+        {
+          "step": 64,
+          "raw_max_abs": 3.552713678800501e-15,
+          "circular_yaw_physical_max_abs": 3.552713678800501e-15
+        },
+        {
+          "step": 128,
+          "raw_max_abs": 1.5987211554602254e-14,
+          "circular_yaw_physical_max_abs": 1.5987211554602254e-14
+        },
+        {
+          "step": 256,
+          "raw_max_abs": 2.042810365310288e-14,
+          "circular_yaw_physical_max_abs": 2.042810365310288e-14
+        },
+        {
+          "step": 512,
+          "raw_max_abs": 6.039613253960852e-14,
+          "circular_yaw_physical_max_abs": 6.039613253960852e-14
+        },
+        {
+          "step": 1024,
+          "raw_max_abs": 1.0835776720341528e-13,
+          "circular_yaw_physical_max_abs": 1.0835776720341528e-13
+        },
+        {
+          "step": 1600,
+          "raw_max_abs": 6.283185307179301,
+          "circular_yaw_physical_max_abs": 7.318590178329032e-13
+        },
+        {
+          "step": 2048,
+          "raw_max_abs": 6.283185307179055,
+          "circular_yaw_physical_max_abs": 3.254285729781259e-12
+        },
+        {
+          "step": 2400,
+          "raw_max_abs": 6.283185307179214,
+          "circular_yaw_physical_max_abs": 3.240074875066057e-12
+        }
+      ],
+      "reference_sha256": "ce7e0858d736d114d0a9bb324ff263fa042b1bd7071106c2f21353f4ba646f22",
+      "candidate_sha256": "af93d3a034746f30269eda004d46a00dd86bef3d7d4a8d96b33c45ec1b86a7de"
+    },
+    {
+      "plant": "planar3",
+      "initial_condition": "near-rest-yaw",
+      "passed": true,
+      "first_nonzero_step": 3,
+      "maxima": {
+        "position_m": {
+          "value": 6.750155989720952e-13,
+          "step": 1685
+        },
+        "yaw_rad": {
+          "value": 6.283185307179604,
+          "step": 324
+        },
+        "yaw_circular_diagnostic_rad": {
+          "value": 2.7911006839076435e-13,
+          "step": 1697
+        },
+        "linear_velocity_m_s": {
+          "value": 1.1543543898540065e-13,
+          "step": 1739
+        },
+        "yaw_rate_rad_s": {
+          "value": 1.0826756158266448e-13,
+          "step": 1800
+        },
+        "acceleration": {
+          "value": 1.1324274851176597e-13,
+          "step": 1808
+        },
+        "thruster_force_n": {
+          "value": 1.4210854715202004e-14,
+          "step": 663
+        },
+        "energy_j": {
+          "value": 0.0,
+          "step": null
+        }
+      },
+      "log_samples": [
+        {
+          "step": 1,
+          "raw_max_abs": 0.0,
+          "circular_yaw_physical_max_abs": 0.0
+        },
+        {
+          "step": 2,
+          "raw_max_abs": 0.0,
+          "circular_yaw_physical_max_abs": 0.0
+        },
+        {
+          "step": 4,
+          "raw_max_abs": 4.440892098500626e-16,
+          "circular_yaw_physical_max_abs": 4.440892098500626e-16
+        },
+        {
+          "step": 8,
+          "raw_max_abs": 0.0,
+          "circular_yaw_physical_max_abs": 0.0
+        },
+        {
+          "step": 16,
+          "raw_max_abs": 1.3877787807814457e-17,
+          "circular_yaw_physical_max_abs": 1.3877787807814457e-17
+        },
+        {
+          "step": 32,
+          "raw_max_abs": 4.440892098500626e-16,
+          "circular_yaw_physical_max_abs": 4.440892098500626e-16
+        },
+        {
+          "step": 64,
+          "raw_max_abs": 4.718447854656915e-16,
+          "circular_yaw_physical_max_abs": 4.718447854656915e-16
+        },
+        {
+          "step": 128,
+          "raw_max_abs": 7.105427357601002e-15,
+          "circular_yaw_physical_max_abs": 7.105427357601002e-15
+        },
+        {
+          "step": 256,
+          "raw_max_abs": 6.283185307179592,
+          "circular_yaw_physical_max_abs": 5.329070518200751e-15
+        },
+        {
+          "step": 512,
+          "raw_max_abs": 6.572520305780927e-14,
+          "circular_yaw_physical_max_abs": 6.572520305780927e-14
+        },
+        {
+          "step": 1024,
+          "raw_max_abs": 1.0302869668521453e-13,
+          "circular_yaw_physical_max_abs": 1.0302869668521453e-13
+        },
+        {
+          "step": 1600,
+          "raw_max_abs": 8.704148513061227e-14,
+          "circular_yaw_physical_max_abs": 8.704148513061227e-14
+        },
+        {
+          "step": 2048,
+          "raw_max_abs": 6.394884621840902e-13,
+          "circular_yaw_physical_max_abs": 6.394884621840902e-13
+        },
+        {
+          "step": 2400,
+          "raw_max_abs": 6.039613253960852e-13,
+          "circular_yaw_physical_max_abs": 6.039613253960852e-13
+        }
+      ],
+      "reference_sha256": "a4abb7828cc041859fe10346e68e9979124b0de410905ff3e5ae3a1f00c184f9",
+      "candidate_sha256": "4465636e6a93e724c8a308582da7c41a5e46f3028ccb7f1a4928ab2a358d9fd0"
+    },
+    {
+      "plant": "planar3",
+      "initial_condition": "reverse-flow",
+      "passed": true,
+      "first_nonzero_step": 3,
+      "maxima": {
+        "position_m": {
+          "value": 1.1652900866465643e-12,
+          "step": 2107
+        },
+        "yaw_rad": {
+          "value": 6.283185307179442,
+          "step": 2400
+        },
+        "yaw_circular_diagnostic_rad": {
+          "value": 2.2870594307278225e-13,
+          "step": 2109
+        },
+        "linear_velocity_m_s": {
+          "value": 9.958700530887654e-14,
+          "step": 2099
+        },
+        "yaw_rate_rad_s": {
+          "value": 2.3765711620882257e-14,
+          "step": 2394
+        },
+        "acceleration": {
+          "value": 3.247402347028583e-14,
+          "step": 2317
+        },
+        "thruster_force_n": {
+          "value": 1.4210854715202004e-14,
+          "step": 663
+        },
+        "energy_j": {
+          "value": 0.0,
+          "step": null
+        }
+      },
+      "log_samples": [
+        {
+          "step": 1,
+          "raw_max_abs": 0.0,
+          "circular_yaw_physical_max_abs": 0.0
+        },
+        {
+          "step": 2,
+          "raw_max_abs": 0.0,
+          "circular_yaw_physical_max_abs": 0.0
+        },
+        {
+          "step": 4,
+          "raw_max_abs": 4.440892098500626e-16,
+          "circular_yaw_physical_max_abs": 4.440892098500626e-16
+        },
+        {
+          "step": 8,
+          "raw_max_abs": 0.0,
+          "circular_yaw_physical_max_abs": 0.0
+        },
+        {
+          "step": 16,
+          "raw_max_abs": 8.881784197001252e-16,
+          "circular_yaw_physical_max_abs": 8.881784197001252e-16
+        },
+        {
+          "step": 32,
+          "raw_max_abs": 1.7763568394002505e-15,
+          "circular_yaw_physical_max_abs": 1.7763568394002505e-15
+        },
+        {
+          "step": 64,
+          "raw_max_abs": 6.661338147750939e-15,
+          "circular_yaw_physical_max_abs": 6.661338147750939e-15
+        },
+        {
+          "step": 128,
+          "raw_max_abs": 5.262457136723242e-14,
+          "circular_yaw_physical_max_abs": 5.262457136723242e-14
+        },
+        {
+          "step": 256,
+          "raw_max_abs": 1.2212453270876722e-13,
+          "circular_yaw_physical_max_abs": 1.2212453270876722e-13
+        },
+        {
+          "step": 512,
+          "raw_max_abs": 2.0961010704922955e-13,
+          "circular_yaw_physical_max_abs": 2.0961010704922955e-13
+        },
+        {
+          "step": 1024,
+          "raw_max_abs": 1.3145040611561853e-13,
+          "circular_yaw_physical_max_abs": 1.3145040611561853e-13
+        },
+        {
+          "step": 1600,
+          "raw_max_abs": 3.375077994860476e-13,
+          "circular_yaw_physical_max_abs": 3.375077994860476e-13
+        },
+        {
+          "step": 2048,
+          "raw_max_abs": 6.283185307179387,
+          "circular_yaw_physical_max_abs": 7.958078640513122e-13
+        },
+        {
+          "step": 2400,
+          "raw_max_abs": 6.283185307179442,
+          "circular_yaw_physical_max_abs": 8.881784197001252e-13
+        }
+      ],
+      "reference_sha256": "313431889da96db0e684f7817b0a80bb4ecf0172b57de4d39c6f2c15a6391859",
+      "candidate_sha256": "dabea16e17454f481a97f072e1bf7533cb43676df9c009913fb1383360b2b1c8"
+    }
+  ],
+  "summary": {
+    "planar3_passed": true,
+    "planar3_cases": 5,
+    "coupled6_status": "not-run-tensor-backend-not-implemented",
+    "gate_passed": false,
+    "reason": "A required plant is missing even if every amended planar3 cell passes."
+  }
+}

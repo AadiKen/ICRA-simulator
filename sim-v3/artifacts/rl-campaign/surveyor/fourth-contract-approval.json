@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN_APPROVED_PHASE_1_STARTED",
+  "approved_at": "2026-09-03",
+  "content_sha256": "905347f3e894841aa7e6613dfc286e585a0bf284f5f21820600cc09c0e6358ba",
+  "revision": "4.0.0-surveyor-rate-corrected-shaping-scale",
+  "authorized_changes": {
+    "control_rate_compliance": "Hold each command for two 0.05 s physics steps to enforce 10 Hz.",
+    "potential_shaping_k": 0.1757208861220446
+  },
+  "unchanged": ["route", "disturbance", "terminal radius", "timeout", "observation/action spaces", "base reward", "C3 thresholds", "seed protocol"],
+  "execution": "Phase 1 final-leg isolation authorized; continue to Phase 2 only after two consecutive checkpoints reach at least 90% success."
+}

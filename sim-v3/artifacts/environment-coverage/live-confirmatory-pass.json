@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "environmental-source-live-confirmatory-pass",
+  "started_at": "2026-08-24T20:00:15.062Z",
+  "completed_at": "2026-08-24T20:00:23.804Z",
+  "methodology": "One real upstream retrieval/probe per named source at the San Francisco coverage site. This supplements and does not replace the deterministic 48-cell matrix.",
+  "site": {
+    "id": "san-francisco",
+    "latitude_deg": 37.806,
+    "longitude_deg": -122.465
+  },
+  "results": [
+    {
+      "source": "ndbc",
+      "site": "san-francisco",
+      "success": true,
+      "status": "success",
+      "observed_latency_ms": 184.11,
+      "upstream_requests": [
+        {
+          "url": "https://www.ndbc.noaa.gov/data/realtime2/46026.txt",
+          "status": 200,
+          "ok": true,
+          "latency_ms": 154.893,
+          "content_type": "text/plain; charset=ISO-8859-1",
+          "content_length_header": "67250",
+          "bytes": 617204,
+          "checksum_sha256": "af9c87ff18cde1a5b898b5724c7872c486e715894151dcc059844f4e0761b468"
+        }
+      ],
+      "payload_shape": "standard meteorological text -> atmosphere,water,surface",
+      "fixture_match": true,
+      "fixture_discrepancies": [],
+      "notes": [
+        "Real station 46026; production NdbcSource and parser used."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "san-francisco",
+      "success": true,
+      "status": "success",
+      "observed_latency_ms": 189.548,
+      "upstream_requests": [
+        {
+          "url": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?date=latest&station=9414290&product=water_level&datum=MLLW&time_zone=gmt&units=metric&application=BCOD&format=json",
+          "status": 200,
+          "ok": true,
+          "latency_ms": 189.121,
+          "content_type": "application/json;charset=UTF-8",
+          "content_length_header": "171",
+          "bytes": 171,
+          "checksum_sha256": "b2fa35fd057c49a6f63968d4ef0ee37c1ae9d6cae3ce5ef8f5b34d6f6a8de513"
+        }
+      ],
+      "payload_shape": "JSON data[] with t/v water-level row",
+      "fixture_match": true,
+      "fixture_discrepancies": [],
+      "notes": [
+        "Real station 9414290; production CoopsSource parser used."
+      ]
+    },
+    {
+      "source": "nws",
+      "site": "san-francisco",
+      "success": true,
+      "status": "success",
+      "observed_latency_ms": 198.53,
+      "upstream_requests": [
+        {
+          "url": "https://api.weather.gov/points/37.806,-122.465",
+          "status": 200,
+          "ok": true,
+          "latency_ms": 112.428,
+          "content_type": "application/geo+json",
+          "content_length_header": "977",
+          "bytes": 3742,
+          "checksum_sha256": "e69a2443366fb3ad74fed48d8e3c5df18b1524b2f65cf66d8e523dd0be0af8c9"
+        },
+        {
+          "url": "https://api.weather.gov/gridpoints/MTR/83,107",
+          "status": 200,
+          "ok": true,
+          "latency_ms": 84.738,
+          "content_type": "application/geo+json",
+          "content_length_header": "9210",
+          "bytes": 174986,
+          "checksum_sha256": "3445f383a14a95369f915fd43adac1626a4b0195ec55e05e566a175857378aa3"
+        }
+      ],
+      "payload_shape": "points metadata -> forecastGridData GeoJSON properties/value arrays",
+      "fixture_match": true,
+      "fixture_discrepancies": [],
+      "notes": [
+        "Production NwsSource made both real API calls with the required identifying User-Agent."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "san-francisco",
+      "success": true,
+      "status": "success",
+      "observed_latency_ms": 6698.185,
+      "upstream_requests": [
+        {
+          "url": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/rtofs/prod/rtofs.20260823/rtofs_glo_2ds_f024_prog.nc",
+          "status": 200,
+          "ok": true,
+          "latency_ms": 5888.296,
+          "content_type": "application/x-netcdf",
+          "content_length_header": "155641696",
+          "bytes": 155641696,
+          "checksum_sha256": "09857cd1c957d6db5d1573913fc104c9b4cdddb15d5e67b14a571ee57b446e51"
+        }
+      ],
+      "payload_shape": "decoded NetCDF4/HDF5 grid cell rtofs:Y2015,X2041@37.796661,-122.560059",
+      "fixture_match": true,
+      "fixture_discrepancies": [],
+      "notes": [
+        "Pinned cycle 20260823T00Z, forecast lead f024; complete real payload decoded through the production adapter.",
+        "north=0.005014252848923206, east=0.038774870336055756, temperature_c=17.063268661499023, salinity_psu=31.7177677154541"
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "san-francisco",
+      "success": false,
+      "status": "blocked",
+      "observed_latency_ms": 885.733,
+      "upstream_requests": [
+        {
+          "url": "https://cds.climate.copernicus.eu/api/retrieve/v1/processes/reanalysis-era5-single-levels",
+          "status": 200,
+          "ok": true,
+          "latency_ms": 885.312,
+          "content_type": "application/json",
+          "content_length_header": "15195",
+          "bytes": 15195,
+          "checksum_sha256": "0e81203e5cd1d9b7b805bd22a668e3d72ad618656cc4daafdf16158f02a63d24"
+        }
+      ],
+      "payload_shape": "public CDS process metadata only; no ERA5 data payload",
+      "fixture_match": false,
+      "fixture_discrepancies": [
+        "Fixture assumes valid CDS credentials and successful queued jobs; no CDS credential is configured on this host."
+      ],
+      "notes": [
+        "unauthenticated process-metadata probe succeeded; JSON keys: title,description,id,version,jobControlOptions,outputTransmission,links,inputs,outputs",
+        "No retrieval job was submitted and no secret was written to the artifact."
+      ]
+    },
+    {
+      "source": "bathymetry_cascade",
+      "site": "san-francisco",
+      "success": false,
+      "status": "partial",
+      "observed_latency_ms": 584.567,
+      "upstream_requests": [
+        {
+          "url": "https://wms.gebco.net/mapserv?service=WMS&request=GetCapabilities&version=1.3.0",
+          "status": 200,
+          "ok": true,
+          "latency_ms": 584.247,
+          "content_type": "text/xml; charset=UTF-8",
+          "content_length_header": "4330",
+          "bytes": 24420,
+          "checksum_sha256": "74c2c3c9c4e07aadf170aa84d798e9b091ed3d9463184f0db2653fae247e477d"
+        }
+      ],
+      "payload_shape": "GEBCO WMS capabilities XML; layers=WMS,GEBCO_Grid,GEBCO_LATEST_SUB_ICE_TOPO,default,GEBCO_LATEST_SUB_ICE_TOPO,GEBCO_LATEST,default,GEBCO_LATEST,GEBCO_LATEST_2_sub_ice_topo,default,GEBCO_LATEST_2_sub_ice_topo,GEBCO_LATEST_2",
+      "fixture_match": false,
+      "fixture_discrepancies": [
+        "Fixture models eHydro→lidar→estuarine_dem→CUDEM→GEBCO as directly queryable catalog adapters, but the repository has no live depth-source adapter implementations.",
+        "GEBCO WMS provides map imagery/capabilities, not the fixture's direct numeric DepthValue contract."
+      ],
+      "notes": [
+        "Real GEBCO fallback endpoint contacted successfully; cascade resolution cannot be completed by current production code."
+      ]
+    }
+  ],
+  "mismatch_summary": [
+    {
+      "source": "era5",
+      "discrepancies": [
+        "Fixture assumes valid CDS credentials and successful queued jobs; no CDS credential is configured on this host."
+      ]
+    },
+    {
+      "source": "bathymetry_cascade",
+      "discrepancies": [
+        "Fixture models eHydro→lidar→estuarine_dem→CUDEM→GEBCO as directly queryable catalog adapters, but the repository has no live depth-source adapter implementations.",
+        "GEBCO WMS provides map imagery/capabilities, not the fixture's direct numeric DepthValue contract."
+      ]
+    }
+  ],
+  "summary": {
+    "sources": 6,
+    "success": 4,
+    "partial": 1,
+    "blocked": 1,
+    "failed": 0,
+    "fixture_mismatches": 2
+  },
+  "credential_leak_scan": {
+    "pass": true,
+    "findings": [],
+    "scanner": "serialized live artifact: cloud keys, authorization values, URL credentials, private keys"
+  }
+}

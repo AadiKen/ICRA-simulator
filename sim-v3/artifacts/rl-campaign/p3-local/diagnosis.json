@@ -1,0 +1,2148 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "p3-amendment-1-diagnosis",
+  "status": "diagnosis-complete-halt-awaiting-human-branch-approval",
+  "created_at": "2026-08-31T20:09:47Z",
+  "constraints": {
+    "new_training_performed": false,
+    "checkpoint": "artifacts/rl-campaign/p3-local/ppo-final.zip",
+    "checkpoint_sha256": "d5ee555541462fafd3f930f3a596324b63b364ef5e8bc816324f5f43a5a509f0",
+    "evaluation_seeds": [
+      10000,
+      10049
+    ],
+    "episodes": 50
+  },
+  "decisive_comparison": [
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "episodes": 50,
+      "return_mean": -1741.7443225826003,
+      "return_median": -1639.8732807336628,
+      "return_sd": 831.1141141234746,
+      "success_count": 0,
+      "success_rate": 0,
+      "mean_episode_length": 2400
+    },
+    {
+      "policy": "PID-v1",
+      "episodes": 50,
+      "return_mean": -591.398263014782,
+      "return_median": -436.47918723600014,
+      "return_sd": 484.0519147102114,
+      "success_count": 0,
+      "success_rate": 0,
+      "mean_episode_length": 2400
+    },
+    {
+      "policy": "MPC-v1",
+      "episodes": 50,
+      "return_mean": -581.3691758060911,
+      "return_median": -502.21620381447315,
+      "return_sd": 351.5957600759485,
+      "success_count": 0,
+      "success_rate": 0,
+      "mean_episode_length": 2400
+    },
+    {
+      "policy": "PPO-P3",
+      "episodes": 50,
+      "return_mean": -398.24659619012664,
+      "return_median": -171.07409880660225,
+      "return_sd": 583.6054579252359,
+      "success_count": 3,
+      "success_rate": 0.06,
+      "mean_episode_length": 2364.82
+    }
+  ],
+  "reference_confirmation": {
+    "recorded_untrained_median": -1639.8732807336628,
+    "expected_approximate_untrained": -1640,
+    "recorded_best_classical_policy": "PID-v1",
+    "recorded_best_classical_median": -436.47918723600014,
+    "expected_approximate_best_classical": -437,
+    "derived_threshold": -1038.1762339848315,
+    "recomputed_threshold": -1038.1762339848315,
+    "confirmed": true
+  },
+  "trained_policy_failure_taxonomy": {
+    "terminal_distance_to_final_waypoint_m": {
+      "mean": 21.424684682446625,
+      "median": 9.327057250573633,
+      "min": 0.45141208736228206,
+      "max": 134.32595428322466,
+      "raw": [
+        1.3237007147709774,
+        22.95906233516597,
+        15.474852320570237,
+        10.635910605820582,
+        7.584444958291232,
+        7.512543757227362,
+        9.660923704860256,
+        3.3621969942596057,
+        14.537635346718487,
+        12.015030871959826,
+        2.171976193064017,
+        3.9756437938801565,
+        9.491188976943056,
+        5.64815464339707,
+        13.799173750043897,
+        17.555855666638347,
+        8.20428399731737,
+        9.16292552420421,
+        12.198334063297702,
+        15.541731742898547,
+        96.26935382582866,
+        107.89252103801715,
+        6.765426422112984,
+        28.070563589683786,
+        0.7925394057272229,
+        30.53287516829037,
+        134.32595428322466,
+        97.2438111017165,
+        5.069228018493345,
+        68.4807915906373,
+        17.776009746585498,
+        4.098798043702502,
+        0.45141208736228206,
+        5.780521712303675,
+        3.0841053997442534,
+        81.45218196679848,
+        26.94961617305984,
+        2.760254562610812,
+        12.67857156725101,
+        6.972854109688818,
+        2.6637222093273984,
+        8.701409368175591,
+        54.43668228592081,
+        4.589158376050464,
+        22.134744789389377,
+        1.784566851219972,
+        8.696217708145168,
+        2.619307613828071,
+        1.390772398031207,
+        23.954692748074965
+      ]
+    },
+    "waypoints_reached_counts": {
+      "3": 3,
+      "0": 7,
+      "2": 30,
+      "1": 10
+    },
+    "termination_reason_counts": {
+      "timeout": 47,
+      "grounding": 0,
+      "object_collision": 0,
+      "allocation_failure": 0,
+      "success": 3
+    },
+    "time_within_2x_success_radius_without_termination_s": {
+      "mean": 8.351,
+      "median": 3.975,
+      "max": 43.1,
+      "episodes_with_positive_time": 29
+    },
+    "mean_episode_length": 2364.82,
+    "timeout_fraction": 0.94,
+    "raw": [
+      {
+        "seed": 10000,
+        "return": 55.068310283141415,
+        "success": true,
+        "episode_length": 1614,
+        "termination_reason": "success",
+        "terminal_distance_to_final_waypoint_m": 1.3237007147709774,
+        "waypoints_reached": 3,
+        "time_within_2x_success_radius_without_termination_s": 14.700000000000001,
+        "terminal_speed_mps": 0.3890958344368819,
+        "terminal_state": {
+          "time_s": 80.69999999999709,
+          "position_ned_m": [
+            10051.054830793988,
+            10004.56787855317,
+            0.01034993687549875
+          ],
+          "attitude_rad": [
+            -0.05201197134392054,
+            -0.06269462666287975,
+            -2.3628455818038034
+          ],
+          "velocity_body_mps": [
+            0.3198559428348588,
+            -0.221557541531217,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.8213520175769911
+          ],
+          "acceleration_body_mps2": [
+            -0.19063627297374175,
+            -0.11060124974674869,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10001,
+        "return": -507.71776470058717,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 22.95906233516597,
+        "waypoints_reached": 0,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 1.5430794383053907,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10030.413177358922,
+            10002.8352150758,
+            0.018672113451987285
+          ],
+          "attitude_rad": [
+            0.09570757638915794,
+            0.06683859643789183,
+            1.5460862242168818
+          ],
+          "velocity_body_mps": [
+            1.3449421811762647,
+            0.7564553405282505,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.6782750258859622
+          ],
+          "acceleration_body_mps2": [
+            0.236230306268181,
+            -0.16238983657102654,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10002,
+        "return": -159.5922100030536,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 15.474852320570237,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 4.75,
+        "terminal_speed_mps": 1.5793544548399996,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10060.346497538805,
+            9980.493409449711,
+            -0.02171022177352698
+          ],
+          "attitude_rad": [
+            0.08525751873545444,
+            0.03777024081768885,
+            0.7337810393974935
+          ],
+          "velocity_body_mps": [
+            1.0880584437616412,
+            -1.1447660533846853,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.10989787159877465
+          ],
+          "acceleration_body_mps2": [
+            -0.11532764876432161,
+            0.38793291422439563,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10003,
+        "return": -132.1158866732532,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 10.635910605820582,
+        "waypoints_reached": 1,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 0.38463559096073435,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10036.903050469899,
+            10015.972603515558,
+            -0.019166339924651936
+          ],
+          "attitude_rad": [
+            -0.054851431796129765,
+            0.049099891639272406,
+            0.950709202384362
+          ],
+          "velocity_body_mps": [
+            0.26728228916529,
+            -0.2765948584704272,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.33947896064002636
+          ],
+          "acceleration_body_mps2": [
+            0.07037872649410283,
+            0.11830040209361775,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10004,
+        "return": -109.55848932421395,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 7.584444958291232,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 11.3,
+        "terminal_speed_mps": 0.27470015682278515,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10056.671927976646,
+            9995.894062768324,
+            0.01713720668876149
+          ],
+          "attitude_rad": [
+            -0.09056576655984959,
+            0.08490773575332766,
+            -2.696093952921858
+          ],
+          "velocity_body_mps": [
+            0.22690868591014665,
+            -0.1548309543243636,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.8408028393405228
+          ],
+          "acceleration_body_mps2": [
+            0.2590626991247178,
+            0.14315087946560137,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10005,
+        "return": -284.83280432823767,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 7.512543757227362,
+        "waypoints_reached": 1,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 0.9034139841982212,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10042.601666924724,
+            10004.165170793938,
+            0.03452427627198677
+          ],
+          "attitude_rad": [
+            0.05088473108038265,
+            -0.07284627274408473,
+            0.47177976224664353
+          ],
+          "velocity_body_mps": [
+            0.7748126899773486,
+            -0.4645665961893611,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.7184808134809205
+          ],
+          "acceleration_body_mps2": [
+            0.06817710498318423,
+            -0.25633961227311325,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10006,
+        "return": -190.65976332703872,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 9.660923704860256,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 4.05,
+        "terminal_speed_mps": 0.5996237318795132,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10042.807141271353,
+            9987.252606930319,
+            0.022248200414944193
+          ],
+          "attitude_rad": [
+            -0.06217550355583335,
+            -0.07679990336779813,
+            -1.5368656101756353
+          ],
+          "velocity_body_mps": [
+            -0.4195341688357564,
+            -0.4284153370415273,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.7633819778818638
+          ],
+          "acceleration_body_mps2": [
+            -0.21070089895775931,
+            0.2509185683843375,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10007,
+        "return": -74.1915006053711,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 3.3621969942596057,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 43.1,
+        "terminal_speed_mps": 1.263848026859576,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10051.07064353851,
+            10009.617238447237,
+            0.019100239973648722
+          ],
+          "attitude_rad": [
+            -0.03162494199994918,
+            0.0746502450864657,
+            -1.966673100663849
+          ],
+          "velocity_body_mps": [
+            -1.255557872231132,
+            -0.1445208098346945,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.260389566074303
+          ],
+          "acceleration_body_mps2": [
+            0.014835987156299165,
+            -0.1508311421057207,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10008,
+        "return": -213.66150175360468,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 14.537635346718487,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 10.950000000000001,
+        "terminal_speed_mps": 0.49691151563299024,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10040.356117720205,
+            9995.388189537296,
+            0.04930589306899559
+          ],
+          "attitude_rad": [
+            -0.05614595863411981,
+            0.061362087271961456,
+            -1.3631429222406464
+          ],
+          "velocity_body_mps": [
+            -0.23341312058568636,
+            -0.4386791190689698,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.828626141806852
+          ],
+          "acceleration_body_mps2": [
+            -0.7452226876880951,
+            0.2427699708340823,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10009,
+        "return": -169.14959427923864,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 12.015030871959826,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 10.350000000000001,
+        "terminal_speed_mps": 0.2707956978297853,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10046.28187088809,
+            9988.354353053774,
+            -0.05124264134255935
+          ],
+          "attitude_rad": [
+            0.04765727507931688,
+            -0.011686347496034534,
+            -0.8597615262107433
+          ],
+          "velocity_body_mps": [
+            -0.22978196444324486,
+            -0.1432848867805804,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.802741967603581
+          ],
+          "acceleration_body_mps2": [
+            -0.2928643919129204,
+            0.18219284534822147,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10010,
+        "return": -377.4115088272937,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 2.171976193064017,
+        "waypoints_reached": 1,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 1.7277148401559599,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10047.941314504113,
+            9998.280620622603,
+            0.028248664022863523
+          ],
+          "attitude_rad": [
+            0.05964544572166452,
+            -0.08792896663510986,
+            -1.8865235227923511
+          ],
+          "velocity_body_mps": [
+            1.5420640383062654,
+            0.7791258374984795,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.6526495432229558
+          ],
+          "acceleration_body_mps2": [
+            0.9335570990311051,
+            0.6419964104262031,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10011,
+        "return": -136.83595690523933,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 3.9756437938801565,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 5.75,
+        "terminal_speed_mps": 0.7861297909980949,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10053.265408623045,
+            9991.373760590941,
+            -0.0008561669498202435
+          ],
+          "attitude_rad": [
+            -0.08361472247950524,
+            -0.05334824490977368,
+            -1.107304422223236
+          ],
+          "velocity_body_mps": [
+            0.5383542581168431,
+            -0.572865377782749,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.05396496764081739
+          ],
+          "acceleration_body_mps2": [
+            -0.05145989793810333,
+            0.2651006738665886,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10012,
+        "return": -143.13633266261257,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 9.491188976943056,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 19.1,
+        "terminal_speed_mps": 0.8547156784289941,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10058.292995989377,
+            9994.316417199949,
+            -0.025001861401308056
+          ],
+          "attitude_rad": [
+            0.06391832442135277,
+            0.04737872718134789,
+            2.679623460688425
+          ],
+          "velocity_body_mps": [
+            0.725310909849755,
+            0.4521758231100556,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.6140014463309544
+          ],
+          "acceleration_body_mps2": [
+            1.0925595268815669,
+            0.20463947831332854,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10013,
+        "return": -112.43528764080293,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 5.64815464339707,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 7.9,
+        "terminal_speed_mps": 0.3650967391905128,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10055.222970055536,
+            10001.815562071992,
+            0.006476895256312733
+          ],
+          "attitude_rad": [
+            -0.0666143688936023,
+            0.08794985641485185,
+            0.46743722640876606
+          ],
+          "velocity_body_mps": [
+            0.13987077286923738,
+            -0.33724145039497666,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.7493788515361846
+          ],
+          "acceleration_body_mps2": [
+            0.06788118638153107,
+            0.07977429154499042,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10014,
+        "return": -186.5555159497381,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 13.799173750043897,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 1.75,
+        "terminal_speed_mps": 0.915704813358053,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10064.24229363344,
+            10001.437054478318,
+            -0.023704380441194613
+          ],
+          "attitude_rad": [
+            -0.09687728812544306,
+            0.03782425702420505,
+            1.725915761803082
+          ],
+          "velocity_body_mps": [
+            -0.7963585985282757,
+            -0.4520268661895962,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.8669499391568993
+          ],
+          "acceleration_body_mps2": [
+            0.23627572234981586,
+            -0.5068110066937304,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10015,
+        "return": -281.46285336888343,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 17.555855666638347,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 3.9000000000000004,
+        "terminal_speed_mps": 0.974369893469555,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10064.369602983095,
+            9994.998381617037,
+            -0.03280354593604436
+          ],
+          "attitude_rad": [
+            0.09607620475658392,
+            0.09324121687170485,
+            -1.567171312520375
+          ],
+          "velocity_body_mps": [
+            0.6435466755631484,
+            0.7316039677800359,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.6920884202495947
+          ],
+          "acceleration_body_mps2": [
+            -0.7669129950109782,
+            0.00226040703352587,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10016,
+        "return": -96.37340688264149,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 8.20428399731737,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 9.200000000000001,
+        "terminal_speed_mps": 0.2587505370447996,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10043.309699131529,
+            10009.952649117868,
+            0.0027777707792371042
+          ],
+          "attitude_rad": [
+            -0.06828355465312091,
+            0.0916682687768195,
+            2.2346885775703247
+          ],
+          "velocity_body_mps": [
+            -0.004732251619044284,
+            0.258707259688603,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.768987134574851
+          ],
+          "acceleration_body_mps2": [
+            0.025399470880064876,
+            0.0066573857329526335,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10017,
+        "return": -90.57896055107472,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 9.16292552420421,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 28.400000000000002,
+        "terminal_speed_mps": 1.056177330707189,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10055.744727346328,
+            10008.808870935221,
+            0.0372433803898216
+          ],
+          "attitude_rad": [
+            -0.07399602066335033,
+            0.040340090624860034,
+            -2.0985859293188884
+          ],
+          "velocity_body_mps": [
+            0.782473395153978,
+            0.7093982941732874,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.8133407633517984
+          ],
+          "acceleration_body_mps2": [
+            0.13753043230280587,
+            0.3670128909088006,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10018,
+        "return": -281.5541662144356,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 12.198334063297702,
+        "waypoints_reached": 1,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 1.5946620617498581,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10038.247253076324,
+            10006.738416416816,
+            -0.04008960162653027
+          ],
+          "attitude_rad": [
+            -0.09353879112621294,
+            0.04841548316272053,
+            2.8605978598865667
+          ],
+          "velocity_body_mps": [
+            1.5860665140632357,
+            0.16534843256470233,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.49918525158212446
+          ],
+          "acceleration_body_mps2": [
+            -0.03883576157095673,
+            -0.5453088122717559,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10019,
+        "return": -205.58825692820363,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 15.541731742898547,
+        "waypoints_reached": 1,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 0.9034812516890652,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10034.115431913378,
+            9995.024139842972,
+            0.08625795228533796
+          ],
+          "attitude_rad": [
+            -0.10014241392429964,
+            -0.07016313218624828,
+            1.7016298981912128
+          ],
+          "velocity_body_mps": [
+            0.8705233939669104,
+            -0.24180031577723693,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.7824859796297325
+          ],
+          "acceleration_body_mps2": [
+            -0.5054381580422225,
+            -0.42365411627025734,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10020,
+        "return": -1908.296085290091,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 96.26935382582866,
+        "waypoints_reached": 0,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 0.798398084716737,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            9986.271043340586,
+            10073.008894566492,
+            -0.011934179209055295
+          ],
+          "attitude_rad": [
+            0.07446680212669542,
+            -0.06704260430058209,
+            -1.3347667678198798
+          ],
+          "velocity_body_mps": [
+            -0.7720629105262544,
+            0.20336755854630037,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.8414316033125521
+          ],
+          "acceleration_body_mps2": [
+            -0.48208910173934943,
+            -0.6743414304296153,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10021,
+        "return": -1140.7959665893497,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 107.89252103801715,
+        "waypoints_reached": 0,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 3.121567795867143,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            9939.677040972889,
+            10008.783467639667,
+            0.08795925307441435
+          ],
+          "attitude_rad": [
+            -0.05244275782914602,
+            -0.05164070869481014,
+            1.358708658432124
+          ],
+          "velocity_body_mps": [
+            -2.475929207745994,
+            1.9010418360533647,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.7155375599019798
+          ],
+          "acceleration_body_mps2": [
+            0.5615099529092825,
+            0.6618925285066771,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10022,
+        "return": -172.99860333396586,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 6.765426422112984,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 15.450000000000001,
+        "terminal_speed_mps": 0.5632145663732587,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10038.58099089304,
+            10020.782200512558,
+            -0.04476168592936832
+          ],
+          "attitude_rad": [
+            -0.0836674443651738,
+            0.0446869383981591,
+            2.6210839759004756
+          ],
+          "velocity_body_mps": [
+            -0.43411074222208423,
+            0.3588293623192074,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.5030027420541328
+          ],
+          "acceleration_body_mps2": [
+            -1.05544993705085,
+            -0.3183275383306094,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10023,
+        "return": -244.52166195356438,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 28.070563589683786,
+        "waypoints_reached": 1,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 1.3557957097063718,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10021.202198630439,
+            10007.524456357945,
+            0.0743871376198039
+          ],
+          "attitude_rad": [
+            0.03712792112745655,
+            0.0350087555234941,
+            -0.8983836986406585
+          ],
+          "velocity_body_mps": [
+            -1.1579442140116503,
+            0.7052284762367058,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.4609502961186086
+          ],
+          "acceleration_body_mps2": [
+            -0.8804118203139633,
+            -0.1966328706965273,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10024,
+        "return": 71.62608160756241,
+        "success": true,
+        "episode_length": 1769,
+        "termination_reason": "success",
+        "terminal_distance_to_final_waypoint_m": 0.7925394057272229,
+        "waypoints_reached": 3,
+        "time_within_2x_success_radius_without_termination_s": 12.200000000000001,
+        "terminal_speed_mps": 0.22140163535041987,
+        "terminal_state": {
+          "time_s": 88.44999999999709,
+          "position_ned_m": [
+            10048.79469930961,
+            10013.18270930163,
+            0.01720347474127111
+          ],
+          "attitude_rad": [
+            0.04219379176076455,
+            -0.0763667571516051,
+            3.0590262709044937
+          ],
+          "velocity_body_mps": [
+            0.2091594442220429,
+            0.0726017288262918,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.7526266733146351
+          ],
+          "acceleration_body_mps2": [
+            -0.04203403806281627,
+            -0.12417129489943983,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10025,
+        "return": -635.9902757925087,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 30.53287516829037,
+        "waypoints_reached": 1,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 1.4715694071067031,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10045.808590366405,
+            10032.696224373361,
+            0.07282970128614914
+          ],
+          "attitude_rad": [
+            -0.060193687671099436,
+            0.059881216829562954,
+            1.0066704709558822
+          ],
+          "velocity_body_mps": [
+            1.204180867545955,
+            0.8458516171106164,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.5213937940259833
+          ],
+          "acceleration_body_mps2": [
+            0.09630884526165458,
+            0.08430474047552604,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10026,
+        "return": -2960.104615516641,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 134.32595428322466,
+        "waypoints_reached": 0,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 1.3631188986615665,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            9968.600984974972,
+            9882.743302222945,
+            -0.03431125503751455
+          ],
+          "attitude_rad": [
+            -0.038262790683269786,
+            0.039412382373620554,
+            -1.8159884311126953
+          ],
+          "velocity_body_mps": [
+            0.45080777924169746,
+            1.2864157485290248,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.9753306231668682
+          ],
+          "acceleration_body_mps2": [
+            0.6409347051541939,
+            -0.988588265843768,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10027,
+        "return": -1610.3813216094704,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 97.2438111017165,
+        "waypoints_reached": 0,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 0.5450000946574631,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            9976.383095713942,
+            10056.226272903612,
+            0.07432456492417659
+          ],
+          "attitude_rad": [
+            -0.051336853775752214,
+            0.05956677095183797,
+            0.811879719479566
+          ],
+          "velocity_body_mps": [
+            -0.5449970564419201,
+            -0.0018197929240301985,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.07600212036590676
+          ],
+          "acceleration_body_mps2": [
+            -0.17733010196549023,
+            0.22919562120354106,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10028,
+        "return": -150.01091885690911,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 5.069228018493345,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 6.9,
+        "terminal_speed_mps": 1.4583730166538367,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10051.513897480847,
+            10005.614218613364,
+            -0.046363667125499164
+          ],
+          "attitude_rad": [
+            -0.0726451270301916,
+            0.06033216811556648,
+            -2.642112679766959
+          ],
+          "velocity_body_mps": [
+            1.2366050203336618,
+            -0.7730846521498119,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.937235256925845
+          ],
+          "acceleration_body_mps2": [
+            -1.1278446123668306,
+            -0.5630988878240939,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10029,
+        "return": -1133.3047515773258,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 68.4807915906373,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 0.5982134724409379,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10024.783551027569,
+            10064.912320208488,
+            0.09359273219330111
+          ],
+          "attitude_rad": [
+            -0.059896965837137356,
+            -0.04864602272823239,
+            -0.9017279240188273
+          ],
+          "velocity_body_mps": [
+            -0.3518499469441286,
+            0.48379848433542944,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.851192743952584
+          ],
+          "acceleration_body_mps2": [
+            -0.5460676932031856,
+            -0.41050443750032,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10030,
+        "return": -522.1926557124319,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 17.776009746585498,
+        "waypoints_reached": 0,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 0.361043260949832,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10033.326236241099,
+            10010.311961502632,
+            0.0059702988988347624
+          ],
+          "attitude_rad": [
+            -0.08783747215664334,
+            -0.09325259699128925,
+            0.11061678464899867
+          ],
+          "velocity_body_mps": [
+            0.36015888532586166,
+            0.0252549717505553,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.6476583080743092
+          ],
+          "acceleration_body_mps2": [
+            0.0798586140644222,
+            0.1523945533655324,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10031,
+        "return": -154.53012472004892,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 4.098798043702502,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 13.9,
+        "terminal_speed_mps": 0.9880302052624341,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10041.669889692406,
+            10022.326041209237,
+            0.00991219622133254
+          ],
+          "attitude_rad": [
+            -0.041287759847728214,
+            -0.06383270509692564,
+            -1.3275549015589114
+          ],
+          "velocity_body_mps": [
+            -0.9302202826449881,
+            -0.33300737569430217,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            1.0208784608354806
+          ],
+          "acceleration_body_mps2": [
+            -0.8535788338599394,
+            0.8144110685176496,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10032,
+        "return": 13.284806679004419,
+        "success": true,
+        "episode_length": 2058,
+        "termination_reason": "success",
+        "terminal_distance_to_final_waypoint_m": 0.45141208736228206,
+        "waypoints_reached": 3,
+        "time_within_2x_success_radius_without_termination_s": 18.55,
+        "terminal_speed_mps": 0.4626589538651384,
+        "terminal_state": {
+          "time_s": 102.90000000000146,
+          "position_ned_m": [
+            10049.470836673387,
+            10010.814532469953,
+            0.0065363275820027635
+          ],
+          "attitude_rad": [
+            0.05789993833743758,
+            -0.08426531437693544,
+            2.3763529598812068
+          ],
+          "velocity_body_mps": [
+            0.4505878684473334,
+            -0.10499466843451057,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.7972983877123268
+          ],
+          "acceleration_body_mps2": [
+            0.060519082491898496,
+            -0.31360932398898717,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10033,
+        "return": -95.24587950175489,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 5.780521712303675,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 6.2,
+        "terminal_speed_mps": 0.06259372759748333,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10055.22028229996,
+            10008.606303456598,
+            0.02758440948299542
+          ],
+          "attitude_rad": [
+            0.061924217471355875,
+            0.03507092036262702,
+            -1.9675663004033106
+          ],
+          "velocity_body_mps": [
+            0.014082178117277697,
+            0.06098907274275624,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.7956261153932602
+          ],
+          "acceleration_body_mps2": [
+            -0.05867641903896908,
+            0.10434206916082966,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10034,
+        "return": -145.03016630270724,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 3.0841053997442534,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 12.4,
+        "terminal_speed_mps": 1.625805454725648,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10046.492940724023,
+            9986.860074560222,
+            -0.039960774734869545
+          ],
+          "attitude_rad": [
+            -0.016542270804304815,
+            -0.0615313266043838,
+            -2.3826476305081603
+          ],
+          "velocity_body_mps": [
+            -1.215184342913267,
+            1.0800788810795825,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.5999877581146108
+          ],
+          "acceleration_body_mps2": [
+            -0.47112088899839927,
+            -0.02613786151153527,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10035,
+        "return": -1929.1586470963025,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 81.45218196679848,
+        "waypoints_reached": 1,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 3.5455517683990707,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10101.531867644118,
+            10053.672379266025,
+            0.06856967903375547
+          ],
+          "attitude_rad": [
+            0.09039299065547057,
+            0.05524987489787377,
+            -0.643451600097573
+          ],
+          "velocity_body_mps": [
+            2.828417508171272,
+            2.137987778699399,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.9368977758697091
+          ],
+          "acceleration_body_mps2": [
+            -1.3210962693215875,
+            1.0729396696337918,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10036,
+        "return": -811.4008517903068,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 26.94961617305984,
+        "waypoints_reached": 0,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 0.18557054907030388,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10029.685297313888,
+            9980.935403600835,
+            -0.013307227758778385
+          ],
+          "attitude_rad": [
+            -0.07355052821424658,
+            0.06987606590802677,
+            0.9320066658890964
+          ],
+          "velocity_body_mps": [
+            -0.049466427600083254,
+            -0.17885609081812054,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.7768741110739965
+          ],
+          "acceleration_body_mps2": [
+            -0.2270818569028927,
+            0.07886092468424848,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10037,
+        "return": -123.0214218945581,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 2.760254562610812,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 18.2,
+        "terminal_speed_mps": 0.3774048851816006,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10044.849198095631,
+            10022.12650527053,
+            0.05480943613212945
+          ],
+          "attitude_rad": [
+            0.08295918733305081,
+            -0.0271232366537375,
+            -1.36382453539163
+          ],
+          "velocity_body_mps": [
+            -0.37709989085910856,
+            -0.015169695876501459,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.7054810791747331
+          ],
+          "acceleration_body_mps2": [
+            -0.10141321364078221,
+            0.09566117937449833,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10038,
+        "return": -275.1363293532445,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 12.67857156725101,
+        "waypoints_reached": 1,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 0.7503050954964655,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10039.135758554188,
+            9995.534263215412,
+            -0.05987547643588817
+          ],
+          "attitude_rad": [
+            0.09229027499740504,
+            0.050095262318607524,
+            2.2335282797638745
+          ],
+          "velocity_body_mps": [
+            -0.7497328565030468,
+            -0.02929812635207532,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.7695168885463676
+          ],
+          "acceleration_body_mps2": [
+            0.008058645279267692,
+            0.3173644256468618,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10039,
+        "return": -97.54285246357031,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 6.972854109688818,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 34.35,
+        "terminal_speed_mps": 1.3879040486166214,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10042.977902287428,
+            10002.112845959806,
+            -0.0014570684561152295
+          ],
+          "attitude_rad": [
+            0.05257254512063197,
+            -0.0810737395356545,
+            2.9175316713890433
+          ],
+          "velocity_body_mps": [
+            -1.3856517086649827,
+            -0.0790379050849863,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.13422936004117755
+          ],
+          "acceleration_body_mps2": [
+            0.5156139968432089,
+            -0.1945668978715015,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10040,
+        "return": -65.83960579287825,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 2.6637222093273984,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 37.7,
+        "terminal_speed_mps": 1.2622232779118694,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10048.187305721734,
+            9992.29682738681,
+            -0.023611397446453672
+          ],
+          "attitude_rad": [
+            0.10316100317032961,
+            0.07698706563855091,
+            0.12305829610028826
+          ],
+          "velocity_body_mps": [
+            -1.089114520178269,
+            0.6379946435820939,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.9993551704225695
+          ],
+          "acceleration_body_mps2": [
+            0.7449619165813207,
+            0.6443747243297461,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10041,
+        "return": -211.8651826759176,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 8.701409368175591,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 3.8000000000000003,
+        "terminal_speed_mps": 0.3092494229974247,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10046.117997042847,
+            9988.110410816606,
+            -0.037271967829228786
+          ],
+          "attitude_rad": [
+            0.05139002131759247,
+            -0.02471888430438349,
+            -1.2298673509703064
+          ],
+          "velocity_body_mps": [
+            -0.2683025380204114,
+            -0.1537821631921134,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.8077419132036022
+          ],
+          "acceleration_body_mps2": [
+            -0.36679380380141224,
+            0.1874025525442933,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10042,
+        "return": -584.1724152951173,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 54.43668228592081,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 1.1109236601357333,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10049.077658926446,
+            10046.927915802178,
+            0.05054113904012733
+          ],
+          "attitude_rad": [
+            0.10899472713822124,
+            0.07446499045860418,
+            -1.54098478784469
+          ],
+          "velocity_body_mps": [
+            0.010448183560476887,
+            1.110874526717424,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.7316030584330628
+          ],
+          "acceleration_body_mps2": [
+            -0.42329680529891256,
+            -0.3437394534990427,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10043,
+        "return": -106.181083277749,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 4.589158376050464,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 24.1,
+        "terminal_speed_mps": 0.07114897618549558,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10053.610075754805,
+            10002.158564212386,
+            0.07175670088282415
+          ],
+          "attitude_rad": [
+            -0.06976703798886127,
+            0.060424639617066865,
+            0.6144911937468356
+          ],
+          "velocity_body_mps": [
+            0.0651736834405153,
+            0.02854063417374813,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.0959917765545796
+          ],
+          "acceleration_body_mps2": [
+            -0.6254707450379271,
+            0.045993452156322,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10044,
+        "return": -350.8177467688038,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 22.134744789389377,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 1.9678817904899735,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10032.822687010263,
+            10028.716138070073,
+            0.08914537503626888
+          ],
+          "attitude_rad": [
+            0.08109059641479141,
+            0.060450437054931395,
+            0.28205875254416163
+          ],
+          "velocity_body_mps": [
+            -0.398678605095688,
+            1.9270739765719893,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.9670130929678518
+          ],
+          "acceleration_body_mps2": [
+            1.3434090845087343,
+            -0.7315381095708885,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10045,
+        "return": -106.99155242742722,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 1.784566851219972,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 1.1,
+        "terminal_speed_mps": 2.2433917998765205,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10046.8510711761,
+            10017.441836123082,
+            0.02244492391099269
+          ],
+          "attitude_rad": [
+            0.08050202817426994,
+            0.039160191288929794,
+            -2.906492591128469
+          ],
+          "velocity_body_mps": [
+            -2.159854632204777,
+            0.6064938049945607,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.29709840964301065
+          ],
+          "acceleration_body_mps2": [
+            -0.15752220335587325,
+            -0.4421980125497626,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10046,
+        "return": -94.41161369885353,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 8.696217708145168,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 18.900000000000002,
+        "terminal_speed_mps": 0.3291667380416631,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10057.847756264533,
+            10000.059032622914,
+            0.06116783518739157
+          ],
+          "attitude_rad": [
+            0.0954417924154122,
+            0.08319214870983901,
+            2.931748345436516
+          ],
+          "velocity_body_mps": [
+            -0.29868227023862914,
+            -0.13834609816719567,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.7661616258863923
+          ],
+          "acceleration_body_mps2": [
+            0.29905898238197787,
+            0.0016812797725009434,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10047,
+        "return": -409.6088894703358,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 2.619307613828071,
+        "waypoints_reached": 1,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 0.9366456408379901,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10046.015830557853,
+            10013.660867037857,
+            0.10506179509421906
+          ],
+          "attitude_rad": [
+            -0.10623076019535295,
+            -0.05485189189228575,
+            0.6575523157245411
+          ],
+          "velocity_body_mps": [
+            0.8715113311095505,
+            0.34318079236529025,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.5332678879101392
+          ],
+          "acceleration_body_mps2": [
+            -0.4522191215586338,
+            -0.0563766669911908,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10048,
+        "return": -118.17702309252785,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 1.390772398031207,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 18.6,
+        "terminal_speed_mps": 1.649207911908431,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10051.965540992336,
+            10001.175302483309,
+            -0.05763159609824631
+          ],
+          "attitude_rad": [
+            -0.08181824101681452,
+            0.07273137288735165,
+            -1.714526442533525
+          ],
+          "velocity_body_mps": [
+            -1.539629398834428,
+            0.5911243954922726,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            -0.3294608720754432
+          ],
+          "acceleration_body_mps2": [
+            -0.1762108375859934,
+            -0.37632673450905607,
+            0
+          ]
+        }
+      },
+      {
+        "seed": 10049,
+        "return": -141.16900529615702,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout",
+        "terminal_distance_to_final_waypoint_m": 23.954692748074965,
+        "waypoints_reached": 2,
+        "time_within_2x_success_radius_without_termination_s": 0.0,
+        "terminal_speed_mps": 2.5869851487201703,
+        "terminal_state": {
+          "time_s": 120,
+          "position_ned_m": [
+            10035.774595875557,
+            10018.801927591323,
+            -0.023354176048077123
+          ],
+          "attitude_rad": [
+            -0.060998328388845675,
+            0.06377332376083765,
+            -0.4285343556162159
+          ],
+          "velocity_body_mps": [
+            -2.1450323903975748,
+            1.446142525425481,
+            0
+          ],
+          "angular_rate_body_rad_s": [
+            0,
+            0,
+            0.6240555542333631
+          ],
+          "acceleration_body_mps2": [
+            -0.06820111413337827,
+            0.17506332990544304,
+            0
+          ]
+        }
+      }
+    ]
+  },
+  "reward_decomposition": {
+    "trained_policy": {
+      "totals": {
+        "progress": 2862.038456176265,
+        "cross_track": -22497.58812971101,
+        "action_delta": -106.78013597183991,
+        "terminal": -170.0
+      },
+      "per_episode_mean": {
+        "progress": 57.2407691235253,
+        "cross_track": -449.9517625942202,
+        "action_delta": -2.135602719436798,
+        "terminal": -3.4
+      },
+      "reconstructed_return_mean": -398.2465961901317
+    },
+    "best_classical": {
+      "policy": "PID-v1",
+      "totals": {
+        "progress": -146.15668247300056,
+        "cross_track": -28906.33926385738,
+        "action_delta": -17.417204408180034,
+        "terminal": -500.0
+      },
+      "per_episode_mean": {
+        "progress": -2.923133649460011,
+        "cross_track": -578.1267852771475,
+        "action_delta": -0.3483440881636007,
+        "terminal": -10.0
+      },
+      "reconstructed_return_mean": -591.3982630147713
+    },
+    "interpretation": "PPO's mean advantage over PID comes primarily from cross-track (+128.18 per episode) and progress (+60.16), not the action-delta/effort term (-1.79). This does not support an effort-penalty loitering explanation."
+  },
+  "integrity": {
+    "max_abs_return_difference_vs_original_p3_report": 0.0,
+    "original_report_reproduced": true,
+    "max_abs_pid_return_difference_vs_retained_p2_5": 6.617995040869573e-10,
+    "retained_pid_reproduced": true
+  },
+  "branch_evidence": {
+    "observed": "Untrained, PID, and MPC each have 0% success; PPO has 6% success. PPO reaches waypoint 2 in 30 episodes and spends time within 4 m of the final waypoint in 29, but only 3 satisfy the final radius-plus-speed hold.",
+    "recommended_branch": "B2",
+    "reason": "The best classical controller cannot meet the frozen success criterion in any of the same 50 episodes, so the current evidence identifies task/success-criterion misspecification rather than a reward-only defect. The immediate proposal should test the 2 m radius, <=0.5 m/s for 2 s hold, and 120 s timeout against achievable classical trajectories.",
+    "branch_selected": false,
+    "human_approval_required": true
+  }
+}

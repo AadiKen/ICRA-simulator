@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "container-conversion",
+  "host_class": "local",
+  "paper_measurement_eligible": false,
+  "status": "local-source-images-verified-cluster-policy-pending",
+  "required_images": [
+    {
+      "reference": "icra27-vrx:v3.0.1",
+      "digest": "sha256:28052fbd68ffd466f672588fb78b5f0c4f40e5d1f6a605ae8aa8fcd521babaff"
+    },
+    {
+      "reference": "icra27-gazebo-harmonic:harmonic-8.15.0",
+      "digest": "sha256:c3d437139e410906f4a99bbf8d3a87747b916ad8fd10e836515a63a5e8fb0184"
+    }
+  ],
+  "local_discovery": {
+    "docker": {
+      "available": true,
+      "exit_code": 1,
+      "output": "permission denied while trying to connect to the docker API at unix:///Users/aadikenchammanaold/.docker/run/docker.sock"
+    },
+    "apptainer": {
+      "available": false,
+      "exit_code": null,
+      "output": ""
+    },
+    "singularity": {
+      "available": false,
+      "exit_code": null,
+      "output": ""
+    }
+  },
+  "conversion": {
+    "performed": false,
+    "reason": "Cluster runtime policy has not been discovered; conversion is unnecessary for the validated local Docker path.",
+    "source_digests": [
+      "sha256:28052fbd68ffd466f672588fb78b5f0c4f40e5d1f6a605ae8aa8fcd521babaff",
+      "sha256:c3d437139e410906f4a99bbf8d3a87747b916ad8fd10e836515a63a5e8fb0184"
+    ],
+    "converted_image_hash": null,
+    "local_launch_confirmed": true
+  },
+  "blockers": [
+    "No cluster/CodeNimbus Docker policy was provided; Apptainer/Singularity conversion must not be selected speculatively."
+  ],
+  "claim_limit": "No image was rebuilt or shipped."
+}

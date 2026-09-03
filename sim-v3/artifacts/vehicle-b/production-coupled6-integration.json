@@ -9,13 +9,14 @@
     "maneuvering_model": "mmg",
     "parameter_set_id": "vehicle-b-usv-bootstrap",
     "parameter_checksum_sha256": "326f996b5f70ff6817c35d44ce3de1aa2e1812f63ff603e16d3e2103c2bb1701",
-    "hydrodynamics_path": "artifacts/capytaine/vehicle-b-resolved.json",
-    "hydrodynamics_checksum_sha256": "1eb799e6b467af68c4ceadaf95796fdb78ef21fcbfd43ae0bee6bd767c9e1a52",
+    "hydrodynamics_path": "artifacts/capytaine/vehicle-b-parametric.json",
+    "hydrodynamics_checksum_sha256": "ad1a610be8db0625e603314842201ca420787c2c77198ef166d998eed1d378b8",
     "hydrodynamic_evaluation_frequency_rad_s": 1.5707963267948966,
     "hydrodynamic_selection_method": "wave-encounter",
     "hydrodynamic_approximation": "constant-coefficient-no-radiation-memory",
     "planar_damping_source": "MMG hull derivatives",
-    "out_of_plane_damping_source": "Capytaine radiation plus empirical viscous matrices",
+    "out_of_plane_damping_source": "Parametric-hull Capytaine radiation plus empirical viscous matrices; roll uses the tracked zero-speed Ikeda lower bound",
+    "roll_viscous_damping_artifact": "artifacts/ikeda/roll-damping-lower-bound.json",
     "validation_status": "model-structure-trajectory-scored-fail",
     "claim_limit": "Production integration only; Vehicle B USV dynamics remain behaviorally unvalidated."
   },
@@ -56,47 +57,47 @@
     "mmg_force_components_present": true
   },
   "out_of_plane_maxima": {
-    "heave_m": 0.10696629090938536,
-    "roll_rad": 0.027476964743638223,
-    "pitch_rad": 0.019915784608462987
+    "heave_m": 0.10653363303154349,
+    "roll_rad": 0.0892002600000689,
+    "pitch_rad": 0.03346775847075856
   },
   "final_state": {
     "step": 299,
     "time_s": 6,
     "position_ned_m": [
-      16.87397848958959,
-      17.3034152134609,
-      0.09358335909712662
+      16.352685702013517,
+      17.172567043566506,
+      0.08500641414563113
     ],
     "attitude_rad": [
-      -0.002667190293661464,
-      -0.003567700719177197,
-      0.9247968671464406
+      0.012485729363958357,
+      0.004273046171066601,
+      1.0847294279474122
     ],
     "velocity_body_mps": [
-      1.4852850696543094,
-      0.0406688655971697,
-      -0.011795533529968729
+      1.4464338975083602,
+      -0.054833792137737605,
+      0.01826060045613767
     ],
     "angular_rate_body_rad_s": [
-      0.02141773463747224,
-      0.00960227571329311,
-      -0.028785691016225648
+      -0.01570480521753177,
+      0.010782589454599674,
+      -0.02074025601737716
     ],
     "applied_command": {
       "propeller_rps": 10.02635482740661,
       "rudder_rad": -0.14991958460044577
     },
     "full_wrench": [
-      -108.97356350731324,
-      23.022599173843616,
+      -88.3996301768966,
+      99.03309427306979,
       0,
       0,
       0,
-      -12.017438769766812
+      -87.41953197995433
     ]
   },
-  "trace_checksum_sha256": "c6bdb26bbea8f610f193cb23580430a3d586cd7cf51c603a755642110b8b2aab",
+  "trace_checksum_sha256": "80b48eae5a404e0ffe09a0a4581148f9bb903730e623bf5db14d5962a2211103",
   "claim_limit": "Confirms production wiring and numerical execution only. Vehicle B USV-scale maneuvering and damping coefficients remain unvalidated.",
   "limitations": [
     "USV MMG coefficients are engineering bootstrap estimates.",

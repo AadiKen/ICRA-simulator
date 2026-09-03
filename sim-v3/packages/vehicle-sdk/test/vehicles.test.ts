@@ -12,7 +12,9 @@ assert.equal(VEHICLES["vehicle-b-rudder"].validation.status,"model-structure-tra
 assert.equal(VEHICLES["vehicle-c-azimuth"].validation.status,"allocation-demonstrated-dynamics-unvalidated");
 assert.equal(VEHICLES["vehicle-c-azimuth"].hydrostatics?.gm_transverse.value,3.7232);
 assert.equal(VEHICLES["searobotics-surveyor-m1.8"].effectors.length,2);
-assert.match(VEHICLES["searobotics-surveyor-m1.8"].validation.limitations.join(" "),/Newton-per-command mapping is unknown/);
+assert.deepEqual(VEHICLES["searobotics-surveyor-m1.8"].inertia.value,[5.375132500000001,13.347308666666668,17.891219833333338]);
+assert.deepEqual(VEHICLES["searobotics-surveyor-m1.8"].effectors.map(x=>x.position_m),[[-.65,-.33,0],[-.65,.33,0]]);
+assert.match(VEHICLES["searobotics-surveyor-m1.8"].validation.limitations.join(" "),/assumed at 1 N.*borrowed from the generic Vehicle A fallback/);
 const invalid=structuredClone(VEHICLES["vehicle-c-azimuth"]);invalid.damping.linear_viscous.value.fill(0);invalid.damping.quadratic_viscous.value.fill(0);
 assert.throws(()=>validateVehicle(invalid),/non-zero viscous/);
 console.log("Vehicle SDK tests passed.");

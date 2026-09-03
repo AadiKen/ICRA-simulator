@@ -1,0 +1,107 @@
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <model name="bcod_usv">
+    <pose>0 0 0 0 0 0</pose>
+    <link name="base_link">
+      <inertial>
+        <!-- Planar parity fixture: the vertical CG is stabilized below the primitive buoyancy center because Gazebo's collision buoyancy does not reproduce the Otter's metacentric hydrostatics. This fixture cannot validate coupled6 hydrostatics. -->
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1000</mass>
+        <inertia>
+          <ixx>563.3333333333</ixx><iyy>2003.3333333333</iyy><izz>2400</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+
+        <!-- fluid_added_mass intentionally omitted for Gazebo capture: this oracle validates integration, frames, thrust mapping, and drag, but not added mass. On this Gazebo/DART build, both the direct MSS matrix and the spatially completed CG-shifted matrix reset poses under positive surge. -->
+      </inertial>
+
+      <collision name="hull_collision_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry><box><size>4.8 2.4 0.1693766938</size></box></geometry>
+      </collision>
+      <visual name="hull_visual_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry><box><size>4.8 2.4 1</size></box></geometry>
+      </visual>
+
+      <sensor name="task_imu" type="imu">
+        <always_on>true</always_on><update_rate>20</update_rate>
+        <topic>imu</topic>
+      </sensor>
+      <sensor name="task_gps" type="navsat">
+        <always_on>true</always_on><update_rate>20</update_rate>
+        <topic>gps</topic>
+      </sensor>
+    </link>
+
+    <link name="port_thruster">
+      <pose relative_to="base_link">0 1.2 0 0 0 0</pose>
+      <inertial><mass>0.001</mass><inertia><ixx>1e-6</ixx><iyy>1e-6</iyy><izz>1e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia></inertial>
+    </link>
+    <joint name="port_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>port_thruster</child>
+      <axis><xyz>1 0 0</xyz></axis>
+    </joint>
+
+    <link name="starboard_thruster">
+      <pose relative_to="base_link">0 -1.2 0 0 0 0</pose>
+      <inertial><mass>0.001</mass><inertia><ixx>1e-6</ixx><iyy>1e-6</iyy><izz>1e-6</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia></inertial>
+    </link>
+    <joint name="starboard_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>starboard_thruster</child>
+      <axis><xyz>1 0 0</xyz></axis>
+    </joint>
+    <plugin filename="gz-sim-hydrodynamics-system" name="gz::sim::systems::Hydrodynamics">
+      <link_name>base_link</link_name>
+      <water_density>1025</water_density>
+      <xU>-80</xU>
+      <yV>-450</yV>
+      <nR>-5520</nR>
+      <xUabsU>-48.708</xUabsU>
+      <yVabsV>-509.22</yVabsV>
+      <nRabsR>-2428.68</nRabsR>
+      
+    </plugin>
+
+    <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher">
+      <publish_model_pose>true</publish_model_pose>
+      <publish_link_pose>true</publish_link_pose>
+      <use_pose_vector_msg>true</use_pose_vector_msg>
+      <static_publisher>false</static_publisher>
+    </plugin>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"/>
+
+    <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+      <odom_publish_frequency>20</odom_publish_frequency>
+      <odom_topic>odometry</odom_topic>
+      <dimensions>3</dimensions>
+    </plugin>
+
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <namespace>/</namespace>
+        <joint_name>port_joint</joint_name>
+        <thrust_coefficient>1</thrust_coefficient>
+        <fluid_density>1025</fluid_density>
+        <propeller_diameter>1</propeller_diameter>
+        <use_angvel_cmd>false</use_angvel_cmd>
+        <max_thrust_cmd>1200</max_thrust_cmd>
+        <min_thrust_cmd>-1200</min_thrust_cmd>
+        <topic>/model/bcod_usv/joint/port_joint/cmd_thrust</topic>
+      </plugin>
+
+      <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+        <namespace>/</namespace>
+        <joint_name>starboard_joint</joint_name>
+        <thrust_coefficient>1</thrust_coefficient>
+        <fluid_density>1025</fluid_density>
+        <propeller_diameter>1</propeller_diameter>
+        <use_angvel_cmd>false</use_angvel_cmd>
+        <max_thrust_cmd>1200</max_thrust_cmd>
+        <min_thrust_cmd>-1200</min_thrust_cmd>
+        <topic>/model/bcod_usv/joint/starboard_joint/cmd_thrust</topic>
+      </plugin>
+
+  </model>
+</sdf>

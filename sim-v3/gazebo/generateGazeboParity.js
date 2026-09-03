@@ -62,7 +62,19 @@ function inertiaFromCoeffs(coeffs) {
     const length = coeffs.geometry.length;
     const beam = coeffs.geometry.beam;
     const height = coeffs.geometry.height || coeffs.geometry.draft * 3;
-    return {
+    const geometryBootstrap = coeffs.provenance?.identificationMethod === "geometry-derived, unvalidated";
+    // Vehicle A's bootstrap craft is defined as a uniform rectangular hull.
+    // Its checked-in diagonal is an obsolete, non-realizable value, so derive
+    // the rigid-body tensor directly from that stated mass and geometry.
+    if (geometryBootstrap) {
+        return {
+            ixx: mass * (beam * beam + height * height) / 12,
+            iyy: mass * (length * length + height * height) / 12,
+            izz: mass * (length * length + beam * beam) / 12,
+            ixy: 0, ixz: 0, iyz: 0
+        };
+    }
+    const inertia = {
         ixx: coeffs.massProps.inertia?.Ix || mass * (beam * beam + height * height) / 12,
         iyy: coeffs.massProps.inertia?.Iy || mass * (length * length + height * height) / 12,
         izz: coeffs.massProps.inertia?.Iz || coeffs.massProps.inertia?.z || mass * (length * length + beam * beam) / 12,
@@ -70,6 +82,7 @@ function inertiaFromCoeffs(coeffs) {
         ixz: 0,
         iyz: 0
     };
+    return inertia;
 }
 
 function skew(v) {
@@ -314,7 +327,7 @@ function renderHullPrimitives(coeffs) {
       </visual>`).join("\n");
 }
 
-function renderEffectors(coeffs) {
+function renderEffectors(coeffs, options = {}) {
     return (coeffs.effectors || []).map((effector) => {
         if (effector.type === "ControlSurface") {
             return `
@@ -336,7 +349,7 @@ function renderEffectors(coeffs) {
         <turningDirection>${(effector.spinDirection || 1) > 0 ? "ccw" : "cw"}</turningDirection>
       </plugin>`;
         }
-        if (effector.type === "FixedThruster" || effector.type === "AzimuthThruster") {
+        if (!options.perThrusterActuation && (effector.type === "FixedThruster" || effector.type === "AzimuthThruster")) {
             return "";
         }
         return `
@@ -363,7 +376,7 @@ function thrusterCommandTopic(modelName, effectorId) {
 }
 
 function advertisedThrusterCommandTopic(modelName, effectorId) {
-    return `/model/${xmlEscape(modelName)}joint/${xmlEscape(effectorId)}_joint/cmd_thrust`;
+    return `/model/${xmlEscape(modelName)}/joint/${xmlEscape(effectorId)}_joint/cmd_thrust`;
 }
 
 function wrenchTopicForWorld(maneuverName) {
@@ -374,9 +387,9 @@ function persistentWrenchTopicForWorld(maneuverName) {
     return `${wrenchTopicForWorld(maneuverName)}/persistent`;
 }
 
-function renderThrusterLinks(coeffs) {
+function renderThrusterLinks(coeffs, options = {}) {
     return (coeffs.effectors || [])
-        .filter((effector) => effector.type !== "FixedThruster" && effector.type !== "AzimuthThruster")
+        .filter((effector) => options.perThrusterActuation || (effector.type !== "FixedThruster" && effector.type !== "AzimuthThruster"))
         .map((effector) => {
         const pos = effector.pos || [0, 0, 0];
         const linkName = effector.type === "FixedThruster" || effector.type === "AzimuthThruster"
@@ -412,6 +425,29 @@ function renderPosePublisher() {
     </plugin>`;
 }
 
+function renderPhaseASensors(options = {}) {
+    if (!options.phaseASensors) return "";
+    return `
+      <sensor name="task_imu" type="imu">
+        <always_on>true</always_on><update_rate>20</update_rate>
+        <topic>imu</topic>
+      </sensor>
+      <sensor name="task_gps" type="navsat">
+        <always_on>true</always_on><update_rate>20</update_rate>
+        <topic>gps</topic>
+      </sensor>`;
+}
+
+function renderOdometryPublisher(options = {}) {
+    if (!options.trueOdometry) return "";
+    return `
+    <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+      <odom_publish_frequency>${format(options.odomHz || 20)}</odom_publish_frequency>
+      <odom_topic>odometry</odom_topic>
+      <dimensions>3</dimensions>
+    </plugin>`;
+}
+
 function renderModelSdf(coeffs, options = {}) {
     const inertia = inertiaFromCoeffs(coeffs);
     assertAddedMassIsValid(coeffs, inertia);
@@ -433,8 +469,9 @@ function renderModelSdf(coeffs, options = {}) {
 ${renderFluidAddedMass(coeffs, options)}
       </inertial>
 ${renderHullPrimitives(coeffs)}
+${renderPhaseASensors(options)}
     </link>
-${renderThrusterLinks(coeffs)}
+${renderThrusterLinks(coeffs, options)}
     <plugin filename="gz-sim-hydrodynamics-system" name="gz::sim::systems::Hydrodynamics">
       <link_name>base_link</link_name>
       <water_density>${format(coeffs.buoyancy?.rho || coeffs.restoring?.waterDensity || 1025)}</water_density>
@@ -447,7 +484,9 @@ ${renderThrusterLinks(coeffs)}
       ${options.includeAddedMass ? "<disable_added_mass>true</disable_added_mass>" : ""}
     </plugin>
 ${renderPosePublisher()}
-${renderEffectors(coeffs)}
+    ${options.phaseASensors ? '<plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"/>' : ""}
+${renderOdometryPublisher(options)}
+${renderEffectors(coeffs, options)}
 ${renderJointControllers(coeffs)}
   </model>
 </sdf>
@@ -483,11 +522,12 @@ function renderBuoyancyPlugin(coeffs) {
     </plugin>`;
 }
 
-function renderWorldSdf(coeffs, maneuver) {
+function renderWorldSdf(coeffs, maneuver, options = {}) {
     const maxStep = maneuver.dt;
     const current = maneuver.env?.waterV || {x: 0, y: 0, z: 0};
     const gravity = coeffs.buoyancy?.g || coeffs.restoring?.gravity || 9.81;
-    const initialYawEnu = Math.PI / 2;
+    const initialYawEnu = options.initialStateNed ? Math.PI / 2 - options.initialStateNed.yaw : Math.PI / 2;
+    const initialEnu = options.initialStateNed ? {x:options.initialStateNed.E,y:options.initialStateNed.N,z:0} : {x:0,y:0,z:0};
     return `<?xml version="1.0" ?>
 <sdf version="1.10">
   <world name="bcod_parity_${xmlEscape(maneuver.name)}">
@@ -498,11 +538,14 @@ function renderWorldSdf(coeffs, maneuver) {
     <gravity>0 0 -${format(gravity)}</gravity>
     <include>
       <uri>model://${xmlEscape(coeffs.id)}</uri>
-      <pose>0 0 0 0 0 ${format(initialYawEnu)}</pose>
+      <pose>${format(initialEnu.x)} ${format(initialEnu.y)} ${format(initialEnu.z)} 0 0 ${format(initialYawEnu)}</pose>
     </include>
     <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
     <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
     <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"/>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+    <plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat"/>
     <plugin filename="gz-sim-apply-link-wrench-system" name="gz::sim::systems::ApplyLinkWrench"/>
 ${renderBuoyancyPlugin(coeffs)}
     <!-- BCOD parity metadata: current ENU ${format(current.x || 0)} ${format(current.z || 0)} ${format(current.y || 0)} -->

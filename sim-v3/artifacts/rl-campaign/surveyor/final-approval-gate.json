@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "status": "HALT_PENDING_HUMAN_APPROVAL",
+  "last_authorized_revision": true,
+  "content_sha256": "dead8640d69e9029d92062ea4e3b36f5e5219d0870b4db5df823acec9190ddf1",
+  "thresholds": {
+    "schema_version": 1,
+    "artifact_kind": "surveyor-final-c3-thresholds",
+    "status": "PENDING_HUMAN_APPROVAL",
+    "selection": {
+      "rule": "Eligibility first (40-70% band, radius >= 1.6 m GPS comfort floor, radius >= 0.915 m half-vehicle-length floor), then maximize separation ratio and break ties by smallest radius.",
+      "terminal_radius_m": 2,
+      "reference_policy": "LOS-PID-v2"
+    },
+    "return": {
+      "formula": "R_untrained + 0.5 * (R_reference - R_untrained)",
+      "untrained_median": -2188.016903917009,
+      "reference_policy": "LOS-SPEEDCAP-v2",
+      "reference_median": 39.09421197890923,
+      "gap": 2227.1111158959184,
+      "reference_minus_untrained_paired_bootstrap_95_ci": [
+        1801.8741164388314,
+        2476.5877748528146
+      ],
+      "normalized_threshold": 0.5,
+      "absolute_threshold": -1074.46134596905
+    },
+    "success": {
+      "formula": "S_untrained + 0.5 * (S_reference - S_untrained)",
+      "terminal_definition": {
+        "radius_m": 2,
+        "variant": "pass-through",
+        "timeout_s": 120
+      },
+      "untrained_rate": 0,
+      "reference_policy": "LOS-PID-v2",
+      "reference_rate": 0.66,
+      "gap": 0.66,
+      "reference_minus_untrained_paired_bootstrap_95_ci": [
+        0.595,
+        0.725
+      ],
+      "normalized_threshold": 0.5,
+      "absolute_threshold": 0.33
+    },
+    "C3": {
+      "rule": "A policy passes C3 only if both thresholds pass on the frozen evaluation protocol.",
+      "absolute_return_threshold": -1074.46134596905,
+      "absolute_success_rate_threshold": 0.33,
+      "both_must_pass": true
+    },
+    "bootstrap": {
+      "resamples": 10000,
+      "seed": 20270831,
+      "paired_by_seed": true
+    },
+    "decision": {
+      "last_authorized_task_revision": true,
+      "human_approval_required": true,
+      "frozen": false
+    }
+  },
+  "artifacts": {
+    "task_rescale": "artifacts/rl-campaign/surveyor/task-rescale.json",
+    "p2_5": "artifacts/rl-campaign/surveyor/p2.5-rescaled.json",
+    "terminal_sweep": "artifacts/rl-campaign/surveyor/terminal-radius-sweep-rescaled.json",
+    "contract": "artifacts/rl-campaign/surveyor/task-contract-final-candidate.json"
+  },
+  "prohibition": "No further task revision without explicit authorization."
+}

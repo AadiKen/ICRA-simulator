@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gate-7-external-simulator-conformance",
+  "status": "BLOCKED_STRUCTURAL_GAP",
+  "checkpoint": "Gate 7",
+  "generated_at": "2026-09-02T03:04:50.457Z",
+  "tolerance_abs": 0.0001,
+  "node_reference": {
+    "status": "complete",
+    "seeds": [
+      20000,
+      20001,
+      20002,
+      20003,
+      20004,
+      20005,
+      20006,
+      20007,
+      20008,
+      20009,
+      20010,
+      20011,
+      20012,
+      20013,
+      20014,
+      20015,
+      20016,
+      20017,
+      20018,
+      20019
+    ],
+    "trace_directory": "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference",
+    "traces": [
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20000.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20001.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20002.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20003.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20004.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20005.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20006.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20007.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20008.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20009.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20010.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20011.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20012.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20013.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20014.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20015.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20016.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20017.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20018.json",
+      "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/gate-7/reference/node-20019.json"
+    ]
+  },
+  "reason": "VRX v3.0.1 launches the stock WAM-V, whose hull geometry, mass, inertia, buoyancy and thruster placement are not the geometry-derived bootstrap craft. Running it would violate the explicit requirement that corrected inertia be used for every run. A VRX vehicle-model port is required before command/topic orchestration can yield a valid Gate 7 measurement.",
+  "simulators": [
+    {
+      "simulator": "Gazebo Harmonic",
+      "smoke": {
+        "requested_episodes": 3,
+        "valid_traces": 0,
+        "status": "not-run-live-driver-not-connected"
+      },
+      "full": {
+        "seeds": [
+          20000,
+          20001,
+          20002,
+          20003,
+          20004,
+          20005,
+          20006,
+          20007,
+          20008,
+          20009,
+          20010,
+          20011,
+          20012,
+          20013,
+          20014,
+          20015,
+          20016,
+          20017,
+          20018,
+          20019
+        ],
+        "valid_traces": [],
+        "pass": false,
+        "status": "not-run-live-driver-not-connected"
+      },
+      "per_axis_max_divergence": {
+        "N": null,
+        "E": null,
+        "yaw": null,
+        "u": null,
+        "v": null,
+        "r": null
+      },
+      "seeds_exceeding_tolerance": [
+        20000,
+        20001,
+        20002,
+        20003,
+        20004,
+        20005,
+        20006,
+        20007,
+        20008,
+        20009,
+        20010,
+        20011,
+        20012,
+        20013,
+        20014,
+        20015,
+        20016,
+        20017,
+        20018,
+        20019
+      ],
+      "divergence_growth_start": {
+        "N": null,
+        "E": null,
+        "yaw": null,
+        "u": null,
+        "v": null,
+        "r": null
+      },
+      "inertia": {
+        "required": "geometry-derived bootstrap craft mass and geometry",
+        "used_for_every_run": false,
+        "prepared_episode_count": 20,
+        "reason": "No simulator episode completed; this must not be represented as live use."
+      }
+    },
+    {
+      "simulator": "VRX",
+      "smoke": {
+        "requested_episodes": 3,
+        "valid_traces": 0,
+        "status": "not-run-live-driver-not-connected"
+      },
+      "full": {
+        "seeds": [
+          20000,
+          20001,
+          20002,
+          20003,
+          20004,
+          20005,
+          20006,
+          20007,
+          20008,
+          20009,
+          20010,
+          20011,
+          20012,
+          20013,
+          20014,
+          20015,
+          20016,
+          20017,
+          20018,
+          20019
+        ],
+        "valid_traces": [],
+        "pass": false,
+        "status": "not-run-live-driver-not-connected"
+      },
+      "per_axis_max_divergence": {
+        "N": null,
+        "E": null,
+        "yaw": null,
+        "u": null,
+        "v": null,
+        "r": null
+      },
+      "seeds_exceeding_tolerance": [
+        20000,
+        20001,
+        20002,
+        20003,
+        20004,
+        20005,
+        20006,
+        20007,
+        20008,
+        20009,
+        20010,
+        20011,
+        20012,
+        20013,
+        20014,
+        20015,
+        20016,
+        20017,
+        20018,
+        20019
+      ],
+      "divergence_growth_start": {
+        "N": null,
+        "E": null,
+        "yaw": null,
+        "u": null,
+        "v": null,
+        "r": null
+      },
+      "inertia": {
+        "required": "geometry-derived bootstrap craft mass and geometry",
+        "used_for_every_run": false,
+        "prepared_episode_count": 20,
+        "reason": "No simulator episode completed; this must not be represented as live use."
+      }
+    }
+  ],
+  "required_next_work": "Create and validate a VRX model/SDF port of the bootstrap craft, including its geometry-derived rigid-body inertia and compatible buoyancy/thruster model; then resume bounded episode orchestration. This is modeling work, not an ordinary wiring bug.",
+  "prohibition": "No retuning, re-derivation, or compensating patch was performed after this checkpoint."
+}

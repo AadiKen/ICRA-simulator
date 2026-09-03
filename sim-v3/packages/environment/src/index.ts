@@ -13,6 +13,8 @@ export * from "./geography.ts";
 export * from "./geography-pipeline.ts";
 export * from "./weather.ts";
 export * from "./era5.ts";
+export * from "./rtofs.ts";
+export * from "./gebco.ts";
 import {LocalGeographicFrame} from "./geography.ts";
 
 export interface EnvironmentQuery {position_ned_m:[number,number,number];time_s:number}

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-fourth-contract-revision-proposal",
+  "status": "APPROVED_CONTRACT_FINALIZED_PHASE_1_AUTHORIZED",
+  "generated_at": "2026-09-03",
+  "base_contract": {
+    "path": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+    "content_sha256": "63eb33ad66078e1f28b20504d4187c9d0efd42538dd018f592a307f0f98b55a2"
+  },
+  "part_1_rate_correction": {
+    "implementation": "One policy action is held for two 0.05 s physics steps, producing the contracted 0.1 s / 10 Hz control interval.",
+    "diagnostic": "artifacts/rl-campaign/surveyor/p3-v5-rate-corrected-diagnostic.json",
+    "old_classification_counts": {"success": 3, "did_not_enter_intermediate_radius": 25, "near_goal_orbit_or_oscillation": 1, "close_then_overshoot": 1},
+    "corrected_classification_counts": {"success": 3, "did_not_enter_intermediate_radius": 25, "near_goal_orbit_or_oscillation": 1, "close_then_overshoot": 1},
+    "old_median_closest_approach_m": 21.4567874302299,
+    "corrected_median_closest_approach_m": 21.426534684055756,
+    "material_change": false
+  },
+  "exact_prior_shaping": {
+    "implemented_formula": "base_reward + gamma * Phi(s_next) - Phi(s_previous)",
+    "literal_values": "base_reward + 0.99 * (-5.0 * distance_next_m) - (-5.0 * distance_previous_m)",
+    "equivalent_nonterminal_term": "base_reward + 5.0 * distance_previous_m - 4.95 * distance_next_m",
+    "classification": "This is already the policy-invariant discounted potential-based form. It is neither raw k*distance proximity reward nor the undiscounted k*(distance_previous-distance_next) form.",
+    "stationary_transition": "At unchanged distance d it emits (1-gamma)*k*d = 0.05*d immediate shaping reward. Under the matching discounted objective the terms telescope; the concern diagnosed here is optimization/value scale, not conversion from a non-potential reward."
+  },
+  "fourth_revision_candidate": {
+    "formula": "base_reward + gamma * Phi(s_next) - Phi(s_previous)",
+    "potential": "Phi(s) = -0.1757208861220446 * distance_to_final_waypoint_m",
+    "gamma": 0.99,
+    "k": 0.1757208861220446,
+    "absorbing_terminal_potential": 0,
+    "formula_changed": false,
+    "scale_changed": true
+  },
+  "scale_derivation": {
+    "source": "artifacts/rl-campaign/surveyor/p3-v5-rate-corrected-diagnostic.json",
+    "rate_hz": 10,
+    "episodes": 30,
+    "old_k": 5.0,
+    "median_undiscounted_shaping_contribution": 2845.4215718712667,
+    "terminal_success_bonus": 100,
+    "target_median_shaping_contribution": 100,
+    "calculation": "k_new = 5.0 * 100 / 2845.4215718712667",
+    "derived_k": 0.1757208861220446,
+    "scale_reduction_factor": 28.454215718712667,
+    "not_fitted_to_success_rate": true,
+    "interpretation_caveat": "The 2845.42 figure is an undiscounted telemetry sum, whereas PPO optimizes gamma-discounted return. It is used because the requested scale criterion explicitly compares accumulated shaping telemetry with the 100-point terminal bonus."
+  },
+  "scope_guards": {
+    "route_unchanged": true,
+    "disturbance_unchanged": true,
+    "terminal_radius_unchanged": true,
+    "timeout_unchanged": true,
+    "observation_and_action_spaces_unchanged": true,
+    "c3_thresholds_unchanged": {"median_return_min": -1074.46134596905, "success_rate_min": 0.33}
+  },
+  "execution_plan_after_approval": {
+    "phase_1": "Retrain final-leg isolation at 10 Hz, maximum 1.5M steps, evaluating every 250k steps.",
+    "convergence": "At least 90% success at two consecutive checkpoints on seeds 30000-30049.",
+    "failure": "Stop and report without a fifth revision.",
+    "success": "Continue from the converged checkpoint into the existing 3M full-episode fine-tuning and Gate 3 protocol."
+  },
+  "contract_finalization": {
+    "performed": true,
+    "new_canonical_hash": "905347f3e894841aa7e6613dfc286e585a0bf284f5f21820600cc09c0e6358ba",
+    "approval_required": false,
+    "training_started": true
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "external-simulator-platform-discovery",
+  "host_class": "local",
+  "paper_measurement_eligible": false,
+  "status": "local-discovery-complete-cluster-discovery-pending",
+  "local": {
+    "architecture": "arm64",
+    "chip_model": null,
+    "logical_cpu_count": 10,
+    "physical_core_count": null,
+    "physical_core_count_status": "unavailable to this process",
+    "runtime_versions": {
+      "gazebo": "Gazebo Sim, version 8.14.0\nCopyright (C) 2018 Open Source Robotics Foundation.\nReleased under the Apache 2.0 License.",
+      "ros2": null
+    }
+  },
+  "cluster": {
+    "per_node_core_count": null,
+    "status": "not discovered; no cluster endpoint or scheduler allocation was supplied."
+  },
+  "conformance_episode_timing_s": {
+    "VRX": null,
+    "Gazebo Harmonic": null
+  },
+  "claim_limit": "No runtime conformance episode was timed because the required VRX/Gazebo versions and adapters are unavailable."
+}

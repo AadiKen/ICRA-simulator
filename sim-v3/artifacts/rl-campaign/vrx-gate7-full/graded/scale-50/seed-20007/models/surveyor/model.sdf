@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<sdf version="1.10">
+  <model name="surveyor">
+    <link name="base_link">
+      <inertial><pose>0.007543520309477757 0 0 0 0 0</pose><mass>51.699999999999996</mass><inertia><ixx>5.309042500000001</ixx><iyy>13.090471693745972</iyy><izz>17.569042860412644</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia></inertial>
+      <collision name="port_pontoon_collision"><pose>0 -0.33 0 0 0 0</pose><geometry><box><size>1.83 0.2 0.34</size></box></geometry></collision>
+      <visual name="port_pontoon_visual"><pose>0 -0.33 0 0 0 0</pose><geometry><box><size>1.83 0.2 0.34</size></box></geometry><material><diffuse>0.08 0.22 0.32 1</diffuse></material></visual>
+      <collision name="starboard_pontoon_collision"><pose>0 0.33 0 0 0 0</pose><geometry><box><size>1.83 0.2 0.34</size></box></geometry></collision>
+      <visual name="starboard_pontoon_visual"><pose>0 0.33 0 0 0 0</pose><geometry><box><size>1.83 0.2 0.34</size></box></geometry><material><diffuse>0.08 0.22 0.32 1</diffuse></material></visual>
+      <collision name="deck_payload_and_superstructure_collision"><pose>0 0 0 0 0 0</pose><geometry><box><size>1.2 0.55 0.12</size></box></geometry></collision>
+      <visual name="deck_payload_and_superstructure_visual"><pose>0 0 0 0 0 0</pose><geometry><box><size>1.2 0.55 0.12</size></box></geometry><material><diffuse>0.08 0.22 0.32 1</diffuse></material></visual>
+      <sensor name="task_imu" type="imu"><always_on>true</always_on><update_rate>20</update_rate><topic>imu</topic></sensor>
+      <sensor name="task_gps" type="navsat"><always_on>true</always_on><update_rate>20</update_rate><topic>gps</topic></sensor>
+    </link>
+    <plugin filename="libSurface.so" name="vrx::Surface"><link_name>base_link</link_name><hull_length>1.83</hull_length><hull_radius>0.17</hull_radius><fluid_level>0</fluid_level><fluid_density>1025</fluid_density><points><point>0.4575 -0.33 0</point><point>-0.4575 -0.33 0</point></points><wavefield><topic>/vrx/wavefield/parameters</topic></wavefield></plugin>
+    <plugin filename="libSurface.so" name="vrx::Surface"><link_name>base_link</link_name><hull_length>1.83</hull_length><hull_radius>0.17</hull_radius><fluid_level>0</fluid_level><fluid_density>1025</fluid_density><points><point>0.4575 0.33 0</point><point>-0.4575 0.33 0</point></points><wavefield><topic>/vrx/wavefield/parameters</topic></wavefield></plugin>
+    <plugin filename="libSimpleHydrodynamics.so" name="vrx::SimpleHydrodynamics"><link_name>base_link</link_name><xDotU>0</xDotU><yDotV>0</yDotV><nDotR>0</nDotR><xU>6</xU><xUU>18</xUU><yV>18</yV><yVV>60</yVV><zW>0</zW><kP>0</kP><mQ>0</mQ><nR>8</nR><nRR>12</nRR></plugin>
+    <link name="port_propeller"><pose relative_to="base_link">-0.65 0.33 0 0 0 0</pose><inertial><mass>0.3</mass><inertia><ixx>0.000375</ixx><iyy>0.0001975</iyy><izz>0.0001975</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia></inertial></link>
+    <joint name="port_propeller_joint" type="revolute"><parent>base_link</parent><child>port_propeller</child><axis><xyz>1 0 0</xyz><dynamics><damping>0.010132118364233778</damping></dynamics></axis></joint>
+    <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><joint_name>port_propeller_joint</joint_name><thrust_coefficient>0.006919495468257212</thrust_coefficient><fluid_density>1025</fluid_density><propeller_diameter>0.1</propeller_diameter><velocity_control>true</velocity_control><min_thrust_cmd>-70</min_thrust_cmd><max_thrust_cmd>70</max_thrust_cmd><namespace>surveyor</namespace><topic>thrusters/port/thrust</topic></plugin>
+    <link name="starboard_propeller"><pose relative_to="base_link">-0.65 -0.33 0 0 0 0</pose><inertial><mass>0.3</mass><inertia><ixx>0.000375</ixx><iyy>0.0001975</iyy><izz>0.0001975</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia></inertial></link>
+    <joint name="starboard_propeller_joint" type="revolute"><parent>base_link</parent><child>starboard_propeller</child><axis><xyz>1 0 0</xyz><dynamics><damping>0.010132118364233778</damping></dynamics></axis></joint>
+    <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><joint_name>starboard_propeller_joint</joint_name><thrust_coefficient>0.006919495468257212</thrust_coefficient><fluid_density>1025</fluid_density><propeller_diameter>0.1</propeller_diameter><velocity_control>true</velocity_control><min_thrust_cmd>-70</min_thrust_cmd><max_thrust_cmd>70</max_thrust_cmd><namespace>surveyor</namespace><topic>thrusters/starboard/thrust</topic></plugin>
+    <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher"><publish_model_pose>true</publish_model_pose><publish_link_pose>true</publish_link_pose><use_pose_vector_msg>true</use_pose_vector_msg><static_publisher>false</static_publisher></plugin>
+    <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher"><odom_publish_frequency>20</odom_publish_frequency><odom_topic>odometry</odom_topic><dimensions>3</dimensions></plugin>
+  <plugin filename="libVrxCurrentRelativeVelocity.so" name="vrx_surveyor::CurrentRelativeVelocity"><link_name>base_link</link_name><current_enu>0.18106663572276196 0.06752523292256778 0</current_enu><xU>6</xU><xUU>18</xUU><yV>18</yV><yVV>60</yVV></plugin></model>
+</sdf>

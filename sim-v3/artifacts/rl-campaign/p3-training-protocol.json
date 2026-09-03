@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "status": "predeclared-before-training",
+  "task_contract_content_sha256": "d49f8a7d9d4e70f0ab4ff358620435f79bd6f72a2689cc5d07309d4cb6b3efad",
+  "task_id": "common-waypoint-transit-v1",
+  "vehicle": "vehicle-a-otter",
+  "plant": "planar3",
+  "backend": "persistent-node-production",
+  "algorithm": "PPO",
+  "library": "stable-baselines3 2.9.0",
+  "training_seed": 7319,
+  "total_timesteps": 3000000,
+  "parallel_environments": 16,
+  "hyperparameters": {"n_steps":512,"batch_size":512,"n_epochs":10,"learning_rate":0.0003,"gamma":0.99,"gae_lambda":0.95,"clip_range":0.2,"ent_coef":0.0,"network":[128,128]},
+  "checkpoint_interval_timesteps": 250000,
+  "evaluation_seeds": {"first":10000,"count":50},
+  "acceptance": {"median_return_min":-1038.1762339848315,"normalized_score_min":0.5,"success_rate_improvement_over_untrained_min":0.2,"untrained_success_rate":0},
+  "failure_rule": "Report and halt without changing reward, hyperparameters, budget, or threshold."
+}

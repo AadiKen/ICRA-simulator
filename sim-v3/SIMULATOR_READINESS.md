@@ -29,10 +29,13 @@ and linear still-water hydrostatic restoring.
 
 ## Remaining path to externally validated 6-DoF
 
-1. Generate and freeze external Otter maneuver traces from the pinned MSS commit.
-2. Replace derived six-axis Otter coefficients with identified/measured values.
-3. Add deterministic regular-wave excitation and response-amplitude validation.
-4. Calibrate and validate against independent free-decay or sea-trial traces.
+The pinned external MSS/Otter traces now support Vehicle A only in the `planar3` scope. The remaining work is:
+
+1. Replace derived six-axis coefficients with identified or measured values.
+2. Add deterministic regular-wave excitation and response-amplitude validation.
+3. Acquire independent same-vessel maneuver and free-decay data for Vehicle B.
+4. Acquire synchronized actuator-command, wrench, and trajectory data for Vehicle C.
+5. Calibrate and validate the coupled-six models against independent physical observations.
 
 ## Benchmark interpretation
 

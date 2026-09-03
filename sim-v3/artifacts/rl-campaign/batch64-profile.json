@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "batch": 64,
+  "iterations": 200,
+  "environment_steps": 12800,
+  "phase_profile": {
+    "production_vector_step_ms": 3618.6550879999927,
+    "json_stringify_ms": 20.8396609999985,
+    "unmeasured_python_parse_and_pipe_ms": "measured by subtraction in bridge-parity-local throughput",
+    "response_bytes_total": 7794682,
+    "response_bytes_per_batch_step": 38973.41
+  },
+  "rates": {
+    "in_process_environment_steps_per_s": 3537.225761705429,
+    "json_serializations_per_s": 9597.085096538489
+  },
+  "interpretation": {
+    "vector_execution": "DeterministicVectorMarineSimulation loops over slots sequentially; batch size does not introduce parallel physics execution.",
+    "serialization": "Every step serializes observations for all slots through JSONL.",
+    "expected_remedy": "Use a persistent worker pool for authoritative Node coupled6 runs; use an accepted in-process tensor backend for GPU claims. IPC optimization alone cannot make sequential Node physics scale 64x."
+  },
+  "paper_measurement_eligible": false
+}

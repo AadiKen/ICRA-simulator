@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-vehicle-step-0-scoping",
+  "status": "complete-halt-for-confirmation",
+  "generated_at": "2026-09-01T00:00:00-05:00",
+  "gate": 0,
+  "question_1_geometry": {
+    "finding": "No public CAD model, lines plan, dimensioned hull drawing, mass-distribution drawing, or thruster-coordinate drawing was found in the checked manufacturer material, the public FIU-MoRA-Lab repository, or locally supplied files.",
+    "available_authoritative_dimensions": {
+      "length_m": 1.83,
+      "beam_m": 0.91,
+      "draft_m": 0.17,
+      "mass_kg": 52.3,
+      "propulsion": "2 x 1 kW BLDC pocket thrusters",
+      "steering": "differential thrust",
+      "gnss_antenna_spacing_m": 1.1
+    },
+    "sources_checked": [
+      {
+        "source": "SeaRobotics SR-Surveyor M1.8 product page",
+        "url": "https://searobotics.com/sr-surveyor-m1-8-specsheet/",
+        "result": "Confirms product identity but gates the manufacturer PDF behind a form; no CAD or dimensioned mechanical drawing is exposed."
+      },
+      {
+        "source": "SeaRobotics SR-Surveyor M1.8 manufacturer specification sheet (public mirror)",
+        "url": "https://okeanus.com/wp-content/uploads/2025/08/sr-surveyorm18-specsheet-new01.pdf",
+        "result": "Confirms overall dimensions, draft, weight, twin 1 kW pocket thrusters, differential steering, endurance, battery and sensor options; provides no hull sections, mass distribution, thruster coordinates, bollard-pull curve or actuator time constant."
+      },
+      {
+        "source": "FIU-MoRA-Lab/searobotics_surveyor",
+        "url": "https://github.com/FIU-MoRA-Lab/searobotics_surveyor",
+        "result": "Public control and sensor integration repository. Root tree contains requirements, surveyor_lib, tests and project metadata; no mechanical/CAD asset is advertised. The linked full automation repository was not publicly readable during this audit."
+      },
+      {
+        "source": "Local Downloads search",
+        "result": "Only surveyor_vehicle_replacement.md was present; no STEP, IGES, DWG, DXF, CAD or additional Surveyor document was found."
+      }
+    ],
+    "answer": "A defensible model cannot currently be derived from actual hull geometry. Unless FIU or SeaRobotics supplies CAD/drawings and loaded mass-property information, Step 1 must use a clearly labeled approximation constrained by the published envelope, draft and mass; photo inference alone cannot establish an actual inertia tensor or thruster coordinates.",
+    "required_private_inputs_to_avoid_approximation": [
+      "CAD or dimensioned hull/lines drawing",
+      "loaded configuration and center of gravity",
+      "component or measured inertia/mass distribution",
+      "port/starboard thruster mounting coordinates and axes",
+      "forward/reverse bollard-pull versus integer command and battery voltage",
+      "deadband, lag/time constant and slew-rate measurements"
+    ]
+  },
+  "question_2_replacement_scope": {
+    "finding": "The repository contains three distinct identities that must not be conflated: the 1000 kg synthetic bcod_usv geometry bootstrap, the 55 kg MSS-derived vehicle-a-otter, and an existing 52.3 kg searobotics-surveyor-m1.8 integration-only preset.",
+    "identity_inventory": [
+      {
+        "id": "bcod_usv",
+        "role": "Synthetic 4.8 m x 2.4 m, 1000 kg geometry bootstrap used by Gazebo generation and recent Gate 7 scaffolding.",
+        "key_source": "core/vehicles/coefficients.js",
+        "source_file_reference_count": 6
+      },
+      {
+        "id": "vehicle-a-otter",
+        "role": "MSS-derived 2.0 m, 55 kg validated planar reference used broadly by benchmarks, deterministic tests, task calibration, policy evaluation, tensor parity and release fixtures.",
+        "key_source": "packages/vehicle-sdk/src/index.ts",
+        "source_file_reference_count": 31
+      },
+      {
+        "id": "searobotics-surveyor-m1.8",
+        "role": "Existing integration-only preset with manufacturer envelope/mass but assumed inertia, thruster coordinates, damping and 1 N-per-command projection.",
+        "key_sources": [
+          "packages/vehicle-sdk/src/surveyor.ts",
+          "packages/vehicle-sdk/src/index.ts",
+          "backends/node/src/legacy-production-engine.ts"
+        ]
+      }
+    ],
+    "outside_common_task_dependencies": [
+      "USV-Bench-36 manifests and runner",
+      "determinism sweep and Node/tensor parity",
+      "mission-length and thin-slice validation fixtures",
+      "worker/checkpoint and typed-sensor tests",
+      "policy-campaign and release generation",
+      "MSS/Otter validation evidence"
+    ],
+    "common_task_identity_risk": "The calibration scripts name vehicle-a-otter, while the recent external Gazebo Gate 7 model uses bcod_usv. Treating either name as an interchangeable 'Vehicle A' is already ambiguous and must be corrected before recalibration.",
+    "answer": "Do not globally replace or delete either existing vehicle. Retain vehicle-a-otter as the named MSS validation/reference vehicle and retain bcod_usv only as a named historical synthetic fixture. Promote searobotics-surveyor-m1.8 to the common-task campaign vehicle through an explicit task/config migration. Historical bootstrap/Otter artifacts must remain immutable and vehicle-labeled."
+  },
+  "recommended_step_1_scope": {
+    "decision_needed": "Approve a Surveyor common-task migration while retaining Otter and bcod_usv as separately named non-campaign/historical vehicles.",
+    "geometry_path": "First request private FIU/vendor CAD and mass-property data. If unavailable, approve a documented approximate hull model; it must not be described as actual geometry or actual inertia.",
+    "single_source_of_truth_target": "A new versioned Surveyor vehicle artifact consumed by Node, Gazebo and VRX without downstream re-derivation.",
+    "prohibited_shortcut": "The checked-in assumed inertia [3.8, 14.7, 16.3] kg m^2, +/-0.35 m thruster coordinates, damping values and 1 N-per-command mapping are integration placeholders and are not acceptable as measured Surveyor parameters."
+  },
+  "halt": {
+    "required": true,
+    "reason": "Step 0 complete. The adopted instructions require confirmation before Step 1, and the absence of public actual geometry creates a material choice between obtaining private data and authorizing a documented approximation."
+  }
+}

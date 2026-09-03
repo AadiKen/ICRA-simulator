@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-gate-7-harness-status",
+  "status": "GATE_7_COMPLETE_FAIL",
+  "contract_content_sha256": "cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb",
+  "thrust_scale_cross_check": {
+    "smoke_displacement_m": 6.761481981843311,
+    "recorded_duration_s": 11.25,
+    "implied_average_speed_m_s": 0.6010206206082943,
+    "reference_cruise_speed_m_s": 0.73,
+    "relative_difference": -0.1766833964269941,
+    "assessment": "same range; proceed",
+    "important_detail": "gz::sim::systems::Thruster force-command mode applies the clamped Newton command directly. The coefficient maps that force to rotor angular velocity and does not rescale the applied force."
+  },
+  "implemented": {
+    "seeded_episode_preparation": "validation/rl-campaign/ports/prepare-vrx-episode.ts",
+    "runtime_command_and_capture_node": "validation/rl-campaign/ports/vrx_gate7_runtime.py",
+    "node_reference_vehicle_fix": "searobotics-surveyor-m1.8",
+    "trace_bridge_actuator_fix": "Surveyor per-effector specification",
+    "reset_mapping": "NED position/yaw converted to SDF ENU",
+    "wind_direction_mapping": "ENU degrees = (90 - NED degrees) mod 360",
+    "command_sample_synchronization": {
+      "physics_and_odometry_hz": 20,
+      "control_hz": 10,
+      "physics_samples": 2400,
+      "control_actions": 1200,
+      "hold_samples_per_action": 2,
+      "finding": "The count difference is required by the frozen timing contract, not an indexing or publication-rate bug. Runtime publication is clocked from odometry and emits one trace row per physics sample; no interpolation is used."
+    },
+    "trace_finalization": "Existing assembleVrxExporterTrace produces trace-schema-v2 with 16 observation fields.",
+    "comparison": "Existing conformance.ts reports max and first divergence independently for N, E, yaw, u, v, and r at absolute tolerance 1e-4."
+  },
+  "resolved_repairs": {
+    "blast_radius": "Shared Gate 7 scaffolding, but no completed Surveyor Gazebo Gate 7 pass existed; the authoritative prior artifact records zero Node episodes, zero Gazebo episodes, and zero comparisons.",
+    "node_command_injection": "Uses the working P3 explicit effectors.port/starboard.command path, holds each 10 Hz action for two 20 Hz steps, and uses the active contract route instead of the immediately-terminal hold mission.",
+    "seed_20000_frozen_trace_displacement_m": 32.1566139514352,
+    "node_wind": "WindLoad added only to Surveyor planar3 with the shared geometry-derived configuration.",
+    "regenerated_reference_traces": "artifacts/rl-campaign/gate-7/reference/node-20000.json through node-20019.json; all 20 contain 2400 samples and nonzero displacement.",
+    "current_system": "Self-contained libVrxCurrentRelativeVelocity.so applies the exact correction damping(v-current)-damping(v), reusing Surveyor [Xu,Yv]=[6,18] and [Xuu,Yvv]=[18,60].",
+    "current_plugin_source": "validation/rl-campaign/ports/vrx-current-system/CurrentRelativeVelocity.cc",
+    "wind_estimate": {
+      "classification": "documented engineering estimate; not manufacturer or WAM-V data",
+      "exposed_height_m": 0.42,
+      "height_reason": "0.17 m pontoon freeboard plus estimated 0.25 m low-profile deck payload/superstructure",
+      "frontal_area_m2": 0.3822,
+      "side_area_m2": 0.7686,
+      "drag_coefficient": 1.1,
+      "drag_coefficient_basis": "standard boxy/bluff-body engineering approximation",
+      "air_density_kg_m3": 1.225,
+      "vrx_coeff_vector": [0.25754575, 0.51783225, 0],
+      "yaw_reason": "Centered fore-aft symmetric profile; no unsupported aerodynamic-center offset was invented.",
+      "single_source": "packages/vehicle-sdk/src/surveyor-environment.js"
+    },
+    "environment_cross_check": {
+      "seed": 20000,
+      "duration_s_approximately": 9.6,
+      "thrust_command_n": [0, 0],
+      "node_displacement_m": 1.2888507434679686,
+      "vrx_displacement_m": 1.540640195,
+      "relative_difference_approximately": 0.195,
+      "direction": "both predominantly east with a smaller north component, consistent with the seeded approximately 69 degree NED current/wind direction",
+      "assessment": "same range; passed"
+    },
+    "environment_tolerance_pre_registration": {
+      "artifact": "artifacts/rl-campaign/vrx-environment-tolerance-proposal.json",
+      "proposed_maximum_relative_vector_divergence": 0.3,
+      "proposed_maximum_direction_difference_deg": 15,
+      "checkpoints_s": [30, 60, 120],
+      "long_horizon_vector_divergence": 0.04012679469374968,
+      "long_horizon_direction_difference_deg": 1.5000887163902596,
+      "boundedness_finding": "The normalized difference decreased rather than compounded over approximately 112 seconds.",
+      "approval_state": "explicitly approved and locked before full held-out execution"
+    }
+  },
+  "historical_review_blockers_now_resolved": [
+    {
+      "element": "Node wind reference",
+      "finding": "The production Surveyor planar3 DynamicsCore force-model list contains ActuatorModel, AddedMassCoriolis, HydrodynamicDamping, and HydrostaticsAndWaves, but no WindLoad. Seeded wind therefore has no force counterpart in the governing Node reference.",
+      "evidence": "schema.js constructs WindLoad only for coupledPlant, while the Surveyor common task selects planar3.",
+      "required_decision": "A production/reference contract decision is required before VRX wind can be compared: either authorize WindLoad in Surveyor planar3 and invalidate/rerun affected downstream reference artifacts, or explicitly remove wind forcing from Gate 7 conformance."
+    },
+    {
+      "element": "Node Gate 7 command injection",
+      "finding": "A 2400-step seed-20000 reference probe remained bit-for-bit stationary from first to last state under the frozen action trace.",
+      "evidence": "generate-node-reference.ts sends portCommand/starboardCommand, but the Surveyor integration resolves through its guidance/desired-wrench actuator path and does not consume those fields.",
+      "required_decision": "Repair and revalidate the Node reference command injection before treating it as the Gate 7 baseline."
+    },
+    {
+      "element": "water current",
+      "finding": "The pinned VRX v3.0.1 libSimpleHydrodynamics.so exposes damping and added-mass coefficients but no current topic or SDF current parameter. Publishing the Gazebo orchestrator's /ocean_current message would be silently ignored.",
+      "required_decision": "Approve replacing it with Gazebo Harmonic's current-capable Hydrodynamics system using a reviewed sign/parameter conversion, or approve a small VRX current-relative-velocity system plugin."
+    },
+    {
+      "element": "wind coefficients",
+      "finding": "VRX libUSVWind.so requires coeff_vector. The installed examples contain WAM-V coefficients only; the established Surveyor artifact contains no Surveyor-specific mapping for this plugin.",
+      "required_decision": "Approve a documented geometry-based Surveyor wind-coefficient translation. The episode preparer deliberately requires this input and will not borrow WAM-V's values."
+    }
+  ],
+  "safety_guards": [
+    "Seeded current is serialized into the episode-local Surveyor model and handled only by the self-contained relative-current plugin.",
+    "Seeded wind consumes the shared Surveyor estimate; no WAM-V coefficient is available as a fallback.",
+    "No calm-water substitution, interpolation, WAM-V coefficient reuse, or false Gate 7 result is permitted."
+  ],
+  "execution": {
+    "short_episodes_run": 1,
+    "full_held_out_seeds_run": 20,
+    "matched_environment_disabled_controls_run": 20,
+    "samples_per_trace": 2400,
+    "gate_7_result": "fail",
+    "result_artifact": "artifacts/rl-campaign/vrx-gate7-full/gate-7-result.json",
+    "kinematic_result": {
+      "pass": false,
+      "seeds_passing": 0,
+      "seeds_failing": 20,
+      "tolerance_abs": 0.0001
+    },
+    "environment_response_result": {
+      "pass": false,
+      "seeds_passing": 0,
+      "seeds_failing": 20,
+      "maximum_relative_vector_divergence": 6.287319016886436,
+      "maximum_direction_difference_deg": 157.21602627589712,
+      "declared_relative_vector_tolerance": 0.3,
+      "declared_direction_tolerance_deg": 15
+    },
+    "reason": "Full synchronized held-out execution completed after tolerance approval. Both the contract kinematic comparison and the separately preregistered environment-response comparison failed."
+  }
+}

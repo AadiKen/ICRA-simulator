@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "cluster-scale-training-status",
+  "status": "target-confirmed-launch-blocked",
+  "generated_at": "2026-09-02",
+  "priority": 2,
+  "target_confirmation": {
+    "vehicle": "vehicle-a-otter",
+    "plant": "planar3",
+    "task": "common-waypoint-transit-v1",
+    "contract_chain": "original pre-Surveyor task chain",
+    "not_surveyor": true,
+    "evidence": [
+      "artifacts/rl-campaign/p3-training-protocol.json declares vehicle-a-otter / planar3.",
+      "artifacts/rl-campaign/surveyor/final-gate-3-disposition.json closes Surveyor Gate 3 with no retraining authorized.",
+      "artifacts/rl-campaign/surveyor/checkpoint-reuse-and-transfer-scope.json prohibits fresh or extended Surveyor cluster training."
+    ]
+  },
+  "launch": {
+    "started": false,
+    "scheduler_job_id": null,
+    "blockers": [
+      "No cluster endpoint, scheduler client, or GPU allocation is available from this host.",
+      "The saved Vehicle A protocol declares contract hash d49f8a7d9d4e70f0ab4ff358620435f79bd6f72a2689cc5d07309d4cb6b3efad, while the current pre-Surveyor task-definition artifact declares ce9a7c64c2d7725f0fcbc9c041a4bba61540bf8534f26b7f2f3e80f9744b2021. Launching before resolving which frozen revision governs would create an unauditable run.",
+      "The only current train_p3.py entrypoint is explicitly bound to the frozen Surveyor protocol and paths; it must not be reused for Vehicle A."
+    ]
+  },
+  "required_to_start": [
+    "Provide or connect the cluster endpoint/allocation and its scheduler/runtime policy.",
+    "Identify the authoritative frozen Vehicle A contract revision for the cluster run (d49f8a7... protocol binding versus ce9a7c64... current pre-Surveyor artifact).",
+    "Use a Vehicle A-specific cluster training entrypoint; do not alter or reuse the closed Surveyor training entrypoint."
+  ],
+  "scope_guards": {
+    "surveyor_training_closed": true,
+    "surveyor_gazebo_parked": true,
+    "vrx_parked": true
+  }
+}

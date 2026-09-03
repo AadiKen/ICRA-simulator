@@ -1,0 +1,1595 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "environmental-source-coverage-and-failure-injection",
+  "generated_at": "2026-08-24T12:00:00.000Z",
+  "methodology": {
+    "coverage": "deterministic injected transports/catalogs exercising production adapters; not a live-provider availability benchmark",
+    "latency": "wall-clock adapter retrieval/parse/cascade latency on local injected fixtures",
+    "timestamps": [
+      "2026-01-15T12:00:00.000Z",
+      "2026-07-15T12:00:00.000Z"
+    ],
+    "sites": [
+      {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465
+      },
+      {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865
+      },
+      {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162
+      },
+      {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989
+      }
+    ]
+  },
+  "coverage_matrix": [
+    {
+      "source": "ndbc",
+      "site": "san-francisco",
+      "coordinates": {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465,
+        "depth": 22
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 1.3,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NDBC-standard-meteorological",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.808Z",
+        "native_grid_cell": "ndbc-san-francisco"
+      },
+      "artifact_checksum_sha256": "2fada130525cf89cef1129a7de1b16a5251600c2822cf56672ba2a01004ef8d0",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "ndbc",
+      "site": "san-francisco",
+      "coordinates": {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465,
+        "depth": 22
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.092,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NDBC-standard-meteorological",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.815Z",
+        "native_grid_cell": "ndbc-san-francisco"
+      },
+      "artifact_checksum_sha256": "c68cb796778fa8d1cc9d987678aa71bce146e98b42cd84185790aa16d5a3e0ef",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "ndbc",
+      "site": "honolulu",
+      "coordinates": {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865,
+        "depth": 34
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.046,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NDBC-standard-meteorological",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.815Z",
+        "native_grid_cell": "ndbc-honolulu"
+      },
+      "artifact_checksum_sha256": "183b31d41932b5ac681fc968bedd7ea21184a0a638d05d7f9c95e4e892a62e54",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "ndbc",
+      "site": "honolulu",
+      "coordinates": {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865,
+        "depth": 34
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.047,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NDBC-standard-meteorological",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "ndbc-honolulu"
+      },
+      "artifact_checksum_sha256": "ed9f4a1997193e6254f8117d8e247f40019e3cc05619df8230850d84c72f9e05",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "ndbc",
+      "site": "miami",
+      "coordinates": {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162,
+        "depth": 18
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.048,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NDBC-standard-meteorological",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "ndbc-miami"
+      },
+      "artifact_checksum_sha256": "4cadda7533b7fb105cce33e6946819ea7fbca4706be1d4303a69164157509354",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "ndbc",
+      "site": "miami",
+      "coordinates": {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162,
+        "depth": 18
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.038,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NDBC-standard-meteorological",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "ndbc-miami"
+      },
+      "artifact_checksum_sha256": "5a748900fb1843eb7d59ac1c3fe91cc0d35eab540b8f9ecfe36293ebb505c045",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "ndbc",
+      "site": "boston",
+      "coordinates": {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989,
+        "depth": 27
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.026,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NDBC-standard-meteorological",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "ndbc-boston"
+      },
+      "artifact_checksum_sha256": "bb708b5409d47bd0c94d42a966b0dd14015fd28a6187689c441513848a5eb236",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "ndbc",
+      "site": "boston",
+      "coordinates": {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989,
+        "depth": 27
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.038,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NDBC-standard-meteorological",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "ndbc-boston"
+      },
+      "artifact_checksum_sha256": "5c0420698e1d3740a3a4d4c6aec5a7d0b24f111ca62661ebb9ab80f841fde293",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "san-francisco",
+      "coordinates": {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465,
+        "depth": 22
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.115,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "CO-OPS-water-level",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "coops-san-francisco"
+      },
+      "artifact_checksum_sha256": "cc385f4908f1fdd80f073ef6457c3117b736a09490b4f33c6ce55243dededeae",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "san-francisco",
+      "coordinates": {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465,
+        "depth": 22
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.023,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "CO-OPS-water-level",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "coops-san-francisco"
+      },
+      "artifact_checksum_sha256": "674642f1b05b1b7672085a981895e380c4216d2036b3a0f9e273e59c1c84e3f3",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "honolulu",
+      "coordinates": {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865,
+        "depth": 34
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.018,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "CO-OPS-water-level",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "coops-honolulu"
+      },
+      "artifact_checksum_sha256": "9073b15d16ae15905ad80f427936bd745ad87ecbaabebb541c11f5c72c90318f",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "honolulu",
+      "coordinates": {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865,
+        "depth": 34
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.013,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "CO-OPS-water-level",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "coops-honolulu"
+      },
+      "artifact_checksum_sha256": "3dad48ff9656c2c5e0b76c789fb03b07a01c7277371b6d1e21684c000a2d1b76",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "miami",
+      "coordinates": {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162,
+        "depth": 18
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.012,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "CO-OPS-water-level",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "coops-miami"
+      },
+      "artifact_checksum_sha256": "6d4a7001dd9d1737dc1168942ec0c388b0a3e6eb50ebfc598a01e2310d3ed3db",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "miami",
+      "coordinates": {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162,
+        "depth": 18
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.014,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "CO-OPS-water-level",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "coops-miami"
+      },
+      "artifact_checksum_sha256": "97d5e9b3bc566c137b2de44e7ddaa1a0a25a6111c863eeda26cb0a0c2b0fb26c",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "boston",
+      "coordinates": {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989,
+        "depth": 27
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.013,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "CO-OPS-water-level",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "coops-boston"
+      },
+      "artifact_checksum_sha256": "cb4f4503f6a1efd60757f71b9279f1c97aa15e1dfa5209c6a5f33c2e90aba847",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "boston",
+      "coordinates": {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989,
+        "depth": 27
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.011,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "CO-OPS-water-level",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "coops-boston"
+      },
+      "artifact_checksum_sha256": "8630a6dc2fbe3c269509b53485f07461318187146216f04e7f7389742c4e622d",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "nws",
+      "site": "san-francisco",
+      "coordinates": {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465,
+        "depth": 22
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.12,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NWS-forecast-grid-data",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "GRID-san-francisco/12,34"
+      },
+      "artifact_checksum_sha256": "16f5d08853e63ba4fc6bf0b2fce0df2dd0ad8d08f8af5d85876ab4f2790381e6",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "nws",
+      "site": "san-francisco",
+      "coordinates": {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465,
+        "depth": 22
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.026,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NWS-forecast-grid-data",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "GRID-san-francisco/12,34"
+      },
+      "artifact_checksum_sha256": "f2aa3678273202e685f4922809f75fc7d7afedfed02727e692adc5e1b6315168",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "nws",
+      "site": "honolulu",
+      "coordinates": {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865,
+        "depth": 34
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.017,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NWS-forecast-grid-data",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "GRID-honolulu/12,34"
+      },
+      "artifact_checksum_sha256": "e9bf5a208de5c933a85f82e5dfe7ef1b176ab98b5289ff0ea7a78d08afd3bb18",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "nws",
+      "site": "honolulu",
+      "coordinates": {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865,
+        "depth": 34
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.013,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NWS-forecast-grid-data",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "GRID-honolulu/12,34"
+      },
+      "artifact_checksum_sha256": "cb66ea7287c4a81535c6592f85f9bc80fbcb80f8cf82290780f17ba046ad7c61",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "nws",
+      "site": "miami",
+      "coordinates": {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162,
+        "depth": 18
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.016,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NWS-forecast-grid-data",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.816Z",
+        "native_grid_cell": "GRID-miami/12,34"
+      },
+      "artifact_checksum_sha256": "876d5146f9842efe6af41257b6eb7e40a86effbb54ccb197b5e7144bb69c6ba3",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "nws",
+      "site": "miami",
+      "coordinates": {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162,
+        "depth": 18
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.014,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NWS-forecast-grid-data",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.817Z",
+        "native_grid_cell": "GRID-miami/12,34"
+      },
+      "artifact_checksum_sha256": "cc43b13729309b5526f5d02732097e95dc58a29e1b10c6d87adf1e9cae465b88",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "nws",
+      "site": "boston",
+      "coordinates": {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989,
+        "depth": 27
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.015,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NWS-forecast-grid-data",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.817Z",
+        "native_grid_cell": "GRID-boston/12,34"
+      },
+      "artifact_checksum_sha256": "d145ab6bcb195d077a4247be5f1d871d5fa770b00c493a3a7e0aaa0a7f2b56fb",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "nws",
+      "site": "boston",
+      "coordinates": {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989,
+        "depth": 27
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.012,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "NWS-forecast-grid-data",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.817Z",
+        "native_grid_cell": "GRID-boston/12,34"
+      },
+      "artifact_checksum_sha256": "fa80529ebe4174ad4075e4d29e42b5e3395baaec90f965eaa881c296e9d78c42",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "san-francisco",
+      "coordinates": {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465,
+        "depth": 22
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 15.969,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "RTOFS-global-2D",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.874Z",
+        "native_grid_cell": "rtofs:Y1,X1@37.806000,-122.464996"
+      },
+      "artifact_checksum_sha256": "b6f68e1e6095cc2b54caaf55b518ca776c8419e0218c1df7edaa06a381b72b6c",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "san-francisco",
+      "coordinates": {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465,
+        "depth": 22
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 1.226,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "RTOFS-global-2D",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.876Z",
+        "native_grid_cell": "rtofs:Y1,X1@37.806000,-122.464996"
+      },
+      "artifact_checksum_sha256": "751f11ff603fe790c5b58a54fd9bfc1b1ddf811cd36ac9c3894c799af94b27f6",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "honolulu",
+      "coordinates": {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865,
+        "depth": 34
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.927,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "RTOFS-global-2D",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.877Z",
+        "native_grid_cell": "rtofs:Y1,X1@21.289000,-157.865005"
+      },
+      "artifact_checksum_sha256": "228e4ab72c93776837392474bc948e82a848948c22a5aa0e57d7ddd7c8288140",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "honolulu",
+      "coordinates": {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865,
+        "depth": 34
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 1.044,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "RTOFS-global-2D",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.879Z",
+        "native_grid_cell": "rtofs:Y1,X1@21.289000,-157.865005"
+      },
+      "artifact_checksum_sha256": "fc598091545c2cfb21ec20d3928df0f56756d9989d3e1e126884f1e461cd8cd8",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "miami",
+      "coordinates": {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162,
+        "depth": 18
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.896,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "RTOFS-global-2D",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.881Z",
+        "native_grid_cell": "rtofs:Y1,X1@25.731001,-80.162003"
+      },
+      "artifact_checksum_sha256": "3879d9a9ad67ccfbfab99e073d3948d8f8ec3188cf0d6f2d4b76403855ceb12c",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "miami",
+      "coordinates": {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162,
+        "depth": 18
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 1.084,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "RTOFS-global-2D",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.883Z",
+        "native_grid_cell": "rtofs:Y1,X1@25.731001,-80.162003"
+      },
+      "artifact_checksum_sha256": "dfeda542e8e1b93f6a897f95dd3ab1f479482d4b329d98d518627d7f1446bee7",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "boston",
+      "coordinates": {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989,
+        "depth": 27
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.881,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "RTOFS-global-2D",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.885Z",
+        "native_grid_cell": "rtofs:Y1,X1@42.354000,-70.988998"
+      },
+      "artifact_checksum_sha256": "6bbb3b082524832cb237795a23443390a5c3503732313932f5e2cbf05fc597ce",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "boston",
+      "coordinates": {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989,
+        "depth": 27
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 2.208,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "RTOFS-global-2D",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-25T20:30:43.888Z",
+        "native_grid_cell": "rtofs:Y1,X1@42.354000,-70.988998"
+      },
+      "artifact_checksum_sha256": "5f07839b0e3f26250b23cbd40c08fba3bf1ca14a01553ee1e186d483d83f3c8b",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "san-francisco",
+      "coordinates": {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465,
+        "depth": 22
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.349,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "reanalysis-era5-single-levels",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "era5-atmosphere:37.75,-122.5@0.25deg|era5-wave:38,-122.5@0.5deg"
+      },
+      "artifact_checksum_sha256": "73a21b62f611e22e2445bf89cadc77e0df04c1c0dd28054bb12e399ff9fd94ce",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "san-francisco",
+      "coordinates": {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465,
+        "depth": 22
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.033,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "reanalysis-era5-single-levels",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "era5-atmosphere:37.75,-122.5@0.25deg|era5-wave:38,-122.5@0.5deg"
+      },
+      "artifact_checksum_sha256": "f2e8618e0fee720ea8284d5c74e6dc5df6ebe204fcfb754de1aba23003c0906f",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "honolulu",
+      "coordinates": {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865,
+        "depth": 34
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.025,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "reanalysis-era5-single-levels",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "era5-atmosphere:21.25,-157.75@0.25deg|era5-wave:21.5,-158@0.5deg"
+      },
+      "artifact_checksum_sha256": "8f6425bf1bc6a15de59e74f1e79c2778081a7eca28b4370420a8e1eb8d6222f1",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "honolulu",
+      "coordinates": {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865,
+        "depth": 34
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.023,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "reanalysis-era5-single-levels",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "era5-atmosphere:21.25,-157.75@0.25deg|era5-wave:21.5,-158@0.5deg"
+      },
+      "artifact_checksum_sha256": "a808549b47496e3bdae0c2d200dc7ae2abc543396eb5994a1ba85c80986da924",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "miami",
+      "coordinates": {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162,
+        "depth": 18
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.032,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "reanalysis-era5-single-levels",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "era5-atmosphere:25.75,-80.25@0.25deg|era5-wave:25.5,-80@0.5deg"
+      },
+      "artifact_checksum_sha256": "7688fca2bf21c3dae89cd1eb4ecd84e8c066c7e1bf5a4ce5fa5bcaae5bc1e836",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "miami",
+      "coordinates": {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162,
+        "depth": 18
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.026,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "reanalysis-era5-single-levels",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "era5-atmosphere:25.75,-80.25@0.25deg|era5-wave:25.5,-80@0.5deg"
+      },
+      "artifact_checksum_sha256": "f7cd31890afb9911db13f17949d3334bd1277c0d051da08d1941ce0b26527f26",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "boston",
+      "coordinates": {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989,
+        "depth": 27
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.017,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "reanalysis-era5-single-levels",
+        "timestamp": "2026-01-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "era5-atmosphere:42.25,-71@0.25deg|era5-wave:42.5,-71@0.5deg"
+      },
+      "artifact_checksum_sha256": "237f61161797307d990b95af9b18741e25a348799f3e34b4aad68061907ab288",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "boston",
+      "coordinates": {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989,
+        "depth": 27
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.016,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "reanalysis-era5-single-levels",
+        "timestamp": "2026-07-15T12:00:00.000Z",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "era5-atmosphere:42.25,-71@0.25deg|era5-wave:42.5,-71@0.5deg"
+      },
+      "artifact_checksum_sha256": "a171186570c67c6be2dc38f9fe6f67952b3181cc305c1eb8186cf28f4b295f3c",
+      "methodology": "measured-deterministic-injected-transport",
+      "notes": [
+        "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
+      ]
+    },
+    {
+      "source": "bathymetry_cascade",
+      "site": "san-francisco",
+      "coordinates": {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465,
+        "depth": 22
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.463,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "ehydro-san-francisco",
+        "timestamp": "2025-06-01",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "ehydro:37.75,-122.5@0.25deg"
+      },
+      "artifact_checksum_sha256": "4527d16b38ec985119650c41425e1d2e41a6ced96b6752f26e97d7c72aa8911a",
+      "methodology": "measured-deterministic-catalog-fixture",
+      "notes": [
+        "cascade_source=ehydro"
+      ]
+    },
+    {
+      "source": "bathymetry_cascade",
+      "site": "san-francisco",
+      "coordinates": {
+        "id": "san-francisco",
+        "latitude_deg": 37.806,
+        "longitude_deg": -122.465,
+        "depth": 22
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.07,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "lidar-san-francisco",
+        "timestamp": "2025-06-01",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "lidar:37.75,-122.5@0.25deg"
+      },
+      "artifact_checksum_sha256": "04f08694d9e95c5e0c5e2f14b01b19f33109e6252b7ae5693e044b425931e31b",
+      "methodology": "measured-deterministic-catalog-fixture",
+      "notes": [
+        "cascade_source=lidar"
+      ]
+    },
+    {
+      "source": "bathymetry_cascade",
+      "site": "honolulu",
+      "coordinates": {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865,
+        "depth": 34
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.074,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "estuarine_dem-honolulu",
+        "timestamp": "2025-06-01",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "estuarine_dem:21.25,-157.75@0.25deg"
+      },
+      "artifact_checksum_sha256": "f1fb243d1e4a8bcf084a4e9cb32ea606989f38ec55a816d6890a8c3da6988451",
+      "methodology": "measured-deterministic-catalog-fixture",
+      "notes": [
+        "cascade_source=estuarine_dem"
+      ]
+    },
+    {
+      "source": "bathymetry_cascade",
+      "site": "honolulu",
+      "coordinates": {
+        "id": "honolulu",
+        "latitude_deg": 21.289,
+        "longitude_deg": -157.865,
+        "depth": 34
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.058,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "cudem-honolulu",
+        "timestamp": "2025-06-01",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "cudem:21.25,-157.75@0.25deg"
+      },
+      "artifact_checksum_sha256": "b4e76b63af62529862c295e6c5303d3538df57216de2558e396788b5cdbffc82",
+      "methodology": "measured-deterministic-catalog-fixture",
+      "notes": [
+        "cascade_source=cudem"
+      ]
+    },
+    {
+      "source": "bathymetry_cascade",
+      "site": "miami",
+      "coordinates": {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162,
+        "depth": 18
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.088,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "GEBCO_2026",
+        "timestamp": "2026-08-24T12:00:00.000Z",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "GEBCO_2026:lat[27775],lon[23961]"
+      },
+      "artifact_checksum_sha256": "cc2afdc16d5958d03d428b476b61f1679500e208d73eaa49b1b4abff6cdad809",
+      "methodology": "measured-deterministic-catalog-fixture",
+      "notes": [
+        "cascade_source=gebco",
+        "GEBCO_2026 OPeNDAP fixture decoded with TID 70 (pre_generated_mixed_source_grid)."
+      ]
+    },
+    {
+      "source": "bathymetry_cascade",
+      "site": "miami",
+      "coordinates": {
+        "id": "miami",
+        "latitude_deg": 25.731,
+        "longitude_deg": -80.162,
+        "depth": 18
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.044,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "ehydro-miami",
+        "timestamp": "2025-06-01",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "ehydro:25.75,-80.25@0.25deg"
+      },
+      "artifact_checksum_sha256": "2c049e6bc66bebdabe4b84771855fd75b42f570b53b3796d604b4bdbcf6e432a",
+      "methodology": "measured-deterministic-catalog-fixture",
+      "notes": [
+        "cascade_source=ehydro"
+      ]
+    },
+    {
+      "source": "bathymetry_cascade",
+      "site": "boston",
+      "coordinates": {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989,
+        "depth": 27
+      },
+      "timestamp": "2026-01-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.042,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "lidar-boston",
+        "timestamp": "2025-06-01",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "lidar:42.25,-71@0.25deg"
+      },
+      "artifact_checksum_sha256": "ae7426d4cc8957f11112556d0583d812cd9abe2cdb035c3cf0251f7b731cf6e1",
+      "methodology": "measured-deterministic-catalog-fixture",
+      "notes": [
+        "cascade_source=lidar"
+      ]
+    },
+    {
+      "source": "bathymetry_cascade",
+      "site": "boston",
+      "coordinates": {
+        "id": "boston",
+        "latitude_deg": 42.354,
+        "longitude_deg": -70.989,
+        "depth": 27
+      },
+      "timestamp": "2026-07-15T12:00:00.000Z",
+      "success": true,
+      "retrieval_latency_ms": 0.039,
+      "provenance_complete": true,
+      "provenance": {
+        "dataset_id": "estuarine_dem-boston",
+        "timestamp": "2025-06-01",
+        "retrieval_date": "2026-08-24T12:00:00.000Z",
+        "native_grid_cell": "estuarine_dem:42.25,-71@0.25deg"
+      },
+      "artifact_checksum_sha256": "b4bd78b7f8485dba9e9d2e86326017d677b464db9d764096c25de6f5668b156a",
+      "methodology": "measured-deterministic-catalog-fixture",
+      "notes": [
+        "cascade_source=estuarine_dem"
+      ]
+    }
+  ],
+  "bathymetry_overlap_agreement": [
+    {
+      "reference_source": "ehydro",
+      "candidate_source": "lidar",
+      "n": 2,
+      "bias_m": 0.3999999999999986,
+      "rmse_m": 0.3999999999999986
+    },
+    {
+      "reference_source": "ehydro",
+      "candidate_source": "estuarine_dem",
+      "n": 2,
+      "bias_m": 0.8000000000000007,
+      "rmse_m": 0.8000000000000007
+    },
+    {
+      "reference_source": "ehydro",
+      "candidate_source": "cudem",
+      "n": 2,
+      "bias_m": 1.1999999999999993,
+      "rmse_m": 1.1999999999999993
+    },
+    {
+      "reference_source": "ehydro",
+      "candidate_source": "gebco",
+      "n": 2,
+      "bias_m": 1.6000000000000014,
+      "rmse_m": 1.6000000000000014
+    },
+    {
+      "reference_source": "lidar",
+      "candidate_source": "estuarine_dem",
+      "n": 2,
+      "bias_m": 0.3999999999999986,
+      "rmse_m": 0.3999999999999986
+    },
+    {
+      "reference_source": "lidar",
+      "candidate_source": "cudem",
+      "n": 2,
+      "bias_m": 0.8000000000000007,
+      "rmse_m": 0.8000000000000007
+    },
+    {
+      "reference_source": "lidar",
+      "candidate_source": "gebco",
+      "n": 2,
+      "bias_m": 1.1999999999999993,
+      "rmse_m": 1.1999999999999993
+    },
+    {
+      "reference_source": "estuarine_dem",
+      "candidate_source": "cudem",
+      "n": 2,
+      "bias_m": 0.3999999999999986,
+      "rmse_m": 0.3999999999999986
+    },
+    {
+      "reference_source": "estuarine_dem",
+      "candidate_source": "gebco",
+      "n": 2,
+      "bias_m": 0.7999999999999989,
+      "rmse_m": 0.7999999999999989
+    },
+    {
+      "reference_source": "cudem",
+      "candidate_source": "gebco",
+      "n": 1,
+      "bias_m": 0.3999999999999986,
+      "rmse_m": 0.3999999999999986
+    }
+  ],
+  "failure_injection": [
+    {
+      "source": "ndbc",
+      "fault": "offline",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "network offline",
+      "artifact_checksum_sha256": "a8f1aabf1848651e2d7ef4199b3e66fe22f3da9e24e87a452c1acfecf76aaf9b"
+    },
+    {
+      "source": "ndbc",
+      "fault": "http_429",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "HTTP 429 Too Many Requests",
+      "artifact_checksum_sha256": "d1d218d8cdabbf6069228a6f43a0bec8a3f4ac9019b88a908b73207993d21d01"
+    },
+    {
+      "source": "ndbc",
+      "fault": "timeout",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "retrieval timed out",
+      "artifact_checksum_sha256": "5b195a340ec04e6853a3a2411d39cc2b186d267ca4dffa28cd8c2472690aca7c"
+    },
+    {
+      "source": "ndbc",
+      "fault": "partial_response",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "partial_response produced explicit no-data result",
+      "artifact_checksum_sha256": "b0f18e52637d8030089e002b24b6b3a585d4576ca001c14731006267d2bec698"
+    },
+    {
+      "source": "ndbc",
+      "fault": "malformed_payload",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "malformed_payload produced explicit no-data result",
+      "artifact_checksum_sha256": "4bcb038264673c62d2a80626708531f39af6a773d5782665e909a59a621ce30b"
+    },
+    {
+      "source": "coops",
+      "fault": "offline",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "network offline",
+      "artifact_checksum_sha256": "f101795ac43fd53f2b07ea98dc8c7a63b64563f83303781cc318c2fb8880f3e8"
+    },
+    {
+      "source": "coops",
+      "fault": "http_429",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "HTTP 429 Too Many Requests",
+      "artifact_checksum_sha256": "511583e9c5b4d3bdbe422a4814ba4336ecc9996ef94f11e090b9624ffc0cb76d"
+    },
+    {
+      "source": "coops",
+      "fault": "timeout",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "retrieval timed out",
+      "artifact_checksum_sha256": "75a61670d2a8046d64ab7e324238e5e1669644505cf267ce2b27115d3c8e6cd2"
+    },
+    {
+      "source": "coops",
+      "fault": "partial_response",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "partial_response produced explicit no-data result",
+      "artifact_checksum_sha256": "da78da772f8e4e0897637dfeee0f035be64f3f46144f3d20686c45838af878dd"
+    },
+    {
+      "source": "coops",
+      "fault": "malformed_payload",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "malformed JSON payload rejected",
+      "artifact_checksum_sha256": "4733f5a22538bc1f7e07da1185a721c3c8fd1c379035c70d9d66164584ee54a4"
+    },
+    {
+      "source": "nws",
+      "fault": "offline",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "network offline",
+      "artifact_checksum_sha256": "3e1103115f7100dc1a32804d1b819694981208be4889f52d5989f457cccbb2a9"
+    },
+    {
+      "source": "nws",
+      "fault": "http_429",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "HTTP 429 Too Many Requests",
+      "artifact_checksum_sha256": "0013d8aa262a5eebc30f18c156452acb2347971b49d625226f9f5985e9bba602"
+    },
+    {
+      "source": "nws",
+      "fault": "timeout",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "retrieval timed out",
+      "artifact_checksum_sha256": "4e70fb29ec28cbac737b2b82220376bf0df7624eeedf8c0815ee95b642b23e70"
+    },
+    {
+      "source": "nws",
+      "fault": "partial_response",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "partial_response produced explicit no-data result",
+      "artifact_checksum_sha256": "243681af99ca8a2968710bc3507fe2764d7d84bd641137d14973f554dd989add"
+    },
+    {
+      "source": "nws",
+      "fault": "malformed_payload",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "malformed JSON payload rejected",
+      "artifact_checksum_sha256": "b31abbfaf5c5ce15a1da8ec41fbda9edcf0c1ca604c7bd39f9b3dfa3be7f7580"
+    },
+    {
+      "source": "rtofs",
+      "fault": "offline",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "network offline",
+      "artifact_checksum_sha256": "920d71ffeec650806d90ec5497d840e0db4f897bdc6706618e068a5100903e04"
+    },
+    {
+      "source": "rtofs",
+      "fault": "http_429",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "HTTP 429 Too Many Requests",
+      "artifact_checksum_sha256": "2605d43100147d9ca1fc54fe8f23d2db9444df606849270b7ef98ab1042b275b"
+    },
+    {
+      "source": "rtofs",
+      "fault": "timeout",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "retrieval timed out",
+      "artifact_checksum_sha256": "dbc442f3b344588d1b6edb3ca58a16570fc3fd51854cc2e71c86784f01df1471"
+    },
+    {
+      "source": "rtofs",
+      "fault": "partial_response",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "partial response rejected",
+      "artifact_checksum_sha256": "135cc1d44b2920bbe21df3a6bb9df7153c97dce5e42d92a8038b2aff60e9ab49"
+    },
+    {
+      "source": "rtofs",
+      "fault": "malformed_payload",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "malformed payload rejected",
+      "artifact_checksum_sha256": "61ae03991756fc4e345b88b92b32fa1476cc147c8245cc8147f76c06d8a0e722"
+    },
+    {
+      "source": "era5",
+      "fault": "offline",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "network offline",
+      "artifact_checksum_sha256": "d1e9314a11df5dfb8aa0c58c8df3ed498de90be7a4a837ca71c28f7129e33eeb"
+    },
+    {
+      "source": "era5",
+      "fault": "http_429",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "HTTP 429 Too Many Requests",
+      "artifact_checksum_sha256": "bbcaf0cc191e77b7e76a4397ecbd3d29a3af50f5b1826defc75d6232a6b415f6"
+    },
+    {
+      "source": "era5",
+      "fault": "timeout",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "retrieval timed out",
+      "artifact_checksum_sha256": "edcf10c2cf6e4e888d967ae7cf06abeeb15f20bf548dd5d781c24653fddb147d"
+    },
+    {
+      "source": "era5",
+      "fault": "partial_response",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "partial response rejected",
+      "artifact_checksum_sha256": "aae932c112d9724d1f89c005fcbf8e5e81eea77acb085fef4786687c1e50ca90"
+    },
+    {
+      "source": "era5",
+      "fault": "malformed_payload",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "malformed payload rejected",
+      "artifact_checksum_sha256": "4e1ede93d5b02b692d0ee01c9725166ced3aa8f41558d49050e32255a3d0139c"
+    },
+    {
+      "source": "bathymetry_cascade",
+      "fault": "offline",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "network offline",
+      "artifact_checksum_sha256": "4dfbb46727bf0949c0ffcbfaeb969b053d450954236e5b4dffc6175a470dcf39"
+    },
+    {
+      "source": "bathymetry_cascade",
+      "fault": "http_429",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "HTTP 429 Too Many Requests",
+      "artifact_checksum_sha256": "bbd68817853c67a30650db03471f6cdba9465173a7fcffe94d9ab521c4ddb74b"
+    },
+    {
+      "source": "bathymetry_cascade",
+      "fault": "timeout",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "retrieval timed out",
+      "artifact_checksum_sha256": "8d5b8c7e97e1f1f9f56a42ceb79789e4439ed0948b4346eda1559908703df4b8"
+    },
+    {
+      "source": "bathymetry_cascade",
+      "fault": "partial_response",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "partial response rejected",
+      "artifact_checksum_sha256": "e4f9ecd507b6f47398870688916c5b2c809ea08440747f803765dc7970f70504"
+    },
+    {
+      "source": "bathymetry_cascade",
+      "fault": "malformed_payload",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "malformed payload rejected",
+      "artifact_checksum_sha256": "9e594d95d07ffe3e4f565969c622a11a3be80d9e28126244603e5acbcba70a63"
+    }
+  ],
+  "credential_leak_scan": {
+    "scanner": "recursive string-value scan: cloud keys, authorization values, URL credentials, private keys, injected sentinels",
+    "files_scanned": 1,
+    "findings": [],
+    "pass": true
+  },
+  "summary": {
+    "coverage_cells": 48,
+    "coverage_passed": 48,
+    "failure_cells": 30,
+    "failure_injection_passed": 30,
+    "credential_scan_passed": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-08-31T00:00:00.000Z",
+  "items": [
+    {"id":"local-mps-parity","needs":"A Python/PyTorch runtime for which torch.backends.mps.is_available() is true, plus an explicit float32 tensor mode","produces":"an MPS cell appended to artifacts/rl-campaign/bridge-parity-local.json"},
+    {"id":"tensor-coupled6-parity","needs":"A production-equivalent coupled6 tensor implementation; none exists today","produces":"planar3/coupled6 tensor parity cells without substituting the Node service"},
+    {"id":"cluster-cpu-float64-parity","needs":"CodeNimbus access, native x86_64 environment and BLAS discovery","produces":"artifacts/rl-campaign/bridge-parity-cluster-cpu.json"},
+    {"id":"cuda-parity","needs":"exclusive L40S and H100 allocations","produces":"artifacts/rl-campaign/bridge-parity-cuda.json"},
+    {"id":"gate-1b-determinism","needs":"exclusive L40S and H100 allocations, reported separately","produces":"artifacts/determinism-sweep/cuda-report.json"},
+    {"id":"throughput-benchmarks","needs":"exclusive cluster CPU/GPU nodes; CPU-only denominator","produces":"artifacts/rl-campaign/throughput-cluster.json"},
+    {"id":"full-training-campaign","needs":"approved P1 contract, passed P2/P3 gates, cluster compute","produces":"artifacts/rl-campaign/training/"},
+    {"id":"vehicle-transfer-matrix","needs":"validated vehicle plants and cluster campaign","produces":"artifacts/rl-campaign/transfer-matrix.parquet"},
+    {"id":"ablations","needs":"approved task and cluster compute","produces":"artifacts/rl-campaign/ablations.parquet"},
+    {"id":"native-vrx-gazebo-baselines","needs":"native AMD64 cluster container runtime; emulated local timings are void","produces":"artifacts/rl-campaign/competitor-baselines/"},
+    {"id":"linux-lock-runtime-verification","needs":"CodeNimbus login and compute-node environment discovery","produces":"validation/rl-campaign/locks/x86_64-linux.runtime.json"}
+  ]
+}

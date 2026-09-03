@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-node-common-task-integration",
+  "status": "step-2-complete-halt",
+  "vehicle_id": "searobotics-surveyor-m1.8",
+  "model_id": "searobotics-surveyor-m1.8-common-task-v1",
+  "source_of_truth": "artifacts/rl-campaign/surveyor-vehicle-model.json",
+  "historical_vehicles_modified": false,
+  "historical_vehicles_retained": [
+    "vehicle-a-otter",
+    "bcod_usv"
+  ],
+  "resolved_node_parameters": {
+    "mass_kg": 52.3,
+    "geometry_m": {
+      "length": 1.83,
+      "beam": 0.91,
+      "draft": 0.17
+    },
+    "inertia_diagonal_kg_m2": [
+      5.375132500000001,
+      13.347308666666668,
+      17.891219833333338
+    ],
+    "thruster_positions_body_m": [
+      [-0.65, -0.33, 0],
+      [-0.65, 0.33, 0]
+    ],
+    "force_range_n_each": [-70, 70],
+    "actuator_time_constant_s": 0.35,
+    "actuator_lag_provenance": "Borrowed from the generic Vehicle A fallback; not independently estimated for Surveyor hardware.",
+    "linear_planar_damping": [6, 18, 8],
+    "quadratic_planar_damping": [18, 60, 12]
+  },
+  "integration": {
+    "production_path": "LegacyProductionEngine -> Surveyor source model -> VehicleParameters.fromGeometry -> twin FixedThruster effectors",
+    "portable_missions_enabled": [
+      "hold",
+      "rl-common-waypoint-v1"
+    ],
+    "hardware_mission_retained": "surveyor-waypoint",
+    "common_task_campaign_vehicle_going_forward": "searobotics-surveyor-m1.8"
+  },
+  "tensor_sanity": {
+    "Izz_greater_than_Iyy": true,
+    "physical_reason": "The +/-0.33 m pontoon offset contributes 4.556376 kg m^2 to yaw inertia through the parallel-axis theorem and not to pitch inertia; this dominates the local component shape terms.",
+    "conditional_on": "assumed 80/20 pontoon/deck mass split and pontoon centerline spacing"
+  },
+  "verification": {
+    "vehicle_sdk_resolution": "passed",
+    "surveyor_hardware_guidance": "passed",
+    "surveyor_common_task_node_resolution": "passed",
+    "persistent_bridge_vs_direct_node_planar3": {
+      "vehicle": "searobotics-surveyor-m1.8",
+      "bit_identical": true,
+      "first_divergence_step": null
+    },
+    "persistent_bridge_vs_direct_node_coupled6_regression": {
+      "vehicle": "vehicle-c-azimuth",
+      "bit_identical": true,
+      "first_divergence_step": null
+    },
+    "negative_control_timestep_perturbation_detected": true,
+    "bridge_report": "artifacts/rl-campaign/bridge-parity-local.json"
+  },
+  "remaining_low_confidence_inputs": [
+    "thruster coordinates",
+    "command-to-force mapping",
+    "Surveyor-specific actuator lag/deadband/slew",
+    "loaded CG and measured inertia",
+    "identified hydrodynamic damping"
+  ],
+  "halt": {
+    "required": true,
+    "reason": "Step 2 integration and bridge parity complete. Halt before Step 3 recalibration."
+  }
+}

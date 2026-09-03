@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "HALT_NO_ELIGIBLE_TERMINAL_RADIUS_POST_ALLOCATOR_FIX_HIGH_SIDE",
+  "vehicle": "surveyor",
+  "completed": {
+    "p2_5_reference_measurements": true,
+    "episodes_per_policy": 200,
+    "corridor_bounded_advancement_applied_from_start": true,
+    "terminal_radius_sweep": true,
+    "return_threshold_derived": true,
+    "canonical_vehicle_identity_asserted_every_batch": true,
+    "coupled_envelope_yaw_priority_allocator_used": true
+  },
+  "blocked": {
+    "terminal_radius_selection": true,
+    "success_threshold_derivation": true,
+    "task_contract_candidate_rehash": true,
+    "reason": "No candidate terminal radius satisfies the predeclared 40-70% best-classical success band. The post-fix canonical Surveyor now misses the band on the high side: best-classical success is 0.86 at the smallest 2 m radius and rises to 0.965 at the largest eligible 8 m radius under the 9.15 m ceiling.",
+    "required_authority": "Human decision on calibration scope. No radius, controller, timeout, ceiling, or band may be changed automatically."
+  },
+  "return_threshold_candidate": {
+    "value": -832.1693534306106,
+    "untrained_median": -1642.4132963733027,
+    "reference_policy": "LOS-SPEEDCAP-v2",
+    "reference_median": -21.925410487918484,
+    "reference_minus_untrained_95_ci": [1316.6063982210105, 1834.313815765987]
+  },
+  "artifacts": {
+    "protocol": {
+      "path": "artifacts/rl-campaign/surveyor/p2.5-protocol.json",
+      "sha256": "60f433cc0b780640d0ca7be69b626ee25335868c2c4d3bfa91129454d3f0bf07"
+    },
+    "p2_5": {
+      "path": "artifacts/rl-campaign/surveyor/p2.5-reference.json",
+      "sha256": "8916295381f28ceb3341bd2240d21151d734c5d529d0de34a7748dbf20ab297d"
+    },
+    "terminal_radius": {
+      "path": "artifacts/rl-campaign/surveyor/terminal-radius-sweep.json",
+      "sha256": "36fbc316fb2506e43f744c5ac5abd02551a18844028e34a925e39f38333f70dd"
+    }
+  },
+  "contract": {
+    "candidate_written": false,
+    "rehash_performed": false,
+    "frozen": false,
+    "historical_contract_untouched": true
+  },
+  "next_action": "Halt for human review."
+}

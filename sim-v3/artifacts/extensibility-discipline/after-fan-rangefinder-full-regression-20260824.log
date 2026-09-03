@@ -1,0 +1,756 @@
+
+> bcod-sim@0.1.0 test
+> node simulatorSmokeTest.js && node physicsBehaviorTest.js && node validation/coreValidationTest.js && node validation/submergedHydrostaticsTest.js && node validation/actuatorParityTest.js && node validation/advancedParityTest.js && node validation/waveParityTest.js && node validation/gazeboGeneratorTest.js && node validation/gazeboCaptureTest.js && node validation/convergenceTest.js && node validation/motionQualityTest.js && node validation/presetParityTest.js && node validation/runtimeLifecycleTest.js && node validation/sixDofPlantTest.js && npm run test:offline-runtime && npm run test:icra && npm run test:python && npm run test:external-prep && npm run test:thin-slice && npm run test:mission-length-artifact && npm run test:release && npm run test:migration-gate
+
+Simulator smoke test passed.
+{
+  "steps": 3,
+  "tick": 3,
+  "time": 43201.5,
+  "stopReason": null,
+  "boatPos": {
+    "x": 10.363790814264348,
+    "y": -0.12422193729285509,
+    "z": 10.360895600826412
+  },
+  "lastMetric": {
+    "t": 43201,
+    "totalEnergy": 0.6388843413796549,
+    "totalSensorCost": 0.5249999999999999,
+    "movementCost": 0.11388434137965495,
+    "strategicPenalty": 0,
+    "lastSensorCost": 0.175,
+    "lastMovementCost": 0.05154178200857572,
+    "lastTotalCost": 0.22654178200857572,
+    "lastSpeed": 0.7285846829103082
+  },
+  "logs": {
+    "boatStates": 3,
+    "metrics": 3,
+    "sensorActivations": 3
+  }
+}
+Physics behavior tests passed.
+{
+  "tests": [
+    "testStillWaterNoInputStaysStable",
+    "testYawDampingDecays",
+    "testRollRecovery",
+    "testPitchRecovery",
+    "testForwardThrustReachesBoundedSpeed",
+    "testForwardThrustMatchesHeadingConvention",
+    "testGuidanceAccelerationFollowsPhysicalBow",
+    "testSkipperTargetsWaypointWhenFarAway",
+    "testWaveResponseIsBounded",
+    "testWavesImpartTranslationalAcceleration",
+    "testSkipperBrakesForTightWaypointArrival",
+    "testWaypointReachUsesBoatFootprint",
+    "testTimestepConsistency",
+    "testAbsoluteGuidanceCopiesTrueBoatState",
+    "testRelativeGuidanceIgnoresRollPitch",
+    "testSensorWorldPoseUsesBoatFrameMount",
+    "testSensorFeedsExposeActiveOutputs",
+    "testDeniedZoneForcesSensorOff"
+  ]
+}
+Core validation tests passed.
+{
+  "tests": [
+    "testCoriolisSkewSymmetry",
+    "testOtterStraightLineDeterminism",
+    "testOtterTurningCircle",
+    "testCurrentCouplingChangesTrack",
+    "testZigZagRemainsFinite"
+  ]
+}
+Submerged geometry and hydrostatics tests passed.
+{
+  "tests": [
+    "testFullySubmergedBoxVolume",
+    "testHalfSubmergedBoxVolumeAndCob",
+    "testSampleDeterminism",
+    "testFrameAdaptersFollowUpdatedConvention",
+    "testSnameDampingNormalizesAtBoundary",
+    "testDragDerivationUsesPrimitiveArea",
+    "testHydrostaticsNoLeakInCalmWater",
+    "testWaveForcingIncludesSurge",
+    "testDampingScalarCompatibility",
+    "testDampingMatrixMode",
+    "testSubmergedStateSampledOncePerStep",
+    "testYawSignRegression"
+  ]
+}
+Actuator parity tests passed.
+{
+  "tests": [
+    "testFixedThrusterLinearCurveAndLag",
+    "testAppliedWrenchOverrideWins",
+    "testPointThrusterWrenchFrame",
+    "testLegacySurgeDifferentialCompatibility",
+    "testEqualCommandsCreateSurgeNoYaw",
+    "testDifferentialYawAuthorityAtZeroSpeed",
+    "testDeterministicAllocation",
+    "testRk4AdvancesActuatorOncePerOuterStep"
+  ]
+}
+Advanced parity tests passed.
+{
+  "tests": [
+    "testAnalyticPrimitiveVolumesAndSamples",
+    "testControlSurfaceV2LawAndStall",
+    "testAllocationRoundTripAndSaturation",
+    "testDifferentialVsRudderLowSpeedAuthority",
+    "testRotorReactionTorque",
+    "testSixDofHelpers",
+    "testWindLoad"
+  ]
+}
+Wave parity tests passed.
+{
+  "tests": [
+    {
+      "name": "testParityLinearUsesDispersion",
+      "metrics": {
+        "wavenumber": 0.6283185307179586,
+        "omega": 2.482701106928334,
+        "expectedK": 0.6283185307179586
+      }
+    },
+    {
+      "name": "testParityLinearHeightAndNormal",
+      "metrics": {
+        "heightOrigin": 1,
+        "heightQuarter": 6.123233995736766e-17,
+        "normal": {
+          "x": 0.532018044501408,
+          "y": 0.8467330159648304,
+          "z": 0
+        }
+      }
+    },
+    {
+      "name": "testParityLinearVelocityAndCurrent",
+      "metrics": {
+        "velocityAtCrest": {
+          "x": 2.682701106928334,
+          "y": 0,
+          "z": -0.1
+        },
+        "velocityAtQuarter": {
+          "x": 0.20000000000000015,
+          "y": 2.482701106928334,
+          "z": -0.1
+        },
+        "omega": 2.482701106928334
+      }
+    },
+    {
+      "name": "testLegacyModeRemainsDefault",
+      "metrics": {
+        "heightOrigin": 0,
+        "velocity": {
+          "x": 0,
+          "y": -0.6283185307179586,
+          "z": 0
+        },
+        "omega": 0.6283185307179586
+      }
+    }
+  ]
+}
+Gazebo generator tests passed.
+{
+  "tests": [
+    "testModelContainsHydrodynamicsAndStablePlantActuation",
+    "testAddedMassMatrixIsSymmetricAndTotalInertiaSpd",
+    "testWorldPinsStepSizeAndMetadata",
+    "testModelConfigIsGenerated",
+    "testGeneratorWritesManifestModelAndWorld",
+    "testGeneratorEmitsPrimitiveAndEffectorMetadata"
+  ]
+}
+Gazebo capture tests passed.
+{
+  "tests": [
+    "testCommandScheduleMatchesManifest",
+    "testBodyWrenchRepublishesInWorldFrameFromCurrentYaw",
+    "testGazeboPoseConvertsToBcodFrame",
+    "testVelocityDerivationAndResampling",
+    "testPoseVectorTextParser",
+    "testCaptureDryRun",
+    "testCaptureRejectsZeroMotionStraightThrust",
+    "testCaptureRejectsDelayedForceOnset"
+  ]
+}
+Convergence tests passed.
+{
+  "results": [
+    {
+      "maneuver": "constant-thrust",
+      "dt": 0.05,
+      "fineDt": 0.025,
+      "samples": 120,
+      "rms": {
+        "N": 0.008038899548041305,
+        "E": 0,
+        "yaw": 0,
+        "u": 0.002577841616845879,
+        "v": 0,
+        "r": 0
+      },
+      "max": {
+        "N": 0.009184047629565484,
+        "E": 0,
+        "yaw": 0,
+        "u": 0.006794074343918793,
+        "v": 0,
+        "r": 0
+      },
+      "tolerance": {
+        "N": 0.125,
+        "E": 0.05,
+        "yaw": 0.025,
+        "u": 0.08,
+        "v": 0.08,
+        "r": 0.08
+      },
+      "passed": true
+    },
+    {
+      "maneuver": "turning-circle",
+      "dt": 0.05,
+      "fineDt": 0.025,
+      "samples": 160,
+      "rms": {
+        "N": 0.006764686024183422,
+        "E": 0.005792877186992711,
+        "yaw": 0.0020964966953598762,
+        "u": 0.002408463470049991,
+        "v": 0.0001402073444331597,
+        "r": 0.0007212002933530483
+      },
+      "max": {
+        "N": 0.008927632122518236,
+        "E": 0.009383308798859069,
+        "yaw": 0.0022318146191180332,
+        "u": 0.007360822702092429,
+        "v": 0.0002683721247185439,
+        "r": 0.0029829915281252353
+      },
+      "tolerance": {
+        "N": 0.2,
+        "E": 0.2,
+        "yaw": 0.0375,
+        "u": 0.08,
+        "v": 0.08,
+        "r": 0.08
+      },
+      "passed": true
+    },
+    {
+      "maneuver": "yaw-turn",
+      "dt": 0.05,
+      "fineDt": 0.025,
+      "samples": 180,
+      "rms": {
+        "N": 0.007736233174702224,
+        "E": 0,
+        "yaw": 0,
+        "u": 0.0019293994747799153,
+        "v": 0,
+        "r": 0
+      },
+      "max": {
+        "N": 0.008424039198532185,
+        "E": 0,
+        "yaw": 0,
+        "u": 0.006227901481925535,
+        "v": 0,
+        "r": 0
+      },
+      "tolerance": {
+        "N": 0.125,
+        "E": 0.05,
+        "yaw": 0.025,
+        "u": 0.08,
+        "v": 0.08,
+        "r": 0.08
+      },
+      "passed": true
+    },
+    {
+      "maneuver": "zig-zag",
+      "dt": 0.05,
+      "fineDt": 0.025,
+      "samples": 240,
+      "rms": {
+        "N": 0.00847686208100495,
+        "E": 0.001524862552842047,
+        "yaw": 0.0013988834499367674,
+        "u": 0.0018196019602886111,
+        "v": 0.0003928735499910905,
+        "r": 0.0020899302947614854
+      },
+      "max": {
+        "N": 0.009154210935890639,
+        "E": 0.0022607352423855698,
+        "yaw": 0.0018663132035146024,
+        "u": 0.006794522993646107,
+        "v": 0.0005933629215457859,
+        "r": 0.003562268470984363
+      },
+      "tolerance": {
+        "N": 0.25,
+        "E": 0.25,
+        "yaw": 0.05,
+        "u": 0.08,
+        "v": 0.08,
+        "r": 0.08
+      },
+      "passed": true
+    },
+    {
+      "maneuver": "coast-down",
+      "dt": 0.05,
+      "fineDt": 0.025,
+      "samples": 180,
+      "rms": {
+        "N": 0.0033946699433996625,
+        "E": 0,
+        "yaw": 0,
+        "u": 0.0028048934196023287,
+        "v": 0,
+        "r": 0
+      },
+      "max": {
+        "N": 0.008172684430713617,
+        "E": 0,
+        "yaw": 0,
+        "u": 0.006794074343918793,
+        "v": 0,
+        "r": 0
+      },
+      "tolerance": {
+        "N": 0.2,
+        "E": 0.05,
+        "yaw": 0.025,
+        "u": 0.08,
+        "v": 0.08,
+        "r": 0.08
+      },
+      "passed": true
+    },
+    {
+      "maneuver": "current-drift",
+      "dt": 0.05,
+      "fineDt": 0.025,
+      "samples": 120,
+      "rms": {
+        "N": 6.5710288746807665e-9,
+        "E": 3.2633275183187805e-9,
+        "yaw": 8.295927978530367e-9,
+        "u": 2.355121339567077e-9,
+        "v": 3.8239477441695355e-9,
+        "r": 7.608502866379415e-9
+      },
+      "max": {
+        "N": 7.000025055263481e-9,
+        "E": 6.168677124662736e-9,
+        "yaw": 1.0350977699968844e-8,
+        "u": 3.1037559432289807e-9,
+        "v": 7.57214693725139e-9,
+        "r": 1.8824225522101612e-8
+      },
+      "tolerance": {
+        "N": 0.075,
+        "E": 0.125,
+        "yaw": 0.0375,
+        "u": 0.08,
+        "v": 0.08,
+        "r": 0.08
+      },
+      "passed": true
+    }
+  ]
+}
+Motion quality tests passed.
+{
+  "testForcedAttitudeCorrectsInCalmWater": {
+    "pitch": {
+      "min": 0.000016573986750192944,
+      "max": 0.11943999999999999,
+      "mean": 0.01884967728474962,
+      "rms": 0.03693497108879269,
+      "range": 0.1194234260132498,
+      "maxAbs": 0.11943999999999999,
+      "zeroCrossings": 0,
+      "peaks": 0,
+      "leanRatio": 0.15783902634528574
+    },
+    "roll": {
+      "min": -0.09957777777777778,
+      "max": -0.000021607975076225497,
+      "mean": -0.016541820608812728,
+      "rms": 0.0316150099961416,
+      "range": 0.09955616980270156,
+      "maxAbs": 0.09957777777777778,
+      "zeroCrossings": 0,
+      "peaks": 0,
+      "leanRatio": 0.1661556550598017
+    },
+    "finalPitch": 0.000016573986750192944,
+    "finalRoll": -0.000021607975076225497,
+    "pitchRate": -0.0000276167480796698,
+    "rollRate": 0.0000343766338435615
+  },
+  "testRegularWavesRockInsteadOfOnlyLeaning": {
+    "pitch": {
+      "min": -0.06494589847186466,
+      "max": 0.06687738803161897,
+      "mean": -0.021091518211224472,
+      "rms": 0.04805778626167706,
+      "range": 0.13182328650348363,
+      "maxAbs": 0.06687738803161897,
+      "zeroCrossings": 1,
+      "peaks": 3,
+      "leanRatio": 0.1599984249419172
+    },
+    "roll": {
+      "min": -0.0569704959972821,
+      "max": 0.05177187274019401,
+      "mean": -0.02600103601404682,
+      "rms": 0.04673762515267068,
+      "range": 0.10874236873747611,
+      "maxAbs": 0.0569704959972821,
+      "zeroCrossings": 1,
+      "peaks": 3,
+      "leanRatio": 0.23910676506245745
+    },
+    "pitchRate": {
+      "min": -0.050805246143739845,
+      "max": 0.02218422554335051,
+      "mean": -0.0017820418135980453,
+      "rms": 0.01461531397958616,
+      "range": 0.07298947168709036,
+      "maxAbs": 0.050805246143739845,
+      "zeroCrossings": 2,
+      "peaks": 6,
+      "leanRatio": 0.02441505291664188
+    },
+    "rollRate": {
+      "min": -0.05242584201990947,
+      "max": 0.015994244677830415,
+      "mean": -0.0022434653212699603,
+      "rms": 0.013020629165704447,
+      "range": 0.06842008669773988,
+      "maxAbs": 0.05242584201990947,
+      "zeroCrossings": 1,
+      "peaks": 9,
+      "leanRatio": 0.032789571448234786
+    }
+  },
+  "testGuidedRunMovesCleanlyWhileRocking": {
+    "distanceMoved": 28.522427014967437,
+    "speed": {
+      "min": 0.003636525496107328,
+      "max": 1.9169432361613932,
+      "mean": 1.4375199116878696,
+      "rms": 1.4902761479406823,
+      "range": 1.913306710665286,
+      "maxAbs": 1.9169432361613932,
+      "zeroCrossings": 0,
+      "peaks": 4,
+      "leanRatio": 0.7513274812003466
+    },
+    "yawRate": {
+      "min": -0.052531316888770094,
+      "max": 0.055391071992695454,
+      "mean": 0.0004070537088071181,
+      "rms": 0.029130880678733467,
+      "range": 0.10792238888146555,
+      "maxAbs": 0.055391071992695454,
+      "zeroCrossings": 5,
+      "peaks": 9,
+      "leanRatio": 0.003771726265753787
+    },
+    "pitch": {
+      "min": -0.021489806957257534,
+      "max": 0.04681497665541531,
+      "mean": 0.010949386402292819,
+      "rms": 0.026218389473173405,
+      "range": 0.06830478361267284,
+      "maxAbs": 0.04681497665541531,
+      "zeroCrossings": 3,
+      "peaks": 4,
+      "leanRatio": 0.16030189721970423
+    },
+    "roll": {
+      "min": -0.00957656277660261,
+      "max": 0.048521297221250856,
+      "mean": 0.017531434349557447,
+      "rms": 0.025122749318262867,
+      "range": 0.05809785999785347,
+      "maxAbs": 0.048521297221250856,
+      "zeroCrossings": 4,
+      "peaks": 5,
+      "leanRatio": 0.30175697263557005
+    }
+  }
+}
+Preset parity test passed.
+{
+  "checked": {
+    "simHz": 12,
+    "durationSec": 90,
+    "waypoints": 3,
+    "waves": 2,
+    "mass": 1000,
+    "draft": 0.15397881251539788,
+    "Iz": 2399.9999999999995
+  }
+}
+Runtime lifecycle tests passed.
+{
+  "tests": [
+    "testControllerRunsAtExactDeadlines",
+    "testLongRunClockUsesIntegerSteps",
+    "testSensorCadenceUsesSampleIndices",
+    "testPublisherDisposeClosesEverySocket"
+  ]
+}
+Six-DoF plant tests passed.
+{
+  "tests": [
+    {
+      "name": "testMassMatrixAndCoriolisInvariants",
+      "metrics": {
+        "mass": [
+          [
+            52.5,
+            0,
+            0,
+            0,
+            1.5,
+            0
+          ],
+          [
+            0,
+            87.5,
+            0,
+            -1.5,
+            0,
+            5
+          ],
+          [
+            0,
+            0,
+            95,
+            0,
+            -5,
+            0
+          ],
+          [
+            0,
+            -1.5,
+            0,
+            5.316666666666667,
+            0,
+            0
+          ],
+          [
+            1.5,
+            0,
+            -5,
+            0,
+            21.666666666666664,
+            0
+          ],
+          [
+            0,
+            5,
+            0,
+            0,
+            0,
+            22.5
+          ]
+        ],
+        "coriolisPower": -8.881784197001252e-16,
+        "symmetric": true,
+        "positiveDefinite": true
+      }
+    },
+    {
+      "name": "testAnalyticBoxSubmersion",
+      "metrics": {
+        "halfVolume": 0.4,
+        "halfCentroidD": 0.1,
+        "fullVolume": 0.8
+      }
+    },
+    {
+      "name": "testHydrostaticDirections",
+      "metrics": {
+        "wrench": [
+          0,
+          0,
+          -2011.0500000000002,
+          -5.886000000000001,
+          9.4176,
+          0
+        ]
+      }
+    },
+    {
+      "name": "testStillWaterEquilibrium",
+      "metrics": {
+        "positionD": 0,
+        "velocityW": 0,
+        "quaternion": {
+          "w": 1,
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "name": "testHeaveRollPitchFreeDecay",
+      "metrics": {
+        "initial": 0.19,
+        "final": 2.067350925994266e-7,
+        "positionD": 2.5881298811169732e-11,
+        "roll": 2.8606956733146693e-10,
+        "pitch": -2.0642314173328397e-7,
+        "velocityW": -2.489447673967414e-10,
+        "rollRate": 4.3926767275168076e-10,
+        "pitchRate": -4.1124458543335966e-8
+      }
+    },
+    {
+      "name": "testQuaternionConstantRate",
+      "metrics": {
+        "roll": 0.1999999999999997,
+        "quaternion": {
+          "w": 0.9950041652780257,
+          "x": 0.09983341664682799,
+          "y": 0,
+          "z": 0
+        }
+      }
+    },
+    {
+      "name": "testTimestepConvergenceAndDeterminism",
+      "metrics": {
+        "coarse": [
+          -2.1855585267689956e-9,
+          -5.594903709749358e-7,
+          0.00002133834615702424,
+          2.3114369215439782e-8,
+          0.0000015546473641633518,
+          -0.00004263824853690353
+        ],
+        "medium": [
+          -2.1822629881927987e-9,
+          -5.594981419402243e-7,
+          0.000021338429565227676,
+          2.3079594777330158e-8,
+          0.000001554693554719668,
+          -0.000042638522180120366
+        ],
+        "fine": [
+          -2.182090215829596e-9,
+          -5.594985812526178e-7,
+          0.000021338434439331617,
+          2.307777195446618e-8,
+          0.0000015546962279552781,
+          -0.00004263853847911932
+        ],
+        "coarseError": 3.0930037472786045e-10,
+        "mediumError": 1.7323567001293894e-11
+      }
+    },
+    {
+      "name": "testLongEquilibriumRunRemainsFinite",
+      "metrics": {
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "testInvalidInputsAreRejected",
+      "metrics": {
+        "rejectedMass": true,
+        "rejectedDt": true
+      }
+    }
+  ]
+}
+
+> bcod-sim@0.1.0 test:offline-runtime
+> node --experimental-strip-types backends/node/src/worker-runner.test.ts && node --experimental-strip-types backends/node/src/typed-positioning-sensors.test.ts && node --experimental-strip-types validation/vehicle-c-allocation/run.test.ts && npm run test:usv-bench-36 && npm run test:artifact-manifests && node --experimental-strip-types validation/agent-evaluation/run.test.ts
+
+Worker runner tests passed.
+Production typed positioning sensor tests passed.
+Vehicle C integrated allocation campaign tests passed.
+
+> bcod-sim@0.1.0 test:usv-bench-36
+> node --experimental-strip-types benchmarks/usv-bench-36/test/run.test.ts
+
+USV-Bench-36 execution tests passed.
+
+> bcod-sim@0.1.0 test:artifact-manifests
+> node --experimental-strip-types packages/metrics/src/manifest-guard.ts artifacts/usv-bench-36/runs
+
+Artifact manifest guard passed.
+MCP-versus-shell 24-task harness tests passed.
+
+> bcod-sim@0.1.0 test:icra
+> node --experimental-strip-types packages/experiment-schema/test/schema.test.ts && node --experimental-strip-types packages/core/test/vector-simulation.test.ts && node --experimental-strip-types packages/core/test/environment-forces.test.ts && node --experimental-strip-types packages/core/test/wave-forces.test.ts && node --experimental-strip-types packages/core/test/mass.test.ts && node --experimental-strip-types packages/core/test/coriolis.test.ts && node --experimental-strip-types packages/core/test/damping.test.ts && node --experimental-strip-types packages/core/test/hydrodynamics.test.ts && node --experimental-strip-types packages/core/test/allocation.test.ts && node --experimental-strip-types packages/core/test/actuators.test.ts && node --experimental-strip-types packages/core/test/actuator-capabilities.test.ts && node --experimental-strip-types packages/core/test/simulation.test.ts && node --experimental-strip-types packages/vehicle-sdk/test/vehicles.test.ts && node --experimental-strip-types packages/sensor-sdk/test/acoustic-domain.test.ts && node --experimental-strip-types packages/sensor-sdk/test/positioning-domains.test.ts && node --experimental-strip-types packages/sensor-sdk/test/remaining-domains.test.ts && node --experimental-strip-types packages/sensor-sdk/test/sensors.test.ts && node --experimental-strip-types packages/sensor-sdk/test/depth-sounder-checkpoint.test.ts && node --experimental-strip-types packages/sensor-sdk/test/gps-imu.test.ts && node --experimental-strip-types packages/sensor-sdk/test/gps-imu-checkpoint.test.ts && node --experimental-strip-types packages/sensor-sdk/test/remaining-sensors.test.ts && node --experimental-strip-types packages/sensor-sdk/test/extensibility-proof.test.ts && node --experimental-strip-types packages/sensor-sdk/test/runtime-checkpoint.test.ts && node --experimental-strip-types packages/sensor-sdk/test/services.test.ts && node --experimental-strip-types packages/environment/test/environment.test.ts && node --experimental-strip-types packages/environment/test/grouped-environment.test.ts && node --experimental-strip-types packages/metrics/test/artifacts.test.ts && node --experimental-strip-types packages/mcp-server/test/tools.test.ts && node --experimental-strip-types validation/reference/test/reference.test.ts && node --experimental-strip-types benchmarks/usv-bench-36/test/manifest.test.ts && node --experimental-strip-types benchmarks/usv-bench-36/test/actuator-failure-smoke.test.ts
+
+Experiment schema tests passed.
+Vector simulation tests passed.
+Environment force migration tests passed.
+Wave force migration tests passed.
+Mass/inertia construction tests passed.
+Coriolis construction tests passed.
+Damping decomposition tests passed.
+Hydrodynamics tests passed.
+Allocation tests passed.
+Typed-core actuator migration tests passed.
+Integrated actuator capability tests passed.
+Simulation contract tests passed.
+Vehicle SDK tests passed.
+Acoustic domain contract tests passed.
+Positioning domain contract tests passed.
+Remaining domain contract tests passed.
+Sensor SDK tests passed.
+Depth sounder checkpoint replay tests passed.
+IMU sea-state vibration comparison passed. {"vibration_rms_mps2":0.17413982193612598,"accel_noise_std_delta_mps2":0.00547139312643994,"gyro_noise_std_delta_rad_s":0.0002607520168932655,"acceleration_output_delta_mps2":[0.0004343282559082645,-0.000787786921424033,0.007452064728666996]}
+GPS and IMU sensor contract tests passed.
+GPS and IMU checkpoint replay tests passed.
+file:///Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/packages/sensor-sdk/src/runtime.ts:123
+export function validateJsonSchemaValue(value        ,schema                   ,label="value")     {const types=Array.isArray(schema.type)?schema.type:schema.type?[schema.type]:[];const actual=value===null?"null":Array.isArray(value)?"array":typeof value;if(types.length&&!types.includes(actual))throw new Error(`${label} must have schema type ${types.join(" or ")}.`);if(actual==="object"){const object=value                          ;for(const key of schema.required??[])if(!(key in object))throw new Error(`${label} requires ${key}.`);for(const[key,child]of Object.entries(schema.properties??{}))if(key in object)validateJsonSchemaValue(object[key],child                      ,`${label}.${key}`);if(schema.additionalProperties===false&&schema.properties)for(const key of Object.keys(object))if(!(key in schema.properties))throw new Error(`${label} contains unsupported property ${key}.`);}if(actual==="number"&&!Number.isFinite(value))throw new Error(`${label} must be finite.`);}
+                                                                                                                                                                                                                                                                                                              ^
+
+Error: fan-rangefinder config.ray_count must have schema type integer.
+    at validateJsonSchemaValue (file:///Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/packages/sensor-sdk/src/runtime.ts:123:303)
+    at validateJsonSchemaValue (file:///Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/packages/sensor-sdk/src/runtime.ts:123:617)
+    at new SensorRuntimeRegistry (file:///Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/packages/sensor-sdk/src/runtime.ts:143:78)
+    at file:///Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/packages/sensor-sdk/test/remaining-sensors.test.ts:3:653
+    at ModuleJob.run (node:internal/modules/esm/module_job:413:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:660:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.13.0
+real 25.03
+user 26.30
+sys 7.58

@@ -21,7 +21,7 @@ export interface ExperimentV1 {
     regular_wave?: {amplitude_m: number; period_s: number; phase_rad?: number; direction_rad: number; water_depth_m?: number};
     data_sources?: {mode:"realtime_forecast"|"historical_replay";ndbc?:{enabled:boolean};coops?:{enabled:boolean};nws?:{enabled:boolean;user_agent?:{application:string;contact:string}};rtofs?:{enabled:boolean};era5?:{enabled:boolean;credentials?:{source:"environment";env_var:string}|{source:"file";path:string}}};
   };
-  initial_state?: {body_velocity_mps?: [number, number, number]};
+  initial_state?: {position_ned_m?:[number,number,number];attitude_rad?:[number,number,number];body_velocity_mps?: [number, number, number];angular_rate_body_rad_s?:[number,number,number]};
   integrator?: Integrator;
   sensors?: Array<{plugin: string; enabled?: boolean; oracle?: boolean}>;
   mission: {type: string; [key: string]: unknown};
@@ -55,12 +55,14 @@ export function validateExperiment(config: ExperimentV1): void {
   assertFinite("experiment.duration_s", config.experiment.duration_s);
   if (config.experiment.timestep_s <= 0 || config.experiment.duration_s <= 0) throw new Error("Simulation time values must be positive.");
   if (!config.vehicle?.preset || !["planar3", "coupled6"].includes(config.vehicle.plant)) throw new Error("A valid vehicle preset and plant are required.");
-  if(config.vehicle.preset==="searobotics-surveyor-m1.8"){
+  if(config.vehicle.preset==="searobotics-surveyor-m1.8"||config.vehicle.preset==="surveyor"){
     const mission=config.mission as any;
     const validPoint=(point:any)=>Number.isFinite(point?.lat)&&point.lat>=-90&&point.lat<=90&&Number.isFinite(point?.lon)&&point.lon>=-180&&point.lon<=180;
     if(config.vehicle.plant!=="planar3")throw new Error("SeaRobotics Surveyor integration preset currently requires planar3.");
-    if(mission?.type!=="surveyor-waypoint"||!validPoint(mission.origin)||!validPoint(mission.erp)||!Array.isArray(mission.waypoints)||mission.waypoints.length===0||!mission.waypoints.every(validPoint))throw new Error("Surveyor missions require origin, ERP, and non-empty raw lat/lon waypoints.");
-    if(mission.max_thrust_command!==undefined&&(!Number.isInteger(mission.max_thrust_command)||mission.max_thrust_command<0||mission.max_thrust_command>70))throw new Error("Surveyor max_thrust_command must be an integer in [0,70].");
+    if(mission?.type==="surveyor-waypoint"){
+      if(!validPoint(mission.origin)||!validPoint(mission.erp)||!Array.isArray(mission.waypoints)||mission.waypoints.length===0||!mission.waypoints.every(validPoint))throw new Error("Surveyor waypoint missions require origin, ERP, and non-empty raw lat/lon waypoints.");
+      if(mission.max_thrust_command!==undefined&&(!Number.isInteger(mission.max_thrust_command)||mission.max_thrust_command<0||mission.max_thrust_command>70))throw new Error("Surveyor max_thrust_command must be an integer in [0,70].");
+    }
   }
   const wave = config.environment?.regular_wave;
   const dataSources=config.environment?.data_sources;
@@ -77,6 +79,7 @@ export function validateExperiment(config: ExperimentV1): void {
     throw new Error("vehicle hydrodynamics requires a checksum, increasing frequency grid, and reject extrapolation policy.");
   }
   if ((config.backend.parallel_environments ?? 1) < 1) throw new Error("parallel_environments must be at least 1.");
+  for(const [name,value] of Object.entries(config.initial_state??{}))if(!Array.isArray(value)||value.length!==3||value.some((x)=>!Number.isFinite(x)))throw new Error(`initial_state.${name} must contain three finite values.`);
   for (const sensor of config.sensors ?? []) {
     if (!sensor.plugin) throw new Error("Every sensor requires a plugin id.");
     if (sensor.oracle && config.backend.type === "browser") throw new Error("Oracle sensors are not permitted in the browser backend.");
@@ -100,12 +103,13 @@ function stable(value: unknown): string {
 
 export function resolveExperiment(config: ExperimentV1): ResolvedExperimentV1 {
   validateExperiment(config);
+  const canonicalVehiclePreset=config.vehicle.preset==="surveyor"?"searobotics-surveyor-m1.8":config.vehicle.preset;
   const referenceSpeed = config.vehicle.hydrodynamic_reference_speed_mps ?? config.initial_state?.body_velocity_mps?.[0] ?? 0;
   const resolved: ResolvedExperimentV1 = {
     ...structuredClone(config),
     integrator: config.integrator ?? "rk4",
     backend: {...config.backend, parallel_environments: config.backend.parallel_environments ?? 1},
-    vehicle: {...config.vehicle, hydrodynamic_reference_speed_mps: referenceSpeed},
+    vehicle: {...config.vehicle, preset:canonicalVehiclePreset, hydrodynamic_reference_speed_mps: referenceSpeed},
     sensors: (config.sensors ?? []).map((sensor) => ({...sensor, enabled: sensor.enabled ?? true, oracle: sensor.oracle ?? false})),
     metrics: config.metrics ?? ["completion", "cross_track_rmse", "propulsion_energy"],
     outputs: {

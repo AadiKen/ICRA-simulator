@@ -1,0 +1,1475 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "p3-v5-final-leg-isolation-plateau-diagnostic",
+  "task_contract_content_sha256": "63eb33ad66078e1f28b20504d4187c9d0efd42538dd018f592a307f0f98b55a2",
+  "checkpoint": "artifacts/rl-campaign/surveyor/p3-v5-curriculum-local/phase1-1250000.zip",
+  "training_performed": false,
+  "rate_fix": {
+    "status": "corrected",
+    "physics_timestep_s": 0.05,
+    "control_interval_s": 0.1,
+    "physics_steps_per_action": 2,
+    "policy_decisions_per_episode": 1200,
+    "comparison_source": "artifacts/rl-campaign/surveyor/p3-v5-plateau-diagnostic.json"
+  },
+  "ppo_replay": {
+    "seed_protocol": "first 30 fixed phase-1 evaluation seeds, 30000-30029",
+    "episodes": 30,
+    "success_rate": 0.1,
+    "closest_approach_m": {
+      "n": 30,
+      "min": 1.9272147301068574,
+      "median": 21.426534684055756,
+      "p75": 23.940742569899555,
+      "p95": 24.467918863836417,
+      "max": 24.468581878252625,
+      "mean": 17.10023673091223
+    },
+    "base_return": {
+      "n": 30,
+      "min": -3696.9320440150304,
+      "median": -968.4172944905843,
+      "p75": -244.95641249461298,
+      "p95": 131.99084955102296,
+      "max": 139.00184157297087,
+      "mean": -1110.7670815288657
+    },
+    "shaped_return_undiscounted_telemetry": {
+      "n": 30,
+      "min": 358.43977406470725,
+      "median": 1786.3811110686254,
+      "p75": 3352.443588848671,
+      "p95": 4226.8830812973565,
+      "max": 5147.111610051769,
+      "mean": 2207.3328635968996
+    },
+    "classification_counts": {
+      "success": 3,
+      "did_not_enter_intermediate_radius": 25,
+      "near_goal_orbit_or_oscillation": 1,
+      "close_then_overshoot": 1
+    },
+    "raw": [
+      {
+        "seed": 30000,
+        "success": true,
+        "classification": "success",
+        "closest_approach_m": 1.9272147301068574,
+        "time_of_closest_approach_s": 13.8,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 2.11373337616706,
+          "u_m_s": -2.113726775138423,
+          "v_m_s": 0.005282573759067183,
+          "yaw_rate_rad_s": 2.2575807664847503
+        },
+        "terminal_distance_m": 1.9272147301068574,
+        "time_within_6m_s": 2.4000000000000004,
+        "radial_direction_reversals": 0,
+        "base_return": 139.00184157297087,
+        "shaped_return_undiscounted_telemetry": 358.43977406470725,
+        "action_at_closest_approach": {
+          "port": -0.1612287014722824,
+          "starboard": -0.10746849328279495
+        }
+      },
+      {
+        "seed": 30001,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 23.39503092486149,
+        "time_of_closest_approach_s": 4.7,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.31206426755705613,
+          "u_m_s": -0.2954473990416991,
+          "v_m_s": -0.1004735860085473,
+          "yaw_rate_rad_s": -1.2747400197639644
+        },
+        "terminal_distance_m": 206.4337677741331,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 8,
+        "base_return": -2566.597178550499,
+        "shaped_return_undiscounted_telemetry": 3780.048456902304,
+        "action_at_closest_approach": {
+          "port": 1.0,
+          "starboard": 0.9096069931983948
+        }
+      },
+      {
+        "seed": 30002,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 15.783558787636657,
+        "time_of_closest_approach_s": 115.0,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.9972795727082422,
+          "u_m_s": 0.5178651214927494,
+          "v_m_s": -0.8522806240214745,
+          "yaw_rate_rad_s": 1.0405230865829358
+        },
+        "terminal_distance_m": 15.807175172940608,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 45,
+        "base_return": -55.45362608422795,
+        "shaped_return_undiscounted_telemetry": 1276.5120176979995,
+        "action_at_closest_approach": {
+          "port": 0.7659755349159241,
+          "starboard": 0.8614502549171448
+        }
+      },
+      {
+        "seed": 30003,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 24.468581878252625,
+        "time_of_closest_approach_s": 0.1,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.11031336993536094,
+          "u_m_s": -0.04759964847283957,
+          "v_m_s": 0.09951539102951812,
+          "yaw_rate_rad_s": 0.14872828918348271
+        },
+        "terminal_distance_m": 286.32776505756675,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 0,
+        "base_return": -3696.9320440150304,
+        "shaped_return_undiscounted_telemetry": 5147.111610051769,
+        "action_at_closest_approach": {
+          "port": 0.9761102795600891,
+          "starboard": 0.9670067429542542
+        }
+      },
+      {
+        "seed": 30004,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 22.469947105383337,
+        "time_of_closest_approach_s": 3.5,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.36876549126160196,
+          "u_m_s": 0.3144748741870571,
+          "v_m_s": 0.19259683551513826,
+          "yaw_rate_rad_s": -0.5519742833242345
+        },
+        "terminal_distance_m": 115.6647001653553,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 19,
+        "base_return": -1279.7449772791508,
+        "shaped_return_undiscounted_telemetry": 2472.0545749431367,
+        "action_at_closest_approach": {
+          "port": 1.0,
+          "starboard": 1.0
+        }
+      },
+      {
+        "seed": 30005,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 23.861594286273135,
+        "time_of_closest_approach_s": 2.0,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 2.148884617961025,
+          "u_m_s": 2.094652667366412,
+          "v_m_s": -0.4797241961838855,
+          "yaw_rate_rad_s": 0.8245078675651363
+        },
+        "terminal_distance_m": 41.07189969609144,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 50,
+        "base_return": -253.81014204540477,
+        "shaped_return_undiscounted_telemetry": 1795.3191942558087,
+        "action_at_closest_approach": {
+          "port": 0.9628748297691345,
+          "starboard": 0.9933493137359619
+        }
+      },
+      {
+        "seed": 30006,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 24.4677963310189,
+        "time_of_closest_approach_s": 0.1,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.12943196031420579,
+          "u_m_s": 0.0740112386895568,
+          "v_m_s": 0.10618365645623432,
+          "yaw_rate_rad_s": -0.023583515098667126
+        },
+        "terminal_distance_m": 155.52955726695563,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 2,
+        "base_return": -1803.1904159615758,
+        "shaped_return_undiscounted_telemetry": 3518.6664568879287,
+        "action_at_closest_approach": {
+          "port": 1.0,
+          "starboard": 1.0
+        }
+      },
+      {
+        "seed": 30007,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 13.025277543381247,
+        "time_of_closest_approach_s": 30.3,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 1.1050965754247006,
+          "u_m_s": -0.10101132332265358,
+          "v_m_s": 1.100470423762496,
+          "yaw_rate_rad_s": -2.653549377014618
+        },
+        "terminal_distance_m": 137.4170146120036,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 9,
+        "base_return": -1519.6650864437731,
+        "shaped_return_undiscounted_telemetry": 1963.7357253683558,
+        "action_at_closest_approach": {
+          "port": -0.36479654908180237,
+          "starboard": 0.870863139629364
+        }
+      },
+      {
+        "seed": 30008,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 23.14424305273144,
+        "time_of_closest_approach_s": 3.6,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 1.1805983288377824,
+          "u_m_s": 1.1459102421173313,
+          "v_m_s": 0.2840812050544065,
+          "yaw_rate_rad_s": -0.5699667981406819
+        },
+        "terminal_distance_m": 99.8574091170707,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 49,
+        "base_return": -1007.4823514617997,
+        "shaped_return_undiscounted_telemetry": 2553.5622227903586,
+        "action_at_closest_approach": {
+          "port": 1.0,
+          "starboard": 0.9757775664329529
+        }
+      },
+      {
+        "seed": 30009,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 23.344058766737398,
+        "time_of_closest_approach_s": 3.3000000000000003,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.1852500430699217,
+          "u_m_s": -0.06759101220089371,
+          "v_m_s": -0.172479081418781,
+          "yaw_rate_rad_s": -1.0686390433054522
+        },
+        "terminal_distance_m": 178.07465782739925,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 4,
+        "base_return": -2083.3229286081996,
+        "shaped_return_undiscounted_telemetry": 3751.0241988336247,
+        "action_at_closest_approach": {
+          "port": 0.78387451171875,
+          "starboard": 0.5371109247207642
+        }
+      },
+      {
+        "seed": 30010,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 24.46417662134472,
+        "time_of_closest_approach_s": 0.1,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.07499308393256836,
+          "u_m_s": 0.07154297705047973,
+          "v_m_s": 0.022484774236620084,
+          "yaw_rate_rad_s": -0.001114559585009357
+        },
+        "terminal_distance_m": 206.19395690718477,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 0,
+        "base_return": -2577.0363334781155,
+        "shaped_return_undiscounted_telemetry": 4310.69438599345,
+        "action_at_closest_approach": {
+          "port": 0.9490113258361816,
+          "starboard": 0.8182592988014221
+        }
+      },
+      {
+        "seed": 30011,
+        "success": false,
+        "classification": "near_goal_orbit_or_oscillation",
+        "closest_approach_m": 4.474039472927133,
+        "time_of_closest_approach_s": 68.4,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.5047151223164803,
+          "u_m_s": 0.42159676732042095,
+          "v_m_s": 0.2774770629798264,
+          "yaw_rate_rad_s": -0.8449826943836738
+        },
+        "terminal_distance_m": 31.148434861142754,
+        "time_within_6m_s": 7.4,
+        "radial_direction_reversals": 31,
+        "base_return": -271.58817156257425,
+        "shaped_return_undiscounted_telemetry": 905.0966573603063,
+        "action_at_closest_approach": {
+          "port": -0.33350810408592224,
+          "starboard": 0.03266514837741852
+        }
+      },
+      {
+        "seed": 30012,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 24.454938445623423,
+        "time_of_closest_approach_s": 0.9,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 1.0890213387659318,
+          "u_m_s": 1.0882231208769875,
+          "v_m_s": -0.04168831342584696,
+          "yaw_rate_rad_s": 0.05643712061519893
+        },
+        "terminal_distance_m": 37.64434633781907,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 50,
+        "base_return": -249.43683925920726,
+        "shaped_return_undiscounted_telemetry": 1738.4667793274116,
+        "action_at_closest_approach": {
+          "port": 0.8292803764343262,
+          "starboard": 0.758292019367218
+        }
+      },
+      {
+        "seed": 30013,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 18.480365688547476,
+        "time_of_closest_approach_s": 13.5,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.6128427272521851,
+          "u_m_s": 0.3103776631794659,
+          "v_m_s": 0.5284334532797391,
+          "yaw_rate_rad_s": -1.0515261748745748
+        },
+        "terminal_distance_m": 70.15842530621813,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 13,
+        "base_return": -899.4404320114395,
+        "shaped_return_undiscounted_telemetry": 1448.1971098721042,
+        "action_at_closest_approach": {
+          "port": 0.8113810420036316,
+          "starboard": 0.6490082740783691
+        }
+      },
+      {
+        "seed": 30014,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 15.69484155548534,
+        "time_of_closest_approach_s": 21.700000000000003,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 1.179632974637344,
+          "u_m_s": 0.023980231369733346,
+          "v_m_s": 1.1793892077491648,
+          "yaw_rate_rad_s": 2.29087706842616
+        },
+        "terminal_distance_m": 149.79783826127334,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 9,
+        "base_return": -1783.4249420237945,
+        "shaped_return_undiscounted_telemetry": 2294.2297019117723,
+        "action_at_closest_approach": {
+          "port": 0.6213809251785278,
+          "starboard": -0.8882099390029907
+        }
+      },
+      {
+        "seed": 30015,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 8.259827008114156,
+        "time_of_closest_approach_s": 25.3,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 1.4484704645808286,
+          "u_m_s": 1.28852034813277,
+          "v_m_s": 0.6616509647924703,
+          "yaw_rate_rad_s": -0.29280855994137056
+        },
+        "terminal_distance_m": 52.30253297375694,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 26,
+        "base_return": -689.2249244720163,
+        "shaped_return_undiscounted_telemetry": 1161.5827619927422,
+        "action_at_closest_approach": {
+          "port": 0.9057415127754211,
+          "starboard": -0.3598756492137909
+        }
+      },
+      {
+        "seed": 30016,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 23.96712533110836,
+        "time_of_closest_approach_s": 2.6,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.355485595286448,
+          "u_m_s": -0.3276907585424087,
+          "v_m_s": -0.13779976495648,
+          "yaw_rate_rad_s": -1.351540618563807
+        },
+        "terminal_distance_m": 188.59756860737843,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 2,
+        "base_return": -2275.9817639253333,
+        "shaped_return_undiscounted_telemetry": 4083.5755555493865,
+        "action_at_closest_approach": {
+          "port": 1.0,
+          "starboard": 0.932341992855072
+        }
+      },
+      {
+        "seed": 30017,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 22.674644170858308,
+        "time_of_closest_approach_s": 4.3,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 1.4901905850632822,
+          "u_m_s": 1.2643828763850893,
+          "v_m_s": 0.7886722524061662,
+          "yaw_rate_rad_s": -1.2389056982737594
+        },
+        "terminal_distance_m": 29.39475484469789,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 51,
+        "base_return": -144.12032673735715,
+        "shaped_return_undiscounted_telemetry": 1519.5645414205358,
+        "action_at_closest_approach": {
+          "port": 1.0,
+          "starboard": 0.92606520652771
+        }
+      },
+      {
+        "seed": 30018,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 20.383122262728175,
+        "time_of_closest_approach_s": 83.5,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.03196347867357238,
+          "u_m_s": 0.005213924684412181,
+          "v_m_s": -0.03153536044349571,
+          "yaw_rate_rad_s": 1.0166149344845656
+        },
+        "terminal_distance_m": 23.76412939105034,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 41,
+        "base_return": -243.46293690641488,
+        "shaped_return_undiscounted_telemetry": 1330.8769537128537,
+        "action_at_closest_approach": {
+          "port": 0.696868896484375,
+          "starboard": -0.2100195288658142
+        }
+      },
+      {
+        "seed": 30019,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 20.015879383168837,
+        "time_of_closest_approach_s": 7.6000000000000005,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.29127807181909954,
+          "u_m_s": -0.07920661408046677,
+          "v_m_s": 0.280302028905537,
+          "yaw_rate_rad_s": 1.0898137638149155
+        },
+        "terminal_distance_m": 85.59510315299973,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 4,
+        "base_return": -1067.4869875123356,
+        "shaped_return_undiscounted_telemetry": 1916.5608908293864,
+        "action_at_closest_approach": {
+          "port": 0.6780293583869934,
+          "starboard": 0.06069720536470413
+        }
+      },
+      {
+        "seed": 30020,
+        "success": true,
+        "classification": "success",
+        "closest_approach_m": 1.9974352737460435,
+        "time_of_closest_approach_s": 28.200000000000003,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 1.334319292605581,
+          "u_m_s": -0.9320791153261315,
+          "v_m_s": 0.9547965738272807,
+          "yaw_rate_rad_s": 1.5026750265296982
+        },
+        "terminal_distance_m": 1.9974352737460435,
+        "time_within_6m_s": 3.3000000000000003,
+        "radial_direction_reversals": 6,
+        "base_return": 132.03632684214702,
+        "shaped_return_undiscounted_telemetry": 477.83679201649466,
+        "action_at_closest_approach": {
+          "port": -0.38943931460380554,
+          "starboard": -0.1743592619895935
+        }
+      },
+      {
+        "seed": 30021,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 6.8270576676966845,
+        "time_of_closest_approach_s": 114.9,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.9566143081947678,
+          "u_m_s": 0.5312645413157383,
+          "v_m_s": 0.7955305913561919,
+          "yaw_rate_rad_s": -1.2631816907925082
+        },
+        "terminal_distance_m": 6.912560222367973,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 37,
+        "base_return": -47.62939140042282,
+        "shaped_return_undiscounted_telemetry": 1043.2338397589326,
+        "action_at_closest_approach": {
+          "port": 0.5803871750831604,
+          "starboard": 0.6675664782524109
+        }
+      },
+      {
+        "seed": 30022,
+        "success": true,
+        "classification": "success",
+        "closest_approach_m": 1.9946784426606605,
+        "time_of_closest_approach_s": 54.6,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.6499515675711556,
+          "u_m_s": -0.6494055378099568,
+          "v_m_s": -0.02663620937677013,
+          "yaw_rate_rad_s": 0.6153536557099399
+        },
+        "terminal_distance_m": 1.9946784426606605,
+        "time_within_6m_s": 12.4,
+        "radial_direction_reversals": 14,
+        "base_return": 131.93526619520466,
+        "shaped_return_undiscounted_telemetry": 601.7478213704788,
+        "action_at_closest_approach": {
+          "port": -0.2552543580532074,
+          "starboard": 0.19665631651878357
+        }
+      },
+      {
+        "seed": 30023,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 24.46614163642791,
+        "time_of_closest_approach_s": 0.1,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.08787556286499171,
+          "u_m_s": 0.06684180840463741,
+          "v_m_s": 0.05704636007701852,
+          "yaw_rate_rad_s": 0.04800720594976342
+        },
+        "terminal_distance_m": 107.74128784196762,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 34,
+        "base_return": -1145.4186731617183,
+        "shaped_return_undiscounted_telemetry": 2853.7749847308983,
+        "action_at_closest_approach": {
+          "port": 0.8311801552772522,
+          "starboard": 0.700153648853302
+        }
+      },
+      {
+        "seed": 30024,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 24.468019117959837,
+        "time_of_closest_approach_s": 0.1,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.12302693068888963,
+          "u_m_s": 0.06265174276103633,
+          "v_m_s": 0.10587910466061652,
+          "yaw_rate_rad_s": 0.0007127980215101419
+        },
+        "terminal_distance_m": 187.55711923993505,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 2,
+        "base_return": -2272.862468116242,
+        "shaped_return_undiscounted_telemetry": 4124.447042224354,
+        "action_at_closest_approach": {
+          "port": 1.0,
+          "starboard": 1.0
+        }
+      },
+      {
+        "seed": 30025,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 13.73118958036784,
+        "time_of_closest_approach_s": 120.0,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.18044246133703673,
+          "u_m_s": -0.02475665716418541,
+          "v_m_s": -0.17873608975084743,
+          "yaw_rate_rad_s": 1.2521828416127707
+        },
+        "terminal_distance_m": 13.73118958036784,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 42,
+        "base_return": -141.79355623075998,
+        "shaped_return_undiscounted_telemetry": 1326.923703301069,
+        "action_at_closest_approach": {
+          "port": 0.7496395707130432,
+          "starboard": -0.42742809653282166
+        }
+      },
+      {
+        "seed": 30026,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 24.447055438612797,
+        "time_of_closest_approach_s": 0.9,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 0.9558883316391689,
+          "u_m_s": 0.9476822930457944,
+          "v_m_s": -0.12498309490238572,
+          "yaw_rate_rad_s": 0.21306301845512585
+        },
+        "terminal_distance_m": 59.119001280212906,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 35,
+        "base_return": -929.3522375193687,
+        "shaped_return_undiscounted_telemetry": 1777.443027881442,
+        "action_at_closest_approach": {
+          "port": 0.8137245178222656,
+          "starboard": 0.699170708656311
+        }
+      },
+      {
+        "seed": 30027,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 23.19566645534953,
+        "time_of_closest_approach_s": 5.7,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 1.0061354331703802,
+          "u_m_s": -0.8306500213260417,
+          "v_m_s": 0.5677403032654941,
+          "yaw_rate_rad_s": 1.6657766958039106
+        },
+        "terminal_distance_m": 216.68430630644554,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 6,
+        "base_return": -2736.6002464372787,
+        "shaped_return_undiscounted_telemetry": 3807.9613105918033,
+        "action_at_closest_approach": {
+          "port": 0.6289533376693726,
+          "starboard": 0.8369609713554382
+        }
+      },
+      {
+        "seed": 30028,
+        "success": false,
+        "classification": "close_then_overshoot",
+        "closest_approach_m": 3.9500890608798587,
+        "time_of_closest_approach_s": 18.5,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 1.4751395513234635,
+          "u_m_s": -1.4249289584798146,
+          "v_m_s": -0.38159423366243383,
+          "yaw_rate_rad_s": 1.5591719382474154
+        },
+        "terminal_distance_m": 124.37461140944504,
+        "time_within_6m_s": 5.2,
+        "radial_direction_reversals": 7,
+        "base_return": -1364.0903532101743,
+        "shaped_return_undiscounted_telemetry": 1765.396507177958,
+        "action_at_closest_approach": {
+          "port": -0.16514530777931213,
+          "starboard": 0.3702409565448761
+        }
+      },
+      {
+        "seed": 30029,
+        "success": false,
+        "classification": "did_not_enter_intermediate_radius",
+        "closest_approach_m": 9.173505907376732,
+        "time_of_closest_approach_s": 36.2,
+        "velocity_at_closest_approach": {
+          "speed_over_ground_m_s": 1.345155996154403,
+          "u_m_s": -0.42773237096287475,
+          "v_m_s": -1.2753390423023292,
+          "yaw_rate_rad_s": 0.9657615077712217
+        },
+        "terminal_distance_m": 56.62729974126408,
+        "time_within_6m_s": 0.0,
+        "radial_direction_reversals": 13,
+        "base_return": -620.836546062079,
+        "shaped_return_undiscounted_telemetry": 1115.9013090876144,
+        "action_at_closest_approach": {
+          "port": -0.2730807065963745,
+          "starboard": 0.72640460729599
+        }
+      }
+    ]
+  },
+  "reachability": {
+    "same_start_distribution": true,
+    "evaluation_seeds": "30000-30049",
+    "disturbance": {
+      "scale_factor_from_bootstrap_task": 1.3569543912551827,
+      "configured_ranges": {
+        "current_m_s": [
+          0,
+          1.3569543912551827
+        ],
+        "wind_m_s": [
+          0,
+          10.855635130041462
+        ]
+      },
+      "sampled_50_seed_magnitudes": {
+        "current_m_s": {
+          "n": 50,
+          "min": 0.0024029630514706387,
+          "median": 0.6135779436111809,
+          "p75": 1.0706292564499402,
+          "p95": 1.2863626738496283,
+          "max": 1.3226251899662487,
+          "mean": 0.6558274399760171
+        },
+        "wind_m_s": {
+          "n": 50,
+          "min": 0.035663032212708515,
+          "median": 6.637704896726924,
+          "p75": 8.392548404038624,
+          "p95": 10.049357483247023,
+          "max": 10.687732283142527,
+          "mean": 5.979834616049433
+        }
+      },
+      "final_leg_length_m": 24.46284318068371,
+      "terminal_radius_as_leg_fraction": 0.08175664558808254,
+      "intermediate_radius_as_leg_fraction": 0.24526993676424763,
+      "median_current_drift_time_across_radius_s": {
+        "2m": 3.259569580075034,
+        "6m": 9.778708740225103
+      }
+    },
+    "classical": [
+      {
+        "controller": "LOS-PID-v2",
+        "episodes": 50,
+        "success_rate": 0.68,
+        "closest_approach_m": {
+          "n": 50,
+          "min": 1.884525720724032,
+          "median": 1.9679978863095262,
+          "p75": 3.8913372270453293,
+          "p95": 24.17636881939163,
+          "max": 24.46284318068438,
+          "mean": 6.121983966965145
+        },
+        "raw": [
+          {
+            "seed": 30000,
+            "success": true,
+            "closest_approach_m": 1.8982844223087618,
+            "steps": 152
+          },
+          {
+            "seed": 30001,
+            "success": false,
+            "closest_approach_m": 5.139235756871045,
+            "steps": 1200
+          },
+          {
+            "seed": 30002,
+            "success": true,
+            "closest_approach_m": 1.9706917151644867,
+            "steps": 192
+          },
+          {
+            "seed": 30003,
+            "success": false,
+            "closest_approach_m": 24.46284318068422,
+            "steps": 1200
+          },
+          {
+            "seed": 30004,
+            "success": true,
+            "closest_approach_m": 1.9319184181236622,
+            "steps": 298
+          },
+          {
+            "seed": 30005,
+            "success": true,
+            "closest_approach_m": 1.911180205174277,
+            "steps": 216
+          },
+          {
+            "seed": 30006,
+            "success": false,
+            "closest_approach_m": 21.46864665872204,
+            "steps": 1200
+          },
+          {
+            "seed": 30007,
+            "success": false,
+            "closest_approach_m": 3.837130659035336,
+            "steps": 1200
+          },
+          {
+            "seed": 30008,
+            "success": true,
+            "closest_approach_m": 1.9563304892935591,
+            "steps": 268
+          },
+          {
+            "seed": 30009,
+            "success": true,
+            "closest_approach_m": 1.9779400120774349,
+            "steps": 719
+          },
+          {
+            "seed": 30010,
+            "success": false,
+            "closest_approach_m": 23.031558406047942,
+            "steps": 1200
+          },
+          {
+            "seed": 30011,
+            "success": true,
+            "closest_approach_m": 1.9012873285082055,
+            "steps": 187
+          },
+          {
+            "seed": 30012,
+            "success": true,
+            "closest_approach_m": 1.9317297144080467,
+            "steps": 218
+          },
+          {
+            "seed": 30013,
+            "success": true,
+            "closest_approach_m": 1.9963501753748416,
+            "steps": 181
+          },
+          {
+            "seed": 30014,
+            "success": false,
+            "closest_approach_m": 10.253681368103884,
+            "steps": 1200
+          },
+          {
+            "seed": 30015,
+            "success": true,
+            "closest_approach_m": 1.9450365388803679,
+            "steps": 169
+          },
+          {
+            "seed": 30016,
+            "success": true,
+            "closest_approach_m": 1.9808649063271817,
+            "steps": 1100
+          },
+          {
+            "seed": 30017,
+            "success": true,
+            "closest_approach_m": 1.98631084865274,
+            "steps": 234
+          },
+          {
+            "seed": 30018,
+            "success": true,
+            "closest_approach_m": 1.9902279279962967,
+            "steps": 216
+          },
+          {
+            "seed": 30019,
+            "success": true,
+            "closest_approach_m": 1.948118192330895,
+            "steps": 272
+          },
+          {
+            "seed": 30020,
+            "success": true,
+            "closest_approach_m": 1.8964090556185604,
+            "steps": 164
+          },
+          {
+            "seed": 30021,
+            "success": true,
+            "closest_approach_m": 1.884525720724032,
+            "steps": 209
+          },
+          {
+            "seed": 30022,
+            "success": true,
+            "closest_approach_m": 1.9304495048967942,
+            "steps": 183
+          },
+          {
+            "seed": 30023,
+            "success": true,
+            "closest_approach_m": 1.9605071477282447,
+            "steps": 358
+          },
+          {
+            "seed": 30024,
+            "success": false,
+            "closest_approach_m": 24.46284318068438,
+            "steps": 1200
+          },
+          {
+            "seed": 30025,
+            "success": true,
+            "closest_approach_m": 1.8960592038109858,
+            "steps": 192
+          },
+          {
+            "seed": 30026,
+            "success": true,
+            "closest_approach_m": 1.9487087594416312,
+            "steps": 215
+          },
+          {
+            "seed": 30027,
+            "success": false,
+            "closest_approach_m": 23.826233488925265,
+            "steps": 1200
+          },
+          {
+            "seed": 30028,
+            "success": true,
+            "closest_approach_m": 1.9642198965013824,
+            "steps": 176
+          },
+          {
+            "seed": 30029,
+            "success": true,
+            "closest_approach_m": 1.9820649414021443,
+            "steps": 167
+          },
+          {
+            "seed": 30030,
+            "success": false,
+            "closest_approach_m": 3.9094060830486606,
+            "steps": 1200
+          },
+          {
+            "seed": 30031,
+            "success": true,
+            "closest_approach_m": 1.912768613922104,
+            "steps": 188
+          },
+          {
+            "seed": 30032,
+            "success": false,
+            "closest_approach_m": 2.093470138904159,
+            "steps": 1200
+          },
+          {
+            "seed": 30033,
+            "success": true,
+            "closest_approach_m": 1.937853447974606,
+            "steps": 196
+          },
+          {
+            "seed": 30034,
+            "success": true,
+            "closest_approach_m": 1.998538335672636,
+            "steps": 248
+          },
+          {
+            "seed": 30035,
+            "success": true,
+            "closest_approach_m": 1.992705360347075,
+            "steps": 242
+          },
+          {
+            "seed": 30036,
+            "success": true,
+            "closest_approach_m": 1.965304057454566,
+            "steps": 211
+          },
+          {
+            "seed": 30037,
+            "success": true,
+            "closest_approach_m": 1.9490116594267533,
+            "steps": 362
+          },
+          {
+            "seed": 30038,
+            "success": false,
+            "closest_approach_m": 17.87710541232396,
+            "steps": 1200
+          },
+          {
+            "seed": 30039,
+            "success": true,
+            "closest_approach_m": 1.9635983652454556,
+            "steps": 255
+          },
+          {
+            "seed": 30040,
+            "success": true,
+            "closest_approach_m": 1.9512181493527334,
+            "steps": 255
+          },
+          {
+            "seed": 30041,
+            "success": false,
+            "closest_approach_m": 23.03555411391222,
+            "steps": 1200
+          },
+          {
+            "seed": 30042,
+            "success": false,
+            "closest_approach_m": 18.583666126087667,
+            "steps": 1200
+          },
+          {
+            "seed": 30043,
+            "success": true,
+            "closest_approach_m": 1.9584530023449116,
+            "steps": 207
+          },
+          {
+            "seed": 30044,
+            "success": false,
+            "closest_approach_m": 24.4628431806823,
+            "steps": 1200
+          },
+          {
+            "seed": 30045,
+            "success": true,
+            "closest_approach_m": 1.9283578469975933,
+            "steps": 249
+          },
+          {
+            "seed": 30046,
+            "success": true,
+            "closest_approach_m": 1.898572407996833,
+            "steps": 182
+          },
+          {
+            "seed": 30047,
+            "success": false,
+            "closest_approach_m": 3.104376837712317,
+            "steps": 1200
+          },
+          {
+            "seed": 30048,
+            "success": false,
+            "closest_approach_m": 10.37734099976843,
+            "steps": 1200
+          },
+          {
+            "seed": 30049,
+            "success": true,
+            "closest_approach_m": 1.9276663852636098,
+            "steps": 192
+          }
+        ]
+      },
+      {
+        "controller": "LOS-SPEEDCAP-v2",
+        "episodes": 50,
+        "success_rate": 0.58,
+        "closest_approach_m": {
+          "n": 50,
+          "min": 1.9292435054696129,
+          "median": 1.9941455937386325,
+          "p75": 3.7107955125191743,
+          "p95": 24.274347426478077,
+          "max": 24.46284318068438,
+          "mean": 5.402946785445091
+        },
+        "raw": [
+          {
+            "seed": 30000,
+            "success": false,
+            "closest_approach_m": 2.8523609323540073,
+            "steps": 1200
+          },
+          {
+            "seed": 30001,
+            "success": false,
+            "closest_approach_m": 3.5860751105422093,
+            "steps": 1200
+          },
+          {
+            "seed": 30002,
+            "success": true,
+            "closest_approach_m": 1.990172072239899,
+            "steps": 279
+          },
+          {
+            "seed": 30003,
+            "success": false,
+            "closest_approach_m": 24.46284318068422,
+            "steps": 1200
+          },
+          {
+            "seed": 30004,
+            "success": true,
+            "closest_approach_m": 1.9508822559322183,
+            "steps": 320
+          },
+          {
+            "seed": 30005,
+            "success": true,
+            "closest_approach_m": 1.9790565626619536,
+            "steps": 291
+          },
+          {
+            "seed": 30006,
+            "success": false,
+            "closest_approach_m": 21.393116750724484,
+            "steps": 1200
+          },
+          {
+            "seed": 30007,
+            "success": false,
+            "closest_approach_m": 3.7523689798448294,
+            "steps": 1200
+          },
+          {
+            "seed": 30008,
+            "success": true,
+            "closest_approach_m": 1.9773034500018432,
+            "steps": 349
+          },
+          {
+            "seed": 30009,
+            "success": true,
+            "closest_approach_m": 1.9957164611682368,
+            "steps": 471
+          },
+          {
+            "seed": 30010,
+            "success": false,
+            "closest_approach_m": 5.954944268526229,
+            "steps": 1200
+          },
+          {
+            "seed": 30011,
+            "success": true,
+            "closest_approach_m": 1.9957801166620164,
+            "steps": 246
+          },
+          {
+            "seed": 30012,
+            "success": true,
+            "closest_approach_m": 1.992168468610955,
+            "steps": 302
+          },
+          {
+            "seed": 30013,
+            "success": false,
+            "closest_approach_m": 2.0106656187711214,
+            "steps": 1200
+          },
+          {
+            "seed": 30014,
+            "success": false,
+            "closest_approach_m": 10.326365392121431,
+            "steps": 1200
+          },
+          {
+            "seed": 30015,
+            "success": false,
+            "closest_approach_m": 2.449190723547099,
+            "steps": 1200
+          },
+          {
+            "seed": 30016,
+            "success": true,
+            "closest_approach_m": 1.9878754356381931,
+            "steps": 1125
+          },
+          {
+            "seed": 30017,
+            "success": true,
+            "closest_approach_m": 1.9895399499213706,
+            "steps": 339
+          },
+          {
+            "seed": 30018,
+            "success": true,
+            "closest_approach_m": 1.932338864897119,
+            "steps": 298
+          },
+          {
+            "seed": 30019,
+            "success": true,
+            "closest_approach_m": 1.9558155419103336,
+            "steps": 362
+          },
+          {
+            "seed": 30020,
+            "success": true,
+            "closest_approach_m": 1.9617037058005213,
+            "steps": 221
+          },
+          {
+            "seed": 30021,
+            "success": true,
+            "closest_approach_m": 1.961041710107191,
+            "steps": 294
+          },
+          {
+            "seed": 30022,
+            "success": true,
+            "closest_approach_m": 1.9845976970157237,
+            "steps": 255
+          },
+          {
+            "seed": 30023,
+            "success": true,
+            "closest_approach_m": 1.9536904249943814,
+            "steps": 470
+          },
+          {
+            "seed": 30024,
+            "success": false,
+            "closest_approach_m": 24.46284318068438,
+            "steps": 1200
+          },
+          {
+            "seed": 30025,
+            "success": true,
+            "closest_approach_m": 1.97156332120176,
+            "steps": 266
+          },
+          {
+            "seed": 30026,
+            "success": true,
+            "closest_approach_m": 1.9292435054696129,
+            "steps": 278
+          },
+          {
+            "seed": 30027,
+            "success": false,
+            "closest_approach_m": 24.043963726895143,
+            "steps": 1200
+          },
+          {
+            "seed": 30028,
+            "success": false,
+            "closest_approach_m": 2.1270118864057097,
+            "steps": 1200
+          },
+          {
+            "seed": 30029,
+            "success": false,
+            "closest_approach_m": 2.179196008572707,
+            "steps": 1200
+          },
+          {
+            "seed": 30030,
+            "success": false,
+            "closest_approach_m": 5.508802616964557,
+            "steps": 1200
+          },
+          {
+            "seed": 30031,
+            "success": true,
+            "closest_approach_m": 1.9873410528599398,
+            "steps": 260
+          },
+          {
+            "seed": 30032,
+            "success": false,
+            "closest_approach_m": 2.5917074765373744,
+            "steps": 1200
+          },
+          {
+            "seed": 30033,
+            "success": true,
+            "closest_approach_m": 1.998960800529579,
+            "steps": 263
+          },
+          {
+            "seed": 30034,
+            "success": true,
+            "closest_approach_m": 1.965477708011644,
+            "steps": 305
+          },
+          {
+            "seed": 30035,
+            "success": true,
+            "closest_approach_m": 1.9727544711499128,
+            "steps": 353
+          },
+          {
+            "seed": 30036,
+            "success": true,
+            "closest_approach_m": 1.9821572436247956,
+            "steps": 280
+          },
+          {
+            "seed": 30037,
+            "success": true,
+            "closest_approach_m": 1.9961233397325582,
+            "steps": 499
+          },
+          {
+            "seed": 30038,
+            "success": false,
+            "closest_approach_m": 18.610328442601407,
+            "steps": 1200
+          },
+          {
+            "seed": 30039,
+            "success": true,
+            "closest_approach_m": 1.9581351791262394,
+            "steps": 288
+          },
+          {
+            "seed": 30040,
+            "success": true,
+            "closest_approach_m": 1.9751884955552401,
+            "steps": 297
+          },
+          {
+            "seed": 30041,
+            "success": false,
+            "closest_approach_m": 2.914260241241173,
+            "steps": 1200
+          },
+          {
+            "seed": 30042,
+            "success": false,
+            "closest_approach_m": 15.771713884113314,
+            "steps": 1200
+          },
+          {
+            "seed": 30043,
+            "success": true,
+            "closest_approach_m": 1.992574726309028,
+            "steps": 313
+          },
+          {
+            "seed": 30044,
+            "success": false,
+            "closest_approach_m": 24.4628431806823,
+            "steps": 1200
+          },
+          {
+            "seed": 30045,
+            "success": true,
+            "closest_approach_m": 1.9527127315601402,
+            "steps": 367
+          },
+          {
+            "seed": 30046,
+            "success": true,
+            "closest_approach_m": 1.9631693038620508,
+            "steps": 234
+          },
+          {
+            "seed": 30047,
+            "success": false,
+            "closest_approach_m": 3.9127308072200195,
+            "steps": 1200
+          },
+          {
+            "seed": 30048,
+            "success": false,
+            "closest_approach_m": 9.571426758485913,
+            "steps": 1200
+          },
+          {
+            "seed": 30049,
+            "success": true,
+            "closest_approach_m": 1.949495508180488,
+            "steps": 270
+          }
+        ]
+      }
+    ]
+  },
+  "reward_gradient": {
+    "plot": "artifacts/rl-campaign/surveyor/p3-v5-rate-corrected-reward-gradient.svg",
+    "potential": "Phi=-5*distance; F=0.99*Phi(s')-Phi(s)",
+    "threshold_findings": {
+      "2m": "large positive terminal discontinuity (+100 base reward plus absorbing-potential transition), not a flat region",
+      "6m": "no reward or transition discontinuity in final-leg-isolation episodes"
+    },
+    "stationary_state_effect": "Because Phi is negative and gamma<1, a stationary nonterminal transition receives +0.05*distance each step. This telescopes under the same discounted objective but creates a large immediate-reward/value scale.",
+    "representative_values": [
+      {
+        "distance_m": 1.99,
+        "stationary_nonterminal_shaping_per_step": 0.09950000000000009,
+        "closing_0_05m_base_progress": 0.1,
+        "closing_0_05m_shaping": 0.3470000000000001
+      },
+      {
+        "distance_m": 2.01,
+        "stationary_nonterminal_shaping_per_step": 0.10050000000000008,
+        "closing_0_05m_base_progress": 0.1,
+        "closing_0_05m_shaping": 0.3480000000000001
+      },
+      {
+        "distance_m": 4,
+        "stationary_nonterminal_shaping_per_step": 0.20000000000000018,
+        "closing_0_05m_base_progress": 0.1,
+        "closing_0_05m_shaping": 0.4475000000000002
+      },
+      {
+        "distance_m": 6,
+        "stationary_nonterminal_shaping_per_step": 0.30000000000000027,
+        "closing_0_05m_base_progress": 0.1,
+        "closing_0_05m_shaping": 0.5475000000000003
+      },
+      {
+        "distance_m": 10,
+        "stationary_nonterminal_shaping_per_step": 0.5000000000000004,
+        "closing_0_05m_base_progress": 0.1,
+        "closing_0_05m_shaping": 0.7475000000000004
+      },
+      {
+        "distance_m": 30,
+        "stationary_nonterminal_shaping_per_step": 1.5000000000000013,
+        "closing_0_05m_base_progress": 0.1,
+        "closing_0_05m_shaping": 1.7475000000000014
+      }
+    ]
+  },
+  "action_and_authority": {
+    "space": "continuous Box[-1,1]^2 (not discretized)",
+    "actual_action_update_interval_s": 0.1,
+    "frozen_contract_control_interval_s": 0.1,
+    "cadence_mismatch": false,
+    "near_goal_definition_m": 10,
+    "near_goal_samples": 1236,
+    "absolute_action": {
+      "n": 2472,
+      "min": 0.0009401403367519379,
+      "median": 0.4685777574777603,
+      "p75": 0.5838231444358826,
+      "p95": 0.8045906960964201,
+      "max": 1.0,
+      "mean": 0.44308853910370916
+    },
+    "absolute_step_delta": {
+      "n": 2472,
+      "min": 0.0,
+      "median": 0.009356558322906494,
+      "p75": 0.01803126186132431,
+      "p95": 0.049085134267806974,
+      "max": 0.12999368086457253,
+      "mean": 0.014478103849964523
+    },
+    "saturation_fraction_abs_ge_0_99": 0.017394822006472493,
+    "small_command_fraction_abs_le_0_05": 0.03640776699029126
+  },
+  "conclusion": {
+    "dominant_explanation": "PPO control failure before the precision region: most deterministic rollouts never enter 6m. Reward-boundary flatness and action quantization are ruled out as primary explanations.",
+    "reachability_interpretation": "The segment is empirically reachable by classical control under the identical reset/disturbance distribution; the plateau is PPO-specific rather than a general physical-reachability failure.",
+    "reward_interpretation": "There is no flat/discontinuous adverse gradient at 6m and success has a strong positive jump at 2m. However, the shaping term produces large positive immediate rewards even when stationary and shaped returns (~3.7k-4.1k) dwarf base returns (~-1.5k to -1.8k); this is a plausible PPO optimization-scale contributor, not proof of an unreachable goal.",
+    "control_resolution_interpretation": "The policy action is continuous and now held for two 0.05s physics steps, exactly matching the frozen 10Hz control interval. Discretized action resolution is not limiting.",
+    "fourth_revision_recommendation": "None authorized or implemented. Choose any future direction only after reviewing the empirical classifications and classical reachability result."
+  }
+}

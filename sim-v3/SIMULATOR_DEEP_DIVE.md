@@ -1,22 +1,22 @@
-# BCOD Simulator Deep Dive
+# Legacy Browser Simulator Deep Dive
 
-This document explains how the simulator works end to end: how a scenario becomes runtime state, how each fixed timestep advances the mission, how guidance becomes physical thrust, how water and waves feed the dynamics, how sensors are produced, and how the browser surfaces sit on top of the shared simulation core.
+This document explains the root-level legacy `threeSim.html` and `demo.html` compatibility subsystem: how a scenario becomes runtime state, how each fixed timestep advances the mission, how guidance becomes physical thrust, how water and waves feed its planar dynamics, how sensors are produced, and how those browser surfaces consume the result. It does not describe the repository's primary typed research architecture; see [`README.md`](README.md) for the authoritative current architecture, serving instructions, three vehicle configurations, and `planar3`/`coupled6` modes.
 
-The simulator is a browser-first autonomous surface vessel demo. It is not a full robotics simulator like Gazebo. Its core is intentionally focused: one surface vessel, waypoint-following mission logic, simplified water/environment behavior, a 3-DOF marine dynamics model, sensor approximations, metrics, logging, and browser visualization.
+This compatibility subsystem is a browser-first autonomous surface-vessel demo. It is intentionally focused on one legacy vessel, waypoint-following mission logic, simplified water/environment behavior, a 3-DOF marine dynamics model, sensor approximations, metrics, logging, and browser visualization.
 
 ## Quick Start
 
 Run the simulator behind a local HTTP server. Directly opening the HTML files from disk can break ES module loading, WebGL assets, and browser security rules.
 
 ```bash
-cd /Users/aadikenchammanaold/Desktop/LEADCAT/Website/bcod-demo-no-model/sim-v3
-python3 -m http.server 8000
+cd sim-v3
+python3 -m http.server 8001
 ```
 
 Open one of these pages:
 
-- `http://localhost:8000/threeSim.html`: developer-oriented state viewer, physics debugger, sensor feed viewer, CSV exporter.
-- `http://localhost:8000/demo.html`: guided mission demo with configuration steps and richer presentation.
+- `http://localhost:8001/threeSim.html`: developer-oriented state viewer, physics debugger, sensor feed viewer, CSV exporter.
+- `http://localhost:8001/demo.html`: guided mission demo with configuration steps and richer presentation.
 
 Run the local checks with:
 
@@ -786,9 +786,9 @@ This simulator is strongest for:
 - exporting logs for comparison
 - approximating camera/LiDAR feeds from the visible Three.js scene
 
-## Current Limits
+## Current Limits of the Legacy Subsystem
 
-The core is not a full robotics simulator.
+The legacy subsystem is not a full robotics simulator. These statements do not describe the typed `coupled6` production path.
 
 Important limitations:
 
@@ -810,7 +810,7 @@ For changes to mission logic or physics:
 
 1. Edit the relevant source.
 2. Run `npm test`.
-3. Start `python3 -m http.server 8000`.
+3. Start `python3 -m http.server 8001`.
 4. Verify `threeSim.html`.
 5. If UI/presentation is affected, verify `demo.html`.
 6. Export CSV if comparison against baselines is needed.

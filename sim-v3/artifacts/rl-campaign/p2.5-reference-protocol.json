@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "status": "predeclared-before-reference-runs",
+  "task_id": "common-waypoint-transit-v1",
+  "vehicle": "vehicle-a-otter",
+  "plant": "planar3",
+  "episode_seeds": {"first": 10000, "count": 50},
+  "route_relative_m": [[20,0],[35,15],[50,5]],
+  "episode_steps": 2400,
+  "dt_s": 0.05,
+  "wrench_limits": {"surge_n": 150, "yaw_nm": 100},
+  "controllers": {
+    "frozen-untrained-policy-v1": {"type":"fixed two-layer tanh MLP","observation_size":9,"hidden_size":16,"weight_seed":7319,"output":"normalized surge/yaw"},
+    "PID-v1": {"surge_n_per_m":8,"surge_damping_n_per_m_s":45,"yaw_nm_per_rad":80,"yaw_damping_nm_per_rad_s":20},
+    "MPC-v1": {"target_speed_max_m_s":1.5,"target_speed_per_m":0.3,"surge_n_per_m_s":100,"yaw_nm_per_rad":100,"yaw_damping_nm_per_rad_s":30,"final_slowdown_distance_m":8}
+  },
+  "reward": {"progress_per_m":2,"cross_track_per_m":-0.02,"action_delta_squared":-0.05,"success":100,"object_collision":-100,"grounding":-100,"timeout":-10,"allocation_failure":-25,"instability":-100},
+  "success": {"waypoint_radius_m":2,"final_speed_max_m_s":0.5,"hold_s":2},
+  "bootstrap": {"paired":true,"resamples":10000,"seed":20270831,"confidence":0.95},
+  "gate": "The better PID/MPC median must exceed the untrained median and the paired-bootstrap 95% CI lower bound of the median gap must be >0. The frozen absolute threshold is untrained_median + 0.5*gap.",
+  "prohibition": "No controller gain, route, reward, episode seed, bootstrap rule, or threshold rule may change after these reference runs."
+}

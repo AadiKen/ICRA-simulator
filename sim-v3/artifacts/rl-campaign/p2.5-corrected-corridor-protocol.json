@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "predeclared-before-amendment-5-corridor-rerun",
+  "amendment": "P3 Amendment 5 harness correction",
+  "parent_protocol_sha256": "7064fb8a6824a3854fb8401ba5641f9d56fa87a37b0c739215f172cceabf5c5e",
+  "task_contract_changed": false,
+  "reward_changed": false,
+  "final_success_changed": false,
+  "evaluation_seeds": {"first": 10000, "count": 50},
+  "held_out_tuning_seeds": {"first": 20000, "count": 20},
+  "route_relative_m": [[20, 0], [35, 15], [50, 5]],
+  "episode_steps": 2400,
+  "dt_s": 0.05,
+  "advancement": {
+    "intermediate_radius_m": 6,
+    "plane_crossing_lateral_corridor_m": 15.361124064575238,
+    "corridor_derivation": "Pooled 95th percentile of per-episode mean cross-track error over LOS-PID-v2 and LOS-SPEEDCAP-v2 in retained p2.5-corrected.json (100 trajectories), frozen before this rerun.",
+    "rule": "advance when within 6 m, or after plane crossing while absolute cross-track is within the corridor",
+    "applies_to_every_controller": true
+  },
+  "los": {"formula": "leg_heading - atan2(signed_cross_track, lookahead_m)", "full_route_available": true, "grid": {"lookahead_m": [4, 8, 12], "yaw_kp_nm_per_rad": [70, 100], "yaw_kd_nm_per_rad_s": [20, 35], "target_speed_mps": [1, 1.5]}},
+  "selection": {"paired": true, "lexicographic_objective": ["success_count_max", "waypoints_reached_sum_max", "median_return_max", "mean_cross_track_min"], "prohibition": "No evaluation seed or PPO result may influence selection."},
+  "thresholds": {"return": "untrained_median + 0.5 * gap", "success": "untrained_rate + 0.5 * gap", "both_must_pass": true, "bootstrap_resamples": 10000, "bootstrap_seed": 20270831, "confidence": 0.95}
+}

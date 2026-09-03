@@ -1,3 +1,5 @@
+import surveyorVehicleModel from "../../../artifacts/rl-campaign/surveyor-vehicle-model.json" with {type:"json"};
+
 export interface GuidanceDemand {a:number;w:number;desiredSpeed:number;target?:unknown}
 export interface GuidanceActuatorCommand {surgeForce:number;differentialForce:number;desiredSpeed:number;target:unknown;hardware_command?:{mode:"set_thruster_mode";thrust:number;thrust_diff:number}}
 export interface GuidanceActuatorMapper {map(guidance:GuidanceDemand):GuidanceActuatorCommand}
@@ -23,9 +25,10 @@ export interface SurveyorWaypoint {lat:number;lon:number}
 export interface SurveyorMission {type:"surveyor-waypoint";origin:{lat:number;lon:number;heading_deg?:number};waypoints:SurveyorWaypoint[];erp:SurveyorWaypoint;max_thrust_command?:number}
 export function validateSurveyorMission(value:unknown):asserts value is SurveyorMission{const mission=value as SurveyorMission;if(mission?.type!=="surveyor-waypoint"||!mission.origin||!Array.isArray(mission.waypoints)||mission.waypoints.length===0||!mission.erp)throw new Error("Surveyor missions require origin, non-empty raw lat/lon waypoints, and ERP.");for(const [label,point] of [["origin",mission.origin],["ERP",mission.erp],...mission.waypoints.map((point,index)=>[`waypoint[${index}]`,point] as const)] as const){if(!Number.isFinite(point.lat)||point.lat< -90||point.lat>90||!Number.isFinite(point.lon)||point.lon< -180||point.lon>180)throw new Error(`Surveyor ${label} must contain valid finite latitude/longitude.`);}if(mission.max_thrust_command!==undefined&&(!Number.isInteger(mission.max_thrust_command)||mission.max_thrust_command<0||mission.max_thrust_command>70))throw new Error("Surveyor max_thrust_command must be an integer in [0,70].");}
 
+const model:any=surveyorVehicleModel;
 export const SURVEYOR_PUBLIC_SPEC={
-  id:"searobotics-surveyor-m1.8",length_m:1.83,beam_m:.91,draft_m:.17,mass_kg:52.3,thruster_count:2,thruster_electrical_power_w_each:1000,battery:{energy_wh:1500,nominal_voltage_v:24},
+  id:"searobotics-surveyor-m1.8",model_id:model.vehicle_id,model_status:model.status,length_m:model.geometry.published_envelope.length_m,beam_m:model.geometry.published_envelope.beam_m,draft_m:model.geometry.published_envelope.draft_m,mass_kg:model.mass_properties.mass_kg.value,inertia_diagonal_kg_m2:[model.mass_properties.inertia_tensor_body_kg_m2.diagonal.Ixx_roll,model.mass_properties.inertia_tensor_body_kg_m2.diagonal.Iyy_pitch,model.mass_properties.inertia_tensor_body_kg_m2.diagonal.Izz_yaw] as [number,number,number],thruster_count:model.propulsion.manufacturer_facts.count,thruster_electrical_power_w_each:1000,battery:{energy_wh:1500,nominal_voltage_v:24},effectors:model.propulsion.effectors,dynamics:model.propulsion.command_and_dynamics,damping:model.hydrodynamics,
   provenance:"SeaRobotics SR-Surveyor M1.8 manufacturer specification sheet",
   calibration_status:"integration-only-unvalidated" as const,
-  unresolved:["port/starboard thruster coordinates","forward/reverse bollard-thrust curves versus integer command and voltage","command deadband","motor time constant and slew rate","loaded CG/inertia","hydrodynamic damping"]
+  unresolved:["manufacturer-verified thruster coordinates","forward/reverse bollard-thrust curves versus integer command and voltage","Surveyor-specific command deadband, motor time constant and slew rate","measured loaded CG/inertia","identified hydrodynamic damping"]
 };

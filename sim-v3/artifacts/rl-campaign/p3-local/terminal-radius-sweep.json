@@ -1,0 +1,545 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "terminal-radius-sweep",
+  "status": "complete-halt-before-contract-revision",
+  "provenance": {
+    "new_training_performed": false,
+    "new_rollouts_performed": false,
+    "method": "Deterministic reconstruction of retained corridor-corrected trajectories; prior artifacts lacked per-step terminal traces."
+  },
+  "source_corridor_p2_5_sha256": "e086f7bff37ebbdebc963d33db80dd279ff090506396dc83cc008dd10ec05155",
+  "radii_m": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    10,
+    12,
+    15
+  ],
+  "cells": [
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 2,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.0,
+        "los_mpc": 0.0,
+        "best_classical": 0.0
+      },
+      "normalized_success_gap": null,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.02,
+        "los_mpc": 0.0,
+        "best_classical": 0.02
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.02,
+        "los_mpc": 0.0,
+        "best_classical": 0.02
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.04,
+        "los_mpc": 0.0,
+        "best_classical": 0.04
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.1,
+        "los_pid": 0.26,
+        "los_mpc": 0.38,
+        "best_classical": 0.38
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.18,
+        "los_pid": 0.28,
+        "los_mpc": 0.4,
+        "best_classical": 0.4
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.2,
+        "los_pid": 0.28,
+        "los_mpc": 0.42,
+        "best_classical": 0.42
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 12,
+      "rates": {
+        "untrained": 0.22,
+        "los_pid": 0.28,
+        "los_mpc": 0.42,
+        "best_classical": 0.42
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 15,
+      "rates": {
+        "untrained": 0.22,
+        "los_pid": 0.3,
+        "los_mpc": 0.44,
+        "best_classical": 0.44
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 2,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.0,
+        "los_mpc": 0.0,
+        "best_classical": 0.0
+      },
+      "normalized_success_gap": null,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.0,
+        "los_mpc": 0.0,
+        "best_classical": 0.0
+      },
+      "normalized_success_gap": null,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.02,
+        "los_mpc": 0.0,
+        "best_classical": 0.02
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.02,
+        "los_mpc": 0.0,
+        "best_classical": 0.02
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.04,
+        "los_mpc": 0.0,
+        "best_classical": 0.04
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.04,
+        "los_mpc": 0.0,
+        "best_classical": 0.04
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.08,
+        "los_mpc": 0.04,
+        "best_classical": 0.08
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 12,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.1,
+        "los_mpc": 0.04,
+        "best_classical": 0.1
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 120,
+      "variant": "full",
+      "radius_m": 15,
+      "rates": {
+        "untrained": 0.02,
+        "los_pid": 0.14,
+        "los_mpc": 0.08,
+        "best_classical": 0.14
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 2,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.08,
+        "los_mpc": 0.28,
+        "best_classical": 0.28
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.12,
+        "los_mpc": 0.36,
+        "best_classical": 0.36
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.12,
+        "los_mpc": 0.5,
+        "best_classical": 0.5
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.18,
+        "los_mpc": 0.52,
+        "best_classical": 0.52
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.1,
+        "los_pid": 0.36,
+        "los_mpc": 0.68,
+        "best_classical": 0.68
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.18,
+        "los_pid": 0.38,
+        "los_mpc": 0.7,
+        "best_classical": 0.7
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.2,
+        "los_pid": 0.38,
+        "los_mpc": 0.7,
+        "best_classical": 0.7
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 12,
+      "rates": {
+        "untrained": 0.22,
+        "los_pid": 0.4,
+        "los_mpc": 0.7,
+        "best_classical": 0.7
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "pass_through",
+      "radius_m": 15,
+      "rates": {
+        "untrained": 0.24,
+        "los_pid": 0.42,
+        "los_mpc": 0.72,
+        "best_classical": 0.72
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 2,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.02,
+        "los_mpc": 0.14,
+        "best_classical": 0.14
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 3,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.04,
+        "los_mpc": 0.28,
+        "best_classical": 0.28
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": false
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 4,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.04,
+        "los_mpc": 0.4,
+        "best_classical": 0.4
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 5,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.08,
+        "los_mpc": 0.44,
+        "best_classical": 0.44
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.14,
+        "los_mpc": 0.48,
+        "best_classical": 0.48
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.16,
+        "los_mpc": 0.56,
+        "best_classical": 0.56
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 10,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.2,
+        "los_mpc": 0.58,
+        "best_classical": 0.58
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 12,
+      "rates": {
+        "untrained": 0.0,
+        "los_pid": 0.2,
+        "los_mpc": 0.62,
+        "best_classical": 0.62
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    },
+    {
+      "timeout_s": 240,
+      "variant": "full",
+      "radius_m": 15,
+      "rates": {
+        "untrained": 0.02,
+        "los_pid": 0.26,
+        "los_mpc": 0.68,
+        "best_classical": 0.68
+      },
+      "normalized_success_gap": 1.0,
+      "best_classical_in_40_70": true
+    }
+  ],
+  "closest_approach": [
+    {
+      "policy": "LOS-PID-v2",
+      "closest_final_m": {
+        "timeout_120": {
+          "count": 15,
+          "min": 2.9960225958337268,
+          "q1": 5.379137406232637,
+          "median": 5.991375517482081,
+          "q3": 5.997542423300615,
+          "q95": 6.717098953613983,
+          "max": 13.671081171942298
+        },
+        "timeout_240": {
+          "count": 21,
+          "min": 1.09608285229025,
+          "q1": 2.7267623516249646,
+          "median": 5.379137406232637,
+          "q3": 5.997542423300615,
+          "q95": 11.44034751181393,
+          "max": 13.671081171942298
+        }
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "closest_final_m": {
+        "timeout_120": {
+          "count": 22,
+          "min": 5.976664892504742,
+          "q1": 5.9848685391364755,
+          "median": 5.989519923592925,
+          "q3": 5.9989480046588435,
+          "q95": 6.297528967868331,
+          "max": 12.233735558608434
+        },
+        "timeout_240": {
+          "count": 36,
+          "min": 0.202328317333376,
+          "q1": 1.6278885729411032,
+          "median": 2.7352622091167347,
+          "q3": 5.410609503902878,
+          "q95": 5.99971684328655,
+          "max": 12.233735558608434
+        }
+      }
+    }
+  ],
+  "selection_rule": "Smallest radius where best classical is 40-70%; prefer 120 s pass-through; do not select above 10 m.",
+  "decision": {
+    "contract_revision_applied": false,
+    "human_approval_required": true
+  }
+}

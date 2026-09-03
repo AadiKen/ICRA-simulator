@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-environment-response-tolerance-proposal",
+  "status": "APPROVED_AND_LOCKED_BEFORE_FULL_EPISODES",
+  "locked": true,
+  "approved_by_user": true,
+  "full_held_out_episodes_run": 20,
+  "contract_content_sha256": "cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb",
+  "methodological_scope": "Comparison of two independently implemented approximations of wind and water-current response; this tolerance does not replace the contract's separate per-axis kinematic divergence report.",
+  "proposed_acceptance": {
+    "primary_metric": "relative Euclidean divergence between Node and VRX environment-induced N/E displacement vectors",
+    "environment_induced_displacement": "For each simulator, subtract the matched wind/current-disabled trajectory from the wind/current-enabled trajectory using the same seed, reset, and action trace.",
+    "formula": "||delta_environment_vrx - delta_environment_node||_2 / max(||delta_environment_node||_2, 0.5 m)",
+    "evaluation_times_s": [30, 60, 120],
+    "maximum_relative_vector_divergence": 0.30,
+    "maximum_direction_difference_deg": 15,
+    "direction_consistency": "Required at every checkpoint; additionally, no N or E component may reverse sign when the corresponding Node component magnitude is at least 0.5 m.",
+    "anti_compounding_condition": "The 30% vector-divergence ceiling must hold independently at 30, 60, and 120 seconds. A terminal pass cannot hide an earlier runaway. All checkpoint values and terminal magnitude divergence are reported.",
+    "aggregation_rule": "Every held-out seed must satisfy every environment criterion; no averaging across seeds for pass/fail."
+  },
+  "pre_registration_evidence": {
+    "seed": 20000,
+    "commands": "zero thrust, isolating environment response",
+    "short_horizon": {
+      "duration_s_approximately": 9.6,
+      "node_displacement_m": 1.2888507434679686,
+      "vrx_displacement_m": 1.540640195,
+      "magnitude_divergence": 0.195
+    },
+    "long_horizon": {
+      "node_time_s": 112.25,
+      "vrx_time_s": 112.3,
+      "node_displacement_ne_m": [8.285250386143161, 23.43232777686535],
+      "vrx_displacement_ne_m": [8.622251559669166, 22.49368141245941],
+      "node_displacement_m": 24.85396063011972,
+      "vrx_displacement_m": 24.089602019199887,
+      "magnitude_divergence": 0.03075399620588157,
+      "relative_vector_divergence": 0.04012679469374968,
+      "direction_difference_deg": 1.5000887163902596
+    }
+  },
+  "boundedness_assessment": {
+    "observed": "Normalized divergence decreased from 19.5% at approximately 9.6 seconds to 4.01% vector divergence at approximately 112 seconds; it did not compound over the measured horizon.",
+    "physical_basis": "Both implementations use dissipative linear/quadratic relative-flow forces, so velocities approach bounded responses. An absolute position offset can accumulate, but normalized disturbance-induced displacement divergence is expected to approach a bounded ratio rather than grow exponentially.",
+    "why_30_percent": "The ceiling is 10.5 percentage points above the observed short-horizon magnitude gap, accommodates transient and seed-to-seed variation between independent approximations, and remains strict enough to reject a material force-scale or direction error. The checkpoint and direction rules prevent a permissive terminal-only pass."
+  },
+  "separate_reporting": {
+    "kinematic": "Report contract per-axis N, E, yaw, u, v, and r absolute divergence and first-divergence step at the existing 1e-4 threshold.",
+    "environment": "Report paired environment-induced vector divergence, magnitude divergence, and direction difference at 30, 60, and 120 seconds under the proposed criteria."
+  },
+  "execution_guard": "Do not run full held-out Gate 7 episodes until this proposed tolerance is explicitly approved.",
+  "post_approval_execution": {
+    "executed_after_approval": true,
+    "result_artifact": "artifacts/rl-campaign/vrx-gate7-full/gate-7-result.json",
+    "environment_response_pass": false
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "host_class": "local",
+  "purpose": "architecture profiling only",
+  "rows": [
+    {
+      "workers": 1,
+      "batch": 64,
+      "environment_steps": 6400,
+      "wall_clock_s": 1.8981374590000542,
+      "steps_per_s": 3371.7263044645583,
+      "paper_measurement_eligible": false
+    },
+    {
+      "workers": 2,
+      "batch": 64,
+      "environment_steps": 6400,
+      "wall_clock_s": 1.0791472089999843,
+      "steps_per_s": 5930.6088609826475,
+      "paper_measurement_eligible": false
+    },
+    {
+      "workers": 4,
+      "batch": 64,
+      "environment_steps": 6400,
+      "wall_clock_s": 0.7411561669999855,
+      "steps_per_s": 8635.157184086582,
+      "paper_measurement_eligible": false
+    },
+    {
+      "workers": 8,
+      "batch": 64,
+      "environment_steps": 6400,
+      "wall_clock_s": 0.5847896249999849,
+      "steps_per_s": 10944.106609278791,
+      "paper_measurement_eligible": false
+    }
+  ],
+  "conclusion": "Persistent process sharding is the authoritative Node scaling path; select worker count empirically per host and never mix these local numbers with paper throughput."
+}

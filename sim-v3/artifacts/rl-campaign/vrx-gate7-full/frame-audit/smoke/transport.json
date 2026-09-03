@@ -1,0 +1,3311 @@
+{
+  "schema_version": 1,
+  "contract_content_sha256": "cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb",
+  "seed": 20000,
+  "environment_scale": 1,
+  "action_scale": 0,
+  "physics_dt_s": 0.05,
+  "control_dt_s": 0.1,
+  "physics_samples": 192,
+  "control_actions": 96,
+  "hold_samples_per_action": 2,
+  "reset": {
+    "seed": 20000,
+    "initial_state": [
+      9999.38504631957,
+      9999.38492807746,
+      -0.10737093866549288,
+      0,
+      0,
+      0
+    ],
+    "route_ned_m": [
+      [
+        10018.926202514775,
+        9995.12544283219
+      ],
+      [
+        10036.776683595128,
+        10006.58669604464
+      ],
+      [
+        10049.302808118895,
+        9993.621504013088
+      ]
+    ],
+    "disturbance": {
+      "wind_speed_m_s": 1.5426721684634686,
+      "wind_direction_deg": 69.39896433614194,
+      "current_speed_m_s": 0.1927157798781991,
+      "current_direction_deg": 69.35639751143754
+    }
+  },
+  "action_trace": [
+    {
+      "step": 0,
+      "time_s": 0,
+      "command": [
+        0.25,
+        -0.00529082884567475,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 1,
+      "time_s": 0.1,
+      "command": [
+        0.26381804282156784,
+        0.010587966091595985,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 2,
+      "time_s": 0.2,
+      "command": [
+        0.2766675741366087,
+        0.02689521392006397,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 3,
+      "time_s": 0.30000000000000004,
+      "command": [
+        0.288544465795785,
+        0.043609840923502036,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 4,
+      "time_s": 0.4,
+      "command": [
+        0.2994482660843376,
+        0.06070882791102025,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 5,
+      "time_s": 0.5,
+      "command": [
+        0.3093821709122605,
+        0.07816724926444521,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 6,
+      "time_s": 0.6000000000000001,
+      "command": [
+        0.3183529810495104,
+        0.09595831910660979,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 7,
+      "time_s": 0.7000000000000001,
+      "command": [
+        0.3263710455911911,
+        0.11405344447881716,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 8,
+      "time_s": 0.8,
+      "command": [
+        0.33345019189051406,
+        0.13242228539129625,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 9,
+      "time_s": 0.9,
+      "command": [
+        0.3396076422492659,
+        0.15103282158643547,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 10,
+      "time_s": 1,
+      "command": [
+        0.3448639177063188,
+        0.16985142583103513,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 11,
+      "time_s": 1.1,
+      "command": [
+        0.34924272931420225,
+        0.18884294353084946,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 12,
+      "time_s": 1.2000000000000002,
+      "command": [
+        0.3527708573417225,
+        0.20797077843836226,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 13,
+      "time_s": 1.3,
+      "command": [
+        0.3554780188868897,
+        0.22719698420314635,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 14,
+      "time_s": 1.4000000000000001,
+      "command": [
+        0.35739672442881154,
+        0.24648236149335592,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 15,
+      "time_s": 1.5,
+      "command": [
+        0.3585621238895633,
+        0.265786560396975,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 16,
+      "time_s": 1.6,
+      "command": [
+        0.35901184281719245,
+        0.2850681877924564,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 17,
+      "time_s": 1.7000000000000002,
+      "command": [
+        0.3587858093387975,
+        0.3042849193604028,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 18,
+      "time_s": 1.8,
+      "command": [
+        0.3579260725678993,
+        0.3233936158910223,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 19,
+      "time_s": 1.9000000000000001,
+      "command": [
+        0.3564766131829574,
+        0.34235044352630095,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 20,
+      "time_s": 2,
+      "command": [
+        0.35448314692374927,
+        0.3611109975612191,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 21,
+      "time_s": 2.1,
+      "command": [
+        0.3519929217793184,
+        0.3796304294149575,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 22,
+      "time_s": 2.2,
+      "command": [
+        0.3490545096651946,
+        0.3978635763709321,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 23,
+      "time_s": 2.3000000000000003,
+      "command": [
+        0.3457175934085083,
+        0.4157650936737104,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 24,
+      "time_s": 2.4000000000000004,
+      "command": [
+        0.3420327498773931,
+        0.4332895885614324,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 25,
+      "time_s": 2.5,
+      "command": [
+        0.3380512301055949,
+        0.45039175580431984,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 26,
+      "time_s": 2.6,
+      "command": [
+        0.33382473727447404,
+        0.4670265143132402,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 27,
+      "time_s": 2.7,
+      "command": [
+        0.3294052034225095,
+        0.48314914437711315,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 28,
+      "time_s": 2.8000000000000003,
+      "command": [
+        0.3248445657569924,
+        0.4987154250842362,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 29,
+      "time_s": 2.9000000000000004,
+      "command": [
+        0.32019454344380077,
+        0.5136817714803702,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 30,
+      "time_s": 3,
+      "command": [
+        0.3155064157489705,
+        0.5280053710156752,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 31,
+      "time_s": 3.1,
+      "command": [
+        0.31083080240023714,
+        0.5416443188333295,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 32,
+      "time_s": 3.2,
+      "command": [
+        0.3062174470278365,
+        0.5545577514548945,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 33,
+      "time_s": 3.3000000000000003,
+      "command": [
+        0.3017150045316453,
+        0.566705978421208,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 34,
+      "time_s": 3.4000000000000004,
+      "command": [
+        0.297370833206283,
+        0.5780506114527766,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 35,
+      "time_s": 3.5,
+      "command": [
+        0.2932307924371202,
+        0.5885546907002873,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 36,
+      "time_s": 3.6,
+      "command": [
+        0.2893390467583341,
+        0.5981828076639466,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 37,
+      "time_s": 3.7,
+      "command": [
+        0.285737877039298,
+        0.6069012243698576,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 38,
+      "time_s": 3.8000000000000003,
+      "command": [
+        0.28246749953778194,
+        0.6146779884025253,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 39,
+      "time_s": 3.9000000000000004,
+      "command": [
+        0.27956589352778705,
+        0.6214830434048164,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 40,
+      "time_s": 4,
+      "command": [
+        0.27706863817645344,
+        0.6272883346702398,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 41,
+      "time_s": 4.1000000000000005,
+      "command": [
+        0.2750087593084953,
+        0.6320679094672184,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 42,
+      "time_s": 4.2,
+      "command": [
+        0.2734165866581768,
+        0.6357980117510531,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 43,
+      "time_s": 4.3,
+      "command": [
+        0.2723196221680808,
+        0.6384571709364646,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 44,
+      "time_s": 4.4,
+      "command": [
+        0.2717424198510075,
+        0.6400262844219028,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 45,
+      "time_s": 4.5,
+      "command": [
+        0.27170647768644063,
+        0.6404886935761658,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 46,
+      "time_s": 4.6000000000000005,
+      "command": [
+        0.27223014197628737,
+        0.6398302529182036,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 47,
+      "time_s": 4.7,
+      "command": [
+        0.27332852453624273,
+        0.6380393922422477,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 48,
+      "time_s": 4.800000000000001,
+      "command": [
+        0.2750134330493117,
+        0.635107171462511,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 49,
+      "time_s": 4.9,
+      "command": [
+        0.27729331485694875,
+        0.6310273279745984,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 50,
+      "time_s": 5,
+      "command": [
+        0.2801732144111363,
+        0.625796316354355,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 51,
+      "time_s": 5.1000000000000005,
+      "command": [
+        0.2836547445577229,
+        0.6194133402390993,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 52,
+      "time_s": 5.2,
+      "command": [
+        0.28773607176767974,
+        0.611880376260958,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 53,
+      "time_s": 5.300000000000001,
+      "command": [
+        0.2924119153788224,
+        0.6032021899272386,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 54,
+      "time_s": 5.4,
+      "command": [
+        0.2976735608561865,
+        0.5933863433683982,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 55,
+      "time_s": 5.5,
+      "command": [
+        0.30350888702485634,
+        0.5824431949000706,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 56,
+      "time_s": 5.6000000000000005,
+      "command": [
+        0.30990240717482104,
+        0.5703858903717294,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 57,
+      "time_s": 5.7,
+      "command": [
+        0.3168353238836058,
+        0.5572303463008247,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 58,
+      "time_s": 5.800000000000001,
+      "command": [
+        0.3242855973491762,
+        0.5429952248174972,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 59,
+      "time_s": 5.9,
+      "command": [
+        0.3322280269731637,
+        0.5277019004712292,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 60,
+      "time_s": 6,
+      "command": [
+        0.34063434588301145,
+        0.5113744189768805,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 61,
+      "time_s": 6.1000000000000005,
+      "command": [
+        0.34947332803137937,
+        0.4940394480034454,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 62,
+      "time_s": 6.2,
+      "command": [
+        0.35871090746228024,
+        0.475726220134442,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 63,
+      "time_s": 6.300000000000001,
+      "command": [
+        0.368310309286128,
+        0.45646646815402325,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 64,
+      "time_s": 6.4,
+      "command": [
+        0.3782321918603438,
+        0.4362943528376171,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 65,
+      "time_s": 6.5,
+      "command": [
+        0.3884347996285714,
+        0.41524638345004383,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 66,
+      "time_s": 6.6000000000000005,
+      "command": [
+        0.39887412603005334,
+        0.3933613311775884,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 67,
+      "time_s": 6.7,
+      "command": [
+        0.4095040858514889,
+        0.3706801357432959,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 68,
+      "time_s": 6.800000000000001,
+      "command": [
+        0.4202766963568686,
+        0.347245805476774,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 69,
+      "time_s": 6.9,
+      "command": [
+        0.43114226649652343,
+        0.3231033111309414,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 70,
+      "time_s": 7,
+      "command": [
+        0.44204959346503647,
+        0.29829947375836224,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 71,
+      "time_s": 7.1000000000000005,
+      "command": [
+        0.45294616584890346,
+        0.27288284697904325,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 72,
+      "time_s": 7.2,
+      "command": [
+        0.463778372578976,
+        0.24690359398969758,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 73,
+      "time_s": 7.300000000000001,
+      "command": [
+        0.4744917168798857,
+        0.22041335968153308,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 74,
+      "time_s": 7.4,
+      "command": [
+        0.48503103438893463,
+        0.19346513824944683,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 75,
+      "time_s": 7.5,
+      "command": [
+        0.4953407146003802,
+        0.16611313669013975,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 76,
+      "time_s": 7.6000000000000005,
+      "command": [
+        0.5053649247777713,
+        0.1384126345999885,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 77,
+      "time_s": 7.7,
+      "command": [
+        0.5150478354669807,
+        0.11041984069551644,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 78,
+      "time_s": 7.800000000000001,
+      "command": [
+        0.5243338467359329,
+        0.08219174648995861,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 79,
+      "time_s": 7.9,
+      "command": [
+        0.5331678142637314,
+        0.05378597756863862,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 80,
+      "time_s": 8,
+      "command": [
+        0.5414952744019745,
+        0.0252606429136987,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 81,
+      "time_s": 8.1,
+      "command": [
+        0.5492626673345077,
+        -0.003325817264937959,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 82,
+      "time_s": 8.200000000000001,
+      "command": [
+        0.5564175574686876,
+        -0.03191478473061471,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 83,
+      "time_s": 8.3,
+      "command": [
+        0.5629088502013956,
+        -0.060447616987865854,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 84,
+      "time_s": 8.4,
+      "command": [
+        0.5686870042164937,
+        -0.08886580115022179,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 85,
+      "time_s": 8.5,
+      "command": [
+        0.5737042384871347,
+        -0.11711110744053027,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 86,
+      "time_s": 8.6,
+      "command": [
+        0.5779147331762251,
+        -0.14512574185759847,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 87,
+      "time_s": 8.700000000000001,
+      "command": [
+        0.581274823651333,
+        -0.172852497545617,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 88,
+      "time_s": 8.8,
+      "command": [
+        0.5837431868563712,
+        -0.20023490440700226,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 89,
+      "time_s": 8.9,
+      "command": [
+        0.5852810193113043,
+        -0.22721737650494434,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 90,
+      "time_s": 9,
+      "command": [
+        0.5858522060428916,
+        -0.2537453568090733,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 91,
+      "time_s": 9.1,
+      "command": [
+        0.5854234797839046,
+        -0.2797654588462297,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 92,
+      "time_s": 9.200000000000001,
+      "command": [
+        0.583964569815256,
+        -0.30522560482830297,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 93,
+      "time_s": 9.3,
+      "command": [
+        0.581448339864871,
+        -0.33007515984048064,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 94,
+      "time_s": 9.4,
+      "command": [
+        0.5778509145188074,
+        -0.3542650616859562,
+        0,
+        0
+      ]
+    },
+    {
+      "step": 95,
+      "time_s": 9.5,
+      "command": [
+        0.5731517936438953,
+        -0.3777479459971761,
+        0,
+        0
+      ]
+    }
+  ],
+  "transport": [
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ],
+    [
+      {
+        "topic": "/surveyor/thrusters/port/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      },
+      {
+        "topic": "/surveyor/thrusters/starboard/thrust",
+        "message_type": "std_msgs/msg/Float64",
+        "value": 0
+      }
+    ]
+  ]
+}

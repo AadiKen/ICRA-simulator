@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-final-gate-3-disposition",
+  "status": "CLOSED_FINAL_REPORTED_RESULT",
+  "vehicle": "searobotics-surveyor-m1.8",
+  "superseded_on": "2026-09-02",
+  "superseded_scope": "The no-further-revision closure is superseded only for appending normalized time remaining and one learning-rate-decay retraining attempt. The recorded P3-v3 result and diagnostics remain historical evidence.",
+  "task": "common-waypoint-transit-v1",
+  "disposition": {
+    "result": "P3-v3 is the final reported Gate 3 result for the Surveyor common task.",
+    "gate_passed": false,
+    "reporting_status": "final_negative_result",
+    "retraining_pending": false,
+    "recalibration_pending": false,
+    "contract_revision_pending": false
+  },
+  "gate_3_result": {
+    "training_seed": 7319,
+    "authorized_budget_timesteps": 3000000,
+    "evaluation_seeds": [10000, 10049],
+    "evaluation_episodes": 50,
+    "median_return": -1058.6739177173704,
+    "normalized_return_score": 0.5070887474535947,
+    "success_rate": 0,
+    "final_leg_activation_rate": 0.24,
+    "C3": {
+      "absolute_return_threshold": -1074.46134596905,
+      "return_passed": true,
+      "absolute_success_rate_threshold": 0.33,
+      "success_passed": false,
+      "both_must_pass": true,
+      "gate_passed": false
+    }
+  },
+  "frozen_contract": {
+    "path": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+    "content_sha256": "dead8640d69e9029d92062ea4e3b36f5e5219d0870b4db5df823acec9190ddf1",
+    "locked_as_is": true,
+    "further_revision_authorized": false,
+    "immutability_statement": "The route, disturbance envelope, terminal criterion, observation and action spaces, reward, timeout, training budget, and C3 thresholds remain frozen exactly as approved. The P3-v3 outcome does not authorize any revision."
+  },
+  "retained_evidentiary_artifacts": [
+    {
+      "purpose": "Final Gate 3 measurement and per-seed evaluation",
+      "path": "artifacts/rl-campaign/surveyor/p3-v3-local/report.json",
+      "sha256": "9587d02e422ca0f6638f74be4f5bd4e6e05bd0e8e5589c5df5ebe26b6387b4f6"
+    },
+    {
+      "purpose": "Checkpoint learning curve and late-training instability evidence",
+      "path": "artifacts/rl-campaign/surveyor/p3-v3-checkpoint-curve.json",
+      "sha256": "62375fde13352282f4232b440239a31e3e83c6157f937651f79ca343d3a138c9"
+    },
+    {
+      "purpose": "Full trajectories for the 12 final-leg episodes and closest-approach evidence",
+      "path": "artifacts/rl-campaign/surveyor/p3-v3-final-leg-trajectories.json",
+      "sha256": "295e6b4b6200e1f4f66d802d0c87ed11def0c6655feedcc6862b2255e0bdaa22"
+    },
+    {
+      "purpose": "Per-leg reward decomposition and final-leg goal-transition analysis",
+      "path": "artifacts/rl-campaign/surveyor/p3-v3-reward-transition-diagnostic.json",
+      "sha256": "91a3edce4e8434568c8063f20a4a03d3b9ed1976a17a50921b05317f4597ac52"
+    },
+    {
+      "purpose": "Methods and limitation provenance",
+      "path": "artifacts/rl-campaign/surveyor/methods-provenance.json",
+      "sha256": "9711100b6c288aa23112884222d21059b12656b97e4c0c48b6198534f137192a"
+    }
+  ],
+  "limitations_basis": {
+    "statement": "The learned policy improved return and increasingly activated the final leg but did not complete the 2 m terminal approach on any of 50 fixed evaluation episodes.",
+    "supported_findings": [
+      "Return passed its frozen C3 threshold, while terminal success failed.",
+      "Final-leg closest approaches were broadly distributed rather than clustered just outside 2 m.",
+      "The active final-waypoint observation updated correctly; stale-goal propagation was ruled out.",
+      "Late checkpoints showed non-monotonic return and zero success, supporting a training-stability limitation rather than a simple insufficient-budget conclusion.",
+      "The frozen 15-element observation contains no elapsed- or remaining-time signal; adding one would be a new contract revision, not a training-only change."
+    ],
+    "paper_use": "Retain these artifacts as the evidentiary basis for the Surveyor Gate 3 limitations paragraph."
+  },
+  "closure_rule": {
+    "thread_closed": true,
+    "default_next_action": "Do not resume Surveyor Gate 3 calibration, contract editing, or retraining.",
+    "reopen_condition": "Only a new, explicit user authorization that acknowledges this final disposition may reopen the work."
+  }
+}

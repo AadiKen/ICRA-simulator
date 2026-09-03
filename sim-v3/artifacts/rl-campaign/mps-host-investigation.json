@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "conclusion": "Amendment 2 MPS leg is void, not blocked and not a paper measurement.",
+  "host": {
+    "kernel": "Darwin",
+    "macos": "26.5.1",
+    "process_arch": "arm64",
+    "python_binary": "Mach-O universal2 executing arm64",
+    "gpu": "Apple M1 Max, 24 cores",
+    "metal": "Supported"
+  },
+  "pytorch": {
+    "version": "2.13.0",
+    "built_with_mps": true,
+    "blas": "Accelerate"
+  },
+  "restricted_process_result": {
+    "mps_available": false,
+    "device_count": 0
+  },
+  "unsandboxed_process_result": {
+    "mps_available": true,
+    "device_count": 1,
+    "allocation_test": "tensor([1.], device='mps:0')"
+  },
+  "root_cause": "Codex process sandbox isolation hides the Metal device. The process is not inside a Linux container and the recorded Darwin/arm64 platform is correct.",
+  "action": "Do not repair or use MPS for campaign evidence. CPU float64 remains the local reference."
+}

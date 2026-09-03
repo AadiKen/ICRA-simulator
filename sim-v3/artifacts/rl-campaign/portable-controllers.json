@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "portable-classical-controllers",
+  "host_class": "local",
+  "paper_measurement_eligible": false,
+  "status": "shared-implementation-ready-runtime-adapters-required",
+  "implementation": "validation/rl-campaign/ports/portable-controllers.ts",
+  "implementation_sha256": "8943bd04d0fa3681faec2cc6f319cf2b5bc4e3cdb53c5989c91686b3db41f9db",
+  "controllers": [
+    {
+      "id": "LOS-PID-v2",
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      }
+    },
+    {
+      "id": "LOS-SPEEDCAP-v2",
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      }
+    }
+  ],
+  "ports": [
+    {
+      "simulator": "VRX",
+      "coordinate_frame": "local tangent NED; convert simulator ENU/NavSat outputs before contract evaluation",
+      "vehicle": "WAM-V / vehicle-a-otter equivalent with two fixed thrusters",
+      "control_rate_hz": 10,
+      "physics_timestep_s": 0.05,
+      "action_mapping": {
+        "contract_fields": [
+          "effector_0",
+          "effector_1",
+          "steer_0",
+          "steer_1"
+        ],
+        "active": [
+          "port fixed-thruster",
+          "starboard fixed-thruster"
+        ],
+        "unused_must_be_zero": [
+          "steer_0",
+          "steer_1"
+        ]
+      },
+      "required_topics": {
+        "state": "adapter-normalized north/east, yaw, surge, yaw rate",
+        "imu": "linear acceleration and angular rate",
+        "gps": "relative goal, ground velocity, valid flag",
+        "actuator": "two normalized thrust commands"
+      },
+      "source_of_truth": "validation/rl-campaign/ports/portable-controllers.ts; adapters may map I/O only and may not alter gains or guidance"
+    },
+    {
+      "simulator": "Gazebo Harmonic",
+      "coordinate_frame": "local tangent NED; convert simulator ENU/NavSat outputs before contract evaluation",
+      "vehicle": "WAM-V / vehicle-a-otter equivalent with two fixed thrusters",
+      "control_rate_hz": 10,
+      "physics_timestep_s": 0.05,
+      "action_mapping": {
+        "contract_fields": [
+          "effector_0",
+          "effector_1",
+          "steer_0",
+          "steer_1"
+        ],
+        "active": [
+          "port fixed-thruster",
+          "starboard fixed-thruster"
+        ],
+        "unused_must_be_zero": [
+          "steer_0",
+          "steer_1"
+        ]
+      },
+      "required_topics": {
+        "state": "adapter-normalized north/east, yaw, surge, yaw rate",
+        "imu": "linear acceleration and angular rate",
+        "gps": "relative goal, ground velocity, valid flag",
+        "actuator": "two normalized thrust commands"
+      },
+      "source_of_truth": "validation/rl-campaign/ports/portable-controllers.ts; adapters may map I/O only and may not alter gains or guidance"
+    }
+  ],
+  "retuning_performed": false
+}

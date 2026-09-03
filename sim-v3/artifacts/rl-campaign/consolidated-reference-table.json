@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "consolidated-portable-task-reference-table",
+  "status": "complete-awaiting-human-approval-for-contract",
+  "nomenclature": {
+    "LOS-SPEEDCAP-v2": "Line-of-sight controller with speed cap; formerly mislabeled LOS-MPC-v2. MPC-v1 is a separate parked-incomplete track."
+  },
+  "seed_set": {
+    "first": 10000,
+    "count": 200,
+    "shared_across_policies": true
+  },
+  "terminal_metric": {
+    "definition": "Pass-through: after ordered leg advancement, enter the final-waypoint radius at any speed; no hold requirement.",
+    "timeout_s": 120,
+    "reporting_requirement": "Every policy result must report final_leg_activation_rate alongside success_rate.",
+    "load_bearing_interpretation": "The closest_final_m statistics are conditional on final-leg activation. The success plateau therefore primarily measures completion of earlier legs plus terminal entry, not unconditional terminal-approach accuracy."
+  },
+  "controllers": {
+    "frozen-untrained-policy-v1": {
+      "episodes": 200,
+      "final_leg_activation_rate": 0.185,
+      "final_leg_activation_rate_95_ci": [
+        0.13,
+        0.24
+      ],
+      "closest_final_m": {
+        "conditioned_on_final_leg_activation": true,
+        "timeout_s": 120,
+        "distribution": {
+          "count": 37,
+          "min": 5.945600763964869,
+          "q1": 5.989089310595757,
+          "median": 7.341660457813618,
+          "q3": 13.043984756044889,
+          "p95": 28.76228881486375,
+          "max": 39.23457526373907
+        },
+        "interpretation_guard": "Do not interpret this as an unconditional terminal-accuracy distribution; episodes without final-leg activation contribute no closest_final_m value."
+      },
+      "median_return": {
+        "status": "not_obtained",
+        "reason": "The completed n=200 reference replay retained terminal/activation traces but did not log rewards; no return is inferred from terminal data."
+      }
+    },
+    "LOS-PID-v2": {
+      "episodes": 200,
+      "final_leg_activation_rate": 0.325,
+      "final_leg_activation_rate_95_ci": [
+        0.26,
+        0.395
+      ],
+      "closest_final_m": {
+        "conditioned_on_final_leg_activation": true,
+        "timeout_s": 120,
+        "distribution": {
+          "count": 65,
+          "min": 0.4725637456777734,
+          "q1": 5.379137406232637,
+          "median": 5.989429329899314,
+          "q3": 5.9981230576336,
+          "p95": 7.374504659604199,
+          "max": 13.671081171942298
+        },
+        "interpretation_guard": "Do not interpret this as an unconditional terminal-accuracy distribution; episodes without final-leg activation contribute no closest_final_m value."
+      },
+      "median_return": {
+        "status": "not_obtained",
+        "reason": "The completed n=200 reference replay retained terminal/activation traces but did not log rewards; no return is inferred from terminal data."
+      }
+    },
+    "LOS-SPEEDCAP-v2": {
+      "episodes": 200,
+      "final_leg_activation_rate": 0.44,
+      "final_leg_activation_rate_95_ci": [
+        0.37,
+        0.51
+      ],
+      "closest_final_m": {
+        "conditioned_on_final_leg_activation": true,
+        "timeout_s": 120,
+        "distribution": {
+          "count": 88,
+          "min": 1.338722752638103,
+          "q1": 5.98086187610177,
+          "median": 5.989553265052445,
+          "q3": 5.997312508852932,
+          "p95": 6.440818676554936,
+          "max": 12.233735558608434
+        },
+        "interpretation_guard": "Do not interpret this as an unconditional terminal-accuracy distribution; episodes without final-leg activation contribute no closest_final_m value."
+      },
+      "median_return": {
+        "status": "not_obtained",
+        "reason": "The completed n=200 reference replay retained terminal/activation traces but did not log rewards; no return is inferred from terminal data."
+      }
+    }
+  },
+  "radius_cells": [
+    {
+      "radius_m": 2,
+      "timeout_s": 120,
+      "variant": "pass-through",
+      "success_rates": {
+        "frozen-untrained-policy-v1": 0.0,
+        "LOS-PID-v2": 0.02,
+        "LOS-SPEEDCAP-v2": 0.005
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "best_classical_minus_untrained": 0.02,
+      "gap_95_ci": [
+        0.005,
+        0.04
+      ]
+    },
+    {
+      "radius_m": 3,
+      "timeout_s": 120,
+      "variant": "pass-through",
+      "success_rates": {
+        "frozen-untrained-policy-v1": 0.0,
+        "LOS-PID-v2": 0.035,
+        "LOS-SPEEDCAP-v2": 0.015
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "best_classical_minus_untrained": 0.035,
+      "gap_95_ci": [
+        0.01,
+        0.065
+      ]
+    },
+    {
+      "radius_m": 4,
+      "timeout_s": 120,
+      "variant": "pass-through",
+      "success_rates": {
+        "frozen-untrained-policy-v1": 0.0,
+        "LOS-PID-v2": 0.055,
+        "LOS-SPEEDCAP-v2": 0.03
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "best_classical_minus_untrained": 0.055,
+      "gap_95_ci": [
+        0.025,
+        0.09
+      ]
+    },
+    {
+      "radius_m": 5,
+      "timeout_s": 120,
+      "variant": "pass-through",
+      "success_rates": {
+        "frozen-untrained-policy-v1": 0.0,
+        "LOS-PID-v2": 0.07,
+        "LOS-SPEEDCAP-v2": 0.03
+      },
+      "best_classical_policy": "LOS-PID-v2",
+      "best_classical_minus_untrained": 0.07,
+      "gap_95_ci": [
+        0.035,
+        0.105
+      ]
+    },
+    {
+      "radius_m": 6,
+      "timeout_s": 120,
+      "variant": "pass-through",
+      "success_rates": {
+        "frozen-untrained-policy-v1": 0.08,
+        "LOS-PID-v2": 0.27,
+        "LOS-SPEEDCAP-v2": 0.4
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "best_classical_minus_untrained": 0.32,
+      "gap_95_ci": [
+        0.245,
+        0.395
+      ]
+    },
+    {
+      "radius_m": 8,
+      "timeout_s": 120,
+      "variant": "pass-through",
+      "success_rates": {
+        "frozen-untrained-policy-v1": 0.105,
+        "LOS-PID-v2": 0.31,
+        "LOS-SPEEDCAP-v2": 0.425
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "best_classical_minus_untrained": 0.32,
+      "gap_95_ci": [
+        0.24000000000000002,
+        0.395
+      ]
+    },
+    {
+      "radius_m": 10,
+      "timeout_s": 120,
+      "variant": "pass-through",
+      "success_rates": {
+        "frozen-untrained-policy-v1": 0.125,
+        "LOS-PID-v2": 0.32,
+        "LOS-SPEEDCAP-v2": 0.435
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "best_classical_minus_untrained": 0.31,
+      "gap_95_ci": [
+        0.235,
+        0.385
+      ]
+    },
+    {
+      "radius_m": 12,
+      "timeout_s": 120,
+      "variant": "pass-through",
+      "success_rates": {
+        "frozen-untrained-policy-v1": 0.135,
+        "LOS-PID-v2": 0.32,
+        "LOS-SPEEDCAP-v2": 0.435
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "best_classical_minus_untrained": 0.3,
+      "gap_95_ci": [
+        0.22499999999999998,
+        0.375
+      ]
+    },
+    {
+      "radius_m": 15,
+      "timeout_s": 120,
+      "variant": "pass-through",
+      "success_rates": {
+        "frozen-untrained-policy-v1": 0.15,
+        "LOS-PID-v2": 0.325,
+        "LOS-SPEEDCAP-v2": 0.44
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "best_classical_minus_untrained": 0.29000000000000004,
+      "gap_95_ci": [
+        0.215,
+        0.365
+      ]
+    }
+  ],
+  "selected_terminal_definition": {
+    "radius_m": 6,
+    "variant": "pass-through",
+    "timeout_s": 120,
+    "approval_status": "human-approved-selection; contract revision pending hash review",
+    "selection_basis": "Smallest qualifying radius under the approved 120 s pass-through structure; LOS-SPEEDCAP-v2 success 40%, frozen-untrained success 8%, gap 32 percentage points.",
+    "limitation": "The best classical rate is at the 40% band floor and its 95% bootstrap interval reaches below 40%; this is reported rather than resolved by choosing a looser radius."
+  },
+  "success_calibration": {
+    "method": "Calibrated before fresh RL evaluation so the best classical reference has a non-degenerate success rate; this is criterion calibration, not fit to PPO outcomes.",
+    "formula": "S_untrained + 0.5 * (S_reference - S_untrained)",
+    "untrained_rate": 0.08,
+    "reference_policy": "LOS-SPEEDCAP-v2",
+    "reference_rate": 0.4,
+    "normalized_threshold": 0.5,
+    "absolute_success_rate_threshold": 0.24,
+    "reference_minus_untrained_95_ci": [
+      0.245,
+      0.395
+    ],
+    "freeze_rule": "Frozen before P3-v3 training; no change based on RL results."
+  },
+  "mpc_v1": {
+    "status": "parked-incomplete",
+    "reason": "MPC-v1 structural defects were identified but the prescribed single-solve diagnostic was not run. It is excluded from calibration and is not a downstream dependency.",
+    "handoff": "artifacts/rl-campaign/mpc-v1-handoff.md"
+  }
+}

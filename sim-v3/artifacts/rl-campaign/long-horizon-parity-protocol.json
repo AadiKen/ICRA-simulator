@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "predeclared-before-measurement",
+  "declared_at": "2026-08-31T00:00:00.000Z",
+  "rollout_steps": 2400,
+  "timestep_s": 0.05,
+  "plants_required": ["planar3", "coupled6"],
+  "initial_conditions": [
+    {"id":"rest-calm","state":[0,0,0,0,0,0],"current_ned_mps":[0,0,0]},
+    {"id":"offset-turn","state":[10,-5,0.7,0.8,-0.2,0.15],"current_ned_mps":[0.2,-0.1,0]},
+    {"id":"cross-current","state":[-8,12,-1.1,1.2,0.3,-0.08],"current_ned_mps":[0.7,0.4,0]},
+    {"id":"near-rest-yaw","state":[1,1,2.4,0.05,-0.04,0.3],"current_ned_mps":[-0.25,0.35,0]},
+    {"id":"reverse-flow","state":[3,-9,-2.2,-0.6,0.25,-0.18],"current_ned_mps":[-0.4,-0.2,0]}
+  ],
+  "action_sequence": "Deterministic bounded multi-sine commands: port=0.55*sin(0.013*k)+0.25*cos(0.031*k), starboard=0.50*sin(0.017*k+0.4)-0.20*cos(0.029*k), clipped to [-1,1]. Equivalent topology-native excitation must be frozen before a coupled6 tensor run.",
+  "acceptance": {
+    "position_m_max_abs": 1e-9,
+    "yaw_rad_max_abs": 1e-10,
+    "linear_velocity_m_s_max_abs": 1e-10,
+    "yaw_rate_rad_s_max_abs": 1e-10,
+    "acceleration_max_abs": 1e-9,
+    "thruster_force_n_max_abs": 1e-9,
+    "energy_j_max_abs": 1e-10,
+    "non_finite_allowed": false,
+    "rule": "Every component at every one of 2400 steps must satisfy its absolute tolerance for every initial condition. No tolerance may be changed after measurement. Missing plant support is not a pass."
+  },
+  "reporting": {
+    "required": ["first divergence step", "maximum divergence and step", "per-field maxima", "log-spaced divergence samples", "trajectory SHA-256"],
+    "log_steps": [1,2,4,8,16,32,64,128,256,512,1024,1600,2048,2400]
+  },
+  "negative_control": "Perturb thruster_tau_s from 0.25 to 0.251 in the candidate; the same comparison must fail before real results are accepted."
+}

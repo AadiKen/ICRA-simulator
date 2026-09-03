@@ -44,6 +44,13 @@ def run_tensor_trace(reference: dict, environments: int = 1, slot: int = 0) -> l
 
 
 class VehicleAPlanar3TensorTests(unittest.TestCase):
+    def test_explicit_float32_mode(self):
+        backend = VehicleAPlanar3TensorBackend(VehicleAPlanar3Config(environments=2, numerics_mode="float32"))
+        state = backend.step(torch.zeros((2, 2), dtype=torch.float32))
+        self.assertEqual(state.dtype, torch.float32)
+        with self.assertRaisesRegex(ValueError, "numerics_mode"):
+            VehicleAPlanar3TensorBackend(VehicleAPlanar3Config(environments=1, numerics_mode="float16"))
+
     def assert_trace_close(self, reference: dict, actual: list[dict], atol: float) -> float:
         maximum = 0.0
         for expected, observed in zip(reference["trace"], actual, strict=True):

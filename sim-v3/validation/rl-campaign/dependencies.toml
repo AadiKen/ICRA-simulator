@@ -1,0 +1,15 @@
+schema_version = 1
+source = "../../pyproject.toml"
+python = ">=3.12,<3.13"
+resolver = "uv 0.11.31"
+universal_lock = "../../uv.lock"
+
+[profiles.arm64-darwin]
+platform = "aarch64-apple-darwin"
+blas_backend = "Accelerate"
+status = "resolved-local"
+
+[profiles.x86_64-linux]
+platform = "x86_64-unknown-linux-gnu"
+blas_backend = "unverified-until-cluster-discovery"
+status = "resolved-by-universal-lock; runtime-wheel-and-BLAS-verification-blocked-on-cluster"

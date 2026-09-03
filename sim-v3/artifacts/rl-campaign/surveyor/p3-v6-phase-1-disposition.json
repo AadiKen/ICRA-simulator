@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-p3-v6-phase-1-disposition",
+  "status": "PHASE_1_FAILED_STOPPED",
+  "task_contract_content_sha256": "905347f3e894841aa7e6613dfc286e585a0bf284f5f21820600cc09c0e6358ba",
+  "source": "artifacts/rl-campaign/surveyor/p3-v6-rate-shaped-local/phase-1-report.json",
+  "control_rate_hz": 10,
+  "potential_shaping_k": 0.1757208861220446,
+  "convergence_rule": {
+    "success_rate_min": 0.9,
+    "consecutive_checkpoints": 2,
+    "maximum_phase_1_steps": 1500000
+  },
+  "checkpoint_curve": [
+    {"steps": 250000, "success_rate": 0.04, "median_base_return": -880.7851675774793},
+    {"steps": 500000, "success_rate": 0.12, "median_base_return": -764.1042436099613},
+    {"steps": 750000, "success_rate": 0.14, "median_base_return": -352.7220403668284},
+    {"steps": 1000000, "success_rate": 0.24, "median_base_return": -155.85630118652313},
+    {"steps": 1250000, "success_rate": 0.48, "median_base_return": -32.39285301394739},
+    {"steps": 1500000, "success_rate": 0.5, "median_base_return": 51.117441648507295}
+  ],
+  "result": {
+    "converged": false,
+    "best_success_rate": 0.5,
+    "best_success_count_of_50": 25,
+    "consecutive_passing_checkpoints": 0,
+    "full_episode_training_started": false,
+    "gate_3_run": false
+  },
+  "interpretation": "The corrected rate and reduced shaping scale produced monotonic improvement through 1.5M steps, but success reached only 50%, far below the required 90% at two consecutive checkpoints. This fourth revision therefore failed its predeclared Phase 1 gate.",
+  "next_action": "Stop. Do not start Phase 2 or propose a fifth revision without a new diagnostic round and explicit authorization."
+}

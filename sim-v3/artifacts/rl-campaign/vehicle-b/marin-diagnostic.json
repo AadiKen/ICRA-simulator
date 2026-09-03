@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-b-marin-diagnostic",
+  "status": "diagnosis-complete-halt-before-fix",
+  "review_required": true,
+  "fix_attempted": false,
+  "vehicle": {
+    "id": "vehicle-b-rudder",
+    "plant": "coupled6",
+    "actuation_topology": "single propeller plus single rudder",
+    "production_parameterization": "vehicle-b-usv-bootstrap",
+    "production_validation_status": "model-structure-only"
+  },
+  "reference_comparison": {
+    "artifact": "validation/external-references/kvlcc2-marin/artifacts/kvlcc2-marin-trajectory-comparison.json",
+    "reference_vessel": "KVLCC2 MARIN L7, single screw/single rudder, model scale",
+    "comparison_status": "experimental-trajectory-scored-fail",
+    "runs": 6,
+    "runs_passed": 0,
+    "measured_input_replay": {
+      "rudder": "MARIN measured actual rudder angle, replayed samplewise with the documented sign inversion and no rate limiter",
+      "propeller": "MARIN measured RPM, replayed samplewise",
+      "identity_result": "all six runs have rudder replay RMSE below 1e-12 deg and propeller replay RMSE of zero"
+    },
+    "where_divergence_occurs": {
+      "early_heading_window": "all six runs pass the active 300 s, 15 deg bounded-heading criterion",
+      "scalar_failures": [
+        "turning-circle advance: 6.46% and 8.33% error against a 5% tolerance",
+        "turning-circle tactical diameter: one direction is 8.00% error against a 5% tolerance",
+        "zig-zag overshoots: failures occur in every run, ranging from 10.57% to 212.86% error"
+      ],
+      "full_track": "full-track position and heading divergence is retained as diagnostic-only because the reference hull is course-unstable"
+    }
+  },
+  "allocation_authority_assessment": {
+    "same_failure_class_as_surveyor": false,
+    "reason": "The failing MARIN scorer uses MmgPlanarSimulator with measured propeller/rudder inputs; it does not call VehicleBMmgForceModel.resolveCommand, a controller, or a wrench allocator. Saturation frequency and requested-versus-applied force histories therefore do not exist for this comparison and cannot cause its failure.",
+    "production_command_mapping_review": {
+      "surge_limit_n": 1800,
+      "yaw_limit_nm": 1200,
+      "propeller_limit_rps": 24,
+      "rudder_limit_deg": 35,
+      "rudder_rate_deg_s": 25,
+      "finding": "The production mapper independently clamps surge and yaw before mapping them to propeller RPM and rudder angle. This is a potential production-control envelope limitation (rudder authority depends on propeller inflow), but it was bypassed by the MARIN replay and is not evidenced as the source of the MARIN failure."
+    }
+  },
+  "diagnosis": {
+    "classification": "model/reference parameterization mismatch, not demonstrated authority/allocation saturation",
+    "likely_scale": "larger than a bounded allocator correction",
+    "evidence": [
+      "Measured actuator channels are reproduced exactly while maneuver indices still fail.",
+      "The strongest errors are zig-zag overshoots, including asymmetric port/starboard behavior, which point to MMG hull/rudder/interaction dynamics rather than command clipping.",
+      "The MARIN KVLCC2 coefficients are explicitly not transferred to the independently unvalidated Vehicle B USV production parameter set."
+    ],
+    "next_review_decision": "Do not change Vehicle B allocation or hydrodynamic parameters from this diagnosis. Decide whether to fund a bounded KVLCC2 model-structure identification/reproduction effort and, separately, acquire independent Vehicle B captive/free-running data for USV-scale validation."
+  },
+  "evidence_boundary": "A KVLCC2 result can support MMG model-structure evidence only; it cannot validate the Vehicle B USV coefficients."
+}

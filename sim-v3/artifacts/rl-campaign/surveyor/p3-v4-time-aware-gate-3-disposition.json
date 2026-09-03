@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-p3-v4-time-aware-gate-3-disposition",
+  "status": "FINAL_REAUTHORIZED_ATTEMPT_FAILED",
+  "task_contract_content_sha256": "cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb",
+  "authorized_changes": {
+    "observation": "Appended normalized time remaining as field 16; prior fields unchanged.",
+    "training_stability": "Linear learning-rate decay from 3e-4 to 0 across the unchanged 3M-step budget."
+  },
+  "gate_3": {
+    "passed": false,
+    "return": {
+      "median": -186.46644183242537,
+      "threshold": -1074.46134596905,
+      "normalized_score": 0.8987205208570851,
+      "passed": true
+    },
+    "success": {
+      "count": 0,
+      "episodes": 50,
+      "rate": 0,
+      "threshold": 0.33,
+      "passed": false
+    },
+    "final_leg_activation_rate": 0.12,
+    "both_thresholds_required": true
+  },
+  "checkpoint_curve_summary": {
+    "best_median_return_checkpoint_steps": 2000000,
+    "best_median_return": -164.04832949472768,
+    "maximum_success_rate": 0.04,
+    "maximum_success_rate_checkpoint_steps": 750000,
+    "interpretation": "Learning-rate decay prevented the prior severe late-return collapse, but no retained checkpoint approached the 0.33 success threshold. The final PPO model is saved after the last optimization update; the ppo-3000000 callback checkpoint is saved when the rollout reaches 3M before that final update, so their deterministic evaluations differ slightly."
+  },
+  "trajectory_diagnosis": {
+    "final_leg_episodes": 6,
+    "closest_approach_m": {
+      "min": 3.667736944709848,
+      "median": 10.526938767845536,
+      "max": 33.895768900987086
+    },
+    "within_2_5_to_4_m": 1,
+    "below_2_5_m": 0,
+    "above_4_m": 5,
+    "return_vs_closest_approach_pearson": -0.7738801073912599,
+    "return_vs_legs_1_2_reward_pearson": 0.8605360705266607,
+    "return_vs_leg_3_reward_pearson": -0.11430556337454142,
+    "interpretation": "Failures are broadly distributed rather than clustered just outside 2 m. Return remains much more correlated with legs 1-2 than with final-leg reward. Goal observations update correctly at the final-leg transition; the worst cases show correct goal-vector values but insufficient time and/or actions that do not close the final distance."
+  },
+  "artifacts": {
+    "full_gate_table": "artifacts/rl-campaign/surveyor/p3-v4-time-aware-local/report.json",
+    "checkpoint_curve": "artifacts/rl-campaign/surveyor/p3-v4-time-aware-checkpoint-curve.json",
+    "trajectory_dump": "artifacts/rl-campaign/surveyor/p3-v4-time-aware-final-leg-trajectories.json",
+    "reward_transition_diagnostic": "artifacts/rl-campaign/surveyor/p3-v4-time-aware-reward-transition-diagnostic.json",
+    "model": "artifacts/rl-campaign/surveyor/p3-v4-time-aware-local/ppo-final.zip"
+  },
+  "decision": {
+    "further_tuning_performed": false,
+    "third_revision_authorized": false,
+    "gate_7_run": false,
+    "gate_7_reason": "Gate 3 did not pass; the conditional Gate 7 rebuild is therefore not entered.",
+    "required_next_action": "Stop and discuss before any third revision or further Surveyor retraining."
+  }
+}

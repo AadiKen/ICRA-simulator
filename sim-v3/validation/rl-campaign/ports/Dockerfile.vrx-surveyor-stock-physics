@@ -1,0 +1,10 @@
+FROM leadcat/vrx:stock-v3.0.1
+
+COPY artifacts/rl-campaign/vrx-surveyor-runtime/models/surveyor /opt/leadcat/vrx-surveyor-stock-physics/models/surveyor
+COPY artifacts/rl-campaign/vrx-surveyor-runtime/worlds/surveyor-vrx.sdf /opt/leadcat/vrx-surveyor-stock-physics/worlds/surveyor-vrx.sdf
+
+LABEL org.opencontainers.image.title="VRX Surveyor on stock physics" \
+      org.opencontainers.image.description="Surveyor model using only the pinned stock VRX and Gazebo physics systems" \
+      org.leadcat.vrx.configuration="vrx:surveyor-stock-physics" \
+      org.leadcat.paper.baseline-eligible="true" \
+      org.leadcat.vrx.custom-dynamics="false"

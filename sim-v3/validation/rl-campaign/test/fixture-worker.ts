@@ -1,0 +1,3 @@
+import{mkdir,readFile,writeFile}from"node:fs/promises";import{dirname}from"node:path";
+const checkpoint=process.env.RL_CHECKPOINT_PATH!,result=`${process.env.RL_RUN_DIR}/result.json`,interval=Number(process.env.RL_CHECKPOINT_INTERVAL_STEPS??2);let start=0;try{start=JSON.parse(await readFile(process.env.RL_RESUME_FROM!,"utf8")).step;}catch{}await mkdir(dirname(checkpoint),{recursive:true});
+for(let step=start+1;step<=8;step++){await new Promise(ok=>setTimeout(ok,100));if(step%interval===0)await writeFile(checkpoint,JSON.stringify({step}));}await writeFile(result,JSON.stringify({completed:true,resumed_from:start}));

@@ -1,0 +1,14 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+import {DEPTH_SOURCE_PRIORITY} from "../../packages/environment/src/index.ts";
+import {runEnvironmentCoverage,writeEnvironmentCoverage} from "./run.ts";
+const artifact=await runEnvironmentCoverage();
+assert.equal(artifact.coverage_matrix.length,48,"Six sources x four sites x two timestamps must be covered.");
+assert.equal(artifact.failure_injection.length,30,"Six sources x five injected failures must be covered.");
+assert.ok(artifact.coverage_matrix.every((cell:any)=>cell.artifact_checksum_sha256.match(/^[a-f0-9]{64}$/)));
+assert.ok(artifact.coverage_matrix.filter((cell:any)=>cell.source==="bathymetry_cascade").every((cell:any)=>cell.notes.some((note:string)=>note.startsWith("cascade_source="))));
+assert.deepEqual([...new Set(artifact.coverage_matrix.filter((cell:any)=>cell.source==="bathymetry_cascade").map((cell:any)=>cell.notes[0].split("=")[1]))].sort(),[...DEPTH_SOURCE_PRIORITY].sort(),"Every bathymetry cascade tier must resolve at least one cell.");
+assert.ok(artifact.bathymetry_overlap_agreement.every((row:any)=>Number.isFinite(row.rmse_m)&&Number.isFinite(row.bias_m)));
+const output=writeEnvironmentCoverage(undefined,artifact),stored=JSON.parse(readFileSync(output,"utf8"));
+assert.deepEqual(stored,artifact);
+console.log("Environmental coverage matrix, failure injection, and credential scan passed.");

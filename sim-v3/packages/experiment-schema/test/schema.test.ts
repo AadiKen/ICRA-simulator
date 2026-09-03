@@ -27,4 +27,6 @@ assert.doesNotThrow(()=>validateExperiment({...base,environment:{...base.environ
 assert.throws(()=>validateExperiment({...base,environment:{...base.environment,data_sources:{mode:"historical_replay",era5:{enabled:true}}}}),/credentials/);
 assert.throws(()=>validateExperiment({...base,environment:{...base.environment,data_sources:{mode:"realtime_forecast",era5:{enabled:true,credentials:{source:"environment",env_var:"BCOD_CDS_API_KEY"}}}}}),/historical_replay/);
 assert.doesNotThrow(()=>validateExperiment({...base,environment:{...base.environment,data_sources:{mode:"historical_replay",era5:{enabled:true,credentials:{source:"environment",env_var:"BCOD_CDS_API_KEY"}}}}}));
+const surveyorAlias=resolveExperiment({...base,vehicle:{preset:"surveyor",plant:"planar3",hydrodynamics:undefined},environment:undefined,mission:{type:"rl-common-waypoint-v1",waypoints:[{north_m:20,east_m:0}]}});
+assert.equal(surveyorAlias.vehicle.preset,"searobotics-surveyor-m1.8","Surveyor alias must canonicalize before backend dispatch");
 console.log("Experiment schema tests passed.");

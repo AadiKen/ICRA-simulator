@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-vehicle-single-source-of-truth",
+  "status": "step-1-complete-halt",
+  "vehicle_id": "searobotics-surveyor-m1.8-common-task-v1",
+  "vehicle_name": "SeaRobotics SR-Surveyor M1.8 common-task approximation",
+  "supersedes_for_common_task_only": "Neither historical vehicle is superseded globally. This model is the proposed common-task successor; vehicle-a-otter and bcod_usv remain unchanged and separately named.",
+  "model_scope": {
+    "plant": "planar3",
+    "topology": "twin fixed-thruster catamaran",
+    "intended_consumers": [
+      "Node common-task Vehicle A integration",
+      "Gazebo Surveyor port",
+      "VRX Surveyor port"
+    ],
+    "single_source_rule": "All ports must consume these values or an exact serialization of them. A simulator port may convert coordinates and units but may not independently re-derive mass, inertia, thruster placement, actuator dynamics, or damping."
+  },
+  "geometry": {
+    "published_envelope": {
+      "length_m": 1.83,
+      "beam_m": 0.91,
+      "draft_m": 0.17,
+      "provenance": {
+        "kind": "manufacturer",
+        "source": "SeaRobotics SR-Surveyor M1.8 specification sheet",
+        "url": "https://okeanus.com/wp-content/uploads/2025/08/sr-surveyorm18-specsheet-new01.pdf",
+        "confidence": "high"
+      }
+    },
+    "topology": {
+      "value": "catamaran with payload bays in the pontoons",
+      "provenance": {
+        "kind": "manufacturer",
+        "sources": [
+          "https://searobotics.com/products/autonomous-surface-vehicles/",
+          "https://searobotics.com/products/autonomous-surface-vehicles/sr-surveyor-class/"
+        ],
+        "confidence": "high"
+      }
+    },
+    "approximation": {
+      "method": "two-pontoon plus centered-deck rectangular-body mass model",
+      "coordinate_convention": "body NED: x forward, y starboard, z down; origin at approximated loaded center of mass",
+      "components": [
+        {
+          "id": "port_pontoon",
+          "mass_kg": 20.92,
+          "dimensions_m": [1.83, 0.20, 0.34],
+          "center_body_m": [0, -0.33, 0],
+          "mass_fraction": 0.40
+        },
+        {
+          "id": "starboard_pontoon",
+          "mass_kg": 20.92,
+          "dimensions_m": [1.83, 0.20, 0.34],
+          "center_body_m": [0, 0.33, 0],
+          "mass_fraction": 0.40
+        },
+        {
+          "id": "deck_payload_and_superstructure",
+          "mass_kg": 10.46,
+          "dimensions_m": [1.20, 0.55, 0.12],
+          "center_body_m": [0, 0, 0],
+          "mass_fraction": 0.20
+        }
+      ],
+      "assumptions": [
+        "Pontoon centerlines are estimated at +/-0.33 m from public oblique imagery and the 0.91 m overall beam.",
+        "Each pontoon is represented by a rectangular mass body 0.20 m wide and 0.34 m deep; these are inertia proxy dimensions, not asserted hull lines or an exact displaced mesh.",
+        "Eighty percent of loaded mass is assigned equally to the pontoons because manufacturer material states that payload bays are tightly packed into them; twenty percent is assigned to a centered deck/payload body.",
+        "Longitudinal and vertical component centers are placed at the common origin because no loaded CG or component layout is public.",
+        "Port and starboard symmetry is assumed."
+      ],
+      "confidence": "low-to-moderate for gross yaw inertia; low for roll/pitch inertia and local geometry",
+      "not_claimed": [
+        "manufacturer CAD",
+        "measured hull geometry",
+        "measured mass distribution",
+        "hydrodynamically validated hull mesh"
+      ]
+    },
+    "displacement": {
+      "water_density_kg_m3": 1025,
+      "required_displaced_volume_m3": 0.05102439024390244,
+      "derivation": "52.3 kg / 1025 kg m^-3",
+      "port_rule": "Simulator buoyancy geometry or coefficients must reproduce this total equilibrium displacement while retaining the same published envelope and two-pontoon topology. The inertia proxy component volumes must not be mistaken for displaced volume."
+    }
+  },
+  "mass_properties": {
+    "mass_kg": {
+      "value": 52.3,
+      "provenance": {
+        "kind": "manufacturer",
+        "source": "SeaRobotics SR-Surveyor M1.8 specification sheet",
+        "confidence": "high",
+        "limitation": "Published weight does not identify payload configuration or loaded center of gravity."
+      }
+    },
+    "center_of_mass_body_m": {
+      "value": [0, 0, 0],
+      "provenance": {
+        "kind": "design-assumption",
+        "confidence": "low",
+        "limitation": "Coordinate origin is placed at the approximated loaded COM; its physical location relative to hull datum is unknown."
+      }
+    },
+    "inertia_tensor_body_kg_m2": {
+      "matrix": [
+        [5.375132500000001, 0, 0],
+        [0, 13.347308666666668, 0],
+        [0, 0, 17.891219833333338]
+      ],
+      "diagonal": {
+        "Ixx_roll": 5.375132500000001,
+        "Iyy_pitch": 13.347308666666668,
+        "Izz_yaw": 17.891219833333338
+      },
+      "products_of_inertia": {
+        "Ixy": 0,
+        "Ixz": 0,
+        "Iyz": 0,
+        "reason": "Assumed bilateral and fore-aft component symmetry about the selected origin."
+      },
+      "derivation": {
+        "component_formula": "For each rectangular component, Ixx=m*(w^2+h^2)/12, Iyy=m*(l^2+h^2)/12, Izz=m*(l^2+w^2)/12.",
+        "translation_formula": "Parallel-axis theorem; each pontoon contributes m*y_center^2 to Ixx and Izz.",
+        "assembly": "Sum the two 20.92 kg pontoon tensors translated from y=+/-0.33 m and the centered 10.46 kg deck tensor.",
+        "method_classification": "geometry-derived design approximation from published envelope plus declared mass-layout assumptions; not measured and not manufacturer-provided"
+      },
+      "sensitivity_envelope_kg_m2": {
+        "inputs_varied": {
+          "pontoon_mass_fraction_total": [0.70, 0.90],
+          "pontoon_centerline_offset_m": [0.30, 0.36],
+          "pontoon_width_m": [0.18, 0.24],
+          "pontoon_depth_m": [0.28, 0.40],
+          "deck_length_m": [1.0, 1.4],
+          "deck_width_m": [0.45, 0.65]
+        },
+        "Ixx_roll": [3.916529083333332, 7.144223583333333],
+        "Iyy_pitch": [11.782449083333331, 14.624169583333336],
+        "Izz_yaw": [15.182951499999998, 20.500641166666668],
+        "interpretation": "This is a modeling sensitivity interval over declared assumptions, not a statistical confidence interval."
+      },
+      "rigid_body_checks": {
+        "finite": true,
+        "positive_definite": true,
+        "triangle_inequalities_satisfied": true
+      },
+      "physical_ordering_sanity_check": {
+        "relationship": "Izz_yaw > Iyy_pitch",
+        "difference_kg_m2": 4.543911166666668,
+        "decomposition_of_Izz_minus_Iyy_kg_m2": {
+          "two_pontoon_local_shape_terms": -0.2635920000000001,
+          "pontoon_parallel_axis_at_y_plus_minus_0_33_m": 4.556376000000001,
+          "centered_deck_local_shape_term": 0.25112716666666673
+        },
+        "interpretation": "The ordering is physically plausible for the declared geometry rather than merely algebraically valid. Length makes each component's local pitch and yaw inertias similar, while placing 80% of total mass in two pontoons at +/-0.33 m adds 4.5564 kg m^2 to yaw but not pitch. That parallel-axis contribution dominates the smaller local-shape difference and raises Izz above Iyy. The conclusion remains conditional on the assumed pontoon spacing and mass split."
+      }
+    }
+  },
+  "propulsion": {
+    "manufacturer_facts": {
+      "count": 2,
+      "type": "1 kW BLDC pocket thruster",
+      "steering": "differential thrust",
+      "source": "SeaRobotics SR-Surveyor M1.8 specification sheet"
+    },
+    "effectors": [
+      {
+        "id": "port",
+        "type": "FixedThruster",
+        "position_body_m": [-0.65, -0.33, 0],
+        "axis_body": [1, 0, 0]
+      },
+      {
+        "id": "starboard",
+        "type": "FixedThruster",
+        "position_body_m": [-0.65, 0.33, 0],
+        "axis_body": [1, 0, 0]
+      }
+    ],
+    "placement_provenance": {
+      "kind": "design-assumption",
+      "basis": "Public imagery shows stern-mounted differential pocket thrusters aligned with the two pontoons; lateral positions use the assumed pontoon centerlines and longitudinal position is estimated at x=-0.65 m.",
+      "confidence": "low",
+      "limitation": "No dimensioned mounting drawing is public."
+    },
+    "command_and_dynamics": {
+      "hardware_command_range": [-70, 70],
+      "command_interface": "set_thruster_mode(thrust, thrust_diff)",
+      "newtons_per_command": 1,
+      "force_range_n_each": [-70, 70],
+      "time_constant_s": 0.35,
+      "rate_limit_per_s": null,
+      "deadband_command": 0,
+      "allocation_policy": {
+        "name": "coupled-envelope-yaw-priority-v1",
+        "feasible_envelope": "abs(surge_N)/140 + abs(yaw_Nm)/46.2 <= 1",
+        "priority": "yaw",
+        "rule": "Bound yaw first to the physically deliverable +/-46.2 N m, then allocate equal surge from the symmetric per-thruster force headroom remaining inside +/-70 N per thruster.",
+        "rationale": "For waypoint transit, preserving heading correction is required to recover the route; reduced forward speed remains useful progress. This is an explicit controller-allocation design decision, not a manufacturer-specified behavior.",
+        "provenance": "Campaign correction after the inherited generic +/-100 N m yaw command bound was shown to clip allocation on 85.2% of a five-episode diagnostic replay."
+      },
+      "provenance": {
+        "kind": "design-assumption",
+        "source": "Existing integration-only Surveyor adapter and VehicleParameters fallback",
+        "confidence": "very low",
+        "limitations": [
+          "No forward/reverse bollard-pull curve was found.",
+          "One newton per integer command is not a manufacturer value and exists only to make the bounded simulator interface executable.",
+          "The 0.35 s time constant is inherited from the existing generic integration fallback, not measured Surveyor hardware.",
+          "Electrical power rating cannot be converted to static thrust without propulsor efficiency and operating-point data."
+        ],
+        "replacement_trigger": "Replace as one versioned model revision if FIU or SeaRobotics supplies command/thrust, deadband, slew or lag measurements; then rerun all downstream Surveyor-labeled calibration and conformance artifacts."
+      }
+    }
+  },
+  "hydrodynamics": {
+    "linear_planar": [6, 18, 8],
+    "quadratic_planar": [18, 60, 12],
+    "provenance": {
+      "kind": "design-assumption",
+      "source": "Existing Surveyor integration bootstrap",
+      "confidence": "very low",
+      "limitations": [
+        "Not fitted to tow, free-decay, turning-circle or field data.",
+        "Not derived from the two-body mass approximation.",
+        "Must be reported separately from geometry-derived mass properties."
+      ]
+    }
+  },
+  "source_register": [
+    {
+      "id": "manufacturer-spec-sheet",
+      "url": "https://okeanus.com/wp-content/uploads/2025/08/sr-surveyorm18-specsheet-new01.pdf",
+      "supplies": ["length", "beam", "draft", "mass", "thruster count/type/power", "differential steering", "GNSS antenna spacing"]
+    },
+    {
+      "id": "manufacturer-surveyor-class-page",
+      "url": "https://searobotics.com/products/autonomous-surface-vehicles/sr-surveyor-class/",
+      "supplies": ["payload bays located in pontoons", "catamaran topology context"]
+    },
+    {
+      "id": "manufacturer-asv-page",
+      "url": "https://searobotics.com/products/autonomous-surface-vehicles/",
+      "supplies": ["Surveyor Class unique catamaran hull statement"]
+    },
+    {
+      "id": "fiu-control-repository",
+      "url": "https://github.com/FIU-MoRA-Lab/searobotics_surveyor",
+      "supplies": ["hardware/control API context only"],
+      "does_not_supply": ["CAD", "mass properties", "thruster coordinates", "bollard-pull mapping", "actuator dynamics"]
+    }
+  ],
+  "paper_methods_required_wording": "The SeaRobotics SR-Surveyor M1.8 simulation uses a documented two-pontoon rigid-body approximation constrained by published overall dimensions, draft, and mass. Pontoon spacing, component mass split, loaded center of mass, thruster coordinates, actuator mapping, and hydrodynamic damping were not provided by the manufacturer and are stated design assumptions rather than measured or manufacturer-verified parameters. Simulation-side model uncertainty therefore limits the strength of subsequent sim-to-real claims independently of hardware evaluation uncertainty.",
+  "manufacturer_data_request": {
+    "status": "recommended-in-parallel-not-blocking",
+    "requested_items": [
+      "simplified CAD or hull lines",
+      "loaded CG and inertia tensor or component mass breakdown",
+      "thruster mounting coordinates",
+      "forward/reverse bollard-pull versus command and voltage",
+      "deadband, slew and step-response data"
+    ],
+    "revision_policy": "If authoritative data arrives before Gate 7, create a new model version and rerun Surveyor-labeled downstream artifacts. Never silently overwrite this approximation."
+  },
+  "halt": {
+    "required": true,
+    "reason": "Step 1 model artifact complete. Halt for confirmation before wiring it into Node as common-task Vehicle A."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "external-simulator-cluster-timing",
+  "host_class": "local",
+  "paper_measurement_eligible": false,
+  "status": "pending-cluster-access",
+  "episode_spec": "artifacts/rl-campaign/timing-episode-spec.json",
+  "required_output_columns": [
+    "simulator",
+    "host_class",
+    "host_id",
+    "physical_core_count",
+    "chip_or_cpu_model",
+    "wall_clock_s",
+    "per_step_s",
+    "cpu_utilization_percent",
+    "episode_steps"
+  ],
+  "execution_command": "npm run run:external-task-ports",
+  "rows": []
+}

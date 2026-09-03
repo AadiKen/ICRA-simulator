@@ -669,6 +669,22 @@ export class ActuationModel extends ForceModel {
             const surge = tau6[0];
             const yaw = tau6[5];
             const denom = starboardYawPerNewton - portYawPerNewton;
+            // Surveyor waypoint transit uses an explicit yaw-first feasibility
+            // projection. Heading authority is allocated first because a craft
+            // that cannot turn cannot recover the route; equal surge receives
+            // only the symmetric force headroom left on both thrusters.
+            if (this.params.id === "searobotics-surveyor-m1.8" || this.params.allocator?.priority === "yaw") {
+                const yawPerDifferentialNewton = Math.abs(denom);
+                const forceLimit = Math.min(port.dynamics.max, -port.dynamics.min, starboard.dynamics.max, -starboard.dynamics.min);
+                const boundedYaw = clamp(yaw, -forceLimit * yawPerDifferentialNewton, forceLimit * yawPerDifferentialNewton);
+                const signedDifferential = Math.abs(denom) > 1e-9 ? boundedYaw / denom : 0;
+                const remainingPerThruster = Math.max(0, forceLimit - Math.abs(signedDifferential));
+                const boundedHalfSurge = clamp(surge * 0.5, -remainingPerThruster, remainingPerThruster);
+                return {
+                    port: {thrust: boundedHalfSurge - signedDifferential},
+                    starboard: {thrust: boundedHalfSurge + signedDifferential}
+                };
+            }
             let starboardThrust = surge * 0.5;
             let portThrust = surge * 0.5;
             if (Math.abs(denom) > 1e-9) {

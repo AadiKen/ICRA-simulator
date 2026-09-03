@@ -86,6 +86,9 @@ export function bodyWrenchCommandForTime(manifest, coeffs = coefficientSetForVeh
 }
 
 export function commandSchedule(manifest, coeffs = coefficientSetForVehicle(manifest.vehicle)) {
+    if (Array.isArray(manifest.fixedCommandSchedule)) {
+        return manifest.fixedCommandSchedule;
+    }
     const rows = [];
     for (let i = 0; i < manifest.steps; i += 1) {
         const t = i * manifest.dt;

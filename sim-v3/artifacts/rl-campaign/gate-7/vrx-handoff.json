@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-track-c-handoff",
+  "status": "parked-incomplete",
+  "confirmed_blocker": "VRX v3.0.1's available world uses stock WAM-V geometry: hull, mass, inertia, buoyancy, and thruster placement differ from the frozen bootstrap craft. It cannot truthfully claim use of the bootstrap craft's geometry-derived inertia.",
+  "reusable_completed_work": [
+    "validation/rl-campaign/ports/shared-actuators.ts",
+    "validation/rl-campaign/ports/simulator-actuator-adapters.ts",
+    "validation/rl-campaign/ports/trace-schema-v1.ts",
+    "validation/rl-campaign/ports/vrx_trace_exporter.py",
+    "validation/rl-campaign/ports/vrx_trace_exporter.launch.py"
+  ],
+  "remaining_work": "Port the bootstrap craft geometry and mass properties, including geometry-derived rigid-body inertia, into a VRX-compatible SDF vehicle; alternatively build a new VRX vehicle model that exactly matches those frozen physical parameters. Only then complete bounded episode orchestration and conformance.",
+  "downstream_dependency": "none; VRX is parked and must not be treated as pending work for the Node–Gazebo paper scope."
+}

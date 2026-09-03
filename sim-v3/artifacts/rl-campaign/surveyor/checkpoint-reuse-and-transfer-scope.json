@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-checkpoint-reuse-and-transfer-scope",
+  "status": "DECIDED",
+  "task_contract_content_sha256": "dead8640d69e9029d92062ea4e3b36f5e5219d0870b4db5df823acec9190ddf1",
+  "checkpoint": {
+    "path": "artifacts/rl-campaign/surveyor/p3-v3-local/ppo-final.zip",
+    "sha256": "f55dec91d82e5ddf74dbdd1ca2174783e6515bcd19c1a1149fc911106c78c55a",
+    "gate_3_passed": false,
+    "measured_median_return": -1058.6739177173704,
+    "measured_normalized_return_score": 0.5070887474535947,
+    "measured_success_rate": 0,
+    "measured_final_leg_activation_rate": 0.24
+  },
+  "wp_f_vehicle_transfer_matrix": {
+    "proceed_with_checkpoint_as_general_transfer_policy": false,
+    "reason": "A failed Surveyor policy is not a qualified cross-vehicle controller, and Vehicle B/C still require validated plants, vehicle-specific task-scale checks, and a resolved action-space fairness mapping.",
+    "cluster_training_target": "No fresh or extended Surveyor training run is authorized. Any future Vehicle B/C transfer campaign must define its own authorized training/evaluation protocol rather than extending this checkpoint.",
+    "prohibition": "Do not present this checkpoint as evidence of learned-policy transfer to Vehicle B or Vehicle C."
+  },
+  "figure_5": {
+    "use_checkpoint_as_is": true,
+    "scope": "Surveyor-only Node-versus-Gazebo policy replay, where the measured claim is cross-simulator consistency for a fixed policy rather than task-completion competence.",
+    "required_label": "Frozen 3M-step Surveyor P3-v3 checkpoint; failed Gate 3 with median return -1058.674 and 0/50 terminal success.",
+    "conditions": [
+      "Both simulator traces must use the frozen Surveyor contract and hash dead8640d69e9029d92062ea4e3b36f5e5219d0870b4db5df823acec9190ddf1.",
+      "The policy, observation encoding, action mapping, reset seeds, route, and disturbances must be identical across simulators.",
+      "Existing conformance artifacts tied to an earlier contract hash do not qualify; Gate 7 evidence must be regenerated or explicitly shown to match the frozen Surveyor contract.",
+      "Report actual return, success, and final-leg activation alongside divergence; do not imply that simulator agreement constitutes Gate 3 success."
+    ]
+  },
+  "figure_6": {
+    "use_checkpoint_as_is": false,
+    "reason": "Figure 6 is assigned to the non-portable showcase-sensor-constrained task. The Surveyor checkpoint was trained on the 15-field portable common task and is not a valid showcase-task policy."
+  },
+  "negative_result_scope": {
+    "classification": "Surveyor-specific",
+    "supported_claim": "Under the frozen Surveyor-specific route/disturbance scaling, Surveyor dynamics and allocator, 15-field observation, PPO seed/hyperparameters, and 3M-step budget, P3-v3 passed the return half of C3 but failed terminal success.",
+    "unsupported_claims": [
+      "Vehicle B or Vehicle C would fail Gate 3.",
+      "The same route/disturbance scaling is appropriate for Vehicle B or Vehicle C.",
+      "The same PPO stability behavior will occur on Vehicle B or Vehicle C.",
+      "The simulator generally cannot train successful policies."
+    ],
+    "transfer_guard": "Vehicle B and Vehicle C require their own physical-model validation, capability-based task rescale check, controller calibration, and Gate 3 measurement before any analogous claim is made."
+  },
+  "decision": {
+    "surveyor_retraining_authorized": false,
+    "frozen_contract_changed": false,
+    "gate_3_result_changed": false
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN_BEFORE_TIME_AWARE_RETRAINING",
+  "task_contract_content_sha256": "cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb",
+  "task_id": "common-waypoint-transit-v1",
+  "vehicle": "searobotics-surveyor-m1.8",
+  "plant": "planar3",
+  "backend": "persistent-node-production",
+  "algorithm": "PPO",
+  "library": "stable-baselines3 2.9.0",
+  "training_seed": 7319,
+  "total_timesteps": 3000000,
+  "parallel_environments": 16,
+  "hyperparameters": {
+    "n_steps": 512,
+    "batch_size": 512,
+    "n_epochs": 10,
+    "learning_rate": {
+      "type": "linear_decay",
+      "initial": 0.0003,
+      "final": 0.0,
+      "justification": "Smallest standard stabilization change addressing the diagnosed late-update degradation; all other PPO hyperparameters and the 3M-step budget remain unchanged."
+    },
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0,
+    "network": [128, 128]
+  },
+  "checkpoint_interval_timesteps": 250000,
+  "evaluation_seeds": {"first": 10000, "count": 50},
+  "acceptance": {
+    "median_return_min": -1074.46134596905,
+    "normalized_score_min": 0.5,
+    "success_rate_min": 0.33,
+    "both_must_pass": true
+  },
+  "reauthorization": "Explicit 2026-09-02 authorization supersedes the prior no-revision closure only for appended time remaining and this learning-rate schedule.",
+  "failure_rule": "Report and halt without further tuning or a third contract revision."
+}

@@ -9,6 +9,7 @@ import {legacyGuidanceToActuatorCommand} from "./adapters/legacyGuidanceAdapter.
 import {CoupledSixPlant} from "./core/coupledSixPlant.js";
 import {PHYSICS_MODES, normalizePhysicsMode} from "./core/marinePlant.js";
 import {WindLoad} from "./packages/core/src/environment-forces.js";
+import {surveyorNodeWindConfig} from "./packages/vehicle-sdk/src/surveyor-environment.js";
 import {VehicleBMmgForceModel} from "./packages/core/src/vehicle-b-mmg.js";
 import {rotationBodyToNed} from "./core/sixDof.js";
 
@@ -165,6 +166,7 @@ export class boatModel{
                 this.actuatorModel,
                 new AddedMassCoriolis(),
                 new HydrodynamicDamping(),
+                ...(this.vehicleParameters.id === "searobotics-surveyor-m1.8" ? [new WindLoad(surveyorNodeWindConfig())] : []),
                 this.hydrostaticsModel
             ],
             "rk4"
@@ -282,7 +284,7 @@ export class boatModel{
 
 
     updatePosGuidance(boatState, guidance, dt, actuatorCommandOverride = null) {
-        if (!guidance || dt <= 0) {
+        if ((!guidance && !actuatorCommandOverride) || dt <= 0) {
             return;
         }
         const coreState = this.ensureCoreState(boatState);

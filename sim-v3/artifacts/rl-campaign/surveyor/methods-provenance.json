@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "paper_methods_note",
+  "contract_content_sha256": "dead8640d69e9029d92062ea4e3b36f5e5219d0870b4db5df823acec9190ddf1",
+  "vehicle_specificity": {
+    "statement": "The common-task route and wind/current magnitude ranges are Surveyor-specific.",
+    "scale_factor": 1.3569543912551827,
+    "derivation": "90 s target median transit time divided by the measured 66.325 s pre-rescale median transit time.",
+    "transfer_guard": "Vehicle B, Vehicle C, or any later vehicle must receive its own measured-capability rescale check. The Surveyor route and disturbance envelope must not be assumed transferable."
+  },
+  "methods_history": {
+    "statement": "Calibration exposed a wrong reference-vehicle binding, after which the Surveyor was modeled from published geometry and mass using a documented two-body approximation. A generic yaw-authority bound then exposed a coupled allocator defect; the allocator was corrected using a yaw-first feasible-envelope projection. Finally, route and disturbance magnitudes were rescaled once from measured Surveyor transit capability before the terminal criterion and C3 thresholds were frozen.",
+    "interpretation": "These corrections are methodological provenance and should be stated in the paper rather than omitted.",
+    "limitations": [
+      "Surveyor hull geometry and inertia remain documented approximations rather than manufacturer CAD or measured mass properties.",
+      "The 0.35 s actuator lag is borrowed from a generic fallback and is not Surveyor-specific.",
+      "Vehicle-specific task scaling limits unverified transfer of this difficulty envelope to other vehicles."
+    ]
+  }
+}

@@ -1,0 +1,916 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "ppo-terminal-radius-diagnostic",
+  "status": "complete-diagnostic-only-halt-before-contract-revision",
+  "constraints": {
+    "new_training_performed": false,
+    "task_contract_modified": false,
+    "gate_3_result": false,
+    "model_sha256": "d5ee555541462fafd3f930f3a596324b63b364ef5e8bc816324f5f43a5a509f0",
+    "evaluation_seeds": [
+      10000,
+      10049
+    ],
+    "episodes": 50,
+    "horizon_s": 120,
+    "terminal_variant": "pass_through"
+  },
+  "source_n200_sweep_sha256": "de09d4dd89fac17b93132a20ddbd318324b3fa0a2d7d9320636ec81941c6278f",
+  "cells": [
+    {
+      "radius_m": 2,
+      "ppo_success_rate": 0.66,
+      "reference_rates": {
+        "untrained": 0.0,
+        "best_classical": 0.02,
+        "best_classical_policy": "LOS-PID-v2"
+      },
+      "normalized_success_score": 33.0,
+      "ppo_below_untrained": false
+    },
+    {
+      "radius_m": 3,
+      "ppo_success_rate": 0.74,
+      "reference_rates": {
+        "untrained": 0.0,
+        "best_classical": 0.035,
+        "best_classical_policy": "LOS-PID-v2"
+      },
+      "normalized_success_score": 21.142857142857142,
+      "ppo_below_untrained": false
+    },
+    {
+      "radius_m": 4,
+      "ppo_success_rate": 0.76,
+      "reference_rates": {
+        "untrained": 0.0,
+        "best_classical": 0.055,
+        "best_classical_policy": "LOS-PID-v2"
+      },
+      "normalized_success_score": 13.818181818181818,
+      "ppo_below_untrained": false
+    },
+    {
+      "radius_m": 5,
+      "ppo_success_rate": 0.76,
+      "reference_rates": {
+        "untrained": 0.0,
+        "best_classical": 0.07,
+        "best_classical_policy": "LOS-PID-v2"
+      },
+      "normalized_success_score": 10.857142857142856,
+      "ppo_below_untrained": false
+    },
+    {
+      "radius_m": 6,
+      "ppo_success_rate": 0.76,
+      "reference_rates": {
+        "untrained": 0.08,
+        "best_classical": 0.4,
+        "best_classical_policy": "LOS-SPEEDCAP-v2"
+      },
+      "normalized_success_score": 2.125,
+      "ppo_below_untrained": false
+    },
+    {
+      "radius_m": 8,
+      "ppo_success_rate": 0.76,
+      "reference_rates": {
+        "untrained": 0.105,
+        "best_classical": 0.425,
+        "best_classical_policy": "LOS-SPEEDCAP-v2"
+      },
+      "normalized_success_score": 2.046875,
+      "ppo_below_untrained": false
+    },
+    {
+      "radius_m": 10,
+      "ppo_success_rate": 0.76,
+      "reference_rates": {
+        "untrained": 0.125,
+        "best_classical": 0.435,
+        "best_classical_policy": "LOS-SPEEDCAP-v2"
+      },
+      "normalized_success_score": 2.0483870967741935,
+      "ppo_below_untrained": false
+    }
+  ],
+  "selected_candidate_diagnostic": {
+    "radius_m": 6,
+    "ppo_success_rate": 0.76,
+    "reference_rates": {
+      "untrained": 0.08,
+      "best_classical": 0.4,
+      "best_classical_policy": "LOS-SPEEDCAP-v2"
+    },
+    "normalized_success_score": 2.125,
+    "ppo_below_untrained": false
+  },
+  "warning": "This checkpoint was trained under prior 2 m advancement and terminal semantics. This rescore is diagnostic only and is not a Gate 3 result; P3-v3 requires fresh training after an approved, re-hashed contract.",
+  "raw": [
+    {
+      "seed": 10000,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 2.148193248468674,
+      "pass_through": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10001,
+      "final_leg_seen": false,
+      "closest_final_waypoint_m": null,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10002,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 1.6049197270179976,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10003,
+      "final_leg_seen": false,
+      "closest_final_waypoint_m": null,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10004,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.22269292920915612,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10005,
+      "final_leg_seen": false,
+      "closest_final_waypoint_m": null,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10006,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 1.3619131495637855,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10007,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.12416366281571761,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": true,
+      "observed_steps": 2347
+    },
+    {
+      "seed": 10008,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 20.03558041717368,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10009,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.8315540723506122,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10010,
+      "final_leg_seen": false,
+      "closest_final_waypoint_m": null,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10011,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.5060901893278805,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": true,
+      "observed_steps": 1632
+    },
+    {
+      "seed": 10012,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 2.360557044137984,
+      "pass_through": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10013,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 2.6357829838698863,
+      "pass_through": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10014,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 1.5846091424318067,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10015,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.07633825037961936,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10016,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 1.800405875993773,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10017,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.16122497039238787,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10018,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.6565493730851407,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": true,
+      "observed_steps": 2016
+    },
+    {
+      "seed": 10019,
+      "final_leg_seen": false,
+      "closest_final_waypoint_m": null,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10020,
+      "final_leg_seen": false,
+      "closest_final_waypoint_m": null,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10021,
+      "final_leg_seen": false,
+      "closest_final_waypoint_m": null,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10022,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 1.1406919657022587,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10023,
+      "final_leg_seen": false,
+      "closest_final_waypoint_m": null,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10024,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.6408296716847366,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10025,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.09524031400346102,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10026,
+      "final_leg_seen": false,
+      "closest_final_waypoint_m": null,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10027,
+      "final_leg_seen": false,
+      "closest_final_waypoint_m": null,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10028,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.5589252475158974,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10029,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.6920976201288542,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10030,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.23824105953790103,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10031,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.07658915838051918,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10032,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.05096857755648304,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10033,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 1.8292258872820866,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10034,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 2.256733327933247,
+      "pass_through": {
+        "2": false,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10035,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 3.4179698246609758,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10036,
+      "final_leg_seen": false,
+      "closest_final_waypoint_m": null,
+      "pass_through": {
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "8": false,
+        "10": false
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10037,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.45818426603043005,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10038,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.31970620190216376,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10039,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.5001910185590208,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10040,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.16195560187500768,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10041,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.22494628303302072,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10042,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.8321931304073849,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10043,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.16830920490330692,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10044,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.1519850381087867,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10045,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.5697319721517267,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": true,
+      "observed_steps": 1600
+    },
+    {
+      "seed": 10046,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.2366246874642936,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10047,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.02482342970399978,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": true,
+      "observed_steps": 1253
+    },
+    {
+      "seed": 10048,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.3559902685567525,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    },
+    {
+      "seed": 10049,
+      "final_leg_seen": true,
+      "closest_final_waypoint_m": 0.4493815062275615,
+      "pass_through": {
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "8": true,
+        "10": true
+      },
+      "original_terminal_success": false,
+      "observed_steps": 2400
+    }
+  ],
+  "decision": {
+    "contract_revision_applied": false,
+    "human_approval_required": true
+  }
+}

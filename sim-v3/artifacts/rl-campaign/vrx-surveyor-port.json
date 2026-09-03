@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-surveyor-port",
+  "status": "smoke-test-passed-gate-7-blocked-invalid-harness",
+  "decision_path": "A",
+  "source_of_truth": "artifacts/rl-campaign/surveyor-vehicle-model.json",
+  "source_sha256": "d89cf1e266f397009f1f440ae1cc5cab23f43483fc2fdd010c72b590659a05f0",
+  "vrx": {
+    "source_ref": "osrf/vrx@fda35961463c2ed8c44d6c646fe8ce773a3eaff1",
+    "image": "leadcat/vrx:v3.0.1",
+    "image_digest": "sha256:1b0ebfc18f5265b684239e67e132b88557303fa6031334e9010a1d9794efd369",
+    "gazebo_sim_version": "8.10.0"
+  },
+  "plugin_inventory": {
+    "buoyancy": {
+      "plugin": "vrx::Surface (libSurface.so)",
+      "generic_link_parameter": true,
+      "inputs": [
+        "link_name",
+        "hull_length",
+        "hull_radius",
+        "fluid_level",
+        "fluid_density",
+        "points",
+        "wavefield"
+      ],
+      "hardcoded_wamv_identity": false
+    },
+    "hydrodynamics": {
+      "plugin": "vrx::SimpleHydrodynamics (libSimpleHydrodynamics.so)",
+      "generic_link_parameter": true,
+      "accepts_existing_model": true,
+      "inputs": [
+        "six diagonal added-mass terms",
+        "six linear drag terms",
+        "six quadratic drag terms"
+      ],
+      "hardcoded_wamv_identity": false
+    },
+    "thruster": {
+      "plugin": "gz::sim::systems::Thruster",
+      "command_units": "newtons",
+      "message_type": "gz.msgs.Double / ROS std_msgs/msg/Float64 through bridge",
+      "translation_layer_required": false,
+      "topics": [
+        "/surveyor/thrusters/port/thrust",
+        "/surveyor/thrusters/starboard/thrust"
+      ]
+    }
+  },
+  "serialized_values": {
+    "mass_kg": 52.3,
+    "inertia_diagonal_kg_m2": [
+      5.375132500000001,
+      13.347308666666668,
+      17.891219833333338
+    ],
+    "components": [
+      {
+        "id": "port_pontoon",
+        "dimensions_m": [
+          1.83,
+          0.2,
+          0.34
+        ],
+        "center_body_m": [
+          0,
+          -0.33,
+          0
+        ]
+      },
+      {
+        "id": "starboard_pontoon",
+        "dimensions_m": [
+          1.83,
+          0.2,
+          0.34
+        ],
+        "center_body_m": [
+          0,
+          0.33,
+          0
+        ]
+      },
+      {
+        "id": "deck_payload_and_superstructure",
+        "dimensions_m": [
+          1.2,
+          0.55,
+          0.12
+        ],
+        "center_body_m": [
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "thruster_positions_body_ned_m": [
+      [
+        -0.65,
+        -0.33,
+        0
+      ],
+      [
+        -0.65,
+        0.33,
+        0
+      ]
+    ],
+    "thruster_positions_sdf_flu_m": [
+      [
+        -0.65,
+        0.33,
+        0
+      ],
+      [
+        -0.65,
+        -0.33,
+        0
+      ]
+    ],
+    "force_range_n_each": [
+      -70,
+      70
+    ],
+    "time_constant_s": 0.35,
+    "linear_planar_damping": [
+      6,
+      18,
+      8
+    ],
+    "quadratic_planar_damping": [
+      18,
+      60,
+      12
+    ],
+    "allocation_policy": {
+      "name": "coupled-envelope-yaw-priority-v1",
+      "feasible_envelope": "abs(surge_N)/140 + abs(yaw_Nm)/46.2 <= 1",
+      "priority": "yaw",
+      "rule": "Bound yaw first to the physically deliverable +/-46.2 N m, then allocate equal surge from the symmetric per-thruster force headroom remaining inside +/-70 N per thruster.",
+      "rationale": "For waypoint transit, preserving heading correction is required to recover the route; reduced forward speed remains useful progress. This is an explicit controller-allocation design decision, not a manufacturer-specified behavior.",
+      "provenance": "Campaign correction after the inherited generic +/-100 N m yaw command bound was shown to clip allocation on 85.2% of a five-episode diagnostic replay."
+    },
+    "assembly_mass_partition": {
+      "total_mass_kg": 52.3,
+      "base_link_mass_kg": 51.699999999999996,
+      "two_rotor_mass_kg": 0.6,
+      "base_link_com_x_m": 0.007543520309477757,
+      "base_link_inertia_diagonal_kg_m2": [
+        5.309042500000001,
+        13.090471693745972,
+        17.569042860412644
+      ],
+      "reason": "Rotor child-link mass and parallel-axis inertia are partitioned out of the established totals so the assembled model remains exactly 52.3 kg with zero first moment and the established aggregate inertia tensor."
+    },
+    "surface_points_sdf_flu_m": {
+      "port": [
+        [
+          0.4575,
+          -0.33,
+          0
+        ],
+        [
+          -0.4575,
+          -0.33,
+          0
+        ]
+      ],
+      "starboard": [
+        [
+          0.4575,
+          0.33,
+          0
+        ],
+        [
+          -0.4575,
+          0.33,
+          0
+        ]
+      ],
+      "reason": "Symmetric fore/aft quadrature points at +/- one quarter of the established 1.83 m pontoon length provide pitch-restoring buoyancy; no WAM-V coordinate is used."
+    }
+  },
+  "rotor_engineering_estimate": {
+    "classification": "documented engineering estimate; not SR-Surveyor, manufacturer, or WAM-V data",
+    "values": {
+      "mass_kg": 0.3,
+      "diameter_m": 0.1,
+      "radius_m": 0.05,
+      "representative_max_rpm": 3000,
+      "representative_max_rad_s": 314.1592653589793,
+      "axial_inertia_kg_m2": 0.000375,
+      "transverse_inertia_kg_m2": 0.0001975,
+      "joint_damping_n_m_s_per_rad": 0.010132118364233778,
+      "thrust_coefficient": 0.006919495468257212,
+      "fluid_density_kg_m3": 1025,
+      "retained_force_bound_n": 70
+    },
+    "reasoning": {
+      "mass": "0.30 kg is centered within the defensible 0.20-0.50 kg range for compact marine propeller/rotor assemblies in this power class.",
+      "diameter": "0.10 m diameter gives a 0.05 m radius, a few-centimetre radius appropriate to a compact roughly 1 kW pocket thruster.",
+      "axial_inertia": "Thin-disk/blade approximation I=0.5*m*r^2 = 0.000375 kg m^2.",
+      "transverse_inertia": "Short-cylinder approximation I=0.25*m*r^2 + m*t^2/12 with estimated 0.02 m axial thickness = 0.0001975 kg m^2.",
+      "damping": "Viscous-equivalent damping c=P/omega^2 at 1000 W and 3000 rpm = 0.010132118364233778 N m s/rad; this represents rated-point hydrodynamic rotational dissipation without claiming a manufacturer curve.",
+      "thrust_coefficient": "Gazebo force-mode identity Kt=T/(rho*D^4*omega^2), using the established 70 N bound, rho=1025 kg/m^3, D=0.10 m and 3000 rpm, gives 0.006919495468257212. The plugin command remains clamped at exactly +/-70 N, so the estimate does not alter thrust authority."
+    },
+    "comparable_power_class_reference": "Blue Robotics T500 product documentation describes a compact flooded thruster operating just over 1 kW; used only to support the broad power-class analogy, not to copy its physical parameters.",
+    "reference_url": "https://bluerobotics.com/store/thrusters/t100-t200-thrusters/t500-thruster/"
+  },
+  "wiring": {
+    "shared_actuator_module": "validation/rl-campaign/ports/shared-actuators.ts",
+    "adapter": "validation/rl-campaign/ports/simulator-actuator-adapters.ts",
+    "newton_output_direct_to_vrx": true
+  },
+  "files": {
+    "model_sdf": "artifacts/rl-campaign/vrx-surveyor-runtime/models/surveyor/model.sdf",
+    "world_sdf": "artifacts/rl-campaign/vrx-surveyor-runtime/worlds/surveyor-vrx.sdf",
+    "model_sha256": "077ae3d4c4804050bd2b6131b69b05a400ccc63da413880485c2363b11ff2238",
+    "world_sha256": "0b94bba5f8f66ac0bce707f359177fd9294541d2c996e6fb9617a5e5a1bef7c1"
+  },
+  "provenance_statement": "Established hull, mass, inertia, damping, actuator placement, lag and force bounds are serialized from the Surveyor source artifact, never bcod_usv. Only explicitly labeled rotor values are engineering estimates; no WAM-V rotor number is used.",
+  "smoke_test": {
+    "runtime": "leadcat/vrx:v3.0.1 under amd64 emulation",
+    "environment": {
+      "GZ_SIM_SYSTEM_PLUGIN_PATH": "/opt/vrx_ws/install/lib",
+      "note": "VRX libraries and their dependent libWaves.so must both be discoverable."
+    },
+    "sdf_model_validation": "passed",
+    "spawn": "passed",
+    "zero_command_control": {
+      "sample_sim_time_s": 10,
+      "pose_xyz_m": [
+        0.02793183159294944,
+        0.08802453371418911,
+        0.19112203273911976
+      ],
+      "quaternion_xyzw": [
+        -0.026580717782313287,
+        -0.009442659936576576,
+        0.0005332797135321105,
+        0.9996019293840155
+      ],
+      "finite": true,
+      "stable": true
+    },
+    "equal_thrust_test": {
+      "commands_newtons": {
+        "port": 35,
+        "starboard": 35
+      },
+      "publication": "concurrent",
+      "sample_sim_time_s": 11.25,
+      "pose_xyz_m": [
+        6.761481981843311,
+        0.06751718421055694,
+        0.1462282036482464
+      ],
+      "quaternion_xyzw": [
+        0.033412031190596055,
+        -0.018951126207803023,
+        0.00014863023698423968,
+        0.9992619620981413
+      ],
+      "finite": true,
+      "direction_sanity_passed": true,
+      "physics_blowup_absent": true,
+      "assessment": "Strong positive surge with negligible lateral displacement and yaw; small bounded roll/pitch."
+    },
+    "axis_and_serialization_check": {
+      "joint_type": "revolute (supported by the pinned DART build)",
+      "axis_sdf_flu": [
+        1,
+        0,
+        0
+      ],
+      "source_axis_body_ned": [
+        1,
+        0,
+        0
+      ],
+      "axis_conversion_required": false,
+      "port_starboard_y_conversion": "NED body y is negated for SDF FLU",
+      "surface_point_fix": "Each pontoon uses symmetric fore/aft points; a single center point had no pitch-restoring moment."
+    }
+  },
+  "governing_contract": {
+    "path": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+    "version": "2.0.0-surveyor-time-aware",
+    "content_sha256": "cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb",
+    "observation_fields": 16
+  },
+  "gate_7": {
+    "executed": false,
+    "status": "BLOCKED_INVALID_HARNESS",
+    "contract_content_sha256": "cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb",
+    "reason": "The checked-in Gate 7 runner cannot yet execute a faithful VRX conformance episode.",
+    "verified_repairs": [
+      "Node reference preset changed from vehicle-a-otter to searobotics-surveyor-m1.8.",
+      "TaskTraceBridge actuator state changed from the Vehicle A default to the Surveyor per-effector specification."
+    ],
+    "remaining_structural_gaps": [
+      "run-gate-7.ts only writes a pre-existing blocked report and never launches VRX or compares traces.",
+      "vrx-episode-driver.ts is only a re-export; no lifecycle connects seeded reset, 1200 control messages, and 2400 odometry samples.",
+      "The Surveyor VRX world has no serialized wind/current systems, so contract reset disturbances cannot be applied.",
+      "The existing Jazzy exporter consumes odometry but no checked-in orchestrator synchronizes it with deterministic simulation stepping."
+    ],
+    "integrity_rule": "No Gate 7 result is emitted from an unseeded calm-water smoke world or from the previously Vehicle A-labelled Node trace."
+  },
+  "review_required": true
+}

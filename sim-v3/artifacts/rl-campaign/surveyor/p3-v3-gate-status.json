@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-p3-v3-gate-status",
+  "status": "GATE_3_FAILED_HALT",
+  "task_contract_content_sha256": "dead8640d69e9029d92062ea4e3b36f5e5219d0870b4db5df823acec9190ddf1",
+  "contract_hash_reverified_after_run": true,
+  "training": {
+    "algorithm": "PPO",
+    "seed": 7319,
+    "authorized_budget_timesteps": 3000000,
+    "executed_rollout_boundary_timesteps": 3006464,
+    "note": "Stable-Baselines3 completes the active 8192-step vector rollout containing the requested budget boundary.",
+    "model_path": "artifacts/rl-campaign/surveyor/p3-v3-local/ppo-final.zip",
+    "model_sha256": "f55dec91d82e5ddf74dbdd1ca2174783e6515bcd19c1a1149fc911106c78c55a"
+  },
+  "evaluation": {
+    "seeds": [10000, 10049],
+    "episodes": 50,
+    "median_return": -1058.6739177173704,
+    "mean_return": -1053.9706864321665,
+    "standard_deviation": 727.4367334581813,
+    "normalized_return_score": 0.5070887474535947,
+    "success_rate": 0,
+    "final_leg_activation_rate": 0.24,
+    "termination_counts": {"timeout": 50}
+  },
+  "C3": {
+    "return": {
+      "threshold": -1074.46134596905,
+      "normalized_threshold": 0.5,
+      "passed": true
+    },
+    "success": {
+      "threshold": 0.33,
+      "terminal_definition": {"radius_m": 2, "variant": "pass-through", "timeout_s": 120},
+      "passed": false
+    },
+    "both_must_pass": true,
+    "gate_passed": false
+  },
+  "source_report": {
+    "path": "artifacts/rl-campaign/surveyor/p3-v3-local/report.json",
+    "sha256": "9587d02e422ca0f6638f74be4f5bd4e6e05bd0e8e5589c5df5ebe26b6387b4f6"
+  },
+  "decision": {
+    "halt": true,
+    "task_revision_authorized": false,
+    "task_or_threshold_changed": false,
+    "batch_profiling_started": false,
+    "cluster_training_started": false,
+    "reason": "C3 requires both frozen thresholds; the success threshold failed. The last-authorized-revision rule prohibits adapting the task to this outcome."
+  }
+}

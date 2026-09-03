@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-gate-7-node-gazebo-conformance",
+  "checkpoint": "Gate 7",
+  "status": "parked-incomplete",
+  "generated_at": "2026-09-02",
+  "vehicle": "searobotics-surveyor-m1.8",
+  "task_contract": {
+    "path": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+    "declared_content_sha256": "dead8640d69e9029d92062ea4e3b36f5e5219d0870b4db5df823acec9190ddf1",
+    "frozen": true
+  },
+  "requested_held_out_seeds": {
+    "first": 20000,
+    "last": 20019,
+    "count": 20
+  },
+  "execution": {
+    "node_episodes_run": 0,
+    "gazebo_episodes_run": 0,
+    "conformance_comparisons_run": 0,
+    "per_seed_results": null,
+    "max_divergence_by_axis": null,
+    "reason_no_measurements_are_reported": "The only available Gate 7 Gazebo runtime is for bcod_usv, not the Surveyor. Running it and labeling the result Surveyor conformance would compare different vehicles and produce invalid evidence."
+  },
+  "confirmed_blocker": {
+    "severity": "structural vehicle-model gap",
+    "summary": "The handoff premise that a validated Surveyor Gazebo SDF and orchestrator already exist is not true in the current workspace. The checked-in Gate 7 preparation path and generated runtime are hard-coded to the 1,000 kg bootstrap bcod_usv.",
+    "evidence": [
+      {
+        "path": "validation/rl-campaign/ports/prepare-gazebo-episode.ts",
+        "finding": "Imports bcodUsvCoefficients and generates model/world/manifest files for bcod_usv."
+      },
+      {
+        "path": "validation/rl-campaign/ports/generate-node-reference.ts",
+        "finding": "Resolves vehicle-a-otter rather than searobotics-surveyor-m1.8."
+      },
+      {
+        "path": "validation/rl-campaign/ports/episode-driver.ts",
+        "finding": "Hard-codes the pre-rescale route and disturbance limits and labels inertia provenance as the bootstrap craft."
+      },
+      {
+        "path": "validation/rl-campaign/ports/simulator-actuator-adapters.ts",
+        "finding": "Gazebo command topics are hard-coded under /model/bcod_usv."
+      },
+      {
+        "path": "artifacts/rl-campaign/gate-7/gazebo-runtime/models/bcod_usv/model.sdf",
+        "finding": "Contains mass 1000 kg, inertia [563.3333333333, 2003.3333333333, 2400] kg m^2, and thruster lateral positions +/-1.2 m."
+      },
+      {
+        "path": "artifacts/rl-campaign/gate-7/gazebo-runtime/manifests/gate-20000.json",
+        "finding": "Declares vehicle bcod_usv and bcod_usv command topics."
+      }
+    ],
+    "required_surveyor_values": {
+      "source": "artifacts/rl-campaign/surveyor-vehicle-model.json",
+      "mass_kg": 52.3,
+      "inertia_diagonal_kg_m2": [
+        5.375132500000001,
+        13.347308666666668,
+        17.891219833333338
+      ],
+      "thruster_lateral_positions_m": [-0.33, 0.33]
+    }
+  },
+  "scope_disposition": {
+    "why_repointing_is_insufficient": "Changing only route, timeout, and disturbance inputs would leave Gazebo running the wrong mass, inertia, geometry, hydrodynamics, thruster placement, vehicle identity, and command topics.",
+    "required_work_before_valid_rerun": "Build and validate a Gazebo Surveyor SDF/vehicle port from the existing Surveyor single source of truth, update the existing process-lifecycle harness to select that already-validated model, and validate true-odometry episode capture before running held-out conformance.",
+    "work_performed_here": "Read-only audit plus this blocker artifact. No SDF, vehicle model, actuator integration, frozen contract, calibration, training, or VRX files were changed.",
+    "halted_under_rule": "Stopped because resolving the mismatch requires new vehicle/SDF modeling and validation, not an ordinary stale-parameter update.",
+    "parked_by_user": true,
+    "resume_only_with_explicit_instruction": true,
+    "figure_disposition": "If the Surveyor result appears in Fig 5, it is Node-only and carries the full Gate 3 failure label. No Surveyor Gazebo comparison is permitted until this port is explicitly resumed and completed."
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "p3-amendment-8-mpc-horizon-adequacy-check",
+  "status": "reference-inadequate-halt-before-radius-selection",
+  "constraints": {
+    "new_training_performed": false,
+    "new_rollouts_performed": false,
+    "task_contract_modified": false,
+    "radius_selection_applied": false
+  },
+  "l0_time_starvation": {
+    "conclusion": "ruled_out_for_the_task",
+    "evidence": "Existing PPO diagnostic completes 76% of the corridor-corrected routes under 120 s at the provisional 6 m pass-through cell."
+  },
+  "deployed_reference": {
+    "name": "LOS-SPEEDCAP-v2",
+    "actual_formulation": "Line-of-sight steering plus a closed-form speed cap: min(target_speed, sqrt(0.8*distance), target_speed*max(0.25, cos(clamped_heading_error))).",
+    "prediction_horizon": null,
+    "control_horizon": null,
+    "is_receding_horizon_mpc": false,
+    "selected_gain_tuple": {
+      "lookahead": 4,
+      "kp": 100,
+      "kd": 35,
+      "speed": 1
+    },
+    "source_file": "validation/rl-campaign/corrected-reference-calibration.ts"
+  },
+  "frozen_tuning_protocol": {
+    "held_out_seeds": {
+      "first": 20000,
+      "count": 20
+    },
+    "grid_size": 24,
+    "swept_parameters": {
+      "lookahead_m": [
+        4,
+        8,
+        12
+      ],
+      "yaw_kp_nm_per_rad": [
+        70,
+        100
+      ],
+      "yaw_kd_nm_per_rad_s": [
+        20,
+        35
+      ],
+      "target_speed_mps": [
+        1,
+        1.5
+      ]
+    },
+    "prediction_or_control_horizon_swept": false,
+    "reason": "No prediction or control horizon exists in the deployed controller implementation."
+  },
+  "previous_6m_8m_rates_not_a_horizon_result": [
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 6,
+      "rates": {
+        "untrained": 0.08,
+        "los_pid": 0.27,
+        "los_mpc": 0.4,
+        "best_classical": 0.4
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.335,
+          0.47
+        ],
+        "untrained_95_ci": [
+          0.045,
+          0.12
+        ],
+        "gap_95_ci": [
+          0.245,
+          0.395
+        ]
+      },
+      "gap": 0.32,
+      "separation_ratio": 2.133333333333333,
+      "qualifies": true
+    },
+    {
+      "timeout_s": 120,
+      "variant": "pass_through",
+      "radius_m": 8,
+      "rates": {
+        "untrained": 0.105,
+        "los_pid": 0.31,
+        "los_mpc": 0.425,
+        "best_classical": 0.425
+      },
+      "best_classical_policy": "LOS-SPEEDCAP-v2",
+      "bootstrap_95_ci": {
+        "classical_95_ci": [
+          0.355,
+          0.495
+        ],
+        "untrained_95_ci": [
+          0.065,
+          0.15
+        ],
+        "gap_95_ci": [
+          0.245,
+          0.3951249999999891
+        ]
+      },
+      "gap": 0.32,
+      "separation_ratio": 2.1315570358036515,
+      "qualifies": true
+    }
+  ],
+  "required_l1_horizon_sweep": {
+    "performed": false,
+    "reason": "Not applicable to the deployed reference: a horizon sweep cannot be performed without first replacing the LOS heuristic with an actual finite-horizon optimizer and predeclaring its model, cost, constraints, solver, prediction/control horizons, and held-out tuning protocol."
+  },
+  "transit_time_comparison": {
+    "performed": false,
+    "reason": "Amendment 8 requests best-horizon LOS-MPC transit times. There is no best-horizon MPC configuration; reporting LOS-heuristic times as an MPC-horizon mechanism would misstate the evidence."
+  },
+  "conclusion": {
+    "adequacy_check_passed": false,
+    "root_cause": "The reference is mislabeled: LOS-SPEEDCAP-v2 is not a receding-horizon controller, so its 40% completion rate cannot establish a genuine MPC capability gap or horizon limitation.",
+    "next_authorized_boundary": "Halt. Obtain a decision whether to implement and independently tune a real MPC baseline before radius selection/contract revision, or to relabel and use this controller only as an LOS heuristic (which would require revisiting the stated classical-reference framing)."
+  },
+  "source_sha256": "df51d5a783f5f38a092a2d9ace2de49ea61fd6e0de8e5f2aa75c117c40cbcbc9",
+  "source_artifacts": {
+    "corridor_protocol_sha256": "f49e51040f82e0e358396a8f71ffac0cdc8473226076a40520b7271e21bfbc82",
+    "corridor_calibration_sha256": "57bb765dec0743eca43a0baf4639cb440774de1736488b211e3b786ab548ebc0",
+    "n200_radius_sweep_sha256": "4a35fd89154b65ad495af5bb2818c4ef7299f2f32c0012bfe3e9b83c1d964d34"
+  }
+}

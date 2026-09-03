@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "configurations": {
+    "vrx:stock": {
+      "container_tag": "leadcat/vrx:stock-v3.0.1",
+      "source_image": "leadcat/vrx:v3.0.1",
+      "local_image_id": "sha256:1b0ebfc18f5265b684239e67e132b88557303fa6031334e9010a1d9794efd369",
+      "source_ref": "osrf/vrx@fda35961463c2ed8c44d6c646fe8ce773a3eaff1",
+      "policy_training_allowed": true,
+      "baseline_comparison_allowed": true,
+      "gate7_diagnostics_allowed": false,
+      "custom_plugins": [],
+      "rule": "Byte-identical alias of the pinned, unmodified VRX build. No Surveyor diagnostic plugin, source override, or bind mount is permitted."
+    },
+    "vrx:surveyor-stock-physics": {
+      "container_tag": "leadcat/vrx:surveyor-stock-physics-v3.0.1",
+      "local_image_id": "sha256:2ec9c371807e9a1eadaef6ba158344729f5b75dbef4aa8b1186f0d24683e4fc8",
+      "base_configuration": "vrx:stock",
+      "vehicle_model": "/opt/leadcat/vrx-surveyor-stock-physics/models/surveyor/model.sdf",
+      "world": "/opt/leadcat/vrx-surveyor-stock-physics/worlds/surveyor-vrx.sdf",
+      "policy_training_allowed": true,
+      "baseline_comparison_allowed": true,
+      "gate7_diagnostics_allowed": false,
+      "custom_plugins": [],
+      "physics_boundary": "Uses only systems already shipped by the pinned stock VRX/Gazebo build: vrx::Surface, vrx::SimpleHydrodynamics, and gz::sim stock Thruster, PosePublisher, and OdometryPublisher systems.",
+      "rule": "Surveyor vehicle serialization on stock VRX physics. No custom current system, corrected wind system, diagnostic force injection, or modified VRX library is present."
+    },
+    "vrx:surveyor-patched": {
+      "container_tag": "leadcat/vrx:surveyor-patched-v3.0.1",
+      "local_image_id": "sha256:b4cd190383f61f222bc3b9babee6ec142e56f20018e32acef743ef9b9ae1a45e",
+      "base_configuration": "vrx:stock",
+      "policy_training_allowed": false,
+      "baseline_comparison_allowed": false,
+      "gate7_diagnostics_allowed": true,
+      "custom_plugins": [
+        "/opt/leadcat/vrx-surveyor-patched/lib/libVrxCurrentRelativeVelocity.so",
+        "/opt/leadcat/vrx-surveyor-patched/lib/libVrxSurveyorRelativeWind.so"
+      ],
+      "rule": "Conformance diagnostics only. Results from this configuration are ineligible for policy training and headline baseline figures or tables."
+    }
+  },
+  "default_for_policy_training": "vrx:stock",
+  "default_for_baseline_comparison": "vrx:stock",
+  "surveyor_policy_baseline": "vrx:surveyor-stock-physics",
+  "default_for_gate7_diagnostics": "vrx:surveyor-patched"
+}

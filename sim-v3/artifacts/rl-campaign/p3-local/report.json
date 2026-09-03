@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "p3-local-learnability",
+  "host_class": "local",
+  "paper_measurement_eligible": false,
+  "protocol_sha256": "8e26aba4edb3274f66a5c4d8eb7e23f998d35821d40fae067125db167c07cff5",
+  "training": {
+    "timesteps": 3000000,
+    "seed": 7319,
+    "wall_clock_s": 711.9156179428101,
+    "model": "artifacts/rl-campaign/p3-local/ppo-final.zip"
+  },
+  "evaluation": {
+    "median_return": -171.07409880660225,
+    "mean_return": -398.24659619012664,
+    "standard_deviation": 583.6054579252359,
+    "min": -2960.104615516641,
+    "max": 71.62608160756241,
+    "normalized_score": 1.2205471091003932,
+    "success_rate": 0.06,
+    "raw": [
+      {
+        "seed": 10000,
+        "return": 55.068310283141415,
+        "success": true,
+        "episode_length": 1614,
+        "termination_reason": "success"
+      },
+      {
+        "seed": 10001,
+        "return": -507.71776470058717,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10002,
+        "return": -159.5922100030536,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10003,
+        "return": -132.1158866732532,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10004,
+        "return": -109.55848932421395,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10005,
+        "return": -284.83280432823767,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10006,
+        "return": -190.65976332703872,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10007,
+        "return": -74.1915006053711,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10008,
+        "return": -213.66150175360468,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10009,
+        "return": -169.14959427923864,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10010,
+        "return": -377.4115088272937,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10011,
+        "return": -136.83595690523933,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10012,
+        "return": -143.13633266261257,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10013,
+        "return": -112.43528764080293,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10014,
+        "return": -186.5555159497381,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10015,
+        "return": -281.46285336888343,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10016,
+        "return": -96.37340688264149,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10017,
+        "return": -90.57896055107472,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10018,
+        "return": -281.5541662144356,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10019,
+        "return": -205.58825692820363,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10020,
+        "return": -1908.296085290091,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10021,
+        "return": -1140.7959665893497,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10022,
+        "return": -172.99860333396586,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10023,
+        "return": -244.52166195356438,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10024,
+        "return": 71.62608160756241,
+        "success": true,
+        "episode_length": 1769,
+        "termination_reason": "success"
+      },
+      {
+        "seed": 10025,
+        "return": -635.9902757925087,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10026,
+        "return": -2960.104615516641,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10027,
+        "return": -1610.3813216094704,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10028,
+        "return": -150.01091885690911,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10029,
+        "return": -1133.3047515773258,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10030,
+        "return": -522.1926557124319,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10031,
+        "return": -154.53012472004892,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10032,
+        "return": 13.284806679004419,
+        "success": true,
+        "episode_length": 2058,
+        "termination_reason": "success"
+      },
+      {
+        "seed": 10033,
+        "return": -95.24587950175489,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10034,
+        "return": -145.03016630270724,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10035,
+        "return": -1929.1586470963025,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10036,
+        "return": -811.4008517903068,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10037,
+        "return": -123.0214218945581,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10038,
+        "return": -275.1363293532445,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10039,
+        "return": -97.54285246357031,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10040,
+        "return": -65.83960579287825,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10041,
+        "return": -211.8651826759176,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10042,
+        "return": -584.1724152951173,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10043,
+        "return": -106.181083277749,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10044,
+        "return": -350.8177467688038,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10045,
+        "return": -106.99155242742722,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10046,
+        "return": -94.41161369885353,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10047,
+        "return": -409.6088894703358,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10048,
+        "return": -118.17702309252785,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 10049,
+        "return": -141.16900529615702,
+        "success": false,
+        "episode_length": 2400,
+        "termination_reason": "timeout"
+      }
+    ]
+  },
+  "acceptance": {
+    "absolute_threshold": -1038.1762339848315,
+    "normalized_threshold": 0.5,
+    "success_rate_threshold": 0.2
+  },
+  "gate_passed": false
+}

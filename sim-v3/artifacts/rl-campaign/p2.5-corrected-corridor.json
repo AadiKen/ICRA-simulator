@@ -1,0 +1,3117 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "p2.5-corrected",
+  "status": "corrected-reference-complete-halt",
+  "protocol_sha256": "23dd77172c4e658bbaa743bab31ff400691175b8cc3bb04e4575ff5dee237af2",
+  "task_contract_changed": false,
+  "reward_changed": false,
+  "defective_reference_artifact": "artifacts/rl-campaign/p2.5-reference-calibration.json",
+  "tuning": {
+    "held_out_seeds": [
+      20000,
+      20019
+    ],
+    "grid_size": 24,
+    "objective": [
+      "success_count_max",
+      "waypoints_reached_sum_max",
+      "median_return_max",
+      "mean_cross_track_min"
+    ],
+    "los_pid": {
+      "selected": {
+        "gains": {
+          "lookahead": 8,
+          "kp": 100,
+          "kd": 35,
+          "speed": 1
+        },
+        "success_count": 0,
+        "waypoints_reached_sum": 16,
+        "median_return": -241.37502768597503,
+        "mean_cross_track_m": 6.878971605766999
+      },
+      "candidates": [
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 100,
+            "kd": 35,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 16,
+          "median_return": -241.37502768597503,
+          "mean_cross_track_m": 6.878971605766999
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 100,
+            "kd": 20,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 16,
+          "median_return": -275.45592675810326,
+          "mean_cross_track_m": 7.123499696421513
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 100,
+            "kd": 35,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 16,
+          "median_return": -275.47427992439634,
+          "mean_cross_track_m": 7.113707891426911
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 100,
+            "kd": 20,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 15,
+          "median_return": -221.4517544981406,
+          "mean_cross_track_m": 6.272077492120114
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 100,
+            "kd": 35,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 15,
+          "median_return": -221.96401444062818,
+          "mean_cross_track_m": 6.241740181397611
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 100,
+            "kd": 20,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 15,
+          "median_return": -242.0074317669019,
+          "mean_cross_track_m": 6.858209097441751
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 70,
+            "kd": 20,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 13,
+          "median_return": -240.62317013818694,
+          "mean_cross_track_m": 6.658967581499416
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 70,
+            "kd": 20,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 13,
+          "median_return": -357.00492166528113,
+          "mean_cross_track_m": 7.2756930750542494
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 70,
+            "kd": 35,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 13,
+          "median_return": -357.3736282698311,
+          "mean_cross_track_m": 7.265949524663706
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 70,
+            "kd": 20,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 12,
+          "median_return": -232.68138388018377,
+          "mean_cross_track_m": 7.310539392291636
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 70,
+            "kd": 35,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 12,
+          "median_return": -235.00752866846886,
+          "mean_cross_track_m": 7.257822146227582
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 70,
+            "kd": 35,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 12,
+          "median_return": -247.5648430979066,
+          "mean_cross_track_m": 7.180096247697624
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 70,
+            "kd": 20,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 12,
+          "median_return": -249.65013435918684,
+          "mean_cross_track_m": 7.182492959756554
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 70,
+            "kd": 35,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 12,
+          "median_return": -259.46998938704485,
+          "mean_cross_track_m": 6.690806382910208
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 100,
+            "kd": 20,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 12,
+          "median_return": -344.37438908012496,
+          "mean_cross_track_m": 7.522216548587702
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 100,
+            "kd": 35,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 12,
+          "median_return": -344.40738998453264,
+          "mean_cross_track_m": 7.527950806632771
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 70,
+            "kd": 20,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 12,
+          "median_return": -353.3599256833137,
+          "mean_cross_track_m": 7.576277159760354
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 70,
+            "kd": 35,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 12,
+          "median_return": -353.8462669036693,
+          "mean_cross_track_m": 7.563532242602216
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 100,
+            "kd": 35,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 12,
+          "median_return": -387.66833819795477,
+          "mean_cross_track_m": 7.716239584943047
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 100,
+            "kd": 20,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 12,
+          "median_return": -387.99018218832555,
+          "mean_cross_track_m": 7.777029114187964
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 100,
+            "kd": 20,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 10,
+          "median_return": -341.0734071528964,
+          "mean_cross_track_m": 7.792643441598054
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 100,
+            "kd": 35,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 10,
+          "median_return": -341.13632488804893,
+          "mean_cross_track_m": 7.7231465907198515
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 70,
+            "kd": 20,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 10,
+          "median_return": -361.86991060818735,
+          "mean_cross_track_m": 7.993167971033901
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 70,
+            "kd": 35,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 10,
+          "median_return": -362.56318873433986,
+          "mean_cross_track_m": 7.893203125936445
+        }
+      ]
+    },
+    "los_mpc": {
+      "selected": {
+        "gains": {
+          "lookahead": 4,
+          "kp": 100,
+          "kd": 35,
+          "speed": 1
+        },
+        "success_count": 1,
+        "waypoints_reached_sum": 22,
+        "median_return": -111.57436537313309,
+        "mean_cross_track_m": 4.269142990520864
+      },
+      "candidates": [
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 100,
+            "kd": 35,
+            "speed": 1
+          },
+          "success_count": 1,
+          "waypoints_reached_sum": 22,
+          "median_return": -111.57436537313309,
+          "mean_cross_track_m": 4.269142990520864
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 100,
+            "kd": 20,
+            "speed": 1
+          },
+          "success_count": 1,
+          "waypoints_reached_sum": 22,
+          "median_return": -111.81318053725357,
+          "mean_cross_track_m": 4.293640775412702
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 100,
+            "kd": 35,
+            "speed": 1
+          },
+          "success_count": 1,
+          "waypoints_reached_sum": 22,
+          "median_return": -124.891631482842,
+          "mean_cross_track_m": 4.625301565064143
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 100,
+            "kd": 20,
+            "speed": 1
+          },
+          "success_count": 1,
+          "waypoints_reached_sum": 22,
+          "median_return": -125.15533883539342,
+          "mean_cross_track_m": 4.650773582947766
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 100,
+            "kd": 35,
+            "speed": 1
+          },
+          "success_count": 1,
+          "waypoints_reached_sum": 22,
+          "median_return": -132.7609507700436,
+          "mean_cross_track_m": 4.770780405064565
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 100,
+            "kd": 20,
+            "speed": 1
+          },
+          "success_count": 1,
+          "waypoints_reached_sum": 22,
+          "median_return": -133.05422786955506,
+          "mean_cross_track_m": 4.788746931110658
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 100,
+            "kd": 20,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 23,
+          "median_return": -158.39089657225793,
+          "mean_cross_track_m": 4.748541503705036
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 100,
+            "kd": 35,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 23,
+          "median_return": -158.45687925028017,
+          "mean_cross_track_m": 4.76075451743855
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 100,
+            "kd": 20,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 23,
+          "median_return": -184.82859726649463,
+          "mean_cross_track_m": 5.347952866231976
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 100,
+            "kd": 35,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 23,
+          "median_return": -184.83245576962534,
+          "mean_cross_track_m": 5.322687508505148
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 70,
+            "kd": 35,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 23,
+          "median_return": -187.60793125996622,
+          "mean_cross_track_m": 5.5841569055040265
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 70,
+            "kd": 20,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 23,
+          "median_return": -188.51503117722427,
+          "mean_cross_track_m": 5.604836845112726
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 100,
+            "kd": 35,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 22,
+          "median_return": -96.28066755269838,
+          "mean_cross_track_m": 4.055889825400281
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 100,
+            "kd": 20,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 22,
+          "median_return": -96.36953509492085,
+          "mean_cross_track_m": 4.0691768231326915
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 70,
+            "kd": 35,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 22,
+          "median_return": -156.49720165525548,
+          "mean_cross_track_m": 5.091708271138982
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 70,
+            "kd": 20,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 22,
+          "median_return": -157.65784766316008,
+          "mean_cross_track_m": 5.092564467788834
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 70,
+            "kd": 35,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 21,
+          "median_return": -121.52985581138852,
+          "mean_cross_track_m": 4.353783330653148
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 70,
+            "kd": 20,
+            "speed": 1.5
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 21,
+          "median_return": -122.02417731579767,
+          "mean_cross_track_m": 4.3839032697720315
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 70,
+            "kd": 35,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 20,
+          "median_return": -121.27258643010529,
+          "mean_cross_track_m": 4.526534715193594
+        },
+        {
+          "gains": {
+            "lookahead": 4,
+            "kp": 70,
+            "kd": 20,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 20,
+          "median_return": -121.60213865599246,
+          "mean_cross_track_m": 4.549303498523885
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 70,
+            "kd": 35,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 20,
+          "median_return": -132.24593860092858,
+          "mean_cross_track_m": 4.828853767943913
+        },
+        {
+          "gains": {
+            "lookahead": 8,
+            "kp": 70,
+            "kd": 20,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 20,
+          "median_return": -132.36943266399237,
+          "mean_cross_track_m": 4.838261015993267
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 70,
+            "kd": 35,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 20,
+          "median_return": -144.41090071450822,
+          "mean_cross_track_m": 5.094982657723576
+        },
+        {
+          "gains": {
+            "lookahead": 12,
+            "kp": 70,
+            "kd": 20,
+            "speed": 1
+          },
+          "success_count": 0,
+          "waypoints_reached_sum": 20,
+          "median_return": -147.4135082538677,
+          "mean_cross_track_m": 5.121307735380718
+        }
+      ]
+    }
+  },
+  "summaries": [
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "mean": -1331.2072545114672,
+      "median": -1185.7829283299516,
+      "standard_deviation": 755.9050464097293,
+      "min": -3394.825532464556,
+      "max": -218.3313706003576,
+      "q1": -1764.7179019978175,
+      "q3": -816.7439393620646,
+      "success_count": 0,
+      "success_rate": 0,
+      "episode_length": {
+        "mean": 2400,
+        "median": 2400,
+        "min": 2400,
+        "max": 2400
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "mean": -381.0031485194205,
+      "median": -319.68990577866634,
+      "standard_deviation": 284.38807545473566,
+      "min": -1330.0208515454117,
+      "max": -11.701009419073987,
+      "q1": -552.2985829279684,
+      "q3": -140.9450531069698,
+      "success_count": 0,
+      "success_rate": 0,
+      "episode_length": {
+        "mean": 2400,
+        "median": 2400,
+        "min": 2400,
+        "max": 2400
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "mean": -207.61342071156898,
+      "median": -85.57209088776064,
+      "standard_deviation": 303.0014836090539,
+      "min": -1414.8652182305443,
+      "max": 11.856543017842963,
+      "q1": -155.91659312057376,
+      "q3": -24.125487238376973,
+      "success_count": 0,
+      "success_rate": 0,
+      "episode_length": {
+        "mean": 2400,
+        "median": 2400,
+        "min": 2400,
+        "max": 2400
+      }
+    }
+  ],
+  "raw": [
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10000,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -2136.355602952233,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 41.32374904114495
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10001,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -2427.1624523351948,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 46.12121821890727
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10002,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1339.941905068641,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 26.17744529322188
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10003,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -275.2164374606561,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 5.101737199851376
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10004,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -689.3351498220385,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 13.333007940736293
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10005,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -704.0805715341929,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 14.257816700725446
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10006,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1669.5830002618422,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 32.31817278195821
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10007,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1284.1150569276338,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 25.126402349338676
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10008,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1880.2383894059265,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 36.26362039747869
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10009,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -865.1389151553534,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 17.151703236006625
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10010,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1755.1297837571751,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 32.81697631986237
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10011,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -3394.825532464556,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 65.35652769822694
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10012,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -621.5727019909253,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 12.147500405269568
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10013,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -446.29882986906034,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 9.44637188145804
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10014,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -859.8067510548545,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 16.407705732077453
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10015,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -810.045290768629,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 15.79445525036442
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10016,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -836.8398851423711,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 16.283556071462232
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10017,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -945.9055470020284,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 18.904268526365474
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10018,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1151.620937289189,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 22.958719022673808
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10019,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -541.0724629636512,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 11.544151528490225
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10020,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1767.9139414113652,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 33.493845187345045
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10021,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1368.9056316743568,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 24.810495595449364
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10022,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -2836.6513973301535,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 54.04535766721919
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10023,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -591.533454494979,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 11.54674180602578
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10024,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -510.5394597698714,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 10.63541296272889
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10025,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1779.2145670502728,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 34.64417647428738
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10026,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1219.9449193707144,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 20.080430052839237
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10027,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1498.0397844937402,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 27.4963904322957
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10028,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1479.093119481575,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 28.7106472000522
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10029,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1428.7530867790645,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 27.7856042553371
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10030,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1895.0247559466313,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 36.36052963358557
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10031,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -908.5440650656366,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 16.248860033650534
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10032,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -980.8638691665279,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 19.55239515739581
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10033,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1004.3657681880104,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 19.606444163663046
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10034,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1224.1742593508068,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 24.11832761828345
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10035,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -3042.1202115596598,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 58.22357564777719
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10036,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -328.4272535997148,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 7.054662868296208
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10037,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -925.8415230459951,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 17.993627115932423
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10038,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -218.3313706003576,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 5.892005633554689
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10039,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -2775.075616875803,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 52.32638187773918
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10040,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -2659.616646618141,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 51.28021932597795
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10041,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -910.4922589898065,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 18.03379899271491
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10042,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -2336.4234821352916,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 45.19901141152949
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10043,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1826.1577495704469,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 35.431144712499275
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10044,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -847.346879371508,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 17.59827623803119
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10045,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -787.967924102043,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 16.174105230252216
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10046,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1047.2628764136177,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 20.393811849723946
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10047,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1631.6185752147342,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 30.765541529295078
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10048,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -767.0058153361167,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 15.523856151162105
+    },
+    {
+      "policy": "frozen-untrained-policy-v1",
+      "seed": 10049,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1.5
+      },
+      "return": -1328.8272593402653,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 25.948818352588987
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10000,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -320.067589867928,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 6.491059726945795
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10001,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -937.5186759839884,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 18.54237159059961
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10002,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -123.1376357762806,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 4.01420206784341
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10003,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -11.701009419073987,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 1.7922557110476
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10004,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -243.88643978148082,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 5.99174711391068
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10005,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -376.94963300205393,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 7.957989247014302
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10006,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -61.28762833890833,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 2.0206011996217064
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10007,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -117.28303620711337,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 3.7691988676209385
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10008,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -564.2629449496046,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 11.633896453817448
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10009,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -403.6010961114073,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 8.432889592639528
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10010,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -646.146700179312,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 13.35747817649234
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10011,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -480.33537592580757,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 10.029561043140598
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10012,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -548.2498170887575,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 10.73962113059358
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10013,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -774.1285146103003,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 15.335976548373658
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10014,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -118.14620769902557,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 3.336522750286975
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10015,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -353.91886158605985,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 7.77374371759426
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10016,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -184.90010348131838,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 5.0657349608516276
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10017,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -597.2766295595725,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 12.841603236870435
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10018,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -373.9454388683095,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 8.028098659460936
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10019,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -792.2827741007324,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 15.83892687240529
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10020,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -95.41882190946578,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 1.6915457351873142
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10021,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -139.61017148354,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 1.88333973426808
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10022,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -700.1027024665152,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 14.320237309529594
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10023,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -124.3771736189781,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 3.447070449762366
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10024,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -234.2051259518966,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 4.6358293076706225
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10025,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -247.13753410343645,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 5.264516070855442
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10026,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -591.8653387895041,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 11.48378725132466
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10027,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -134.12007625297173,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 1.760043288309268
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10028,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -319.3122216894046,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 6.266723733188662
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10029,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -68.8452933958001,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 2.3689720769604645
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10030,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -396.58439680678293,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 8.756418571155555
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10031,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -139.5323258084029,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 3.971478461903764
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10032,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -306.663551481829,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 6.834452457640503
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10033,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -499.66958888727356,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 10.299088662784646
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10034,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -186.35109054381707,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 4.90975790043431
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10035,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -292.7633677125987,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 6.551481556545993
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10036,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -107.05830013999277,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 2.709704251196586
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10037,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -333.74037060672333,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 7.176484787880654
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10038,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -144.9496979772592,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 3.047009769258945
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10039,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -1330.0208515454117,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 26.425938564181738
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10040,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -253.12236343090945,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 5.563803010412334
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10041,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -561.3113108343192,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 11.726567900422761
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10042,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -390.1085273977723,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 8.164250068854411
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10043,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -189.8401223849799,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 5.110477977770816
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10044,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -179.29317409131195,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 3.8707968141206113
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10045,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -854.701458184458,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 16.997688368896494
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10046,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -1050.977127874026,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 20.493405166219315
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10047,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -498.97619648782967,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 10.791531204143489
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10048,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -553.6481715410387,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 11.574955469136205
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10049,
+      "gains": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -96.82486003573834,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 3.6019289452509673
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10000,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -81.89143789486685,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 2.54048723086213
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10001,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -1109.4993168274236,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 21.814086303018584
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10002,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -49.01276812108883,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 2.3342689733023008
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10003,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -13.888920700851727,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 1.4408412022059258
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10004,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -20.920396135353553,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 1.7899484100633083
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10005,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -16.702543316310557,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 1.1128110235326967
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10006,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -64.51990115411908,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 1.8428046033359666
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10007,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -148.0134920564571,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 4.003295303404585
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10008,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -48.03957984489442,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 2.0946728203870655
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10009,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -136.17144057000462,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 3.9112641750314774
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10010,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -577.0844732543143,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 12.061078864252112
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10011,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -582.9691298120664,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 11.921119834363534
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10012,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": 10.205080883224394,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 0.9831476598692107
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10013,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -9.028085611400947,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 1.2501855861502609
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10014,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -258.5523528798234,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 6.218396718968424
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10015,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -8.874259919083709,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 1.5125428526530535
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10016,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -63.02805475770899,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 2.459713983002698
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10017,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -118.98386237837721,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 3.6490082922288654
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10018,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -67.2375285001238,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 2.505183527584061
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10019,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -1.7548378416532042,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 0.963437004606465
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10020,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -101.26172014593531,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 1.5556252211722679
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10021,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -150.88570589124214,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 1.8900215395457463
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10022,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -866.7820577894774,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 17.51400359908254
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10023,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -22.55094728861476,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 1.0314294239896835
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10024,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": 11.856543017842963,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 0.9939271142078214
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10025,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -149.2903263867828,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 3.8586921556168843
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10026,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -688.0301760660972,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 13.243783662865583
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10027,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -143.27360175253378,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 1.7082048514243766
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10028,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -127.1822032733605,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 3.4219278413316867
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10029,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -28.849107087663604,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 1.3982206667877386
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10030,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -643.6414271392695,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 13.625002121371908
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10031,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -113.2620337199475,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 3.6645375896734884
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10032,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -143.98082933194058,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 3.9406804668966813
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10033,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -14.894287484507856,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 1.6452461846633275
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10034,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -70.1487502984013,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 2.5985263518636894
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10035,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -435.9452143874564,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 9.230937420457257
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10036,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -54.7598923409841,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 1.4530629429621478
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10037,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -81.29463469721969,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 2.821120595112239
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10038,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": 7.691918328394657,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 0.8823728726218345
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10039,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -1414.8652182305443,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 28.057196647473205
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10040,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -422.0699697173187,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 9.146803478371064
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10041,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -129.53290847143808,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 3.7689793714626703
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10042,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -89.25274388065442,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 2.6648836011018897
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10043,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -41.58077904512825,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 2.1308613427048715
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10044,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -323.8153933040333,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 7.43918361886854
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10045,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -22.039067211734153,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 1.6905322205034932
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10046,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -16.91010952606439,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 1.6524338013616309
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10047,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -542.2207713776594,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 11.65170297845138
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10048,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -157.59355553035098,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 4.359170828181307
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10049,
+      "gains": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "return": -38.33876485562632,
+      "success": false,
+      "episode_length": 2400,
+      "termination_reason": "timeout",
+      "waypoints_reached": 2,
+      "mean_cross_track_m": 2.188959876872185
+    }
+  ],
+  "return_reference": {
+    "policy": "LOS-SPEEDCAP-v2",
+    "untrained_median": -1185.7829283299516,
+    "reference_median": -85.57209088776064,
+    "gap": 1100.210837442191,
+    "paired_bootstrap_95_ci": [
+      825.8404787917389,
+      1327.5064174287709
+    ],
+    "normalized_threshold": 0.5,
+    "absolute_threshold": -635.6775096088561
+  },
+  "success_reference": {
+    "policy": "LOS-PID-v2",
+    "untrained_rate": 0,
+    "reference_rate": 0,
+    "gap": 0,
+    "paired_bootstrap_95_ci": [
+      0,
+      0
+    ],
+    "normalized_threshold": 0.5,
+    "absolute_threshold": 0
+  },
+  "both_thresholds_must_pass": true,
+  "decision": {
+    "halt": true,
+    "p3_rerun_authorized": false
+  }
+}

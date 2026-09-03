@@ -1,0 +1,3218 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "p3-amendment-3-baseline-validity",
+  "status": "F2-complete-halt-before-B2-resumption",
+  "created_at": "2026-09-01T00:41:38Z",
+  "new_training_performed": false,
+  "task_contract_changed": false,
+  "measurement_note": "Closest-approach values are geometric minima to each reference point over the original 120 s trace. Waypoint 1 is the decisive active-target measurement; later-reference minima are descriptive when the controller never advanced to those targets.",
+  "summaries": [
+    {
+      "policy": "PID-v1",
+      "closest_approach_by_waypoint": [
+        {
+          "waypoint": 1,
+          "min": 0.09273740434394318,
+          "q1": 2.6368845661397686,
+          "median": 5.357814240237698,
+          "q3": 12.585823809176915,
+          "max": 19.95949828457629,
+          "within_2m_count": 7,
+          "within_8m_count": 27
+        },
+        {
+          "waypoint": 2,
+          "min": 0.8630646134030299,
+          "q1": 11.971136391231596,
+          "median": 17.646112829645972,
+          "q3": 22.97888968591255,
+          "max": 36.972258019424594,
+          "within_2m_count": 1,
+          "within_8m_count": 5
+        },
+        {
+          "waypoint": 3,
+          "min": 7.551508445120748,
+          "q1": 22.80438362753483,
+          "median": 27.57386019514437,
+          "q3": 36.31760720157957,
+          "max": 50.237622944363366,
+          "within_2m_count": 0,
+          "within_8m_count": 1
+        }
+      ],
+      "first_leg_cross_track_m": {
+        "mean_of_episode_means": 11.696245936995354,
+        "median_terminal": 12.646929974816647,
+        "median_episode_max": 13.99497899747532
+      },
+      "heading_tracking": {
+        "mean_abs_error_rad": 1.1739050454063036,
+        "median_abs_error_rad": 1.1292087342162522,
+        "yaw_command_sign_agreement": 0.992690835231559
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "closest_approach_by_waypoint": [
+        {
+          "waypoint": 1,
+          "min": 0.2581265461692576,
+          "q1": 2.201650397717734,
+          "median": 6.124954018374581,
+          "q3": 11.608274726519905,
+          "max": 20.000261227369794,
+          "within_2m_count": 12,
+          "within_8m_count": 27
+        },
+        {
+          "waypoint": 2,
+          "min": 0.06645959584216198,
+          "q1": 13.208313997852185,
+          "median": 17.683227387919217,
+          "q3": 23.694255792567375,
+          "max": 37.42571059067388,
+          "within_2m_count": 2,
+          "within_8m_count": 6
+        },
+        {
+          "waypoint": 3,
+          "min": 3.4458262351082842,
+          "q1": 22.744929881240445,
+          "median": 27.211393478780536,
+          "q3": 35.77831201077966,
+          "max": 50.24962005312717,
+          "within_2m_count": 0,
+          "within_8m_count": 3
+        }
+      ],
+      "first_leg_cross_track_m": {
+        "mean_of_episode_means": 11.22859741512274,
+        "median_terminal": 18.10784753475962,
+        "median_episode_max": 20.86774380717014
+      },
+      "heading_tracking": {
+        "mean_abs_error_rad": 1.2611423479079122,
+        "median_abs_error_rad": 1.2627201453826487,
+        "yaw_command_sign_agreement": 0.992118868727494
+      }
+    }
+  ],
+  "raw": [
+    {
+      "policy": "PID-v1",
+      "seed": 10000,
+      "closest_approach_m": [
+        2.212367475068071,
+        18.769109252265594,
+        25.022380144276084
+      ],
+      "closest_approach_time_s": [
+        118.10000000000001,
+        89.10000000000001,
+        91.25
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 3.7325999004057393,
+        "median": 3.2544199684076225,
+        "max": 7.12761687982881,
+        "terminal": 2.1063317005691196
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.419778046786058,
+        "median_abs": 1.2537468667030771,
+        "max_abs": 3.1396814332996668,
+        "yaw_command_sign_agreement": 0.9975
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10001,
+      "closest_approach_m": [
+        9.246599846911472,
+        30.299841243083595,
+        35.496924520299174
+      ],
+      "closest_approach_time_s": [
+        18.3,
+        17.650000000000002,
+        68.10000000000001
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 18.829066499382666,
+        "median": 18.94604411340572,
+        "max": 37.29757680815799,
+        "terminal": 37.29757680815799
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.9266043101625655,
+        "median_abs": 0.7838618426811456,
+        "max_abs": 2.6734966438514527,
+        "yaw_command_sign_agreement": 0.9829166666666667
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10002,
+      "closest_approach_m": [
+        1.8275296154208898,
+        3.6520955192662905,
+        13.110119721333216
+      ],
+      "closest_approach_time_s": [
+        45.25,
+        81.35000000000001,
+        75.4
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 4.367950909976884,
+        "median": 4.5139405246464115,
+        "max": 8.098271132814851,
+        "terminal": 0.05484761656531184
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.5221083902817035,
+        "median_abs": 0.5075479656551728,
+        "max_abs": 1.0324977294889341,
+        "yaw_command_sign_agreement": 0.991907514450867
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10003,
+      "closest_approach_m": [
+        0.6432033993605725,
+        3.708479312417135,
+        17.24117765724066
+      ],
+      "closest_approach_time_s": [
+        62.800000000000004,
+        120.0,
+        112.65
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 1.553220807885147,
+        "median": 1.5280354387185522,
+        "max": 2.3933657908090096,
+        "terminal": 1.0815857927818215
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.6086344735186079,
+        "median_abs": 0.5088129913859906,
+        "max_abs": 1.0593578971886752,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10004,
+      "closest_approach_m": [
+        13.122726046300565,
+        9.811838718912488,
+        27.621346427406284
+      ],
+      "closest_approach_time_s": [
+        25.900000000000002,
+        46.7,
+        47.650000000000006
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 26.87687534210599,
+        "median": 33.62092968013292,
+        "max": 47.17370597021619,
+        "terminal": 47.17370597021619
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.9157142758254668,
+        "median_abs": 1.857648459561788,
+        "max_abs": 3.1405478783918173,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10005,
+      "closest_approach_m": [
+        13.969880746533391,
+        19.107068040218536,
+        36.353645081183075
+      ],
+      "closest_approach_time_s": [
+        16.95,
+        88.55000000000001,
+        52.25
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 14.376979725740455,
+        "median": 15.738541545737284,
+        "max": 23.360632535002733,
+        "terminal": 23.006553577092344
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.9553753183044822,
+        "median_abs": 1.9933312505892247,
+        "max_abs": 3.141493760424964,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10006,
+      "closest_approach_m": [
+        4.617696958889524,
+        23.956766897806986,
+        34.998555241766134
+      ],
+      "closest_approach_time_s": [
+        114.65,
+        85.65,
+        117.9
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 1.586505927412357,
+        "median": 1.0265317848877968,
+        "max": 5.467485551778288,
+        "terminal": 0.2637696602960229
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.33739236403961065,
+        "median_abs": 0.2944898286750139,
+        "max_abs": 1.0285290814555719,
+        "yaw_command_sign_agreement": 0.9845833333333334
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10007,
+      "closest_approach_m": [
+        12.298468485929108,
+        18.02530374276766,
+        35.4888131589514
+      ],
+      "closest_approach_time_s": [
+        18.6,
+        32.15,
+        25.8
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 10.523869980168696,
+        "median": 10.54992319854064,
+        "max": 21.388357650808345,
+        "terminal": 13.928609632929593
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.8125617633795235,
+        "median_abs": 1.8317090961350266,
+        "max_abs": 3.1376368741083205,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10008,
+      "closest_approach_m": [
+        2.4960262041396515,
+        12.665773096391598,
+        17.50123268238646
+      ],
+      "closest_approach_time_s": [
+        70.5,
+        104.05000000000001,
+        112.75
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 4.895838158039063,
+        "median": 3.5067727137515163,
+        "max": 13.03414218772268,
+        "terminal": 12.173659909483407
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.5101927086320797,
+        "median_abs": 1.3577698699057554,
+        "max_abs": 3.1414627381378453,
+        "yaw_command_sign_agreement": 0.9970833333333333
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10009,
+      "closest_approach_m": [
+        1.9717096194816472,
+        11.139308646664563,
+        22.345286747042504
+      ],
+      "closest_approach_time_s": [
+        84.60000000000001,
+        38.650000000000006,
+        48.45
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 6.437253593683625,
+        "median": 6.251302410795189,
+        "max": 12.070112436430817,
+        "terminal": 1.8086203103628795
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.8260121240244822,
+        "median_abs": 0.8703101488878808,
+        "max_abs": 1.3912187695078857,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10010,
+      "closest_approach_m": [
+        3.5679643455169963,
+        24.765764755503675,
+        26.755226463960955
+      ],
+      "closest_approach_time_s": [
+        25.950000000000003,
+        26.450000000000003,
+        58.300000000000004
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 18.766070254326674,
+        "median": 22.335616113187044,
+        "max": 35.713681934715176,
+        "terminal": 35.713681934715176
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.0964054423681158,
+        "median_abs": 0.8706110132254294,
+        "max_abs": 3.1414713157042153,
+        "yaw_command_sign_agreement": 0.9845833333333334
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10011,
+      "closest_approach_m": [
+        10.33247607311952,
+        22.059143126580974,
+        36.209493562769055
+      ],
+      "closest_approach_time_s": [
+        106.05000000000001,
+        105.30000000000001,
+        105.5
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 7.851714490904242,
+        "median": 8.26828870261591,
+        "max": 10.145477060978283,
+        "terminal": 7.332934086488138
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.6969474402076938,
+        "median_abs": 0.7245851380538789,
+        "max_abs": 1.5044460172566758,
+        "yaw_command_sign_agreement": 0.98375
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10012,
+      "closest_approach_m": [
+        14.210846218209454,
+        28.371612865013674,
+        42.48185760162214
+      ],
+      "closest_approach_time_s": [
+        15.15,
+        19.400000000000002,
+        18.45
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 18.131808968903382,
+        "median": 20.543719651462673,
+        "max": 33.87096471959174,
+        "terminal": 33.87096471959174
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.169937162416099,
+        "median_abs": 2.2311223883108138,
+        "max_abs": 3.1407154722933686,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10013,
+      "closest_approach_m": [
+        13.85965320940341,
+        23.044282802563696,
+        40.87977017648142
+      ],
+      "closest_approach_time_s": [
+        16.95,
+        53.150000000000006,
+        52.75
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 21.821239847971167,
+        "median": 25.641335104866577,
+        "max": 37.05902669491949,
+        "terminal": 37.05902669491949
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.090490404485505,
+        "median_abs": 2.0187865289409404,
+        "max_abs": 3.141140044965441,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10014,
+      "closest_approach_m": [
+        2.1089706063479663,
+        18.879092681409222,
+        18.37176597861251
+      ],
+      "closest_approach_time_s": [
+        33.15,
+        37.300000000000004,
+        118.65
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 10.422242160974266,
+        "median": 13.409095722952937,
+        "max": 16.312726380240864,
+        "terminal": 16.22954068544804
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.7790881868419914,
+        "median_abs": 0.6784657317573908,
+        "max_abs": 3.1350691873298953,
+        "yaw_command_sign_agreement": 0.9854166666666667
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10015,
+      "closest_approach_m": [
+        12.139802017853563,
+        19.401826624753436,
+        35.95307584192885
+      ],
+      "closest_approach_time_s": [
+        19.650000000000002,
+        32.95,
+        29.1
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 22.520719474149608,
+        "median": 25.81347865166785,
+        "max": 35.82875205246796,
+        "terminal": 22.21172193325512
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.6907547745183282,
+        "median_abs": 1.7308349732141353,
+        "max_abs": 3.141298291965332,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10016,
+      "closest_approach_m": [
+        4.895096339429042,
+        16.08889808713676,
+        24.4879095839853
+      ],
+      "closest_approach_time_s": [
+        120.0,
+        37.95,
+        51.75
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 6.158295642220649,
+        "median": 5.6860219976418485,
+        "max": 12.945727220801361,
+        "terminal": 2.8118272476964523
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.1393026463954647,
+        "median_abs": 1.097325110556945,
+        "max_abs": 1.8347593841702452,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10017,
+      "closest_approach_m": [
+        9.852235499717757,
+        5.3407342591122235,
+        22.56371355994322
+      ],
+      "closest_approach_time_s": [
+        19.700000000000003,
+        33.300000000000004,
+        35.5
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 21.856672784288477,
+        "median": 23.01107314011489,
+        "max": 40.44757085902351,
+        "terminal": 16.61000454748418
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.2802630903002363,
+        "median_abs": 1.2292390036942864,
+        "max_abs": 3.1391817381358345,
+        "yaw_command_sign_agreement": 0.9958333333333333
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10018,
+      "closest_approach_m": [
+        8.277473404186225,
+        12.37071363115584,
+        21.91102209843915
+      ],
+      "closest_approach_time_s": [
+        88.85000000000001,
+        36.0,
+        120.0
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 13.666288751227023,
+        "median": 12.38934641747344,
+        "max": 31.130685417932234,
+        "terminal": 14.398784839609364
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.4001241347646447,
+        "median_abs": 1.2623628212658429,
+        "max_abs": 3.141401026974161,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10019,
+      "closest_approach_m": [
+        15.960357887598137,
+        26.075862695750597,
+        43.92194012335096
+      ],
+      "closest_approach_time_s": [
+        16.0,
+        48.800000000000004,
+        48.5
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 24.79861193951949,
+        "median": 28.132850335993297,
+        "max": 40.51659289788945,
+        "terminal": 40.51659289788945
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.1134145276468104,
+        "median_abs": 2.1125941949513813,
+        "max_abs": 3.141217015265065,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10020,
+      "closest_approach_m": [
+        15.233730365125957,
+        32.299594278491135,
+        45.33918452023499
+      ],
+      "closest_approach_time_s": [
+        104.75,
+        119.4,
+        119.05000000000001
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 2.0853897107456807,
+        "median": 1.9898203874325882,
+        "max": 4.6199869675208305,
+        "terminal": 3.8855347042957646
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.5587398230038245,
+        "median_abs": 0.6218365655648737,
+        "max_abs": 0.9015901328503125,
+        "yaw_command_sign_agreement": 0.9791666666666666
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10021,
+      "closest_approach_m": [
+        16.937028460004147,
+        34.688241493306045,
+        47.275946448258296
+      ],
+      "closest_approach_time_s": [
+        22.150000000000002,
+        14.450000000000001,
+        21.900000000000002
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 4.739428068207859,
+        "median": 3.1238234638641327,
+        "max": 13.215598093022678,
+        "terminal": 13.215598093022678
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.6193260321915923,
+        "median_abs": 0.6522242376031727,
+        "max_abs": 1.1202770414708114,
+        "yaw_command_sign_agreement": 0.9808333333333333
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10022,
+      "closest_approach_m": [
+        9.732991577316206,
+        13.080933787234255,
+        30.359928974428023
+      ],
+      "closest_approach_time_s": [
+        21.85,
+        101.30000000000001,
+        101.0
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 12.83666806633115,
+        "median": 14.35339592590002,
+        "max": 19.024465055229687,
+        "terminal": 18.64688816053424
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.7326087032304671,
+        "median_abs": 0.5665303034049782,
+        "max_abs": 1.9318143388714595,
+        "yaw_command_sign_agreement": 0.9816666666666667
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10023,
+      "closest_approach_m": [
+        6.185628542373317,
+        11.37580466175032,
+        23.66748820947266
+      ],
+      "closest_approach_time_s": [
+        120.0,
+        72.3,
+        72.4
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 7.84137945684536,
+        "median": 9.098112255542325,
+        "max": 12.170914125993994,
+        "terminal": 6.185628542373317
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.828811792905464,
+        "median_abs": 1.761444454654085,
+        "max_abs": 3.141149585453448,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10024,
+      "closest_approach_m": [
+        11.40191246981073,
+        24.564189995305924,
+        38.61699776261597
+      ],
+      "closest_approach_time_s": [
+        18.75,
+        23.55,
+        23.25
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 9.324408141675871,
+        "median": 8.151371794627426,
+        "max": 21.82600677783483,
+        "terminal": 20.038216108574087
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.146064227837415,
+        "median_abs": 2.16095864881445,
+        "max_abs": 3.141120645069413,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10025,
+      "closest_approach_m": [
+        3.8261193765688715,
+        10.36759299813144,
+        25.14248436316528
+      ],
+      "closest_approach_time_s": [
+        118.4,
+        38.300000000000004,
+        38.5
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 7.0323339738408,
+        "median": 5.4035000686376655,
+        "max": 12.12866518055444,
+        "terminal": 3.9533204047789705
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.44803871437344356,
+        "median_abs": 0.4722329676656235,
+        "max_abs": 0.9092316942074066,
+        "yaw_command_sign_agreement": 0.98625
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10026,
+      "closest_approach_m": [
+        15.423025611493411,
+        33.23108069759008,
+        45.48991502108355
+      ],
+      "closest_approach_time_s": [
+        15.5,
+        15.65,
+        15.55
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 9.626404721914678,
+        "median": 9.049492143350417,
+        "max": 24.7550500131182,
+        "terminal": 24.7550500131182
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.8866588104447273,
+        "median_abs": 0.806776106183631,
+        "max_abs": 2.0897902730754487,
+        "yaw_command_sign_agreement": 0.9870833333333333
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10027,
+      "closest_approach_m": [
+        19.95949828457629,
+        36.972258019424594,
+        50.237622944363366
+      ],
+      "closest_approach_time_s": [
+        22.900000000000002,
+        9.700000000000001,
+        22.650000000000002
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 6.242657936566978,
+        "median": 5.457681663300328,
+        "max": 13.195740398108214,
+        "terminal": 13.053305199976142
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.6456859160424978,
+        "median_abs": 0.6653922151449227,
+        "max_abs": 1.1872229413789277,
+        "yaw_command_sign_agreement": 0.9783333333333334
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10028,
+      "closest_approach_m": [
+        0.5032574999433559,
+        18.318609964166964,
+        30.399490193944224
+      ],
+      "closest_approach_time_s": [
+        74.3,
+        34.15,
+        40.75
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 3.906285891494781,
+        "median": 3.684960544814132,
+        "max": 7.124070032130379,
+        "terminal": 1.5242470481880122
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.6268374553659221,
+        "median_abs": 0.6574614063349378,
+        "max_abs": 0.9138351569251079,
+        "yaw_command_sign_agreement": 0.9941733430444283
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10029,
+      "closest_approach_m": [
+        3.0594596521401205,
+        22.432383097045708,
+        33.20029736808906
+      ],
+      "closest_approach_time_s": [
+        93.55000000000001,
+        118.2,
+        118.05000000000001
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 1.523106853101879,
+        "median": 1.1170291809640627,
+        "max": 5.2640596928899015,
+        "terminal": 1.5706073994590481
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.2900117658502025,
+        "median_abs": 0.23686789231355887,
+        "max_abs": 0.8894680583253562,
+        "yaw_command_sign_agreement": 0.98875
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10030,
+      "closest_approach_m": [
+        5.8097483083946155,
+        13.377648196264865,
+        7.551508445120748
+      ],
+      "closest_approach_time_s": [
+        32.9,
+        61.35,
+        112.35000000000001
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 13.86945280089309,
+        "median": 14.968191453622214,
+        "max": 26.39468406777683,
+        "terminal": 26.39468406777683
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.7359912983834338,
+        "median_abs": 0.6575747625903672,
+        "max_abs": 3.138951945930776,
+        "yaw_command_sign_agreement": 0.9645833333333333
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10031,
+      "closest_approach_m": [
+        4.9058801720807805,
+        11.837943977923514,
+        22.7805543952333
+      ],
+      "closest_approach_time_s": [
+        23.900000000000002,
+        120.0,
+        98.30000000000001
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 7.574337984300728,
+        "median": 8.89157211484341,
+        "max": 9.747519784580984,
+        "terminal": 9.51927310357967
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.37805387161452136,
+        "median_abs": 0.39320909618547384,
+        "max_abs": 0.7037395111428734,
+        "yaw_command_sign_agreement": 0.9841666666666666
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10032,
+      "closest_approach_m": [
+        3.735589543824173,
+        0.8630646134030299,
+        11.628071123040794
+      ],
+      "closest_approach_time_s": [
+        120.0,
+        68.25,
+        53.0
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 14.895936227642649,
+        "median": 11.661382933921814,
+        "max": 32.54084018303101,
+        "terminal": 3.735589543824173
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.7964957831886323,
+        "median_abs": 0.6649718966365372,
+        "max_abs": 2.32141968066768,
+        "yaw_command_sign_agreement": 0.9929166666666667
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10033,
+      "closest_approach_m": [
+        12.504863755176101,
+        13.240431578319532,
+        27.526373962882452
+      ],
+      "closest_approach_time_s": [
+        18.900000000000002,
+        65.60000000000001,
+        67.95
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 27.633022059792925,
+        "median": 31.84037307546756,
+        "max": 51.33773315368086,
+        "terminal": 51.33773315368086
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.9989346191494894,
+        "median_abs": 1.968137800933348,
+        "max_abs": 3.138959652105965,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10034,
+      "closest_approach_m": [
+        3.3027048578561664,
+        16.962477574707485,
+        27.05529786996538
+      ],
+      "closest_approach_time_s": [
+        50.35,
+        37.2,
+        48.25
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 5.727726320841687,
+        "median": 5.329528206050801,
+        "max": 10.04263006635308,
+        "terminal": 5.329636515010797
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.23921169665699,
+        "median_abs": 1.0877233942690046,
+        "max_abs": 2.0415190862980954,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10035,
+      "closest_approach_m": [
+        16.863245718653637,
+        20.14959390794943,
+        38.177349875465644
+      ],
+      "closest_approach_time_s": [
+        12.5,
+        29.55,
+        29.55
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 52.88491467577235,
+        "median": 63.04709979307175,
+        "max": 82.69786286662438,
+        "terminal": 82.69786286662438
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.2668154994360241,
+        "median_abs": 1.0987519839213953,
+        "max_abs": 2.6507985697964846,
+        "yaw_command_sign_agreement": 0.9870833333333333
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10036,
+      "closest_approach_m": [
+        4.427716238731504,
+        22.782710335959102,
+        34.41871396518427
+      ],
+      "closest_approach_time_s": [
+        117.85000000000001,
+        83.0,
+        120.0
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 4.914320128527143,
+        "median": 4.445182991582104,
+        "max": 10.081414760369418,
+        "terminal": 2.7165857971858998
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.3414328723863889,
+        "median_abs": 1.2282240302648293,
+        "max_abs": 2.539218453412441,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10037,
+      "closest_approach_m": [
+        4.1786039881901,
+        16.791618977008813,
+        25.9974989096125
+      ],
+      "closest_approach_time_s": [
+        40.550000000000004,
+        37.1,
+        45.95
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 4.076739135784876,
+        "median": 4.319072674549313,
+        "max": 12.24055474965715,
+        "terminal": 12.24055474965715
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.3033616013754556,
+        "median_abs": 1.2427230249447423,
+        "max_abs": 2.242066681471714,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10038,
+      "closest_approach_m": [
+        12.612810493843853,
+        27.418248014954763,
+        40.992653661451676
+      ],
+      "closest_approach_time_s": [
+        20.150000000000002,
+        20.400000000000002,
+        20.35
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 6.192982010130389,
+        "median": 5.745581656796681,
+        "max": 13.311417614907555,
+        "terminal": 11.38307929821766
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.1623655115789675,
+        "median_abs": 2.27142604538395,
+        "max_abs": 3.14119185281509,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10039,
+      "closest_approach_m": [
+        13.23853948181148,
+        20.830426939139723,
+        38.5327954069439
+      ],
+      "closest_approach_time_s": [
+        18.45,
+        48.1,
+        47.75
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 25.07160508803075,
+        "median": 26.34640338933536,
+        "max": 43.54966585336942,
+        "terminal": 43.54966585336942
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.7696206209260478,
+        "median_abs": 0.6773340010549884,
+        "max_abs": 1.935777543188302,
+        "yaw_command_sign_agreement": 0.9795833333333334
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10040,
+      "closest_approach_m": [
+        4.890548217659736,
+        17.26692191652428,
+        29.320323835987203
+      ],
+      "closest_approach_time_s": [
+        98.85000000000001,
+        104.10000000000001,
+        101.95
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 7.338104763005486,
+        "median": 6.8351944664631885,
+        "max": 12.159483778056206,
+        "terminal": 6.484389190729324
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.6355469237970657,
+        "median_abs": 0.6628703155609251,
+        "max_abs": 1.1690203151391458,
+        "yaw_command_sign_agreement": 0.9966666666666667
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10041,
+      "closest_approach_m": [
+        0.5875057720469349,
+        8.874022973528266,
+        21.67720887217981
+      ],
+      "closest_approach_time_s": [
+        72.4,
+        38.25,
+        44.85
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 8.186250335285843,
+        "median": 8.363588279251118,
+        "max": 14.678540380043085,
+        "terminal": 1.9969572810627267
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.7001701262715763,
+        "median_abs": 0.8095891088249847,
+        "max_abs": 1.434217493282113,
+        "yaw_command_sign_agreement": 0.9926953981008035
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10042,
+      "closest_approach_m": [
+        2.2420496548308972,
+        17.147195171176175,
+        23.61287677838849
+      ],
+      "closest_approach_time_s": [
+        73.10000000000001,
+        94.05000000000001,
+        98.65
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 4.393430077507092,
+        "median": 4.10725351784737,
+        "max": 8.985198922189129,
+        "terminal": 3.56871980093933
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.3407191687735747,
+        "median_abs": 1.1553669123937687,
+        "max_abs": 3.1406182334566317,
+        "yaw_command_sign_agreement": 0.9970833333333333
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10043,
+      "closest_approach_m": [
+        2.4121348199748263,
+        4.909227967818285,
+        22.882252227653336
+      ],
+      "closest_approach_time_s": [
+        76.05,
+        120.0,
+        120.0
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 5.213109855097102,
+        "median": 3.4550367553561725,
+        "max": 21.635377766406503,
+        "terminal": 21.635377766406503
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.6474587466296546,
+        "median_abs": 1.351808518084273,
+        "max_abs": 3.1413671249183817,
+        "yaw_command_sign_agreement": 0.9970833333333333
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10044,
+      "closest_approach_m": [
+        0.7280994570525333,
+        11.138019819580341,
+        21.885923679218603
+      ],
+      "closest_approach_time_s": [
+        90.35000000000001,
+        37.95,
+        43.7
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 5.804453933900868,
+        "median": 5.685467198519344,
+        "max": 10.195323061236547,
+        "terminal": 1.9995704591404027
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.48152016440421613,
+        "median_abs": 0.46092458393206726,
+        "max_abs": 0.9522950916645627,
+        "yaw_command_sign_agreement": 0.9958775029446407
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10045,
+      "closest_approach_m": [
+        10.728560430578776,
+        20.594410683238756,
+        35.94815814183377
+      ],
+      "closest_approach_time_s": [
+        19.450000000000003,
+        27.700000000000003,
+        26.900000000000002
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 12.461433294247952,
+        "median": 11.84150992318186,
+        "max": 27.473387299776746,
+        "terminal": 27.473387299776746
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.9616411776556872,
+        "median_abs": 1.9079302679543568,
+        "max_abs": 3.1411520400512116,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10046,
+      "closest_approach_m": [
+        13.261280739527406,
+        24.603299040094093,
+        39.91875260730181
+      ],
+      "closest_approach_time_s": [
+        17.95,
+        24.1,
+        22.650000000000002
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 25.963089080497937,
+        "median": 28.361231231287732,
+        "max": 47.55309866442952,
+        "terminal": 47.55309866442952
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.004679725935582,
+        "median_abs": 2.019027947883849,
+        "max_abs": 3.1405210375986514,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10047,
+      "closest_approach_m": [
+        3.4912279793951018,
+        15.901497217507414,
+        13.150409037004174
+      ],
+      "closest_approach_time_s": [
+        30.0,
+        36.35,
+        90.75
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 17.196670432944043,
+        "median": 20.157191526865113,
+        "max": 31.429089757533433,
+        "terminal": 31.429089757533433
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.830093412070307,
+        "median_abs": 0.7330317621361163,
+        "max_abs": 3.1408873423541124,
+        "yaw_command_sign_agreement": 0.9858333333333333
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10048,
+      "closest_approach_m": [
+        0.09273740434394318,
+        10.79764025074739,
+        22.875871324439423
+      ],
+      "closest_approach_time_s": [
+        70.45,
+        37.550000000000004,
+        43.300000000000004
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 7.111189012532391,
+        "median": 7.448925438435973,
+        "max": 12.449164872501777,
+        "terminal": 1.9974281558437272
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.5837337367335433,
+        "median_abs": 0.7130792277476097,
+        "max_abs": 1.23388163378224,
+        "yaw_command_sign_agreement": 0.9840546697038725
+      }
+    },
+    {
+      "policy": "PID-v1",
+      "seed": 10049,
+      "closest_approach_m": [
+        2.024485333136071,
+        15.328790427066272,
+        27.013962108914104
+      ],
+      "closest_approach_time_s": [
+        43.45,
+        114.35000000000001,
+        94.75
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 3.9716416530217717,
+        "median": 3.2999917972943713,
+        "max": 11.947904004977083,
+        "terminal": 11.947904004977083
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.4435208872030012,
+        "median_abs": 1.53985200827467,
+        "max_abs": 2.6616341171138918,
+        "yaw_command_sign_agreement": 0.9970833333333333
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10000,
+      "closest_approach_m": [
+        8.018573509897644,
+        25.31743441059172,
+        28.91920499416042
+      ],
+      "closest_approach_time_s": [
+        57.150000000000006,
+        25.35,
+        67.4
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 11.366984713958713,
+        "median": 8.57507178854243,
+        "max": 25.636911835322508,
+        "terminal": 25.636911835322508
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.6961984301873132,
+        "median_abs": 1.7190253026432858,
+        "max_abs": 3.138382907867335,
+        "yaw_command_sign_agreement": 0.9970833333333333
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10001,
+      "closest_approach_m": [
+        9.34456929319266,
+        30.284388196461208,
+        35.861281764085405
+      ],
+      "closest_approach_time_s": [
+        17.95,
+        17.35,
+        43.5
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 19.524864416808512,
+        "median": 20.903740309643567,
+        "max": 37.74716510433766,
+        "terminal": 37.74716510433766
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.9159742591264902,
+        "median_abs": 0.7462355607672253,
+        "max_abs": 2.748997085123534,
+        "yaw_command_sign_agreement": 0.9804166666666667
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10002,
+      "closest_approach_m": [
+        2.1426758965554273,
+        0.06645959584216198,
+        15.674067491775684
+      ],
+      "closest_approach_time_s": [
+        40.75,
+        91.65,
+        83.85000000000001
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 12.04443347331446,
+        "median": 7.10700850248204,
+        "max": 34.794383325502174,
+        "terminal": 34.794383325502174
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.545217586983011,
+        "median_abs": 1.9330710057041864,
+        "max_abs": 2.268471606985328,
+        "yaw_command_sign_agreement": 0.99625
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10003,
+      "closest_approach_m": [
+        2.710138457049168,
+        8.421545167807519,
+        17.098601470393746
+      ],
+      "closest_approach_time_s": [
+        38.400000000000006,
+        108.25,
+        120.0
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 5.539094214706218,
+        "median": 3.644965372995552,
+        "max": 13.32515877611144,
+        "terminal": 13.32515877611144
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.655474182866072,
+        "median_abs": 1.8984556406952027,
+        "max_abs": 3.1412145183689613,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10004,
+      "closest_approach_m": [
+        10.459800717811227,
+        7.519848889739569,
+        25.521422445288735
+      ],
+      "closest_approach_time_s": [
+        27.900000000000002,
+        48.75,
+        48.5
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 23.32753445354244,
+        "median": 25.823440022895213,
+        "max": 40.20550368291978,
+        "terminal": 39.75012085935189
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.9298546534914787,
+        "median_abs": 1.9870076253628728,
+        "max_abs": 3.1400956841007748,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10005,
+      "closest_approach_m": [
+        13.379135906863677,
+        18.771193175790547,
+        35.5294027508624
+      ],
+      "closest_approach_time_s": [
+        18.05,
+        93.4,
+        53.7
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 14.37350521276983,
+        "median": 16.281571021974056,
+        "max": 23.92993448869968,
+        "terminal": 23.803729882798965
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.0132490458813224,
+        "median_abs": 2.0933309415565433,
+        "max_abs": 3.1407690577101484,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10006,
+      "closest_approach_m": [
+        2.378573901204654,
+        21.320920180036428,
+        32.04962399008229
+      ],
+      "closest_approach_time_s": [
+        110.10000000000001,
+        120.0,
+        120.0
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 1.8001956856036376,
+        "median": 1.4083631478309984,
+        "max": 5.3388637736975735,
+        "terminal": 2.014444235325686
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.39063103686422423,
+        "median_abs": 0.4010020535229978,
+        "max_abs": 1.0276364218088714,
+        "yaw_command_sign_agreement": 0.9845833333333334
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10007,
+      "closest_approach_m": [
+        11.32599995158845,
+        14.707003300254334,
+        32.37490416429285
+      ],
+      "closest_approach_time_s": [
+        19.75,
+        31.55,
+        30.35
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 9.967689992320333,
+        "median": 10.416604085999829,
+        "max": 22.571755695996035,
+        "terminal": 6.040399781373622
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.7077333301280706,
+        "median_abs": 1.7303692016724685,
+        "max_abs": 3.141097566487155,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10008,
+      "closest_approach_m": [
+        4.9606409754774825,
+        23.76967675932368,
+        21.912224194998156
+      ],
+      "closest_approach_time_s": [
+        34.5,
+        27.75,
+        81.2
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 14.960815200577509,
+        "median": 13.099722307772993,
+        "max": 31.36203549503033,
+        "terminal": 26.81784605375856
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.6028337541443383,
+        "median_abs": 1.7464462917282597,
+        "max_abs": 3.1410122405235605,
+        "yaw_command_sign_agreement": 0.9966666666666667
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10009,
+      "closest_approach_m": [
+        3.1448444965404594,
+        14.098305848441639,
+        24.126897638070133
+      ],
+      "closest_approach_time_s": [
+        73.75,
+        38.5,
+        43.5
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 7.497849685740233,
+        "median": 5.846106575703077,
+        "max": 28.082979258358982,
+        "terminal": 28.082979258358982
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.4479190084070985,
+        "median_abs": 0.9298223207465535,
+        "max_abs": 2.6520816004906154,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10010,
+      "closest_approach_m": [
+        6.209180369658706,
+        26.365429629096067,
+        24.899354528312383
+      ],
+      "closest_approach_time_s": [
+        23.5,
+        19.3,
+        97.55000000000001
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 15.364895081396732,
+        "median": 17.063186119607003,
+        "max": 30.31155793999597,
+        "terminal": 30.31155793999597
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.9865559682333251,
+        "median_abs": 0.7885625298188782,
+        "max_abs": 3.136055256843075,
+        "yaw_command_sign_agreement": 0.9775
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10011,
+      "closest_approach_m": [
+        6.040727667090455,
+        22.22239491104833,
+        34.4083175425484
+      ],
+      "closest_approach_time_s": [
+        103.45,
+        103.0,
+        103.15
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 6.0731537339033155,
+        "median": 6.085392751783567,
+        "max": 10.495224156865708,
+        "terminal": 2.911879276941921
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.7516230219426437,
+        "median_abs": 0.7625976522522259,
+        "max_abs": 1.534294523863035,
+        "yaw_command_sign_agreement": 0.98375
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10012,
+      "closest_approach_m": [
+        13.47800099972677,
+        27.88121170915727,
+        41.80694986643112
+      ],
+      "closest_approach_time_s": [
+        17.900000000000002,
+        20.8,
+        19.450000000000003
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 19.236441470198216,
+        "median": 20.31698815537757,
+        "max": 35.45156155152131,
+        "terminal": 35.45156155152131
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.2571512768873103,
+        "median_abs": 2.2797779037625263,
+        "max_abs": 3.1412861018967058,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10013,
+      "closest_approach_m": [
+        13.134127261738504,
+        23.46799289229846,
+        41.328672991046474
+      ],
+      "closest_approach_time_s": [
+        18.2,
+        58.45,
+        58.25
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 21.147056809452813,
+        "median": 24.909482730877794,
+        "max": 39.190443048372586,
+        "terminal": 39.16648717665176
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.167043821641098,
+        "median_abs": 2.1757848275050433,
+        "max_abs": 3.141164623503315,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10014,
+      "closest_approach_m": [
+        0.9245117608453124,
+        14.872635276443654,
+        11.588395267143898
+      ],
+      "closest_approach_time_s": [
+        32.550000000000004,
+        110.75,
+        112.75
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 2.6913821994319216,
+        "median": 2.6674885059645943,
+        "max": 5.586572942538057,
+        "terminal": 1.0636910909775585
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.5576651793817118,
+        "median_abs": 1.349612577481393,
+        "max_abs": 3.1351894406522827,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10015,
+      "closest_approach_m": [
+        10.77994675472211,
+        13.431450669410001,
+        30.901248765894024
+      ],
+      "closest_approach_time_s": [
+        25.8,
+        40.550000000000004,
+        38.15
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 20.649218540889702,
+        "median": 24.052392062870265,
+        "max": 34.12864323857544,
+        "terminal": 33.40520036057509
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.8373082983158178,
+        "median_abs": 1.8902962417810913,
+        "max_abs": 3.139679845998083,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10016,
+      "closest_approach_m": [
+        0.6379659716108319,
+        16.479093230514163,
+        24.8309152716522
+      ],
+      "closest_approach_time_s": [
+        112.7,
+        120.0,
+        45.800000000000004
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 7.448193022113278,
+        "median": 5.349055373946902,
+        "max": 17.127866340445586,
+        "terminal": 0.03285600698033796
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.0172824107983212,
+        "median_abs": 0.7658238007691324,
+        "max_abs": 2.113586466320408,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10017,
+      "closest_approach_m": [
+        1.6913229009725226,
+        7.214004985981483,
+        15.348789293880857
+      ],
+      "closest_approach_time_s": [
+        78.95,
+        35.15,
+        43.0
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 8.314796233921983,
+        "median": 8.650150210283808,
+        "max": 15.529018860896967,
+        "terminal": 1.9988717810954046
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.6858809273290392,
+        "median_abs": 0.6208488898762312,
+        "max_abs": 1.6413845964323375,
+        "yaw_command_sign_agreement": 0.9895629484670581
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10018,
+      "closest_approach_m": [
+        10.348388428387173,
+        0.12458508452295267,
+        6.559328344037068
+      ],
+      "closest_approach_time_s": [
+        26.900000000000002,
+        46.7,
+        69.2
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 21.637220274188667,
+        "median": 22.530701141176962,
+        "max": 38.92225981151199,
+        "terminal": 17.223396489170227
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.3488607369991792,
+        "median_abs": 1.0622420699827897,
+        "max_abs": 2.4476390707486053,
+        "yaw_command_sign_agreement": 0.9970833333333333
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10019,
+      "closest_approach_m": [
+        15.357950501189556,
+        23.93281056724001,
+        41.851122607879184
+      ],
+      "closest_approach_time_s": [
+        17.45,
+        60.400000000000006,
+        60.25
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 21.830324658157153,
+        "median": 25.134000351998377,
+        "max": 37.25361941273928,
+        "terminal": 37.22800010094516
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.192461713965861,
+        "median_abs": 2.2164486670685655,
+        "max_abs": 3.140593538795098,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10020,
+      "closest_approach_m": [
+        13.076003752747758,
+        29.43535540009926,
+        42.408187065148645
+      ],
+      "closest_approach_time_s": [
+        120.0,
+        116.15,
+        115.80000000000001
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 2.1158827057787373,
+        "median": 2.0759839309693766,
+        "max": 4.499468598979687,
+        "terminal": 3.40509835276096
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.5468286012794318,
+        "median_abs": 0.6149222680552375,
+        "max_abs": 0.8837522750806109,
+        "yaw_command_sign_agreement": 0.9741666666666666
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10021,
+      "closest_approach_m": [
+        17.340584103310242,
+        35.129892187695056,
+        47.689786252434835
+      ],
+      "closest_approach_time_s": [
+        23.35,
+        14.4,
+        22.400000000000002
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 3.9115603498769445,
+        "median": 2.8482606978879237,
+        "max": 10.230341994611674,
+        "terminal": 10.225979684392183
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.5766772540831647,
+        "median_abs": 0.6143025149464649,
+        "max_abs": 1.0559933871479457,
+        "yaw_command_sign_agreement": 0.97375
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10022,
+      "closest_approach_m": [
+        9.957442759649952,
+        13.133935107332913,
+        30.017839462555266
+      ],
+      "closest_approach_time_s": [
+        22.150000000000002,
+        120.0,
+        120.0
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 11.039433044222994,
+        "median": 11.761785192248109,
+        "max": 16.562748477608938,
+        "terminal": 15.60450276951542
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.7325640396600555,
+        "median_abs": 0.5005557200964589,
+        "max_abs": 1.942412758394616,
+        "yaw_command_sign_agreement": 0.97375
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10023,
+      "closest_approach_m": [
+        9.249324172130297,
+        8.067387283717068,
+        22.592841839177815
+      ],
+      "closest_approach_time_s": [
+        29.700000000000003,
+        100.5,
+        100.10000000000001
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 10.357194821517885,
+        "median": 11.751435113085684,
+        "max": 18.00619016881416,
+        "terminal": 17.70867317497739
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.8383314428558832,
+        "median_abs": 1.8962802627361262,
+        "max_abs": 3.1403005785805194,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10024,
+      "closest_approach_m": [
+        10.793973569099894,
+        24.452600110993924,
+        38.38918877611959
+      ],
+      "closest_approach_time_s": [
+        19.0,
+        23.1,
+        22.6
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 8.609252874485373,
+        "median": 8.002593440275271,
+        "max": 20.499442564195917,
+        "terminal": 19.790257792331076
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.1247758377510424,
+        "median_abs": 2.1691449783301575,
+        "max_abs": 3.14139188885684,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10025,
+      "closest_approach_m": [
+        0.5899296346793945,
+        13.70735385662398,
+        27.10865295930876
+      ],
+      "closest_approach_time_s": [
+        66.5,
+        34.5,
+        34.550000000000004
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 6.1622101413741746,
+        "median": 7.0267739380297325,
+        "max": 10.01699737515433,
+        "terminal": 1.99906067003168
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.6223651617994727,
+        "median_abs": 0.6969766143515481,
+        "max_abs": 1.0867681639707103,
+        "yaw_command_sign_agreement": 0.991876523151909
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10026,
+      "closest_approach_m": [
+        15.39248766928925,
+        33.636607072393105,
+        45.59869494076605
+      ],
+      "closest_approach_time_s": [
+        16.35,
+        16.1,
+        16.3
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 9.13958638506092,
+        "median": 8.812153217125287,
+        "max": 22.70828137322372,
+        "terminal": 22.70828137322372
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.8508607644612738,
+        "median_abs": 0.7788160604004785,
+        "max_abs": 2.0337655739139855,
+        "yaw_command_sign_agreement": 0.9833333333333333
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10027,
+      "closest_approach_m": [
+        20.000261227369794,
+        37.42571059067388,
+        50.24962005312717
+      ],
+      "closest_approach_time_s": [
+        0.05,
+        12.05,
+        0.05
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 5.480834123241691,
+        "median": 4.837042618566986,
+        "max": 11.175157271249454,
+        "terminal": 11.152965308505056
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.6088541071658233,
+        "median_abs": 0.6317574015083127,
+        "max_abs": 1.1158305011971794,
+        "yaw_command_sign_agreement": 0.9733333333333334
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10028,
+      "closest_approach_m": [
+        3.1912490095284776,
+        20.495400459436595,
+        32.16790555604142
+      ],
+      "closest_approach_time_s": [
+        39.85,
+        30.6,
+        31.950000000000003
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 8.757414745136012,
+        "median": 6.401073440602788,
+        "max": 20.164582082303724,
+        "terminal": 20.164582082303724
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.705892293694651,
+        "median_abs": 1.9235280928742928,
+        "max_abs": 3.1406381200922175,
+        "yaw_command_sign_agreement": 0.9958333333333333
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10029,
+      "closest_approach_m": [
+        1.124625284834692,
+        11.352318930429494,
+        6.591638691273812
+      ],
+      "closest_approach_time_s": [
+        63.25,
+        92.5,
+        120.0
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 2.2079032529028844,
+        "median": 2.0708405290018757,
+        "max": 5.264510774038445,
+        "terminal": 1.1839297131409658
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.3893491154323665,
+        "median_abs": 0.3791759838037632,
+        "max_abs": 0.8799803787151896,
+        "yaw_command_sign_agreement": 0.9864176570458404
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10030,
+      "closest_approach_m": [
+        3.8227210759091843,
+        11.510237974856306,
+        9.493867648758956
+      ],
+      "closest_approach_time_s": [
+        37.65,
+        79.35000000000001,
+        107.5
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 11.535890510864807,
+        "median": 11.28633485688632,
+        "max": 23.7613228920327,
+        "terminal": 23.7613228920327
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.8211874267831158,
+        "median_abs": 0.7512767107835165,
+        "max_abs": 3.1381766218139266,
+        "yaw_command_sign_agreement": 0.9829166666666667
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10031,
+      "closest_approach_m": [
+        4.213588811019218,
+        15.519591862179947,
+        25.41413036119795
+      ],
+      "closest_approach_time_s": [
+        56.550000000000004,
+        36.75,
+        119.5
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 4.689498339144858,
+        "median": 4.8624367709059655,
+        "max": 6.476847807781071,
+        "terminal": 5.0650733658151665
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.403028770541036,
+        "median_abs": 0.3746790136959932,
+        "max_abs": 0.9997248549144733,
+        "yaw_command_sign_agreement": 0.97625
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10032,
+      "closest_approach_m": [
+        1.5169575114464264,
+        6.633803804285391,
+        16.665405007146028
+      ],
+      "closest_approach_time_s": [
+        80.75,
+        36.7,
+        43.300000000000004
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 8.549084633943123,
+        "median": 9.090895746799124,
+        "max": 15.235087119325025,
+        "terminal": 1.996350944583752
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.6809461123984145,
+        "median_abs": 0.6806697339394079,
+        "max_abs": 1.5308997055749907,
+        "yaw_command_sign_agreement": 0.9902597402597403
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10033,
+      "closest_approach_m": [
+        11.702366318163724,
+        21.006710361744776,
+        37.058292823906925
+      ],
+      "closest_approach_time_s": [
+        20.3,
+        33.95,
+        28.900000000000002
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 25.6257040216587,
+        "median": 27.893815090999293,
+        "max": 50.24739830341583,
+        "terminal": 50.24739830341583
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.153110085581471,
+        "median_abs": 2.4098415076270787,
+        "max_abs": 3.1415066199862847,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10034,
+      "closest_approach_m": [
+        1.3639336176985493,
+        17.52600876297952,
+        26.707769430559733
+      ],
+      "closest_approach_time_s": [
+        120.0,
+        37.550000000000004,
+        48.6
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 5.926346071396314,
+        "median": 5.4620562579761565,
+        "max": 13.365973605350751,
+        "terminal": 0.9852072321252754
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.0575926646568103,
+        "median_abs": 0.9325258711735909,
+        "max_abs": 2.1502897529972542,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10035,
+      "closest_approach_m": [
+        15.264701868701769,
+        8.018769942937707,
+        24.902946805923943
+      ],
+      "closest_approach_time_s": [
+        19.55,
+        39.550000000000004,
+        41.050000000000004
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 28.832556144373612,
+        "median": 34.927864012461086,
+        "max": 42.72007987844095,
+        "terminal": 42.72007987844095
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.7965398114495216,
+        "median_abs": 0.7868895482974811,
+        "max_abs": 1.4579154592649088,
+        "yaw_command_sign_agreement": 0.9816666666666667
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10036,
+      "closest_approach_m": [
+        5.070890189918151,
+        19.208786213762213,
+        32.3342783781153
+      ],
+      "closest_approach_time_s": [
+        112.7,
+        79.35000000000001,
+        110.9
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 6.723185447779504,
+        "median": 7.46489164733943,
+        "max": 11.492291165522222,
+        "terminal": 5.284171854035496
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.7092759612719104,
+        "median_abs": 1.6185317066814844,
+        "max_abs": 3.1394671751514833,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10037,
+      "closest_approach_m": [
+        2.3885871025808623,
+        17.10762928127941,
+        27.31413399825231
+      ],
+      "closest_approach_time_s": [
+        32.95,
+        120.0,
+        42.95
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 6.558097195450148,
+        "median": 4.1280620402967205,
+        "max": 21.236045050144362,
+        "terminal": 19.51785991568917
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.2649561683607466,
+        "median_abs": 1.4225526179106305,
+        "max_abs": 2.082144828553005,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10038,
+      "closest_approach_m": [
+        12.214446887296258,
+        27.265149336601368,
+        40.73834520746999
+      ],
+      "closest_approach_time_s": [
+        18.25,
+        20.150000000000002,
+        19.8
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 7.104525639013636,
+        "median": 6.694795155119326,
+        "max": 15.01025145489086,
+        "terminal": 11.651309839363384
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.209099167982826,
+        "median_abs": 2.3091879260036903,
+        "max_abs": 3.14100333001373,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10039,
+      "closest_approach_m": [
+        13.797956269207923,
+        21.40453069772906,
+        38.960995024541006
+      ],
+      "closest_approach_time_s": [
+        19.0,
+        48.25,
+        23.450000000000003
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 24.105704678528614,
+        "median": 25.74702516382071,
+        "max": 41.53259749420381,
+        "terminal": 41.53259749420381
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.7316020736098532,
+        "median_abs": 0.6311032775437444,
+        "max_abs": 1.8947498525807378,
+        "yaw_command_sign_agreement": 0.9754166666666667
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10040,
+      "closest_approach_m": [
+        0.2581265461692576,
+        20.04991204561743,
+        30.631495917362408
+      ],
+      "closest_approach_time_s": [
+        91.30000000000001,
+        29.200000000000003,
+        91.9
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 5.583898700213318,
+        "median": 4.3878239251182025,
+        "max": 10.792395165672684,
+        "terminal": 1.1664671509618294
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.9544755879008088,
+        "median_abs": 0.8473086294396319,
+        "max_abs": 1.9770266341865748,
+        "yaw_command_sign_agreement": 0.9947613504074505
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10041,
+      "closest_approach_m": [
+        1.1610849148518356,
+        12.285890200242859,
+        23.201194007428338
+      ],
+      "closest_approach_time_s": [
+        68.25,
+        40.5,
+        44.6
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 6.3499111277366875,
+        "median": 6.7168421687813185,
+        "max": 10.660531434309718,
+        "terminal": 1.992931451279777
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.7489641166825312,
+        "median_abs": 0.9072368315572701,
+        "max_abs": 1.0883249634432965,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10042,
+      "closest_approach_m": [
+        6.919768394089231,
+        23.945792037403915,
+        24.720314016102854
+      ],
+      "closest_approach_time_s": [
+        58.550000000000004,
+        67.15,
+        72.45
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 10.679832169860079,
+        "median": 8.093489223470598,
+        "max": 24.0717383710762,
+        "terminal": 24.0717383710762
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.6036688880547387,
+        "median_abs": 1.608237549865699,
+        "max_abs": 3.1399549847511854,
+        "yaw_command_sign_agreement": 0.9966666666666667
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10043,
+      "closest_approach_m": [
+        4.861866956674634,
+        15.239988241576002,
+        3.4458262351082842
+      ],
+      "closest_approach_time_s": [
+        35.2,
+        79.85000000000001,
+        90.30000000000001
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 13.813554321406988,
+        "median": 11.265121870842744,
+        "max": 30.07935898597872,
+        "terminal": 22.15449148333529
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 1.4966867967449662,
+        "median_abs": 1.4708623360024151,
+        "max_abs": 3.140898540720881,
+        "yaw_command_sign_agreement": 0.9966666666666667
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10044,
+      "closest_approach_m": [
+        0.7729880952080722,
+        14.788932137234852,
+        24.9640720786942
+      ],
+      "closest_approach_time_s": [
+        73.10000000000001,
+        33.0,
+        36.5
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 3.9035146631351902,
+        "median": 3.3577127065207795,
+        "max": 7.250577200046724,
+        "terminal": 1.751425373134486
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.5892102054014494,
+        "median_abs": 0.6223537744720998,
+        "max_abs": 1.0015127727620998,
+        "yaw_command_sign_agreement": 0.988905325443787
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10045,
+      "closest_approach_m": [
+        9.884471525443693,
+        19.998280761487322,
+        35.17799738847446
+      ],
+      "closest_approach_time_s": [
+        20.200000000000003,
+        27.650000000000002,
+        26.700000000000003
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 10.385635525326077,
+        "median": 9.990759979072852,
+        "max": 21.530822761373436,
+        "terminal": 18.50702189454185
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.0049834612686808,
+        "median_abs": 1.9626446216057307,
+        "max_abs": 3.139965280628242,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10046,
+      "closest_approach_m": [
+        12.398854467858552,
+        23.291153710015507,
+        38.613561415285886
+      ],
+      "closest_approach_time_s": [
+        19.200000000000003,
+        28.150000000000002,
+        24.8
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 26.175415357967456,
+        "median": 27.570981352438984,
+        "max": 50.38610513849816,
+        "terminal": 50.38610513849816
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 2.2293345204048696,
+        "median_abs": 2.506748373115825,
+        "max_abs": 3.1411149457333147,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10047,
+      "closest_approach_m": [
+        3.0734421762715893,
+        17.84044601285892,
+        12.698904205175246
+      ],
+      "closest_approach_time_s": [
+        30.55,
+        33.550000000000004,
+        107.85000000000001
+      ],
+      "waypoints_entered": [
+        false,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 13.358776685902233,
+        "median": 14.305311144273194,
+        "max": 29.91891883006327,
+        "terminal": 29.91891883006327
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.7598239832872506,
+        "median_abs": 0.6754435858967697,
+        "max_abs": 3.1357421955874294,
+        "yaw_command_sign_agreement": 0.9779166666666667
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10048,
+      "closest_approach_m": [
+        1.0889933925398094,
+        13.769140939865334,
+        24.299802411275913
+      ],
+      "closest_approach_time_s": [
+        64.45,
+        36.9,
+        42.35
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 5.597095006490002,
+        "median": 5.819108273689321,
+        "max": 9.710087041229022,
+        "terminal": 1.9972896604702133
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.6617436398956188,
+        "median_abs": 0.8110169256267018,
+        "max_abs": 0.9504721540433576,
+        "yaw_command_sign_agreement": 1.0
+      }
+    },
+    {
+      "policy": "MPC-v1",
+      "seed": 10049,
+      "closest_approach_m": [
+        1.6956477752709245,
+        6.202656750714497,
+        11.180358357872237
+      ],
+      "closest_approach_time_s": [
+        39.150000000000006,
+        82.2,
+        78.7
+      ],
+      "waypoints_entered": [
+        true,
+        false,
+        false
+      ],
+      "first_leg_cross_track_m": {
+        "mean": 3.3547229993523997,
+        "median": 3.3475360280382986,
+        "max": 6.292575967722028,
+        "terminal": 0.03713324464614087
+      },
+      "active_bearing_heading_error_rad": {
+        "mean_abs": 0.4774706913621077,
+        "median_abs": 0.5046757260933639,
+        "max_abs": 0.9292342303612262,
+        "yaw_command_sign_agreement": 0.989159891598916
+      }
+    }
+  ],
+  "structural_audit": {
+    "controller_type": "Both are pose regulators pointed directly at the active waypoint, not waypoint-following guidance systems.",
+    "guidance_logic": "No line-of-sight, lookahead, cross-track feedback, or path-segment guidance is implemented.",
+    "advancement": "The target advances only when center-point distance is <=2 m, exactly the task success radius.",
+    "gains": "The gains were frozen in the P2.5 protocol but no task-specific held-out tuning record exists; they are not supported as task-tuned waypoint-transit baselines.",
+    "state_access": "Controllers receive ground-truth position, body velocity, yaw, and yaw rate plus only the active waypoint. They do not receive the full sequence or explicit disturbance state."
+  },
+  "verdict": {
+    "classification": "controllers satisfy Amendment 3's sound-controller distance test, with documented structural weaknesses",
+    "decisive_evidence": "Waypoint-1 median closest approach is 5.36 m for PID and 6.12 m for MPC, within the specified roughly 3-8 m sound-controller band. Yaw command sign agrees with bearing error more than 99% of the time, showing the command is directed toward the target.",
+    "limitations": "Mean first-leg cross-track error is 11.70 m (PID) and 11.23 m (MPC); mean absolute bearing errors are 1.17 and 1.26 rad. They are direct pose regulators without LOS guidance and lack a task-specific tuning record.",
+    "F2_3_triggered": false,
+    "p2_5_rerun_required_now": false,
+    "next_step": "Halt. Resume B2 proposal work only after human review, separating intermediate waypoint acquisition from final terminal success. No criterion change is authorized by this artifact."
+  }
+}

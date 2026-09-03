@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-18T04:48:01.286Z",
+  "system": {
+    "node": "v24.13.0",
+    "platform": "darwin",
+    "arch": "arm64",
+    "cpu_count": 10
+  },
+  "vector_throughput": [
+    {
+      "environments": 1,
+      "simulated_steps": 200,
+      "elapsed_ms": 74.86,
+      "steps_per_second": 2671.68,
+      "throughput_vs_scalar": 1,
+      "per_environment_efficiency": 1
+    },
+    {
+      "environments": 4,
+      "simulated_steps": 800,
+      "elapsed_ms": 238.56,
+      "steps_per_second": 3353.5,
+      "throughput_vs_scalar": 1.255,
+      "per_environment_efficiency": 0.314
+    },
+    {
+      "environments": 16,
+      "simulated_steps": 3200,
+      "elapsed_ms": 876.75,
+      "steps_per_second": 3649.86,
+      "throughput_vs_scalar": 1.366,
+      "per_environment_efficiency": 0.085
+    }
+  ],
+  "checkpoint_replay": {
+    "seeds": 20,
+    "checkpoint_locations": 100,
+    "replayed_steps": 500,
+    "exact_matches": 100,
+    "mismatches": 0,
+    "success_rate_percent": 100,
+    "mean_checkpoint_bytes": 54932.5,
+    "mean_save_ms": 1.698,
+    "mean_load_ms": 1.42
+  },
+  "worker_scaling": {
+    "runs": [
+      {
+        "concurrency": 1,
+        "jobs": 14,
+        "successful_jobs": 12,
+        "injected_failures": 2,
+        "isolated_failures": 2,
+        "healthy_jobs_lost": 0,
+        "ordering_violations": 0,
+        "elapsed_ms": 1242.3,
+        "successful_steps_per_second": 289.79,
+        "speedup_vs_one_worker": 1
+      },
+      {
+        "concurrency": 2,
+        "jobs": 14,
+        "successful_jobs": 12,
+        "injected_failures": 2,
+        "isolated_failures": 2,
+        "healthy_jobs_lost": 0,
+        "ordering_violations": 0,
+        "elapsed_ms": 638.26,
+        "successful_steps_per_second": 564.03,
+        "speedup_vs_one_worker": 1.946
+      },
+      {
+        "concurrency": 4,
+        "jobs": 14,
+        "successful_jobs": 12,
+        "injected_failures": 2,
+        "isolated_failures": 2,
+        "healthy_jobs_lost": 0,
+        "ordering_violations": 0,
+        "elapsed_ms": 371.07,
+        "successful_steps_per_second": 970.16,
+        "speedup_vs_one_worker": 3.348
+      }
+    ],
+    "deterministic_across_concurrency": true
+  },
+  "ui_build": {
+    "exit_code": 0,
+    "elapsed_ms": 2184.84,
+    "asset_count": 3,
+    "javascript_bytes": 734227,
+    "javascript_gzip_bytes": 190977,
+    "css_bytes": 3102,
+    "css_gzip_bytes": 1163,
+    "source_map_bytes": 3675599
+  },
+  "total_runtime_seconds": 6.51
+}

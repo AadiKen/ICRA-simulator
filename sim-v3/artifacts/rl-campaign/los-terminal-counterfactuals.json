@@ -1,0 +1,1562 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "amendment-5-los-terminal-counterfactual",
+  "status": "complete-halt-before-task-contract-revision",
+  "source_corridor_artifact_sha256": "e086f7bff37ebbdebc963d33db80dd279ff090506396dc83cc008dd10ec05155",
+  "protocol_sha256": "23dd77172c4e658bbaa743bab31ff400691175b8cc3bb04e4575ff5dee237af2",
+  "new_training_performed": false,
+  "definitions": {
+    "radius_removed": "final leg active and speed <=0.5 m/s for 2 continuous seconds; radius removed",
+    "speed_removed": "final leg active and inside 2 m for 2 continuous seconds; speed removed",
+    "hold_removed": "final leg active and at least one simultaneous inside-2-m/<=0.5-m/s sample",
+    "timeout_removed": "original conjunction satisfied by 240 seconds",
+    "pass_through": "final leg active and enters 2 m at any speed with no hold",
+    "original": "inside 2 m and <=0.5 m/s for 2 continuous seconds by 120 seconds"
+  },
+  "summaries": [
+    {
+      "policy": "LOS-PID-v2",
+      "rates": {
+        "radius_removed": 0.3,
+        "speed_removed": 0,
+        "hold_removed": 0,
+        "timeout_removed": 0.02,
+        "pass_through": 0,
+        "original": 0
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "rates": {
+        "radius_removed": 0.4,
+        "speed_removed": 0,
+        "hold_removed": 0,
+        "timeout_removed": 0.14,
+        "pass_through": 0,
+        "original": 0
+      }
+    }
+  ],
+  "best_classical_rates": {
+    "radius_removed": 0.4,
+    "speed_removed": 0,
+    "hold_removed": 0,
+    "timeout_removed": 0.14,
+    "pass_through": 0,
+    "original": 0
+  },
+  "band_assessment": {
+    "radius_removed": true,
+    "speed_removed": false,
+    "hold_removed": false,
+    "timeout_removed": false,
+    "pass_through": false,
+    "original": false
+  },
+  "raw": [
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10000,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10001,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10002,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 88.65,
+      "min_final_distance_m": 1.5611879819174057,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10003,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 87.5,
+      "min_final_distance_m": 4.283587994576839,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10004,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 70.2,
+      "min_final_distance_m": 5.997542423300614,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10005,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 133.9,
+      "min_final_distance_m": 11.44034751181393,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10006,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 187.60000000000002,
+      "min_final_distance_m": 4.933707736021137,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10007,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 47.95,
+      "min_final_distance_m": 5.177589670249715,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10008,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10009,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 98.45,
+      "min_final_distance_m": 6.651924954113781,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10010,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10011,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10012,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10013,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10014,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 199.55,
+      "min_final_distance_m": 4.553149767836631,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10015,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 62.75,
+      "min_final_distance_m": 5.997834407777994,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10016,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 69.9,
+      "min_final_distance_m": 5.989154984781669,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10017,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10018,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 62.150000000000006,
+      "min_final_distance_m": 5.985769230444347,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10019,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10020,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10021,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10022,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10023,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 147,
+      "min_final_distance_m": 5.994743917500941,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10024,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10025,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10026,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10027,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10028,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10029,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 137.45000000000002,
+      "min_final_distance_m": 1.4983466004472221,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": true,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10030,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10031,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 101,
+      "min_final_distance_m": 1.6113016666289162,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10032,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10033,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 74.55,
+      "min_final_distance_m": 13.671081171942296,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10034,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 81.5,
+      "min_final_distance_m": 5.991375517482081,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10035,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 69.4,
+      "min_final_distance_m": 5.998456584265121,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10036,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10037,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 79.65,
+      "min_final_distance_m": 5.379137406232637,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10038,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10039,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10040,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10041,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 123.80000000000001,
+      "min_final_distance_m": 2.7267623516249646,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10042,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10043,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 98.75,
+      "min_final_distance_m": 2.6739290344790767,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10044,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10045,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10046,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10047,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10048,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-PID-v2",
+      "seed": 10049,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 83.95,
+      "min_final_distance_m": 1.0960828522902502,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10000,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 173.95000000000002,
+      "min_final_distance_m": 1.9688410339926652,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10001,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10002,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 108.80000000000001,
+      "min_final_distance_m": 1.8427824138066065,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": true,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10003,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 114.45,
+      "min_final_distance_m": 0.6698471827303604,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": true,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10004,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 94.2,
+      "min_final_distance_m": 1.6278885729411032,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": true,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10005,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 162.9,
+      "min_final_distance_m": 5.986789179570804,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10006,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 233.55,
+      "min_final_distance_m": 5.995373898667161,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10007,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 88.60000000000001,
+      "min_final_distance_m": 3.4059187402448345,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10008,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 128.05,
+      "min_final_distance_m": 2.7352622091167342,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10009,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 110.85000000000001,
+      "min_final_distance_m": 2.2677901775662384,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10010,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10011,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10012,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 119.7,
+      "min_final_distance_m": 5.989519923592924,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10013,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 130.4,
+      "min_final_distance_m": 5.99479282254053,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10014,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10015,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 82.60000000000001,
+      "min_final_distance_m": 1.9760862485160833,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10016,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 88.75,
+      "min_final_distance_m": 0.20232831733337597,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10017,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 83.75,
+      "min_final_distance_m": 5.999116666314924,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10018,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 81.2,
+      "min_final_distance_m": 3.380030912639301,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10019,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 142.35,
+      "min_final_distance_m": 3.202866062075083,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10020,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10021,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10022,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10023,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10024,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 106.30000000000001,
+      "min_final_distance_m": 3.7251767948506465,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10025,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 126.2,
+      "min_final_distance_m": 2.648666224971344,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10026,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10027,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10028,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 152.3,
+      "min_final_distance_m": 0.7785252031310844,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": true,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10029,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 155.85000000000002,
+      "min_final_distance_m": 0.3885455587530881,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": true,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10030,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10031,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 77.25,
+      "min_final_distance_m": 4.583913628606808,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10032,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 85.65,
+      "min_final_distance_m": 7.861035719694297,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10033,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 93.10000000000001,
+      "min_final_distance_m": 1.589916427613431,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10034,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 99.10000000000001,
+      "min_final_distance_m": 1.3270197952072975,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10035,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 67.55,
+      "min_final_distance_m": 12.233735558608434,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10036,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10037,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 100.9,
+      "min_final_distance_m": 1.145947964785701,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": true,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10038,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 136.95000000000002,
+      "min_final_distance_m": 5.410609503920063,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10039,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10040,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 200.55,
+      "min_final_distance_m": 5.989387639191433,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10041,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 110,
+      "min_final_distance_m": 3.036962264171545,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10042,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 157.4,
+      "min_final_distance_m": 1.9997034830775207,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10043,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 118.9,
+      "min_final_distance_m": 3.1396532779535233,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10044,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 134.9,
+      "min_final_distance_m": 0.662182898433043,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": true,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10045,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 71.55,
+      "min_final_distance_m": 5.99971684328655,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10046,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 97.60000000000001,
+      "min_final_distance_m": 1.6432208082504376,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10047,
+      "final_leg_activated": false,
+      "first_final_leg_time_s": null,
+      "min_final_distance_m": null,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10048,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 120.25,
+      "min_final_distance_m": 3.6322012671951196,
+      "counterfactual_pass": {
+        "radius_removed": false,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    },
+    {
+      "policy": "LOS-SPEEDCAP-v2",
+      "seed": 10049,
+      "final_leg_activated": true,
+      "first_final_leg_time_s": 102.95,
+      "min_final_distance_m": 2.1379094639146534,
+      "counterfactual_pass": {
+        "radius_removed": true,
+        "speed_removed": false,
+        "hold_removed": false,
+        "timeout_removed": false,
+        "pass_through": false,
+        "original": false
+      }
+    }
+  ],
+  "decision": {
+    "task_contract_revision_applied": false,
+    "human_approval_required": true
+  }
+}

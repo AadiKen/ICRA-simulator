@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "batch64-gpu-profile-cluster-status",
+  "status": "blocked-no-cluster-endpoint-or-gpu-allocation",
+  "generated_at": "2026-09-02",
+  "priority": 1,
+  "requested_batch_size": 64,
+  "measurements_collected": 0,
+  "paper_measurement_eligible": false,
+  "host_audit": {
+    "architecture": "arm64",
+    "gpu": "Apple M1 Max, 24 cores",
+    "nvidia_smi_available": false,
+    "slurm_commands_available": false,
+    "cluster_allocation_environment_present": false,
+    "saved_cluster_target_present": false
+  },
+  "existing_local_profiles": {
+    "paths": [
+      "artifacts/rl-campaign/batch64-profile.json",
+      "artifacts/rl-campaign/sharded-bridge-profile.json"
+    ],
+    "disposition": "Local CPU/bridge architecture measurements only; not substitutes for cluster CUDA profiling and not eligible for the requested throughput claim."
+  },
+  "required_to_start": "A cluster login/endpoint plus an NVIDIA GPU allocation or scheduler submission target, including the permitted container/runtime environment.",
+  "prohibition": "Do not report Apple Metal or local CPU measurements as cluster-GPU results."
+}

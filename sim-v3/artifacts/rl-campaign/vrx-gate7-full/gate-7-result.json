@@ -1,0 +1,3027 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-gate-7-full-conformance",
+  "status": "COMPLETE",
+  "contract_content_sha256": "cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb",
+  "held_out_seeds": [
+    20000,
+    20001,
+    20002,
+    20003,
+    20004,
+    20005,
+    20006,
+    20007,
+    20008,
+    20009,
+    20010,
+    20011,
+    20012,
+    20013,
+    20014,
+    20015,
+    20016,
+    20017,
+    20018,
+    20019
+  ],
+  "synchronized_samples_per_episode": 2400,
+  "tolerance": {
+    "kinematic_abs": 0.0001,
+    "environment_vector_relative": 0.3,
+    "environment_direction_deg": 15,
+    "component_sign_floor_m": 0.5
+  },
+  "kinematic": {
+    "pass": false,
+    "seeds_passing": [],
+    "seeds_failing": [
+      20000,
+      20001,
+      20002,
+      20003,
+      20004,
+      20005,
+      20006,
+      20007,
+      20008,
+      20009,
+      20010,
+      20011,
+      20012,
+      20013,
+      20014,
+      20015,
+      20016,
+      20017,
+      20018,
+      20019
+    ],
+    "per_axis_max_abs_warmup_excluded": {
+      "N": 29.21476139022161,
+      "E": 8.5891983272777,
+      "yaw": 7.829836218696215,
+      "u": 2.6107008006298456,
+      "v": 2.6399799915204873,
+      "r": 13.166875411976953
+    },
+    "per_axis_mean_abs_warmup_excluded": {
+      "N": 11.751127144065071,
+      "E": 3.1424967096137815,
+      "yaw": 2.416213492278351,
+      "u": 0.6987853136183204,
+      "v": 0.550074084785032,
+      "r": 0.8127185211606753
+    },
+    "warmup_exclusion": {
+      "samples_excluded": 10,
+      "duration_s": 0.5,
+      "basis": "Across all 20 seeds, samples 0-9 contain the odometry publisher's harmonic-decay initialization values; at sample 10 every trace changes discontinuously to ordinary finite vehicle velocities. The boundary was measured consistently, not selected from the resulting divergence score."
+    },
+    "vrx_odometry_initialization_transient_separate": {
+      "classification": "known VRX startup reporting artifact; excluded from the readable main divergence summary but retained in raw traces",
+      "samples": [0, 9],
+      "maximum_abs_divergence": {
+        "u": 238111.5290994248,
+        "v": 152927.72679258382,
+        "r": 33.572707908975794
+      }
+    },
+    "note": "The pass/fail verdict remains false after warm-up exclusion; the main velocity statistics now describe samples 10-2399 rather than the known publisher artifact."
+  },
+  "environment_response": {
+    "pass": false,
+    "seeds_passing": [],
+    "seeds_failing": [
+      20000,
+      20001,
+      20002,
+      20003,
+      20004,
+      20005,
+      20006,
+      20007,
+      20008,
+      20009,
+      20010,
+      20011,
+      20012,
+      20013,
+      20014,
+      20015,
+      20016,
+      20017,
+      20018,
+      20019
+    ],
+    "maximum_relative_vector_divergence": 6.287319016886436,
+    "maximum_magnitude_divergence": 4.7699107918066606,
+    "maximum_direction_difference_deg": 157.21602627589712,
+    "failed_checkpoints": [
+      {
+        "seed": 20000,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.1363431824338477,
+          -2.487410694900973
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.1074896648769936,
+          5.503982545116742
+        ],
+        "node_magnitude_m": 2.4911446020863446,
+        "vrx_magnitude_m": 5.893669191981605,
+        "magnitude_divergence": 1.3658478865681385,
+        "relative_vector_divergence": 3.3040652151457395,
+        "direction_difference_deg": 155.9105920596206,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20000,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.6939036441708595,
+          4.311745659722874
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.258962291820353,
+          11.295751073705105
+        ],
+        "node_magnitude_m": 5.084119144769925,
+        "vrx_magnitude_m": 12.071982112406301,
+        "magnitude_divergence": 1.3744490970131664,
+        "relative_vector_divergence": 1.4077592890461679,
+        "direction_difference_deg": 11.337920753804534,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20000,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          18.29465477008307,
+          9.98736815535085
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.767820975448558,
+          22.883007371536223
+        ],
+        "node_magnitude_m": 20.843270276687377,
+        "vrx_magnitude_m": 24.505238440449766,
+        "magnitude_divergence": 0.175690672104281,
+        "relative_vector_divergence": 0.7692185761696125,
+        "direction_difference_deg": 40.40434708347566,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20001,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.10624654536331946,
+          -2.462201632142751
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.0945485732354427,
+          5.506775281561204
+        ],
+        "node_magnitude_m": 2.4644928901760026,
+        "vrx_magnitude_m": 5.891664257852453,
+        "magnitude_divergence": 1.3906192958956751,
+        "relative_vector_divergence": 3.332644287563809,
+        "direction_difference_deg": 156.70442502800157,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20001,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.644200024975362,
+          4.31817142372347
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.231397801464482,
+          11.309925552535788
+        ],
+        "node_magnitude_m": 5.063437391411261,
+        "vrx_magnitude_m": 12.075559753408552,
+        "magnitude_divergence": 1.384854165253715,
+        "relative_vector_divergence": 1.415964168819647,
+        "direction_difference_deg": 10.968508837090502,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20001,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          18.430683210239295,
+          9.46544443289531
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.707647849889327,
+          22.87998240226807
+        ],
+        "node_magnitude_m": 20.7191872888013,
+        "vrx_magnitude_m": 24.480946178728033,
+        "magnitude_divergence": 0.18155919136654353,
+        "relative_vector_divergence": 0.7996286909892409,
+        "direction_difference_deg": 41.980542532452134,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20002,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.10872075161933026,
+          -2.4807130936460453
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.1002394215920503,
+          5.516175144894078
+        ],
+        "node_magnitude_m": 2.4830943709049005,
+        "vrx_magnitude_m": 5.9024735371839245,
+        "magnitude_divergence": 1.377063717893621,
+        "relative_vector_divergence": 3.3188987336351454,
+        "direction_difference_deg": 156.646607721411,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20002,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.6944215535859257,
+          4.3006068132835935
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.243705959939689,
+          11.320587272606645
+        ],
+        "node_magnitude_m": 5.074950883593816,
+        "vrx_magnitude_m": 12.089860895441733,
+        "magnitude_divergence": 1.3822616558764254,
+        "relative_vector_divergence": 1.416547436969572,
+        "direction_difference_deg": 11.518692262533794,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20002,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          17.725797921953927,
+          9.59736216874262
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.738748542644316,
+          22.929503133174876
+        ],
+        "node_magnitude_m": 20.157213908870396,
+        "vrx_magnitude_m": 24.53829333971384,
+        "magnitude_divergence": 0.21734548487951014,
+        "relative_vector_divergence": 0.7976469744040608,
+        "direction_difference_deg": 40.704817126287395,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20003,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.11683276824260247,
+          -2.4679070661459264
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.1002650698264915,
+          5.514436556279179
+        ],
+        "node_magnitude_m": 2.4706709985079405,
+        "vrx_magnitude_m": 5.900857894981157,
+        "magnitude_divergence": 1.3883624726014658,
+        "relative_vector_divergence": 3.329084385536716,
+        "direction_difference_deg": 156.43942461705583,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20003,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.6407988310638757,
+          4.3287289857980795
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.243643308129322,
+          11.317194853103501
+        ],
+        "node_magnitude_m": 5.070671858702434,
+        "vrx_magnitude_m": 12.086662395787481,
+        "magnitude_divergence": 1.3836412082245078,
+        "relative_vector_divergence": 1.4139982021510864,
+        "direction_difference_deg": 10.83114310035885,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20003,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          19.030905301302482,
+          10.287578770392429
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.738923302527837,
+          22.92946315163681
+        ],
+        "node_magnitude_m": 21.633530307006573,
+        "vrx_magnitude_m": 24.53831821681621,
+        "magnitude_divergence": 0.13427248667171293,
+        "relative_vector_divergence": 0.7535339307983251,
+        "direction_difference_deg": 40.74263047521595,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20004,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.1258843535597407,
+          -2.4709506915023667
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.102228392381221,
+          5.513499373480954
+        ],
+        "node_magnitude_m": 2.4741552478183695,
+        "vrx_magnitude_m": 5.900681278895565,
+        "magnitude_divergence": 1.384927657267504,
+        "relative_vector_divergence": 3.3245329088375932,
+        "direction_difference_deg": 156.21232320302423,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20004,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.6629803469968465,
+          4.324517158262097
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.248149648832623,
+          11.315832088997922
+        ],
+        "node_magnitude_m": 5.078672363974144,
+        "vrx_magnitude_m": 12.08696948392242,
+        "magnitude_divergence": 1.3799466903323074,
+        "relative_vector_divergence": 1.4115438624511185,
+        "direction_difference_deg": 11.047248880156124,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20004,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          18.329289901914308,
+          9.867667559035908
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.749839097783479,
+          22.932149212363584
+        ],
+        "node_magnitude_m": 20.816669555048122,
+        "vrx_magnitude_m": 24.544717389597462,
+        "magnitude_divergence": 0.17908954286327103,
+        "relative_vector_divergence": 0.7782321942119387,
+        "direction_difference_deg": 40.819447221797134,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20005,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.08740088394370105,
+          -2.4413007773800928
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.0882647393991647,
+          5.516644339393679
+        ],
+        "node_magnitude_m": 2.4428647936696755,
+        "vrx_magnitude_m": 5.89866208467498,
+        "magnitude_divergence": 1.4146494312581255,
+        "relative_vector_divergence": 3.359018879190711,
+        "direction_difference_deg": 157.21602627589712,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20005,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.6183515344382613,
+          4.327364898881569
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.219391886053927,
+          11.322409820155372
+        ],
+        "node_magnitude_m": 5.057850504509548,
+        "vrx_magnitude_m": 12.083055574797648,
+        "magnitude_divergence": 1.3889704853918616,
+        "relative_vector_divergence": 1.4187708494275757,
+        "direction_difference_deg": 10.738469821305081,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20005,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          18.46310759696098,
+          9.000692785184583
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.691672032115093,
+          22.94572639787293
+        ],
+        "node_magnitude_m": 20.540175577395438,
+        "vrx_magnitude_m": 24.536738223323294,
+        "magnitude_divergence": 0.1945729543970448,
+        "relative_vector_divergence": 0.8289982180085625,
+        "direction_difference_deg": 43.264629065023136,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20006,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.11506583959271666,
+          -2.445854833422345
+        ],
+        "vrx_environment_displacement_ne_m": [
+          -12.875881641162778,
+          5.8147471578795376
+        ],
+        "node_magnitude_m": 2.4485599877512954,
+        "vrx_magnitude_m": 14.127972697712183,
+        "magnitude_divergence": 4.7699107918066606,
+        "relative_vector_divergence": 6.287319016886436,
+        "direction_difference_deg": 116.9974395484231,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20006,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.6491979804523,
+          4.36000881140717
+        ],
+        "vrx_environment_displacement_ne_m": [
+          -17.70758950938216,
+          13.247103647412587
+        ],
+        "node_magnitude_m": 5.1017572242493765,
+        "vrx_magnitude_m": 22.114350121088187,
+        "magnitude_divergence": 3.3346535613210957,
+        "relative_vector_divergence": 4.353821831959487,
+        "direction_difference_deg": 84.48313060013085,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20006,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          18.408900842869116,
+          9.56448985019415
+        ],
+        "vrx_environment_displacement_ne_m": [
+          -2.84020119152774,
+          21.898564531016746
+        ],
+        "node_magnitude_m": 20.74529094365886,
+        "vrx_magnitude_m": 22.081980693032502,
+        "magnitude_divergence": 0.0644334057788775,
+        "relative_vector_divergence": 1.1843345972027526,
+        "direction_difference_deg": 69.93540970193088,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20007,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.09884587052874849,
+          -2.4438095783698373
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.0941850569233793,
+          5.525201829810612
+        ],
+        "node_magnitude_m": 2.445807793235754,
+        "vrx_magnitude_m": 5.908761825694426,
+        "magnitude_divergence": 1.4158733331523383,
+        "relative_vector_divergence": 3.35881587111051,
+        "direction_difference_deg": 156.92587501470757,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20007,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.61408420483167,
+          4.348509651956192
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.231449862723821,
+          11.340023598368134
+        ],
+        "node_magnitude_m": 5.073753287567951,
+        "vrx_magnitude_m": 12.103772269515467,
+        "magnitude_divergence": 1.385565789959267,
+        "relative_vector_divergence": 1.4143672933642086,
+        "direction_difference_deg": 10.549258907344907,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20007,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          19.11136835821344,
+          10.206837225057825
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.714656557762282,
+          22.98084416479469
+        ],
+        "node_magnitude_m": 21.66619317420917,
+        "vrx_magnitude_m": 24.57772238117941,
+        "magnitude_divergence": 0.13438120779039497,
+        "relative_vector_divergence": 0.7601788229142418,
+        "direction_difference_deg": 41.12716938831546,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20008,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.10954896473231202,
+          -2.4483366561107687
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.0961582206091407,
+          5.524364218448682
+        ],
+        "node_magnitude_m": 2.45078627328651,
+        "vrx_magnitude_m": 5.908678304316744,
+        "magnitude_divergence": 1.4109316951547932,
+        "relative_vector_divergence": 3.3525901608265336,
+        "direction_difference_deg": 156.65936320983943,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20008,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.6325381840397313,
+          4.351793148325669
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.240076172387489,
+          11.343411650163034
+        ],
+        "node_magnitude_m": 5.0860948571808455,
+        "vrx_magnitude_m": 12.109964236640115,
+        "magnitude_divergence": 1.3809945698402697,
+        "relative_vector_divergence": 1.4105210825818115,
+        "direction_difference_deg": 10.675739338068091,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20008,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          18.416754567891985,
+          9.577192803903017
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.723895014591108,
+          22.972004757333707
+        ],
+        "node_magnitude_m": 20.758118190652592,
+        "vrx_magnitude_m": 24.57273584272964,
+        "magnitude_divergence": 0.18376509937180982,
+        "relative_vector_divergence": 0.7965067170890505,
+        "direction_difference_deg": 41.729516373133364,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20009,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.22212354982730176,
+          -2.5560627533868683
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.1423824879366293,
+          5.504604304447639
+        ],
+        "node_magnitude_m": 2.5656959427491675,
+        "vrx_magnitude_m": 5.906815662703638,
+        "magnitude_divergence": 1.302227463623156,
+        "relative_vector_divergence": 3.2296260524767693,
+        "direction_difference_deg": 153.76753407296098,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20009,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.731588432849094,
+          4.327055928135451
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.335618051241909,
+          11.30196116231491
+        ],
+        "node_magnitude_m": 5.117126964585412,
+        "vrx_magnitude_m": 12.105036555117431,
+        "magnitude_divergence": 1.365592380039407,
+        "relative_vector_divergence": 1.3986304546684063,
+        "direction_difference_deg": 11.275807144119222,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20009,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          14.747932393473093,
+          14.916284903754786
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.91823361697061,
+          22.88764168790658
+        ],
+        "node_magnitude_m": 20.976107008032635,
+        "vrx_magnitude_m": 24.563774809276847,
+        "magnitude_divergence": 0.17103592195970124,
+        "relative_vector_divergence": 0.4708033929499102,
+        "direction_difference_deg": 23.38631967853532,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20010,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.18673353047779528,
+          -2.554143645465956
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.129512475903539,
+          5.464119678734278
+        ],
+        "node_magnitude_m": 2.5609605957684756,
+        "vrx_magnitude_m": 5.864420452914338,
+        "magnitude_divergence": 1.2899299827589041,
+        "relative_vector_divergence": 3.221552453489553,
+        "direction_difference_deg": 154.5263601226372,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20010,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.770042121044753,
+          4.210707721991639
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.30861921127871,
+          11.21829541756233
+        ],
+        "node_magnitude_m": 5.040158020578534,
+        "vrx_magnitude_m": 12.017252247643802,
+        "magnitude_divergence": 1.384300690291532,
+        "relative_vector_divergence": 1.4234680282904497,
+        "direction_difference_deg": 12.328862292265603,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20010,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          17.754403449876918,
+          10.478557420046855
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.864559091665797,
+          22.72026164604722
+        ],
+        "node_magnitude_m": 20.615989121704065,
+        "vrx_magnitude_m": 24.388331167885987,
+        "magnitude_divergence": 0.18298137547087096,
+        "relative_vector_divergence": 0.7338511130252806,
+        "direction_difference_deg": 38.137326683667936,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20011,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.1919098953330831,
+          -2.5692485877789295
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.1352552408079646,
+          5.458911578316474
+        ],
+        "node_magnitude_m": 2.5764059683463665,
+        "vrx_magnitude_m": 5.861657663432379,
+        "magnitude_divergence": 1.275129671118799,
+        "relative_vector_divergence": 3.2060246301394035,
+        "direction_difference_deg": 154.36525668455909,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20011,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.761788693156632,
+          4.200496951916648
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.321434239840528,
+          11.20741897795233
+        ],
+        "node_magnitude_m": 5.027091746597516,
+        "vrx_magnitude_m": 12.01170404383292,
+        "magnitude_divergence": 1.3893942361332068,
+        "relative_vector_divergence": 1.427943238369135,
+        "direction_difference_deg": 12.23857023708012,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20011,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          17.383185771448552,
+          10.761587202428927
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.896167779021198,
+          22.69798970348529
+        ],
+        "node_magnitude_m": 20.44472809015012,
+        "vrx_magnitude_m": 24.379100429097445,
+        "magnitude_divergence": 0.19243945537445561,
+        "relative_vector_divergence": 0.7163736068627644,
+        "direction_difference_deg": 36.83714837286459,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20012,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.21120567271282198,
+          -2.5838471444385505
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.1010674890294467,
+          5.118474037059059
+        ],
+        "node_magnitude_m": 2.59246483139296,
+        "vrx_magnitude_m": 5.532925181267515,
+        "magnitude_divergence": 1.1342334577764026,
+        "relative_vector_divergence": 3.0591673035377633,
+        "direction_difference_deg": 153.00947084876782,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20012,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.8029745101521257,
+          4.162431504086271
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.27365801535052,
+          10.758580071014876
+        ],
+        "node_magnitude_m": 5.01821702706972,
+        "vrx_magnitude_m": 11.57632057160686,
+        "magnitude_divergence": 1.3068592906924563,
+        "relative_vector_divergence": 1.3467158876765057,
+        "direction_difference_deg": 12.291673698115662,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20012,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          17.408956908673645,
+          10.840488939073111
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.923134981199837,
+          22.41714775777291
+        ],
+        "node_magnitude_m": 20.50824178437104,
+        "vrx_magnitude_m": 24.12780245871006,
+        "magnitude_divergence": 0.1764929784033179,
+        "relative_vector_divergence": 0.6998982514618708,
+        "direction_difference_deg": 36.38463562393958,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20013,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.17836297717440175,
+          -2.5565422181007307
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.121424347997163,
+          5.454918017745513
+        ],
+        "node_magnitude_m": 2.562756614381849,
+        "vrx_magnitude_m": 5.852911399004757,
+        "magnitude_divergence": 1.2838342767935889,
+        "relative_vector_divergence": 3.216740826931799,
+        "direction_difference_deg": 154.7579766634863,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20013,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.758911620123399,
+          4.1747691470554855
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.289666376396781,
+          11.195127963728737
+        ],
+        "node_magnitude_m": 5.004027453847382,
+        "vrx_magnitude_m": 11.988833460560299,
+        "magnitude_divergence": 1.3958368676300128,
+        "relative_vector_divergence": 1.4359049498401715,
+        "direction_difference_deg": 12.493405475798214,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20013,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          17.492699984897627,
+          10.810293437958535
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.837741311139325,
+          22.68889691887125
+        ],
+        "node_magnitude_m": 20.563486984857573,
+        "vrx_magnitude_m": 24.349367853761297,
+        "magnitude_divergence": 0.18410694993954824,
+        "relative_vector_divergence": 0.7147261887722176,
+        "direction_difference_deg": 37.002571666674605,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20014,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.1801949761575088,
+          -2.5599194299502415
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.1279750140984106,
+          5.465659830158984
+        ],
+        "node_magnitude_m": 2.5662536346334077,
+        "vrx_magnitude_m": 5.865297523539676,
+        "magnitude_divergence": 1.2855486474069973,
+        "relative_vector_divergence": 3.2181376152997654,
+        "direction_difference_deg": 154.70081521610487,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20014,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.7564451102134626,
+          4.210107539825913
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.3027603888203885,
+          11.21581474074992
+        ],
+        "node_magnitude_m": 5.032195856931515,
+        "vrx_magnitude_m": 12.012836769990049,
+        "magnitude_divergence": 1.3871957911660306,
+        "relative_vector_divergence": 1.4256859502799684,
+        "direction_difference_deg": 12.22512587361809,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20014,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          18.232378613975015,
+          11.440544773837246
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.864526728702913,
+          22.72865612709211
+        ],
+        "node_magnitude_m": 21.52453703672876,
+        "vrx_magnitude_m": 24.39613992965875,
+        "magnitude_divergence": 0.13341066932264253,
+        "relative_vector_divergence": 0.6814989985654494,
+        "direction_difference_deg": 36.58579269458503,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20015,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.22094358678805293,
+          -2.569608322744898
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.1279191340709076,
+          5.464041315261056
+        ],
+        "node_magnitude_m": 2.579089568212515,
+        "vrx_magnitude_m": 5.863769038427831,
+        "magnitude_divergence": 1.2735809995508698,
+        "relative_vector_divergence": 3.2014711720895734,
+        "direction_difference_deg": 153.80764796408508,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20015,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.80932146772102,
+          4.215177766382112
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.302137473299808,
+          11.212289646338832
+        ],
+        "node_magnitude_m": 5.065571114020637,
+        "vrx_magnitude_m": 12.009322460179318,
+        "magnitude_divergence": 1.3707736383247215,
+        "relative_vector_divergence": 1.4123943744754657,
+        "direction_difference_deg": 12.690838812493055,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20015,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          17.350692337695364,
+          10.83157754374588
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.861625335652207,
+          22.722043055046015
+        ],
+        "node_magnitude_m": 20.45408508546742,
+        "vrx_magnitude_m": 24.388924621328385,
+        "magnitude_divergence": 0.19237426261889665,
+        "relative_vector_divergence": 0.7142749269652159,
+        "direction_difference_deg": 36.71871307097641,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20016,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.18568224293812818,
+          -2.5747567129074014
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.1335513211306534,
+          5.460797650346649
+        ],
+        "node_magnitude_m": 2.5814433997289696,
+        "vrx_magnitude_m": 5.862793891817266,
+        "magnitude_divergence": 1.271130133022793,
+        "relative_vector_divergence": 3.2029648079750195,
+        "direction_difference_deg": 154.53442581903013,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20016,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.8065485763909237,
+          4.178274082925782
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.3091968805911165,
+          11.203460200487825
+        ],
+        "node_magnitude_m": 5.033357649093815,
+        "vrx_magnitude_m": 12.003611882246565,
+        "magnitude_divergence": 1.3848120318665704,
+        "relative_vector_divergence": 1.4272963454150231,
+        "direction_difference_deg": 12.850990471794757,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20016,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          16.77053281683402,
+          10.679503353419932
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.877660934498635,
+          22.723129669131595
+        ],
+        "node_magnitude_m": 19.88221725150931,
+        "vrx_magnitude_m": 24.39576778107407,
+        "magnitude_divergence": 0.22701444574659424,
+        "relative_vector_divergence": 0.7242414790556402,
+        "direction_difference_deg": 36.17094165967526,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20017,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.14934633413213305,
+          -2.5433262025944714
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.1214850529649993,
+          5.463502947566667
+        ],
+        "node_magnitude_m": 2.54770730271794,
+        "vrx_magnitude_m": 5.860935359481758,
+        "magnitude_divergence": 1.3004743728721138,
+        "relative_vector_divergence": 3.236686189393995,
+        "direction_difference_deg": 155.41814711227673,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20017,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.76761097747476,
+          4.171973229136711
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.283466473370936,
+          11.20952262280116
+        ],
+        "node_magnitude_m": 5.006498891168577,
+        "vrx_magnitude_m": 12.000061768990351,
+        "magnitude_divergence": 1.3968969193538348,
+        "relative_vector_divergence": 1.4379215521949087,
+        "direction_difference_deg": 12.6463402368592,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20017,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          17.05356090582245,
+          10.456948629051112
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.824659894822616,
+          22.73536921797131
+        ],
+        "node_magnitude_m": 20.004292394364008,
+        "vrx_magnitude_m": 24.38794037504537,
+        "magnitude_divergence": 0.21913536826308383,
+        "relative_vector_divergence": 0.7388854382613177,
+        "direction_difference_deg": 37.2705331407738,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20018,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.09645683290182205,
+          -2.476369346755746
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.1253456667000137,
+          5.472054364170617
+        ],
+        "node_magnitude_m": 2.4782471753569966,
+        "vrx_magnitude_m": 5.870304350491482,
+        "magnitude_divergence": 1.3687323883041862,
+        "relative_vector_divergence": 3.3101143843510887,
+        "direction_difference_deg": 156.54323728805448,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20018,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.7575254682960804,
+          4.155813648994808
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.294019924333043,
+          11.230227588808702
+        ],
+        "node_magnitude_m": 4.98745764828866,
+        "vrx_magnitude_m": 12.023170081430655,
+        "magnitude_divergence": 1.4106811384265387,
+        "relative_vector_divergence": 1.451510510003828,
+        "direction_difference_deg": 12.640655249303377,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20018,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          17.70131774472975,
+          9.594959379284774
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.846099988022615,
+          22.77074894748148
+        ],
+        "node_magnitude_m": 20.134544826988495,
+        "vrx_magnitude_m": 24.428681761964206,
+        "magnitude_divergence": 0.21327211376637714,
+        "relative_vector_divergence": 0.788447008984266,
+        "direction_difference_deg": 40.309779017598856,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20019,
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          0.17607123843299632,
+          -2.54197243384624
+        ],
+        "vrx_environment_displacement_ne_m": [
+          2.124729610970462,
+          5.470990204064947
+        ],
+        "node_magnitude_m": 2.548062977133318,
+        "vrx_magnitude_m": 5.869089344413603,
+        "magnitude_divergence": 1.3033533303861211,
+        "relative_vector_divergence": 3.2363818199527086,
+        "direction_difference_deg": 154.81337937709606,
+        "component_sign_consistent": false,
+        "pass": false
+      },
+      {
+        "seed": 20019,
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          2.769513848990755,
+          4.235011273480268
+        ],
+        "vrx_environment_displacement_ne_m": [
+          4.293064669996966,
+          11.22796499897413
+        ],
+        "node_magnitude_m": 5.060190455531941,
+        "vrx_magnitude_m": 12.020715547710306,
+        "magnitude_divergence": 1.3755460695296413,
+        "relative_vector_divergence": 1.4143730877751195,
+        "direction_difference_deg": 12.258359639828472,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "seed": 20019,
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          17.976663187504528,
+          10.465982259886005
+        ],
+        "vrx_environment_displacement_ne_m": [
+          8.842854661779711,
+          22.763538624716602
+        ],
+        "node_magnitude_m": 20.801375051213057,
+        "vrx_magnitude_m": 24.42078559932755,
+        "magnitude_divergence": 0.17399861976448638,
+        "relative_vector_divergence": 0.736417519278106,
+        "direction_difference_deg": 38.56266737951823,
+        "component_sign_consistent": true,
+        "pass": false
+      }
+    ],
+    "definition": "Paired environment-on minus environment-off N/E displacement for each simulator, evaluated independently per seed at each preregistered checkpoint."
+  },
+  "overall_gate_7_pass": false,
+  "episodes": [
+    {
+      "seed": 20000,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 28.94534642927283,
+          "E": 8.359235816875298,
+          "yaw": 5.881584368475396,
+          "u": 238010.7088467212,
+          "v": 152777.834598459,
+          "r": 33.566115578527565
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.1363431824338477,
+            -2.487410694900973
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.1074896648769936,
+            5.503982545116742
+          ],
+          "node_magnitude_m": 2.4911446020863446,
+          "vrx_magnitude_m": 5.893669191981605,
+          "magnitude_divergence": 1.3658478865681385,
+          "relative_vector_divergence": 3.3040652151457395,
+          "direction_difference_deg": 155.9105920596206,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.6939036441708595,
+            4.311745659722874
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.258962291820353,
+            11.295751073705105
+          ],
+          "node_magnitude_m": 5.084119144769925,
+          "vrx_magnitude_m": 12.071982112406301,
+          "magnitude_divergence": 1.3744490970131664,
+          "relative_vector_divergence": 1.4077592890461679,
+          "direction_difference_deg": 11.337920753804534,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            18.29465477008307,
+            9.98736815535085
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.767820975448558,
+            22.883007371536223
+          ],
+          "node_magnitude_m": 20.843270276687377,
+          "vrx_magnitude_m": 24.505238440449766,
+          "magnitude_divergence": 0.175690672104281,
+          "relative_vector_divergence": 0.7692185761696125,
+          "direction_difference_deg": 40.40434708347566,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20001,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 28.88846095966437,
+          "E": 8.419104919161327,
+          "yaw": 7.8220317513773505,
+          "u": 237964.92769227942,
+          "v": 152849.12679767056,
+          "r": 33.56312821978822
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.10624654536331946,
+            -2.462201632142751
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.0945485732354427,
+            5.506775281561204
+          ],
+          "node_magnitude_m": 2.4644928901760026,
+          "vrx_magnitude_m": 5.891664257852453,
+          "magnitude_divergence": 1.3906192958956751,
+          "relative_vector_divergence": 3.332644287563809,
+          "direction_difference_deg": 156.70442502800157,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.644200024975362,
+            4.31817142372347
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.231397801464482,
+            11.309925552535788
+          ],
+          "node_magnitude_m": 5.063437391411261,
+          "vrx_magnitude_m": 12.075559753408552,
+          "magnitude_divergence": 1.384854165253715,
+          "relative_vector_divergence": 1.415964168819647,
+          "direction_difference_deg": 10.968508837090502,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            18.430683210239295,
+            9.46544443289531
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.707647849889327,
+            22.87998240226807
+          ],
+          "node_magnitude_m": 20.7191872888013,
+          "vrx_magnitude_m": 24.480946178728033,
+          "magnitude_divergence": 0.18155919136654353,
+          "relative_vector_divergence": 0.7996286909892409,
+          "direction_difference_deg": 41.980542532452134,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20002,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 28.922650689039074,
+          "E": 8.382132675520552,
+          "yaw": 7.827881462120205,
+          "u": 237971.25243716288,
+          "v": 152839.29901882692,
+          "r": 33.56353818013498
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.10872075161933026,
+            -2.4807130936460453
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.1002394215920503,
+            5.516175144894078
+          ],
+          "node_magnitude_m": 2.4830943709049005,
+          "vrx_magnitude_m": 5.9024735371839245,
+          "magnitude_divergence": 1.377063717893621,
+          "relative_vector_divergence": 3.3188987336351454,
+          "direction_difference_deg": 156.646607721411,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.6944215535859257,
+            4.3006068132835935
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.243705959939689,
+            11.320587272606645
+          ],
+          "node_magnitude_m": 5.074950883593816,
+          "vrx_magnitude_m": 12.089860895441733,
+          "magnitude_divergence": 1.3822616558764254,
+          "relative_vector_divergence": 1.416547436969572,
+          "direction_difference_deg": 11.518692262533794,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            17.725797921953927,
+            9.59736216874262
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.738748542644316,
+            22.929503133174876
+          ],
+          "node_magnitude_m": 20.157213908870396,
+          "vrx_magnitude_m": 24.53829333971384,
+          "magnitude_divergence": 0.21734548487951014,
+          "relative_vector_divergence": 0.7976469744040608,
+          "direction_difference_deg": 40.704817126287395,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20003,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 28.918799325971122,
+          "E": 8.382351421274507,
+          "yaw": 7.828019753031239,
+          "u": 237977.56190252767,
+          "v": 152829.49406794732,
+          "r": 33.56394980988902
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.11683276824260247,
+            -2.4679070661459264
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.1002650698264915,
+            5.514436556279179
+          ],
+          "node_magnitude_m": 2.4706709985079405,
+          "vrx_magnitude_m": 5.900857894981157,
+          "magnitude_divergence": 1.3883624726014658,
+          "relative_vector_divergence": 3.329084385536716,
+          "direction_difference_deg": 156.43942461705583,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.6407988310638757,
+            4.3287289857980795
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.243643308129322,
+            11.317194853103501
+          ],
+          "node_magnitude_m": 5.070671858702434,
+          "vrx_magnitude_m": 12.086662395787481,
+          "magnitude_divergence": 1.3836412082245078,
+          "relative_vector_divergence": 1.4139982021510864,
+          "direction_difference_deg": 10.83114310035885,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            19.030905301302482,
+            10.287578770392429
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.738923302527837,
+            22.92946315163681
+          ],
+          "node_magnitude_m": 21.633530307006573,
+          "vrx_magnitude_m": 24.53831821681621,
+          "magnitude_divergence": 0.13427248667171293,
+          "relative_vector_divergence": 0.7535339307983251,
+          "direction_difference_deg": 40.74263047521595,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20004,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 28.92496599506012,
+          "E": 8.376337191144557,
+          "yaw": 7.829395305230333,
+          "u": 237983.86671569463,
+          "v": 152819.6699337852,
+          "r": 33.564361197316906
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.1258843535597407,
+            -2.4709506915023667
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.102228392381221,
+            5.513499373480954
+          ],
+          "node_magnitude_m": 2.4741552478183695,
+          "vrx_magnitude_m": 5.900681278895565,
+          "magnitude_divergence": 1.384927657267504,
+          "relative_vector_divergence": 3.3245329088375932,
+          "direction_difference_deg": 156.21232320302423,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.6629803469968465,
+            4.324517158262097
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.248149648832623,
+            11.315832088997922
+          ],
+          "node_magnitude_m": 5.078672363974144,
+          "vrx_magnitude_m": 12.08696948392242,
+          "magnitude_divergence": 1.3799466903323074,
+          "relative_vector_divergence": 1.4115438624511185,
+          "direction_difference_deg": 11.047248880156124,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            18.329289901914308,
+            9.867667559035908
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.749839097783479,
+            22.932149212363584
+          ],
+          "node_magnitude_m": 20.816669555048122,
+          "vrx_magnitude_m": 24.544717389597462,
+          "magnitude_divergence": 0.17908954286327103,
+          "relative_vector_divergence": 0.7782321942119387,
+          "direction_difference_deg": 40.819447221797134,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20005,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 28.850824877865307,
+          "E": 8.457095309981014,
+          "yaw": 7.81757610610624,
+          "u": 237941.31763921495,
+          "v": 152885.90451691506,
+          "r": 33.561586692960454
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.08740088394370105,
+            -2.4413007773800928
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.0882647393991647,
+            5.516644339393679
+          ],
+          "node_magnitude_m": 2.4428647936696755,
+          "vrx_magnitude_m": 5.89866208467498,
+          "magnitude_divergence": 1.4146494312581255,
+          "relative_vector_divergence": 3.359018879190711,
+          "direction_difference_deg": 157.21602627589712,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.6183515344382613,
+            4.327364898881569
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.219391886053927,
+            11.322409820155372
+          ],
+          "node_magnitude_m": 5.057850504509548,
+          "vrx_magnitude_m": 12.083055574797648,
+          "magnitude_divergence": 1.3889704853918616,
+          "relative_vector_divergence": 1.4187708494275757,
+          "direction_difference_deg": 10.738469821305081,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            18.46310759696098,
+            9.000692785184583
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.691672032115093,
+            22.94572639787293
+          ],
+          "node_magnitude_m": 20.540175577395438,
+          "vrx_magnitude_m": 24.536738223323294,
+          "magnitude_divergence": 0.1945729543970448,
+          "relative_vector_divergence": 0.8289982180085625,
+          "direction_difference_deg": 43.264629065023136,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20006,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 17.805248654050956,
+          "E": 7.570332306839191,
+          "yaw": 7.605221019603987,
+          "u": 237947.6427183464,
+          "v": 152876.07797276447,
+          "r": 33.56199649497109
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.11506583959271666,
+            -2.445854833422345
+          ],
+          "vrx_environment_displacement_ne_m": [
+            -12.875881641162778,
+            5.8147471578795376
+          ],
+          "node_magnitude_m": 2.4485599877512954,
+          "vrx_magnitude_m": 14.127972697712183,
+          "magnitude_divergence": 4.7699107918066606,
+          "relative_vector_divergence": 6.287319016886436,
+          "direction_difference_deg": 116.9974395484231,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.6491979804523,
+            4.36000881140717
+          ],
+          "vrx_environment_displacement_ne_m": [
+            -17.70758950938216,
+            13.247103647412587
+          ],
+          "node_magnitude_m": 5.1017572242493765,
+          "vrx_magnitude_m": 22.114350121088187,
+          "magnitude_divergence": 3.3346535613210957,
+          "relative_vector_divergence": 4.353821831959487,
+          "direction_difference_deg": 84.48313060013085,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            18.408900842869116,
+            9.56448985019415
+          ],
+          "vrx_environment_displacement_ne_m": [
+            -2.84020119152774,
+            21.898564531016746
+          ],
+          "node_magnitude_m": 20.74529094365886,
+          "vrx_magnitude_m": 22.081980693032502,
+          "magnitude_divergence": 0.0644334057788775,
+          "relative_vector_divergence": 1.1843345972027526,
+          "direction_difference_deg": 69.93540970193088,
+          "component_sign_consistent": false,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20007,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 28.90151214585603,
+          "E": 8.413961509928413,
+          "yaw": 7.8243015822035105,
+          "u": 237953.95344036794,
+          "v": 152866.27280792373,
+          "r": 33.56240813580084
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.09884587052874849,
+            -2.4438095783698373
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.0941850569233793,
+            5.525201829810612
+          ],
+          "node_magnitude_m": 2.445807793235754,
+          "vrx_magnitude_m": 5.908761825694426,
+          "magnitude_divergence": 1.4158733331523383,
+          "relative_vector_divergence": 3.35881587111051,
+          "direction_difference_deg": 156.92587501470757,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.61408420483167,
+            4.348509651956192
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.231449862723821,
+            11.340023598368134
+          ],
+          "node_magnitude_m": 5.073753287567951,
+          "vrx_magnitude_m": 12.103772269515467,
+          "magnitude_divergence": 1.385565789959267,
+          "relative_vector_divergence": 1.4143672933642086,
+          "direction_difference_deg": 10.549258907344907,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            19.11136835821344,
+            10.206837225057825
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.714656557762282,
+            22.98084416479469
+          ],
+          "node_magnitude_m": 21.66619317420917,
+          "vrx_magnitude_m": 24.57772238117941,
+          "magnitude_divergence": 0.13438120779039497,
+          "relative_vector_divergence": 0.7601788229142418,
+          "direction_difference_deg": 41.12716938831546,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20008,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 28.91466701958052,
+          "E": 8.400137063663351,
+          "yaw": 7.825676168052694,
+          "u": 237960.25977219522,
+          "v": 152856.44964755786,
+          "r": 33.56281954652043
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.10954896473231202,
+            -2.4483366561107687
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.0961582206091407,
+            5.524364218448682
+          ],
+          "node_magnitude_m": 2.45078627328651,
+          "vrx_magnitude_m": 5.908678304316744,
+          "magnitude_divergence": 1.4109316951547932,
+          "relative_vector_divergence": 3.3525901608265336,
+          "direction_difference_deg": 156.65936320983943,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.6325381840397313,
+            4.351793148325669
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.240076172387489,
+            11.343411650163034
+          ],
+          "node_magnitude_m": 5.0860948571808455,
+          "vrx_magnitude_m": 12.109964236640115,
+          "magnitude_divergence": 1.3809945698402697,
+          "relative_vector_divergence": 1.4105210825818115,
+          "direction_difference_deg": 10.675739338068091,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            18.416754567891985,
+            9.577192803903017
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.723895014591108,
+            22.972004757333707
+          ],
+          "node_magnitude_m": 20.758118190652592,
+          "vrx_magnitude_m": 24.57273584272964,
+          "magnitude_divergence": 0.18376509937180982,
+          "relative_vector_divergence": 0.7965067170890505,
+          "direction_difference_deg": 41.729516373133364,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20009,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 29.21476139022161,
+          "E": 8.050124726691138,
+          "yaw": 5.847809756307166,
+          "u": 237914.45502462663,
+          "v": 152927.72679258382,
+          "r": 33.55979417548132
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.22212354982730176,
+            -2.5560627533868683
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.1423824879366293,
+            5.504604304447639
+          ],
+          "node_magnitude_m": 2.5656959427491675,
+          "vrx_magnitude_m": 5.906815662703638,
+          "magnitude_divergence": 1.302227463623156,
+          "relative_vector_divergence": 3.2296260524767693,
+          "direction_difference_deg": 153.76753407296098,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.731588432849094,
+            4.327055928135451
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.335618051241909,
+            11.30196116231491
+          ],
+          "node_magnitude_m": 5.117126964585412,
+          "vrx_magnitude_m": 12.105036555117431,
+          "magnitude_divergence": 1.365592380039407,
+          "relative_vector_divergence": 1.3986304546684063,
+          "direction_difference_deg": 11.275807144119222,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            14.747932393473093,
+            14.916284903754786
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.91823361697061,
+            22.88764168790658
+          ],
+          "node_magnitude_m": 20.976107008032635,
+          "vrx_magnitude_m": 24.563774809276847,
+          "magnitude_divergence": 0.17103592195970124,
+          "relative_vector_divergence": 0.4708033929499102,
+          "direction_difference_deg": 23.38631967853532,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20010,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 29.019204318667107,
+          "E": 8.250916666236662,
+          "yaw": 5.890763011820034,
+          "u": 237920.78280609538,
+          "v": 152917.90115470704,
+          "r": 33.56021400822347
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.18673353047779528,
+            -2.554143645465956
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.129512475903539,
+            5.464119678734278
+          ],
+          "node_magnitude_m": 2.5609605957684756,
+          "vrx_magnitude_m": 5.864420452914338,
+          "magnitude_divergence": 1.2899299827589041,
+          "relative_vector_divergence": 3.221552453489553,
+          "direction_difference_deg": 154.5263601226372,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.770042121044753,
+            4.210707721991639
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.30861921127871,
+            11.21829541756233
+          ],
+          "node_magnitude_m": 5.040158020578534,
+          "vrx_magnitude_m": 12.017252247643802,
+          "magnitude_divergence": 1.384300690291532,
+          "relative_vector_divergence": 1.4234680282904497,
+          "direction_difference_deg": 12.328862292265603,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            17.754403449876918,
+            10.478557420046855
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.864559091665797,
+            22.72026164604722
+          ],
+          "node_magnitude_m": 20.615989121704065,
+          "vrx_magnitude_m": 24.388331167885987,
+          "magnitude_divergence": 0.18298137547087096,
+          "relative_vector_divergence": 0.7338511130252806,
+          "direction_difference_deg": 38.137326683667936,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20011,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 29.047242263020962,
+          "E": 8.222807052816279,
+          "yaw": 5.847094353256249,
+          "u": 237927.09550910996,
+          "v": 152908.09831848298,
+          "r": 33.56062564958038
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.1919098953330831,
+            -2.5692485877789295
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.1352552408079646,
+            5.458911578316474
+          ],
+          "node_magnitude_m": 2.5764059683463665,
+          "vrx_magnitude_m": 5.861657663432379,
+          "magnitude_divergence": 1.275129671118799,
+          "relative_vector_divergence": 3.2060246301394035,
+          "direction_difference_deg": 154.36525668455909,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.761788693156632,
+            4.200496951916648
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.321434239840528,
+            11.20741897795233
+          ],
+          "node_magnitude_m": 5.027091746597516,
+          "vrx_magnitude_m": 12.01170404383292,
+          "magnitude_divergence": 1.3893942361332068,
+          "relative_vector_divergence": 1.427943238369135,
+          "direction_difference_deg": 12.23857023708012,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            17.383185771448552,
+            10.761587202428927
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.896167779021198,
+            22.69798970348529
+          ],
+          "node_magnitude_m": 20.44472809015012,
+          "vrx_magnitude_m": 24.379100429097445,
+          "magnitude_divergence": 0.19243945537445561,
+          "relative_vector_divergence": 0.7163736068627644,
+          "direction_difference_deg": 36.83714837286459,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20012,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 29.00252408002234,
+          "E": 8.5891983272777,
+          "yaw": 7.829836218696215,
+          "u": 237933.40353474888,
+          "v": 152898.27627686164,
+          "r": 33.561037057717805
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.21120567271282198,
+            -2.5838471444385505
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.1010674890294467,
+            5.118474037059059
+          ],
+          "node_magnitude_m": 2.59246483139296,
+          "vrx_magnitude_m": 5.532925181267515,
+          "magnitude_divergence": 1.1342334577764026,
+          "relative_vector_divergence": 3.0591673035377633,
+          "direction_difference_deg": 153.00947084876782,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.8029745101521257,
+            4.162431504086271
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.27365801535052,
+            10.758580071014876
+          ],
+          "node_magnitude_m": 5.01821702706972,
+          "vrx_magnitude_m": 11.57632057160686,
+          "magnitude_divergence": 1.3068592906924563,
+          "relative_vector_divergence": 1.3467158876765057,
+          "direction_difference_deg": 12.291673698115662,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            17.408956908673645,
+            10.840488939073111
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.923134981199837,
+            22.41714775777291
+          ],
+          "node_magnitude_m": 20.50824178437104,
+          "vrx_magnitude_m": 24.12780245871006,
+          "magnitude_divergence": 0.1764929784033179,
+          "relative_vector_divergence": 0.6998982514618708,
+          "direction_difference_deg": 36.38463562393958,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20013,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 29.00249921493196,
+          "E": 8.283915762476681,
+          "yaw": 5.858696774631182,
+          "u": 238092.70465542714,
+          "v": 152650.08846308765,
+          "r": 33.57147327969074
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.17836297717440175,
+            -2.5565422181007307
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.121424347997163,
+            5.454918017745513
+          ],
+          "node_magnitude_m": 2.562756614381849,
+          "vrx_magnitude_m": 5.852911399004757,
+          "magnitude_divergence": 1.2838342767935889,
+          "relative_vector_divergence": 3.216740826931799,
+          "direction_difference_deg": 154.7579766634863,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.758911620123399,
+            4.1747691470554855
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.289666376396781,
+            11.195127963728737
+          ],
+          "node_magnitude_m": 5.004027453847382,
+          "vrx_magnitude_m": 11.988833460560299,
+          "magnitude_divergence": 1.3958368676300128,
+          "relative_vector_divergence": 1.4359049498401715,
+          "direction_difference_deg": 12.493405475798214,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            17.492699984897627,
+            10.810293437958535
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.837741311139325,
+            22.68889691887125
+          ],
+          "node_magnitude_m": 20.563486984857573,
+          "vrx_magnitude_m": 24.349367853761297,
+          "magnitude_divergence": 0.18410694993954824,
+          "relative_vector_divergence": 0.7147261887722176,
+          "direction_difference_deg": 37.002571666674605,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20014,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 29.026052976561914,
+          "E": 8.252409320930383,
+          "yaw": 5.883727848027728,
+          "u": 238098.9476902162,
+          "v": 152640.26927410523,
+          "r": 33.571881760171586
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.1801949761575088,
+            -2.5599194299502415
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.1279750140984106,
+            5.465659830158984
+          ],
+          "node_magnitude_m": 2.5662536346334077,
+          "vrx_magnitude_m": 5.865297523539676,
+          "magnitude_divergence": 1.2855486474069973,
+          "relative_vector_divergence": 3.2181376152997654,
+          "direction_difference_deg": 154.70081521610487,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.7564451102134626,
+            4.210107539825913
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.3027603888203885,
+            11.21581474074992
+          ],
+          "node_magnitude_m": 5.032195856931515,
+          "vrx_magnitude_m": 12.012836769990049,
+          "magnitude_divergence": 1.3871957911660306,
+          "relative_vector_divergence": 1.4256859502799684,
+          "direction_difference_deg": 12.22512587361809,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            18.232378613975015,
+            11.440544773837246
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.864526728702913,
+            22.72865612709211
+          ],
+          "node_magnitude_m": 21.52453703672876,
+          "vrx_magnitude_m": 24.39613992965875,
+          "magnitude_divergence": 0.13341066932264253,
+          "relative_vector_divergence": 0.6814989985654494,
+          "direction_difference_deg": 36.58579269458503,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20015,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 29.02367971840613,
+          "E": 8.240956868532521,
+          "yaw": 5.841244563498838,
+          "u": 238105.2308779225,
+          "v": 152630.38647180633,
+          "r": 33.572294397569124
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.22094358678805293,
+            -2.569608322744898
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.1279191340709076,
+            5.464041315261056
+          ],
+          "node_magnitude_m": 2.579089568212515,
+          "vrx_magnitude_m": 5.863769038427831,
+          "magnitude_divergence": 1.2735809995508698,
+          "relative_vector_divergence": 3.2014711720895734,
+          "direction_difference_deg": 153.80764796408508,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.80932146772102,
+            4.215177766382112
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.302137473299808,
+            11.212289646338832
+          ],
+          "node_magnitude_m": 5.065571114020637,
+          "vrx_magnitude_m": 12.009322460179318,
+          "magnitude_divergence": 1.3707736383247215,
+          "relative_vector_divergence": 1.4123943744754657,
+          "direction_difference_deg": 12.690838812493055,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            17.350692337695364,
+            10.83157754374588
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.861625335652207,
+            22.722043055046015
+          ],
+          "node_magnitude_m": 20.45408508546742,
+          "vrx_magnitude_m": 24.388924621328385,
+          "magnitude_divergence": 0.19237426261889665,
+          "relative_vector_divergence": 0.7142749269652159,
+          "direction_difference_deg": 36.71871307097641,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20016,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 29.03200159053813,
+          "E": 8.244090641579533,
+          "yaw": 5.851990745605121,
+          "u": 238111.5290994248,
+          "v": 152620.55451878684,
+          "r": 33.572707908975794
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.18568224293812818,
+            -2.5747567129074014
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.1335513211306534,
+            5.460797650346649
+          ],
+          "node_magnitude_m": 2.5814433997289696,
+          "vrx_magnitude_m": 5.862793891817266,
+          "magnitude_divergence": 1.271130133022793,
+          "relative_vector_divergence": 3.2029648079750195,
+          "direction_difference_deg": 154.53442581903013,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.8065485763909237,
+            4.178274082925782
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.3091968805911165,
+            11.203460200487825
+          ],
+          "node_magnitude_m": 5.033357649093815,
+          "vrx_magnitude_m": 12.003611882246565,
+          "magnitude_divergence": 1.3848120318665704,
+          "relative_vector_divergence": 1.4272963454150231,
+          "direction_difference_deg": 12.850990471794757,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            16.77053281683402,
+            10.679503353419932
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.877660934498635,
+            22.723129669131595
+          ],
+          "node_magnitude_m": 19.88221725150931,
+          "vrx_magnitude_m": 24.39576778107407,
+          "magnitude_divergence": 0.22701444574659424,
+          "relative_vector_divergence": 0.7242414790556402,
+          "direction_difference_deg": 36.17094165967526,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20017,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 28.98465302749537,
+          "E": 8.319057097894984,
+          "yaw": 5.846524320558891,
+          "u": 238065.79341732213,
+          "v": 152691.87948431607,
+          "r": 33.5697203478506
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.14934633413213305,
+            -2.5433262025944714
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.1214850529649993,
+            5.463502947566667
+          ],
+          "node_magnitude_m": 2.54770730271794,
+          "vrx_magnitude_m": 5.860935359481758,
+          "magnitude_divergence": 1.3004743728721138,
+          "relative_vector_divergence": 3.236686189393995,
+          "direction_difference_deg": 155.41814711227673,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.76761097747476,
+            4.171973229136711
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.283466473370936,
+            11.20952262280116
+          ],
+          "node_magnitude_m": 5.006498891168577,
+          "vrx_magnitude_m": 12.000061768990351,
+          "magnitude_divergence": 1.3968969193538348,
+          "relative_vector_divergence": 1.4379215521949087,
+          "direction_difference_deg": 12.6463402368592,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            17.05356090582245,
+            10.456948629051112
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.824659894822616,
+            22.73536921797131
+          ],
+          "node_magnitude_m": 20.004292394364008,
+          "vrx_magnitude_m": 24.38794037504537,
+          "magnitude_divergence": 0.21913536826308383,
+          "relative_vector_divergence": 0.7388854382613177,
+          "direction_difference_deg": 37.2705331407738,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20018,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 28.920830805735022,
+          "E": 8.475822858254105,
+          "yaw": 7.82234755712732,
+          "u": 238072.11330624844,
+          "v": 152682.04497707525,
+          "r": 33.57013036711561
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.09645683290182205,
+            -2.476369346755746
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.1253456667000137,
+            5.472054364170617
+          ],
+          "node_magnitude_m": 2.4782471753569966,
+          "vrx_magnitude_m": 5.870304350491482,
+          "magnitude_divergence": 1.3687323883041862,
+          "relative_vector_divergence": 3.3101143843510887,
+          "direction_difference_deg": 156.54323728805448,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.7575254682960804,
+            4.155813648994808
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.294019924333043,
+            11.230227588808702
+          ],
+          "node_magnitude_m": 4.98745764828866,
+          "vrx_magnitude_m": 12.023170081430655,
+          "magnitude_divergence": 1.4106811384265387,
+          "relative_vector_divergence": 1.451510510003828,
+          "direction_difference_deg": 12.640655249303377,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            17.70131774472975,
+            9.594959379284774
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.846099988022615,
+            22.77074894748148
+          ],
+          "node_magnitude_m": 20.134544826988495,
+          "vrx_magnitude_m": 24.428681761964206,
+          "magnitude_divergence": 0.21327211376637714,
+          "relative_vector_divergence": 0.788447008984266,
+          "direction_difference_deg": 40.309779017598856,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    },
+    {
+      "seed": 20019,
+      "samples": 2400,
+      "kinematic": {
+        "samples": 2400,
+        "per_state_max_abs": {
+          "N": 28.99538572592428,
+          "E": 8.284712124559519,
+          "yaw": 5.8566817671722955,
+          "u": 238078.4146540608,
+          "v": 152672.23841727548,
+          "r": 33.57054191550094
+        },
+        "first_divergence_step": {
+          "N": 0,
+          "E": 0,
+          "yaw": 0,
+          "u": 0,
+          "v": 0,
+          "r": 0
+        },
+        "yaw_divergence_separate": true
+      },
+      "kinematic_pass": false,
+      "environment": [
+        {
+          "checkpoint_s": 30,
+          "sample_index": 600,
+          "node_environment_displacement_ne_m": [
+            0.17607123843299632,
+            -2.54197243384624
+          ],
+          "vrx_environment_displacement_ne_m": [
+            2.124729610970462,
+            5.470990204064947
+          ],
+          "node_magnitude_m": 2.548062977133318,
+          "vrx_magnitude_m": 5.869089344413603,
+          "magnitude_divergence": 1.3033533303861211,
+          "relative_vector_divergence": 3.2363818199527086,
+          "direction_difference_deg": 154.81337937709606,
+          "component_sign_consistent": false,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 60,
+          "sample_index": 1200,
+          "node_environment_displacement_ne_m": [
+            2.769513848990755,
+            4.235011273480268
+          ],
+          "vrx_environment_displacement_ne_m": [
+            4.293064669996966,
+            11.22796499897413
+          ],
+          "node_magnitude_m": 5.060190455531941,
+          "vrx_magnitude_m": 12.020715547710306,
+          "magnitude_divergence": 1.3755460695296413,
+          "relative_vector_divergence": 1.4143730877751195,
+          "direction_difference_deg": 12.258359639828472,
+          "component_sign_consistent": true,
+          "pass": false
+        },
+        {
+          "checkpoint_s": 119.95,
+          "sample_index": 2399,
+          "node_environment_displacement_ne_m": [
+            17.976663187504528,
+            10.465982259886005
+          ],
+          "vrx_environment_displacement_ne_m": [
+            8.842854661779711,
+            22.763538624716602
+          ],
+          "node_magnitude_m": 20.801375051213057,
+          "vrx_magnitude_m": 24.42078559932755,
+          "magnitude_divergence": 0.17399861976448638,
+          "relative_vector_divergence": 0.736417519278106,
+          "direction_difference_deg": 38.56266737951823,
+          "component_sign_consistent": true,
+          "pass": false
+        }
+      ],
+      "environment_pass": false
+    }
+  ]
+}
