@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "task-3-cross-backend-sensor-parity-capability-audit",
+  "date": "2026-09-04",
+  "status": "BLOCKED_SENSOR_PARITY_GAPS",
+  "scope": "Read-only capability audit. No controller, contract, reward, training, conformance gate, or simulator implementation was changed.",
+  "governing_requirement": "Confirm that acceleration, angular rate, goal-relative position, ground velocity, fix validity, and yaw are obtainable for bcod-sim, VRX, and Gazebo Harmonic in the shared contract units and NED/body conventions.",
+  "runtime_evidence": {
+    "vrx": {
+      "image": "leadcat/vrx:v3.0.1",
+      "image_digest": "sha256:1b0ebfc18f5265b684239e67e132b88557303fa6031334e9010a1d9794efd369",
+      "world": "stationkeeping_task",
+      "vehicle": "live stock WAM-V",
+      "imu_topic": "/wamv/sensors/imu/imu/data",
+      "imu_type": "sensor_msgs/msg/Imu",
+      "imu_observation": {
+        "orientation_quaternion_xyzw": [
+          -2.8014001416796544e-11,
+          5.524646029435349e-12,
+          0.47942553860420273,
+          0.8775825618903728
+        ],
+        "orientation_covariance_0": 0.0,
+        "orientation_available": true,
+        "angular_velocity_present": true,
+        "linear_acceleration_present": true
+      },
+      "gps_topic": "/wamv/sensors/gps/gps/fix",
+      "gps_type": "sensor_msgs/msg/NavSatFix",
+      "gps_observation": {
+        "latitude_deg": -33.72276876888639,
+        "longitude_deg": 150.67399110174387,
+        "status": 0,
+        "position_available": true,
+        "velocity_available_in_message": false
+      },
+      "conclusion": "The blocking AHRS sub-check passes: WAM-V publishes a populated orientation and does not use the covariance[0] == -1 unavailability sentinel. ROS NavSatFix does not carry ground velocity."
+    },
+    "gazebo_harmonic": {
+      "image": "icra27-gazebo-harmonic:harmonic-8.15.0",
+      "image_digest": "sha256:c3d437139e410906f4a99bbf8d3a87747b916ad8fd10e836515a63a5e8fb0184",
+      "reported_gz_sim_version": "8.15.0",
+      "generated_with": "prepare-gazebo-episode.ts using phaseASensors=true",
+      "model_sdf_validation": "valid",
+      "world_runtime_load": "passed with no error/invalid diagnostics",
+      "imu_topic": "/imu",
+      "imu_type": "gz.msgs.IMU",
+      "imu_observation": {
+        "orientation_present": true,
+        "orientation_covariance_0": 0.0,
+        "angular_velocity_present": true,
+        "linear_acceleration_present": true
+      },
+      "gps_topic": "/gps",
+      "gps_type": "gz.msgs.NavSat",
+      "gps_schema_fields": [
+        "latitude_deg",
+        "longitude_deg",
+        "altitude",
+        "velocity_east",
+        "velocity_north",
+        "velocity_up"
+      ],
+      "gps_live_observation": "Only header and frame_id serialized because all numeric NavSat values remained protobuf-default zero.",
+      "conclusion": "The sensor entities and world systems work under pinned Harmonic 8.15. The generated world has no spherical_coordinates/geodetic origin, so live NavSat position and velocity are not yet meaningful."
+    }
+  },
+  "source_audit": {
+    "vrx_trace_exporter.py": {
+      "sha256": "d85867ae230654ace26a3bc6ac0e9ee53a151859bffc7113936a55452eec5c8f",
+      "finding": "Subscribes to Odometry, Imu, and NavSatFix. It copies IMU vectors without FLU-to-contract-body conversion, uses odometry for N/E and velocity, uses GPS only for status, and discards IMU orientation."
+    },
+    "task-trace-bridge.ts": {
+      "sha256": "35119d5070ae6e93817dcdd160ced25dca0635de429d6eab4c38ba98e19ff25b",
+      "finding": "Its existing ENU-to-NED odometry conversion correctly maps N=y, E=x, yaw=pi/2-yaw_ENU, and yaw rate=-angular_z. Its sample interface has no NavSat position/velocity or IMU orientation fields, and the observation path derives goal position and ground velocity from odometry."
+    },
+    "prepare-gazebo-episode.ts": {
+      "sha256": "d7af085adcf514b6e82dc8f59d2aedf7fd9727d64ef2664619d11e11f9788156",
+      "finding": "Correctly enables task_imu/task_gps with phaseASensors=true, but the emitted world has no spherical_coordinates block."
+    }
+  },
+  "field_parity": [
+    {
+      "quantity": "acceleration_body_mps2",
+      "units": "m/s^2",
+      "target_frame": "body NED/FRD",
+      "bcod_sim": "available from IMU",
+      "vrx": "available from IMU",
+      "gazebo_harmonic": "available from IMU",
+      "status": "conversion-required",
+      "gap": "VRX/Gazebo IMU data is emitted in Gazebo/ROS body FLU conventions; the current VRX exporter forwards x/y/z unchanged. The shared body convention requires explicit axis/sign conversion and a fixed gravity/specific-force convention."
+    },
+    {
+      "quantity": "angular_rate_body_rad_s",
+      "units": "rad/s",
+      "target_frame": "body NED/FRD",
+      "bcod_sim": "available from IMU",
+      "vrx": "available from IMU",
+      "gazebo_harmonic": "available from IMU",
+      "status": "conversion-required",
+      "gap": "The current VRX exporter forwards FLU angular rates unchanged; roll/pitch/yaw-rate signs must be mapped to the shared body convention."
+    },
+    {
+      "quantity": "goal_relative_position_ned_m",
+      "units": "m",
+      "target_frame": "local tangent NED",
+      "bcod_sim": "available from GPS position_ned_m",
+      "vrx": "latitude/longitude available from NavSatFix",
+      "gazebo_harmonic": "latitude/longitude fields exist in gz.msgs.NavSat",
+      "status": "blocked",
+      "gap": "Neither existing wrapper converts geodetic fixes to the task local tangent origin. Gazebo's generated world also lacks the spherical origin needed to emit meaningful coordinates. Current wrappers substitute true odometry."
+    },
+    {
+      "quantity": "ground_velocity_ned_mps",
+      "units": "m/s",
+      "target_frame": "local tangent NED",
+      "bcod_sim": "available from GPS velocity_ned_mps",
+      "vrx": "not present in bridged sensor_msgs/NavSatFix",
+      "gazebo_harmonic": "available as velocity_north/east/up in native gz.msgs.NavSat once geodetic setup is valid",
+      "status": "blocked",
+      "gap": "The VRX wrapper currently substitutes odometry velocity. A sensor-side velocity source or an explicitly documented non-learned position-difference estimator is required; true odometry is not parity with the bcod-sim GPS observation."
+    },
+    {
+      "quantity": "gps_fix_valid",
+      "units": "binary",
+      "target_frame": "not applicable",
+      "bcod_sim": "available as GPS sample valid",
+      "vrx": "available as NavSatFix.status >= 0",
+      "gazebo_harmonic": "gz.msgs.NavSat has no status/valid field",
+      "status": "blocked",
+      "gap": "Gazebo needs a documented validity rule based on topic/sample freshness and finite configured geodetic output, or an explicit deviation."
+    },
+    {
+      "quantity": "yaw_rad",
+      "units": "rad",
+      "target_frame": "heading in local NED",
+      "bcod_sim": "available as idealized AHRS orientation_rad[2]",
+      "vrx": "available from live IMU quaternion; covariance[0]=0",
+      "gazebo_harmonic": "available from live IMU quaternion; covariance[0]=0",
+      "status": "available-conversion-required",
+      "gap": "External quaternion yaw must be converted from ENU to NED and wrapped consistently; current wrappers discard it."
+    }
+  ],
+  "orientation_scope_decision_for_task_4": {
+    "decision": "shared-contract-yaw",
+    "reason": "Orientation is live and populated in all three backends, including the explicitly checked WAM-V topic.",
+    "caveat": "This capability decision does not authorize Task 4 until the non-yaw sensor parity blockers above are resolved or explicitly accepted by the governing instructions. No silent odometry substitution is acceptable."
+  },
+  "required_next_work": [
+    "Add a geodetic origin to generated Gazebo/VRX Surveyor worlds and verify nonzero position and velocity during a controlled motion.",
+    "Define and test FLU/ENU to shared body-NED mappings for IMU vectors and yaw.",
+    "Choose a VRX sensor-side ground-velocity source or document a non-learned NavSat finite-difference estimator; do not use privileged odometry as if it were GPS.",
+    "Define Gazebo NavSat validity semantics from freshness and finite data, or record an explicit deviation.",
+    "Update the wrappers only in a separately authorized implementation task, then repeat this audit."
+  ],
+  "unchanged_gates": "VRX Gate 7, Gazebo SDF inertia, and Gate 5 fairness remain in force and are neither passed nor waived by this audit.",
+  "training_authorized": false
+}
