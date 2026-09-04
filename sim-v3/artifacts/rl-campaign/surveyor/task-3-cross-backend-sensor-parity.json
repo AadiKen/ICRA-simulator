@@ -2,7 +2,7 @@
   "schema_version": 1,
   "artifact_kind": "task-3-cross-backend-sensor-parity-capability-audit",
   "date": "2026-09-04",
-  "status": "BLOCKED_SENSOR_PARITY_GAPS",
+  "status": "PARTIAL_YAW_CONFIRMED_REMAINING_EXTERNAL_FIELDS_OPEN",
   "scope": "Read-only capability audit. No controller, contract, reward, training, conformance gate, or simulator implementation was changed.",
   "governing_requirement": "Confirm that acceleration, angular rate, goal-relative position, ground velocity, fix validity, and yaw are obtainable for bcod-sim, VRX, and Gazebo Harmonic in the shared contract units and NED/body conventions.",
   "runtime_evidence": {
@@ -144,15 +144,21 @@
   "orientation_scope_decision_for_task_4": {
     "decision": "shared-contract-yaw",
     "reason": "Orientation is live and populated in all three backends, including the explicitly checked WAM-V topic.",
-    "caveat": "This capability decision does not authorize Task 4 until the non-yaw sensor parity blockers above are resolved or explicitly accepted by the governing instructions. No silent odometry substitution is acceptable."
+    "caveat": "The remaining parity gaps are confined to the VRX/Gazebo adapters and block Phase 2 or any cross-simulator PPO execution. They do not block the bcod-sim-only Task 4 contract revision or Task 5 diagnostic run. No silent odometry substitution is acceptable when external execution resumes."
   },
   "required_next_work": [
     "Add a geodetic origin to generated Gazebo/VRX Surveyor worlds and verify nonzero position and velocity during a controlled motion.",
     "Define and test FLU/ENU to shared body-NED mappings for IMU vectors and yaw.",
     "Choose a VRX sensor-side ground-velocity source or document a non-learned NavSat finite-difference estimator; do not use privileged odometry as if it were GPS.",
     "Define Gazebo NavSat validity semantics from freshness and finite data, or record an explicit deviation.",
-    "Update the wrappers only in a separately authorized implementation task, then repeat this audit."
+    "Update the wrappers before Phase 2 or any cross-simulator PPO execution, then repeat this audit."
   ],
+  "execution_scope": {
+    "task_4_bcod_sim_contract_revision": "authorized-by-yaw-capability",
+    "task_5_bcod_sim_diagnostic": "not-blocked-by-external-parity",
+    "phase_2_or_cross_simulator_ppo": "blocked-until-remaining-fields-close",
+    "vrx_odometry_deviation": "The current ground-velocity substitution is explicitly recorded as privileged odometry, not a GPS-derived measurement, and must not quietly become the portable baseline."
+  },
   "unchanged_gates": "VRX Gate 7, Gazebo SDF inertia, and Gate 5 fairness remain in force and are neither passed nor waived by this audit.",
   "training_authorized": false
 }
