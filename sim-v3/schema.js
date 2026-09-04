@@ -1652,6 +1652,9 @@ export class boatConfig{
         this.movementPowerFactor = movementPowerFactor;
         this.startPos = startPos;
         this.startOrientation = startOrientation;
+        // Experiment adapters set this when an initial attitude was supplied.
+        // Legacy/demo scenarios retain the point-at-first-waypoint default.
+        this.initialAttitudeSupplied = false;
         this.dimensions = dimensions;
         this.mass = mass;
         this.transDrag = transDrag;
@@ -2111,7 +2114,7 @@ export function createInitialSimState(scenarioC){
     startPos.y = runtimeWaterField.sampleAt(startPos, startTime).surfaceHeight;
 
     let initialHeading = scenarioC.boatConfig.startOrientation.y;
-    if (scenarioC.goalConfig.waypoints.length > 0){
+    if (!scenarioC.boatConfig.initialAttitudeSupplied && scenarioC.goalConfig.waypoints.length > 0){
         const firstWaypoint = scenarioC.goalConfig.waypoints[0];
         initialHeading = Math.atan2(firstWaypoint.x - startPos.x, firstWaypoint.z - startPos.z);
     }

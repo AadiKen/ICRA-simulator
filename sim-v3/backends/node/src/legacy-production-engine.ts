@@ -48,7 +48,7 @@ export class LegacyProductionEngine implements SimulationEngine {
     scenario.simConfig.allowGroundTruth=false;
     scenario.goalConfig.waypoints=this.#missionWaypoints(config);
     if(config.mission.type==="rl-common-waypoint-v1"){scenario.envConfig.obstacles=[];scenario.envConfig.bounds={width:20_000,height:20_000};}
-    const initial=config.initial_state;if(initial?.position_ned_m){const[n,e,d]=initial.position_ned_m;scenario.boatConfig.startPos=new vec3(e,-d,n);}if(initial?.attitude_rad){const[roll,pitch,yaw]=initial.attitude_rad;scenario.boatConfig.startOrientation=new vec3(pitch,yaw,roll);}
+    const initial=config.initial_state;if(initial?.position_ned_m){const[n,e,d]=initial.position_ned_m;scenario.boatConfig.startPos=new vec3(e,-d,n);}if(initial?.attitude_rad){const[roll,pitch,yaw]=initial.attitude_rad;scenario.boatConfig.startOrientation=new vec3(pitch,yaw,roll);scenario.boatConfig.initialAttitudeSupplied=true;}
     const current=config.environment?.current_mps;if(current)scenario.envConfig.waterFieldConfig.current=new vec3(current[1],-current[2],current[0]);const wind=config.environment?.wind_mps;if(wind)scenario.envConfig.wind={N:wind[0],E:wind[1],D:wind[2]};
     const typedDeclarations=config.sensors.flatMap((sensor,declarationIndex)=>{const factory=this.#sensorFactories[sensor.plugin];return factory?[{sensor,declarationIndex,factory}]:[];}),typedIds=new Set(typedDeclarations.map(({sensor})=>sensor.plugin));
     scenario.sensorConfig.sensors=scenario.sensorConfig.sensors.filter((sensor:any)=>!typedIds.has(sensor.id));
