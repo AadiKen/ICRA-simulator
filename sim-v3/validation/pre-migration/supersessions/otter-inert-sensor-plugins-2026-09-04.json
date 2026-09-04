@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gazebo-generated-reference-regeneration-note",
+  "date": "2026-09-04",
+  "source_commit": "2fef2ebb0e1bc6d6ea2cbb77fe75164d38f3237f",
+  "source_change": "gazebo/generateGazeboParity.js added Sensors, IMU, and NavSat world-system plugin blocks; generator formatting also introduced whitespace-only model output changes.",
+  "affected_outputs": {
+    "model": "gazebo/generated/models/otter/model.sdf",
+    "worlds": [
+      "gazebo/generated/worlds/otter_coast-down.sdf",
+      "gazebo/generated/worlds/otter_constant-thrust.sdf",
+      "gazebo/generated/worlds/otter_current-drift.sdf",
+      "gazebo/generated/worlds/otter_turning-circle.sdf",
+      "gazebo/generated/worlds/otter_yaw-turn.sdf",
+      "gazebo/generated/worlds/otter_zig-zag.sdf"
+    ]
+  },
+  "physical_parameter_change": false,
+  "unaffected": [
+    "mass",
+    "inertia tensor",
+    "damping",
+    "geometry",
+    "thruster placement",
+    "actuator limits"
+  ],
+  "runtime_observation": {
+    "gazebo_version": "8.14.0",
+    "world_loaded": true,
+    "imu_topic_published": false,
+    "navsat_topic_published": false,
+    "explanation": "The default Otter generation path leaves phaseASensors disabled, so the model contains no IMU or NavSat sensor entities. World-system plugins alone have nothing to publish.",
+    "pinned_harmonic_8_15_status": "outstanding-docker-daemon-down"
+  },
+  "heading_fix_implicated": false,
+  "scope": "Generated-reference reconciliation only; this note does not claim Gazebo sensor parity."
+}
