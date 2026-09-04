@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "task-3-gazebo-sensor-enablement-note",
+  "date": "2026-09-04",
+  "scope": "Cross-backend sensor parity capability audit",
+  "finding": "Gazebo-side IMU and NavSat output requires both the world-system plugins and IMU/NavSat sensor entities in the generated model.",
+  "existing_world_support": {
+    "source_commit": "2fef2ebb0e1bc6d6ea2cbb77fe75164d38f3237f",
+    "plugins": [
+      "gz::sim::systems::Sensors",
+      "gz::sim::systems::Imu",
+      "gz::sim::systems::NavSat"
+    ]
+  },
+  "model_requirement": {
+    "generator_option": "phaseASensors",
+    "required_value": true,
+    "reason": "The default Otter model generation path leaves phaseASensors disabled and therefore emits no task_imu or task_gps sensor entities. World plugins alone cannot publish IMU or NavSat topics."
+  },
+  "observed_validation": {
+    "gazebo_version": "8.14.0",
+    "default_otter_world_loaded": true,
+    "imu_topic_published": false,
+    "navsat_topic_published": false
+  },
+  "outstanding_task_3_check": {
+    "runtime": "Gazebo Harmonic 8.15.0 digest-pinned image",
+    "status": "not-run",
+    "reason": "Docker daemon was unavailable during provenance reconciliation.",
+    "required_action": "Generate the model with phaseASensors enabled, validate SDF loading under pinned Harmonic 8.15.0, and confirm live IMU and NavSat topic publication during Task 3."
+  },
+  "non_inference": "The 8.14-versus-8.15 version difference cannot explain the observed absence of topics because the tested default model contains no sensor entities; nevertheless, pinned 8.15 verification remains mandatory."
+}
