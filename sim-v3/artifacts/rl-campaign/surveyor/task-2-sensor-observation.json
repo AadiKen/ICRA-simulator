@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-task-2-sensor-observation-verification",
+  "date": "2026-09-04",
+  "status": "complete-full-suite-passed",
+  "contract_changed": false,
+  "observation_fields": 16,
+  "policy_observation_source": {
+    "imu": "step observation sensors.imu.payload",
+    "gps": "step observation sensors.gps.payload",
+    "ground_truth": "prohibited"
+  },
+  "privileged_ground_truth_scope": [
+    "reward",
+    "termination",
+    "cross-track error",
+    "waypoint advancement",
+    "potential shaping",
+    "diagnostics"
+  ],
+  "sample_policy": {
+    "warm_up": "zero-fill IMU and GPS fields; fix_valid=0",
+    "invalid_or_null_gps": "zero-fill GPS fields; fix_valid=0",
+    "sticky_sample_freshness": "timestampS age must not exceed nominal period plus declared latency plus one physics tick",
+    "imu_max_age_s": 0.08,
+    "gps_max_age_s": 0.75
+  },
+  "energy_accounting": {
+    "active_sensors": ["imu", "gps"]
+  },
+  "gps_dropout_check": {
+    "configured_probability": [0, 0],
+    "new_valid_samples_checked": 4,
+    "invalid_samples": 0
+  },
+  "fixed_trajectory_sanity": {
+    "seed": 30000,
+    "control_steps": 50,
+    "unique_gps_samples": 10,
+    "maximum_absolute_error": {
+      "imu_acceleration_m_s2": 0.4267227526092575,
+      "imu_angular_rate_rad_s": 0.06610645128394799,
+      "gps_relative_goal_m": 2.3907921418431215,
+      "gps_ground_velocity_m_s": 0.5681550573260773
+    },
+    "interpretation": "Sensor values track privileged state within noise and declared delivery latency after correcting a discovered body-to-NED velocity labeling defect."
+  },
+  "training_performed": false
+}
