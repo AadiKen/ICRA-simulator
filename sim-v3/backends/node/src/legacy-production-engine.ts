@@ -55,7 +55,7 @@ export class LegacyProductionEngine implements SimulationEngine {
     this.#sim=new LegacySimulator(scenario);if(initial?.body_velocity_mps&&this.#sim.state.boat.rigidBody){const[u,v,w]=initial.body_velocity_mps;Object.assign(this.#sim.state.boat.rigidBody.velocity,{u,v,w});}if(initial?.angular_rate_body_rad_s&&this.#sim.state.boat.rigidBody){const[p,q,r]=initial.angular_rate_body_rad_s;Object.assign(this.#sim.state.boat.rigidBody.angularRate,{p,q,r});}this.#config=config;this.#rng=new SeededRandom(config.experiment.seed);this.#typedOutputs={};this.#typedPowerW.clear();
     // Resolved experiment IDs use the authoritative typed catalog. The separate
     // browser demo may still construct explicitly labelled legacy sensor objects.
-    const typedSpecs=typedDeclarations.map(({sensor,declarationIndex,factory})=>{const plugin=factory(),config=structuredClone(BUILT_IN_SENSOR_REGISTRY[sensor.plugin]?.defaultConfig??{});this.#typedPowerW.set(sensor.plugin,plugin.metadata.nominalPowerW);return{plugin,declaration:{pluginId:sensor.plugin,declarationIndex,config,enabled:sensor.enabled}};});
+    const typedSpecs=typedDeclarations.map(({sensor,declarationIndex,factory})=>{const plugin=factory(),config={...structuredClone(BUILT_IN_SENSOR_REGISTRY[sensor.plugin]?.defaultConfig??{}),...structuredClone((sensor as any).config??{})};this.#typedPowerW.set(sensor.plugin,plugin.metadata.nominalPowerW);return{plugin,declaration:{pluginId:sensor.plugin,declarationIndex,config,enabled:sensor.enabled}};});
     this.#sensorRuntime=new SensorRuntimeRegistry(typedSpecs,config.experiment.seed,(service)=>{
       if(service==="groundTruth")return()=>this.getGroundTruth();
       if(service==="environment")return()=>this.#environmentSample();
