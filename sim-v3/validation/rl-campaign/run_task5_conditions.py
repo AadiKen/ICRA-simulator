@@ -105,16 +105,20 @@ def evaluate(model, condition: str):
     }
 
 
-def run(condition: str):
+def output_directory(condition: str, training_seed: int):
+    return OUT / condition if training_seed == 7319 else OUT / condition / f"seed-{training_seed}"
+
+
+def run(condition: str, training_seed: int):
     from sb3_contrib import RecurrentPPO
     from stable_baselines3.common.vec_env import SubprocVecEnv
 
-    output = OUT / condition
+    output = output_directory(condition, training_seed)
     output.mkdir(parents=True, exist_ok=True)
     env = SubprocVecEnv(
         [factory(rank, condition) for rank in range(16)], start_method="fork")
     model = RecurrentPPO(
-        "MlpLstmPolicy", env, seed=7319, n_steps=512, batch_size=512,
+        "MlpLstmPolicy", env, seed=training_seed, n_steps=512, batch_size=512,
         n_epochs=10, learning_rate=3e-4, gamma=.99, gae_lambda=.95,
         clip_range=.2, ent_coef=0,
         policy_kwargs={"net_arch": [128, 128], "lstm_hidden_size": 128,
@@ -122,6 +126,7 @@ def run(condition: str):
         verbose=1, device="cpu")
     atomic_json(output / "training-state.json", {
         "status": "running", "condition": condition, "timesteps": 0,
+        "training_seed": training_seed,
         "algorithm": "RecurrentPPO", "policy": "MlpLstmPolicy",
         "contract_sha256": CommonWaypointEnv.EXPECTED_CONTRACT_SHA256})
     try:
@@ -136,7 +141,7 @@ def run(condition: str):
         "condition": condition,
         "contract_sha256": CommonWaypointEnv.EXPECTED_CONTRACT_SHA256,
         "training": {
-            "timesteps": 250_000, "seed": 7319,
+            "timesteps": 250_000, "seed": training_seed,
             "algorithm": "RecurrentPPO", "policy": "MlpLstmPolicy",
             "n_steps": 512, "batch_size": 512, "n_epochs": 10,
             "learning_rate": 3e-4, "gamma": .99, "gae_lambda": .95,
@@ -149,6 +154,7 @@ def run(condition: str):
     atomic_json(output / "report.json", report)
     atomic_json(output / "training-state.json", {
         "status": "completed", "condition": condition, "timesteps": 250_000,
+        "training_seed": training_seed,
         "success_rate": result["success_rate"], "phase_2_started": False,
         "report": str((output / "report.json").relative_to(ROOT))})
     print(json.dumps({"condition": condition, "evaluation": result}, indent=2))
@@ -157,8 +163,9 @@ def run(condition: str):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--condition", choices=CONDITIONS, required=True)
+    parser.add_argument("--training-seed", type=int, default=7319)
     args = parser.parse_args()
-    run(args.condition)
+    run(args.condition, args.training_seed)
 
 
 if __name__ == "__main__":

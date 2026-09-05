@@ -28,8 +28,12 @@ class Task5ConditionTest(unittest.TestCase):
         self.assertNotIn("config", configs[2]["sensors"][0])
         noise_imu["gyro_noise_std_rad_s"] = 123.0
         self.assertNotIn("config", configs[2]["sensors"][0])
-        outputs = {RUNNER.OUT / name for name in RUNNER.CONDITIONS}
+        outputs = {RUNNER.output_directory(name, 7319) for name in RUNNER.CONDITIONS}
         self.assertEqual(len(outputs), 3)
+        replicated = {RUNNER.output_directory(name, seed)
+                      for name in RUNNER.CONDITIONS for seed in (7320, 7321)}
+        self.assertEqual(len(replicated), 6)
+        self.assertTrue(outputs.isdisjoint(replicated))
 
     def test_control_masks_only_yaw_across_steps_and_seeds(self):
         observations = []
