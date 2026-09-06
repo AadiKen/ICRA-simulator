@@ -17,7 +17,7 @@ dependencies = [
 hydrodynamics = ["capytaine>=2.3,<3", "joblib==1.5.2"]
 # rclpy is supplied by the pinned ROS 2 distribution, not PyPI.
 ros = []
-training = ["stable-baselines3>=2.6,<3"]
+training = ["stable-baselines3>=2.6,<3", "sb3-contrib>=2.6,<3"]
 
 [tool.uv]
 package = false

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "contract_version": "5.0.0-surveyor-sensor-yaw",
-  "status": "FROZEN_SENSOR_YAW_REVISION_APPROVED",
-  "version_note": "Explicitly authorized on 2026-09-04: append the sensor IMU's orientation_rad[2] yaw as the seventh IMU field, changing the common observation from 16 to 17 fields. The observation remains sensor-driven. Reward, world-frame goal, algorithm, entropy, network, budgets, gate thresholds, curriculum structure, action space, timing, route, disturbance, and evaluation seeds are unchanged.",
+  "contract_version": "7.0.0-surveyor-15-field-gps-parity",
+  "status": "FROZEN_15_FIELD_GPS_PARITY_REVISION",
+  "version_note": "Authorized 2026-09-06: the common portable observation is reduced uniformly from 17 to 15 fields. Reward, termination, curriculum, action space, randomization, acceptance thresholds, and every non-observation execution setting remain unchanged.",
   "created_at": "2026-08-31T00:00:00.000Z",
   "tasks": [
     {
@@ -15,12 +15,8 @@
         "Gazebo Harmonic"
       ],
       "figure_eligibility": [
-        "Fig 1B",
-        "Fig 1C",
-        "Fig 3",
-        "Fig 5",
-        "Tables T1-T3",
-        "ablations"
+        "Fig 1",
+        "Fig 5 benchmark half"
       ],
       "purpose": "Credible simulator comparison using only capabilities with direct, reproducible counterparts in all three simulators.",
       "classical_control_justification": "LOS-PID-v2 and LOS-SPEEDCAP-v2 are the frozen classical calibration references. MPC-v1 is parked-incomplete and is not used for terminal calibration or treated as a downstream dependency. PPO is not required to beat either classical controller; it must exceed the frozen untrained-policy thresholds.",
@@ -50,18 +46,16 @@
           },
           {
             "id": "gps",
-            "size": 5,
+            "size": 3,
             "fields": [
               "relative_goal_north_m",
               "relative_goal_east_m",
-              "ground_speed_north_m_s",
-              "ground_speed_east_m_s",
               "fix_valid"
             ],
             "source": "SeaRobotics positioning interface/GPS; exact receiver model is not confirmed in available field records",
             "physical_counterpart": "SeaRobotics positioning interface",
             "dropout_probability": 0,
-            "portability_note": "Use each simulator's standard GPS/NavSat output converted to the contract's local tangent frame."
+            "portability_note": "Use each simulator's standard GPS/NavSat position output converted to the contract's local tangent frame. Ground velocity is uniformly excluded."
           },
           {
             "id": "previous_action",
@@ -79,7 +73,7 @@
               0,
               1
             ],
-            "append_only_note": "Field 17 after the 7-field IMU, 5-field GPS, and 4-field previous-action groups."
+            "append_only_note": "Field 15 after the 7-field IMU, 3-field GPS, and 4-field previous-action groups."
           }
         ],
         "explicitly_excluded": [
@@ -147,16 +141,23 @@
           }
         },
         "fairness": {
-          "status": "OPEN_RESERVED_GATE_5",
-          "not_resolved_by_this_contract": true,
+          "status": "RESOLVED_GATE_5_REPORT_BOTH_SEPARATE_CONDITIONS",
+          "not_resolved_by_this_contract": false,
           "question": "Compare policies in topology-native normalized actuator space, a common body-wrench space followed by each simulator's allocator, or both?",
           "options": [
             "topology-native normalized actuators",
             "common body wrench plus frozen allocator",
             "report both as separate conditions"
           ],
+          "decision": "report both as separate conditions",
+          "conditions": [
+            "topology-native normalized actuators",
+            "common body wrench plus frozen allocator"
+          ],
+          "aggregation_rule": "Report and label both conditions independently; do not pool their episodes, confidence intervals, or headline metrics.",
+          "protocol_artifact": "artifacts/rl-campaign/surveyor/gate-5-action-fairness-protocol.json",
           "required_before": "Any cross-vehicle or cross-simulator training comparison",
-          "prohibition": "No figure pipeline may imply action-space fairness is settled before Gate 5 approval."
+          "prohibition": "No figure pipeline may collapse the two conditions or imply that either action representation alone settles cross-topology fairness."
         }
       },
       "reward": {
@@ -175,11 +176,12 @@
         "potential_shaping": {
           "potential": "Phi(s) = -0.1757208861220446 * distance_to_final_waypoint_m",
           "k": 0.1757208861220446,
-          "gamma": 0.99,
-          "transition_term": "gamma * Phi(s') - Phi(s)",
+          "gamma": 1,
+          "transition_term": "Phi(s') - Phi(s) = k * (distance_prev - distance_next)",
           "scope": "all episode states; not gated at final-leg activation",
           "absorbing_terminal_potential": 0,
-          "policy_invariance_basis": "Ng, Harada, and Russell (1999) discounted potential-based reward shaping",
+          "truncation_potential": "Time-limit truncation is non-absorbing and retains Phi(s') at the observed final distance.",
+          "policy_invariance_basis": "No formal discounted-policy-invariance claim is made because shaping gamma=1.0 differs from PPO gamma=0.99; this correction is explicitly treated as pure progress reward shaping.",
           "scale_derivation": "At the contract-correct 10 Hz control rate, the retained 30-episode 1.25M-checkpoint replay accumulated a median 2845.4215718712667 shaping units with k=5. Linear scaling to the 100-point terminal bonus gives k=5*100/2845.4215718712667=0.1757208861220446. This scale is not fitted to success rate.",
           "gate_reporting_rule": "C3 return is computed from base_reward only so the unchanged threshold remains comparable; shaped reward is training signal and auxiliary telemetry."
         }
@@ -335,7 +337,11 @@
             "name": "final-leg-isolation",
             "reset_position": "second route waypoint (canonical leg-2 endpoint)",
             "reset_heading": "bearing from waypoint 2 to waypoint 3 plus the existing seeded [-10,10] degree perturbation",
-            "reset_velocity_body_mps": [0, 0, 0],
+            "reset_velocity_body_mps": [
+              0,
+              0,
+              0
+            ],
             "active_waypoint_index": 2,
             "disturbance": "unchanged frozen seed mapping and magnitude ranges",
             "terminal_radius_m": 2,
@@ -385,12 +391,8 @@
       "allowed_simulators": [
         "bcod-sim"
       ],
-      "figure_eligibility": [
-        "Fig 6",
-        "Fig 7",
-        "bcod-sim capability argument"
-      ],
-      "explicit_exclusion": "Must not appear in Fig 5, simulator-comparison tables, or competitor ablations.",
+      "figure_eligibility": [],
+      "explicit_exclusion": "The superseded showcase figures are not in the finalized figure list. Showcase rows must not appear in Fig 1, the Fig 5 benchmark half, Table 6, or competitor ablations.",
       "purpose": "Demonstrate partial-observation navigation and sensor-energy scheduling without claiming competitor fairness.",
       "classical_control_justification": "Intermittent localization, perception validity, disturbance inference, and a finite sensing budget jointly require belief/history and a sensing policy. PID has neither; conventional MPC is not optimal without an observation-transition model and joint sensing decisions.",
       "timing": {
@@ -520,16 +522,23 @@
           }
         },
         "fairness": {
-          "status": "OPEN_RESERVED_GATE_5",
-          "not_resolved_by_this_contract": true,
+          "status": "RESOLVED_GATE_5_REPORT_BOTH_SEPARATE_CONDITIONS",
+          "not_resolved_by_this_contract": false,
           "question": "Compare policies in topology-native normalized actuator space, a common body-wrench space followed by each simulator's allocator, or both?",
           "options": [
             "topology-native normalized actuators",
             "common body wrench plus frozen allocator",
             "report both as separate conditions"
           ],
+          "decision": "report both as separate conditions",
+          "conditions": [
+            "topology-native normalized actuators",
+            "common body wrench plus frozen allocator"
+          ],
+          "aggregation_rule": "Report and label both conditions independently; do not pool their episodes, confidence intervals, or headline metrics.",
+          "protocol_artifact": "artifacts/rl-campaign/surveyor/gate-5-action-fairness-protocol.json",
           "required_before": "Any cross-vehicle or cross-simulator training comparison",
-          "prohibition": "No figure pipeline may imply action-space fairness is settled before Gate 5 approval."
+          "prohibition": "No figure pipeline may collapse the two conditions or imply that either action representation alone settles cross-topology fairness."
         },
         "sensor_action": {
           "id": "sensor_duty",
@@ -670,26 +679,30 @@
     "rules": [
       {
         "figures": [
-          "Fig 5",
-          "simulator-comparison tables",
-          "competitor ablations"
+          "Fig 1",
+          "Fig 5 benchmark half"
         ],
         "requires": {
-          "portable": true
+          "portable": true,
+          "host_class_consistent_within_comparison": true,
+          "gate_5_condition_label": true
         }
       },
       {
         "figures": [
-          "Fig 6",
-          "Fig 7"
+          "Fig 0",
+          "Fig 2",
+          "Fig 3",
+          "Fig 4",
+          "Fig 5 validation half",
+          "Table 6"
         ],
         "requires": {
-          "portable": false,
-          "simulator": "bcod-sim"
+          "committed_artifact_inputs": true
         }
       }
     ],
-    "failure_mode": "hard error before reading metrics; task_id and task_portable are mandatory episode columns"
+    "failure_mode": "hard error before reading metrics; task_id, task_portable, host_class, and Gate 5 condition are mandatory for cross-vehicle benchmark rows"
   },
   "conformance": {
     "applies_to_task_id": "common-waypoint-transit-v1",
@@ -741,7 +754,19 @@
     },
     "freeze_rule": "After this artifact is written and reviewed, replace the pending absolute threshold with the derived numeric value, re-hash, and do not alter it from P3 results."
   },
-  "approval_scope": "Explicit 2026-09-04 minimal sensor-yaw revision: append idealized AHRS yaw as IMU field 7 for the bcod-sim Task 5 diagnostic. No reward, world-frame goal, derived feature, algorithm, entropy, network, budget, gate, curriculum, action, timing, route, disturbance, or evaluation-seed change is authorized.",
-  "content_sha256": "d586a0473bdafdea67968e301e1b757220258b0d45a4c74d2f35b7b5e6a4dc85",
+  "approval_scope": "Preserves the explicit 2026-09-05 reward correction and resolves reserved Gate 5 by requiring two separately reported actuator-space conditions. This decision changes comparison and reporting protocol only; it does not change observation, reward, world-frame goal, algorithm, entropy, network, budget, curriculum, actuator implementation, timing, route, disturbance, or evaluation seeds.",
+  "observation_revision": {
+    "authorized_date": "2026-09-06",
+    "diagnosis_artifact": "artifacts/rl-campaign/gps-velocity-parity-diagnosis.json",
+    "supersedes_contract_sha256": "7e0bedf89d58dd18b32508f430f6bee10d62de20be630a2d0dabbe7464b11e59",
+    "old_field_count": 17,
+    "new_field_count": 15,
+    "removed_fields": [
+      "gps.ground_speed_north_m_s",
+      "gps.ground_speed_east_m_s"
+    ],
+    "rationale": "Ground velocity was removed to preserve cross-simulator observation parity. No external runtime provides a GPS-derived velocity that is not simulator-truth-derived: Gazebo's gz.msgs.NavSat velocity fields are populated from world velocity, the ROS NavSatFix conversion discards velocity entirely, and VRX exposes no separate GPS velocity topic. Deriving velocity by differencing 2 Hz NavSat fixes yields approximately 2.19 m/s noise against bcod-sim's 0.08 m/s, and filtering to bcod-sim's level requires an approximately 14 s window with approximately 7 s group delay—not a comparable sensor. bcod-sim's own 0.08 m/s value was introduced without a datasheet, citation, or stated physical basis, and was produced by adding independent Gaussian noise to ground-truth velocity rather than by modeling Doppler-derived measurement. The field was therefore neither attributable nor reproducible across implementations, and is removed uniformly rather than retained asymmetrically."
+  },
+  "content_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
   "hash_scope": "canonical JSON of every field except content_sha256 and hash_scope"
 }

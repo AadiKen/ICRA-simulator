@@ -32,9 +32,9 @@ class CommonTaskSensorObservationTest(unittest.TestCase):
     def test_observation_path_cannot_read_ground_truth(self):
         env = _bare_env()
         observation = env._obs()
-        self.assertEqual(observation.shape, (17,))
+        self.assertEqual(observation.shape, (15,))
         self.assertEqual(observation.dtype, np.float32)
-        np.testing.assert_array_equal(observation[:12], np.zeros(12, dtype=np.float32))
+        np.testing.assert_array_equal(observation[:10], np.zeros(10, dtype=np.float32))
 
     def test_fresh_samples_preserve_field_order_shape_and_dtype(self):
         env = _bare_env()
@@ -48,9 +48,9 @@ class CommonTaskSensorObservationTest(unittest.TestCase):
                 "velocity_ned_mps": [9, 10, 0]}},
         }
         observation = env._obs()
-        expected = np.asarray([1, 2, 3, 4, 5, 6, .3, 3, 12, 9, 10, 1,
+        expected = np.asarray([1, 2, 3, 4, 5, 6, .3, 3, 12, 1,
                                .25, -.5, 0, 0, .75], dtype=np.float32)
-        self.assertEqual(observation.shape, (17,))
+        self.assertEqual(observation.shape, (15,))
         self.assertEqual(observation.dtype, np.float32)
         np.testing.assert_array_equal(observation, expected)
 
@@ -64,7 +64,7 @@ class CommonTaskSensorObservationTest(unittest.TestCase):
             "gps": {"valid": False, "timestampS": 1.0, "payload": None},
         }
         observation = env._obs()
-        np.testing.assert_array_equal(observation[:12], np.zeros(12, dtype=np.float32))
+        np.testing.assert_array_equal(observation[:10], np.zeros(10, dtype=np.float32))
 
     def test_closed_loop_sensor_smoke_and_no_gps_dropout(self):
         env = CommonWaypointEnv(ROOT, fixed_reset_seed=30000, final_leg_curriculum=True)
@@ -75,15 +75,14 @@ class CommonTaskSensorObservationTest(unittest.TestCase):
                 {"plugin": "gps", "enabled": True},
             ])
             observation, _ = env.reset()
-            self.assertEqual(observation.shape, (17,))
+            self.assertEqual(observation.shape, (15,))
             self.assertEqual(observation.dtype, np.float32)
-            self.assertEqual(float(observation[11]), 0.0)
+            self.assertEqual(float(observation[9]), 0.0)
             seen_imu = seen_gps = False
             gps_timestamps = set()
             imu_acceleration_errors = []
             imu_rate_errors = []
             gps_position_errors = []
-            gps_velocity_errors = []
             for _ in range(20):
                 observation, reward, terminated, truncated, _ = env.step(np.array([.15, .2]))
                 self.assertTrue(np.all(np.isfinite(observation)))
@@ -107,8 +106,6 @@ class CommonTaskSensorObservationTest(unittest.TestCase):
                     truth_relative_goal = np.asarray([
                         target[0] - truth_position[0], target[1] - truth_position[1]])
                     gps_position_errors.extend(np.abs(observation[7:9] - truth_relative_goal))
-                    gps_velocity_errors.extend(np.abs(
-                        observation[9:11] - np.asarray(env.last_truth["velocity_ned_mps"][:2])))
                 if terminated or truncated:
                     break
             self.assertTrue(seen_imu)
@@ -117,7 +114,6 @@ class CommonTaskSensorObservationTest(unittest.TestCase):
             self.assertLess(max(imu_acceleration_errors), 1.0)
             self.assertLess(max(imu_rate_errors), .2)
             self.assertLess(max(gps_position_errors), 5.0)
-            self.assertLess(max(gps_velocity_errors), 1.0)
             metrics = env.bridge.metrics()
             self.assertGreater(metrics["total_sensor_cost"], 0)
         finally:

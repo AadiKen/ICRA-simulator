@@ -14,13 +14,19 @@ import rclpy
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import Imu, NavSatFix
 from std_msgs.msg import Float64
+from external_sensor_model import ExternalGpsModel, flu_to_body_ned, quaternion_to_ned_yaw
 
 class VrxTraceExporter(Node):
     def __init__(self):
         super().__init__('vrx_trace_exporter')
         self.declare_parameter('output', '/tmp/vrx-trace-samples.jsonl')
+        self.declare_parameter('seed', 0)
+        self.declare_parameter('initial_n_m', 10000.0)
+        self.declare_parameter('initial_e_m', 10000.0)
         self.output = pathlib.Path(self.get_parameter('output').value)
         self.odom = None; self.imu = None; self.gps = None
+        self.gps_model = ExternalGpsModel(self.get_parameter('seed').value,
+            self.get_parameter('initial_n_m').value, self.get_parameter('initial_e_m').value)
         self.left = 0.; self.right = 0.
         self.create_subscription(Odometry, 'wamv/odometry', self.on_odom, 20)
         self.create_subscription(Imu, 'wamv/imu', self.on_imu, 20)
@@ -28,7 +34,10 @@ class VrxTraceExporter(Node):
         self.create_subscription(Float64, 'wamv/thrusters/left/thrust', lambda m: setattr(self, 'left', m.data), 20)
         self.create_subscription(Float64, 'wamv/thrusters/right/thrust', lambda m: setattr(self, 'right', m.data), 20)
     def on_imu(self, msg): self.imu = msg
-    def on_gps(self, msg): self.gps = msg
+    def on_gps(self, msg):
+        timestamp=msg.header.stamp.sec+msg.header.stamp.nanosec*1e-9
+        self.gps_model.ingest(timestamp,msg.latitude,msg.longitude,msg.status.status>=0)
+        self.gps = msg
     def on_odom(self, msg):
         self.odom = msg
         q=msg.pose.pose.orientation
@@ -37,10 +46,18 @@ class VrxTraceExporter(Node):
         # ENU world velocity -> NED world -> body velocity.
         u=math.cos(yaw)*v.y+math.sin(yaw)*v.x; sway=-math.sin(yaw)*v.y+math.cos(yaw)*v.x
         imu=self.imu
+        imu_sample=None
+        if imu is not None:
+            iq=imu.orientation; its=imu.header.stamp.sec+imu.header.stamp.nanosec*1e-9
+            imu_sample={'timestamp_s':its,'valid':True,
+                'linear_accel_body':flu_to_body_ned(imu.linear_acceleration.x,imu.linear_acceleration.y,imu.linear_acceleration.z),
+                'angular_rate_body':flu_to_body_ned(imu.angular_velocity.x,imu.angular_velocity.y,imu.angular_velocity.z),
+                'yaw_ned_rad':quaternion_to_ned_yaw(iq.w,iq.x,iq.y,iq.z)}
+        now=msg.header.stamp.sec+msg.header.stamp.nanosec*1e-9
         row={'time_s':msg.header.stamp.sec+msg.header.stamp.nanosec*1e-9,
              'state':[msg.pose.pose.position.y,msg.pose.pose.position.x,yaw,u,sway,-msg.twist.twist.angular.z],
-             'imu':([imu.linear_acceleration.x,imu.linear_acceleration.y,imu.linear_acceleration.z,imu.angular_velocity.x,imu.angular_velocity.y,imu.angular_velocity.z] if imu else None),
-             'gps_fix_valid':int(self.gps is not None and self.gps.status.status>=0),
+             'imu':imu_sample,
+             'gps':self.gps_model.sample(now),
              'thruster_newtons':[self.left,self.right]}
         with self.output.open('a') as f: f.write(json.dumps(row,separators=(',',':'))+'\n')
 

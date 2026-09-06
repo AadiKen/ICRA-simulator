@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-15-field-recurrent-ppo-preregistration",
+  "date": "2026-09-06",
+  "status": "PREREGISTERED_BEFORE_ANY_15_FIELD_RUN",
+  "prior_result": {
+    "observation_fields": 17,
+    "phase_1_converged": true,
+    "evaluation_success_rate": 0.66,
+    "training_seeds": 1
+  },
+  "prediction": "Removing GPS north/east ground velocity will not materially degrade recurrent-PPO learning. Velocity remains inferable from integrated IMU acceleration and changes in the held 2 Hz goal-relative GPS position, and MlpLstmPolicy has memory to combine those observations over time.",
+  "primary_not_materially_degraded_rule": "Across at least three training seeds, the median 50-episode evaluation success rate at 1.5M steps is at least 0.56, no more than 0.10 absolute below the prior 0.66 single-seed result.",
+  "secondary_reporting": [
+    "Report every seed's complete 250k-spaced learning curve and median shaped return.",
+    "Report the median final success rate across training seeds with a training-seed bootstrap interval.",
+    "Also report pooled episode success with a Wilson interval, explicitly noting that pooling does not model the training-seed hierarchy."
+  ],
+  "disconfirmation_rule": "A median final success rate below 0.56 is a substantially degraded, disconfirmed prediction and must be reported without post-hoc reinterpretation.",
+  "frozen_run_factors": {
+    "algorithm": "RecurrentPPO",
+    "policy": "MlpLstmPolicy",
+    "phase_1_steps": 1500000,
+    "checkpoint_cadence_steps": 250000,
+    "evaluation_seeds": [30000, 30049],
+    "ent_coef": 0.005,
+    "curriculum": "final_leg_curriculum=True",
+    "only_intended_change": "17-field to 15-field observation contract"
+  },
+  "training_started": false
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gps-velocity-parity-diagnosis",
+  "date": "2026-09-06",
+  "status": "DIAGNOSIS_COMPLETE_HALT_FOR_REVIEW",
+  "scope": "Tasks 1-3; diagnosis only",
+  "contract_changed": false,
+  "bcod_sim_changed": false,
+  "training_started": false,
+  "cluster_runs_started": false,
+  "task_1_bcod_sim_model": {
+    "answer": "velocity_ned_mps is ground-truth velocity plus independent Gaussian noise; it is not computed by differencing noisy position",
+    "implementation": "packages/sensor-sdk/src/plugins/gps.ts GpsPlugin.#measure selects truth.velocity_ned_mps (falling back to truth.velocity_body_mps) and adds an independent Gaussian scaled by velocity_std_mps on each axis",
+    "configured_velocity_std_mps_per_axis": 0.08,
+    "position_rate_latency": {"horizontal_std_m_per_axis": 0.8, "rate_hz": 2, "latency_s": 0.2},
+    "attribution": {
+      "classification": "unattributed default",
+      "introduced_by": "adb48e979def0d4a9eac26db9d114e803e47024b (Initial simulator release, 2026-08-13)",
+      "later_history": "no later commit changed or documented velocity_std_mps",
+      "datasheet_or_literature_citation_found": false,
+      "doppler_or_carrier_phase_comment_found": false,
+      "assessment": "0.08 m/s is physically plausible for Doppler/carrier-phase GNSS velocity, but this repository does not establish that physical basis. It is currently an independently noised truth-velocity model with an unattributed magnitude."
+    }
+  },
+  "task_2_pinned_runtime_investigation": {
+    "gazebo_harmonic": {
+      "runtime": "Gazebo Sim 8.15.0; gz-sensors 8.2.2",
+      "topic": "/gps",
+      "native_message_type": "gz.msgs.NavSat",
+      "fields": ["latitude_deg", "longitude_deg", "altitude", "velocity_east", "velocity_north", "velocity_up", "frame_id"],
+      "publishing_plugin": "gz::sim::systems::NavSat using gz::sensors::NavSatSensor",
+      "provenance": "NavSatSensor exposes SetVelocity in the ENU world frame. The simulator system supplies link/world kinematics; this is not position-differenced Doppler velocity. It is a sensor-plugin output backed by simulator velocity.",
+      "ros_bridge": {"message_type": "sensor_msgs/msg/NavSatFix", "velocity_preserved": false, "reason": "NavSatFix has no velocity fields"},
+      "native_default_stationary_measurement": {"samples": 20, "velocity_east_mps": 0, "velocity_north_mps": 0, "noise_std_mps": 0, "interpretation": "the checked-in SDF config applies no native velocity noise"},
+      "temporary_noise_diagnostic": {
+        "repository_changed": false,
+        "configuration": "temporary SDF only: horizontal velocity_sensing Gaussian stddev 0.08 m/s",
+        "stationary_samples": 60,
+        "east_output_std_mps": 0.5138215019816111,
+        "north_output_std_mps": 0.21558515754397692,
+        "east_increment_std_mps": 0.08116593459406544,
+        "north_increment_std_mps": 0.08036891978157332,
+        "finding": "the pinned runtime output wandered rather than producing independent 0.08 m/s white measurement error; the increments, not the output, were approximately 0.08 m/s",
+        "accepted_as_parity_source": false
+      }
+    },
+    "vrx": {
+      "runtime": "leadcat/vrx:v3.0.1 / local Surveyor-patched derivative",
+      "ros_gz_bridge_mapping": "/gps: gz.msgs.NavSat -> sensor_msgs/msg/NavSatFix",
+      "gps_velocity_topic_found": false,
+      "twist_topic_with_verified_gps_provenance_found": false,
+      "available_non_gps_velocity": "OdometryPublisher twist, rejected as privileged simulator state",
+      "native_gazebo_velocity_fields": "present before ROS conversion but discarded by the NavSatFix mapping; same simulator-kinematics provenance as Gazebo",
+      "conclusion": "no acceptable directly exposed GPS-derived velocity source exists in the pinned VRX ROS interface"
+    },
+    "plain_answer": "No existing source in either pinned runtime satisfies all requirements: directly available to the current interface, verified GPS rather than odometry provenance, and measured approximately 0.08 m/s stationary output noise."
+  },
+  "task_3_options": {
+    "option_a_native_velocity": {
+      "result": "not recommended from current evidence",
+      "parity": "not demonstrated",
+      "advantages": "Gazebo NavSat carries ENU velocity and SDF exposes a separate velocity_sensing noise model, conceptually matching bcod-sim's independent velocity channel.",
+      "breaks_or_gaps": [
+        "ROS NavSatFix drops the native fields, requiring a direct Gazebo Transport consumer or a custom bridge for both external paths.",
+        "The native value is supplied from simulator world velocity, not derived from GNSS carrier phase.",
+        "The temporary pinned-runtime 0.08 m/s test produced wandering output rather than 0.08 m/s stationary standard deviation."
+      ],
+      "reruns_required": "Gate A live measurement and all external conformance; bcod-sim need not rerun only if the native noise behavior can first be made demonstrably equivalent without changing its contract."
+    },
+    "option_b_filter_differenced_velocity": {
+      "result": "not recommended",
+      "parity": "documented asymmetry only",
+      "input_std_mps": 2.194,
+      "target_std_mps": 0.08,
+      "ratio": 27.425,
+      "filter_estimate": {
+        "important_correlation": "successive finite differences share one position error and are anticorrelated; averaging N differences telescopes to an endpoint difference",
+        "required_intervals": 28,
+        "fix_interval_s": 0.5,
+        "window_s": 14,
+        "approx_group_delay_s": 7,
+        "approx_boxcar_3db_bandwidth_hz": 0.0316,
+        "plus_configured_delivery_latency_s": 0.2,
+        "naive_white_input_estimate_not_used": "ignoring correlation would incorrectly suggest about 752 samples / 376 seconds"
+      },
+      "assessment": "variance can be made similar, but transient response and disturbance bandwidth would not match bcod-sim. The approximately 7.2 s effective delay is materially larger than 0.2 s.",
+      "reruns_required": "external Gate A/conformance and external policy runs; bcod-sim would remain a different observation process unless uniformly filtered and retrained."
+    },
+    "option_c_remove_ground_velocity": {
+      "result": "recommended before any cluster run",
+      "parity": "genuine structural parity",
+      "fields_removed": ["gps.ground_speed_north_m_s", "gps.ground_speed_east_m_s"],
+      "field_count_change": {"old": 17, "new": 15},
+      "remaining_fields_shift": "gps.fix_valid and all subsequent previous-action/time fields move two indices earlier; schemas, masks, normalization, checkpoints, and contract hashes must update together",
+      "what_breaks": "all learned policies and measurements tied to the frozen 17-field contract lose comparability",
+      "reruns_required": [
+        "bcod-sim Task 5/full 1.5M phase-1 training and its checkpoint evaluations",
+        "any phase-2 result produced under the 17-field contract",
+        "control/noise ablations used as acceptance evidence if they are retained",
+        "observation-path, portability, contract-hash, and external conformance tests",
+        "all external training, which must not begin before the revised contract is frozen"
+      ],
+      "reason": "the only immediately available alternatives either preserve an unattributed truth-velocity model with unverified external noise dynamics or introduce roughly seven seconds of asymmetric smoothing delay"
+    }
+  },
+  "recommendation": {
+    "choice": "Option C — remove the two ground-velocity fields uniformly and freeze a 15-field contract",
+    "confidence": "high given the pinned-runtime evidence",
+    "timing": "decide and, if approved, complete the contract revision and bcod-sim rerun before cluster runs",
+    "review_gate": "No implementation is authorized by this artifact. Halt for review."
+  },
+  "task_4_live_measurement_status": {
+    "status": "PARTIAL_NOT_GATE_A_COMPLETE",
+    "vrx_remediated_live_episode": {
+      "duration_s": 9.6,
+      "rows": 192,
+      "unique_gps_fixes": 19,
+      "observed_fix_period_s": 0.5,
+      "first_delivery_s": 0.25,
+      "sample_age_range_s": [0.1999999999999993, 0.6500000000000012],
+      "median_position_error_m_under_motion": 1.0407200636909435,
+      "imu_rows_with_explicit_sensor_object": 192,
+      "finding": "2 Hz hold and approximately 0.2 s release latency were observed; observation code regression proves odometry changes cannot enter the 12 sensor fields"
+    },
+    "gazebo": "native /gps was captured live, including velocity fields and 2 Hz cadence, but the standalone Gazebo harness still lacks a connected full TaskTraceBridge trajectory. Full 17-field no-oracle live validation remains outstanding.",
+    "gate_a_passed": false
+  }
+}

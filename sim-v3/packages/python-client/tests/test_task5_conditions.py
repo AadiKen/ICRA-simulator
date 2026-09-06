@@ -53,7 +53,7 @@ class Task5ConditionTest(unittest.TestCase):
             finally:
                 env.close()
         matrix = np.asarray(observations)
-        self.assertEqual(matrix.shape[1], 17)
+        self.assertEqual(matrix.shape[1], 15)
         np.testing.assert_array_equal(matrix[:, 6], np.zeros(len(matrix)))
         self.assertGreater(np.ptp(matrix[:, :6], axis=0).max(), 0.0)
         self.assertGreater(np.ptp(matrix[:, 7:], axis=0).max(), 0.0)

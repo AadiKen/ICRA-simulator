@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "contract_version": "1.4.0",
-  "status": "p3-v3-terminal-revision-pending-human-approval",
+  "status": "p3-v3-terminal-revision-pending-human-approval-gate-5-resolved",
   "created_at": "2026-08-31T00:00:00.000Z",
   "tasks": [
     {
@@ -14,12 +14,8 @@
         "Gazebo Harmonic"
       ],
       "figure_eligibility": [
-        "Fig 1B",
-        "Fig 1C",
-        "Fig 3",
-        "Fig 5",
-        "Tables T1-T3",
-        "ablations"
+        "Fig 1",
+        "Fig 5 benchmark half"
       ],
       "purpose": "Credible simulator comparison using only capabilities with direct, reproducible counterparts in all three simulators.",
       "classical_control_justification": "LOS-PID-v2 and LOS-SPEEDCAP-v2 are the frozen classical calibration references. MPC-v1 is parked-incomplete and is not used for terminal calibration or treated as a downstream dependency. PPO is not required to beat either classical controller; it must exceed the frozen untrained-policy thresholds.",
@@ -48,18 +44,16 @@
           },
           {
             "id": "gps",
-            "size": 5,
+            "size": 3,
             "fields": [
               "relative_goal_north_m",
               "relative_goal_east_m",
-              "ground_speed_north_m_s",
-              "ground_speed_east_m_s",
               "fix_valid"
             ],
             "source": "SeaRobotics positioning interface/GPS; exact receiver model is not confirmed in available field records",
             "physical_counterpart": "SeaRobotics positioning interface",
             "dropout_probability": 0,
-            "portability_note": "Use each simulator's standard GPS/NavSat output converted to the contract's local tangent frame."
+            "portability_note": "Use each simulator's standard GPS/NavSat position output converted to the contract's local tangent frame. Ground velocity is uniformly excluded."
           },
           {
             "id": "previous_action",
@@ -122,16 +116,23 @@
           }
         },
         "fairness": {
-          "status": "OPEN_RESERVED_GATE_5",
-          "not_resolved_by_this_contract": true,
+          "status": "RESOLVED_GATE_5_REPORT_BOTH_SEPARATE_CONDITIONS",
+          "not_resolved_by_this_contract": false,
           "question": "Compare policies in topology-native normalized actuator space, a common body-wrench space followed by each simulator's allocator, or both?",
           "options": [
             "topology-native normalized actuators",
             "common body wrench plus frozen allocator",
             "report both as separate conditions"
           ],
+          "decision": "report both as separate conditions",
+          "conditions": [
+            "topology-native normalized actuators",
+            "common body wrench plus frozen allocator"
+          ],
+          "aggregation_rule": "Report and label both conditions independently; do not pool their episodes, confidence intervals, or headline metrics.",
+          "protocol_artifact": "artifacts/rl-campaign/surveyor/gate-5-action-fairness-protocol.json",
           "required_before": "Any cross-vehicle or cross-simulator training comparison",
-          "prohibition": "No figure pipeline may imply action-space fairness is settled before Gate 5 approval."
+          "prohibition": "No figure pipeline may collapse the two conditions or imply that either action representation alone settles cross-topology fairness."
         }
       },
       "reward": {
@@ -289,12 +290,8 @@
       "allowed_simulators": [
         "bcod-sim"
       ],
-      "figure_eligibility": [
-        "Fig 6",
-        "Fig 7",
-        "bcod-sim capability argument"
-      ],
-      "explicit_exclusion": "Must not appear in Fig 5, simulator-comparison tables, or competitor ablations.",
+      "figure_eligibility": [],
+      "explicit_exclusion": "The superseded showcase figures are not in the finalized figure list. Showcase rows must not appear in Fig 1, the Fig 5 benchmark half, Table 6, or competitor ablations.",
       "purpose": "Demonstrate partial-observation navigation and sensor-energy scheduling without claiming competitor fairness.",
       "classical_control_justification": "Intermittent localization, perception validity, disturbance inference, and a finite sensing budget jointly require belief/history and a sensing policy. PID has neither; conventional MPC is not optimal without an observation-transition model and joint sensing decisions.",
       "timing": {
@@ -314,12 +311,10 @@
           },
           {
             "id": "gps",
-            "size": 5,
+            "size": 3,
             "fields": [
               "relative_goal_north_m",
               "relative_goal_east_m",
-              "ground_speed_north_m_s",
-              "ground_speed_east_m_s",
               "fix_valid"
             ],
             "source": "SeaRobotics positioning interface/GPS",
@@ -424,16 +419,23 @@
           }
         },
         "fairness": {
-          "status": "OPEN_RESERVED_GATE_5",
-          "not_resolved_by_this_contract": true,
+          "status": "RESOLVED_GATE_5_REPORT_BOTH_SEPARATE_CONDITIONS",
+          "not_resolved_by_this_contract": false,
           "question": "Compare policies in topology-native normalized actuator space, a common body-wrench space followed by each simulator's allocator, or both?",
           "options": [
             "topology-native normalized actuators",
             "common body wrench plus frozen allocator",
             "report both as separate conditions"
           ],
+          "decision": "report both as separate conditions",
+          "conditions": [
+            "topology-native normalized actuators",
+            "common body wrench plus frozen allocator"
+          ],
+          "aggregation_rule": "Report and label both conditions independently; do not pool their episodes, confidence intervals, or headline metrics.",
+          "protocol_artifact": "artifacts/rl-campaign/surveyor/gate-5-action-fairness-protocol.json",
           "required_before": "Any cross-vehicle or cross-simulator training comparison",
-          "prohibition": "No figure pipeline may imply action-space fairness is settled before Gate 5 approval."
+          "prohibition": "No figure pipeline may collapse the two conditions or imply that either action representation alone settles cross-topology fairness."
         },
         "sensor_action": {
           "id": "sensor_duty",
@@ -574,26 +576,30 @@
     "rules": [
       {
         "figures": [
-          "Fig 5",
-          "simulator-comparison tables",
-          "competitor ablations"
+          "Fig 1",
+          "Fig 5 benchmark half"
         ],
         "requires": {
-          "portable": true
+          "portable": true,
+          "host_class_consistent_within_comparison": true,
+          "gate_5_condition_label": true
         }
       },
       {
         "figures": [
-          "Fig 6",
-          "Fig 7"
+          "Fig 0",
+          "Fig 2",
+          "Fig 3",
+          "Fig 4",
+          "Fig 5 validation half",
+          "Table 6"
         ],
         "requires": {
-          "portable": false,
-          "simulator": "bcod-sim"
+          "committed_artifact_inputs": true
         }
       }
     ],
-    "failure_mode": "hard error before reading metrics; task_id and task_portable are mandatory episode columns"
+    "failure_mode": "hard error before reading metrics; task_id, task_portable, host_class, and Gate 5 condition are mandatory for cross-vehicle benchmark rows"
   },
   "conformance": {
     "applies_to_task_id": "common-waypoint-transit-v1",
@@ -645,7 +651,7 @@
     },
     "freeze_rule": "After this artifact is written and reviewed, replace the pending absolute threshold with the derived numeric value, re-hash, and do not alter it from P3 results."
   },
-  "approval_scope": "The one authorized common-task terminal revision is recorded (6 m, 120 s, pass-through). Both C3 thresholds are frozen pending human hash/content approval. MPC-v1 remains a separate pending track. Action-space fairness remains explicitly open for Gate 5.",
-  "content_sha256": "ce9a7c64c2d7725f0fcbc9c041a4bba61540bf8534f26b7f2f3e80f9744b2021",
+  "approval_scope": "The terminal revision and C3 thresholds retain their existing approval state. Gate 5 is resolved by reporting topology-native normalized actuator and common-body-wrench/frozen-allocator results as separate, non-pooled conditions.",
+  "content_sha256": "4a8f67d3ae982fd397d087381b7420d6098edc5c63819677a9cf11d5de6b03ee",
   "hash_scope": "canonical JSON of every field except content_sha256 and hash_scope"
 }

@@ -429,11 +429,11 @@ function renderPhaseASensors(options = {}) {
     if (!options.phaseASensors) return "";
     return `
       <sensor name="task_imu" type="imu">
-        <always_on>true</always_on><update_rate>20</update_rate>
+        <always_on>true</always_on><update_rate>50</update_rate>
         <topic>imu</topic>
       </sensor>
       <sensor name="task_gps" type="navsat">
-        <always_on>true</always_on><update_rate>20</update_rate>
+        <always_on>true</always_on><update_rate>2</update_rate>
         <topic>gps</topic>
       </sensor>`;
 }

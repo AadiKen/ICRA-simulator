@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "surveyor-observation-contract-supersession",
+  "date": "2026-09-06",
+  "status": "17_FIELD_RESULTS_SUPERSEDED_NOT_COMPARABLE",
+  "superseded_contract_sha256": "7e0bedf89d58dd18b32508f430f6bee10d62de20be630a2d0dabbe7464b11e59",
+  "superseding_contract_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
+  "old_observation_fields": 17,
+  "new_observation_fields": 15,
+  "historical_artifacts_preserved": [
+    "artifacts/rl-campaign/surveyor/task-4-sensor-yaw-protocol.json",
+    "artifacts/rl-campaign/surveyor/task-5-sensor-yaw-250k/",
+    "artifacts/rl-campaign/surveyor/task-5-default-noise-ent-0p005-phase1-1p5m/",
+    "artifacts/rl-campaign/surveyor/task-5-default-noise-ent-0p005-phase2/"
+  ],
+  "comparison_prohibition": "Do not compare or pool 15-field results with 17-field success rates, returns, curves, checkpoints, or policies as if they belonged to one experiment.",
+  "diagnosis": "artifacts/rl-campaign/gps-velocity-parity-diagnosis.json"
+}
