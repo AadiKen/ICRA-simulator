@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gazebo-15-field-live-sensor-gate-a",
+  "status": "blocked-runtime-unavailable",
+  "contract_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
+  "observation_field_count": 15,
+  "runtime": {
+    "required": "Gazebo Harmonic 8.15.0 pinned container",
+    "available_during_attempt": false,
+    "evidence": "docker version returned no server version on 2026-09-06; no usable host Gazebo 8.15 runtime was available"
+  },
+  "completed_evidence": {
+    "static_oracle_exclusion": "The 15-field TaskTraceBridge uses IMU for acceleration, angular rate, and yaw; delayed NavSat position for goal-relative north/east and validity; ground velocity is absent. Odometry remains privileged scoring state only.",
+    "regression_test": "validation/rl-campaign/ports/sensor-observation-audit.test.ts",
+    "generated_sensor_entities": "prepare-gazebo-episode.ts enables phaseASensors for the generated Surveyor model"
+  },
+  "live_measurement": {
+    "executed": false,
+    "required_checks": [
+      "connected moving trajectory under pinned Harmonic 8.15.0",
+      "IMU and NavSat publication rate",
+      "configured release latency and sample-and-hold staleness",
+      "empirical position, acceleration, angular-rate, and yaw errors",
+      "full emitted 15-field rows with no odometry-derived observation value"
+    ]
+  },
+  "gate_a": "blocked",
+  "training_policy": "External VRX/Gazebo training remains prohibited until this live measurement passes; the bcod-sim-only SLURM rerun is independent."
+}
