@@ -90,6 +90,7 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
         base_seed: int = 0,
         fixed_reset_seed: int | None = None,
         environment_factory: Callable[..., Any] | None = None,
+        disturbance_mode: str = "zero",
         wind_mode: str = "off",
         wind_drag_coefficient: float = 1.0,
         wind_frontal_area_m2: float = 0.60,
@@ -132,6 +133,11 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
         self.fixed_reset_seed = fixed_reset_seed
         self.episode = 0
         self._environment_factory = environment_factory
+        if disturbance_mode not in {"zero", "seeded"}:
+            raise ValueError("disturbance_mode must be 'zero' or 'seeded'")
+        if disturbance_mode == "zero" and wind_mode != "off":
+            raise ValueError("zero disturbance mode requires wind_mode='off'")
+        self.disturbance_mode = disturbance_mode
         if wind_mode not in {"off", "surge_equivalent"}:
             raise ValueError("wind_mode must be 'off' or 'surge_equivalent'")
         self.wind_mode = wind_mode
@@ -501,7 +507,12 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
             self._observation(self._last_state)
         # Settling is outside the episode. Apply disturbance only afterward so
         # settling does not consume a randomized-current trajectory segment.
-        self._env.set_ocean_currents("vehicle_a", self._last_randomization["current_nwu_mps"])
+        applied_current_nwu = (
+            [0.0, 0.0, 0.0]
+            if self.disturbance_mode == "zero"
+            else self._last_randomization["current_nwu_mps"]
+        )
+        self._env.set_ocean_currents("vehicle_a", applied_current_nwu)
         observation = self._observation(self._last_state)
         self._previous_distance_m = self._distance_to_waypoint(self._waypoint)
         self._previous_final_distance_m = self._distance_to_waypoint(
@@ -526,9 +537,17 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
             "actuator_mapping": f"normalized command linearly maps to +/-{self.max_thrust_n:g} N per thruster; performance-calibrated for approximately 1 m/s HoloOcean cruise after literal +/-95 N force matching proved dynamically incomparable; exact exponential first-order lag tau=0.25 s applied every 0.05 s physics tick",
             "reward_mapping": "shared common_task.compute_reward; shaping gamma=1.0 and k from frozen contract",
             "gps_freshness": "wrapper receipt time; HoloOcean payload has no timestamp or sequence",
-            "current_applied": True,
+            "disturbance_mode": self.disturbance_mode,
+            "current_applied": self.disturbance_mode == "seeded",
+            "applied_current_ned_mps": [
+                applied_current_nwu[0], -applied_current_nwu[1], applied_current_nwu[2]
+            ],
             "wind_mode": self.wind_mode,
             "wind_applied": self.wind_mode != "off",
+            "applied_wind_ned_mps": (
+                self._last_randomization["wind_ned_mps"]
+                if self.wind_mode != "off" else [0.0, 0.0, 0.0]
+            ),
             "wind_mapping": "longitudinal aerodynamic force injected equally through native fixed thrusters; lateral load unavailable",
             "settle_physics_steps": self.settle_physics_steps,
             "simulator_reset_mode": reset_mode,

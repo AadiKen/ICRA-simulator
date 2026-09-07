@@ -123,6 +123,26 @@ def detect_host_class():
     return "cluster" if os.environ.get("SLURM_JOB_ID") else "local"
 
 
+def assert_calm_disturbance(info: dict) -> None:
+    """Refuse comparison training without exact applied-disturbance evidence."""
+    required = ("applied_current_ned_mps", "applied_wind_ned_mps")
+    missing = [field for field in required if field not in info]
+    if missing:
+        raise RuntimeError(
+            "disturbance parity gate missing reset evidence: " + ", ".join(missing)
+        )
+    for field in required:
+        vector = np.asarray(info[field], dtype=float)
+        if (
+            vector.shape != (3,)
+            or not np.all(np.isfinite(vector))
+            or not np.allclose(vector, 0.0, atol=0.0, rtol=0.0)
+        ):
+            raise RuntimeError(
+                f"disturbance parity gate requires exact zero {field}, got {vector.tolist()}"
+            )
+
+
 def episode_metric_row(*, seed, env, info, total_return, wall_clock_s, policy_id, algorithm):
     reason = str(info["termination_reason"])
     collision = "grounding" if reason == "grounding" else "object" if reason in ("collision","object_collision") else "none"
@@ -160,11 +180,12 @@ def make_env(args):
     common = dict(base_seed=args.base_seed, fixed_reset_seed=args.fixed_reset_seed,
                   final_leg_curriculum=args.final_leg_curriculum)
     if args.backend == "bcod-sim":
-        return CommonWaypointEnv(ROOT, **common)
+        return CommonWaypointEnv(ROOT, disturbance_mode=args.disturbance_mode, **common)
     if args.backend == "holoocean":
         return HoloOceanVehicleAEnv(
             ROOT, base_seed=args.base_seed,
             fixed_reset_seed=args.fixed_reset_seed,
+            disturbance_mode=args.disturbance_mode,
             wind_mode=args.holoocean_wind_mode,
         )
     if args.backend == "stonefish":
@@ -426,6 +447,8 @@ def main():
     parser.add_argument("--checkpoint-freq", type=int, default=250_000,
                         help="Checkpoint interval in training timesteps")
     parser.add_argument("--holoocean-wind-mode", choices=("off", "surge_equivalent"), default="off")
+    parser.add_argument("--disturbance-mode", choices=("zero", "seeded"), default="zero",
+                        help="Applied disturbance condition; portable three-way training requires zero")
     parser.add_argument("--stonefish-executable", type=Path)
     parser.add_argument("--stonefish-data-dir", type=Path)
     parser.add_argument("--stonefish-lib", type=Path)
@@ -444,6 +467,11 @@ def main():
         parser.error("--n-envs must be positive")
     if args.stonefish_physics_threads <= 0:
         parser.error("--stonefish-physics-threads must be positive")
+    if args.timesteps and args.backend in {"bcod-sim", "holoocean", "stonefish"}:
+        if args.disturbance_mode != "zero":
+            parser.error("bcod-sim/HoloOcean/Stonefish comparison training requires --disturbance-mode zero")
+        if args.holoocean_wind_mode != "off":
+            parser.error("calm comparison training requires --holoocean-wind-mode off")
     if args.backend == "stonefish":
         required = {
             "--stonefish-executable": args.stonefish_executable,
@@ -473,6 +501,7 @@ def main():
             "backend": args.backend, "requested_timesteps": args.timesteps,
             "seed": args.base_seed, "device": args.device,
             "parallel_environments": args.n_envs,
+            "disturbance_mode": args.disturbance_mode,
             "action_fairness_condition": "topology-native normalized actuators",
             "checkpoint_frequency_timesteps": args.checkpoint_freq,
             "evaluation": {"episodes": args.eval_episodes,
@@ -485,6 +514,8 @@ def main():
     try:
         env = make_env(args)
         observation, info = env.reset()
+        if args.timesteps and args.backend in {"bcod-sim", "holoocean", "stonefish"}:
+            assert_calm_disturbance(info)
         for _ in range(args.smoke_steps):
             observation, _, terminated, truncated, info = env.step(env.action_space.sample())
             if terminated or truncated:

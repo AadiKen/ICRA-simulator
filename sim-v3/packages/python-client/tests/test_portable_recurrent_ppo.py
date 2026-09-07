@@ -63,6 +63,19 @@ class FakeComponentEnv(MODULE.gym.Env):
 
 
 class PortableRecurrentPPOTest(unittest.TestCase):
+    def test_calm_disturbance_gate_accepts_only_explicit_exact_zero_vectors(self):
+        MODULE.assert_calm_disturbance({
+            "applied_current_ned_mps": [0.0, 0.0, 0.0],
+            "applied_wind_ned_mps": [0.0, 0.0, 0.0],
+        })
+        with self.assertRaisesRegex(RuntimeError, "missing reset evidence"):
+            MODULE.assert_calm_disturbance({})
+        with self.assertRaisesRegex(RuntimeError, "requires exact zero"):
+            MODULE.assert_calm_disturbance({
+                "applied_current_ned_mps": [0.0, 0.01, 0.0],
+                "applied_wind_ned_mps": [0.0, 0.0, 0.0],
+            })
+
     def test_gazebo_algorithm_config_is_byte_identical_to_bcod(self):
         bcod = MODULE.algorithm_config_bytes("bcod-sim")
         gazebo = MODULE.algorithm_config_bytes("gazebo-harmonic")

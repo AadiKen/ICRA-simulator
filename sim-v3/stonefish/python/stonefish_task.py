@@ -133,8 +133,11 @@ class StonefishCommonTask:
             "route_ned_m": self.route,
             "sampled_current_ned_mps": randomization["current_ned_mps"],
             "sampled_wind_ned_mps": randomization["wind_ned_mps"],
+            "disturbance_mode": "zero",
             "current_ned_mps": [0.0, 0.0],
             "wind_ned_mps": [0.0, 0.0],
+            "applied_current_ned_mps": [0.0, 0.0, 0.0],
+            "applied_wind_ned_mps": [0.0, 0.0, 0.0],
         }
 
     def _distance(self, index: int) -> float:

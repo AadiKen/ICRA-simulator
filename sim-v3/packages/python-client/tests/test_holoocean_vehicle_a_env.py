@@ -180,6 +180,26 @@ class HoloOceanVehicleAEnvTest(unittest.TestCase):
         )
         self.assertFalse(info["wind_lateral_force_supported"])
 
+    def test_calm_mode_applies_exact_zero_current_and_wind(self):
+        env, made = self.make_env(fixed_reset_seed=99)
+        _, info = env.reset()
+        self.assertEqual(info["disturbance_mode"], "zero")
+        np.testing.assert_array_equal(made[0].current[1], np.zeros(3))
+        np.testing.assert_array_equal(info["applied_current_ned_mps"], np.zeros(3))
+        np.testing.assert_array_equal(info["applied_wind_ned_mps"], np.zeros(3))
+
+    def test_seeded_mode_applies_the_sampled_current(self):
+        env, made = self.make_env(fixed_reset_seed=99, disturbance_mode="seeded")
+        _, info = env.reset()
+        self.assertEqual(info["disturbance_mode"], "seeded")
+        np.testing.assert_allclose(
+            made[0].current[1], env._last_randomization["current_nwu_mps"]
+        )
+
+    def test_zero_mode_rejects_nonzero_wind_mapping(self):
+        with self.assertRaisesRegex(ValueError, "requires wind_mode='off'"):
+            self.make_env(disturbance_mode="zero", wind_mode="surge_equivalent")
+
     def test_actuator_uses_exact_bcod_exponential_lag_each_physics_tick(self):
         env, made = self.make_env(fixed_reset_seed=99)
         env.reset()
