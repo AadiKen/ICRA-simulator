@@ -170,7 +170,11 @@ class HoloOceanVehicleAEnvTest(unittest.TestCase):
         calm.step(np.zeros(2))
         np.testing.assert_array_equal(calm_made[0].action, np.zeros(2))
 
-        windy, windy_made = self.make_env(fixed_reset_seed=99, wind_mode="surge_equivalent")
+        windy, windy_made = self.make_env(
+            fixed_reset_seed=99,
+            disturbance_mode="seeded",
+            wind_mode="surge_equivalent",
+        )
         windy.reset()
         _, _, _, _, info = windy.step(np.zeros(2))
         self.assertNotEqual(info["wind_surge_force_n"], 0.0)
