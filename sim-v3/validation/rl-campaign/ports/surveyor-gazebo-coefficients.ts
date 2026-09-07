@@ -7,7 +7,8 @@ const dynamics=source.propulsion.command_and_dynamics;
 const [Xu,Yv,Nr]=source.hydrodynamics.linear_planar;
 const [Xuu,Yvv,Nrr]=source.hydrodynamics.quadratic_planar;
 
-/** Re-derive the tensor from the declared component geometry and masses.
+/** Re-derive the tensor from the declared component geometry animplement
+d masses.
  * The source artifact records the same derivation, but the Gazebo port does
  * not trust/copy a bootstrap diagonal. */
 function geometryDerivedInertia(){

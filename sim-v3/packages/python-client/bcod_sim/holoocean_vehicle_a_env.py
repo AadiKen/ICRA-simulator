@@ -37,6 +37,8 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
     """Minimal Gymnasium wrapper for HoloOcean's twin-thruster SurfaceVessel."""
 
     metadata = {"render_modes": []}
+    backend_type = "holoocean"
+    vehicle_preset = "vehicle-a-otter"
     EXPECTED_CONTRACT_SHA256 = (
         "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36"
     )

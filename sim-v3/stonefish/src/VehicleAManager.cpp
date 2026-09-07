@@ -27,6 +27,9 @@ VehicleAManager::VehicleAManager(const std::string& data_path,
       sensor_noise_(sensor_noise),
       gps_z_ned_(-0.5),
       scenario_mode_("normal"),
+      initial_north_(0.0),
+      initial_east_(0.0),
+      initial_yaw_(0.0),
       port_(nullptr),
       starboard_(nullptr),
       gps_(nullptr),
@@ -102,7 +105,9 @@ void VehicleAManager::BuildScenario() {
         sf::Transform(sf::IQ(), sf::Vector3(0.0, 0.0, gps_z_ned_)));
     vehicle->AddLinkSensor(imu_, "VehicleAHull", sf::I4());
     vehicle->AddLinkSensor(compass_, "VehicleAHull", sf::I4());
-    AddRobot(vehicle, sf::I4());
+    AddRobot(vehicle,
+             sf::Transform(sf::Quaternion(initial_yaw_, 0.0, 0.0),
+                           sf::Vector3(initial_north_, initial_east_, 0.0)));
 
     // Native Bullet contacts are kept separate by counterpart so grounding
     // is never silently folded into generic object collision.
@@ -135,6 +140,13 @@ void VehicleAManager::SetGpsHeight(sf::Scalar z_ned) {
 
 void VehicleAManager::SetScenarioMode(const std::string& mode) {
     scenario_mode_ = mode;
+}
+
+void VehicleAManager::SetInitialPose(sf::Scalar north, sf::Scalar east,
+                                     sf::Scalar yaw) {
+    initial_north_ = north;
+    initial_east_ = east;
+    initial_yaw_ = yaw;
 }
 
 std::string VehicleAManager::SampleArray(const sf::ScalarSensor* sensor) {

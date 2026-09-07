@@ -1,0 +1,1976 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-reward-action-parity",
+  "status": "PASS",
+  "task": 1,
+  "seed": 30000,
+  "reward_parity": {
+    "calm": {
+      "disturbance_mode": "zero",
+      "seed": 30000,
+      "protocol": "identical 12-control-step mixed action trajectory at 10 Hz",
+      "component_divergence": {
+        "progress": {
+          "median_abs": 0.008572191771484938,
+          "max_abs": 0.01004929132550103,
+          "mean_abs": 0.007376849290436027
+        },
+        "cross_track": {
+          "median_abs": 0.0003942303924717015,
+          "max_abs": 0.0013478767710793597,
+          "mean_abs": 0.0005021191167001242
+        },
+        "action_delta": {
+          "median_abs": 0.0,
+          "max_abs": 0.0,
+          "mean_abs": 0.0
+        },
+        "terminal": {
+          "median_abs": 0.0,
+          "max_abs": 0.0,
+          "mean_abs": 0.0
+        },
+        "potential_shaping": {
+          "median_abs": 0.000625228997658489,
+          "max_abs": 0.0007434241694230792,
+          "mean_abs": 0.0005476237528643976
+        },
+        "base_reward": {
+          "median_abs": 0.007834082453846468,
+          "max_abs": 0.009278513849114121,
+          "mean_abs": 0.006875635935716408
+        },
+        "shaped_reward": {
+          "median_abs": 0.008459311451504957,
+          "max_abs": 0.0100219380185372,
+          "mean_abs": 0.007423259688580805
+        }
+      },
+      "per_step": [
+        {
+          "control_step": 1,
+          "action": [
+            0.20000000298023224,
+            0.20000000298023224
+          ],
+          "bcod": {
+            "reward": -0.0039901825975423065,
+            "components": {
+              "progress": 9.879624165876066e-06,
+              "cross_track": -7.3641627922040615e-06,
+              "action_delta": -0.004000000119209291,
+              "terminal": 0.0,
+              "base_reward": -0.003997484657835619,
+              "potential_shaping": 7.3020602933127066e-06,
+              "shaped_reward": -0.0039901825975423065
+            },
+            "position_ned_m": [
+              9999.82493510311,
+              10000.692693954092,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.14509062942047732
+          },
+          "vrx": {
+            "reward": -0.0029813558625625307,
+            "components": {
+              "progress": 0.0009434576278408713,
+              "cross_track": -3.892045670318537e-06,
+              "action_delta": -0.004000000119209291,
+              "terminal": 0.0,
+              "base_reward": -0.003060434537038738,
+              "potential_shaping": 7.907867447620731e-05,
+              "shaped_reward": -0.0029813558625625307
+            },
+            "position_ned_m": [
+              9999.825525392707,
+              10000.692262440412,
+              0.1700766619040456
+            ],
+            "yaw_rad": -0.145020399800863
+          },
+          "absolute_component_divergence": {
+            "progress": 0.0009335780036749952,
+            "cross_track": 3.4721171218855246e-06,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 7.17766141828946e-05,
+            "base_reward": 0.0009370501207968812,
+            "shaped_reward": 0.0010088267349797758
+          }
+        },
+        {
+          "control_step": 2,
+          "action": [
+            0.20999999344348907,
+            0.19499999284744263
+          ],
+          "bcod": {
+            "reward": 0.0014862732038448086,
+            "components": {
+              "progress": 0.0013811913480239468,
+              "cross_track": -2.3717258024039963e-05,
+              "action_delta": -6.249995529661323e-06,
+              "terminal": 0.0,
+              "base_reward": 0.0013512240944702455,
+              "potential_shaping": 0.00013504910937456316,
+              "shaped_reward": 0.0014862732038448086
+            },
+            "position_ned_m": [
+              9999.825404705392,
+              10000.693655716914,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.14478572392627098
+          },
+          "vrx": {
+            "reward": 0.004702024430878909,
+            "components": {
+              "progress": 0.0043641141165977615,
+              "cross_track": -2.1754803262903074e-05,
+              "action_delta": -6.249995529661323e-06,
+              "terminal": 0.0,
+              "base_reward": 0.004336109317805197,
+              "potential_shaping": 0.0003659151130737115,
+              "shaped_reward": 0.004702024430878909
+            },
+            "position_ned_m": [
+              9999.827859663648,
+              10000.69193026644,
+              0.19158231714483337
+            ],
+            "yaw_rad": -0.144840395263383
+          },
+          "absolute_component_divergence": {
+            "progress": 0.0029829227685738147,
+            "cross_track": 1.962454761136889e-06,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.00023086600369914834,
+            "base_reward": 0.0029848852233349517,
+            "shaped_reward": 0.0032157512270341
+          }
+        },
+        {
+          "control_step": 3,
+          "action": [
+            0.2199999988079071,
+            0.1899999976158142
+          ],
+          "bcod": {
+            "reward": 0.004946859647974767,
+            "components": {
+              "progress": 0.00457872599347553,
+              "cross_track": -4.1197684920800264e-05,
+              "action_delta": -6.250002980234815e-06,
+              "terminal": 0.0,
+              "base_reward": 0.004531278305574494,
+              "potential_shaping": 0.000415581342400273,
+              "shaped_reward": 0.004946859647974767
+            },
+            "position_ned_m": [
+              9999.827410733018,
+              10000.695063263984,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.14422923510431
+          },
+          "vrx": {
+            "reward": 0.010092715004579497,
+            "components": {
+              "progress": 0.009373627154403152,
+              "cross_track": -6.038428351613837e-05,
+              "action_delta": -6.250002980234815e-06,
+              "terminal": 0.0,
+              "base_reward": 0.00930699286790678,
+              "potential_shaping": 0.0007857221366727174,
+              "shaped_reward": 0.010092715004579497
+            },
+            "position_ned_m": [
+              9999.832876721599,
+              10000.691204103081,
+              0.07455143538817618
+            ],
+            "yaw_rad": -0.144564380711969
+          },
+          "absolute_component_divergence": {
+            "progress": 0.004794901160927623,
+            "cross_track": 1.9186598595338108e-05,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0003701407942724444,
+            "base_reward": 0.004775714562332285,
+            "shaped_reward": 0.00514585535660473
+          }
+        },
+        {
+          "control_step": 4,
+          "action": [
+            0.23000000417232513,
+            0.1850000023841858
+          ],
+          "bcod": {
+            "reward": 0.009963267762057696,
+            "components": {
+              "progress": 0.009207316580145175,
+              "cross_track": -5.3555194746397886e-05,
+              "action_delta": -6.250002980234815e-06,
+              "terminal": 0.0,
+              "base_reward": 0.009147511382418542,
+              "potential_shaping": 0.0008157563796391543,
+              "shaped_reward": 0.009963267762057696
+            },
+            "position_ned_m": [
+              9999.83172339868,
+              10000.69678861945,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.14335524003372874
+          },
+          "vrx": {
+            "reward": 0.016728815118287964,
+            "components": {
+              "progress": 0.01555602485162666,
+              "cross_track": -0.00012472438841982806,
+              "action_delta": -6.250002980234815e-06,
+              "terminal": 0.0,
+              "base_reward": 0.015425050460226597,
+              "potential_shaping": 0.0013037646580613682,
+              "shaped_reward": 0.016728815118287964
+            },
+            "position_ned_m": [
+              9999.841205932311,
+              10000.689987802063,
+              0.021991976134412727
+            ],
+            "yaw_rad": -0.144110788783303
+          },
+          "absolute_component_divergence": {
+            "progress": 0.006348708271481485,
+            "cross_track": 7.116919367343018e-05,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.00048800827842221395,
+            "base_reward": 0.0062775390778080555,
+            "shaped_reward": 0.006765547356230268
+          }
+        },
+        {
+          "control_step": 5,
+          "action": [
+            0.23999999463558197,
+            0.18000000715255737
+          ],
+          "bcod": {
+            "reward": 0.016210843164881212,
+            "components": {
+              "progress": 0.01496281677943756,
+              "cross_track": -5.584896101838334e-05,
+              "action_delta": -6.249988079076729e-06,
+              "terminal": 0.0,
+              "base_reward": 0.0149007178303401,
+              "potential_shaping": 0.0013101253345411124,
+              "shaped_reward": 0.016210843164881212
+            },
+            "position_ned_m": [
+              9999.83894942958,
+              10000.698730081764,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.14208853749180184
+          },
+          "vrx": {
+            "reward": 0.024313076922145564,
+            "components": {
+              "progress": 0.022640006632904885,
+              "cross_track": -0.00021827957750165182,
+              "action_delta": -6.249988079076729e-06,
+              "terminal": 0.0,
+              "base_reward": 0.022415477067324156,
+              "potential_shaping": 0.001897599854821408,
+              "shaped_reward": 0.024313076922145564
+            },
+            "position_ned_m": [
+              9999.853327768715,
+              10000.688221875995,
+              0.06733439263685798
+            ],
+            "yaw_rad": -0.143376977453535
+          },
+          "absolute_component_divergence": {
+            "progress": 0.0076771898534673255,
+            "cross_track": 0.0001624306164832685,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0005874745202802956,
+            "base_reward": 0.007514759236984057,
+            "shaped_reward": 0.008102233757264352
+          }
+        },
+        {
+          "control_step": 6,
+          "action": [
+            0.25,
+            0.17499999701976776
+          ],
+          "bcod": {
+            "reward": 0.023449011734231116,
+            "components": {
+              "progress": 0.021619557542280177,
+              "cross_track": -4.405064726832558e-05,
+              "action_delta": -6.250010430819409e-06,
+              "terminal": 0.0,
+              "base_reward": 0.021569256884581032,
+              "potential_shaping": 0.0018797548496500838,
+              "shaped_reward": 0.023449011734231116
+            },
+            "position_ned_m": [
+              9999.849575005297,
+              10000.700802588639,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.1403536329234491
+          },
+          "vrx": {
+            "reward": 0.03254587770730759,
+            "components": {
+              "progress": 0.03035206792880274,
+              "cross_track": -0.00034387384925082967,
+              "action_delta": -6.250010430819409e-06,
+              "terminal": 0.0,
+              "base_reward": 0.03000194406912109,
+              "potential_shaping": 0.002543933638186502,
+              "shaped_reward": 0.03254587770730759
+            },
+            "position_ned_m": [
+              9999.869582093106,
+              10000.68584644968,
+              0.2011034497253547
+            ],
+            "yaw_rad": -0.142234501985486
+          },
+          "absolute_component_divergence": {
+            "progress": 0.008732510386522563,
+            "cross_track": 0.0002998232019825041,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0006641787885364181,
+            "base_reward": 0.008432687184540058,
+            "shaped_reward": 0.009096865973076473
+          }
+        },
+        {
+          "control_step": 7,
+          "action": [
+            0.25999999046325684,
+            0.17000000178813934
+          ],
+          "bcod": {
+            "reward": 0.03149169902297122,
+            "components": {
+              "progress": 0.029002799974165328,
+              "cross_track": -1.4830503046733533e-05,
+              "action_delta": -6.249988079076729e-06,
+              "terminal": 0.0,
+              "base_reward": 0.028981719483039518,
+              "potential_shaping": 0.002509979539931706,
+              "shaped_reward": 0.03149169902297122
+            },
+            "position_ned_m": [
+              9999.863993108076,
+              10000.70293358736,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.13807934681182824
+          },
+          "vrx": {
+            "reward": 0.04119690385218335,
+            "components": {
+              "progress": 0.0384814974727945,
+              "cross_track": -0.0005034680860076324,
+              "action_delta": -6.249988079076729e-06,
+              "terminal": 0.0,
+              "base_reward": 0.03797177939870779,
+              "potential_shaping": 0.0032251244534755585,
+              "shaped_reward": 0.04119690385218335
+            },
+            "position_ned_m": [
+              9999.890196407263,
+              10000.6828178068,
+              0.2632364796092023
+            ],
+            "yaw_rad": -0.140536413428208
+          },
+          "absolute_component_divergence": {
+            "progress": 0.009478697498629174,
+            "cross_track": 0.0004886375829608988,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0007151449135438526,
+            "base_reward": 0.008990059915668275,
+            "shaped_reward": 0.009705204829212132
+          }
+        },
+        {
+          "control_step": 8,
+          "action": [
+            0.27000001072883606,
+            0.16500000655651093
+          ],
+          "bcod": {
+            "reward": 0.04012771373872445,
+            "components": {
+              "progress": 0.0369789226988857,
+              "cross_track": -3.457478714015574e-05,
+              "action_delta": -6.250017881415105e-06,
+              "terminal": 0.0,
+              "base_reward": 0.036938097893864125,
+              "potential_shaping": 0.0031896158448603273,
+              "shaped_reward": 0.04012771373872445
+            },
+            "position_ned_m": [
+              9999.882525116183,
+              10000.705061668315,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.13521157668912637
+          },
+          "vrx": {
+            "reward": 0.05014965175726165,
+            "components": {
+              "progress": 0.04692042560867549,
+              "cross_track": -0.000697563847815825,
+              "action_delta": -6.250017881415105e-06,
+              "terminal": 0.0,
+              "base_reward": 0.046216611742978246,
+              "potential_shaping": 0.0039330400142834065,
+              "shaped_reward": 0.05014965175726165
+            },
+            "position_ned_m": [
+              9999.915328392226,
+              10000.679149867516,
+              0.1500618578960973
+            ],
+            "yaw_rad": -0.138139476680948
+          },
+          "absolute_component_divergence": {
+            "progress": 0.00994150290978979,
+            "cross_track": 0.0006629890606756692,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0007434241694230792,
+            "base_reward": 0.009278513849114121,
+            "shaped_reward": 0.0100219380185372
+          }
+        },
+        {
+          "control_step": 9,
+          "action": [
+            0.2800000011920929,
+            0.1599999964237213
+          ],
+          "bcod": {
+            "reward": 0.04923811749626739,
+            "components": {
+              "progress": 0.04544082438042807,
+              "cross_track": -0.00010630668233502859,
+              "action_delta": -6.249995529661323e-06,
+              "terminal": 0.0,
+              "base_reward": 0.04532826770256338,
+              "potential_shaping": 0.003909849793704012,
+              "shaped_reward": 0.04923811749626739
+            },
+            "position_ned_m": [
+              9999.905433021491,
+              10000.7071425055,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.13170813132034703
+          },
+          "vrx": {
+            "reward": 0.05921091763407288,
+            "components": {
+              "progress": 0.0554901157059291,
+              "cross_track": -0.0009257872473615454,
+              "action_delta": -6.249995529661323e-06,
+              "terminal": 0.0,
+              "base_reward": 0.054558078463037896,
+              "potential_shaping": 0.004652839171034984,
+              "shaped_reward": 0.05921091763407288
+            },
+            "position_ned_m": [
+              9999.945038656128,
+              10000.674877203912,
+              0.06009101553036746
+            ],
+            "yaw_rad": -0.134912886407507
+          },
+          "absolute_component_divergence": {
+            "progress": 0.01004929132550103,
+            "cross_track": 0.0008194805650265168,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0007429893773309715,
+            "base_reward": 0.009229810760474515,
+            "shaped_reward": 0.009972800137805486
+          }
+        },
+        {
+          "control_step": 10,
+          "action": [
+            0.28999999165534973,
+            0.1550000011920929
+          ],
+          "bcod": {
+            "reward": 0.05875376004425056,
+            "components": {
+              "progress": 0.0542986482479364,
+              "cross_track": -0.0002019543824300153,
+              "action_delta": -6.249988079076729e-06,
+              "terminal": 0.0,
+              "base_reward": 0.054090443877427306,
+              "potential_shaping": 0.00466331616682325,
+              "shaped_reward": 0.05875376004425056
+            },
+            "position_ned_m": [
+              9999.932928669743,
+              10000.709147598982,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.12752392719741867
+          },
+          "vrx": {
+            "reward": 0.06834074482678686,
+            "components": {
+              "progress": 0.06415395634631693,
+              "cross_track": -0.0011880532393436943,
+              "action_delta": -6.249988079076729e-06,
+              "terminal": 0.0,
+              "base_reward": 0.06295965311889416,
+              "potential_shaping": 0.005381091707892693,
+              "shaped_reward": 0.06834074482678686
+            },
+            "position_ned_m": [
+              9999.97937391975,
+              10000.670015989504,
+              0.06801377753662063
+            ],
+            "yaw_rad": -0.130736629659697
+          },
+          "absolute_component_divergence": {
+            "progress": 0.009855308098380533,
+            "cross_track": 0.000986098856913679,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0007177755410694431,
+            "base_reward": 0.008869209241466856,
+            "shaped_reward": 0.0095869847825363
+          }
+        },
+        {
+          "control_step": 11,
+          "action": [
+            0.30000001192092896,
+            0.15000000596046448
+          ],
+          "bcod": {
+            "reward": 0.06862775760984223,
+            "components": {
+              "progress": 0.0635101751043976,
+              "cross_track": -0.00032278343945435023,
+              "action_delta": -6.250017881415105e-06,
+              "terminal": 0.0,
+              "base_reward": 0.06318114164706183,
+              "potential_shaping": 0.005446615962780399,
+              "shaped_reward": 0.06862775760984223
+            },
+            "position_ned_m": [
+              9999.965199674909,
+              10000.711059024497,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.12264513684051423
+          },
+          "vrx": {
+            "reward": 0.07744414675558779,
+            "components": {
+              "progress": 0.07282588315623428,
+              "cross_track": -0.0014850858205821527,
+              "action_delta": -6.250017881415105e-06,
+              "terminal": 0.0,
+              "base_reward": 0.07133454731777071,
+              "potential_shaping": 0.0061095994378170815,
+              "shaped_reward": 0.07744414675558779
+            },
+            "position_ned_m": [
+              10000.018349506025,
+              10000.664532756095,
+              0.17206777121540362
+            ],
+            "yaw_rad": -0.12549463197495
+          },
+          "absolute_component_divergence": {
+            "progress": 0.00931570805183668,
+            "cross_track": 0.0011623023811278025,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0006629834750366825,
+            "base_reward": 0.00815340567070888,
+            "shaped_reward": 0.008816389145745562
+          }
+        },
+        {
+          "control_step": 12,
+          "action": [
+            0.3100000023841858,
+            0.14499999582767487
+          ],
+          "bcod": {
+            "reward": 0.0787640922970797,
+            "components": {
+              "progress": 0.07298762279299353,
+              "cross_track": -0.00046968922745229134,
+              "action_delta": -6.249995529661323e-06,
+              "terminal": 0.0,
+              "base_reward": 0.07251168357001159,
+              "potential_shaping": 0.006252408727068115,
+              "shaped_reward": 0.0787640922970797
+            },
+            "position_ned_m": [
+              10000.002386774806,
+              10000.712866119538,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.1170485863201886
+          },
+          "vrx": {
+            "reward": 0.08640481124102298,
+            "components": {
+              "progress": 0.08139949594944085,
+              "cross_track": -0.001817565998531651,
+              "action_delta": -6.249995529661323e-06,
+              "terminal": 0.0,
+              "base_reward": 0.07957567995537954,
+              "potential_shaping": 0.006829131285643442,
+              "shaped_reward": 0.08640481124102298
+            },
+            "position_ned_m": [
+              10000.061929044172,
+              10000.658383209613,
+              0.25281192041981587
+            ],
+            "yaw_rad": -0.1190865220421
+          },
+          "absolute_component_divergence": {
+            "progress": 0.008411873156447314,
+            "cross_track": 0.0013478767710793597,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0005767225585753266,
+            "base_reward": 0.007063996385367949,
+            "shaped_reward": 0.0076407189439432754
+          }
+        }
+      ]
+    },
+    "disturbed": {
+      "disturbance_mode": "seeded",
+      "seed": 30000,
+      "protocol": "identical 12-control-step mixed action trajectory at 10 Hz",
+      "component_divergence": {
+        "progress": {
+          "median_abs": 0.009183005723528481,
+          "max_abs": 0.02674449438533344,
+          "mean_abs": 0.010163714410896437
+        },
+        "cross_track": {
+          "median_abs": 0.0020348750469644235,
+          "max_abs": 0.004873179748954982,
+          "mean_abs": 0.0022415142141715963
+        },
+        "action_delta": {
+          "median_abs": 0.0,
+          "max_abs": 0.0,
+          "mean_abs": 0.0
+        },
+        "terminal": {
+          "median_abs": 0.0,
+          "max_abs": 0.0,
+          "mean_abs": 0.0
+        },
+        "potential_shaping": {
+          "median_abs": 0.000700897513263854,
+          "max_abs": 0.0028185287251147884,
+          "mean_abs": 0.0009620277095113335
+        },
+        "base_reward": {
+          "median_abs": 0.009413573235805333,
+          "max_abs": 0.031617674134288426,
+          "mean_abs": 0.011378020123891773
+        },
+        "shaped_reward": {
+          "median_abs": 0.010074393236782558,
+          "max_abs": 0.034436202859403214,
+          "mean_abs": 0.012339449134331456
+        }
+      },
+      "per_step": [
+        {
+          "control_step": 1,
+          "action": [
+            0.20000000298023224,
+            0.20000000298023224
+          ],
+          "bcod": {
+            "reward": 0.001127118061219681,
+            "components": {
+              "progress": 0.004790623558271534,
+              "cross_track": -4.3927458527456484e-05,
+              "action_delta": -0.004000000119209291,
+              "terminal": 0.0,
+              "base_reward": 0.0007466959805347865,
+              "potential_shaping": 0.0003804220806848946,
+              "shaped_reward": 0.001127118061219681
+            },
+            "position_ned_m": [
+              9999.827880325201,
+              10000.690792103935,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.13968276195868695
+          },
+          "vrx": {
+            "reward": 0.0120192747228417,
+            "components": {
+              "progress": 0.015245153881267015,
+              "cross_track": -0.00034866439637184533,
+              "action_delta": -0.004000000119209291,
+              "terminal": 0.0,
+              "base_reward": 0.01089648936568588,
+              "potential_shaping": 0.00112278535715582,
+              "shaped_reward": 0.0120192747228417
+            },
+            "position_ned_m": [
+              9999.839844245638,
+              10000.678096341959,
+              0.17008593868971297
+            ],
+            "yaw_rad": -0.11805503242476
+          },
+          "absolute_component_divergence": {
+            "progress": 0.010454530322995481,
+            "cross_track": 0.00030473693784438885,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0007423632764709254,
+            "base_reward": 0.010149793385151092,
+            "shaped_reward": 0.010892156661622018
+          }
+        },
+        {
+          "control_step": 2,
+          "action": [
+            0.20999999344348907,
+            0.19499999284744263
+          ],
+          "bcod": {
+            "reward": 0.016616424918510286,
+            "components": {
+              "progress": 0.015555506894529003,
+              "cross_track": -0.00017675717765825924,
+              "action_delta": -6.249995529661323e-06,
+              "terminal": 0.0,
+              "base_reward": 0.015372499721341082,
+              "potential_shaping": 0.0012439251971692045,
+              "shaped_reward": 0.016616424918510286
+            },
+            "position_ned_m": [
+              9999.837047829164,
+              10000.686255511837,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.12403464610077995
+          },
+          "vrx": {
+            "reward": 0.02726376656860049,
+            "components": {
+              "progress": 0.026036284251055974,
+              "cross_track": -0.0007197816931024244,
+              "action_delta": -6.249995529661323e-06,
+              "terminal": 0.0,
+              "base_reward": 0.025310252562423887,
+              "potential_shaping": 0.0019535140061766043,
+              "shaped_reward": 0.02726376656860049
+            },
+            "position_ned_m": [
+              9999.857024060442,
+              10000.663293557122,
+              0.19163829775763788
+            ],
+            "yaw_rad": -0.091924800516594
+          },
+          "absolute_component_divergence": {
+            "progress": 0.010480777356526971,
+            "cross_track": 0.0005430245154441651,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0007095888090073998,
+            "base_reward": 0.009937752841082805,
+            "shaped_reward": 0.010647341650090205
+          }
+        },
+        {
+          "control_step": 3,
+          "action": [
+            0.2199999988079071,
+            0.1899999976158142
+          ],
+          "bcod": {
+            "reward": 0.02963262880057161,
+            "components": {
+              "progress": 0.02779996412367325,
+              "cross_track": -0.00039830708452118295,
+              "action_delta": -6.250002980234815e-06,
+              "terminal": 0.0,
+              "base_reward": 0.027395407036171833,
+              "potential_shaping": 0.002237221764399777,
+              "shaped_reward": 0.02963262880057161
+            },
+            "position_ned_m": [
+              9999.853241144585,
+              10000.678916555858,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.09928819388494099
+          },
+          "vrx": {
+            "reward": 0.03913407362404652,
+            "components": {
+              "progress": 0.037507268132983995,
+              "cross_track": -0.001216217463304065,
+              "action_delta": -6.250002980234815e-06,
+              "terminal": 0.0,
+              "base_reward": 0.036284800666699694,
+              "potential_shaping": 0.0028492729573468267,
+              "shaped_reward": 0.03913407362404652
+            },
+            "position_ned_m": [
+              9999.88132326609,
+              10000.643824758246,
+              0.07463542697333445
+            ],
+            "yaw_rad": -0.0598767647619241
+          },
+          "absolute_component_divergence": {
+            "progress": 0.009707304009310747,
+            "cross_track": 0.000817910378782882,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0006120511929470496,
+            "base_reward": 0.008889393630527861,
+            "shaped_reward": 0.009501444823474911
+          }
+        },
+        {
+          "control_step": 4,
+          "action": [
+            0.23000000417232513,
+            0.1850000023841858
+          ],
+          "bcod": {
+            "reward": 0.04374221472629819,
+            "components": {
+              "progress": 0.041126289255785764,
+              "cross_track": -0.0007058000816414274,
+              "action_delta": -6.250002980234815e-06,
+              "terminal": 0.0,
+              "base_reward": 0.0404142391711641,
+              "potential_shaping": 0.0033279755551340884,
+              "shaped_reward": 0.04374221472629819
+            },
+            "position_ned_m": [
+              9999.87695590985,
+              10000.669043495513,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.0662154734252311
+          },
+          "vrx": {
+            "reward": 0.0512580494516331,
+            "components": {
+              "progress": 0.04931425688200619,
+              "cross_track": -0.001831518008492654,
+              "action_delta": -6.250002980234815e-06,
+              "terminal": 0.0,
+              "base_reward": 0.0474764888705333,
+              "potential_shaping": 0.0037815605810997965,
+              "shaped_reward": 0.0512580494516331
+            },
+            "position_ned_m": [
+              9999.91284155064,
+              10000.620047894714,
+              0.022056430401638908
+            ],
+            "yaw_rad": -0.0237005626031195
+          },
+          "absolute_component_divergence": {
+            "progress": 0.008187967626220427,
+            "cross_track": 0.0011257179268512264,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.00045358502596570816,
+            "base_reward": 0.007062249699369201,
+            "shaped_reward": 0.007515834725334909
+          }
+        },
+        {
+          "control_step": 5,
+          "action": [
+            0.23999999463558197,
+            0.18000000715255737
+          ],
+          "bcod": {
+            "reward": 0.058693553135140894,
+            "components": {
+              "progress": 0.05529626272976884,
+              "cross_track": -0.0010940462594428832,
+              "action_delta": -6.249988079076729e-06,
+              "terminal": 0.0,
+              "base_reward": 0.05419596648224688,
+              "potential_shaping": 0.0044975866528940145,
+              "shaped_reward": 0.058693553135140894
+            },
+            "position_ned_m": [
+              9999.908544272474,
+              10000.656992807824,
+              0.07263565461915487
+            ],
+            "yaw_rad": -0.025408384934441097
+          },
+          "vrx": {
+            "reward": 0.06363036472425229,
+            "components": {
+              "progress": 0.06144443546037337,
+              "cross_track": -0.0025581937198141708,
+              "action_delta": -6.249988079076729e-06,
+              "terminal": 0.0,
+              "base_reward": 0.05887999175248012,
+              "potential_shaping": 0.0047503729717721654,
+              "shaped_reward": 0.06363036472425229
+            },
+            "position_ned_m": [
+              9999.951662103795,
+              10000.592370171955,
+              0.06735715987101246
+            ],
+            "yaw_rad": 0.0149481722696656
+          },
+          "absolute_component_divergence": {
+            "progress": 0.006148172730604529,
+            "cross_track": 0.0014641474603712876,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.00025278631887815095,
+            "base_reward": 0.00468402527023324,
+            "shaped_reward": 0.004936811589111398
+          }
+        },
+        {
+          "control_step": 6,
+          "action": [
+            0.25,
+            0.17499999701976776
+          ],
+          "bcod": {
+            "reward": 0.07436692570556652,
+            "components": {
+              "progress": 0.07019163860412903,
+              "cross_track": -0.0015559229135519912,
+              "action_delta": -6.250010430819409e-06,
+              "terminal": 0.0,
+              "base_reward": 0.06862946568014622,
+              "potential_shaping": 0.0057374600254203045,
+              "shaped_reward": 0.07436692570556652
+            },
+            "position_ned_m": [
+              9999.948278301275,
+              10000.643200433655,
+              0.07263565461915487
+            ],
+            "yaw_rad": 0.022656537862952082
+          },
+          "vrx": {
+            "reward": 0.07599251750611759,
+            "components": {
+              "progress": 0.07365450677151131,
+              "cross_track": -0.0033896070859532872,
+              "action_delta": -6.250010430819409e-06,
+              "terminal": 0.0,
+              "base_reward": 0.0702586496751272,
+              "potential_shaping": 0.005733867830990391,
+              "shaped_reward": 0.07599251750611759
+            },
+            "position_ned_m": [
+              9999.99776254169,
+              10000.561128218382,
+              0.20096605222516284
+            ],
+            "yaw_rad": 0.054588472821619
+          },
+          "absolute_component_divergence": {
+            "progress": 0.0034628681673822825,
+            "cross_track": 0.001833684172401296,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 3.59219442991332e-06,
+            "base_reward": 0.0016291839949809789,
+            "shaped_reward": 0.0016255918005510656
+          }
+        },
+        {
+          "control_step": 7,
+          "action": [
+            0.25999999046325684,
+            0.17000000178813934
+          ],
+          "bcod": {
+            "reward": 0.09070922109096821,
+            "components": {
+              "progress": 0.08575378046729298,
+              "cross_track": -0.002082410742047985,
+              "action_delta": -6.249988079076729e-06,
+              "terminal": 0.0,
+              "base_reward": 0.08366511973716592,
+              "potential_shaping": 0.00704410135380229,
+              "shaped_reward": 0.09070922109096821
+            },
+            "position_ned_m": [
+              9999.996378537753,
+              10000.628187114853,
+              0.07263565461915487
+            ],
+            "yaw_rad": 0.07758265987733944
+          },
+          "vrx": {
+            "reward": 0.08822557817861944,
+            "components": {
+              "progress": 0.08582781008265528,
+              "cross_track": -0.004318476663575536,
+              "action_delta": -6.249988079076729e-06,
+              "terminal": 0.0,
+              "base_reward": 0.08150308343100067,
+              "potential_shaping": 0.006722494747618768,
+              "shaped_reward": 0.08822557817861944
+            },
+            "position_ned_m": [
+              10000.05105710796,
+              10000.526675878655,
+              0.26239804310965414
+            ],
+            "yaw_rad": 0.0937403525240281
+          },
+          "absolute_component_divergence": {
+            "progress": 7.402961536229213e-05,
+            "cross_track": 0.0022360659215275506,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0003216066061835221,
+            "base_reward": 0.002162036306165252,
+            "shaped_reward": 0.002483642912348774
+          }
+        },
+        {
+          "control_step": 8,
+          "action": [
+            0.27000001072883606,
+            0.16500000655651093
+          ],
+          "bcod": {
+            "reward": 0.10770259837943828,
+            "components": {
+              "progress": 0.10195463776331337,
+              "cross_track": -0.0026624834258365798,
+              "action_delta": -6.250017881415105e-06,
+              "terminal": 0.0,
+              "base_reward": 0.09928590431959537,
+              "potential_shaping": 0.00841669405984291,
+              "shaped_reward": 0.10770259837943828
+            },
+            "position_ned_m": [
+              10000.053026525258,
+              10000.612567249442,
+              0.07263565461915487
+            ],
+            "yaw_rad": 0.13904388080949795
+          },
+          "vrx": {
+            "reward": 0.10041023582882087,
+            "components": {
+              "progress": 0.09802612116651233,
+              "cross_track": -0.00533412316213264,
+              "action_delta": -6.250017881415105e-06,
+              "terminal": 0.0,
+              "base_reward": 0.09268574798649827,
+              "potential_shaping": 0.007724487842322603,
+              "shaped_reward": 0.10041023582882087
+            },
+            "position_ned_m": [
+              10000.111447326306,
+              10000.489539004626,
+              0.14842662858423072
+            ],
+            "yaw_rad": 0.130749726560722
+          },
+          "absolute_component_divergence": {
+            "progress": 0.003928516596801046,
+            "cross_track": 0.0026716397362960605,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0006922062175203081,
+            "base_reward": 0.006600156333097101,
+            "shaped_reward": 0.0072923625506174095
+          }
+        },
+        {
+          "control_step": 9,
+          "action": [
+            0.2800000011920929,
+            0.1599999964237213
+          ],
+          "bcod": {
+            "reward": 0.12535627902986754,
+            "components": {
+              "progress": 0.1187891499619056,
+              "cross_track": -0.0032830238651615864,
+              "action_delta": -6.249995529661323e-06,
+              "terminal": 0.0,
+              "base_reward": 0.11549987610121434,
+              "potential_shaping": 0.009856402928653196,
+              "shaped_reward": 0.12535627902986754
+            },
+            "position_ned_m": [
+              10000.118373868436,
+              10000.597055496819,
+              0.07263565461915487
+            ],
+            "yaw_rad": 0.2067645994227837
+          },
+          "vrx": {
+            "reward": 0.11242736995144897,
+            "components": {
+              "progress": 0.11013044252415938,
+              "cross_track": -0.006426000910982459,
+              "action_delta": -6.249995529661323e-06,
+              "terminal": 0.0,
+              "base_reward": 0.10369819161764726,
+              "potential_shaping": 0.008729178333801713,
+              "shaped_reward": 0.11242736995144897
+            },
+            "position_ned_m": [
+              10000.178777342768,
+              10000.450222080977,
+              0.05781260060771275
+            ],
+            "yaw_rad": 0.16397568529576
+          },
+          "absolute_component_divergence": {
+            "progress": 0.008658707437746216,
+            "cross_track": 0.0031429770458208726,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0011272245948514836,
+            "base_reward": 0.011801684483567082,
+            "shaped_reward": 0.012928909078418566
+          }
+        },
+        {
+          "control_step": 10,
+          "action": [
+            0.28999999165534973,
+            0.1550000011920929
+          ],
+          "bcod": {
+            "reward": 0.14366235072620967,
+            "components": {
+              "progress": 0.13623426011243822,
+              "cross_track": -0.003928581535150989,
+              "action_delta": -6.249988079076729e-06,
+              "terminal": 0.0,
+              "base_reward": 0.13229942858920815,
+              "potential_shaping": 0.011362922137001519,
+              "shaped_reward": 0.14366235072620967
+            },
+            "position_ned_m": [
+              10000.19252936177,
+              10000.582476042615,
+              0.07263565461915487
+            ],
+            "yaw_rad": 0.2805567083371258
+          },
+          "vrx": {
+            "reward": 0.12434168218642537,
+            "components": {
+              "progress": 0.12219444231575949,
+              "cross_track": -0.007585768436485302,
+              "action_delta": -6.249988079076729e-06,
+              "terminal": 0.0,
+              "base_reward": 0.11460242389119511,
+              "potential_shaping": 0.009739258295230258,
+              "shaped_reward": 0.12434168218642537
+            },
+            "position_ned_m": [
+              10000.252943698693,
+              10000.409129148458,
+              0.06506190472806053
+            ],
+            "yaw_rad": 0.192258896985834
+          },
+          "absolute_component_divergence": {
+            "progress": 0.014039817796678733,
+            "cross_track": 0.0036571869013343125,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0016236638417712612,
+            "base_reward": 0.01769700469801304,
+            "shaped_reward": 0.0193206685397843
+          }
+        },
+        {
+          "control_step": 11,
+          "action": [
+            0.30000001192092896,
+            0.15000000596046448
+          ],
+          "bcod": {
+            "reward": 0.1626046130560863,
+            "components": {
+              "progress": 0.15425676238666597,
+              "cross_track": -0.0045810922126828125,
+              "action_delta": -6.250017881415105e-06,
+              "terminal": 0.0,
+              "base_reward": 0.14966942015610174,
+              "potential_shaping": 0.012935192899984571,
+              "shaped_reward": 0.1626046130560863
+            },
+            "position_ned_m": [
+              10000.275549401242,
+              10000.569774632313,
+              0.07263565461915487
+            ],
+            "yaw_rad": 0.3603178124716537
+          },
+          "vrx": {
+            "reward": 0.13611219063486563,
+            "components": {
+              "progress": 0.1341793755008709,
+              "cross_track": -0.008808992037112945,
+              "action_delta": -6.250017881415105e-06,
+              "terminal": 0.0,
+              "base_reward": 0.12536413344587655,
+              "potential_shaping": 0.01074805718898908,
+              "shaped_reward": 0.13611219063486563
+            },
+            "position_ned_m": [
+              10000.333873297026,
+              10000.36647039649,
+              0.16826112693732231
+            ],
+            "yaw_rad": 0.214853405564231
+          },
+          "absolute_component_divergence": {
+            "progress": 0.02007738688579508,
+            "cross_track": 0.004227899824430132,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0021871357109954914,
+            "base_reward": 0.024305286710225193,
+            "shaped_reward": 0.026492422421220685
+          }
+        },
+        {
+          "control_step": 12,
+          "action": [
+            0.3100000023841858,
+            0.14499999582767487
+          ],
+          "bcod": {
+            "reward": 0.18213037482552608,
+            "components": {
+              "progress": 0.17278674339903688,
+              "cross_track": -0.005219386357859241,
+              "action_delta": -6.249995529661323e-06,
+              "terminal": 0.0,
+              "base_reward": 0.16756110704564797,
+              "potential_shaping": 0.014569267779878103,
+              "shaped_reward": 0.18213037482552608
+            },
+            "position_ned_m": [
+              10000.367412871472,
+              10000.560037586343,
+              0.07263565461915487
+            ],
+            "yaw_rad": 0.44606306599889756
+          },
+          "vrx": {
+            "reward": 0.14769417196612286,
+            "components": {
+              "progress": 0.14604224901370344,
+              "cross_track": -0.010092566106814223,
+              "action_delta": -6.249995529661323e-06,
+              "terminal": 0.0,
+              "base_reward": 0.13594343291135955,
+              "potential_shaping": 0.011750739054763315,
+              "shaped_reward": 0.14769417196612286
+            },
+            "position_ned_m": [
+              10000.421489263346,
+              10000.322386575639,
+              0.24681634400374147
+            ],
+            "yaw_rad": 0.231034854616871
+          },
+          "absolute_component_divergence": {
+            "progress": 0.02674449438533344,
+            "cross_track": 0.004873179748954982,
+            "action_delta": 0.0,
+            "terminal": 0.0,
+            "potential_shaping": 0.0028185287251147884,
+            "base_reward": 0.031617674134288426,
+            "shaped_reward": 0.034436202859403214
+          }
+        }
+      ]
+    }
+  },
+  "known_answer_actions": {
+    "symmetric_positive": {
+      "label": "symmetric_positive",
+      "action": [
+        1.0,
+        1.0
+      ],
+      "control_steps": 12,
+      "physics_steps": 24,
+      "forward_displacement_m": 1.0627265489979547,
+      "final_body_surge_mps": 1.4954917654652502,
+      "truth_yaw_delta_rad": 0.008080409489875873,
+      "observation_yaw_delta_rad": 0.007231533527374268,
+      "passed": true,
+      "physics_step_actuation": [
+        {
+          "simulation_time_s": 0.15000000000000002,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            9.318547017487289,
+            9.318547017487289
+          ]
+        },
+        {
+          "simulation_time_s": 0.2,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            17.396589484729986,
+            17.396589484729986
+          ]
+        },
+        {
+          "simulation_time_s": 0.25,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            24.399265972826115,
+            24.399265972826115
+          ]
+        },
+        {
+          "simulation_time_s": 0.30000000000000004,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            30.469731459456863,
+            30.469731459456863
+          ]
+        },
+        {
+          "simulation_time_s": 0.35000000000000003,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            35.73208383101329,
+            35.73208383101329
+          ]
+        },
+        {
+          "simulation_time_s": 0.4,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            40.293900802613514,
+            40.293900802613514
+          ]
+        },
+        {
+          "simulation_time_s": 0.45,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            44.24843911799905,
+            44.24843911799905
+          ]
+        },
+        {
+          "simulation_time_s": 0.5,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            47.676540987322085,
+            47.676540987322085
+          ]
+        },
+        {
+          "simulation_time_s": 0.55,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            50.648286735930505,
+            50.648286735930505
+          ]
+        },
+        {
+          "simulation_time_s": 0.6000000000000001,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            53.224427449075705,
+            53.224427449075705
+          ]
+        },
+        {
+          "simulation_time_s": 0.65,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            55.457626899947954,
+            55.457626899947954
+          ]
+        },
+        {
+          "simulation_time_s": 0.7000000000000001,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            57.39353814964335,
+            57.39353814964335
+          ]
+        },
+        {
+          "simulation_time_s": 0.75,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            59.071736827882035,
+            59.071736827882035
+          ]
+        },
+        {
+          "simulation_time_s": 0.8,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            60.52653017343712,
+            60.52653017343712
+          ]
+        },
+        {
+          "simulation_time_s": 0.8500000000000001,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            61.78765837340246,
+            61.78765837340246
+          ]
+        },
+        {
+          "simulation_time_s": 0.9,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            62.880902538704134,
+            62.880902538704134
+          ]
+        },
+        {
+          "simulation_time_s": 0.9500000000000001,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            63.82861174463499,
+            63.82861174463499
+          ]
+        },
+        {
+          "simulation_time_s": 1.0,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            64.65015991064624,
+            64.65015991064624
+          ]
+        },
+        {
+          "simulation_time_s": 1.05,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            65.36234185934168,
+            65.36234185934168
+          ]
+        },
+        {
+          "simulation_time_s": 1.1,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            65.97971665126678,
+            65.97971665126678
+          ]
+        },
+        {
+          "simulation_time_s": 1.15,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            66.51490521424952,
+            66.51490521424952
+          ]
+        },
+        {
+          "simulation_time_s": 1.2,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            66.97884835169832,
+            66.97884835169832
+          ]
+        },
+        {
+          "simulation_time_s": 1.25,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            67.38103040429344,
+            67.38103040429344
+          ]
+        },
+        {
+          "simulation_time_s": 1.3,
+          "commanded_thrust_newtons": [
+            70,
+            70
+          ],
+          "applied_thrust_newtons": [
+            67.72967313736432,
+            67.72967313736432
+          ]
+        }
+      ],
+      "reset_observation": [
+        1.3395514058639463e-19,
+        -5.006324541839376e-19,
+        0.05172494426369667,
+        -1.9253634608796584e-16,
+        -5.24228525619564e-17,
+        -2.4362751789827995e-35,
+        -0.14518976211547852,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    "positive_differential": {
+      "label": "positive_differential",
+      "action": [
+        1.0,
+        -1.0
+      ],
+      "control_steps": 12,
+      "physics_steps": 24,
+      "forward_displacement_m": 0.009807076346429855,
+      "final_body_surge_mps": 0.010946650801872541,
+      "truth_yaw_delta_rad": 0.8768215609047587,
+      "observation_yaw_delta_rad": 0.8743679523468018,
+      "passed": true,
+      "physics_step_actuation": [
+        {
+          "simulation_time_s": 0.15000000000000002,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            9.318547017487289,
+            -9.318547017487289
+          ]
+        },
+        {
+          "simulation_time_s": 0.2,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            17.396589484729986,
+            -17.396589484729986
+          ]
+        },
+        {
+          "simulation_time_s": 0.25,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            24.399265972826115,
+            -24.399265972826115
+          ]
+        },
+        {
+          "simulation_time_s": 0.30000000000000004,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            30.469731459456863,
+            -30.469731459456863
+          ]
+        },
+        {
+          "simulation_time_s": 0.35000000000000003,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            35.73208383101329,
+            -35.73208383101329
+          ]
+        },
+        {
+          "simulation_time_s": 0.4,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            40.293900802613514,
+            -40.293900802613514
+          ]
+        },
+        {
+          "simulation_time_s": 0.45,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            44.24843911799905,
+            -44.24843911799905
+          ]
+        },
+        {
+          "simulation_time_s": 0.5,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            47.676540987322085,
+            -47.676540987322085
+          ]
+        },
+        {
+          "simulation_time_s": 0.55,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            50.648286735930505,
+            -50.648286735930505
+          ]
+        },
+        {
+          "simulation_time_s": 0.6000000000000001,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            53.224427449075705,
+            -53.224427449075705
+          ]
+        },
+        {
+          "simulation_time_s": 0.65,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            55.457626899947954,
+            -55.457626899947954
+          ]
+        },
+        {
+          "simulation_time_s": 0.7000000000000001,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            57.39353814964335,
+            -57.39353814964335
+          ]
+        },
+        {
+          "simulation_time_s": 0.75,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            59.071736827882035,
+            -59.071736827882035
+          ]
+        },
+        {
+          "simulation_time_s": 0.8,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            60.52653017343712,
+            -60.52653017343712
+          ]
+        },
+        {
+          "simulation_time_s": 0.8500000000000001,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            61.78765837340246,
+            -61.78765837340246
+          ]
+        },
+        {
+          "simulation_time_s": 0.9,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            62.880902538704134,
+            -62.880902538704134
+          ]
+        },
+        {
+          "simulation_time_s": 0.9500000000000001,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            63.82861174463499,
+            -63.82861174463499
+          ]
+        },
+        {
+          "simulation_time_s": 1.0,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            64.65015991064624,
+            -64.65015991064624
+          ]
+        },
+        {
+          "simulation_time_s": 1.05,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            65.36234185934168,
+            -65.36234185934168
+          ]
+        },
+        {
+          "simulation_time_s": 1.1,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            65.97971665126678,
+            -65.97971665126678
+          ]
+        },
+        {
+          "simulation_time_s": 1.15,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            66.51490521424952,
+            -66.51490521424952
+          ]
+        },
+        {
+          "simulation_time_s": 1.2,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            66.97884835169832,
+            -66.97884835169832
+          ]
+        },
+        {
+          "simulation_time_s": 1.25,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            67.38103040429344,
+            -67.38103040429344
+          ]
+        },
+        {
+          "simulation_time_s": 1.3,
+          "commanded_thrust_newtons": [
+            70,
+            -70
+          ],
+          "applied_thrust_newtons": [
+            67.72967313736432,
+            -67.72967313736432
+          ]
+        }
+      ],
+      "reset_observation": [
+        1.3395514058639463e-19,
+        -5.006324541839376e-19,
+        0.05172494426369667,
+        -1.9253634608796584e-16,
+        -5.24228525619564e-17,
+        -2.4362751789827995e-35,
+        -0.14518976211547852,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  },
+  "actuator_routing": {
+    "live_path": "CommonWaypointEnv.step -> VrxGymEnv bridge -> vrx_gym_runtime.py -> actuator-jsonl-bridge.ts -> FrozenActuatorBank(resolveSurveyorActuatorSpec()) -> VRX thrust topics",
+    "reward_module": "bcod_sim.common_task",
+    "reward_source_file": "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/packages/python-client/bcod_sim/common_task.py",
+    "single_reward_call_site_uses_shared_compute_reward": true,
+    "reward_path_contains_no_actuator_bank": true,
+    "runtime_starts_one_actuator_bridge": true,
+    "actuator_bridge_owns_frozen_bank": true,
+    "lag_model": {
+      "target_n_each": 70.0,
+      "time_constant_s": 0.35,
+      "physics_dt_s": 0.05
+    },
+    "max_abs_lag_trace_error_n": 0.0,
+    "lag_trace_matches_shared_bank": true,
+    "interpretation": "There is one process-local FrozenActuatorBank in the live VRX runtime. Reward evaluation consumes the resulting transition and does not instantiate or emulate a second actuator model.",
+    "source_sha256": {
+      "packages/python-client/bcod_sim/common_task.py": "cd9ad3f6cfb868e52f304eaffb2b89cdfee437f49cef963102d26a9360b6f59d",
+      "packages/python-client/bcod_sim/common_task_env.py": "5a82bed957b7eba08587bb7651ee37b63d9f03b9b0f871fca9127a3571034403",
+      "validation/rl-campaign/ports/vrx_gym_runtime.py": "a51cc0b7ba015df3b99d8cd413035fe02a7a51944affd260ff7cb9dbe3ed8924",
+      "validation/rl-campaign/ports/actuator-jsonl-bridge.ts": "c9b0770228fa4b1c5b66a3bcce8b9ea32ac7e938fda44d0d05cca3e6d92a8cc3",
+      "validation/rl-campaign/ports/shared-actuators.ts": "29192848956de8d1ffdefdd7facc753b204f1f1eaf69d88b59ee3814869892ae"
+    }
+  },
+  "checks": {
+    "shared_reward_module_no_vrx_reimplementation": true,
+    "identical_action_dependent_reward_components": true,
+    "symmetric_positive_moves_forward": true,
+    "positive_differential_matches_positive_observation_yaw": true,
+    "reward_path_uses_single_shared_frozen_actuator_bank": true
+  },
+  "all_checks_pass": true,
+  "gate_d_started": false,
+  "training_started": false,
+  "next_step": "Stop for review before Task 2, as required by INSTRUCTIONS_vrx_harness_finish.md."
+}

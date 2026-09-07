@@ -45,6 +45,12 @@ class PortableRecurrentPPOTest(unittest.TestCase):
             "lstm_hidden_size": 128,
             "net_arch": [128, 128],
         })
+        self.assertEqual(MODULE.algorithm_config_bytes("holoocean"), bcod)
+
+    def test_default_output_is_timestamped_and_backend_scoped(self):
+        output = MODULE.default_output("bcod-sim")
+        self.assertEqual(output.parent.name, "training-runs")
+        self.assertTrue(output.name.startswith("bcod-sim-"))
 
     def test_entropy_coefficient_is_read_from_bcod_protocol_artifact(self):
         provenance = MODULE.algorithm_provenance("gazebo-harmonic")

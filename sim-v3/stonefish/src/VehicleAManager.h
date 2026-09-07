@@ -29,6 +29,7 @@ public:
     void SetCommands(sf::Scalar port, sf::Scalar starboard);
     void SetGpsHeight(sf::Scalar z_ned);
     void SetScenarioMode(const std::string& mode);
+    void SetInitialPose(sf::Scalar north, sf::Scalar east, sf::Scalar yaw);
 
     std::string ObservationJson() const;
     std::string ContactJson() const;
@@ -42,6 +43,9 @@ private:
     bool sensor_noise_;
     sf::Scalar gps_z_ned_;
     std::string scenario_mode_;
+    sf::Scalar initial_north_;
+    sf::Scalar initial_east_;
+    sf::Scalar initial_yaw_;
     sf::Thruster* port_;
     sf::Thruster* starboard_;
     sf::GPS* gps_;

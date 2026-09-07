@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import math
 import os
 import subprocess
 from pathlib import Path
@@ -70,12 +71,21 @@ class StonefishBridge:
         *,
         gps_z_ned: float = -0.5,
         scenario: str = "normal",
+        initial_north_m: float = 0.0,
+        initial_east_m: float = 0.0,
+        initial_yaw_rad: float = 0.0,
     ) -> dict[str, Any]:
         if not 0 <= seed <= 0xFFFFFFFF:
             raise ValueError("seed must fit in uint32")
         if scenario not in {"normal", "grounding", "object_collision"}:
             raise ValueError("unknown scenario")
-        return self._request(f"RESET {seed} {gps_z_ned:.17g} {scenario}")
+        pose = (initial_north_m, initial_east_m, initial_yaw_rad)
+        if not all(math.isfinite(float(value)) for value in pose):
+            raise ValueError("initial pose must be finite")
+        return self._request(
+            f"RESET {seed} {gps_z_ned:.17g} {scenario} "
+            f"{initial_north_m:.17g} {initial_east_m:.17g} {initial_yaw_rad:.17g}"
+        )
 
     def step(
         self, port: float, starboard: float, *, physics_steps: int = 1

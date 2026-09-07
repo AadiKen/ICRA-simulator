@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One PPO entry point for Node, VRX, and Gazebo Harmonic.
+"""One instrumented RecurrentPPO entry point for bcod-sim, Gazebo, and HoloOcean.
 
 External backends deliberately refuse training until their conformance artifact
 passes and Gate 5 action fairness is resolved.  ``--diagnostic-only`` permits
@@ -8,13 +8,16 @@ wrapper smoke tests, never a policy-training run.
 from __future__ import annotations
 
 import argparse
+import csv
 from copy import deepcopy
+from datetime import datetime, timezone
 import hashlib
 import json
 import os
 from pathlib import Path
 import shlex
 import statistics
+import subprocess
 import sys
 import time
 
@@ -23,7 +26,8 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "packages/python-client"))
 
-from bcod_sim import CommonWaypointEnv, GazeboGymEnv, VrxGymEnv  # noqa: E402
+from bcod_sim import (CommonWaypointEnv, GazeboGymEnv, HoloOceanVehicleAEnv,
+                      VrxGymEnv)  # noqa: E402
 
 V7_OUT = ROOT / "artifacts/rl-campaign/surveyor/p3-v7-recurrent-local"
 EPISODE_COLUMNS = ("run_id", "seed", "simulator", "vehicle", "task_id",
@@ -62,7 +66,7 @@ def algorithm_config(backend: str) -> dict:
     The entropy coefficient is read from the preregistered bcod-sim protocol,
     rather than being copied into this training entry point.
     """
-    if backend not in ("bcod-sim", "vrx", "gazebo-harmonic"):
+    if backend not in ("bcod-sim", "vrx", "gazebo-harmonic", "holoocean"):
         raise ValueError(f"unsupported backend: {backend}")
     protocol = json.loads(BCOD_PROTOCOL_ARTIFACT.read_text())
     factors = protocol.get("frozen_run_factors", {})
@@ -148,11 +152,45 @@ def make_env(args):
                   final_leg_curriculum=args.final_leg_curriculum)
     if args.backend == "bcod-sim":
         return CommonWaypointEnv(ROOT, **common)
+    if args.backend == "holoocean":
+        return HoloOceanVehicleAEnv(
+            ROOT, base_seed=args.base_seed,
+            fixed_reset_seed=args.fixed_reset_seed,
+            wind_mode=args.holoocean_wind_mode,
+        )
+    if args.backend == "gazebo-harmonic" and not args.runtime_command:
+        runtime = [sys.executable, str(
+            ROOT / "validation/rl-campaign/ports/gazebo_gym_runtime.py")]
+        return GazeboGymEnv(
+            ROOT, runtime, allow_unconformant_diagnostic=args.diagnostic_only, **common)
     if not args.runtime_command:
         raise SystemExit("--runtime-command is required for an external backend")
     runtime = shlex.split(args.runtime_command)
     cls = VrxGymEnv if args.backend == "vrx" else GazeboGymEnv
     return cls(ROOT, runtime, allow_unconformant_diagnostic=args.diagnostic_only, **common)
+
+
+def default_output(backend: str) -> Path:
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    return ROOT / "artifacts/rl-campaign/training-runs" / f"{backend}-{stamp}"
+
+
+def git_revision() -> str | None:
+    result = subprocess.run(
+        ["git", "rev-parse", "HEAD"], cwd=ROOT, text=True,
+        stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, check=False,
+    )
+    return result.stdout.strip() or None if result.returncode == 0 else None
+
+
+def write_episode_rows(path: Path, rows: list[dict]) -> None:
+    atomic_json(path / "evaluation-episodes.json", {
+        "schema_version": 1, "columns": list(EPISODE_COLUMNS), "rows": rows,
+    })
+    with (path / "evaluation-episodes.csv").open("w", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=EPISODE_COLUMNS)
+        writer.writeheader()
+        writer.writerows(rows)
 
 
 def evaluate_recurrent(model, env_factory, first_seed: int, episodes: int):
@@ -265,7 +303,7 @@ def run_v7_protocol():
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--backend", choices=("bcod-sim", "vrx", "gazebo-harmonic"), required=True)
+    parser.add_argument("--backend", choices=("bcod-sim", "vrx", "gazebo-harmonic", "holoocean"), required=True)
     parser.add_argument("--runtime-command", help="Persistent normalized JSONL runtime command")
     parser.add_argument("--base-seed", type=int, default=0)
     parser.add_argument("--fixed-reset-seed", type=int)
@@ -274,10 +312,20 @@ def main():
                         help="Smoke-test an unpassed external port; training remains prohibited")
     parser.add_argument("--smoke-steps", type=int, default=0)
     parser.add_argument("--timesteps", type=int, default=0)
+    parser.add_argument("--output", type=Path,
+                        help="Run directory (default: timestamped artifacts/rl-campaign/training-runs directory)")
+    parser.add_argument("--device", default="auto", help="Torch device: auto, cpu, cuda, or cuda:N")
+    parser.add_argument("--checkpoint-freq", type=int, default=250_000,
+                        help="Checkpoint interval in training timesteps")
+    parser.add_argument("--holoocean-wind-mode", choices=("off", "surge_equivalent"), default="off")
     parser.add_argument("--eval-first-seed", type=int, default=10000)
     parser.add_argument("--eval-episodes", type=int, default=0)
     parser.add_argument("--run-v7-protocol", action="store_true")
     args = parser.parse_args()
+    if args.timesteps < 0 or args.smoke_steps < 0 or args.eval_episodes < 0:
+        parser.error("timestep and episode counts must be non-negative")
+    if args.checkpoint_freq <= 0:
+        parser.error("--checkpoint-freq must be positive")
     if args.run_v7_protocol:
         if args.backend != "bcod-sim":
             raise SystemExit("The approved v7 protocol currently applies only to bcod-sim")
@@ -286,8 +334,27 @@ def main():
         raise SystemExit(run_v7_protocol())
     if args.diagnostic_only and args.timesteps:
         raise SystemExit("diagnostic-only runtimes cannot train a policy")
-    env = make_env(args)
+    run_dir = (args.output or default_output(args.backend)).resolve()
+    if args.timesteps:
+        run_dir.mkdir(parents=True, exist_ok=False)
+        (run_dir / "checkpoints").mkdir()
+        (run_dir / "metrics").mkdir()
+        atomic_json(run_dir / "run-manifest.json", {
+            "schema_version": 1, "status": "running",
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "backend": args.backend, "requested_timesteps": args.timesteps,
+            "seed": args.base_seed, "device": args.device,
+            "action_fairness_condition": "topology-native normalized actuators",
+            "checkpoint_frequency_timesteps": args.checkpoint_freq,
+            "evaluation": {"episodes": args.eval_episodes,
+                           "first_seed": args.eval_first_seed},
+            "algorithm_provenance": algorithm_provenance(args.backend),
+            "git_revision": git_revision(),
+            "command": [sys.executable, *sys.argv],
+        })
+    env = None
     try:
+        env = make_env(args)
         observation, info = env.reset()
         for _ in range(args.smoke_steps):
             observation, _, terminated, truncated, info = env.step(env.action_space.sample())
@@ -295,24 +362,69 @@ def main():
                 observation, info = env.reset()
         if args.timesteps:
             from sb3_contrib import RecurrentPPO
+            from stable_baselines3.common.callbacks import CheckpointCallback
+            from stable_baselines3.common.logger import configure
+            from stable_baselines3.common.monitor import Monitor
+            env.close()
+            env = Monitor(make_env(args), filename=str(run_dir / "metrics" / "episodes"))
             policy, kwargs = recurrent_ppo_kwargs(args.backend)
             # A user-selected training seed is a run factor, not an algorithm
             # difference between simulators.
             kwargs["seed"] = args.base_seed
-            model = RecurrentPPO(policy, env, **kwargs, verbose=1, device="cpu")
-            model.learn(total_timesteps=args.timesteps, progress_bar=False)
-            model.save(ROOT / f"artifacts/rl-campaign/{args.backend}-recurrent-ppo")
+            model = RecurrentPPO(policy, env, **kwargs, verbose=1, device=args.device)
+            model.set_logger(configure(str(run_dir / "metrics"), ["stdout", "csv", "json"]))
+            callback = CheckpointCallback(
+                save_freq=args.checkpoint_freq, save_path=str(run_dir / "checkpoints"),
+                name_prefix=f"{args.backend}-recurrent-ppo",
+            )
+            started = time.time()
+            model.learn(total_timesteps=args.timesteps, callback=callback, progress_bar=False)
+            model.logger.dump(model.num_timesteps)
+            model.save(run_dir / "model-final")
+            evaluation = None
             if args.eval_episodes:
                 def evaluation_env(seed):
                     eval_args = argparse.Namespace(**vars(args))
                     eval_args.fixed_reset_seed = seed
                     return make_env(eval_args)
-                print({"evaluation": evaluate_recurrent(
-                    model, evaluation_env, args.eval_first_seed, args.eval_episodes)})
+                evaluation = evaluate_recurrent(
+                    model, evaluation_env, args.eval_first_seed, args.eval_episodes)
+                write_episode_rows(run_dir, evaluation["rows"])
+                atomic_json(run_dir / "evaluation-summary.json", {
+                    key: value for key, value in evaluation.items() if key != "rows"
+                })
+            finished = datetime.now(timezone.utc).isoformat()
+            manifest = json.loads((run_dir / "run-manifest.json").read_text())
+            manifest.update({
+                "status": "completed", "finished_at": finished,
+                "actual_timesteps": int(model.num_timesteps),
+                "wall_clock_s": time.time() - started,
+                "model": "model-final.zip",
+                "training_metrics": {"csv": "metrics/progress.csv", "json": "metrics/progress.json",
+                                     "episodes_csv": "metrics/episodes.monitor.csv"},
+                "evaluation_summary": None if evaluation is None else {
+                    key: value for key, value in evaluation.items() if key != "rows"
+                },
+            })
+            atomic_json(run_dir / "run-manifest.json", manifest)
+            print(json.dumps({"run_directory": str(run_dir), "status": "completed",
+                              "actual_timesteps": int(model.num_timesteps)}, indent=2))
         print({"backend": args.backend, "reset": info, "observation_size": len(observation),
                "smoke_steps": args.smoke_steps, "trained_steps": args.timesteps})
+    except Exception as error:
+        manifest_path = run_dir / "run-manifest.json"
+        if args.timesteps and manifest_path.exists():
+            manifest = json.loads(manifest_path.read_text())
+            manifest.update({
+                "status": "failed",
+                "finished_at": datetime.now(timezone.utc).isoformat(),
+                "error": {"type": type(error).__name__, "message": str(error)},
+            })
+            atomic_json(manifest_path, manifest)
+        raise
     finally:
-        env.close()
+        if env is not None:
+            env.close()
 
 
 if __name__ == "__main__":

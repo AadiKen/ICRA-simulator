@@ -45,6 +45,7 @@
     "generate:rl-task-definition": "node --experimental-strip-types validation/rl-campaign/generate-task-definition.ts",
     "test:rl-campaign-foundations": "npm run generate:rl-task-definition && node --experimental-strip-types validation/rl-campaign/test/schema.test.ts && node --experimental-strip-types validation/rl-campaign/test/task-definition.test.ts && node --experimental-strip-types validation/rl-campaign/test/surveyor-15-field-contract.test.ts && node --experimental-strip-types validation/rl-campaign/test/runner.test.ts",
     "run:rl-campaign": "node --experimental-strip-types validation/rl-campaign/runner.ts",
+    "train:portable": ".venv/bin/python validation/rl-campaign/train_portable_ppo.py",
     "run:external-task-ports": "node --experimental-strip-types validation/rl-campaign/ports/run.ts",
     "test:external-task-ports": "npm run run:external-task-ports && node --experimental-strip-types validation/rl-campaign/ports/run.test.ts && node --experimental-strip-types validation/rl-campaign/ports/episode-driver.test.ts && node --experimental-strip-types validation/rl-campaign/ports/sensor-observation-audit.test.ts && python3 validation/rl-campaign/ports/test_external_sensor_model.py && node --experimental-strip-types validation/rl-campaign/ports/shared-actuators.test.ts && node --experimental-strip-types validation/rl-campaign/ports/environment-frame-audit.test.ts",
     "test:mss": "node validation/mssAcceptance.js",

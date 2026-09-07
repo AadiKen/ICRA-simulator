@@ -64,10 +64,28 @@ class StonefishContractMapper:
         self.physics_steps = 0
         self.previous_action = (0.0, 0.0, 0.0, 0.0)
 
-    def reset(self, seed: int, *, gps_z_ned: float = -0.5) -> ContractSample:
+    def reset(
+        self,
+        seed: int,
+        *,
+        gps_z_ned: float = -0.5,
+        initial_north_m: float = 0.0,
+        initial_east_m: float = 0.0,
+        initial_yaw_rad: float = 0.0,
+    ) -> ContractSample:
         self.physics_steps = 0
         self.previous_action = (0.0, 0.0, 0.0, 0.0)
-        raw = self.bridge.reset(seed, gps_z_ned=gps_z_ned)
+        raw = self.bridge.reset(
+            seed,
+            gps_z_ned=gps_z_ned,
+            initial_north_m=initial_north_m,
+            initial_east_m=initial_east_m,
+            initial_yaw_rad=initial_yaw_rad,
+        )
+        return self._sample(raw)
+
+    def remap(self, raw: dict[str, Any]) -> ContractSample:
+        """Map an already-stepped response after task metadata changes."""
         return self._sample(raw)
 
     def step(self, action: Sequence[float]) -> ContractSample:

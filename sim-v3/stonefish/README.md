@@ -33,6 +33,17 @@ python3 test_gate_b.py \
   --output ../gate_b_results.json
 ```
 
+Gate C dynamics, determinism, and termination diagnostic:
+
+```bash
+python3 test_gate_c.py \
+  --executable "$HOME/stonefish-vehicle-a-build/stonefish_vehicle_a_bridge" \
+  --data-dir "$HOME/stonefish-src/Tests/Data" \
+  --stonefish-lib "$HOME/stonefish-install/lib" \
+  --deps-lib "$HOME/stonefish-deps/lib" \
+  --output ../gate_c_results.json
+```
+
 `StonefishBridge` starts one headless simulator subprocess. `reset(seed)`
 rebuilds the scenario and seeds Stonefish's process-global sensor RNG. `step`
 accepts normalized port/starboard commands and an explicit physics-step count.
