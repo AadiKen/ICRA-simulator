@@ -6,7 +6,7 @@
   "inertia_diagonal_kg_m2": [196.6, 240.0, 240.0],
   "geometry_m": {"length": 3.5, "beam": 1.98, "draft": 0.25},
   "pod_positions_body_frd_m": {"port": [-1.5, -0.81, -0.18], "starboard": [-1.5, 0.81, -0.18]},
-  "pod_thrust_rating_n": {"max_forward_each": 1000, "max_reverse_each": 500, "forward_reverse_ratio": 2},
+  "pod_thrust_rating_n": {"max_forward_each": 1340.506075016061, "max_reverse_each": 670.2530375080305, "forward_reverse_ratio": 2},
   "hierarchy": "base -> revolute azimuth joint -> pod -> propeller revolute joint; Thruster acts on each propeller joint",
   "systems": ["Thruster per pod", "JointPositionController per azimuth joint", "Hydrodynamics", "OdometryPublisher"],
   "excluded_systems": ["LiftDrag", "pod-hull interaction", "pod-pod interaction", "angle-dependent thrust degradation"],

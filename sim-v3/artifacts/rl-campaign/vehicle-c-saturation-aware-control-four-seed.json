@@ -1,0 +1,417 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-saturation-aware-gain-four-seed",
+  "status": "COMPLETE_HALT_FOR_REVIEW",
+  "torque_budget": {
+    "ceiling_nm": 1620,
+    "turning_definition": "abs(pre-compensation controller yaw request) >= 162 Nm",
+    "compensation_magnitude_by_seed": [
+      {
+        "seed": 30000,
+        "turning_samples": 428,
+        "turning_fraction": 0.17833333333333334,
+        "count": 428,
+        "mean": 132.15994216937932,
+        "p95": 264.172607124606,
+        "max": 338.63251591001944
+      },
+      {
+        "seed": 30007,
+        "turning_samples": 240,
+        "turning_fraction": 0.1,
+        "count": 240,
+        "mean": 149.041271071495,
+        "p95": 277.56122870949224,
+        "max": 311.61184296558895
+      },
+      {
+        "seed": 30013,
+        "turning_samples": 144,
+        "turning_fraction": 0.06,
+        "count": 144,
+        "mean": 260.7287894442996,
+        "p95": 414.4073188683158,
+        "max": 434.69606536718317
+      },
+      {
+        "seed": 30048,
+        "turning_samples": 638,
+        "turning_fraction": 0.2658333333333333,
+        "count": 638,
+        "mean": 213.67626897686574,
+        "p95": 549.42494621145,
+        "max": 902.9145447921214
+      }
+    ],
+    "aggregate": {
+      "count": 1450,
+      "mean": 183.589493512326,
+      "p95": 462.86918580385657,
+      "max": 902.9145447921214
+    },
+    "reserved_compensation_nm": 549.42494621145,
+    "reservation_reason": "Reserve the largest per-seed P95 rather than only the pooled P95, preventing the high-compensation seed from being hidden by aggregation.",
+    "pd_budget_nm": 1070.5750537885501
+  },
+  "heading_error_distribution": {
+    "per_seed": {
+      "30000": {
+        "mean": 0.8792344033261948,
+        "p95": 1.7850443686091746,
+        "max": 1.9210568273278599
+      },
+      "30007": {
+        "mean": 0.7354506513958605,
+        "p95": 1.5109555097201945,
+        "max": 1.7508198314778405
+      },
+      "30013": {
+        "mean": 0.5642298139026048,
+        "p95": 1.0223767840248916,
+        "max": 1.532350890729441
+      },
+      "30048": {
+        "mean": 0.70790404365097,
+        "p95": 1.847890187499648,
+        "max": 2.2099622610396605
+      }
+    },
+    "aggregate": {
+      "count": 9600,
+      "mean": 0.7217047280689085,
+      "p95": 1.6777811978177415,
+      "max": 2.2099622610396605
+    },
+    "source": "Reconstructed with shared losDesiredHeading from existing leg-indexed vehicle-c-wrench-path-current traces"
+  },
+  "derivation": {
+    "yaw_rate_p95_rad_s": 0.300323325220232,
+    "damping_ratio": 0.7,
+    "damping_class": "underdamped",
+    "kp": 485.9950330344873,
+    "kd": 849.6899964175157,
+    "p95_p_term_nm": 815.3933286580749,
+    "p95_d_term_nm": 255.1817251304753,
+    "p95_pd_total_nm": 1070.5750537885501,
+    "natural_frequency_rad_s": 0.8007544505842983,
+    "actuator_bandwidth_rad_s": 2.857142857142857,
+    "natural_frequency_to_actuator_bandwidth_ratio": 0.2802640577045044,
+    "p_only_heading_error_saturation_threshold_rad": 3.3333674006603298,
+    "observed_heading_error_fraction_saturating_p_only": 0,
+    "note": "P-only threshold exceeds the observed 2.210 rad maximum; combined P+D+compensation can still saturate because their peaks need not coincide at P95."
+  },
+  "configuration": {
+    "candidate": "LOS-PID-v2-C-saturation-aware-v1",
+    "gains": {
+      "lookahead": 8,
+      "kp": 485.9950330344873,
+      "kd": 849.6899964175157,
+      "speed": 1
+    },
+    "endpoint_geometry_fix": true,
+    "coriolis_compensation_scale": 1,
+    "per_pod_thrust_n": {
+      "forward": 1000,
+      "reverse": 500
+    },
+    "pod_geometry_unchanged": true,
+    "physics_unchanged": true
+  },
+  "historical_candidates_preserved": [
+    "LOS-PID-v2-C-candidate-v1",
+    "LOS-PID-v2-C-inertia-scaled-v1"
+  ],
+  "frozen_path_check": {
+    "frozen_gains": {
+      "LOS-PID-v2": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "LOS-SPEEDCAP-v2": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      }
+    },
+    "unchanged": true
+  },
+  "seeds": [
+    30000,
+    30007,
+    30013,
+    30048
+  ],
+  "prohibitions": {
+    "seed_30003_run": false,
+    "full_sweep": false,
+    "thrust_changed": false,
+    "pod_geometry_changed": false,
+    "physics_changed": false
+  },
+  "rows": [
+    {
+      "seed": 30000,
+      "frozen_current_configuration": {
+        "variant": "frozen-control",
+        "seed": 30000,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": false,
+        "final_leg_entry_time_s": null,
+        "closest_final_leg_distance_m": null,
+        "post_dynamics_lag_gap_fraction": 0.9833333333333333,
+        "saturation_active_fraction": 0.015833333333333335,
+        "degraded_fraction": 0.015833333333333335,
+        "minimum_saturation_scale": 0.7669605238403515
+      },
+      "saturation_aware": {
+        "variant": "saturation-aware",
+        "seed": 30000,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": false,
+        "final_leg_entry_time_s": null,
+        "closest_final_leg_distance_m": null,
+        "post_dynamics_lag_gap_fraction": 0.8279166666666666,
+        "saturation_active_fraction": 0.22166666666666668,
+        "degraded_fraction": 0.22166666666666668,
+        "minimum_saturation_scale": 0.3109856361386377
+      },
+      "rejected_inertia_scaled": {
+        "seed": 30000,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": false,
+        "final_leg_entry_time_s": null,
+        "closest_final_leg_distance_m": null,
+        "post_dynamics_lag_tracking_gap": {
+          "threshold": "either surge or yaw absolute gap > max(1 unit, 5% of allocator-achieved component)",
+          "noticeable_fraction": 1
+        },
+        "allocator_saturation": {
+          "active_fraction": 0.875,
+          "minimum_scale": 0.23666554149187732,
+          "degraded_fraction": 0.875,
+          "unreachable_fraction": 0.875
+        },
+        "best_prior_thrust_increase_full_compensation": {
+          "success": false,
+          "termination_reason": "timeout",
+          "reported_closest_distance_m": 23.52464475502283,
+          "note": "Prior artifact did not final-leg-gate this field.",
+          "saturation": {
+            "active_fraction": 0.015833333333333335,
+            "active_scale_distribution": {
+              "count": 38,
+              "mean": 0.892988335171693,
+              "median": 0.9088689099416648,
+              "p95": 0.994505493503299,
+              "p05": 0.7703519076290423,
+              "min": 0.7669605238403515
+            },
+            "minimum_scale": 0.7669605238403515,
+            "degraded_fraction": 0.015833333333333335,
+            "unreachable_fraction": 0.015833333333333335
+          }
+        }
+      }
+    },
+    {
+      "seed": 30007,
+      "frozen_current_configuration": {
+        "variant": "frozen-control",
+        "seed": 30007,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": true,
+        "final_leg_entry_time_s": 50.94999999999709,
+        "closest_final_leg_distance_m": 7.499537920735953,
+        "post_dynamics_lag_gap_fraction": 0.90125,
+        "saturation_active_fraction": 0.0175,
+        "degraded_fraction": 0.0175,
+        "minimum_saturation_scale": 0.8547344346755106
+      },
+      "saturation_aware": {
+        "variant": "saturation-aware",
+        "seed": 30007,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": true,
+        "final_leg_entry_time_s": 111.05000000000291,
+        "closest_final_leg_distance_m": 16.629198756510664,
+        "post_dynamics_lag_gap_fraction": 0.6725,
+        "saturation_active_fraction": 0.2025,
+        "degraded_fraction": 0.2025,
+        "minimum_saturation_scale": 0.2562280960026144
+      },
+      "rejected_inertia_scaled": {
+        "seed": 30007,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": false,
+        "final_leg_entry_time_s": null,
+        "closest_final_leg_distance_m": null,
+        "post_dynamics_lag_tracking_gap": {
+          "threshold": "either surge or yaw absolute gap > max(1 unit, 5% of allocator-achieved component)",
+          "noticeable_fraction": 0.9995833333333334
+        },
+        "allocator_saturation": {
+          "active_fraction": 0.87,
+          "minimum_scale": 0.2371270120358932,
+          "degraded_fraction": 0.87,
+          "unreachable_fraction": 0.87
+        },
+        "best_prior_thrust_increase_full_compensation": {
+          "success": false,
+          "termination_reason": "timeout",
+          "reported_closest_distance_m": 7.499537920735953,
+          "note": "Prior artifact did not final-leg-gate this field.",
+          "saturation": {
+            "active_fraction": 0.0175,
+            "active_scale_distribution": {
+              "count": 42,
+              "mean": 0.931970431364004,
+              "median": 0.9493707273720073,
+              "p95": 0.9995565643325021,
+              "p05": 0.8550779033137812,
+              "min": 0.8547344346755106
+            },
+            "minimum_scale": 0.8547344346755106,
+            "degraded_fraction": 0.0175,
+            "unreachable_fraction": 0.0175
+          }
+        }
+      }
+    },
+    {
+      "seed": 30013,
+      "frozen_current_configuration": {
+        "variant": "frozen-control",
+        "seed": 30013,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": true,
+        "final_leg_entry_time_s": 61.80000000000291,
+        "closest_final_leg_distance_m": 5.184896677337818,
+        "post_dynamics_lag_gap_fraction": 0.5975,
+        "saturation_active_fraction": 0,
+        "degraded_fraction": 0,
+        "minimum_saturation_scale": 1
+      },
+      "saturation_aware": {
+        "variant": "saturation-aware",
+        "seed": 30013,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": true,
+        "final_leg_entry_time_s": 57.849999999998545,
+        "closest_final_leg_distance_m": 6.249443972306074,
+        "post_dynamics_lag_gap_fraction": 0.54375,
+        "saturation_active_fraction": 0.03833333333333333,
+        "degraded_fraction": 0.03833333333333333,
+        "minimum_saturation_scale": 0.5305347647545454
+      },
+      "rejected_inertia_scaled": {
+        "seed": 30013,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": false,
+        "final_leg_entry_time_s": null,
+        "closest_final_leg_distance_m": null,
+        "post_dynamics_lag_tracking_gap": {
+          "threshold": "either surge or yaw absolute gap > max(1 unit, 5% of allocator-achieved component)",
+          "noticeable_fraction": 0.9979166666666667
+        },
+        "allocator_saturation": {
+          "active_fraction": 0.9325,
+          "minimum_scale": 0.266438796129845,
+          "degraded_fraction": 0.9325,
+          "unreachable_fraction": 0.9325
+        },
+        "best_prior_thrust_increase_full_compensation": {
+          "success": false,
+          "termination_reason": "timeout",
+          "reported_closest_distance_m": 5.184896677337818,
+          "note": "Prior artifact did not final-leg-gate this field.",
+          "saturation": {
+            "active_fraction": 0,
+            "active_scale_distribution": null,
+            "minimum_scale": 1,
+            "degraded_fraction": 0,
+            "unreachable_fraction": 0
+          }
+        }
+      }
+    },
+    {
+      "seed": 30048,
+      "frozen_current_configuration": {
+        "variant": "frozen-control",
+        "seed": 30048,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": true,
+        "final_leg_entry_time_s": 48.599999999998545,
+        "closest_final_leg_distance_m": 3.8138987381133433,
+        "post_dynamics_lag_gap_fraction": 0.9808333333333333,
+        "saturation_active_fraction": 0.021666666666666667,
+        "degraded_fraction": 0.021666666666666667,
+        "minimum_saturation_scale": 0.6457809501332082
+      },
+      "saturation_aware": {
+        "variant": "saturation-aware",
+        "seed": 30048,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": false,
+        "final_leg_entry_time_s": null,
+        "closest_final_leg_distance_m": null,
+        "post_dynamics_lag_gap_fraction": 0.82875,
+        "saturation_active_fraction": 0.4083333333333333,
+        "degraded_fraction": 0.4083333333333333,
+        "minimum_saturation_scale": 0.31488305608386485
+      },
+      "rejected_inertia_scaled": {
+        "seed": 30048,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": false,
+        "final_leg_entry_time_s": null,
+        "closest_final_leg_distance_m": null,
+        "post_dynamics_lag_tracking_gap": {
+          "threshold": "either surge or yaw absolute gap > max(1 unit, 5% of allocator-achieved component)",
+          "noticeable_fraction": 0.99875
+        },
+        "allocator_saturation": {
+          "active_fraction": 0.8833333333333333,
+          "minimum_scale": 0.20757738998614905,
+          "degraded_fraction": 0.8833333333333333,
+          "unreachable_fraction": 0.8833333333333333
+        },
+        "best_prior_thrust_increase_full_compensation": {
+          "success": false,
+          "termination_reason": "timeout",
+          "reported_closest_distance_m": 3.8138987381133433,
+          "note": "Prior artifact did not final-leg-gate this field.",
+          "saturation": {
+            "active_fraction": 0.021666666666666667,
+            "active_scale_distribution": {
+              "count": 52,
+              "mean": 0.8756106282728504,
+              "median": 0.9068497947244093,
+              "p95": 0.9966569987431514,
+              "p05": 0.7086875753163727,
+              "min": 0.6457809501332082
+            },
+            "minimum_scale": 0.6457809501332082,
+            "degraded_fraction": 0.021666666666666667,
+            "unreachable_fraction": 0.021666666666666667
+          }
+        }
+      }
+    }
+  ]
+}

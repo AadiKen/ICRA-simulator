@@ -182,6 +182,7 @@ def make_env(args):
             base_seed=args.base_seed, fixed_reset_seed=args.fixed_reset_seed,
         )
     if args.backend == "gazebo-harmonic" and not args.runtime_command:
+        common["disturbance_mode"] = "zero"
         runtime = [sys.executable, str(
             ROOT / "validation/rl-campaign/ports/gazebo_gym_runtime.py")]
         return GazeboGymEnv(
@@ -190,6 +191,8 @@ def make_env(args):
         raise SystemExit("--runtime-command is required for an external backend")
     runtime = shlex.split(args.runtime_command)
     cls = VrxGymEnv if args.backend == "vrx" else GazeboGymEnv
+    if args.backend == "gazebo-harmonic":
+        common["disturbance_mode"] = "zero"
     return cls(ROOT, runtime, allow_unconformant_diagnostic=args.diagnostic_only, **common)
 
 

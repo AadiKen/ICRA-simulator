@@ -1,0 +1,714 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-per-axis-force-budget-gains",
+  "status": "THREE_ATTEMPTS_EXHAUSTED_PER_AXIS_GAINS_INSUFFICIENT_HALT_FOR_REVIEW",
+  "diagnosis": {
+    "confirmed": true,
+    "previous_backstepping_kp": [
+      485.9950330344873,
+      485.9950330344873,
+      485.9950330344873
+    ],
+    "source_mismatch": "The scalar was inherited from a LOS heading-error gain and applied to both metre and radian errors.",
+    "previous_proportional_demand_at_error_basis": [
+      14095.078824675114,
+      8690.427393158554,
+      896.4520275252328
+    ]
+  },
+  "derivation": {
+    "formula_kp": "reserved_fraction * axis ceiling / error magnitude",
+    "formula_kd": "2 * damping_ratio * sqrt(effective mass or inertia * Kp)",
+    "error_basis": [
+      29.002516212289965,
+      17.881720598864355,
+      1.8445703486472023
+    ],
+    "exact_ceilings": [
+      2681.012150032122,
+      2681.012150032122,
+      2171.619841526019
+    ],
+    "effective_mass_or_inertia": [
+      323.4589914854667,
+      904.0509112680145,
+      757.9371726415533
+    ],
+    "settled_lambda_per_s": 0.14398037523202756,
+    "budget_split": "35% Kp, 12.5% M-term from settled Lambda, with remaining 52.5% initially reserved for Kd plus correlated C/D demand.",
+    "target_damping_ratio": 0.8
+  },
+  "backstepping_attempts": [
+    {
+      "attempt": 1,
+      "reserved_fractions": [
+        0.35,
+        0.35,
+        0.35
+      ],
+      "reserved_budgets": [
+        938.3542525112426,
+        938.3542525112426,
+        760.0669445341067
+      ],
+      "kp": {
+        "values": [
+          32.35423594431473,
+          52.47561314490264,
+          412.0563604915018
+        ],
+        "units": [
+          "N/m",
+          "N/m",
+          "N m/rad"
+        ]
+      },
+      "kd": {
+        "values": [
+          163.67983209243297,
+          348.49390562888243,
+          894.1592990458344
+        ],
+        "units": [
+          "N s/m",
+          "N s/m",
+          "N m s/rad"
+        ]
+      },
+      "damping_ratio": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "settled_lambda_per_s": 0.14398037523202756,
+      "mean_per_axis_saturation_fraction": {
+        "surge": 0.9183715986394558,
+        "sway": 0.9181632653061225,
+        "yaw": 0.9185799319727892
+      },
+      "rows": [
+        {
+          "seed": 30000,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": false,
+          "final_leg_entry_time_s": null,
+          "closest_final_leg_distance_m": null,
+          "error_over_time": {
+            "position_m": {
+              "mean": 35.834511163970426,
+              "std": 12.648170008577134,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": -0.3255123403626206,
+              "std": 2.0256514877686764,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.9933333333333333,
+            "per_axis_saturation_fraction": {
+              "surge": 0.9916666666666667,
+              "sway": 0.9925,
+              "yaw": 0.9925
+            },
+            "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+            "degraded_fraction": 0.9933333333333333,
+            "minimum_saturation_scale": 0.04469883995979329
+          }
+        },
+        {
+          "seed": 30007,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 73.34999999999854,
+          "closest_final_leg_distance_m": 14.243096935635098,
+          "error_over_time": {
+            "position_m": {
+              "mean": 18.581362731581823,
+              "std": 6.043607534551959,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": -0.16027671524863019,
+              "std": 2.125976791165116,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.865,
+            "per_axis_saturation_fraction": {
+              "surge": 0.8641666666666666,
+              "sway": 0.8633333333333333,
+              "yaw": 0.8641666666666666
+            },
+            "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+            "degraded_fraction": 0.865,
+            "minimum_saturation_scale": 0.0893708965028067
+          }
+        },
+        {
+          "seed": 30013,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": false,
+          "final_leg_entry_time_s": null,
+          "closest_final_leg_distance_m": null,
+          "error_over_time": {
+            "position_m": {
+              "mean": 24.464910219486754,
+              "std": 2.69242859217067,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": 0.2131677088231611,
+              "std": 2.092008169688627,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.9858333333333333,
+            "per_axis_saturation_fraction": {
+              "surge": 0.985,
+              "sway": 0.9841666666666666,
+              "yaw": 0.985
+            },
+            "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+            "degraded_fraction": 0.9858333333333333,
+            "minimum_saturation_scale": 0.08447436314774963
+          }
+        },
+        {
+          "seed": 30048,
+          "success": true,
+          "termination_reason": "success",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 61.05000000000291,
+          "closest_final_leg_distance_m": 1.9899065588628864,
+          "error_over_time": {
+            "position_m": {
+              "mean": 16.339694553912658,
+              "std": 7.508159853764618,
+              "count": 1470
+            },
+            "heading_rad": {
+              "mean": -0.042182845364749595,
+              "std": 2.239842616540335,
+              "count": 1470
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.8353741496598639,
+            "per_axis_saturation_fraction": {
+              "surge": 0.8326530612244898,
+              "sway": 0.8326530612244898,
+              "yaw": 0.8326530612244898
+            },
+            "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+            "degraded_fraction": 0.8353741496598639,
+            "minimum_saturation_scale": 0.08802844732521546
+          }
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "reserved_fractions": [
+        0.175,
+        0.175,
+        0.175
+      ],
+      "reserved_budgets": [
+        469.1771262556213,
+        469.1771262556213,
+        380.03347226705336
+      ],
+      "kp": {
+        "values": [
+          16.177117972157365,
+          26.23780657245132,
+          206.0281802457509
+        ],
+        "units": [
+          "N/m",
+          "N/m",
+          "N m/rad"
+        ]
+      },
+      "kd": {
+        "values": [
+          115.73911921603484,
+          246.42240387236754,
+          632.2661038163194
+        ],
+        "units": [
+          "N s/m",
+          "N s/m",
+          "N m s/rad"
+        ]
+      },
+      "damping_ratio": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "settled_lambda_per_s": 0.14398037523202756,
+      "mean_per_axis_saturation_fraction": {
+        "surge": 0.8866666666666667,
+        "sway": 0.88625,
+        "yaw": 0.886875
+      },
+      "rows": [
+        {
+          "seed": 30000,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": false,
+          "final_leg_entry_time_s": null,
+          "closest_final_leg_distance_m": null,
+          "error_over_time": {
+            "position_m": {
+              "mean": 39.310669836848234,
+              "std": 19.03042159810864,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": -0.013766235229638808,
+              "std": 1.7689253459762875,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.9791666666666666,
+            "per_axis_saturation_fraction": {
+              "surge": 0.9775,
+              "sway": 0.9775,
+              "yaw": 0.9775
+            },
+            "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+            "degraded_fraction": 0.9791666666666666,
+            "minimum_saturation_scale": 0.0343544081941793
+          }
+        },
+        {
+          "seed": 30007,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 52,
+          "closest_final_leg_distance_m": 15.873961646126167,
+          "error_over_time": {
+            "position_m": {
+              "mean": 22.086988863033508,
+              "std": 8.39885407436913,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": -0.048156715788576276,
+              "std": 2.051950626562756,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.8633333333333333,
+            "per_axis_saturation_fraction": {
+              "surge": 0.8625,
+              "sway": 0.8633333333333333,
+              "yaw": 0.8633333333333333
+            },
+            "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+            "degraded_fraction": 0.8633333333333333,
+            "minimum_saturation_scale": 0.06794073806077403
+          }
+        },
+        {
+          "seed": 30013,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": false,
+          "final_leg_entry_time_s": null,
+          "closest_final_leg_distance_m": null,
+          "error_over_time": {
+            "position_m": {
+              "mean": 19.801538851033055,
+              "std": 7.027587977341725,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": -0.10653279944977627,
+              "std": 2.0311531602077944,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.8833333333333333,
+            "per_axis_saturation_fraction": {
+              "surge": 0.8791666666666667,
+              "sway": 0.8783333333333333,
+              "yaw": 0.88
+            },
+            "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+            "degraded_fraction": 0.8833333333333333,
+            "minimum_saturation_scale": 0.0749096555343545
+          }
+        },
+        {
+          "seed": 30048,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 72.15000000000146,
+          "closest_final_leg_distance_m": 11.127617808025397,
+          "error_over_time": {
+            "position_m": {
+              "mean": 18.61588229877825,
+              "std": 7.320773633052082,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": 0.022140906380662132,
+              "std": 2.1606366917832007,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.83,
+            "per_axis_saturation_fraction": {
+              "surge": 0.8275,
+              "sway": 0.8258333333333333,
+              "yaw": 0.8266666666666667
+            },
+            "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+            "degraded_fraction": 0.83,
+            "minimum_saturation_scale": 0.08880989158668952
+          }
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "reserved_fractions": [
+        0.0875,
+        0.0875,
+        0.0875
+      ],
+      "reserved_budgets": [
+        234.58856312781066,
+        234.58856312781066,
+        190.01673613352668
+      ],
+      "kp": {
+        "values": [
+          8.088558986078683,
+          13.11890328622566,
+          103.01409012287544
+        ],
+        "units": [
+          "N/m",
+          "N/m",
+          "N m/rad"
+        ]
+      },
+      "kd": {
+        "values": [
+          81.83991604621649,
+          174.24695281444122,
+          447.0796495229172
+        ],
+        "units": [
+          "N s/m",
+          "N s/m",
+          "N m s/rad"
+        ]
+      },
+      "damping_ratio": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "settled_lambda_per_s": 0.14398037523202756,
+      "mean_per_axis_saturation_fraction": {
+        "surge": 0.6983333333333334,
+        "sway": 0.6983333333333334,
+        "yaw": 0.6985416666666667
+      },
+      "rows": [
+        {
+          "seed": 30000,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": false,
+          "final_leg_entry_time_s": null,
+          "closest_final_leg_distance_m": null,
+          "error_over_time": {
+            "position_m": {
+              "mean": 57.841567125226284,
+              "std": 34.83813926776687,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": -0.030125721565157762,
+              "std": 1.8124816218638022,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.9641666666666666,
+            "per_axis_saturation_fraction": {
+              "surge": 0.9633333333333334,
+              "sway": 0.9641666666666666,
+              "yaw": 0.9641666666666666
+            },
+            "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+            "degraded_fraction": 0.9641666666666666,
+            "minimum_saturation_scale": 0.034077893635235876
+          }
+        },
+        {
+          "seed": 30007,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 45.30000000000291,
+          "closest_final_leg_distance_m": 8.942141997881604,
+          "error_over_time": {
+            "position_m": {
+              "mean": 19.847301970731873,
+              "std": 7.538615215857055,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": -0.14693122936302855,
+              "std": 1.9701783410458644,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.8133333333333334,
+            "per_axis_saturation_fraction": {
+              "surge": 0.8125,
+              "sway": 0.8125,
+              "yaw": 0.8125
+            },
+            "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+            "degraded_fraction": 0.8133333333333334,
+            "minimum_saturation_scale": 0.10038262597112603
+          }
+        },
+        {
+          "seed": 30013,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": false,
+          "final_leg_entry_time_s": null,
+          "closest_final_leg_distance_m": null,
+          "error_over_time": {
+            "position_m": {
+              "mean": 20.165136550621547,
+              "std": 5.881983523145655,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": 0.04639708006773066,
+              "std": 2.0453641871790116,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.8575,
+            "per_axis_saturation_fraction": {
+              "surge": 0.8575,
+              "sway": 0.8566666666666667,
+              "yaw": 0.8575
+            },
+            "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+            "degraded_fraction": 0.8575,
+            "minimum_saturation_scale": 0.08770453485194299
+          }
+        },
+        {
+          "seed": 30048,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 32.44999999999709,
+          "closest_final_leg_distance_m": 2.1348076414890005,
+          "error_over_time": {
+            "position_m": {
+              "mean": 9.292624845722328,
+              "std": 5.987270552714987,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": 0.19612216470861346,
+              "std": 1.0648066733161723,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.16333333333333333,
+            "per_axis_saturation_fraction": {
+              "surge": 0.16,
+              "sway": 0.16,
+              "yaw": 0.16
+            },
+            "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+            "degraded_fraction": 0.16333333333333333,
+            "minimum_saturation_scale": 0.11079104328827175
+          }
+        }
+      ]
+    }
+  ],
+  "accepted_attempt": null,
+  "sliding_mode": {
+    "status": "NOT_RUN_PER_STEP_3_PRECONDITION",
+    "reason": "No backstepping attempt reduced all per-axis saturation fractions to 30% or below."
+  },
+  "comparisons": {
+    "current_best_pid": [
+      {
+        "seed": 30000,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": false,
+        "final_leg_entry_time_s": null,
+        "closest_final_leg_distance_m": null,
+        "error_over_time": {
+          "position_m": {
+            "mean": 43.29465699599709,
+            "std": 17.854703980179632,
+            "count": 2400
+          },
+          "heading_rad": {
+            "mean": 0.4534921830527573,
+            "std": 0.9286676637770602,
+            "count": 2400
+          }
+        },
+        "allocator": {
+          "saturation_fraction": 0.008333333333333333,
+          "per_axis_saturation_fraction": {
+            "surge": 0.006666666666666667,
+            "sway": 0,
+            "yaw": 0.006666666666666667
+          },
+          "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+          "degraded_fraction": 0.008333333333333333,
+          "minimum_saturation_scale": 0.9271941481308489
+        }
+      },
+      {
+        "seed": 30007,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": true,
+        "final_leg_entry_time_s": 50.94999999999709,
+        "closest_final_leg_distance_m": 7.499537920735953,
+        "error_over_time": {
+          "position_m": {
+            "mean": 17.611251842265727,
+            "std": 7.047701335200024,
+            "count": 2400
+          },
+          "heading_rad": {
+            "mean": -0.18549278611282038,
+            "std": 1.443609829380321,
+            "count": 2400
+          }
+        },
+        "allocator": {
+          "saturation_fraction": 0,
+          "per_axis_saturation_fraction": {
+            "surge": 0,
+            "sway": 0,
+            "yaw": 0
+          },
+          "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+          "degraded_fraction": 0,
+          "minimum_saturation_scale": 1
+        }
+      },
+      {
+        "seed": 30013,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": true,
+        "final_leg_entry_time_s": 61.80000000000291,
+        "closest_final_leg_distance_m": 5.184896677337818,
+        "error_over_time": {
+          "position_m": {
+            "mean": 15.18550502819862,
+            "std": 7.266175748693675,
+            "count": 2400
+          },
+          "heading_rad": {
+            "mean": -0.19804371131946313,
+            "std": 0.8562873090989545,
+            "count": 2400
+          }
+        },
+        "allocator": {
+          "saturation_fraction": 0,
+          "per_axis_saturation_fraction": {
+            "surge": 0,
+            "sway": 0,
+            "yaw": 0
+          },
+          "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+          "degraded_fraction": 0,
+          "minimum_saturation_scale": 1
+        }
+      },
+      {
+        "seed": 30048,
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": true,
+        "final_leg_entry_time_s": 49.55000000000291,
+        "closest_final_leg_distance_m": 6.015374098723438,
+        "error_over_time": {
+          "position_m": {
+            "mean": 19.190077879191566,
+            "std": 8.936776494954932,
+            "count": 2400
+          },
+          "heading_rad": {
+            "mean": -0.17050018751654447,
+            "std": 1.607203460270879,
+            "count": 2400
+          }
+        },
+        "allocator": {
+          "saturation_fraction": 0.015833333333333335,
+          "per_axis_saturation_fraction": {
+            "surge": 0.015,
+            "sway": 0,
+            "yaw": 0.015
+          },
+          "axis_definition": "abs allocator residual > max(1 SI unit, 1% of requested axis wrench)",
+          "degraded_fraction": 0.015833333333333335,
+          "minimum_saturation_scale": 0.8445943568540756
+        }
+      }
+    ],
+    "lambda_only_artifact": "artifacts/rl-campaign/vehicle-c-force-budget-lambda-four-seed.json",
+    "timing_only_artifact": "artifacts/rl-campaign/vehicle-c-sliding-mode-four-seed.json"
+  },
+  "unchanged": {
+    "mass_coriolis_damping": true,
+    "waypoint_adaptation": true,
+    "allocator": true,
+    "settled_lambda": true,
+    "sliding_tuning_procedure": true
+  },
+  "prohibitions": {
+    "seed_30003_run": false,
+    "full_sweep": false,
+    "attempt_cap": 3,
+    "frozen_gains_changed": false,
+    "output_filter_added": false
+  }
+}

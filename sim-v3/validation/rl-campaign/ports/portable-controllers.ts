@@ -4,15 +4,18 @@ export type LosGains={lookahead:number;kp:number;kd:number;speed:number};
 export type WrenchLimits={surge_n:number;yaw_nm:number};
 export const VEHICLE_WRENCH_LIMITS={
   "vehicle-a-otter":{surge_n:150,yaw_nm:100},
-  // Vehicle C thrust-increase task: 2 * 1000 N and 2 * 1000 N * 0.81 m.
-  "vehicle-c-azimuth":{surge_n:2000,yaw_nm:1620}
+  // Vehicle C second thrust-increase ceiling: 2 * 1340.506075016061 N and 2 * 1340.506075016061 N * 0.81 m.
+  // Derived as max_seed(0.95 / P05(active saturation_scale)) from artifacts/rl-campaign/vehicle-c-thrust-increase-four-seed.json.
+  "vehicle-c-azimuth":{surge_n:2681.012150032122,yaw_nm:2171.619841526019}
 } as const satisfies Record<string,WrenchLimits>;
 export const FROZEN_GAINS:Record<ControllerName,{lookahead:number;kp:number;kd:number;speed:number}>={
   "LOS-PID-v2":{lookahead:8,kp:100,kd:35,speed:1},
   "LOS-SPEEDCAP-v2":{lookahead:4,kp:100,kd:35,speed:1}
 };
 export const VEHICLE_C_CANDIDATE_GAINS:Record<string,LosGains>={
-  "LOS-PID-v2-C-candidate-v1":{lookahead:4,kp:100,kd:35,speed:1}
+  "LOS-PID-v2-C-candidate-v1":{lookahead:4,kp:100,kd:35,speed:1},
+  "LOS-PID-v2-C-inertia-scaled-v1":{lookahead:8,kp:4236.651760760201,kd:227.81348526659363,speed:1},
+  "LOS-PID-v2-C-saturation-aware-v1":{lookahead:8,kp:485.9950330344873,kd:849.6899964175157,speed:1}
 };
 const clamp=(value:number,min:number,max:number)=>Math.min(max,Math.max(min,value));
 const wrap=(angle:number)=>Math.atan2(Math.sin(angle),Math.cos(angle));

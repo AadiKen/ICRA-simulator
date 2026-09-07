@@ -1,0 +1,210 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-inertia-scaled-control-four-seed",
+  "status": "COMPLETE_HALT_FOR_REVIEW",
+  "derivation": {
+    "vehicle_a_yaw_inertia_kg_m2": 17.89,
+    "vehicle_c_total_yaw_inertia_kg_m2": 757.937,
+    "inertia_ratio": 42.36651760760201,
+    "kp_formula": "100 * (757.937 / 17.89)",
+    "kp_vehicle_c": 4236.651760760201,
+    "kd_formula": "35 * sqrt(757.937 / 17.89)",
+    "kd_vehicle_c": 227.81348526659363,
+    "natural_frequency_rad_s": 2.364257795702247,
+    "thrust_lag_time_constant_s": 0.35,
+    "actuator_bandwidth_rad_s": 2.857142857142857,
+    "natural_frequency_to_actuator_bandwidth_ratio": 0.8274902284957865,
+    "stability_margin_assessment": "CONCERN: the requested 2.36 rad/s closed-loop natural frequency is 82.7% of the first-order thrust-lag bandwidth (2.86 rad/s), before the nonlinear 30 deg/s azimuth slew is considered; this is not comfortably separated."
+  },
+  "configuration": {
+    "candidate": "LOS-PID-v2-C-inertia-scaled-v1",
+    "gains": {
+      "lookahead": 8,
+      "kp": 4236.651760760201,
+      "kd": 227.81348526659363,
+      "speed": 1
+    },
+    "endpoint_geometry_fix": true,
+    "coriolis_compensation_scale": 1,
+    "per_pod_forward_thrust_n": 1000,
+    "per_pod_reverse_thrust_n": 500,
+    "combination_note": "First prescribed test combining inertia-scaled Vehicle C gains, endpoint geometry, full-scale Coriolis compensation, and the settled increased thrust rating."
+  },
+  "frozen_path_check": {
+    "frozen_gains_runtime_value": {
+      "LOS-PID-v2": {
+        "lookahead": 8,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      },
+      "LOS-SPEEDCAP-v2": {
+        "lookahead": 4,
+        "kp": 100,
+        "kd": 35,
+        "speed": 1
+      }
+    },
+    "unchanged": true
+  },
+  "seeds": [
+    30000,
+    30007,
+    30013,
+    30048
+  ],
+  "prohibitions": {
+    "seed_30003_run": false,
+    "full_sweep": false,
+    "physics_or_geometry_changed": false,
+    "frozen_gains_changed": false,
+    "rejected_lookahead_4_candidate_deleted": false
+  },
+  "rows": [
+    {
+      "seed": 30000,
+      "success": false,
+      "termination_reason": "timeout",
+      "final_leg_reached": false,
+      "final_leg_entry_time_s": null,
+      "closest_final_leg_distance_m": null,
+      "post_dynamics_lag_tracking_gap": {
+        "threshold": "either surge or yaw absolute gap > max(1 unit, 5% of allocator-achieved component)",
+        "noticeable_fraction": 1
+      },
+      "allocator_saturation": {
+        "active_fraction": 0.875,
+        "minimum_scale": 0.23666554149187732,
+        "degraded_fraction": 0.875,
+        "unreachable_fraction": 0.875
+      },
+      "best_prior_thrust_increase_full_compensation": {
+        "success": false,
+        "termination_reason": "timeout",
+        "reported_closest_distance_m": 23.52464475502283,
+        "note": "Prior artifact did not final-leg-gate this field.",
+        "saturation": {
+          "active_fraction": 0.015833333333333335,
+          "active_scale_distribution": {
+            "count": 38,
+            "mean": 0.892988335171693,
+            "median": 0.9088689099416648,
+            "p95": 0.994505493503299,
+            "p05": 0.7703519076290423,
+            "min": 0.7669605238403515
+          },
+          "minimum_scale": 0.7669605238403515,
+          "degraded_fraction": 0.015833333333333335,
+          "unreachable_fraction": 0.015833333333333335
+        }
+      }
+    },
+    {
+      "seed": 30007,
+      "success": false,
+      "termination_reason": "timeout",
+      "final_leg_reached": false,
+      "final_leg_entry_time_s": null,
+      "closest_final_leg_distance_m": null,
+      "post_dynamics_lag_tracking_gap": {
+        "threshold": "either surge or yaw absolute gap > max(1 unit, 5% of allocator-achieved component)",
+        "noticeable_fraction": 0.9995833333333334
+      },
+      "allocator_saturation": {
+        "active_fraction": 0.87,
+        "minimum_scale": 0.2371270120358932,
+        "degraded_fraction": 0.87,
+        "unreachable_fraction": 0.87
+      },
+      "best_prior_thrust_increase_full_compensation": {
+        "success": false,
+        "termination_reason": "timeout",
+        "reported_closest_distance_m": 7.499537920735953,
+        "note": "Prior artifact did not final-leg-gate this field.",
+        "saturation": {
+          "active_fraction": 0.0175,
+          "active_scale_distribution": {
+            "count": 42,
+            "mean": 0.931970431364004,
+            "median": 0.9493707273720073,
+            "p95": 0.9995565643325021,
+            "p05": 0.8550779033137812,
+            "min": 0.8547344346755106
+          },
+          "minimum_scale": 0.8547344346755106,
+          "degraded_fraction": 0.0175,
+          "unreachable_fraction": 0.0175
+        }
+      }
+    },
+    {
+      "seed": 30013,
+      "success": false,
+      "termination_reason": "timeout",
+      "final_leg_reached": false,
+      "final_leg_entry_time_s": null,
+      "closest_final_leg_distance_m": null,
+      "post_dynamics_lag_tracking_gap": {
+        "threshold": "either surge or yaw absolute gap > max(1 unit, 5% of allocator-achieved component)",
+        "noticeable_fraction": 0.9979166666666667
+      },
+      "allocator_saturation": {
+        "active_fraction": 0.9325,
+        "minimum_scale": 0.266438796129845,
+        "degraded_fraction": 0.9325,
+        "unreachable_fraction": 0.9325
+      },
+      "best_prior_thrust_increase_full_compensation": {
+        "success": false,
+        "termination_reason": "timeout",
+        "reported_closest_distance_m": 5.184896677337818,
+        "note": "Prior artifact did not final-leg-gate this field.",
+        "saturation": {
+          "active_fraction": 0,
+          "active_scale_distribution": null,
+          "minimum_scale": 1,
+          "degraded_fraction": 0,
+          "unreachable_fraction": 0
+        }
+      }
+    },
+    {
+      "seed": 30048,
+      "success": false,
+      "termination_reason": "timeout",
+      "final_leg_reached": false,
+      "final_leg_entry_time_s": null,
+      "closest_final_leg_distance_m": null,
+      "post_dynamics_lag_tracking_gap": {
+        "threshold": "either surge or yaw absolute gap > max(1 unit, 5% of allocator-achieved component)",
+        "noticeable_fraction": 0.99875
+      },
+      "allocator_saturation": {
+        "active_fraction": 0.8833333333333333,
+        "minimum_scale": 0.20757738998614905,
+        "degraded_fraction": 0.8833333333333333,
+        "unreachable_fraction": 0.8833333333333333
+      },
+      "best_prior_thrust_increase_full_compensation": {
+        "success": false,
+        "termination_reason": "timeout",
+        "reported_closest_distance_m": 3.8138987381133433,
+        "note": "Prior artifact did not final-leg-gate this field.",
+        "saturation": {
+          "active_fraction": 0.021666666666666667,
+          "active_scale_distribution": {
+            "count": 52,
+            "mean": 0.8756106282728504,
+            "median": 0.9068497947244093,
+            "p95": 0.9966569987431514,
+            "p05": 0.7086875753163727,
+            "min": 0.6457809501332082
+          },
+          "minimum_scale": 0.6457809501332082,
+          "degraded_fraction": 0.021666666666666667,
+          "unreachable_fraction": 0.021666666666666667
+        }
+      }
+    }
+  ]
+}

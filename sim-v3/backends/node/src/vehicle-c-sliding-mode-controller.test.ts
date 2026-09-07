@@ -1,0 +1,8 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import {VehicleCSlidingModeController,VEHICLE_C_LAMBDA_DERIVATION} from "./vehicle-c-sliding-mode-controller.ts";
+
+const state={position_ned_m:[0,0,0],attitude_rad:[0,0,0],velocity_body_mps:[0,0,0],angular_rate_body_rad_s:[0,0,0]} as const,target={north_m:10,east_m:0,heading_rad:0,waypoint_index:0};
+test("Vehicle C Lambda follows all three paper criteria",()=>{const d=VEHICLE_C_LAMBDA_DERIVATION;assert.ok(Math.abs(d.resonant_frequency_hz-.88778)<1e-3);assert.ok(Math.abs(d.candidates_per_s.resonant-1.8595)<1e-3);assert.equal(d.candidates_per_s.sampling,4);assert.ok(Math.abs(d.candidates_per_s.actuator_delay-.952381)<1e-6);assert.equal(d.selected_per_s,d.candidates_per_s.actuator_delay);});
+test("backstepping uses the production matrices and commands toward the target",()=>{const c=new VehicleCSlidingModeController({mode:"backstepping",dt_s:.1}),out=c.action(state as any,target,[0,0,0]);assert.equal(c.massMatrix.length,6);assert.ok(out.desired_wrench[0]>0);assert.deepEqual(out.uncommanded_dof_wrench,[out.desired_wrench[2],out.desired_wrench[3],out.desired_wrench[4]]);});
+test("sliding mode uses sat and anti-windup accumulation",()=>{const c=new VehicleCSlidingModeController({mode:"sliding-mode",dt_s:.1,boundary_layer:[1,1,1],uncertainty_bound:[10,10,10]});c.action(state as any,target,[0,0,0]);const before=c.action(state as any,target,[0,0,0]).integral_error[0];c.noteAllocationSaturated(true);const after=c.action(state as any,target,[0,0,0]).integral_error[0];assert.ok(Math.abs((after-before)-.1*(before/2))<1e-12);});

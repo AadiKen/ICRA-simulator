@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Benchmark full VRX episodes on native CodeNimbus hardware; never train."""
+"""Two-stage VRX Gate D benchmark on native CodeNimbus hardware; never train."""
 from __future__ import annotations
 
 import argparse
@@ -9,7 +9,6 @@ import multiprocessing as mp
 import os
 from pathlib import Path
 import platform
-import statistics
 import subprocess
 import sys
 import time
@@ -31,7 +30,7 @@ def command(*args):
         return None
 
 
-def worker(index, mode, barrier, queue):
+def worker(index, mode, control_steps, barrier, queue):
     started = time.perf_counter()
     env = None
     try:
@@ -45,7 +44,7 @@ def worker(index, mode, barrier, queue):
         rollout_started = time.perf_counter()
         action = np.zeros(2, dtype=np.float32)
         terminal = None
-        for step in range(env.max_control_steps):
+        for step in range(control_steps):
             _, _, terminated, truncated, info = env.step(action)
             if terminated or truncated:
                 terminal = info.get("termination_reason")
@@ -81,14 +80,17 @@ def worker(index, mode, barrier, queue):
             env.close()
 
 
-def benchmark(count, mode):
+def benchmark(count, mode, control_steps, phase, startup_stagger_s=0.):
+    requested_control_steps = control_steps
     context = mp.get_context("spawn")
     barrier = context.Barrier(count)
     queue = context.Queue()
-    processes = [context.Process(target=worker, args=(i, mode, barrier, queue)) for i in range(count)]
+    processes = [context.Process(target=worker, args=(i, mode, control_steps, barrier, queue)) for i in range(count)]
     wall_started = time.perf_counter()
-    for process in processes:
+    for index, process in enumerate(processes):
         process.start()
+        if startup_stagger_s and index + 1 < count:
+            time.sleep(startup_stagger_s)
     rows = [queue.get() for _ in processes]
     for process in processes:
         process.join()
@@ -98,23 +100,26 @@ def benchmark(count, mode):
     errors = [row for row in rows if row["error"] is not None]
     if errors:
         return {
-            "disturbance_mode": mode, "parallel_environments": count,
+            "phase": phase, "disturbance_mode": mode, "parallel_environments": count,
             "status": "STARTUP_CAPACITY_FAILURE", "errors": errors,
             "full_episodes": 0, "aggregate_control_steps": 0,
             "aggregate_physics_steps": 0,
         }
-    control_steps = sum(row["completed_control_steps"] for row in rows)
+    aggregate_control_steps = sum(row["completed_control_steps"] for row in rows)
     physics_steps = sum(row["completed_physics_steps"] for row in rows)
     rollout_wall = max(row["rollout_end_s"] for row in rows) - min(row["rollout_start_s"] for row in rows)
     return {
         "disturbance_mode": mode,
+        "phase": phase,
+        "startup_stagger_s": startup_stagger_s,
         "parallel_environments": count,
         "status": "COMPLETE",
-        "full_episodes": count,
-        "aggregate_control_steps": control_steps,
+        "requested_control_steps_per_environment": requested_control_steps,
+        "full_episodes": count if requested_control_steps == 1200 and all(row["termination_reason"] is not None for row in rows) else 0,
+        "aggregate_control_steps": aggregate_control_steps,
         "aggregate_physics_steps": physics_steps,
         "steady_state_wall_s": rollout_wall,
-        "control_steps_per_s": control_steps / rollout_wall,
+        "control_steps_per_s": aggregate_control_steps / rollout_wall,
         "physics_steps_per_s": physics_steps / rollout_wall,
         "end_to_end_wall_s_including_startup": wall_finished - wall_started,
         "startup_s_range": [min(row["startup_s"] for row in rows), max(row["startup_s"] for row in rows)],
@@ -129,32 +134,75 @@ def benchmark(count, mode):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--parallel", type=int, nargs="+", default=[1, 4, 8, 16])
+    parser.add_argument("--screen-steps", type=int, default=120)
+    parser.add_argument("--resume-screening", action="store_true")
+    parser.add_argument("--force-selected-count", type=int)
+    parser.add_argument("--finalize-existing", action="store_true")
+    parser.add_argument("--startup-stagger-s", type=float, default=0.)
     parser.add_argument("--output", type=Path, default=OUT)
     args = parser.parse_args()
+    if args.startup_stagger_s < 0:
+        parser.error("--startup-stagger-s must be non-negative")
     if platform.machine() != "x86_64" or not os.environ.get("SLURM_JOB_ID"):
         raise RuntimeError("Gate D is valid only inside a native x86_64 Slurm allocation")
-    results = []
-    for count in args.parallel:
-        results.append(benchmark(count, "zero"))
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(json.dumps({
-            "schema_version": 1, "artifact_kind": "vrx-gate-d-throughput-and-protocol",
-            "status": "RUNNING", "completed_results": results,
-            "gate_d_complete": False, "training_started": False,
-        }, indent=2) + "\n")
-        print(f"completed zero/{count}", flush=True)
-        results.append(benchmark(count, "seeded"))
-        args.output.write_text(json.dumps({
-            "schema_version": 1, "artifact_kind": "vrx-gate-d-throughput-and-protocol",
-            "status": "RUNNING", "completed_results": results,
-            "gate_d_complete": False, "training_started": False,
-        }, indent=2) + "\n")
-        print(f"completed seeded/{count}", flush=True)
+    if args.resume_screening:
+        partial = json.loads(args.output.read_text())
+        results = partial.get("completed_results", partial.get("results", []))
+        rejected_candidates = list(partial.get("rejected_candidates", []))
+        prior_confirmation = partial.get("full_episode_confirmation", {})
+        if prior_confirmation and prior_confirmation.get("status") != "COMPLETE":
+            rejected_candidates.append(prior_confirmation)
+        if len(results) != 2 * len(args.parallel):
+            raise RuntimeError("resume requires all eight screening cells")
+    else:
+        results = []
+        rejected_candidates = []
+        for count in args.parallel:
+            results.append(benchmark(count, "zero", args.screen_steps, "screening"))
+            args.output.parent.mkdir(parents=True, exist_ok=True)
+            args.output.write_text(json.dumps({
+                "schema_version": 1, "artifact_kind": "vrx-gate-d-throughput-and-protocol",
+                "status": "RUNNING", "completed_results": results,
+                "gate_d_complete": False, "training_started": False,
+            }, indent=2) + "\n")
+            print(f"completed zero/{count}", flush=True)
+            results.append(benchmark(count, "seeded", args.screen_steps, "screening"))
+            args.output.write_text(json.dumps({
+                "schema_version": 1, "artifact_kind": "vrx-gate-d-throughput-and-protocol",
+                "status": "RUNNING", "completed_results": results,
+                "gate_d_complete": False, "training_started": False,
+            }, indent=2) + "\n")
+            print(f"completed seeded/{count}", flush=True)
     complete = [row for row in results if row["status"] == "COMPLETE"]
     disturbed = [row for row in complete if row["disturbance_mode"] == "seeded"]
     if len(complete) != len(results):
         raise RuntimeError("one or more Gate D cells failed; inspect the incremental artifact")
-    selected = max(disturbed, key=lambda row: row["control_steps_per_s"])
+    screening_winner = max(disturbed, key=lambda row: row["control_steps_per_s"])
+    selected = (
+        next(row for row in disturbed if row["parallel_environments"] == args.force_selected_count)
+        if args.force_selected_count is not None else screening_winner
+    )
+    if args.finalize_existing:
+        full_episode = partial.get("full_episode_confirmation") if args.resume_screening else None
+        if not full_episode or full_episode.get("status") != "COMPLETE":
+            raise RuntimeError("finalize-existing requires a completed full-episode result")
+        full_episode["full_episodes"] = sum(
+            row.get("completed_control_steps") == 1200
+            and row.get("completed_physics_steps") == 2400
+            and row.get("termination_reason") is not None
+            for row in full_episode.get("workers", [])
+        )
+    else:
+        full_episode = benchmark(selected["parallel_environments"], "seeded", 1200, "full_episode_confirmation", args.startup_stagger_s)
+    args.output.write_text(json.dumps({
+        "schema_version": 1, "artifact_kind": "vrx-gate-d-throughput-and-protocol",
+        "status": "RUNNING", "completed_results": results,
+        "full_episode_confirmation": full_episode,
+        "gate_d_complete": False, "training_started": False,
+    }, indent=2) + "\n")
+    if full_episode["status"] != "COMPLETE" or full_episode["full_episodes"] != selected["parallel_environments"]:
+        raise RuntimeError("selected-count full-episode confirmation failed")
+    print(f"completed selected-count full episode/{selected['parallel_environments']}", flush=True)
     comparisons = []
     for count in args.parallel:
         calm = next(row for row in results if row["parallel_environments"] == count and row["disturbance_mode"] == "zero")
@@ -182,6 +230,12 @@ def main():
             "allocated_cpus": int(os.environ.get("SLURM_CPUS_ON_NODE", os.cpu_count() or 0)),
             "gpu": command("bash", "-lc", "nvidia-smi --query-gpu=name --format=csv,noheader | paste -sd ',' -"),
             "slurm_job_id": os.environ.get("SLURM_JOB_ID"),
+            "measurement_jobs": {
+                "screening": os.environ.get("VRX_GATE_D_SCREEN_JOB"),
+                "rejected_16_environment_confirmation": os.environ.get("VRX_GATE_D_REJECTED_JOB"),
+                "selected_8_environment_confirmation": os.environ.get("VRX_GATE_D_SELECTED_JOB"),
+                "artifact_finalizer": os.environ.get("SLURM_JOB_ID"),
+            },
             "slurm_partition": os.environ.get("SLURM_JOB_PARTITION"),
             "image": "leadcat/vrx:surveyor-patched-v3.0.1",
             "source_docker_image_id": "sha256:5fd48b867528a1db91eaf566ca7bfdb7447c98a4e64707706f77b61429a06970",
@@ -189,20 +243,28 @@ def main():
             "gazebo_sim_version": command("gz", "sim", "--version"),
         },
         "method": {
-            "one_full_120_second_episode_per_environment": True,
+            "protocol_revision": "short synchronized screens select the count; one full disturbed episode per selected environment confirms sustained rate",
+            "screening_control_steps_per_environment": args.screen_steps,
+            "screening_simulation_time_s": args.screen_steps * .1,
+            "full_120_second_episode_at_selected_count": True,
             "control_interval_s": .1, "physics_timestep_s": .05,
             "action": [0., 0.],
             "environment_counts": args.parallel,
             "conditions": ["zero", "seeded"],
-            "timing": "synchronized steady-state full-episode step loop; startup also reported",
+            "timing": "synchronized steady-state step loop; startup also reported separately",
             "training": False,
         },
         "results": results,
+        "full_episode_confirmation": full_episode,
+        "rejected_candidates": rejected_candidates,
         "disturbed_vs_calm": comparisons,
         "selection": {
             "parallel_environments": selected["parallel_environments"],
-            "selection_rule": "Highest measured disturbed-condition aggregate control-step throughput on the allocated node.",
+            "screening_throughput_winner": screening_winner["parallel_environments"],
+            "selection_rule": "Highest measured disturbed-condition count that also completes the full-episode reliability confirmation.",
             "measured_disturbed_control_steps_per_s": selected["control_steps_per_s"],
+            "confirmed_full_episode_control_steps_per_s": full_episode["control_steps_per_s"],
+            "higher_count_rejection": "16 environments won the short throughput screen but was rejected after one worker failed live-IMU startup during the full confirmation." if rejected_candidates else None,
         },
         "budget_decision": {
             "basis": "equal_timesteps",

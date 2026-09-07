@@ -146,6 +146,7 @@ class Runtime(DockerVrxRuntime):
             str(ROOT / "validation/rl-campaign/ports/prepare-vrx-episode.ts"),
             str(seed), out, str(environment_scale), "1",
             str(environment_scale), str(environment_scale), "none", "both",
+            "1" if os.environ.get("VRX_LEAN_TRANSPORT") == "1" else "0",
         ])
         schedule = json.loads((Path(out) / "transport.json").read_text())
         disturbance = schedule["reset"]["disturbance"]

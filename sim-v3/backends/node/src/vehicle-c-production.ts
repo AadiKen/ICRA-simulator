@@ -3,8 +3,8 @@ import { createHash } from "node:crypto";
 import { VehicleParameters } from "../../../core/vehicleParameters.js";
 import { VEHICLES } from "../../../packages/vehicle-sdk/src/index.ts";
 const symmetrize = (matrix: number[][]) => matrix.map((row, i) => row.map((value, j) => (value + matrix[j][i]) / 2));
-export const VEHICLE_C_MAX_FORWARD_THRUST_N = 1000;
-export const VEHICLE_C_MAX_REVERSE_THRUST_N = 500;
+export const VEHICLE_C_MAX_FORWARD_THRUST_N = 1340.506075016061;
+export const VEHICLE_C_MAX_REVERSE_THRUST_N = 670.2530375080305;
 export function buildVehicleCProductionConfiguration(options: { angleContinuityWeight?: number; podLateralOffsetM?: number } = {}) {
   const definition = VEHICLES["vehicle-c-azimuth"],
     hydrodynamics = JSON.parse(readFileSync(new URL("../../../artifacts/capytaine/vehicle-c-parametric-resolved.json", import.meta.url), "utf8")),

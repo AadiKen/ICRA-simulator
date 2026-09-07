@@ -1,0 +1,642 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-force-budget-lambda-four-seed",
+  "status": "THREE_ATTEMPTS_EXHAUSTED_LAMBDA_ALONE_INSUFFICIENT_HALT_FOR_REVIEW",
+  "derivation": {
+    "formula": "lambda_axis = sqrt(reserved_fraction * axis_ceiling / (effective_mass_or_inertia * observed_error))",
+    "error_source": "mean absolute active-waypoint north/east/path-heading error over the final 20 seconds of fresh frozen-controller runs, explicitly allowed by the task as the E0 starting point",
+    "timing_upper_bound": {
+      "gravity_m_s2": 9.80665,
+      "beam_m": 1.98,
+      "wave_celerity_m_s": 1.7579357522079206,
+      "resonant_frequency_hz": 0.8878463394989499,
+      "candidates_per_s": {
+        "resonant": 1.8595010251243267,
+        "sampling": 4,
+        "actuator_delay": 0.9523809523809526
+      },
+      "selected_per_s": 0.9523809523809526,
+      "selected_by": "slowest-decay-rate",
+      "azimuth_slew_note": "30 deg/s is a nonlinear rate limit, not folded into the paper's pure-delay criterion."
+    },
+    "exact_current_ceilings": [
+      2681.012150032122,
+      2681.012150032122,
+      2171.619841526019
+    ],
+    "effective_mass_or_inertia": [
+      323.4589914854667,
+      904.0509112680145,
+      757.9371726415533
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "reserve_fraction": 0.5,
+        "reserved_budget": [
+          1340.506075016061,
+          1340.506075016061,
+          1085.8099207630096
+        ],
+        "effective_mass_or_inertia": [
+          323.4589914854667,
+          904.0509112680145,
+          757.9371726415533
+        ],
+        "error_basis": [
+          29.002516212289965,
+          17.881720598864355,
+          1.8445703486472023
+        ],
+        "axis_force_budget_lambdas_per_s": [
+          0.37801317794081896,
+          0.2879607504640551,
+          0.8812775106059106
+        ],
+        "timing_upper_bound_per_s": 0.9523809523809526,
+        "selected_scalar_lambda_per_s": 0.2879607504640551,
+        "acceptance_threshold": "rejected > 0.30",
+        "mean_saturation_fraction": 0.9887762215603016
+      },
+      {
+        "attempt": 2,
+        "reserve_fraction": 0.25,
+        "reserved_budget": [
+          670.2530375080305,
+          670.2530375080305,
+          542.9049603815048
+        ],
+        "effective_mass_or_inertia": [
+          323.4589914854667,
+          904.0509112680145,
+          757.9371726415533
+        ],
+        "error_basis": [
+          29.002516212289965,
+          17.881720598864355,
+          1.8445703486472023
+        ],
+        "axis_force_budget_lambdas_per_s": [
+          0.26729568149983013,
+          0.20361899936870065,
+          0.623157303856639
+        ],
+        "timing_upper_bound_per_s": 0.9523809523809526,
+        "selected_scalar_lambda_per_s": 0.20361899936870065,
+        "acceptance_threshold": "rejected > 0.30",
+        "mean_saturation_fraction": 0.9900845173934346
+      },
+      {
+        "attempt": 3,
+        "reserve_fraction": 0.125,
+        "reserved_budget": [
+          335.12651875401525,
+          335.12651875401525,
+          271.4524801907524
+        ],
+        "effective_mass_or_inertia": [
+          323.4589914854667,
+          904.0509112680145,
+          757.9371726415533
+        ],
+        "error_basis": [
+          29.002516212289965,
+          17.881720598864355,
+          1.8445703486472023
+        ],
+        "axis_force_budget_lambdas_per_s": [
+          0.18900658897040948,
+          0.14398037523202756,
+          0.4406387553029553
+        ],
+        "timing_upper_bound_per_s": 0.9523809523809526,
+        "selected_scalar_lambda_per_s": 0.14398037523202756,
+        "acceptance_threshold": "rejected > 0.30",
+        "mean_saturation_fraction": 0.9837435586425758
+      }
+    ],
+    "selected_attempt": null
+  },
+  "diagnosis": {
+    "unchanged_backstepping_kp": 485.9950330344873,
+    "proportional_demand_at_error_basis": [
+      14095.078824675114,
+      8690.427393158554,
+      896.4520275252328
+    ],
+    "interpretation": "Lambda reduces the M-term but cannot reduce the separately retained -J^T Kp eta_t term; its north/east demands alone exceed the corresponding force ceiling."
+  },
+  "backstepping_attempts": [
+    {
+      "attempt": 1,
+      "reserve_fraction": 0.5,
+      "reserved_budget": [
+        1340.506075016061,
+        1340.506075016061,
+        1085.8099207630096
+      ],
+      "effective_mass_or_inertia": [
+        323.4589914854667,
+        904.0509112680145,
+        757.9371726415533
+      ],
+      "error_basis": [
+        29.002516212289965,
+        17.881720598864355,
+        1.8445703486472023
+      ],
+      "axis_force_budget_lambdas_per_s": [
+        0.37801317794081896,
+        0.2879607504640551,
+        0.8812775106059106
+      ],
+      "timing_upper_bound_per_s": 0.9523809523809526,
+      "selected_scalar_lambda_per_s": 0.2879607504640551,
+      "acceptance_threshold": "rejected > 0.30",
+      "mean_saturation_fraction": 0.9887762215603016,
+      "rows": [
+        {
+          "seed": 30000,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": false,
+          "final_leg_entry_time_s": null,
+          "closest_final_leg_distance_m": null,
+          "error_over_time": {
+            "position_m": {
+              "mean": 41.48607593012343,
+              "std": 18.646818306840473,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": 0.40431784534484916,
+              "std": 1.7038850651418787,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 1,
+            "degraded_fraction": 1,
+            "minimum_saturation_scale": 0.013795954662320626
+          }
+        },
+        {
+          "seed": 30007,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 26.849999999998545,
+          "closest_final_leg_distance_m": 5.59952434443376,
+          "error_over_time": {
+            "position_m": {
+              "mean": 15.413230584425033,
+              "std": 5.823668498261667,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": -0.13680109370367718,
+              "std": 1.8251760775840216,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 1,
+            "degraded_fraction": 1,
+            "minimum_saturation_scale": 0.02789442035984587
+          }
+        },
+        {
+          "seed": 30013,
+          "success": true,
+          "termination_reason": "success",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 28.05000000000291,
+          "closest_final_leg_distance_m": 1.9819583416445525,
+          "error_over_time": {
+            "position_m": {
+              "mean": 20.52454017851383,
+              "std": 10.06818812344859,
+              "count": 775
+            },
+            "heading_rad": {
+              "mean": -0.8116656573965524,
+              "std": 1.5443446606658415,
+              "count": 775
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.9806451612903225,
+            "degraded_fraction": 0.9806451612903225,
+            "minimum_saturation_scale": 0.028441548191518607
+          }
+        },
+        {
+          "seed": 30048,
+          "success": true,
+          "termination_reason": "success",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 16.75,
+          "closest_final_leg_distance_m": 1.9063242642712248,
+          "error_over_time": {
+            "position_m": {
+              "mean": 15.913477775791204,
+              "std": 7.212119341607446,
+              "count": 509
+            },
+            "heading_rad": {
+              "mean": 1.229883594181264,
+              "std": 1.3680132109480252,
+              "count": 509
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.9744597249508841,
+            "degraded_fraction": 0.9744597249508841,
+            "minimum_saturation_scale": 0.06059479982143333
+          }
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "reserve_fraction": 0.25,
+      "reserved_budget": [
+        670.2530375080305,
+        670.2530375080305,
+        542.9049603815048
+      ],
+      "effective_mass_or_inertia": [
+        323.4589914854667,
+        904.0509112680145,
+        757.9371726415533
+      ],
+      "error_basis": [
+        29.002516212289965,
+        17.881720598864355,
+        1.8445703486472023
+      ],
+      "axis_force_budget_lambdas_per_s": [
+        0.26729568149983013,
+        0.20361899936870065,
+        0.623157303856639
+      ],
+      "timing_upper_bound_per_s": 0.9523809523809526,
+      "selected_scalar_lambda_per_s": 0.20361899936870065,
+      "acceptance_threshold": "rejected > 0.30",
+      "mean_saturation_fraction": 0.9900845173934346,
+      "rows": [
+        {
+          "seed": 30000,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": false,
+          "final_leg_entry_time_s": null,
+          "closest_final_leg_distance_m": null,
+          "error_over_time": {
+            "position_m": {
+              "mean": 45.47914084110971,
+              "std": 20.490842647964747,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": 0.3727063777406726,
+              "std": 1.6965620369776369,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 1,
+            "degraded_fraction": 1,
+            "minimum_saturation_scale": 0.015567431998257837
+          }
+        },
+        {
+          "seed": 30007,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 27.69999999999709,
+          "closest_final_leg_distance_m": 14.90297149456138,
+          "error_over_time": {
+            "position_m": {
+              "mean": 23.728811884464278,
+              "std": 5.754728449758382,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": -0.0910275632279348,
+              "std": 1.8564863711274477,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 1,
+            "degraded_fraction": 1,
+            "minimum_saturation_scale": 0.034540116630483536
+          }
+        },
+        {
+          "seed": 30013,
+          "success": true,
+          "termination_reason": "success",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 51.900000000001455,
+          "closest_final_leg_distance_m": 1.9590842659588574,
+          "error_over_time": {
+            "position_m": {
+              "mean": 20.52212192502871,
+              "std": 10.440899116963436,
+              "count": 1256
+            },
+            "heading_rad": {
+              "mean": 0.4977230525891946,
+              "std": 2.075188776695622,
+              "count": 1256
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.9872611464968153,
+            "degraded_fraction": 0.9872611464968153,
+            "minimum_saturation_scale": 0.03136928051168559
+          }
+        },
+        {
+          "seed": 30048,
+          "success": true,
+          "termination_reason": "success",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 40.30000000000291,
+          "closest_final_leg_distance_m": 1.9225871543648976,
+          "error_over_time": {
+            "position_m": {
+              "mean": 17.811085968776236,
+              "std": 6.807625263421648,
+              "count": 1040
+            },
+            "heading_rad": {
+              "mean": -0.3727765259437645,
+              "std": 2.1530967149582825,
+              "count": 1040
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.9730769230769231,
+            "degraded_fraction": 0.9730769230769231,
+            "minimum_saturation_scale": 0.038281109029211564
+          }
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "reserve_fraction": 0.125,
+      "reserved_budget": [
+        335.12651875401525,
+        335.12651875401525,
+        271.4524801907524
+      ],
+      "effective_mass_or_inertia": [
+        323.4589914854667,
+        904.0509112680145,
+        757.9371726415533
+      ],
+      "error_basis": [
+        29.002516212289965,
+        17.881720598864355,
+        1.8445703486472023
+      ],
+      "axis_force_budget_lambdas_per_s": [
+        0.18900658897040948,
+        0.14398037523202756,
+        0.4406387553029553
+      ],
+      "timing_upper_bound_per_s": 0.9523809523809526,
+      "selected_scalar_lambda_per_s": 0.14398037523202756,
+      "acceptance_threshold": "rejected > 0.30",
+      "mean_saturation_fraction": 0.9837435586425758,
+      "rows": [
+        {
+          "seed": 30000,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": false,
+          "final_leg_entry_time_s": null,
+          "closest_final_leg_distance_m": null,
+          "error_over_time": {
+            "position_m": {
+              "mean": 47.71018165469845,
+              "std": 21.370772759630185,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": 0.3749838218221363,
+              "std": 1.6891160516242514,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 1,
+            "degraded_fraction": 1,
+            "minimum_saturation_scale": 0.01759415881547457
+          }
+        },
+        {
+          "seed": 30007,
+          "success": true,
+          "termination_reason": "success",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 20.30000000000291,
+          "closest_final_leg_distance_m": 1.9936297110745758,
+          "error_over_time": {
+            "position_m": {
+              "mean": 18.695088955144765,
+              "std": 8.77810172966115,
+              "count": 622
+            },
+            "heading_rad": {
+              "mean": 0.7724270691704086,
+              "std": 1.480985924533181,
+              "count": 622
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.9646302250803859,
+            "degraded_fraction": 0.9646302250803859,
+            "minimum_saturation_scale": 0.042078538588361296
+          }
+        },
+        {
+          "seed": 30013,
+          "success": false,
+          "termination_reason": "timeout",
+          "final_leg_reached": false,
+          "final_leg_entry_time_s": null,
+          "closest_final_leg_distance_m": null,
+          "error_over_time": {
+            "position_m": {
+              "mean": 14.967089065479188,
+              "std": 2.699419501298759,
+              "count": 2400
+            },
+            "heading_rad": {
+              "mean": 0.045201101764455597,
+              "std": 2.1144514924611935,
+              "count": 2400
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 1,
+            "degraded_fraction": 1,
+            "minimum_saturation_scale": 0.0713463016025507
+          }
+        },
+        {
+          "seed": 30048,
+          "success": true,
+          "termination_reason": "success",
+          "final_leg_reached": true,
+          "final_leg_entry_time_s": 31.69999999999709,
+          "closest_final_leg_distance_m": 1.9564487214811743,
+          "error_over_time": {
+            "position_m": {
+              "mean": 17.28140529208005,
+              "std": 7.764674909524594,
+              "count": 843
+            },
+            "heading_rad": {
+              "mean": -0.13852743185900773,
+              "std": 2.0277972190573244,
+              "count": 843
+            }
+          },
+          "allocator": {
+            "saturation_fraction": 0.970344009489917,
+            "degraded_fraction": 0.970344009489917,
+            "minimum_saturation_scale": 0.04667414968619572
+          }
+        }
+      ]
+    }
+  ],
+  "sliding_mode": {
+    "status": "NOT_RUN_PER_STEP_3_PRECONDITION",
+    "reason": "Backstepping saturation never fell to 30% or below in the three permitted attempts."
+  },
+  "current_best_frozen_comparison": [
+    {
+      "seed": 30000,
+      "success": false,
+      "termination_reason": "timeout",
+      "final_leg_reached": false,
+      "final_leg_entry_time_s": null,
+      "closest_final_leg_distance_m": null,
+      "error_over_time": {
+        "position_m": {
+          "mean": 43.29465699599709,
+          "std": 17.854703980179632,
+          "count": 2400
+        },
+        "heading_rad": {
+          "mean": 0.4534921830527573,
+          "std": 0.9286676637770602,
+          "count": 2400
+        }
+      },
+      "allocator": {
+        "saturation_fraction": 0.008333333333333333,
+        "degraded_fraction": 0.008333333333333333,
+        "minimum_saturation_scale": 0.9271941481308489
+      }
+    },
+    {
+      "seed": 30007,
+      "success": false,
+      "termination_reason": "timeout",
+      "final_leg_reached": true,
+      "final_leg_entry_time_s": 50.94999999999709,
+      "closest_final_leg_distance_m": 7.499537920735953,
+      "error_over_time": {
+        "position_m": {
+          "mean": 17.611251842265727,
+          "std": 7.047701335200024,
+          "count": 2400
+        },
+        "heading_rad": {
+          "mean": -0.18549278611282038,
+          "std": 1.443609829380321,
+          "count": 2400
+        }
+      },
+      "allocator": {
+        "saturation_fraction": 0,
+        "degraded_fraction": 0,
+        "minimum_saturation_scale": 1
+      }
+    },
+    {
+      "seed": 30013,
+      "success": false,
+      "termination_reason": "timeout",
+      "final_leg_reached": true,
+      "final_leg_entry_time_s": 61.80000000000291,
+      "closest_final_leg_distance_m": 5.184896677337818,
+      "error_over_time": {
+        "position_m": {
+          "mean": 15.18550502819862,
+          "std": 7.266175748693675,
+          "count": 2400
+        },
+        "heading_rad": {
+          "mean": -0.19804371131946313,
+          "std": 0.8562873090989545,
+          "count": 2400
+        }
+      },
+      "allocator": {
+        "saturation_fraction": 0,
+        "degraded_fraction": 0,
+        "minimum_saturation_scale": 1
+      }
+    },
+    {
+      "seed": 30048,
+      "success": false,
+      "termination_reason": "timeout",
+      "final_leg_reached": true,
+      "final_leg_entry_time_s": 49.55000000000291,
+      "closest_final_leg_distance_m": 6.015374098723438,
+      "error_over_time": {
+        "position_m": {
+          "mean": 19.190077879191566,
+          "std": 8.936776494954932,
+          "count": 2400
+        },
+        "heading_rad": {
+          "mean": -0.17050018751654447,
+          "std": 1.607203460270879,
+          "count": 2400
+        }
+      },
+      "allocator": {
+        "saturation_fraction": 0.015833333333333335,
+        "degraded_fraction": 0.015833333333333335,
+        "minimum_saturation_scale": 0.8445943568540756
+      }
+    }
+  ],
+  "original_timing_lambda_artifact": "artifacts/rl-campaign/vehicle-c-sliding-mode-four-seed.json",
+  "unchanged": {
+    "mass_coriolis_damping": true,
+    "waypoint_adaptation": true,
+    "allocator": true,
+    "sliding_structure": true,
+    "backstepping_gains": true
+  },
+  "prohibitions": {
+    "seed_30003_run": false,
+    "full_sweep": false,
+    "attempt_cap": 3,
+    "frozen_gains_changed": false,
+    "output_filter_added": false
+  }
+}

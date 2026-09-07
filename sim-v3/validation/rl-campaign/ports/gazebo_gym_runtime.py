@@ -34,9 +34,10 @@ def stamp(value):
     value=value or {}; return int(value.get("sec",0))+int(value.get("nsec",0))*1e-9
 
 class JsonTopic:
-    def __init__(self,container,topic):
+    def __init__(self,container,topic,native=False,native_env=None):
         self.topic=topic; self.latest=None; self.items=queue.Queue(); self.stalled=False; self.accepted=[];self.parse_errors=0;self.last_unparsed=None
-        self.process=subprocess.Popen(["docker","exec",container,"gz","topic","-e","-t",topic,"--json-output"],text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,bufsize=1)
+        command=["gz","topic","-e","-t",topic,"--json-output"] if native else ["docker","exec",container,"gz","topic","-e","-t",topic,"--json-output"]
+        self.process=subprocess.Popen(command,text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,bufsize=1,env=native_env)
         self.thread=threading.Thread(target=self._read,daemon=True); self.thread.start()
     def _read(self):
         assert self.process.stdout
@@ -68,14 +69,19 @@ class JsonTopic:
 class Runtime:
     def __init__(self):
         self.container=f"icra27-gazebo-gym-{os.getpid()}"; self.temp=None; self.world=None
-        self.topics={}; self.gps_model=None; self.actuator=None; self.converter=None;self.transport=None
+        self.topics={}; self.gps_model=None; self.actuator=None; self.converter=None;self.transport=None;self.server=None
         self.truth=None; self.sim_time=0.; self.last_gps_stamp=None
         self.termination=TerminationMonitor();self.roll_rad=0.;self.pitch_rad=0.
         self.environment_requested={};self.diagnostic_termination_override=None
         self.idle_mode=os.environ.get("BCOD_GAZEBO_IDLE_MODE")=="1"
+        self.native=os.environ.get("BCOD_GAZEBO_NATIVE")=="1"
+        self.native_env=os.environ.copy()
+        if self.native:self.native_env["GZ_PARTITION"]=f"bcod-gazebo-{os.getpid()}"
     def run(self,args,check=True,timeout=20):
         return subprocess.run(args,text=True,capture_output=True,check=check,timeout=timeout)
-    def dexec(self,*args,**kwargs):return self.run(["docker","exec",self.container,*args],**kwargs)
+    def dexec(self,*args,**kwargs):
+        if self.native:return subprocess.run(list(args),text=True,capture_output=True,check=kwargs.pop("check",True),timeout=kwargs.pop("timeout",20),env=self.native_env,**kwargs)
+        return self.run(["docker","exec",self.container,*args],**kwargs)
     def service(self,name,reqtype,request):
         if self.transport is not None:
             match=re.search(r"multi_step:\s*(\d+)",request)
@@ -91,7 +97,12 @@ class Runtime:
         for proc in (self.actuator,self.converter,self.transport):
             if proc and proc.poll() is None:proc.terminate()
         self.actuator=None;self.converter=None;self.transport=None
-        self.run(["docker","rm","-f",self.container],check=False)
+        if self.server and self.server.poll() is None:
+            self.server.terminate()
+            try:self.server.wait(timeout=5)
+            except subprocess.TimeoutExpired:self.server.kill()
+        self.server=None
+        if not self.native:self.run(["docker","rm","-f",self.container],check=False)
         if self.temp:self.temp.cleanup();self.temp=None
     def _wait_service(self):
         deadline=time.monotonic()+30
@@ -115,18 +126,23 @@ class Runtime:
         self.run(prepare)
         shutil.copy(ROOT/"validation/rl-campaign/ports/gazebo_transport_jsonl.py",Path(out)/"gazebo_transport_jsonl.py")
         self.world=f"/world/bcod_parity_gate-{seed}"
-        self.run(["docker","run","-d","--rm","--platform","linux/amd64","--name",self.container,"-e","GZ_SIM_RESOURCE_PATH=/gate/models","-v",f"{out}:/gate",IMAGE,"gz","sim","-s","-r",f"/gate/worlds/gate-{seed}.sdf"])
+        if self.native:
+            native_env=self.native_env.copy();native_env["GZ_SIM_RESOURCE_PATH"]=str(Path(out)/"models")
+            self.server=subprocess.Popen(["gz","sim","-s","-r",str(Path(out)/"worlds"/f"gate-{seed}.sdf")],env=native_env,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,text=True)
+        else:
+            self.run(["docker","run","-d","--rm","--platform","linux/amd64","--name",self.container,"-e","GZ_SIM_RESOURCE_PATH=/gate/models","-v",f"{out}:/gate",IMAGE,"gz","sim","-s","-r",f"/gate/worlds/gate-{seed}.sdf"])
         self._wait_service()
         # Every episode gets a fresh container and a world generated with the
         # seeded pose. Do not issue reset-all here: Harmonic removes the
         # Buoyancy system's enabled-entity components during that redundant
         # reset, leaving the reconstructed model in gravity-only free fall.
         self.service(self.world+"/control","gz.msgs.WorldControl","pause: true")
-        self.transport=subprocess.Popen(["docker","exec","-i",self.container,"python3","-u","/gate/gazebo_transport_jsonl.py"],text=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE)
+        transport_command=["/usr/bin/python3","-u",str(Path(out)/"gazebo_transport_jsonl.py")] if self.native else ["docker","exec","-i",self.container,"python3","-u","/gate/gazebo_transport_jsonl.py"]
+        self.transport=subprocess.Popen(transport_command,text=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE,env=self.native_env if self.native else None)
         initial=config["initial_state"]["position_ned_m"]
         wanted={"clock":self.world+"/clock","odom":"/odometry"}
         if not self.idle_mode:wanted.update({"imu":"/imu","gps":"/gps",**{f"contact{i}":f"/surveyor/contacts/hull_{i}" for i in range(3)}})
-        self.topics={name:JsonTopic(self.container,topic) for name,topic in wanted.items()}
+        self.topics={name:JsonTopic(self.container,topic,self.native,self.native_env if self.native else None) for name,topic in wanted.items()}
         # Let Gazebo Transport discovery connect the independent echo
         # subscribers before the first bounded step. This is startup plumbing,
         # not a simulation-time measurement.

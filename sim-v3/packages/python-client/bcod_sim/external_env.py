@@ -96,9 +96,10 @@ def _assert_training_eligible(repository: Path, simulator: str) -> None:
         if not result.exists() or not json.loads(result.read_text()).get("overall_gate_7_pass", False):
             raise ExternalRuntimeError("VRX Gate 7 has not passed; closed-loop PPO is blocked")
     else:
-        result = repository / "artifacts/rl-campaign/gazebo-conformance.json"
-        if not result.exists() or json.loads(result.read_text()).get("status") not in ("passed", "PASS", "COMPLETE_PASS"):
-            raise ExternalRuntimeError("Gazebo conformance has not passed; closed-loop PPO is blocked")
+        result = repository / "artifacts/rl-campaign/gazebo-still-water-protocol.json"
+        document = json.loads(result.read_text()) if result.exists() else {}
+        if document.get("status") != "COMPLETE_PASS" or document.get("training_authorized") is not True:
+            raise ExternalRuntimeError("Gazebo still-water Gate D has not passed; closed-loop PPO is blocked")
     contract = json.loads((repository / "artifacts/rl-campaign/surveyor/task-contract-frozen.json").read_text())
     tasks = contract.get("tasks", [])
     task = next((item for item in tasks if item.get("task_id") == "common-waypoint-transit-v1"), None)

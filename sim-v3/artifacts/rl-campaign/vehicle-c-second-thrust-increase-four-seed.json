@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-second-thrust-increase-four-seed",
+  "status": "COMPLETE_HALT_FOR_REVIEW",
+  "active_controller": {
+    "call": "losAction(\"LOS-PID-v2\", ...)",
+    "gains": {
+      "lookahead": 8,
+      "kp": 100,
+      "kd": 35,
+      "speed": 1
+    },
+    "endpoint_geometry_fix": true,
+    "rejected_candidates_retained_unselected": [
+      "LOS-PID-v2-C-inertia-scaled-v1",
+      "LOS-PID-v2-C-saturation-aware-v1"
+    ],
+    "reason": "P, D, and Coriolis peaks are correlated; independently budgeted percentiles do not bound their sum."
+  },
+  "derivation": {
+    "source": "artifacts/rl-campaign/vehicle-c-thrust-increase-four-seed.json",
+    "active_saturation_by_seed": [
+      {
+        "seed": 30000,
+        "active_fraction": 0.015833333333333335,
+        "saturation_scale": {
+          "count": 38,
+          "mean": 0.892988335171693,
+          "median": 0.9088689099416648,
+          "p95": 0.994505493503299,
+          "p05": 0.7703519076290423,
+          "min": 0.7669605238403515
+        },
+        "required_multiplier": 1.2332026319294402
+      },
+      {
+        "seed": 30007,
+        "active_fraction": 0.0175,
+        "saturation_scale": {
+          "count": 42,
+          "mean": 0.931970431364004,
+          "median": 0.9493707273720073,
+          "p95": 0.9995565643325021,
+          "p05": 0.8550779033137812,
+          "min": 0.8547344346755106
+        },
+        "required_multiplier": 1.1110098814603397
+      },
+      {
+        "seed": 30013,
+        "active_fraction": 0,
+        "saturation_scale": null,
+        "required_multiplier": 1
+      },
+      {
+        "seed": 30048,
+        "active_fraction": 0.021666666666666667,
+        "saturation_scale": {
+          "count": 52,
+          "mean": 0.8756106282728504,
+          "median": 0.9068497947244093,
+          "p95": 0.9966569987431514,
+          "p05": 0.7086875753163727,
+          "min": 0.6457809501332082
+        },
+        "required_multiplier": 1.3405060750160611
+      }
+    ],
+    "method": "For each seed, multiplier = 0.95 / P05(active saturation_scale), equivalent to targeting the 95th-percentile saturation-severity event; select the largest per-seed multiplier.",
+    "selected_multiplier": 1.3405060750160611,
+    "design_seed": 30048
+  },
+  "change": {
+    "old": {
+      "forward_n": 1000,
+      "reverse_n": 500
+    },
+    "new": {
+      "forward_n": 1340.506075016061,
+      "reverse_n": 670.2530375080305
+    },
+    "ratio_preserved": 2,
+    "wrench_limits": {
+      "surge_n": 2681.012150032122,
+      "yaw_nm": 2171.619841526019
+    },
+    "only_changed_variable": "per-pod thrust rating"
+  },
+  "physical_plausibility": {
+    "verdict": "PROCEED_WITH_MAJOR_INTEGRATION_LIMITATION",
+    "documented_comparator": "Torqeedo Cruise 12.0 FP manual states thrust up to 2400 N; selected 1340.5 N is below that documented ceiling.",
+    "product_context": "Cruise 12.0 FP is a 12 kW, 33.5 kg pod intended for much larger vessels; two comparable systems would impose unusually high mass and power burden on a 313.5 kg craft.",
+    "reference_url": "https://media.torqeedo.com/downloads/manuals/torqeedo-cruise-120-fp-manual-DE-EN.pdf",
+    "claim_limit": "Thrust magnitude is commercially documented, but Vehicle C packaging, electrical power, endurance, structure, and hydrodynamic integration are not validated."
+  },
+  "unchanged": {
+    "pod_geometry": true,
+    "endpoint_geometry": true,
+    "coriolis_scale": 1,
+    "actuator_lag": true,
+    "azimuth_slew": true,
+    "hull_and_physics": true
+  },
+  "seeds": [
+    30000,
+    30007,
+    30013,
+    30048
+  ],
+  "prohibitions": {
+    "seed_30003_run": false,
+    "full_sweep": false,
+    "gains_changed": false,
+    "pod_geometry_changed": false
+  },
+  "rows": [
+    {
+      "seed": 30000,
+      "success": false,
+      "termination_reason": "timeout",
+      "final_leg_reached": false,
+      "final_leg_entry_time_s": null,
+      "closest_final_leg_distance_m": null,
+      "post_dynamics_lag_gap_fraction": 0.9858333333333333,
+      "saturation": {
+        "active_fraction": 0.008333333333333333,
+        "active_scale_distribution": {
+          "count": 20,
+          "mean": 0.956808131408917,
+          "median": 0.9506407857323875,
+          "p95": 0.998556246756965,
+          "p05": 0.9271941481308489,
+          "min": 0.9271941481308489
+        },
+        "degraded_fraction": 0.008333333333333333,
+        "minimum_scale": 0.9271941481308489
+      },
+      "current_best_baseline": {
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": false,
+        "closest_final_leg_distance_m": null,
+        "post_dynamics_lag_gap_fraction": 0.9833333333333333,
+        "saturation_active_fraction": 0.015833333333333335,
+        "degraded_fraction": 0.015833333333333335,
+        "minimum_scale": 0.7669605238403515
+      }
+    },
+    {
+      "seed": 30007,
+      "success": false,
+      "termination_reason": "timeout",
+      "final_leg_reached": true,
+      "final_leg_entry_time_s": 50.94999999999709,
+      "closest_final_leg_distance_m": 7.499537920735953,
+      "post_dynamics_lag_gap_fraction": 0.9041666666666667,
+      "saturation": {
+        "active_fraction": 0,
+        "active_scale_distribution": null,
+        "degraded_fraction": 0,
+        "minimum_scale": 1
+      },
+      "current_best_baseline": {
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": true,
+        "closest_final_leg_distance_m": 7.499537920735953,
+        "post_dynamics_lag_gap_fraction": 0.90125,
+        "saturation_active_fraction": 0.0175,
+        "degraded_fraction": 0.0175,
+        "minimum_scale": 0.8547344346755106
+      }
+    },
+    {
+      "seed": 30013,
+      "success": false,
+      "termination_reason": "timeout",
+      "final_leg_reached": true,
+      "final_leg_entry_time_s": 61.80000000000291,
+      "closest_final_leg_distance_m": 5.184896677337818,
+      "post_dynamics_lag_gap_fraction": 0.5975,
+      "saturation": {
+        "active_fraction": 0,
+        "active_scale_distribution": null,
+        "degraded_fraction": 0,
+        "minimum_scale": 1
+      },
+      "current_best_baseline": {
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": true,
+        "closest_final_leg_distance_m": 5.184896677337818,
+        "post_dynamics_lag_gap_fraction": 0.5975,
+        "saturation_active_fraction": 0,
+        "degraded_fraction": 0,
+        "minimum_scale": 1
+      }
+    },
+    {
+      "seed": 30048,
+      "success": false,
+      "termination_reason": "timeout",
+      "final_leg_reached": true,
+      "final_leg_entry_time_s": 49.55000000000291,
+      "closest_final_leg_distance_m": 6.015374098723438,
+      "post_dynamics_lag_gap_fraction": 0.9775,
+      "saturation": {
+        "active_fraction": 0.015833333333333335,
+        "active_scale_distribution": {
+          "count": 38,
+          "mean": 0.9157953630595826,
+          "median": 0.914941789041943,
+          "p95": 0.9728505993735033,
+          "p05": 0.8570254894717678,
+          "min": 0.8445943568540756
+        },
+        "degraded_fraction": 0.015833333333333335,
+        "minimum_scale": 0.8445943568540756
+      },
+      "current_best_baseline": {
+        "success": false,
+        "termination_reason": "timeout",
+        "final_leg_reached": true,
+        "closest_final_leg_distance_m": 3.8138987381133433,
+        "post_dynamics_lag_gap_fraction": 0.9808333333333333,
+        "saturation_active_fraction": 0.021666666666666667,
+        "degraded_fraction": 0.021666666666666667,
+        "minimum_scale": 0.6457809501332082
+      }
+    }
+  ]
+}

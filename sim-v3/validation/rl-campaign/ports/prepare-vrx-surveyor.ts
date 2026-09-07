@@ -37,7 +37,7 @@ function baseLinkInertial(totalMass:number,inertia:any,effectors:any[]){
   return{mass,comX,ixx:inertia.Ixx_roll-rotorIxx,iyy:inertia.Iyy_pitch-rotorIyy-baseParallelAxis,izz:inertia.Izz_yaw-rotorIzz-baseParallelAxis};
 }
 
-export function renderSurveyorVrxModel(){
+export function renderSurveyorVrxModel(options:{leanTransport?:boolean}={}){
   const mass=source.mass_properties.mass_kg.value,inertia=source.mass_properties.inertia_tensor_body_kg_m2.diagonal;
   const [port,starboard]=source.propulsion.effectors,[Xu,Yv,Nr]=source.hydrodynamics.linear_planar,[Xuu,Yvv,Nrr]=source.hydrodynamics.quadratic_planar;
   const baseInertial=baseLinkInertial(mass,inertia,[port,starboard]);
@@ -62,14 +62,14 @@ ${pontoon("deck_payload_and_superstructure",components[2])}
     <plugin filename="libSimpleHydrodynamics.so" name="vrx::SimpleHydrodynamics"><link_name>base_link</link_name><xDotU>0</xDotU><yDotV>0</yDotV><nDotR>0</nDotR><xU>${Xu}</xU><xUU>${Xuu}</xUU><yV>${Yv}</yV><yVV>${Yvv}</yVV><zW>0</zW><kP>0</kP><mQ>0</mQ><nR>${Nr}</nR><nRR>${Nrr}</nRR></plugin>
 ${thruster(port)}
 ${thruster(starboard)}
-    <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher"><publish_model_pose>true</publish_model_pose><publish_link_pose>true</publish_link_pose><use_pose_vector_msg>true</use_pose_vector_msg><static_publisher>false</static_publisher></plugin>
+${options.leanTransport?"":'    <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher"><publish_model_pose>true</publish_model_pose><publish_link_pose>true</publish_link_pose><use_pose_vector_msg>true</use_pose_vector_msg><static_publisher>false</static_publisher></plugin>'}
     <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher"><odom_publish_frequency>20</odom_publish_frequency><odom_topic>odometry</odom_topic><dimensions>3</dimensions></plugin>
   </model>
 </sdf>\n`;
 }
 
-export function renderSurveyorVrxWorld(){return `<?xml version="1.0"?>
-<sdf version="1.10"><world name="surveyor_vrx"><physics name="vrx_physics" type="dart"><max_step_size>0.05</max_step_size><real_time_factor>1</real_time_factor></physics><gravity>0 0 -9.81</gravity><include><uri>model://surveyor</uri><pose>0 0 0.05 0 0 0</pose></include><plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/><plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/><plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/><plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"/><plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/><plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat"/><plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact"/></world></sdf>\n`;}
+export function renderSurveyorVrxWorld(options:{leanTransport?:boolean}={}){return `<?xml version="1.0"?>
+<sdf version="1.10"><world name="surveyor_vrx"><physics name="vrx_physics" type="dart"><max_step_size>0.05</max_step_size><real_time_factor>1</real_time_factor></physics><gravity>0 0 -9.81</gravity><include><uri>model://surveyor</uri><pose>0 0 0.05 0 0 0</pose></include><plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/><plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>${options.leanTransport?"":'<plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>'}<plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"/><plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/><plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat"/><plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact"/></world></sdf>\n`;}
 
 export function prepareVrxSurveyor(out=resolve(ROOT,"artifacts/rl-campaign/vrx-surveyor-runtime")){
   const mass=source.mass_properties.mass_kg.value,inertia=source.mass_properties.inertia_tensor_body_kg_m2.diagonal,[port,starboard]=source.propulsion.effectors;
