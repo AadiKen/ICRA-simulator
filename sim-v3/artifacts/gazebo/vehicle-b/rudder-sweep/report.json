@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-b-rudder-response-diagnostic",
+  "status": "diagnostic-only",
+  "method": {
+    "input": "same applied thrust and rudder histories",
+    "summary_window_s": 5,
+    "reported_response": "mean yaw rate and speed-normalized yaw curvature; Node-only rudder yaw moment included",
+    "fixed_speed_caveat": "Open-loop propeller input is fixed, not surge speed. The observed mean speed magnitude is reported at every angle. Curvature r/U is included as a speed-normalized secondary diagnostic, but is not identical to a controlled fixed-speed force test."
+  },
+  "curve_fits": {
+    "yaw_rate": {
+      "quantity": "yaw_rate_rad_s",
+      "model": "gazebo = gain * node",
+      "gain": 1.2898348164711853,
+      "rmse": 0.03013274398388806,
+      "response_rms": 0.2193605651533516,
+      "relative_rmse": 0.13736627621661499,
+      "consistent_scalar_multiple": false,
+      "classification_threshold": "relative RMSE <= 0.05"
+    },
+    "speed_normalized_curvature": {
+      "quantity": "yaw_rate_per_speed_rad_m",
+      "model": "gazebo = gain * node",
+      "gain": 1.9375792872918576,
+      "rmse": 0.025838780192926916,
+      "response_rms": 0.23841000180663455,
+      "relative_rmse": 0.10837959815915688,
+      "consistent_scalar_multiple": false,
+      "classification_threshold": "relative RMSE <= 0.05"
+    }
+  },
+  "rows": [
+    {
+      "rudder_rad": -0.35,
+      "rudder_deg": -20.05352282957881,
+      "node": {
+        "mean_applied_rudder_rad": -0.35000000000000064,
+        "mean_speed_mps": 1.2564262930710113,
+        "mean_yaw_rate_ned_rad_s": -0.23752651859240037,
+        "mean_rudder_yaw_moment_nm": -248.11729210017842
+      },
+      "gazebo": {
+        "mean_speed_mps": 0.8845498009123699,
+        "mean_yaw_rate_ned_rad_s": -0.30987326642854507
+      }
+    },
+    {
+      "rudder_rad": -0.25,
+      "rudder_deg": -14.32394487827058,
+      "node": {
+        "mean_applied_rudder_rad": -0.24999999999999997,
+        "mean_speed_mps": 1.4424996414285594,
+        "mean_yaw_rate_ned_rad_s": -0.19492301092678424,
+        "mean_rudder_yaw_moment_nm": -152.86886616570834
+      },
+      "gazebo": {
+        "mean_speed_mps": 0.9547634356556307,
+        "mean_yaw_rate_ned_rad_s": -0.2794906523722638
+      }
+    },
+    {
+      "rudder_rad": -0.15,
+      "rudder_deg": -8.594366926962348,
+      "node": {
+        "mean_applied_rudder_rad": -0.15000000000000024,
+        "mean_speed_mps": 1.6548822319080796,
+        "mean_yaw_rate_ned_rad_s": -0.129599032571046,
+        "mean_rudder_yaw_moment_nm": -70.75166870842018
+      },
+      "gazebo": {
+        "mean_speed_mps": 1.0217943524663429,
+        "mean_yaw_rate_ned_rad_s": -0.11845057092119697
+      }
+    },
+    {
+      "rudder_rad": -0.08,
+      "rudder_deg": -4.583662361046586,
+      "node": {
+        "mean_applied_rudder_rad": -0.08000000000000006,
+        "mean_speed_mps": 1.7690872556698516,
+        "mean_yaw_rate_ned_rad_s": -0.07397777176714071,
+        "mean_rudder_yaw_moment_nm": -27.4726930796469
+      },
+      "gazebo": {
+        "mean_speed_mps": 0.9696076831675973,
+        "mean_yaw_rate_ned_rad_s": -0.07766363557745766
+      }
+    },
+    {
+      "rudder_rad": 0,
+      "rudder_deg": 0,
+      "node": {
+        "mean_applied_rudder_rad": 0,
+        "mean_speed_mps": 1.8559021852143158,
+        "mean_yaw_rate_ned_rad_s": 0.0006385302618888565,
+        "mean_rudder_yaw_moment_nm": -1.479369864809591
+      },
+      "gazebo": {
+        "mean_speed_mps": 0.6775161246279202,
+        "mean_yaw_rate_ned_rad_s": -0.0008739508062766609
+      }
+    },
+    {
+      "rudder_rad": 0.08,
+      "rudder_deg": 4.583662361046586,
+      "node": {
+        "mean_applied_rudder_rad": 0.08000000000000006,
+        "mean_speed_mps": 1.7690208240210297,
+        "mean_yaw_rate_ned_rad_s": 0.07166147536258288,
+        "mean_rudder_yaw_moment_nm": 30.62976404137182
+      },
+      "gazebo": {
+        "mean_speed_mps": 0.9743483508089946,
+        "mean_yaw_rate_ned_rad_s": 0.07716387808566198
+      }
+    },
+    {
+      "rudder_rad": 0.15,
+      "rudder_deg": 8.594366926962348,
+      "node": {
+        "mean_applied_rudder_rad": 0.15000000000000024,
+        "mean_speed_mps": 1.6560254322231345,
+        "mean_yaw_rate_ned_rad_s": 0.12894433959708743,
+        "mean_rudder_yaw_moment_nm": 73.36700476888743
+      },
+      "gazebo": {
+        "mean_speed_mps": 1.017339305844324,
+        "mean_yaw_rate_ned_rad_s": 0.11681413785265464
+      }
+    },
+    {
+      "rudder_rad": 0.25,
+      "rudder_deg": 14.32394487827058,
+      "node": {
+        "mean_applied_rudder_rad": 0.24999999999999997,
+        "mean_speed_mps": 1.463995934027186,
+        "mean_yaw_rate_ned_rad_s": 0.1892099366352236,
+        "mean_rudder_yaw_moment_nm": 165.0726922587637
+      },
+      "gazebo": {
+        "mean_speed_mps": 0.9469055242004478,
+        "mean_yaw_rate_ned_rad_s": 0.27423649979474457
+      }
+    },
+    {
+      "rudder_rad": 0.35,
+      "rudder_deg": 20.05352282957881,
+      "node": {
+        "mean_applied_rudder_rad": 0.35000000000000064,
+        "mean_speed_mps": 1.2568363777983749,
+        "mean_yaw_rate_ned_rad_s": 0.22973019565773192,
+        "mean_rudder_yaw_moment_nm": 265.0089809393384
+      },
+      "gazebo": {
+        "mean_speed_mps": 0.8828073402221154,
+        "mean_yaw_rate_ned_rad_s": 0.3097553092342346
+      }
+    }
+  ],
+  "interpretation": "A scalar gain does not explain both the yaw-rate and speed-normalized curvature curves; angle-dependent structure, stall/saturation, or coupled hull-speed response remains.",
+  "claim_limit": "Diagnostic comparison only; no parameter was tuned and the preregistered Vehicle B gate is unchanged."
+}

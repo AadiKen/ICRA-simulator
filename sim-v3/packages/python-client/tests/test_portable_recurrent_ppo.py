@@ -3,6 +3,7 @@ from pathlib import Path
 import unittest
 
 import numpy as np
+import json
 
 
 SCRIPT = Path(__file__).resolve().parents[3] / "validation/rl-campaign/train_portable_ppo.py"
@@ -31,6 +32,28 @@ class FakeRecurrentModel:
 
 
 class PortableRecurrentPPOTest(unittest.TestCase):
+    def test_gazebo_algorithm_config_is_byte_identical_to_bcod(self):
+        bcod = MODULE.algorithm_config_bytes("bcod-sim")
+        gazebo = MODULE.algorithm_config_bytes("gazebo-harmonic")
+        self.assertEqual(gazebo, bcod)
+        config = json.loads(gazebo)
+        self.assertEqual(config["algorithm"], "RecurrentPPO")
+        self.assertEqual(config["policy"], "MlpLstmPolicy")
+        self.assertEqual(config["ent_coef"], 0.005)
+        self.assertEqual(config["policy_kwargs"], {
+            "enable_critic_lstm": True,
+            "lstm_hidden_size": 128,
+            "net_arch": [128, 128],
+        })
+
+    def test_entropy_coefficient_is_read_from_bcod_protocol_artifact(self):
+        provenance = MODULE.algorithm_provenance("gazebo-harmonic")
+        self.assertEqual(
+            provenance["ent_coef_source"],
+            "artifacts/rl-campaign/surveyor/15-field-rerun-preregistration.json",
+        )
+        self.assertEqual(provenance["contract_sha256"], MODULE.FROZEN_CONTRACT_SHA256)
+
     def test_evaluation_threads_lstm_state_and_resets_each_episode(self):
         model = FakeRecurrentModel()
         result = MODULE.evaluate_recurrent(model, FakeEnv, 10, 2)

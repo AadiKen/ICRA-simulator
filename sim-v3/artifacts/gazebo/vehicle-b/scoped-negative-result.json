@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-b-scoped-cross-implementation-negative-result",
+  "status": "cross-implementation-consistency-scoped-negative",
+  "gazebo_version": "8.15.0",
+  "supported_findings": [
+    "Straight-step and chirp probes passed every preregistered trajectory tolerance.",
+    "Positive and negative sustained-rudder probes failed yaw RMSE and final yaw limits; both narrowly failed final horizontal-position limits.",
+    "All thrust, rudder, yaw and ENU-to-NED direction checks passed.",
+    "The best scalar yaw-rate mapping left 0.137 relative RMSE, and the speed-normalized curvature mapping left 0.108 relative RMSE, against a diagnostic 0.05 scalar-multiple threshold.",
+    "The disagreement is angle/speed dependent and is not explained by a single LiftDrag gain change."
+  ],
+  "mechanism_hypothesis": {
+    "status": "plausible-not-isolated-by-ablation",
+    "bcod_sim": "MMG rudder force includes propeller-race inflow and hull/rudder interaction through wake and interaction terms including gamma_R, a_H and x_H.",
+    "gazebo": "Stock LiftDrag treats the rudder as a foil in its local freestream and does not implement the MMG propeller-race and hull-interaction formulation.",
+    "interpretation": "Those omitted mechanisms are consistent with the observed angle/speed dependence, but this diagnostic does not uniquely attribute the residual to them."
+  },
+  "corroboration": "The result independently localizes the weak agreement to rudder/yaw response, consistent with the existing held-out MARIN zig-zag transient failures. This is corroboration of a scoped weakness, not an additional validation pass.",
+  "excluded_actions": [
+    "No custom MMG Gazebo plugin was introduced.",
+    "No LiftDrag coefficient was fitted to bcod-sim output.",
+    "No preregistered tolerance was changed."
+  ],
+  "validation_status_unchanged": "model-structure-trajectory-scored-fail",
+  "is_real_world_validation": false,
+  "source_artifacts": [
+    "artifacts/gazebo/vehicle-b/report.json",
+    "artifacts/gazebo/vehicle-b/rudder-sweep/report.json",
+    "artifacts/gazebo/vehicle-b/turning-diagnostic/report.json",
+    "validation/external-references/kvlcc2-marin/artifacts/kvlcc2-marin-trajectory-comparison.json"
+  ]
+}

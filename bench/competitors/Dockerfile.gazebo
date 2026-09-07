@@ -1,0 +1,29 @@
+# Gazebo Harmonic has no current official Gazebo Docker base image. The
+# approved reproducible substitute follows Gazebo's official Noble APT install
+# instructions on a Docker Official Ubuntu image, both pinned exactly.
+FROM --platform=linux/amd64 ubuntu@sha256:019e8eb29a85e74d64925745884f2ec79aa27e3feab36353d24656f4d6b89467
+
+ARG GAZEBO_HARMONIC_PACKAGE_VERSION=1.0.0-1~noble
+ARG GAZEBO_REPOSITORY_KEY_DIGEST=15d0300460e0c9c0efb21fa9770c0bf228988a07d71c4fac985c2161954a25a4
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    TZ=Etc/UTC
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       ca-certificates \
+       curl \
+       gnupg \
+    && curl -fsSL https://packages.osrfoundation.org/gazebo.gpg \
+       -o /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg \
+    && echo "${GAZEBO_REPOSITORY_KEY_DIGEST}  /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg" \
+       | sha256sum --strict --check - \
+    && echo "deb [arch=amd64 signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] https://packages.osrfoundation.org/gazebo/ubuntu-stable noble main" \
+       > /etc/apt/sources.list.d/gazebo-stable.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
+       "gz-harmonic=${GAZEBO_HARMONIC_PACKAGE_VERSION}" \
+    && rm -rf /var/lib/apt/lists/*
+
+# Official Gazebo documentation's server-only sample-world launch.
+CMD ["gz", "sim", "--force-version", "8", "-s", "-r", "-v", "4", "shapes.sdf"]

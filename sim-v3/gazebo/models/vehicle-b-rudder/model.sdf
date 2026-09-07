@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="vehicle-b-rudder">
+    <pose>0 0 0.02 0 0 0</pose>
+    <link name="base_link">
+      <inertial><mass>739.1</mass><inertia><ixx>94.23525</ixx><iyy>991.0099166666668</iyy><izz>1074.1586666666667</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia><fluid_added_mass><xx>53.45188104433584</xx><yy>456.3418916895755</yy><zz>2403.933173311076</zz><pp>37.05301877157964</pp><qq>1032.6807912708389</qq><rr>435.34948236272845</rr></fluid_added_mass></inertial>
+      <collision name="buoyant_hull"><pose>-0.00305 0 0.077111633 0 0 0</pose><geometry><box><size>4 1.2 0.154223267</size></box></geometry></collision>
+      <visual name="hull_visual"><pose>0 0 0.08 0 0 0</pose><geometry><box><size>4 1.2 0.3</size></box></geometry><material><diffuse>0.10 0.30 0.58 1</diffuse></material></visual>
+    </link>
+    <link name="propeller_link"><pose>-1.85 0 -0.20 0 0 0</pose><inertial><mass>1</mass><inertia><ixx>0.002</ixx><iyy>0.002</iyy><izz>0.002</izz></inertia></inertial><collision name="collision"><geometry><cylinder><radius>0.1</radius><length>0.02</length></cylinder></geometry></collision></link>
+    <joint name="propeller_joint" type="revolute"><parent>base_link</parent><child>propeller_link</child><axis><xyz>1 0 0</xyz></axis></joint>
+    <link name="rudder_link"><pose>-1.96 0 -0.18 0 0 0</pose><inertial><mass>2</mass><inertia><ixx>0.0167</ixx><iyy>0.0217</iyy><izz>0.005</izz></inertia></inertial><collision name="collision"><geometry><box><size>0.20 0.02 0.30</size></box></geometry></collision><visual name="visual"><geometry><box><size>0.20 0.02 0.30</size></box></geometry></visual></link>
+    <joint name="rudder_joint" type="revolute"><parent>base_link</parent><child>rudder_link</child><axis><xyz>0 0 1</xyz><limit><lower>-0.61</lower><upper>0.61</upper><effort>1000</effort><velocity>0.261799</velocity></limit><dynamics><damping>2</damping></dynamics></axis></joint>
+    <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><namespace>vehicle-b-rudder</namespace><joint_name>propeller_joint</joint_name><use_angvel_cmd>false</use_angvel_cmd><thrust_coefficient>0.004422</thrust_coefficient><fluid_density>1000</fluid_density><propeller_diameter>0.2</propeller_diameter><velocity_control>true</velocity_control><min_thrust_cmd>-1000</min_thrust_cmd><max_thrust_cmd>1000</max_thrust_cmd><wake_fraction>0.2</wake_fraction></plugin>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController"><joint_name>rudder_joint</joint_name><p_gain>50</p_gain><i_gain>0</i_gain><d_gain>5</d_gain><i_max>0</i_max><i_min>0</i_min><cmd_max>1000</cmd_max><cmd_min>-1000</cmd_min><topic>/model/vehicle-b-rudder/joint/rudder_joint/0/cmd_pos</topic></plugin>
+    <plugin filename="gz-sim-lift-drag-system" name="gz::sim::systems::LiftDrag"><air_density>1000</air_density><cla>4.13</cla><cla_stall>-1.1</cla_stall><cda>0.2</cda><cda_stall>0.03</cda_stall><alpha_stall>0.17</alpha_stall><a0>0</a0><area>0.06</area><upward>0 1 0</upward><forward>1 0 0</forward><link_name>rudder_link</link_name><cp>0 0 0</cp></plugin>
+    <plugin filename="gz-sim-hydrodynamics-system" name="gz::sim::systems::Hydrodynamics"><link_name>base_link</link_name><xU>-82.28807338062298</xU><yV>-215.55099351107035</yV><zW>-1633.381479045514</zW><kP>-1.455665796014495</kP><mQ>-444.51732840631476</mQ><nR>-520.0630379120489</nR><xUabsU>-45</xUabsU><yVabsV>-300</yVabsV><zWabsW>-380</zWabsW><kPabsP>-0.0013929381840742732</kPabsP><mQabsQ>-500</mQabsQ><nRabsR>-650</nRabsR></plugin>
+    <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher"><publish_model_pose>true</publish_model_pose><publish_link_pose>false</publish_link_pose><use_pose_vector_msg>true</use_pose_vector_msg><static_publisher>false</static_publisher><update_frequency>20</update_frequency></plugin>
+    <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher"><odom_publish_frequency>20</odom_publish_frequency><odom_topic>/model/vehicle-b-rudder/odometry</odom_topic><dimensions>3</dimensions></plugin>
+  </model>
+</sdf>

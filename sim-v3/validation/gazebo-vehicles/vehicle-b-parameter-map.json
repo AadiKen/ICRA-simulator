@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gazebo-harmonic-vehicle-parameter-map",
+  "vehicle": "vehicle-b-rudder",
+  "gazebo_version": "8.15.0",
+  "claim_scope": "Cross-implementation consistency configuration; not physical validation.",
+  "sources": [
+    "packages/vehicle-sdk/src/index.ts",
+    "artifacts/capytaine/vehicle-b-parametric.json",
+    "validation/hulls/vehicle-hull-specification.md",
+    "/usr/share/gz/gz-sim8/worlds/auv_controls.sdf in the pinned 8.15 image"
+  ],
+  "geometry_and_rigid_body": {
+    "length_m": {"value": 4.0, "source": "vehicle-sdk design assumption"},
+    "beam_m": {"value": 1.2, "source": "vehicle-sdk design assumption"},
+    "draft_m": {"value": 0.3, "source": "vehicle-sdk design assumption"},
+    "mass_kg": {"value": 739.1, "source": "vehicle-sdk geometry-derived displaced mass"},
+    "inertia_kg_m2": {
+      "value": [94.23525, 991.0099166666668, 1074.1586666666667],
+      "derivation": "Uniform 4.0 x 1.2 x 0.3 m box: Ixx=m(b^2+d^2)/12, Iyy=m(L^2+d^2)/12, Izz=m(L^2+b^2)/12.",
+      "triangle_inequality": "passed: 1074.1586666666667 <= 94.23525 + 991.0099166666668"
+    }
+  },
+  "hydrodynamics": [
+    {"parameter": "xDotU", "value": -53.45188104433584, "unit": "kg", "source": "Capytaine omega=1.5 rad/s added_mass[0,0]", "conversion": "Gazebo legacy added-mass sign convention: negative of positive Capytaine coefficient"},
+    {"parameter": "yDotV", "value": -456.3418916895755, "unit": "kg", "source": "Capytaine omega=1.5 rad/s added_mass[1,1]", "conversion": "negative diagonal"},
+    {"parameter": "zDotW", "value": -2403.933173311076, "unit": "kg", "source": "Capytaine omega=1.5 rad/s added_mass[2,2]", "conversion": "negative diagonal"},
+    {"parameter": "kDotP", "value": -37.05301877157964, "unit": "kg m^2", "source": "Capytaine omega=1.5 rad/s added_mass[3,3]", "conversion": "negative diagonal"},
+    {"parameter": "mDotQ", "value": -1032.6807912708389, "unit": "kg m^2", "source": "Capytaine omega=1.5 rad/s added_mass[4,4]", "conversion": "negative diagonal"},
+    {"parameter": "nDotR", "value": -435.34948236272845, "unit": "kg m^2", "source": "Capytaine omega=1.5 rad/s added_mass[5,5]", "conversion": "negative diagonal"},
+    {"parameter": "xU", "value": -82.28807338062298, "unit": "N s/m", "source": "80 empirical linear viscous + 2.288073380622984 Capytaine radiation", "conversion": "negative resisting-force coefficient"},
+    {"parameter": "yV", "value": -215.55099351107035, "unit": "N s/m", "source": "210 empirical linear viscous + 5.550993511070351 Capytaine radiation", "conversion": "negative resisting-force coefficient"},
+    {"parameter": "zW", "value": -1633.381479045514, "unit": "N s/m", "source": "320 empirical linear viscous + 1313.381479045514 Capytaine radiation", "conversion": "negative resisting-force coefficient"},
+    {"parameter": "kP", "value": -1.455665796014495, "unit": "N m s/rad", "source": "1.1099326722941965 Ikeda lower bound + 0.3457331237202985 Capytaine radiation", "conversion": "negative resisting-moment coefficient"},
+    {"parameter": "mQ", "value": -444.51732840631476, "unit": "N m s/rad", "source": "410 empirical linear viscous + 34.51732840631476 Capytaine radiation", "conversion": "negative resisting-moment coefficient"},
+    {"parameter": "nR", "value": -520.0630379120489, "unit": "N m s/rad", "source": "520 empirical linear viscous + 0.06303791204892269 Capytaine radiation", "conversion": "negative resisting-moment coefficient"},
+    {"parameter": "xUabsU", "value": -45, "unit": "N s^2/m^2", "source": "vehicle-sdk empirical quadratic diagonal", "conversion": "negative resisting-force coefficient"},
+    {"parameter": "yVabsV", "value": -300, "unit": "N s^2/m^2", "source": "vehicle-sdk empirical quadratic diagonal", "conversion": "negative resisting-force coefficient"},
+    {"parameter": "zWabsW", "value": -380, "unit": "N s^2/m^2", "source": "vehicle-sdk empirical quadratic diagonal", "conversion": "negative resisting-force coefficient"},
+    {"parameter": "kPabsP", "value": -0.0013929381840742732, "unit": "N m s^2/rad^2", "source": "tracked Ikeda zero-speed lower bound", "conversion": "negative resisting-moment coefficient"},
+    {"parameter": "mQabsQ", "value": -500, "unit": "N m s^2/rad^2", "source": "vehicle-sdk empirical quadratic diagonal", "conversion": "negative resisting-moment coefficient"},
+    {"parameter": "nRabsR", "value": -650, "unit": "N m s^2/rad^2", "source": "vehicle-sdk empirical quadratic diagonal", "conversion": "negative resisting-moment coefficient"}
+  ],
+  "thruster": {
+    "joint_name": {"value": "propeller_joint", "source": "Vehicle B propeller topology"},
+    "thrust_coefficient": {"value": 0.004422, "source": "explicitly flagged Gazebo LRAUV tutorial default; Vehicle B has no measured open-water propeller curve"},
+    "fluid_density": {"value": 1000, "unit": "kg/m^3", "source": "Gazebo tutorial freshwater default"},
+    "propeller_diameter": {"value": 0.2, "unit": "m", "source": "explicitly flagged Gazebo LRAUV tutorial default; no Vehicle B propeller diameter is recorded"},
+    "wake_fraction": {"value": 0.2, "source": "Gazebo 8.15 documented default, made explicit"},
+    "alpha_1": {"value": 1.0, "source": "Gazebo 8.15 documented default, made explicit"},
+    "alpha_2": {"value": 0.0, "source": "Gazebo 8.15 documented default, made explicit"}
+  },
+  "rudder_lift_drag": {
+    "air_density": {"value": 1000, "unit": "kg/m^3", "source": "water density; Gazebo retains historical element name"},
+    "cla": {"value": 4.13, "source": "explicitly flagged LRAUV tutorial default; no Vehicle B lift-curve measurement"},
+    "cla_stall": {"value": -1.1, "source": "explicitly flagged LRAUV tutorial default"},
+    "cda": {"value": 0.2, "source": "explicitly flagged LRAUV tutorial default"},
+    "cda_stall": {"value": 0.03, "source": "explicitly flagged LRAUV tutorial default"},
+    "alpha_stall_rad": {"value": 0.17, "source": "explicitly flagged LRAUV tutorial default"},
+    "a0_rad": {"value": 0, "source": "symmetric control surface assumption"},
+    "area_m2": {"value": 0.06, "source": "geometry-derived 0.30 m span x 0.20 m chord design surface"},
+    "upward": {"value": [0, 1, 0], "source": "vertical rudder lift direction in model frame"},
+    "forward": {"value": [1, 0, 0], "source": "Vehicle B bow is +X in Gazebo model frame"},
+    "cp_m": {"value": [0, 0, 0], "source": "rudder link frame placed at recorded x=-1.96 m"}
+  },
+  "translation_assessment": "Gazebo 8.15 consumes added mass through inertial.fluid_added_mass using positive Capytaine coefficients and Hydrodynamics consumes damping with negative resisting-force signs. This avoids the legacy tutorial's negative added-mass plugin form, which made the surface craft's augmented mass indefinite. MMG propeller/rudder interaction derivatives cannot be consumed directly by LiftDrag; the rudder therefore retains explicitly marked geometry/tutorial defaults and is a separate independent approximation. alpha_1 and alpha_2 were verified present in 8.15 but are intentionally omitted because 8.15 warns they are ignored when thrust_coefficient is supplied directly."
+}

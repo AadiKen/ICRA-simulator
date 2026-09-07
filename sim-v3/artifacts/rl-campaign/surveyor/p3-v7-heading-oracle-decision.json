@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "p3-v7-heading-oracle-matched-budget-decision",
+  "status": "COMPLETE_BRANCH_A_NO_FURTHER_RUN_AUTHORIZED",
+  "diagnostic_only": true,
+  "matched_budget": {
+    "nominal_steps": 250000,
+    "oracle_rollout_aligned_steps": 253952,
+    "held_out_seeds": [30000, 30049],
+    "v6_feedforward_no_oracle_success_rate": 0.04,
+    "v7_recurrent_no_oracle_success_rate": 0.06,
+    "v7_recurrent_heading_oracle_success_rate": 0.24,
+    "oracle_multiple_vs_v7": 4.0,
+    "oracle_multiple_vs_v6": 6.0,
+    "oracle_median_return": -372.018502074255
+  },
+  "branch": {
+    "selected": "A",
+    "conclusion": "Heading availability is a material bottleneck. The recurrent policy failed to extract a sufficiently useful heading representation from the contract observation.",
+    "claim_limit": "The oracle result does not establish that heading is the only bottleneck or that a contract-compliant representation-learning change will reach the classical baseline."
+  },
+  "top_candidate_check": {
+    "candidate": "effective BPTT window versus required integration horizon",
+    "n_steps": 512,
+    "batch_size": 512,
+    "parallel_environments": 16,
+    "control_interval_s": 0.1,
+    "maximum_rollout_BPTT_window_s": 51.2,
+    "typical_minibatch_sequences": "A 512-sample contiguous minibatch generally crosses one boundary in the environment-major flattened rollout and is split into two recurrent sequences.",
+    "mean_sequence_length_steps": 256,
+    "mean_sequence_length_s": 25.6,
+    "successful_closest_approach_time_median_s": 42.0,
+    "successful_closest_approach_time_interquartile_s": [29.35, 49.75],
+    "failed_closest_approach_time_median_s": 12.65,
+    "failed_closest_approach_time_interquartile_s": [0.1, 26.3],
+    "non_approach_failures": 34,
+    "total_failures": 40,
+    "result": "SUPPORTED_AS_PLAUSIBLE_BINDING_CAUSE_REQUIRES_ISOLATED_TEST",
+    "reason": "The typical 25.6-second training sequence is shorter than the 42.0-second median successful approach and its 29.35-49.75 second interquartile range. The nominal n_steps value overstates the effective sequence horizon because batch boundaries split recurrent sequences.",
+    "test_design_constraint": "Increasing n_steps alone while leaving batch_size=512 does not increase the maximum minibatch BPTT sequence beyond 512 samples. Any isolated longer-window test must change the recurrent minibatch construction or increase n_steps and batch_size together, while holding the architecture, observations, reward, and total matched budget fixed."
+  },
+  "next_candidate_if_authorized": "Run one matched-budget recurrent diagnostic with a genuinely longer effective BPTT sequence by changing n_steps and batch_size together; do not add an auxiliary loss in the same run.",
+  "prohibitions": [
+    "No Phase 2 from the oracle policy.",
+    "No oracle policy in contract-compliant reports.",
+    "No budget extension based only on the late hidden-state probe improvement.",
+    "No auxiliary-loss, longer-window, entropy, or reward-shaping experiment is authorized by this artifact."
+  ]
+}

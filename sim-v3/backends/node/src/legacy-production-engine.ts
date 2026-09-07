@@ -13,7 +13,7 @@ import {LocalGeographicFrame} from "../../../packages/environment/src/geography.
 import {SURVEYOR_PUBLIC_SPEC,SurveyorGuidanceMapper,validateSurveyorMission} from "../../../packages/vehicle-sdk/src/surveyor.ts";
 import {VehicleParameters} from "../../../core/vehicleParameters.js";
 
-export interface ProductionAction {waypoints?:Array<{north_m:number;east_m:number}|{lat:number;lon:number}>;active_sensors?:string[];actuators?:{propeller_rps?:number;rudder_rad?:number;surgeForce?:number;yawMoment?:number;desiredWrench?:number[];effectors?:Record<string,{command?:number}>}}
+export interface ProductionAction {waypoints?:Array<{north_m:number;east_m:number}|{lat:number;lon:number}>;active_sensors?:string[];actuators?:{propeller_rps?:number;rudder_rad?:number;surgeForce?:number;yawMoment?:number;desiredWrench?:number[];effectors?:Record<string,{command?:number;azimuth?:number}>}}
 function restoreVectorPrototypes(value:any):void{if(!value||typeof value!=="object")return;if(!Array.isArray(value)&&Number.isFinite(value.x)&&Number.isFinite(value.y)&&Number.isFinite(value.z)&&value.w===undefined)Object.setPrototypeOf(value,vec3.prototype);for(const child of Object.values(value))restoreVectorPrototypes(child);}
 
 export class LegacyProductionEngine implements SimulationEngine {

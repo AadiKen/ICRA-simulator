@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-b-rudder-transient-bound-sensitivity-protocol",
+  "date": "2026-09-04",
+  "status": "registered-before-task2-results",
+  "scope": "New diagnostic analysis only; the original identification, preregistered Vehicle B protocol, and scoped-negative-result artifact remain unchanged.",
+  "source_fit": "validation/external-references/kvlcc2-marin/artifacts/identification/identification-report.json",
+  "source_bound_rule": "coefficient = baseline + q * max(abs(baseline), 0.05), with q constrained to [-2, 2]",
+  "source_audit": {
+    "prompt_claimed_bound_hit_count": 3,
+    "reproducible_final_bound_hit_count": 2,
+    "rule": "abs(abs(q) - 2) <= 1e-9",
+    "bound_hits": [
+      {"coefficient": "Y_R", "baseline": 0.083, "identified": -0.083, "q": -2, "original_bounds": [-0.083, 0.249]},
+      {"coefficient": "X_vr", "baseline": 0.002, "identified": -0.098, "q": -2, "original_bounds": [-0.098, 0.102]}
+    ],
+    "discrepancy_disposition": "No third coefficient is designated: the immutable source artifact has only two final values at a bound. N_rrr, the closest remaining normalized magnitude, is q=1.227368934 and is not a bound hit."
+  },
+  "relaxed_bounds": {
+    "Y_R": {"q": [-10, 10], "coefficient": [-0.747, 0.913]},
+    "X_vr": {"q": [-10, 10], "coefficient": [-0.498, 0.502]},
+    "all_other_fitted_coefficients": {"q": [-2, 2], "policy": "unchanged"},
+    "rationale": "Widen each reproducible active bound by 5x in normalized half-width. This is a fixed substantial relaxation, selected before rerunning, while retaining finite protection against numerical runaway and holding the data, residuals, ridge regularization, initialization, and iteration budget fixed."
+  },
+  "predictions": {
+    "tightly_bounded_prediction": "If the original constraints were merely too tight, at least one formerly pinned coefficient should converge away from the relaxed bounds and held-out zig-zag error should improve substantially.",
+    "underdetermined_prediction": "If turning-circle data do not constrain these terms, a formerly pinned coefficient will run to a relaxed bound or the fit will remain unstable/non-improving.",
+    "substantial_improvement_rule": "At least 20% reduction from the original fit in both the median held-out zig-zag heading RMSE and median held-out zig-zag yaw-rate RMSE; report every trajectory and IMO metric regardless.",
+    "stable_away_from_new_bound_rule": "abs(q) <= 9.5 for a relaxed coefficient (at least 5% of the relaxed half-width away from either boundary)."
+  },
+  "bound_provenance": {
+    "numeric_bounds": "Repository identification implementation choice in identify.mjs: +/-2 normalized scales around the literature baseline; no external literature source is cited for the numeric optimization bounds.",
+    "coefficient_baselines": "Yasukawa & Yoshimura (2015), Table 3, KVLCC2 captive-test/model coefficient parameterization, as recorded in validation/external-references/kvlcc2/kvlcc2-l7.json.",
+    "scale_caveat": "The baselines concern KVLCC2 model-structure analysis and are not Vehicle-B-USV coefficients."
+  }
+}

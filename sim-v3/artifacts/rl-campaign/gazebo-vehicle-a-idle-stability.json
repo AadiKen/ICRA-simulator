@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gazebo-vehicle-a-idle-stability",
+  "status": "PASS",
+  "runtime": {
+    "image": "icra27-gazebo-harmonic:harmonic-8.15.0",
+    "image_id": "174e8baad590",
+    "execution": "linux/amd64 emulation on Apple Silicon",
+    "timing_basis": "Gazebo simulation time",
+    "throughput_interpretation": "not representative under emulation"
+  },
+  "plant_audit": {
+    "mass_kg": 52.3,
+    "water_density_kg_m3": 1025,
+    "required_displaced_volume_m3": 0.05102439024390244,
+    "declared_proxy_full_volume_m3": 0.32808,
+    "buoyancy_collision_height_scale": 0.31104846527616703,
+    "equilibrium_submerged_fraction": 0.5,
+    "inertia_kg_m2": {
+      "ixx": 5.5058825,
+      "iyy": 13.4780586667,
+      "izz": 17.8912198333,
+      "derivation": "component box geometry plus parallel-axis theorem about the assumed CG",
+      "triangle_inequality_pass": true
+    },
+    "center_of_mass_body_m": [
+      0,
+      0,
+      -0.05
+    ],
+    "center_of_mass_status": "stability-fixture engineering assumption; source CG is unmeasured",
+    "center_of_buoyancy_z_at_equilibrium_m": -0.02230925148354192,
+    "metacentric_height_m": {
+      "transverse": 1.9638687121875864,
+      "longitudinal": 5.583521962665597
+    },
+    "hydrodynamic_damping": {
+      "linear": {
+        "Zw": -1200,
+        "Kp": -100,
+        "Mq": -250
+      },
+      "quadratic": {
+        "Zww": -200,
+        "Kpp": -20,
+        "Mqq": -50
+      },
+      "status": "unmeasured stability-fixture estimates"
+    },
+    "reset_lifecycle_fix": "fresh generated world initialized once; reset-all prohibited because it removes Harmonic buoyancy enabled-entity state"
+  },
+  "sdf_validation": {
+    "world": {
+      "passed": true,
+      "validation_method": "pinned Gazebo headless parse and load with model URI resolver",
+      "standalone_gz_sdf_note": "gz sdf -k does not install a model:// find callback; the included model is validated separately"
+    },
+    "model": {
+      "passed": true,
+      "output": "Valid."
+    }
+  },
+  "acceptance_tolerances": {
+    "vertical_displacement_m": 0.01,
+    "vertical_range_m": 0.02,
+    "horizontal_displacement_m": 0.01,
+    "max_speed_m_s": 0.05,
+    "max_abs_roll_pitch_deg": 5
+  },
+  "measurement": {
+    "ok": true,
+    "start_simulation_time_s": 0.56,
+    "end_simulation_time_s": 120.56,
+    "physics_steps": 2400,
+    "odometry_samples": 12000,
+    "start_position_enu_m": [
+      1.8866187159480915e-07,
+      -1.2902723441938056e-06,
+      -1.1456732667096071e-11
+    ],
+    "end_position_enu_m": [
+      -1.3694879364490805e-07,
+      9.366028201747038e-07,
+      1.535975565523209e-06
+    ],
+    "horizontal_displacement_m": 2.2505544434647934e-06,
+    "vertical_displacement_m": 1.535987022255876e-06,
+    "vertical_range_m": 5.196592474006129e-06,
+    "max_speed_m_s": 2.9625097782902687e-05,
+    "max_abs_roll_rad": 3.6049733860039964e-17,
+    "max_abs_pitch_rad": 0.0008967650792766407
+  },
+  "checks": {
+    "simulated_120_s": true,
+    "floats_without_sinking_or_launching": true,
+    "zero_command_no_net_motion": true,
+    "roll_bounded": true,
+    "pitch_bounded": true,
+    "sdf_validates_under_pinned_8_15": true,
+    "headless_world_loads": true
+  },
+  "all_checks_pass": true,
+  "training_authorized": false,
+  "next_step_started": false
+}

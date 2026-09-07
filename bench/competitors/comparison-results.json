@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-08-22",
+  "host": {
+    "os": "macOS on Apple Silicon (arm64)",
+    "container_platform": "linux/amd64",
+    "timing_caveat": "Every measured Docker timing below ran as linux/amd64 under ARM64 emulation on this macOS host; it is not representative of native-AMD64 installation or runtime timing."
+  },
+  "results": [
+    {
+      "tool": "Gazebo Harmonic",
+      "versions": {
+        "base": "ubuntu@sha256:019e8eb29a85e74d64925745884f2ec79aa27e3feab36353d24656f4d6b89467",
+        "gazebo_metapackage": "gz-harmonic=1.0.0-1~noble",
+        "gazebo_sim": "8.15.0"
+      },
+      "clean_install_to_first_sim_step": {
+        "methodology": "measured directly — linux/amd64 under ARM64 emulation; not native-AMD64 representative",
+        "clean_build_seconds": 561.22,
+        "first_step_seconds": 13.51,
+        "total_seconds": 574.73,
+        "manual_steps": 0,
+        "dependency_count": 817,
+        "scenario": "installed shapes.sdf; headless; seed=7319; iterations=1",
+        "evidence": ["evidence/gazebo-clean-build-20260821.log", "evidence/gazebo-first-step-20260821.log"]
+      },
+      "determinism": {
+        "methodology": "not obtainable — negative-control criterion not yet satisfied",
+        "scenario": "installed shapes.sdf; headless; seed=7319; iterations=50; recorded /world/shapes/dynamic_pose/info",
+        "same_seed": "not interpreted as validated",
+        "negative_control": "not validated: this stock physics scenario did not establish a seed-sensitive trajectory perturbation",
+        "evidence": "evidence/determinism/gazebo/"
+      }
+    },
+    {
+      "tool": "VRX (Virtual RobotX)",
+      "versions": {
+        "base": "ghcr.io/osrf/vrx-devel@sha256:6d018ab0c1cf0d6fe1f3bf266c9f1efac09cf9f6f40bc13ca437e5bbdaf7d1c4",
+        "ros": "ROS 2 Jazzy",
+        "gazebo_sim": "8.10.0",
+        "vrx_commit": "fda35961463c2ed8c44d6c646fe8ce773a3eaff1 (v3.0.1)"
+      },
+      "clean_install_to_first_sim_step": {
+        "methodology": "mixed: build measured directly; first-step measurement blocked in the recorded cold-cache attempt; linux/amd64 under ARM64 emulation, not native-AMD64 representative",
+        "clean_build": {"status": "measured", "seconds": 206.09},
+        "first_sim_step": {"status": "blocked", "seconds": null},
+        "first_step_seconds": null,
+        "total_seconds": null,
+        "manual_steps": 0,
+        "dependency_count": 5,
+        "failed_cold_attempt": {
+          "status": "measured unsuccessful install-friction cost",
+          "elapsed_to_command_end_seconds": 4159.45,
+          "blocking_failure": "libcurl: (6) Could not resolve host: fuel.gazebosim.org; the official sydney_regatta scenario could not download its public Fuel assets from an empty cache.",
+          "first_fuel_error_elapsed_seconds": null,
+          "first_fuel_error_elapsed_note": "Not instrumented in the 2026-08-21 run; 4159.45 s is the exact measured duration of the unsuccessful command, not an asserted time-to-first-error."
+        },
+        "2026-08-22_empty_cache_reprobe": "No DNS failure occurred during the bounded probe; Fuel download began. The probe was stopped before a first simulation step, so it is neither a successful clean timing nor a replacement for the failed-attempt measurement.",
+        "cached_run_timing": {"status": "not measured", "reason": "Cached Fuel runs were used only for determinism, never substituted for cold-install timing."},
+        "scenario": "official ros2 launch vrx_gz competition.launch.py world:=sydney_regatta headless:=True; empty named Fuel volume",
+        "evidence": ["evidence/vrx-clean-build-20260821.log", "evidence/vrx-first-step-20260821.log", "evidence/vrx-fuel-dns-failure-probe-20260822.log"]
+      },
+      "determinism": {
+        "methodology": "measured directly using cached public Fuel assets; cache use is scoped to determinism and is not an install timing",
+        "seed_wiring": {
+          "status": "confirmed",
+          "seed_7319_effective_gazebo_log": "Setting seed value: 7319",
+          "seed_7320_effective_gazebo_log": "Setting seed value: 7320"
+        },
+        "stock_physical_trajectory": {
+          "scenario": "official sydney_regatta + WAM-V, headless; --iterations 50; /world/sydney_regatta/dynamic_pose/info",
+          "same_seed": {"common_timestamps": 15, "trajectory_divergence_max": 0, "first_divergence_step": null, "status": "observed only"},
+          "altered_seed": {"common_timestamps": 17, "trajectory_divergence_max": 0, "first_divergence_step": null, "status": "expected seed-insensitive window"},
+          "root_cause": "not broken CLI wiring: the world hard-codes the VRX USVWind plugin random_seed=10 and configures zero variable-wind gain and zero wave amplitude, so the short passive WAM-V trajectory does not consume the Gazebo global seed."
+        },
+        "native_stochastic_imu_control": {
+          "scenario": "official sydney_regatta + WAM-V; headless; --iterations 100; configured Gaussian-noise IMU topic /world/sydney_regatta/model/wamv/link/wamv/imu_wamv_link/sensor/imu_wamv_sensor/imu",
+          "same_seed_7319": {"sample_count": 41, "sha256": "c6ea21a60fbde93de572f1bd3ab4357702cb438d8087b3837aa4ad8e048907ee", "bit_identical": true, "max_l2_divergence": 0, "first_divergence_sample": null},
+          "altered_seed_7320": {"sample_count": 41, "sha256": "5243c7b0542bd1a32ff388ec2dddb2e7f2a2d9facca27152bf69858e5ba389aa", "bit_identical": false, "max_l2_divergence": 0.19169947183025843, "first_divergence_sample": 1, "first_divergence_sim_time_ns": 4000000},
+          "negative_control": "passed"
+        },
+        "evidence": ["evidence/determinism/vrx/", "evidence/determinism/vrx-imu/"]
+      }
+    },
+    {
+      "tool": "MarineGym",
+      "clean_install_to_first_sim_step": {
+        "methodology": "not obtainable — cited official requirements; no run attempted",
+        "reason": "Ubuntu 24.04+/NVIDIA CUDA/RTX GPU requirement, ≥50GB disk, no digest-pinned official image available",
+        "sources": [
+          "https://marinegym.netlify.app/docker_environment",
+          "https://marinegym.netlify.app/installation_from_source"
+        ]
+      },
+      "determinism": {"methodology": "not obtainable — unsupported host; no emulated or unsupported run attempted"}
+    },
+    {
+      "tool": "bcod-sim",
+      "clean_install_to_first_sim_step": {
+        "methodology": "measured directly in earlier clean-clone check — warm local filesystem; NOT methodologically comparable to the competitors' cold Docker-container measurements or their AMD64-under-ARM64-emulation environment",
+        "total_seconds": 8.0,
+        "manual_steps": 0,
+        "scenario": "clone, npm ci, npm run build, npm run serve:web, three-step simulator smoke",
+        "evidence": "../../sim-v3/artifacts/phase0/T0.4_CLEAN_CLONE_REPORT.md"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "figure-5-benchmark-eligibility-audit",
+  "date": "2026-09-06",
+  "checkpoint": "artifacts/rl-campaign/surveyor/task-5-default-noise-ent-0p005-phase1-1p5m/seed-7319/phase1-1500000.zip",
+  "checkpoint_sha256": "160fd7251be1c6b2122ad9141f3fbb4030b18317e2b3815250821c7ddc8e22b4",
+  "original_evaluation": {
+    "path": "artifacts/rl-campaign/surveyor/task-5-default-noise-ent-0p005-phase1-1p5m/seed-7319/phase-1-report.json",
+    "checkpoint_steps": 1500000,
+    "episode_rows": 50,
+    "row_fields": ["seed", "success", "return", "termination_reason", "component_totals"],
+    "declared_episode_fields_present": 4,
+    "declared_episode_fields_total": 15,
+    "figure_eligible": false,
+    "reason": "The original rows predate the episode-schema repair and lack task, simulator, vehicle, policy, timing, collision, and host metadata."
+  },
+  "checkpoint_reevaluation": {
+    "path": "artifacts/rl-campaign/surveyor/task-5-default-noise-ent-0p005-phase1-1p5m/seed-7319/phase1-1500000-episode-schema-v1.json",
+    "sha256": "b229e0f2ac0b9b353f930e196168e8af21b63d1354a10182792d553251d9218b",
+    "training_performed": false,
+    "evaluation_seeds": [30000, 30049],
+    "episode_rows": 50,
+    "all_15_declared_fields_present_in_order": true,
+    "original_success_rate": 0.66,
+    "reevaluated_success_rate": 0.66,
+    "host_class": "local",
+    "usable_for_local_same-host-class_analysis": true,
+    "eligible_as_cluster_headline_measurement": false
+  },
+  "cluster_platform_metadata": {
+    "source": "artifacts/rl-campaign/platform-discovery.json",
+    "per_node_core_count": null,
+    "gpu_model": null,
+    "complete": false,
+    "finding": "No cluster endpoint, scheduler allocation, core count, or GPU model is available. No Delta execution can be claimed from current artifacts."
+  },
+  "writer_host_class_guard": {
+    "explicit_environment_variable": "BCOD_HOST_CLASS",
+    "slurm_auto_detection": "SLURM_JOB_ID implies cluster when no explicit class is supplied",
+    "default_without_cluster_evidence": "local",
+    "invalid_values_rejected": true
+  },
+  "disposition": "Use the repaired rows only for comparisons whose required host class is local. Before a cluster headline number, collect real cluster hardware metadata and evaluate on that allocation with host_class=cluster."
+}

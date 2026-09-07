@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "protocol": "artifacts/gazebo/vehicle-b/rudder-transient/candidate-separation-protocol.json",
+  "runs": [
+    {
+      "run": 0,
+      "initial_q": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "final_cost": 0.22436066613270883,
+      "final_q": [
+        -2,
+        0.08726206195195804,
+        0.4478349578109611,
+        1.227368934024882,
+        -0.6077118573403789,
+        -0.08553053440211666,
+        -0.4863060437898165,
+        0.49701952421165985,
+        -2
+      ],
+      "median_held_out_heading_rmse_deg": 57.61638084256684,
+      "median_held_out_yaw_rate_rmse_deg_s": 0.20840715556147993
+    },
+    {
+      "run": 1,
+      "initial_q": [
+        0.5,
+        -0.5,
+        0.5,
+        -0.5,
+        0.5,
+        -0.5,
+        0.5,
+        -0.5,
+        0.5
+      ],
+      "final_cost": 0.26344678611359124,
+      "final_q": [
+        -0.6308219425835588,
+        0.12282771236838297,
+        -0.5171505884959838,
+        1.9137869799902685,
+        0.6317008086376908,
+        1.0180169104874894,
+        -1.3095800410997112,
+        -0.1871355091116661,
+        -1.5431141364004046
+      ],
+      "median_held_out_heading_rmse_deg": 19.84688353157614,
+      "median_held_out_yaw_rate_rmse_deg_s": 0.10026613353488653
+    },
+    {
+      "run": 2,
+      "initial_q": [
+        -0.5,
+        0.5,
+        -0.5,
+        0.5,
+        -0.5,
+        0.5,
+        -0.5,
+        0.5,
+        -0.5
+      ],
+      "final_cost": 0.2273015435224181,
+      "final_q": [
+        -2,
+        0.0825480284056998,
+        1.342231832471426,
+        1.4890139797330861,
+        -1.5797428615169706,
+        -0.3174935759418602,
+        -0.24345995770318066,
+        1.582265970463515,
+        -2
+      ],
+      "median_held_out_heading_rmse_deg": 61.17591911939055,
+      "median_held_out_yaw_rate_rmse_deg_s": 0.2182770149966824
+    },
+    {
+      "run": 3,
+      "initial_q": [
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1
+      ],
+      "final_cost": 0.22640899894649424,
+      "final_q": [
+        -2,
+        0.08333293620080368,
+        1.334204126890786,
+        1.463627933864983,
+        -1.3962137478828762,
+        -0.2292815051776802,
+        -0.272435458346018,
+        1.4643863336187526,
+        -2
+      ],
+      "median_held_out_heading_rmse_deg": 60.67482923959348,
+      "median_held_out_yaw_rate_rmse_deg_s": 0.21689084332091113
+    },
+    {
+      "run": 4,
+      "initial_q": [
+        -1,
+        -1,
+        1,
+        1,
+        -1,
+        -1,
+        1,
+        1,
+        -1
+      ],
+      "final_cost": 0.25230452371319323,
+      "final_q": [
+        -1.5958321240476263,
+        0.2941192266520366,
+        0.8691582134856185,
+        0.9177289519009169,
+        -1.020750004229097,
+        -0.7189770302892253,
+        -0.4498463615340956,
+        1.312919892538789,
+        -0.8335736670212396
+      ],
+      "median_held_out_heading_rmse_deg": 60.01180214491746,
+      "median_held_out_yaw_rate_rmse_deg_s": 0.219039174661596
+    }
+  ],
+  "within_two_percent_of_best": [
+    0,
+    2,
+    3
+  ],
+  "comparisons": [
+    {
+      "runs": [
+        0,
+        2
+      ],
+      "coefficient_l2_distance": 1.7617636952239455,
+      "heading_difference_fraction": 0.06177996994552512,
+      "yaw_rate_difference_fraction": 0.04735854394543985,
+      "meets_rule": false
+    },
+    {
+      "runs": [
+        0,
+        3
+      ],
+      "coefficient_l2_distance": 1.5701664883630695,
+      "heading_difference_fraction": 0.053082966203372904,
+      "yaw_rate_difference_fraction": 0.04070727675628451,
+      "meets_rule": false
+    },
+    {
+      "runs": [
+        2,
+        3
+      ],
+      "coefficient_l2_distance": 0.23855608326330904,
+      "heading_difference_fraction": 0.00825861211439692,
+      "yaw_rate_difference_fraction": 0.006391102798748806,
+      "meets_rule": false
+    }
+  ],
+  "underdetermination_rule_met": false,
+  "interpretation": "This five-start test does not demonstrate the preregistered form of optimizer non-uniqueness; it does not prove identifiability."
+}

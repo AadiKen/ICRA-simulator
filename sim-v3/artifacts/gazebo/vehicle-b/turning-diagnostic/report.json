@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-b-three-way-turning-diagnostic",
+  "status": "diagnostic-completed-cross-hull-anchor-not-validating",
+  "maneuver": "5 s straight acceleration, then measured/applied 35 degree rudder with shared applied thrust history",
+  "rows": [
+    {
+      "direction": "negative-35deg",
+      "marin_kvlcc2_measured": {
+        "advance_m_full_scale": 1041.1696041168111,
+        "advance_lpp": 3.2536550128650346,
+        "transfer_m_full_scale": 433.7531071511103,
+        "transfer_lpp": 1.3554784598472198,
+        "tactical_diameter_m_full_scale": 1068.0095106517142,
+        "tactical_diameter_lpp": 3.337529720786607
+      },
+      "bcod_kvlcc2_mmg": {
+        "advance_lpp": 3.4637324128244615,
+        "tactical_diameter_lpp": 3.3460471728110592
+      },
+      "bcod_vehicle_b_usv": {
+        "advance_lpp": 1.8998510062482048,
+        "transfer_lpp": 0.3758950986104766,
+        "tactical_diameter_lpp": 1.6426404063936864
+      },
+      "gazebo_vehicle_b_usv": {
+        "advance_lpp": 1.2389726485901618,
+        "transfer_lpp": 0.09615071057565205,
+        "tactical_diameter_lpp": 0.4203120363169791
+      },
+      "nondimensional_resemblance_distance": {
+        "metrics": [
+          "advance_lpp",
+          "tactical_diameter_lpp"
+        ],
+        "bcod_vehicle_b_usv_to_marin_kvlcc2": 2.1692014835821696,
+        "gazebo_vehicle_b_usv_to_marin_kvlcc2": 3.54529322447418,
+        "closer": "bcod Vehicle-B-USV"
+      }
+    },
+    {
+      "direction": "positive-35deg",
+      "marin_kvlcc2_measured": {
+        "advance_m_full_scale": 998.9364381041448,
+        "advance_lpp": 3.1216763690754528,
+        "transfer_m_full_scale": 384.78682182840396,
+        "transfer_lpp": 1.2024588182137623,
+        "tactical_diameter_m_full_scale": 981.400428423338,
+        "tactical_diameter_lpp": 3.066876338822931
+      },
+      "bcod_kvlcc2_mmg": {
+        "advance_lpp": 3.381802045254048,
+        "tactical_diameter_lpp": 3.3123250374726867
+      },
+      "bcod_vehicle_b_usv": {
+        "advance_lpp": 1.8590180619316659,
+        "transfer_lpp": 0.3886273203598148,
+        "tactical_diameter_lpp": 1.652901360194599
+      },
+      "gazebo_vehicle_b_usv": {
+        "advance_lpp": 1.239804871949093,
+        "transfer_lpp": 0.09670632305445973,
+        "tactical_diameter_lpp": 0.41550254366362427
+      },
+      "nondimensional_resemblance_distance": {
+        "metrics": [
+          "advance_lpp",
+          "tactical_diameter_lpp"
+        ],
+        "bcod_vehicle_b_usv_to_marin_kvlcc2": 1.8956875377514635,
+        "gazebo_vehicle_b_usv_to_marin_kvlcc2": 3.2513417743070434,
+        "closer": "bcod Vehicle-B-USV"
+      }
+    }
+  ],
+  "interpretation": "The MARIN and bcod KVLCC2 rows are a valid same-hull comparison. The two Vehicle-B-USV rows are a valid cross-implementation comparison. Comparing either USV row numerically with MARIN is only a nondimensional resemblance diagnostic because hull geometry, scale, coefficients, initial speed, propeller and rudder differ.",
+  "evidence_correction": "The existing MARIN scoring artifact marks both turning-circle trajectory windows as passed, but the overall turning cases failed their precommitted IMO-metric gates (advance for both directions and tactical diameter for positive rudder).",
+  "claim_limit": "This artifact cannot establish which 4 m USV implementation is closer to reality. A real three-way anchor requires a Gazebo KVLCC2 model driven by the measured MARIN rudder/RPM histories, or measured Vehicle-B-USV data."
+}

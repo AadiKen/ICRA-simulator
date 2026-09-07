@@ -4,6 +4,7 @@ import {assembleVrxExporterTrace} from "./episode-driver.ts";
 import {generateNodeReference} from "./generate-node-reference.ts";
 import {compareTraces} from "./conformance.ts";
 import type {TraceV2} from "./trace-schema-v2.ts";
+import {loadFrozenTaskContract} from "./frozen-task-contract.ts";
 
 const seeds=Array.from({length:20},(_,i)=>20000+i);
 const checkpoints=[{label:"30",index:600},{label:"60",index:1200},{label:"120_terminal",index:2399}];
@@ -42,7 +43,7 @@ const report={
   schema_version:1,
   artifact_kind:"vrx-gate-7-full-conformance",
   status:"COMPLETE",
-  contract_content_sha256:"cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb",
+  contract_content_sha256:loadFrozenTaskContract().contentSha256,
   held_out_seeds:seeds,
   synchronized_samples_per_episode:2400,
   tolerance,

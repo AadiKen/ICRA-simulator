@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-gazebo-cross-implementation-check",
+  "status": "cross-implementation-consistency-check-failed",
+  "vehicle": "vehicle-b-rudder",
+  "gazebo_version": "8.15.0",
+  "validation_status_unchanged": "model-structure-trajectory-scored-fail",
+  "is_real_world_validation": false,
+  "rationale_for_gazebo": "Gazebo has documented stock propeller, rudder/control-surface and hydrodynamics systems. MARUS documentation does not expose the needed actuator/vehicle model and published evidence is differential-thrust oriented.",
+  "parameter_mapping": "validation/gazebo-vehicles/vehicle-b-parameter-map.json",
+  "sdf": "gazebo/models/vehicle-b-rudder/model.sdf",
+  "sdf_checks": {
+    "inertia_triangle_inequality": true,
+    "gz_sdf_check": "passed",
+    "headless_world_load": "passed",
+    "neutral_buoyancy_rest": "passed; z drift 3.3e-8 m after 31.5 simulated seconds",
+    "zero_command_motion": "below numerical-noise threshold"
+  },
+  "direction_checks": [
+    {
+      "case": "straight-step",
+      "expected": "forward",
+      "node_observed": "forward",
+      "gazebo_observed": "forward",
+      "passed": true,
+      "node_final": {
+        "N_m": 6.77127610333747,
+        "E_m": 0.011995644656032312,
+        "yaw_rad": 0.007760625470364146,
+        "r_rad_s": 0.00439845799935664
+      },
+      "gazebo_final": {
+        "N_m": 6.626680715740648,
+        "E_m": -0.0004997427691748339,
+        "yaw_rad": -0.0004874874888525227,
+        "r_rad_s": -0.00033806913717637397
+      }
+    },
+    {
+      "case": "reverse-step",
+      "expected": "astern",
+      "node_observed": "astern",
+      "gazebo_observed": "astern",
+      "passed": true,
+      "node_final": {
+        "N_m": -27.86998855305375,
+        "E_m": 0.06278713798769076,
+        "yaw_rad": 0.055165935282767066,
+        "r_rad_s": -1.197166852719117
+      },
+      "gazebo_final": {
+        "N_m": -5.170678551450915,
+        "E_m": -0.00004412311800384263,
+        "yaw_rad": -0.0003342888871729066,
+        "r_rad_s": -0.0004307433455945815
+      }
+    },
+    {
+      "case": "positive-rudder-step",
+      "expected": "positive NED yaw / starboard turn",
+      "node_observed": "positive NED yaw / starboard turn",
+      "gazebo_observed": "positive NED yaw / starboard turn",
+      "passed": true,
+      "node_final": {
+        "N_m": 6.005574908234095,
+        "E_m": 1.2163582517853868,
+        "yaw_rad": 0.7174254349760792,
+        "r_rad_s": 0.16320877190692049
+      },
+      "gazebo_final": {
+        "N_m": 6.424419625863807,
+        "E_m": 0.23658772618253457,
+        "yaw_rad": 0.29184589657111437,
+        "r_rad_s": 0.12163518112249405
+      }
+    },
+    {
+      "case": "negative-rudder-step",
+      "expected": "negative NED yaw / port turn",
+      "node_observed": "negative NED yaw / port turn",
+      "gazebo_observed": "negative NED yaw / port turn",
+      "passed": true,
+      "node_final": {
+        "N_m": 6.037139290897514,
+        "E_m": -1.2073019282208293,
+        "yaw_rad": -0.7076444175277475,
+        "r_rad_s": -0.15914427584179053
+      },
+      "gazebo_final": {
+        "N_m": 6.422795682292318,
+        "E_m": -0.23608862993534838,
+        "yaw_rad": -0.2913937953769399,
+        "r_rad_s": -0.12164230686517938
+      }
+    },
+    {
+      "case": "positive-yaw-rate-sign",
+      "expected": "positive NED yaw rate",
+      "node_observed": "positive NED yaw rate",
+      "gazebo_observed": "positive NED yaw rate",
+      "passed": true
+    },
+    {
+      "case": "negative-yaw-rate-sign",
+      "expected": "negative NED yaw rate",
+      "node_observed": "negative NED yaw rate",
+      "gazebo_observed": "negative NED yaw rate",
+      "passed": true
+    }
+  ],
+  "protocol": {
+    "path": "artifacts/gazebo/vehicle-b-cross-implementation-protocol.json",
+    "sha256": "29731d92cff5d2ee4c02c1c0a73efdd7df78a257b7a07730f5df313d3e4ed4bf",
+    "registered_before_results": true
+  },
+  "trajectory_results": [
+    {
+      "case": "straight-step",
+      "node_path": "artifacts/gazebo/vehicle-b/node-reference/straight-step.json",
+      "node_sha256": "6a1022fcf0592172c75cecd2627f9ec3db39b2b8235537b908feb398da2c55cf",
+      "gazebo_path": "artifacts/gazebo/vehicle-b/gazebo/straight-step.json",
+      "gazebo_sha256": "7ac5b4ab1f776bb6a2521dc58c1f6faf7ae6abef9dc6a80116a74539ead260aa",
+      "sample_count": 120,
+      "metrics": {
+        "horizontal_position_rmse_m": {
+          "value": 0.06797816571429659,
+          "maximum": 0.5,
+          "passed": true
+        },
+        "yaw_rmse_rad": {
+          "value": 0.002903005698658837,
+          "maximum": 0.15,
+          "passed": true
+        },
+        "final_horizontal_position_error_m": {
+          "value": 0.1451342854779022,
+          "maximum": 1,
+          "passed": true
+        },
+        "final_yaw_error_rad": {
+          "value": 0.008248112959216672,
+          "maximum": 0.25,
+          "passed": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "positive-rudder-step",
+      "node_path": "artifacts/gazebo/vehicle-b/node-reference/positive-rudder-step.json",
+      "node_sha256": "fba71749d08bf52e1728c74eb7d7673d7636502fb0892fec45fba63033eb0ca8",
+      "gazebo_path": "artifacts/gazebo/vehicle-b/gazebo/positive-rudder-step.json",
+      "gazebo_sha256": "eed63f9a66b6de1acbec3c511314aa490c8be1a93a70baba2518c7729ccc95ca",
+      "sample_count": 120,
+      "metrics": {
+        "horizontal_position_rmse_m": {
+          "value": 0.37514801499071054,
+          "maximum": 0.5,
+          "passed": true
+        },
+        "yaw_rmse_rad": {
+          "value": 0.2657492454681511,
+          "maximum": 0.15,
+          "passed": false
+        },
+        "final_horizontal_position_error_m": {
+          "value": 1.0655426694067218,
+          "maximum": 1,
+          "passed": false
+        },
+        "final_yaw_error_rad": {
+          "value": 0.4255795384049649,
+          "maximum": 0.25,
+          "passed": false
+        }
+      },
+      "passed": false
+    },
+    {
+      "case": "negative-rudder-step",
+      "node_path": "artifacts/gazebo/vehicle-b/node-reference/negative-rudder-step.json",
+      "node_sha256": "14b3244ea6c6f3a035fca1f5249dd722f655e2bc11b4f259d89a7e72a0f7c774",
+      "gazebo_path": "artifacts/gazebo/vehicle-b/gazebo/negative-rudder-step.json",
+      "gazebo_sha256": "3317b90831353c54d5884e3d282af91dcd0940f89928f87ae23d0ddec3ac84e8",
+      "sample_count": 120,
+      "metrics": {
+        "horizontal_position_rmse_m": {
+          "value": 0.36940676859435934,
+          "maximum": 0.5,
+          "passed": true
+        },
+        "yaw_rmse_rad": {
+          "value": 0.2629321514093911,
+          "maximum": 0.15,
+          "passed": false
+        },
+        "final_horizontal_position_error_m": {
+          "value": 1.0449813983943563,
+          "maximum": 1,
+          "passed": false
+        },
+        "final_yaw_error_rad": {
+          "value": 0.41625062215080766,
+          "maximum": 0.25,
+          "passed": false
+        }
+      },
+      "passed": false
+    },
+    {
+      "case": "chirp-step",
+      "node_path": "artifacts/gazebo/vehicle-b/node-reference/chirp-step.json",
+      "node_sha256": "d0e4d94793834d0551e5f9ef6f492e44c20db69bfc420f2b19c8392ddd147c88",
+      "gazebo_path": "artifacts/gazebo/vehicle-b/gazebo/chirp-step.json",
+      "gazebo_sha256": "59204b5e083ba82c84d6bf04f4bfc258ca6a88d2982f62b81bb3738a7f354ff6",
+      "sample_count": 120,
+      "metrics": {
+        "horizontal_position_rmse_m": {
+          "value": 0.12843680030558333,
+          "maximum": 0.5,
+          "passed": true
+        },
+        "yaw_rmse_rad": {
+          "value": 0.09552300122567992,
+          "maximum": 0.15,
+          "passed": true
+        },
+        "final_horizontal_position_error_m": {
+          "value": 0.3891564220333094,
+          "maximum": 1,
+          "passed": true
+        },
+        "final_yaw_error_rad": {
+          "value": 0.0536561078118049,
+          "maximum": 0.25,
+          "passed": true
+        }
+      },
+      "passed": true
+    }
+  ],
+  "post_failure_diagnostics": {
+    "rudder_response_curve": "artifacts/gazebo/vehicle-b/rudder-sweep/report.json",
+    "turning_circle_three_way": "artifacts/gazebo/vehicle-b/turning-diagnostic/report.json",
+    "gate_effect": "diagnostic only; no tolerance or parameter was changed"
+  },
+  "negative_control": {
+    "kind": "invert converted Gazebo yaw sign",
+    "cases": [
+      {
+        "case": "positive-rudder-step",
+        "yaw_rmse_rad": 0.4694178627520619,
+        "maximum": 0.15,
+        "rejected": true
+      },
+      {
+        "case": "negative-rudder-step",
+        "yaw_rmse_rad": 0.4659444101734484,
+        "maximum": 0.15,
+        "rejected": true
+      }
+    ],
+    "passed": true
+  },
+  "claim_limit": "Independent implementation consistency only. This does not show either implementation matches a real vessel and does not change Vehicle B's model-structure-trajectory-scored-fail status."
+}

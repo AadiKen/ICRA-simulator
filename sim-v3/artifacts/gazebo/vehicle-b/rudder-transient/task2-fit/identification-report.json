@@ -1,0 +1,473 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "kvlcc2-marin-task2-relaxed-bound-identification",
+  "status": "executed-task2-bound-sensitivity-diagnostic",
+  "plan_checksum_input": {
+    "schema_version": 1,
+    "artifact_kind": "vehicle-b-rudder-transient-bound-sensitivity-protocol",
+    "date": "2026-09-04",
+    "status": "registered-before-task2-results",
+    "scope": "New diagnostic analysis only; the original identification, preregistered Vehicle B protocol, and scoped-negative-result artifact remain unchanged.",
+    "source_fit": "validation/external-references/kvlcc2-marin/artifacts/identification/identification-report.json",
+    "source_bound_rule": "coefficient = baseline + q * max(abs(baseline), 0.05), with q constrained to [-2, 2]",
+    "source_audit": {
+      "prompt_claimed_bound_hit_count": 3,
+      "reproducible_final_bound_hit_count": 2,
+      "rule": "abs(abs(q) - 2) <= 1e-9",
+      "bound_hits": [
+        {
+          "coefficient": "Y_R",
+          "baseline": 0.083,
+          "identified": -0.083,
+          "q": -2,
+          "original_bounds": [
+            -0.083,
+            0.249
+          ]
+        },
+        {
+          "coefficient": "X_vr",
+          "baseline": 0.002,
+          "identified": -0.098,
+          "q": -2,
+          "original_bounds": [
+            -0.098,
+            0.102
+          ]
+        }
+      ],
+      "discrepancy_disposition": "No third coefficient is designated: the immutable source artifact has only two final values at a bound. N_rrr, the closest remaining normalized magnitude, is q=1.227368934 and is not a bound hit."
+    },
+    "relaxed_bounds": {
+      "Y_R": {
+        "q": [
+          -10,
+          10
+        ],
+        "coefficient": [
+          -0.747,
+          0.913
+        ]
+      },
+      "X_vr": {
+        "q": [
+          -10,
+          10
+        ],
+        "coefficient": [
+          -0.498,
+          0.502
+        ]
+      },
+      "all_other_fitted_coefficients": {
+        "q": [
+          -2,
+          2
+        ],
+        "policy": "unchanged"
+      },
+      "rationale": "Widen each reproducible active bound by 5x in normalized half-width. This is a fixed substantial relaxation, selected before rerunning, while retaining finite protection against numerical runaway and holding the data, residuals, ridge regularization, initialization, and iteration budget fixed."
+    },
+    "predictions": {
+      "tightly_bounded_prediction": "If the original constraints were merely too tight, at least one formerly pinned coefficient should converge away from the relaxed bounds and held-out zig-zag error should improve substantially.",
+      "underdetermined_prediction": "If turning-circle data do not constrain these terms, a formerly pinned coefficient will run to a relaxed bound or the fit will remain unstable/non-improving.",
+      "substantial_improvement_rule": "At least 20% reduction from the original fit in both the median held-out zig-zag heading RMSE and median held-out zig-zag yaw-rate RMSE; report every trajectory and IMO metric regardless.",
+      "stable_away_from_new_bound_rule": "abs(q) <= 9.5 for a relaxed coefficient (at least 5% of the relaxed half-width away from either boundary)."
+    },
+    "bound_provenance": {
+      "numeric_bounds": "Repository identification implementation choice in identify.mjs: +/-2 normalized scales around the literature baseline; no external literature source is cited for the numeric optimization bounds.",
+      "coefficient_baselines": "Yasukawa & Yoshimura (2015), Table 3, KVLCC2 captive-test/model coefficient parameterization, as recorded in validation/external-references/kvlcc2/kvlcc2-l7.json.",
+      "scale_caveat": "The baselines concern KVLCC2 model-structure analysis and are not Vehicle-B-USV coefficients."
+    }
+  },
+  "method": "deterministic bounded regularized Gauss-Newton",
+  "initial_cost": 0.9126399049836962,
+  "final_cost": 0.222305627805775,
+  "iterations": [
+    {
+      "iteration": 0,
+      "cost": 0.9126399049836962,
+      "candidate_cost": 5.002826881846224,
+      "lambda": 0.1,
+      "accepted": false
+    },
+    {
+      "iteration": 1,
+      "cost": 0.9126399049836962,
+      "candidate_cost": 3.643850377399696,
+      "lambda": 0.5,
+      "accepted": false
+    },
+    {
+      "iteration": 2,
+      "cost": 0.9126399049836962,
+      "candidate_cost": 0.9295043350481356,
+      "lambda": 2.5,
+      "accepted": false
+    },
+    {
+      "iteration": 3,
+      "cost": 0.9126399049836962,
+      "candidate_cost": 0.2854977791566452,
+      "lambda": 12.5,
+      "accepted": true
+    },
+    {
+      "iteration": 4,
+      "cost": 0.2854977791566452,
+      "candidate_cost": 0.2513512211854424,
+      "lambda": 6.25,
+      "accepted": true
+    },
+    {
+      "iteration": 5,
+      "cost": 0.2513512211854424,
+      "candidate_cost": 0.2353258514033928,
+      "lambda": 3.125,
+      "accepted": true
+    },
+    {
+      "iteration": 6,
+      "cost": 0.2353258514033928,
+      "candidate_cost": 0.2318814369608981,
+      "lambda": 1.5625,
+      "accepted": true
+    },
+    {
+      "iteration": 7,
+      "cost": 0.2318814369608981,
+      "candidate_cost": 0.22376513181490362,
+      "lambda": 0.78125,
+      "accepted": true
+    },
+    {
+      "iteration": 8,
+      "cost": 0.22376513181490362,
+      "candidate_cost": 0.2227203871434096,
+      "lambda": 0.390625,
+      "accepted": true
+    },
+    {
+      "iteration": 9,
+      "cost": 0.2227203871434096,
+      "candidate_cost": 0.223270866610409,
+      "lambda": 0.1953125,
+      "accepted": false
+    },
+    {
+      "iteration": 10,
+      "cost": 0.2227203871434096,
+      "candidate_cost": 0.222305627805775,
+      "lambda": 0.9765625,
+      "accepted": true
+    },
+    {
+      "iteration": 11,
+      "cost": 0.222305627805775,
+      "candidate_cost": 0.22238923578256223,
+      "lambda": 0.48828125,
+      "accepted": false
+    }
+  ],
+  "coefficients": {
+    "Y_R": {
+      "baseline": 0.083,
+      "identified": -0.10031392650708777,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "N_R": {
+      "baseline": -0.049,
+      "identified": -0.044939678266861335,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "Y_rrr": {
+      "baseline": 0.008,
+      "identified": 0.044249044239558895,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "N_rrr": {
+      "baseline": -0.013,
+      "identified": 0.05324913584728645,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "Y_vvr": {
+      "baseline": 0.379,
+      "identified": 0.04487031596619018,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "Y_vrr": {
+      "baseline": -0.391,
+      "identified": -0.4907351524429751,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "N_vvr": {
+      "baseline": -0.294,
+      "identified": -0.39816522770182183,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "N_vrr": {
+      "baseline": 0.055,
+      "identified": 0.1120914151346272,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "X_vr": {
+      "baseline": 0.002,
+      "identified": -0.10968017442377093,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    }
+  },
+  "fixed_added_mass": {
+    "m_x": {
+      "value": 0.022,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3",
+        "method": "Motora empirical charts",
+        "potential_flow": false
+      }
+    },
+    "m_y": {
+      "value": 0.223,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3",
+        "method": "Motora empirical charts",
+        "potential_flow": false
+      }
+    },
+    "J_z": {
+      "value": 0.011,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3",
+        "method": "Motora empirical charts",
+        "potential_flow": false
+      }
+    }
+  },
+  "training": {
+    "MARIN_FREE_KVLCC2_tc_-35_m": {
+      "samples": 15752,
+      "heading_rmse_deg": 9.922839866339114,
+      "yaw_rate_rmse_deg_s": 0.017443888347012926,
+      "imo": {
+        "advance_lpp": {
+          "reference": 3.2536550128650346,
+          "actual": 3.306811610448441,
+          "absolute_percent_error": 1.6337502707946527,
+          "tolerance_percent": 5,
+          "passed": true
+        },
+        "tactical_diameter_lpp": {
+          "reference": 3.337529720786607,
+          "actual": 3.22485133136174,
+          "absolute_percent_error": 3.3761014538114793,
+          "tolerance_percent": 5,
+          "passed": true
+        }
+      },
+      "imo_passed": true
+    },
+    "MARIN_FREE_KVLCC2_tc_35_m": {
+      "samples": 15287,
+      "heading_rmse_deg": 18.565954971602583,
+      "yaw_rate_rmse_deg_s": 0.08086894786009198,
+      "imo": {
+        "advance_lpp": {
+          "reference": 3.1216763690754528,
+          "actual": 3.219684934842058,
+          "absolute_percent_error": 3.1396132775811227,
+          "tolerance_percent": 5,
+          "passed": true
+        },
+        "tactical_diameter_lpp": {
+          "reference": 3.066876338822931,
+          "actual": 3.1600208934255,
+          "absolute_percent_error": 3.037114781038671,
+          "tolerance_percent": 5,
+          "passed": true
+        }
+      },
+      "imo_passed": true
+    }
+  },
+  "held_out": {
+    "MARIN_FREE_KVLCC2_zz_-10_m": {
+      "samples": 4176,
+      "heading_rmse_deg": 70.62391478128603,
+      "yaw_rate_rmse_deg_s": 0.26934027639538133,
+      "imo": {
+        "first_overshoot_deg": {
+          "reference": 8.024999999999999,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        },
+        "second_overshoot_deg": {
+          "reference": 22.074999999999996,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    },
+    "MARIN_FREE_KVLCC2_zz_10_m": {
+      "samples": 3843,
+      "heading_rmse_deg": 98.98880109011584,
+      "yaw_rate_rmse_deg_s": 0.40128702744054695,
+      "imo": {
+        "first_overshoot_deg": {
+          "reference": 9.387,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        },
+        "second_overshoot_deg": {
+          "reference": 15.113,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    },
+    "MARIN_FREE_KVLCC2_zz_-20_m": {
+      "samples": 5056,
+      "heading_rmse_deg": 16.517943890765874,
+      "yaw_rate_rmse_deg_s": 0.1665093287909744,
+      "imo": {
+        "first_overshoot_deg": {
+          "reference": 12.772000000000006,
+          "actual": 19.95483363918936,
+          "absolute_percent_error": 56.2389104227165,
+          "tolerance_percent": 10,
+          "passed": false
+        },
+        "second_overshoot_deg": {
+          "reference": 15.827999999999996,
+          "actual": 4.62190124460421,
+          "absolute_percent_error": 70.79920871490894,
+          "tolerance_percent": 10,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    },
+    "MARIN_FREE_KVLCC2_zz_20_m": {
+      "samples": 4480,
+      "heading_rmse_deg": 69.01929861336964,
+      "yaw_rate_rmse_deg_s": 0.22846317784804815,
+      "imo": {
+        "first_overshoot_deg": {
+          "reference": 15.590000000000003,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        },
+        "second_overshoot_deg": {
+          "reference": 12.809999999999995,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    }
+  },
+  "interpretation": {
+    "precommitted": true,
+    "rule": "If held-out zig-zag overshoot metrics fail after turning-circle damping identification, report a yaw-transient observability and data-coverage limitation, not automatically a simulator defect.",
+    "basis": "captive.csv contains no yaw-rate excitation and steady portions of turning circles constrain yaw damping much more strongly than added yaw inertia",
+    "prohibited_response": "Do not move any held-out zig-zag into identification or relax its tolerance after observing the result.",
+    "additional_evidence_needed": [
+      "pure-yaw captive test",
+      "PMM or circular-motion captive test",
+      "independent yaw-transient dataset"
+    ]
+  },
+  "claim_limit": "KVLCC2 model-scale identification only; no transfer to Vehicle B USV coefficients.",
+  "bound_policy": "Y_R and X_vr use q in [-10,10]; all other fitted terms retain q in [-2,2]",
+  "supersedes_original_fit": false
+}

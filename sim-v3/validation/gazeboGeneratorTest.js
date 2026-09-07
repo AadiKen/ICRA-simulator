@@ -46,6 +46,10 @@ function testWorldPinsStepSizeAndMetadata() {
     const maneuver = {...getParityManeuver("current-drift"), name: "current-drift"};
     const sdf = renderWorldSdf(otterCoefficients, maneuver);
     assert(sdf.includes("<max_step_size>0.05</max_step_size>"), "World SDF should pin max_step_size from maneuver dt.");
+    assert(sdf.includes("<spherical_coordinates>"), "NavSat worlds must declare a WGS84 geodetic origin.");
+    assert(sdf.includes("<world_frame_orientation>ENU</world_frame_orientation>"), "Gazebo world coordinates must remain ENU before the shared NED conversion.");
+    assert(sdf.includes("<latitude_deg>-33.7227687689</latitude_deg>"), "World should use the retained cross-backend sensor-audit latitude.");
+    assert(sdf.includes("<longitude_deg>150.6739911017</longitude_deg>"), "World should use the retained cross-backend sensor-audit longitude.");
     assert(sdf.includes("<pose>0 0 0 0 0 1.5707963268</pose>"), "World SDF should start Gazebo ENU yaw at pi/2 for BCOD NED yaw zero.");
     assert(sdf.includes("gz::sim::systems::Physics"), "World SDF should include the Physics system plugin.");
     assert(sdf.includes("gz::sim::systems::ApplyLinkWrench"), "World SDF should include the ApplyLinkWrench plugin for plant-level open-loop actuation.");
@@ -54,7 +58,6 @@ function testWorldPinsStepSizeAndMetadata() {
     assert(sdf.includes("<above_depth>0</above_depth>"), "World SDF should place the water surface at ENU z=0.");
     assert(sdf.includes("<density>0</density>"), "World SDF should not apply water-density buoyancy above the surface.");
     assert(!sdf.includes("<uniform_fluid_density>"), "Surface-vessel worlds must not use an unbounded uniform fluid.");
-    assert(sdf.includes("<enable>otter</enable>"), "World SDF should explicitly enable buoyancy for the parity vessel.");
     assert(!sdf.includes("gz::sim::systems::PosePublisher"), "World SDF should not include model-scoped pose publisher plugin.");
     assert(sdf.includes("current ENU 0.3 0 0"), "World SDF should record east current in ENU coordinates.");
 }

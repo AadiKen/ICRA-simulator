@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-b-rudder-transient-leave-one-out-protocol",
+  "status": "precommitted-before-results",
+  "date": "2026-09-04",
+  "case_inventory": {
+    "count": 6,
+    "turning_circles": [
+      "MARIN_FREE_KVLCC2_tc_-35_m",
+      "MARIN_FREE_KVLCC2_tc_35_m"
+    ],
+    "zig_zags": [
+      "MARIN_FREE_KVLCC2_zz_-10_m",
+      "MARIN_FREE_KVLCC2_zz_10_m",
+      "MARIN_FREE_KVLCC2_zz_-20_m",
+      "MARIN_FREE_KVLCC2_zz_20_m"
+    ]
+  },
+  "procedure": {
+    "folds": "Six deterministic fits. Each fold holds out exactly one trajectory and fits the same nine MMG hull derivatives to the other five trajectories.",
+    "model_and_optimizer": "Reuse the existing KVLCC2-MARIN identification model, input replay, residual normalization, coefficient scaling, bounds, ridge penalty, and 12-iteration bounded regularized Gauss-Newton solver.",
+    "held_out_primary_error": "Mean squared normalized trajectory residual through 900 full-scale seconds. Per sample, residual components are wrapped heading error / 5 deg, yaw-rate error / 0.05 deg/s, along-position error / (0.5 Lpp), and cross-position error / (0.5 Lpp). Ridge terms are excluded from held-out error.",
+    "secondary_reporting": "Report held-out heading RMSE, yaw-rate RMSE, position RMSE/Lpp, original IMO metrics and tolerances, fitted coefficients, and all coefficients at their optimization bounds.",
+    "bound_hit_rule": "A fitted normalized coefficient q is a bound hit when abs(abs(q) - 2) <= 1e-9; bounds are baseline plus/minus 2 * max(abs(baseline), 0.05)."
+  },
+  "prediction": {
+    "working_hypothesis": "Turning-circle-only coverage under-constrains the fast rudder transient response exercised by zig-zags.",
+    "prospective_prediction": "Held-out zig-zag trajectories will have larger primary held-out error than held-out turning-circle trajectories because the two turning circles are relatively redundant while zig-zags exercise distinct transient regimes.",
+    "support_rule": "Supported only if every held-out zig-zag primary error is greater than both held-out turning-circle primary errors (min zig-zag error > max turning-circle error).",
+    "contradiction_rule": "If the strict separation rule is not met, this leave-one-out result does not support the coverage-gap hypothesis and Task 3 must not proceed on that assumption without review.",
+    "aggregation_guard": "All six folds must be reported individually. Group extrema are used only to evaluate the precommitted ordering prediction; no six-case average is a verdict."
+  },
+  "immutability": "This diagnostic does not alter the original preregistered protocol, original fit, or scoped-negative-result artifact."
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "vehicle": "vehicle-c-azimuth",
+  "source": "artifacts/capytaine/vehicle-c-parametric-resolved.json runtime_parameters plus packages/vehicle-sdk Vehicle C effector definitions",
+  "mass_kg": 313.5,
+  "inertia_diagonal_kg_m2": [196.6, 240.0, 240.0],
+  "geometry_m": {"length": 3.5, "beam": 1.98, "draft": 0.25},
+  "pod_positions_body_frd_m": {"port": [-1.5, -0.81, -0.18], "starboard": [-1.5, 0.81, -0.18]},
+  "hierarchy": "base -> revolute azimuth joint -> pod -> propeller revolute joint; Thruster acts on each propeller joint",
+  "systems": ["Thruster per pod", "JointPositionController per azimuth joint", "Hydrodynamics", "OdometryPublisher"],
+  "excluded_systems": ["LiftDrag", "pod-hull interaction", "pod-pod interaction", "angle-dependent thrust degradation"],
+  "frame_conversion": "NED/FRD azimuth radians are negated for Gazebo FLU revolute joints; world model yaw is +pi/2 so body-forward aligns with north.",
+  "thrust_command": "Applied force in newtons is replayed directly through Thruster cmd_thrust.",
+  "azimuth_limit_rad": [-3.141592654, 3.141592654],
+  "azimuth_rate_limit_rad_s": 0.523598776,
+  "gazebo_version": "8.15.0"
+}

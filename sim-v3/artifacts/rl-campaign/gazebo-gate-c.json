@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gazebo-gate-c-closed-loop-acceptance",
+  "status": "FAIL",
+  "contract_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
+  "training_authorized": false,
+  "next_gate_started": false,
+  "runtime": {
+    "image": "icra27-gazebo-harmonic:harmonic-8.15.0",
+    "image_id": "174e8baad590",
+    "host_architecture": "arm64",
+    "container_architecture": "linux/amd64",
+    "execution": "AMD64 emulation on Apple Silicon",
+    "timing_basis": "Gazebo simulation time only"
+  },
+  "reset_determinism": {
+    "seed": 30000,
+    "tolerance": {
+      "position_m": 0.05,
+      "heading_deg": 0.5
+    },
+    "position_delta_m": 0.0,
+    "heading_delta_rad": 0.0,
+    "passed": true
+  },
+  "seeded_reset_parity": {
+    "reference": "bcod-sim live CommonWaypointEnv post-heading-fix reset; expected heading is seeded, not constant pi/4",
+    "expected_position_ned_m": [
+      9999.825020389631,
+      10000.692335725296
+    ],
+    "gazebo_position_ned_m": [
+      9999.8250203896,
+      10000.6923357253
+    ],
+    "position_error_m": 3.113608321404843e-11,
+    "expected_heading_rad": -0.14518976353579438,
+    "gazebo_heading_rad": -0.14518976350510426,
+    "heading_error_rad": 3.069011711431813e-11,
+    "passed": true
+  },
+  "disturbances": {
+    "requested": {
+      "current_mps_ned": [
+        1.142819479452231,
+        -0.6508951290617273,
+        0
+      ],
+      "wind_mps_ned": [
+        1.5627285423556794,
+        -2.8258413730019427,
+        0
+      ]
+    },
+    "applied": {
+      "current": false,
+      "wind": false
+    },
+    "finding": "gazebo_gym_runtime.py currently serializes neither reset disturbance into a simulator system; the generated world contains only current metadata and has no wind application system.",
+    "passed": false
+  },
+  "step_timing": {
+    "control_steps": 12,
+    "expected_elapsed_simulation_s": 1.2000000000000002,
+    "observed_elapsed_simulation_s": 1.2000000000000002,
+    "freshness_gate_a_reused": true,
+    "passed": true
+  },
+  "termination_parity": {
+    "conditions": {
+      "success": {
+        "implemented": true,
+        "source": "shared CommonWaypointEnv 2.0 m pass-through"
+      },
+      "timeout": {
+        "implemented": true,
+        "source": "shared 2400-physics-step timeout"
+      },
+      "grounding": {
+        "implemented": false,
+        "source": "no live Gazebo contact/bathymetry classification in adapter"
+      },
+      "object_collision": {
+        "implemented": false,
+        "source": "no live Gazebo contact classification in adapter"
+      },
+      "instability": {
+        "implemented": false,
+        "source": "adapter does not emit 60-degree/1-second instability stop_reason"
+      },
+      "allocation_failure": {
+        "implemented": false,
+        "source": "shared actuator bridge does not return allocation-failure diagnostics to runtime"
+      }
+    },
+    "passed": false
+  },
+  "observation_equivalence": {
+    "seed": 30000,
+    "script": "12 identical deterministic differential-thrust controls",
+    "fields": {
+      "accel_x": {
+        "median_abs": 0.309566006064415,
+        "max_abs": 0.6087884902954102
+      },
+      "accel_y": {
+        "median_abs": 0.398276520842046,
+        "max_abs": 0.7150793102337047
+      },
+      "accel_z": {
+        "median_abs": 0.010291207587342477,
+        "max_abs": 0.03739999615191891
+      },
+      "gyro_x": {
+        "median_abs": 0.001736214870742093,
+        "max_abs": 0.0030587101355195045
+      },
+      "gyro_y": {
+        "median_abs": 0.0007900859272922389,
+        "max_abs": 0.0017073252861337096
+      },
+      "gyro_z": {
+        "median_abs": 0.500047127250582,
+        "max_abs": 0.7903276979923248
+      },
+      "yaw": {
+        "median_abs": 1.4971387963742018,
+        "max_abs": 1.7038741260766983
+      },
+      "goal_north": {
+        "median_abs": 1.2869739532470703,
+        "max_abs": 27.3526611328125
+      },
+      "goal_east": {
+        "median_abs": 0.21748781204223633,
+        "max_abs": 6.772319316864014
+      },
+      "fix_valid": {
+        "median_abs": 0.0,
+        "max_abs": 1.0
+      },
+      "prev_port": {
+        "median_abs": 0.0,
+        "max_abs": 0.0
+      },
+      "prev_starboard": {
+        "median_abs": 0.0,
+        "max_abs": 0.0
+      },
+      "prev_steer_0": {
+        "median_abs": 0.0,
+        "max_abs": 0.0
+      },
+      "prev_steer_1": {
+        "median_abs": 0.0,
+        "max_abs": 0.0
+      },
+      "time_remaining": {
+        "median_abs": 0.0,
+        "max_abs": 0.0
+      }
+    },
+    "passed": false,
+    "failure_reason": "Multiple divergences cannot yet be attributed only to sensor noise because the Gazebo plant becomes vertically/attitudinally unstable and does not track the bcod-sim trajectory."
+  },
+  "checks": {
+    "reset_determinism": true,
+    "seeded_reset_parity_post_heading_fix": true,
+    "wind_and_current_applied": false,
+    "step_timing_and_freshness": true,
+    "all_termination_modes": false,
+    "observation_equivalence": false
+  },
+  "all_checks_pass": false,
+  "blocking_rework": [
+    "Apply and verify seeded wind and current in the running Gazebo simulator.",
+    "Add contact/bathymetry mapping for grounding versus object collision.",
+    "Emit instability and allocation-failure termination signals.",
+    "Repair the Gazebo plant instability, then repeat stepwise observation equivalence."
+  ],
+  "notes": [
+    "No training was run.",
+    "Gate C failure blocks reward/action parity and Gate D."
+  ]
+}

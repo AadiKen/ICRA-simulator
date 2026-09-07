@@ -4,10 +4,11 @@ import {fixedActionTrace} from "./frozen-conformance-trace.ts";
 import {frozenReset,FULL_STEPS,PHYSICS_DT,prepareEpisode} from "./episode-driver.ts";
 import {renderSurveyorVrxWorld} from "./prepare-vrx-surveyor.ts";
 import {SURVEYOR_WIND_ESTIMATE} from "../../../packages/vehicle-sdk/src/surveyor-environment.js";
+import {loadFrozenTaskContract} from "./frozen-task-contract.ts";
 
-const CONTRACT_HASH="cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb";
 const VRX_CONFIGURATION="vrx:surveyor-patched";
 export function prepareVrxEpisode(seed:number,out:string,steps=FULL_STEPS,environmentScale=1,actionScale=1,windScale=environmentScale,currentScale=environmentScale){
+  const CONTRACT_HASH=loadFrozenTaskContract().contentSha256;
   const reset=frozenReset(seed),episode=prepareEpisode("VRX",seed,steps,actionScale);
   const [N,E,yawNed]=reset.initial_state;
   const yawEnu=Math.PI/2-yawNed;

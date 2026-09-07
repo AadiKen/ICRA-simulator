@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-b-rudder-transient-candidate-separation-protocol",
+  "status": "precommitted-before-results",
+  "date": "2026-09-05",
+  "candidates": {
+    "sign_or_frame": {
+      "test": "Mirror each measured port/starboard pair after translating and rotating into its own initial-heading frame; compare along-track directly and cross-track, heading change, sway, yaw rate and rudder after sign reflection.",
+      "prediction": "A sign/frame bug is supported only by wrong reflected sign correlation or failed raw-data kinematic reconstruction. Magnitude mismatch with correct signs is asymmetry, not by itself an ingestion bug.",
+      "sign_correlation_min": 0.95
+    },
+    "real_single_screw_asymmetry": {
+      "test": "Audit the MMG force equations and parameter file for sign-dependent coefficients and propeller-rotation terms, then quantify measured mirror residuals separately.",
+      "prediction": "Unequal positive/negative rudder-flow coefficients make some asymmetry representable; absent transverse propeller-rotation force leaves prop-walk asymmetry unrepresentable."
+    },
+    "optimizer_nonlinearity_or_underdetermination": {
+      "test": "Repeat the original two-turning-circle fit from five fixed initial coefficient vectors without changing data, bounds, objective, regularization or iteration budget.",
+      "fixed_initial_q": [[0,0,0,0,0,0,0,0,0],[0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5],[-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5,0.5,-0.5],[1,1,-1,-1,1,1,-1,-1,1],[-1,-1,1,1,-1,-1,1,1,-1]],
+      "support_rule": "At least two solutions within 2% of the best training cost must differ by normalized coefficient L2 distance > 1 and by >20% in median held-out heading or yaw-rate RMSE.",
+      "caveat": "Failure to meet this rule does not prove identifiability; it only fails to demonstrate multi-start non-uniqueness under this optimizer budget."
+    }
+  },
+  "immutability": "No existing fit, protocol, or scoped-negative artifact may be modified."
+}

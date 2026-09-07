@@ -1,0 +1,19 @@
+{
+  "image": "leadcat/vrx:v3.0.1",
+  "platform": "linux/amd64",
+  "source": {
+    "repository": "https://github.com/osrf/vrx.git",
+    "ref": "v3.0.1",
+    "commit": "fda35961463c2ed8c44d6c646fe8ce773a3eaff1"
+  },
+  "base_image": {
+    "reference": "ghcr.io/osrf/vrx-devel@sha256:6d018ab0c1cf0d6fe1f3bf266c9f1efac09cf9f6f40bc13ca437e5bbdaf7d1c4",
+    "reason": "The checked osrf/ros:jazzy-simulation candidate lacked the gz executable; this pinned VRX Jazzy/Gazebo Harmonic development base was used to compile source."
+  },
+  "built_image_digest": "sha256:1b0ebfc18f5265b684239e67e132b88557303fa6031334e9010a1d9794efd369",
+  "smoke_test": {
+    "command": "docker run --rm --platform linux/amd64 leadcat/vrx:v3.0.1",
+    "result": "passed",
+    "output": "Gazebo Sim, version 8.10.0"
+  }
+}

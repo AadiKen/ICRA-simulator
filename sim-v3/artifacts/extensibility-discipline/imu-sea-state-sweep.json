@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "imu-sea-state-response-sweep",
+  "status": "complete-offline-deterministic",
+  "protocol": {
+    "id": "imu-sea-state-fixed-truth-v1",
+    "seed": 271828,
+    "samples_per_cell": 512,
+    "sample_rate_hz": 50,
+    "truth": {
+      "acceleration_body_mps2": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "angular_rate_body_rad_s": [
+        0.01,
+        0.02,
+        0.03
+      ],
+      "attitude_rad": [
+        0,
+        0,
+        0.4
+      ]
+    },
+    "motion": {
+      "acceleration_body_mps2": [
+        0.1,
+        0.2,
+        0.3
+      ],
+      "angular_rate_body_rad_s": [
+        0.01,
+        0.02,
+        0.03
+      ]
+    },
+    "sea_states": [
+      {
+        "beaufort": 0,
+        "significant_wave_height_m": 0
+      },
+      {
+        "beaufort": 2,
+        "significant_wave_height_m": 0.3
+      },
+      {
+        "beaufort": 4,
+        "significant_wave_height_m": 1.5
+      },
+      {
+        "beaufort": 6,
+        "significant_wave_height_m": 4
+      },
+      {
+        "beaufort": 8,
+        "significant_wave_height_m": 8
+      },
+      {
+        "beaufort": 10,
+        "significant_wave_height_m": 12
+      },
+      {
+        "beaufort": 12,
+        "significant_wave_height_m": 16
+      }
+    ]
+  },
+  "implementation": {
+    "plugin": "ImuPlugin",
+    "platform_service": "HullMotionPlatformStateService",
+    "sensor_source_sha256": {
+      "packages/sensor-sdk/src/plugins/imu.ts": "bfeddd12e37bad0dc3737d6792043151c9997158b3115e421842cb22eb1fe66e",
+      "packages/sensor-sdk/src/services/platform-state.ts": "e772eb0b6d75889dc1b9b9258b52077f3122bd35834296be900dbc645d88b1a1",
+      "packages/sensor-sdk/src/runtime.ts": "8ed19df55ac1c04e9d2d6f88a87ec0a0cfce6bf1a962e9cb03b5f5a9ea8b3623"
+    },
+    "generator_path": "validation/extensibility-discipline/imu-sea-state-sweep.ts",
+    "generator_sha256": "6617b4f7f1a08c336456919f61b76a784828ad80bcc4313d84b276fe0807b875"
+  },
+  "cells": [
+    {
+      "beaufort": 0,
+      "significant_wave_height_m": 0,
+      "vibration_rms_mps2": 0,
+      "declared_accel_noise_std_mps2": 0.015,
+      "declared_gyro_noise_std_rad_s": 0.0008,
+      "observed_accel_error_rms_mps2": 0.014941734661773948,
+      "observed_gyro_error_rms_rad_s": 0.0008349103437339687
+    },
+    {
+      "beaufort": 2,
+      "significant_wave_height_m": 0.3,
+      "vibration_rms_mps2": 0.02774881882834364,
+      "declared_accel_noise_std_mps2": 0.015163376288173975,
+      "declared_gyro_noise_std_rad_s": 0.0008076632659356818,
+      "observed_accel_error_rms_mps2": 0.015104476338302012,
+      "observed_gyro_error_rms_rad_s": 0.0008429080187295749
+    },
+    {
+      "beaufort": 4,
+      "significant_wave_height_m": 1.5,
+      "vibration_rms_mps2": 0.08497342333714208,
+      "declared_accel_noise_std_mps2": 0.016468487760303074,
+      "declared_gyro_noise_std_rad_s": 0.0008692109771385372,
+      "observed_accel_error_rms_mps2": 0.016404518293008038,
+      "observed_gyro_error_rms_rad_s": 0.0009071415446250928
+    },
+    {
+      "beaufort": 6,
+      "significant_wave_height_m": 4,
+      "vibration_rms_mps2": 0.17413982193612598,
+      "declared_accel_noise_std_mps2": 0.02047139312643994,
+      "declared_gyro_noise_std_rad_s": 0.0010607520168932655,
+      "observed_accel_error_rms_mps2": 0.02039187495014191,
+      "observed_gyro_error_rms_rad_s": 0.0011070410388010707
+    },
+    {
+      "beaufort": 8,
+      "significant_wave_height_m": 8,
+      "vibration_rms_mps2": 0.29748161565155895,
+      "declared_accel_noise_std_mps2": 0.02813129919794384,
+      "declared_gyro_noise_std_rad_s": 0.0014338497084459686,
+      "observed_accel_error_rms_mps2": 0.028022027220443408,
+      "observed_gyro_error_rms_rad_s": 0.0014964199411768428
+    },
+    {
+      "beaufort": 10,
+      "significant_wave_height_m": 12,
+      "vibration_rms_mps2": 0.4250574568828017,
+      "declared_accel_noise_std_mps2": 0.03716601386442618,
+      "declared_gyro_noise_std_rad_s": 0.0018790373776023715,
+      "observed_accel_error_rms_mps2": 0.037021647839871184,
+      "observed_gyro_error_rms_rad_s": 0.0019610346785287123
+    },
+    {
+      "beaufort": 12,
+      "significant_wave_height_m": 16,
+      "vibration_rms_mps2": 0.5562881106659314,
+      "declared_accel_noise_std_mps2": 0.046962978581398966,
+      "declared_gyro_noise_std_rad_s": 0.002364593705711902,
+      "observed_accel_error_rms_mps2": 0.046780557659322465,
+      "observed_gyro_error_rms_rad_s": 0.00246777967953388
+    }
+  ],
+  "claim_limit": "Fixed-truth sensor responsiveness test; it validates configured IMU noise conditioning, not physical vessel motion or a calibrated sea-state model."
+}

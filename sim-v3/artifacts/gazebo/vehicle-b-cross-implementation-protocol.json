@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gazebo-cross-implementation-preregistered-protocol",
+  "vehicle": "vehicle-b-rudder",
+  "gazebo_version": "8.15.0",
+  "registered_before_trajectory_results": true,
+  "comparison_scope": "Open-loop cross-implementation consistency only; not real-world validation and not bit determinism.",
+  "input_definition": "bcod-sim propeller command is converted to its applied propeller thrust in newtons; that same per-step thrust and the same rudder angle in radians are sent to Gazebo.",
+  "cases": [
+    {"id": "straight-step", "duration_s": 6, "description": "positive constant thrust, zero rudder"},
+    {"id": "positive-rudder-step", "duration_s": 6, "description": "positive constant thrust and positive rudder"},
+    {"id": "negative-rudder-step", "duration_s": 6, "description": "positive constant thrust and negative rudder"},
+    {"id": "chirp-step", "duration_s": 6, "description": "piecewise propeller/rudder sequence matching the existing Vehicle B production probe"}
+  ],
+  "sample_interval_s": 0.05,
+  "metrics": {
+    "horizontal_position_rmse_m": {"maximum": 0.5},
+    "yaw_rmse_rad": {"maximum": 0.15},
+    "final_horizontal_position_error_m": {"maximum": 1.0},
+    "final_yaw_error_rad": {"maximum": 0.25}
+  },
+  "pass_rule": "Every metric must pass in every case; no tolerance may be revised after observing Gazebo results.",
+  "frame_conversion": "validation/rl-campaign/ports/task-trace-bridge.ts::gazeboOdomToTask; ENU position [x,y] -> NED [y,x], yaw_ned=pi/2-yaw_enu, r_ned=-r_enu.",
+  "negative_control": "Reverse the sign of converted Gazebo yaw; the directional and yaw metrics must fail.",
+  "validation_status_unchanged": "model-structure-trajectory-scored-fail"
+}

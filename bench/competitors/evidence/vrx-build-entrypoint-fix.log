@@ -1,0 +1,36 @@
+^D#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.vrx
+#1 transferring dockerfile: 1.14kB done
+#1 WARN: FromPlatformFlagConstDisallowed: FROM --platform flag should not use constant value "linux/amd64" (line 3)
+#1 DONE 0.0s
+
+#2 [internal] load metadata for ghcr.io/osrf/vrx-devel@sha256:6d018ab0c1cf0d6fe1f3bf266c9f1efac09cf9f6f40bc13ca437e5bbdaf7d1c4
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/3] FROM ghcr.io/osrf/vrx-devel@sha256:6d018ab0c1cf0d6fe1f3bf266c9f1efac09cf9f6f40bc13ca437e5bbdaf7d1c4
+#4 resolve ghcr.io/osrf/vrx-devel@sha256:6d018ab0c1cf0d6fe1f3bf266c9f1efac09cf9f6f40bc13ca437e5bbdaf7d1c4 done
+#4 DONE 0.0s
+
+#5 [2/3] WORKDIR /opt/vrx_ws
+#5 CACHED
+
+#6 [3/3] RUN mkdir -p src/vrx     && git -C src/vrx init     && git -C src/vrx remote add origin https://github.com/osrf/vrx.git     && git -C src/vrx fetch --depth 1 origin "fda35961463c2ed8c44d6c646fe8ce773a3eaff1"     && git -C src/vrx checkout --detach FETCH_HEAD     && test "$(git -C src/vrx rev-parse HEAD)" = "fda35961463c2ed8c44d6c646fe8ce773a3eaff1"     && bash -lc 'source /opt/ros/jazzy/setup.bash && colcon build --merge-install'
+#6 CACHED
+
+#7 exporting to image
+#7 exporting layers 0.0s done
+#7 exporting manifest sha256:209971d5177c2ea36ac6433f933c1dea648825c321fb17e1fb08cf6b1e0cad32 done
+#7 exporting config sha256:3a92c72acc56a467f5ba99f8eb87148d658e6c496c92bc0cbd8b21d5b8bb6d91
+#7 exporting config sha256:3a92c72acc56a467f5ba99f8eb87148d658e6c496c92bc0cbd8b21d5b8bb6d91 done
+#7 exporting attestation manifest sha256:dfa77b37472e4eeee8448b140d6dc3fd22909a485ca769765b70875dba537ec7 0.0s done
+#7 exporting manifest list sha256:2afc23052b297e27b0db37da5d4491bbc974b399300f04919d560ac5f1aad34a done
+#7 naming to docker.io/library/icra27-vrx:v3.0.1 done
+#7 DONE 0.1s
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - FromPlatformFlagConstDisallowed: FROM --platform flag should not use constant value "linux/amd64" (line 3)

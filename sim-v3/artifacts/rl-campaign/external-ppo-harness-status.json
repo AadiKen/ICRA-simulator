@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "external-ppo-harness-status",
+  "status": "SHARED_HARNESS_IMPLEMENTED_EXTERNAL_RUNTIME_AND_TRAINING_BLOCKED",
+  "task_contract_content_sha256": "905347f3e894841aa7e6613dfc286e585a0bf284f5f21820600cc09c0e6358ba",
+  "implemented": {
+    "shared_reward_and_termination": "packages/python-client/bcod_sim/common_task.py",
+    "simulator_neutral_environment": "packages/python-client/bcod_sim/common_task_env.py",
+    "persistent_external_runtime_protocol": "packages/python-client/bcod_sim/external_env.py",
+    "shared_actuator_process": "validation/rl-campaign/ports/actuator-jsonl-bridge.ts",
+    "portable_training_entrypoint": "validation/rl-campaign/train_portable_ppo.py",
+    "training_algorithm": "sb3_contrib.RecurrentPPO with MlpLstmPolicy; recurrent state is preserved during evaluation",
+    "gazebo_surveyor_generation": "validation/rl-campaign/ports/prepare-gazebo-episode.ts",
+    "frozen_reset_single_source": "validation/rl-campaign/ports/frozen-task-contract.ts"
+  },
+  "verified": {
+    "bcod_sim_closed_loop_smoke": true,
+    "gazebo_harmonic_8_15_sdf_valid": true,
+    "gazebo_harmonic_headless_launch": true,
+    "vrx_live_gate_7_executed": true,
+    "shared_actuator_tests": true,
+    "shared_reward_termination_tests": true,
+    "cross_language_seed_30000_reset_exact_match": true
+  },
+  "training_authorized": false,
+  "blockers": [
+    "The prior VRX Gate 7 result used an obsolete task contract and failed strict conformance.",
+    "Standalone Gazebo does not yet have a passing full-episode conformance result.",
+    "Concrete persistent reset/step services for the two external simulator processes are not accepted as conformant runtimes yet.",
+    "Action-space fairness remains OPEN_RESERVED_GATE_5."
+  ],
+  "invalidated_evidence": {
+    "path": "artifacts/rl-campaign/vrx-gate7-full/gate-7-result.json",
+    "reason": "Its reset route and disturbance bounds predate task contract 905347f3e894841aa7e6613dfc286e585a0bf284f5f21820600cc09c0e6358ba."
+  },
+  "integrity_rule": "Diagnostic wrapper execution is allowed only with an explicit diagnostic-only flag; PPO training is refused until both conformance and Gate 5 pass."
+}

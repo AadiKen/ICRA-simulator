@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "p3-v7-lstm-hidden-state-heading-probe",
+  "status": "COMPLETE_DIAGNOSTIC_ONLY",
+  "policy_observation_modified": false,
+  "privileged_target": "ground-truth yaw_rad; decoder target only",
+  "decoder": {
+    "type": "ridge linear regression on sin(yaw), cos(yaw)",
+    "alpha": 1.0,
+    "actor_hidden_size": 128,
+    "sample_every_control_steps": 10,
+    "train_seeds": [
+      30000,
+      30034
+    ],
+    "held_out_test_seeds": [
+      30035,
+      30049
+    ]
+  },
+  "checkpoints": [
+    {
+      "checkpoint_steps": 250000,
+      "train_samples": 4012,
+      "circular_mae_deg": 64.76874397989158,
+      "circular_median_absolute_error_deg": 52.85479801009229,
+      "circular_p95_absolute_error_deg": 160.1453260704968,
+      "sin_cos_r2": -2.496225757641532,
+      "test_samples": 1800
+    },
+    {
+      "checkpoint_steps": 500000,
+      "train_samples": 3991,
+      "circular_mae_deg": 73.7031696367767,
+      "circular_median_absolute_error_deg": 63.020964840077966,
+      "circular_p95_absolute_error_deg": 166.96331083235566,
+      "sin_cos_r2": -4.949302698415348,
+      "test_samples": 1702
+    },
+    {
+      "checkpoint_steps": 750000,
+      "train_samples": 3515,
+      "circular_mae_deg": 64.43174673310907,
+      "circular_median_absolute_error_deg": 49.251096976171006,
+      "circular_p95_absolute_error_deg": 161.8183360526773,
+      "sin_cos_r2": -11.17663375568646,
+      "test_samples": 1727
+    },
+    {
+      "checkpoint_steps": 1000000,
+      "train_samples": 3550,
+      "circular_mae_deg": 66.66875664002669,
+      "circular_median_absolute_error_deg": 58.08782463929622,
+      "circular_p95_absolute_error_deg": 159.85311785684308,
+      "sin_cos_r2": -29.734323938812032,
+      "test_samples": 1751
+    },
+    {
+      "checkpoint_steps": 1250000,
+      "train_samples": 3399,
+      "circular_mae_deg": 58.352195051550744,
+      "circular_median_absolute_error_deg": 44.8535068603368,
+      "circular_p95_absolute_error_deg": 157.85967027317207,
+      "sin_cos_r2": -1.2206611613574836,
+      "test_samples": 1800
+    },
+    {
+      "checkpoint_steps": 1500000,
+      "train_samples": 3566,
+      "circular_mae_deg": 52.47747938108642,
+      "circular_median_absolute_error_deg": 39.18295491860867,
+      "circular_p95_absolute_error_deg": 149.2888363984003,
+      "sin_cos_r2": -0.9447807767606329,
+      "test_samples": 1665
+    }
+  ],
+  "trend": {
+    "r2_change_first_to_last": 1.5514449808808992,
+    "mae_change_deg_first_to_last": -12.291264598805164,
+    "last_three_r2_range": 28.789543162051398
+  },
+  "interpretation_rule": "A clear continuing rise in held-out sin/cos R2 supports more budget. Flat poor R2 supports rejecting the claim that this LSTM is building a useful heading representation."
+}

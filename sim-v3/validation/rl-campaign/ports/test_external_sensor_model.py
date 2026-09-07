@@ -1,7 +1,7 @@
 import math
 import statistics
 import unittest
-from external_sensor_model import ExternalGpsModel, flu_to_body_ned, quaternion_to_ned_yaw
+from external_sensor_model import ExternalGpsModel, flu_to_body_ned, gazebo_navsat_valid, quaternion_to_ned_yaw
 
 class ExternalSensorModelTest(unittest.TestCase):
     def test_rate_latency_and_position_noise(self):
@@ -16,5 +16,19 @@ class ExternalSensorModelTest(unittest.TestCase):
     def test_frame_conversion(self):
         self.assertEqual(flu_to_body_ned(1,2,3),[1,-2,-3])
         self.assertAlmostEqual(quaternion_to_ned_yaw(1,0,0,0),math.pi/2)
+    def test_deliberately_stalled_gps_does_not_create_new_samples(self):
+        model=ExternalGpsModel(7319,10000,10000)
+        model.ingest(5.0,-33.7,150.6,True)
+        self.assertIsNone(model.sample(5.19))
+        released=model.sample(5.2)
+        self.assertEqual(released['timestamp_s'],5.0)
+        # Simulated /clock advances but the topic callback is deliberately not
+        # invoked. The conditioner must not refresh the held sample timestamp.
+        self.assertIs(model.sample(5.75),released)
+        self.assertEqual(model.sample(5.75)['timestamp_s'],5.0)
+    def test_gazebo_navsat_validity_is_finite_geodetic_output(self):
+        self.assertTrue(gazebo_navsat_valid(-33.7,150.6))
+        self.assertFalse(gazebo_navsat_valid(float('nan'),150.6))
+        self.assertFalse(gazebo_navsat_valid(-33.7,float('inf')))
 
 if __name__ == '__main__': unittest.main()

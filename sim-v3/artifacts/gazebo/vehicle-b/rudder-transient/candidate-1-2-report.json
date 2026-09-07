@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "protocol": "artifacts/gazebo/vehicle-b/rudder-transient/candidate-separation-protocol.json",
+  "mirror_pairs": [
+    {
+      "pair": "turning-circle",
+      "channels": {
+        "along": {
+          "reflected_correlation": 0.9938266736271839,
+          "rmse": 72.2095698849642
+        },
+        "cross": {
+          "reflected_correlation": 0.9777642853984428,
+          "rmse": 99.394633786649
+        },
+        "heading": {
+          "reflected_correlation": 0.9992672217299439,
+          "rmse": 10.934801099791446
+        },
+        "sway": {
+          "reflected_correlation": 0.976548108907206,
+          "rmse": 0.5292409034598828
+        },
+        "yaw_rate": {
+          "reflected_correlation": 0.9783956489942599,
+          "rmse": 0.05016672483329963
+        },
+        "rudder": {
+          "reflected_correlation": 0.9411618416625595,
+          "rmse": 5.322756621482891
+        },
+        "rpm": {
+          "reflected_correlation": -0.01007170954035621,
+          "rmse": 0.19867058161690726
+        }
+      }
+    },
+    {
+      "pair": "zig-zag-10",
+      "channels": {
+        "along": {
+          "reflected_correlation": 0.9999381096193409,
+          "rmse": 190.86238118340847
+        },
+        "cross": {
+          "reflected_correlation": 0.8510342467226302,
+          "rmse": 147.61728110730098
+        },
+        "heading": {
+          "reflected_correlation": 0.9769700246770544,
+          "rmse": 5.6098455841778865
+        },
+        "sway": {
+          "reflected_correlation": 0.9750041690693022,
+          "rmse": 0.7322034714940329
+        },
+        "yaw_rate": {
+          "reflected_correlation": 0.9574032142167779,
+          "rmse": 0.060827644777855794
+        },
+        "rudder": {
+          "reflected_correlation": 0.878801641450065,
+          "rmse": 4.893995659989919
+        },
+        "rpm": {
+          "reflected_correlation": 0.019400906746906758,
+          "rmse": 0.19367498547824985
+        }
+      }
+    },
+    {
+      "pair": "zig-zag-20",
+      "channels": {
+        "along": {
+          "reflected_correlation": 0.999855636609297,
+          "rmse": 207.9805084501974
+        },
+        "cross": {
+          "reflected_correlation": 0.7098706060185512,
+          "rmse": 179.59139109054595
+        },
+        "heading": {
+          "reflected_correlation": 0.711724079425636,
+          "rmse": 17.800206551820132
+        },
+        "sway": {
+          "reflected_correlation": 0.7131321172393131,
+          "rmse": 1.8016984196668713
+        },
+        "yaw_rate": {
+          "reflected_correlation": 0.6192584382299017,
+          "rmse": 0.2775048998447955
+        },
+        "rudder": {
+          "reflected_correlation": 0.525084285629014,
+          "rmse": 18.982237728782188
+        },
+        "rpm": {
+          "reflected_correlation": -0.011926812046674192,
+          "rmse": 0.20199009876724197
+        }
+      }
+    }
+  ],
+  "kinematic_ingestion_checks": [
+    {
+      "id": "MARIN_FREE_KVLCC2_tc_-35_m",
+      "passed": true,
+      "position_kinematic_rmse_mps": 0.4192007817820358,
+      "heading_rate_correlation": 0.6986765879344164
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_tc_35_m",
+      "passed": true,
+      "position_kinematic_rmse_mps": 0.3822300538771694,
+      "heading_rate_correlation": 0.7146861032120777
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_zz_-10_m",
+      "passed": true,
+      "position_kinematic_rmse_mps": 0.342152970068847,
+      "heading_rate_correlation": 0.4424039712446305
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_zz_-20_m",
+      "passed": true,
+      "position_kinematic_rmse_mps": 0.36385646480759126,
+      "heading_rate_correlation": 0.4734880015376689
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_zz_10_m",
+      "passed": true,
+      "position_kinematic_rmse_mps": 0.41209962033367414,
+      "heading_rate_correlation": 0.4198256720382571
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_zz_20_m",
+      "passed": true,
+      "position_kinematic_rmse_mps": 0.3159794644589576,
+      "heading_rate_correlation": 0.5682268842467264
+    }
+  ],
+  "sign_or_frame_assessment": {
+    "sign_inversion_indicated": false,
+    "kinematic_mapping_failure": false,
+    "strict_mirror_symmetry_passed": false,
+    "conclusion": "No ingestion sign/frame error is indicated. Reflected signs agree and all six raw kinematic mapping checks pass, but strict mirror symmetry fails, especially for 20/20 zig-zags; timing and/or physical asymmetry remains."
+  },
+  "asymmetry_representation": {
+    "sign_dependent_rudder_flow": {
+      "present": true,
+      "negative": 0.395,
+      "positive": 0.64,
+      "implementation": true
+    },
+    "transverse_propeller_rotation_force": {
+      "present": false,
+      "evidence": "propeller wrench is [axial thrust, 0, 0]; no rotation-direction parameter or transverse propeller force exists"
+    },
+    "conclusion": "The model can represent asymmetric rudder inflow through unequal gamma_R branches, but cannot represent propeller-walk force from screw rotation."
+  },
+  "claim_limit": "Phase-normalized mirror residuals can reveal sign failures and asymmetry but cannot distinguish hydrodynamic asymmetry from run-condition differences by themselves."
+}

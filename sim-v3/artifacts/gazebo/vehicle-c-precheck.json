@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-gazebo-comparability-precheck",
+  "status": "kinematic-actuation-comparable-interaction-physics-absent-both-sides",
+  "bcod_sim_findings": {
+    "actuation": "Each AzimuthThruster rotates its thrust axis to [cos(azimuth), sin(azimuth), 0] and applies thrust at its configured body-frame lever arm.",
+    "allocation": "Desired surge, sway and yaw wrench is allocated across two independently steered pods.",
+    "pod_hull_interaction": false,
+    "pod_pod_interaction": false,
+    "angle_dependent_thrust_degradation": false,
+    "slew_and_motor_transients": true
+  },
+  "gazebo_stock_model_expected": {
+    "actuation": "Each propeller/thruster joint is a child of an azimuth revolute joint, so joint rotation changes the thrust direction kinematically.",
+    "pod_hull_interaction": false,
+    "pod_pod_interaction": false,
+    "angle_dependent_thrust_degradation": false,
+    "slew_and_motor_transients": "JointPositionController and Thruster dynamics differ from bcod-sim and must be mapped explicitly."
+  },
+  "protocol_consequence": "The Vehicle C comparison can validly test kinematics, signs, allocation, frame conversion and mapped actuator transients. It cannot test pod interaction physics because neither implementation contains it.",
+  "required_preregistration": [
+    "State the interaction-physics exclusion before trajectories are run.",
+    "Compare applied per-pod thrust and applied azimuth angle, not upstream desired wrench alone.",
+    "Include straight-ahead, pure-lateral, rotation-in-place and time-varying allocation probes.",
+    "Keep allocation/kinematics findings separate from behavioral-dynamics validation."
+  ],
+  "validation_status_unchanged": "allocation-demonstrated-dynamics-unvalidated",
+  "implementation_sources": [
+    "packages/core/src/actuators.js",
+    "backends/node/src/vehicle-c-production.ts",
+    "packages/vehicle-sdk/src/index.ts",
+    "validation/vehicle-c-allocation/run.ts"
+  ],
+  "decision_gate": "Vehicle C construction is ready technically, but proceeding treats the scoped Vehicle B negative result as satisfying the original sequencing intent rather than the original literal pass requirement; paper framing should be confirmed by the PI."
+}

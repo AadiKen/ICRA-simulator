@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "cross-simulator-ppo-gate-a-oracle-audit",
+  "date": "2026-09-06",
+  "status": "BLOCKED_PENDING_EXTERNAL_RUNTIME_SENSOR_VALIDATION",
+  "claim_blocked": "The same PPO harness, task contract, and hyperparameters differ only by simulator.",
+  "contract_sha256": "7e0bedf89d58dd18b32508f430f6bee10d62de20be630a2d0dabbe7464b11e59",
+  "training_started": false,
+  "finding": {
+    "original_defect": "VRX and Gazebo both sourced goal-relative position, velocity, and yaw from simulator odometry; acceleration and angular rate also fell back to odometry when IMU was absent.",
+    "ground_velocity_source": "Timestamped finite difference of consecutive noisy NavSat fixes; no Odometry twist enters the observation.",
+    "goal_relative_position_source": "Noisy, delayed NavSat position in local NED; no Odometry pose enters the observation.",
+    "imu_source": "sensor_msgs/Imu linear acceleration, angular velocity, and orientation quaternion, converted from FLU/ENU to body-NED/NED yaw. Missing or stale IMU zero-fills all seven IMU fields.",
+    "classification": "oracle fallbacks removed in shared VRX/Gazebo TaskTraceBridge",
+    "sensor_derived": true,
+    "noise_model": "GPS is sampled at 2 Hz, held between fixes, delayed 0.2 s, and receives seeded independent 0.8 m horizontal position noise. NavSatFix has no ground velocity, so velocity is differenced from noisy position."
+  },
+  "source_trace": [
+    {
+      "path": "validation/rl-campaign/ports/prepare-vrx-surveyor.ts",
+      "evidence": "The generated model enables gz::sim::systems::OdometryPublisher on the odometry topic; NavSat is a separate sensor."
+    },
+    {
+      "path": "validation/rl-campaign/ports/vrx_trace_exporter.py",
+      "evidence": "Odometry remains privileged trace state only. NavSatFix is conditioned through ExternalGpsModel; Imu supplies acceleration, angular rate, and yaw."
+    },
+    {
+      "path": "validation/rl-campaign/ports/vrx_gate7_runtime.py",
+      "evidence": "The runtime now uses the same ExternalGpsModel and explicit Imu conversion; it does not serialize odometry as sensor observation data."
+    },
+    {
+      "path": "validation/rl-campaign/ports/episode-driver.ts",
+      "evidence": "The trace conversion forwards separate explicit imu and gps samples alongside privileged state."
+    },
+    {
+      "path": "validation/rl-campaign/ports/task-trace-bridge.ts",
+      "evidence": "The 17-field observation accepts explicit fresh IMU/GPS samples only. Missing, invalid, future, or stale samples are zero-filled; no odometry fallback exists. This shared bridge also closes the Gazebo defect."
+    }
+  ],
+  "comparison_with_bcod_sim": "Position rate, hold, latency, and horizontal noise now match bcod-sim defaults. Velocity cannot match: bcod-sim emits an independently modeled 0.08 m/s GPS velocity, while ROS NavSatFix has no velocity and differencing independent 0.8 m position errors at 2 Hz amplifies stationary velocity noise to about 2.26 m/s analytically.",
+  "residual_measurement": {
+    "kind": "deterministic synthetic stationary NavSat stream; not a live VRX/Gazebo measurement",
+    "seed": 7319,
+    "fixes": 1000,
+    "measured_position_std_m": 0.7879453775574119,
+    "measured_differenced_velocity_std_mps": 2.193943211304843,
+    "bcod_sim_velocity_std_mps": 0.08,
+    "velocity_noise_ratio": 27.424290141310536,
+    "analytic_differenced_velocity_std_mps": 2.2627416997969525
+  },
+  "verification": {
+    "oracle_exclusion_regression": "passed for both VRX and Gazebo adapters; changing every privileged odometry field leaves the 12 sensor observation fields unchanged",
+    "missing_and_stale_policy": "passed; missing, invalid, future, and stale samples zero-fill rather than falling back to odometry",
+    "pinned_gazebo_harmonic_8_15_sdf_validation": "passed in icra27-gazebo-harmonic:harmonic-8.15.0",
+    "pinned_vrx_exporter_launch_validation": "passed in leadcat/vrx:v3.0.1",
+    "live_topic_trajectory_measurement": "outstanding; the checked-in harness validates SDF/exporter launch only and has no connected episode lifecycle or Transport trace process"
+  },
+  "decision": {
+    "gate_a_passed": false,
+    "later_gates_started": false,
+    "external_training_authorized": false,
+    "required_resolution_order": [
+      "Run matched live VRX and Gazebo trajectories under pinned runtimes and verify the sensor topics, timestamps, 2 Hz hold, 0.2 s release delay, frames, and empirical errors.",
+      "Decide explicitly whether the approximately 27x GPS velocity-noise mismatch is accepted, filtered with documented additional latency, or resolved by a uniform contract revision.",
+      "Regenerate conformance traces only after that decision; do not train while Gate A is blocked."
+    ],
+    "recommended_next_action": "Perform live runtime validation for both VRX and Gazebo. Static and deterministic tests prove oracle exclusion, but cannot establish simulator topic behavior or empirical trajectory errors."
+  }
+}

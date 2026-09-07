@@ -8,6 +8,8 @@ wrapper smoke tests, never a policy-training run.
 from __future__ import annotations
 
 import argparse
+from copy import deepcopy
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -28,6 +30,74 @@ EPISODE_COLUMNS = ("run_id", "seed", "simulator", "vehicle", "task_id",
                    "task_portable", "policy_id", "algorithm", "return", "success",
                    "episode_length", "wall_clock_s", "termination_reason",
                    "collision_type", "host_class")
+
+BCOD_PROTOCOL_ARTIFACT = (
+    ROOT / "artifacts/rl-campaign/surveyor/15-field-rerun-preregistration.json"
+)
+FROZEN_CONTRACT_SHA256 = "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36"
+_SHARED_ALGORITHM_CONFIG = {
+    "algorithm": "RecurrentPPO",
+    "policy": "MlpLstmPolicy",
+    "seed": 7319,
+    "n_steps": 512,
+    "batch_size": 512,
+    "n_epochs": 10,
+    "learning_rate": 3e-4,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "policy_kwargs": {
+        "net_arch": [128, 128],
+        "lstm_hidden_size": 128,
+        "enable_critic_lstm": True,
+    },
+}
+
+
+def algorithm_config(backend: str) -> dict:
+    """Return the one immutable algorithm configuration for every simulator.
+
+    ``backend`` is accepted so callers cannot accidentally select a separate
+    Gazebo configuration.  It intentionally does not affect the result.
+    The entropy coefficient is read from the preregistered bcod-sim protocol,
+    rather than being copied into this training entry point.
+    """
+    if backend not in ("bcod-sim", "vrx", "gazebo-harmonic"):
+        raise ValueError(f"unsupported backend: {backend}")
+    protocol = json.loads(BCOD_PROTOCOL_ARTIFACT.read_text())
+    factors = protocol.get("frozen_run_factors", {})
+    if protocol.get("status") != "PREREGISTERED_BEFORE_ANY_15_FIELD_RUN":
+        raise RuntimeError("bcod-sim protocol artifact is not the frozen 15-field preregistration")
+    if factors.get("algorithm") != "RecurrentPPO" or factors.get("policy") != "MlpLstmPolicy":
+        raise RuntimeError("bcod-sim protocol algorithm does not match the portable harness")
+    config = deepcopy(_SHARED_ALGORITHM_CONFIG)
+    config["ent_coef"] = float(factors["ent_coef"])
+    return config
+
+
+def algorithm_config_bytes(backend: str) -> bytes:
+    """Canonical bytes used by tests and run metadata to prove parity."""
+    return json.dumps(algorithm_config(backend), sort_keys=True,
+                      separators=(",", ":")).encode("utf-8")
+
+
+def recurrent_ppo_kwargs(backend: str) -> tuple[str, dict]:
+    config = algorithm_config(backend)
+    policy = config.pop("policy")
+    algorithm = config.pop("algorithm")
+    if algorithm != "RecurrentPPO":
+        raise RuntimeError("portable harness only supports RecurrentPPO")
+    return policy, config
+
+
+def algorithm_provenance(backend: str) -> dict:
+    payload = algorithm_config_bytes(backend)
+    return {
+        "config": algorithm_config(backend),
+        "canonical_sha256": hashlib.sha256(payload).hexdigest(),
+        "ent_coef_source": str(BCOD_PROTOCOL_ARTIFACT.relative_to(ROOT)),
+        "contract_sha256": FROZEN_CONTRACT_SHA256,
+    }
 
 
 def detect_host_class():
@@ -131,18 +201,13 @@ def run_v7_protocol():
 
     V7_OUT.mkdir(parents=True, exist_ok=True)
     phase1_env = SubprocVecEnv([bcod_factory(i, True) for i in range(16)], start_method="fork")
-    model = RecurrentPPO(
-        "MlpLstmPolicy", phase1_env, seed=7319, n_steps=512, batch_size=512,
-        n_epochs=10, learning_rate=3e-4, gamma=.99, gae_lambda=.95,
-        clip_range=.2, ent_coef=0,
-        policy_kwargs={"net_arch": [128, 128], "lstm_hidden_size": 128,
-                       "enable_critic_lstm": True},
-        verbose=1, device="cpu",
-    )
+    policy, kwargs = recurrent_ppo_kwargs("bcod-sim")
+    model = RecurrentPPO(policy, phase1_env, **kwargs, verbose=1, device="cpu")
     curve, consecutive = [], 0
     atomic_json(V7_OUT / "training-state.json", {
         "status": "phase-1-running", "timesteps": 0,
         "algorithm": "RecurrentPPO", "policy": "MlpLstmPolicy",
+        "algorithm_provenance": algorithm_provenance("bcod-sim"),
         "convergence_rule": "success_rate >= 0.9 at two consecutive 250k checkpoints",
     })
     for steps in range(250_000, 1_500_001, 250_000):
@@ -230,14 +295,11 @@ def main():
                 observation, info = env.reset()
         if args.timesteps:
             from sb3_contrib import RecurrentPPO
-            model = RecurrentPPO(
-                "MlpLstmPolicy", env, seed=args.base_seed, n_steps=512, batch_size=512,
-                n_epochs=10, learning_rate=3e-4, gamma=.99, gae_lambda=.95,
-                clip_range=.2, ent_coef=0,
-                policy_kwargs={"net_arch": [128, 128], "lstm_hidden_size": 128,
-                               "enable_critic_lstm": True},
-                verbose=1, device="cpu",
-            )
+            policy, kwargs = recurrent_ppo_kwargs(args.backend)
+            # A user-selected training seed is a run factor, not an algorithm
+            # difference between simulators.
+            kwargs["seed"] = args.base_seed
+            model = RecurrentPPO(policy, env, **kwargs, verbose=1, device="cpu")
             model.learn(total_timesteps=args.timesteps, progress_bar=False)
             model.save(ROOT / f"artifacts/rl-campaign/{args.backend}-recurrent-ppo")
             if args.eval_episodes:

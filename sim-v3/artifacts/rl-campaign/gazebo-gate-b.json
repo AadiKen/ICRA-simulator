@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gazebo-gate-b-parity",
+  "status": "PASS",
+  "contract_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
+  "training_authorized": false,
+  "next_gate_started": false,
+  "runtime": {
+    "image": "icra27-gazebo-harmonic:harmonic-8.15.0",
+    "image_id": "174e8baad590",
+    "host_architecture": "arm64",
+    "container_architecture": "linux/amd64",
+    "execution": "AMD64 emulation on Apple Silicon",
+    "timing_basis": "Gazebo simulation timestamps only"
+  },
+  "geodetic_origin": {
+    "surface_model": "EARTH_WGS84",
+    "latitude_deg": -33.72276876888639,
+    "longitude_deg": 150.67399110174387,
+    "elevation_m": 0,
+    "world_frame": "ENU",
+    "task_frame": "local tangent NED; N=ENU y, E=ENU x"
+  },
+  "navsat_validity": {
+    "decision": "fix_valid=1 only when latitude and longitude are finite and the conditioned sample timestamp is within the GPS freshness window; otherwise zero-fill with fix_valid=0",
+    "native_constraint": "gz.msgs.NavSat has no explicit status field",
+    "equivalence": "finite output supplies native validity; shared observation freshness supplies bcod-sim-equivalent stale/invalid behavior"
+  },
+  "live_local_coordinate_check": {
+    "valid_observation_rows": 11,
+    "gps_topic_timestamps_s": [
+      0.6000000000000001,
+      1.0,
+      1.5,
+      2.0
+    ],
+    "median_radial_difference_from_same-step_privileged_position_m": 1.4140425827478995,
+    "max_radial_difference_m": 1.4208808096917098,
+    "interpretation": "Includes configured 0.8 m/axis noise, 0.2 s latency, and vessel motion during latency; privileged position is comparison-only."
+  },
+  "conversion": {
+    "world": "Gazebo ENU",
+    "body_input": "Gazebo FLU",
+    "task": "NED/FRD",
+    "state_path": "task-trace-bridge.ts gazeboOdomToTask via task-trace-jsonl-bridge.ts",
+    "sensor_path": "external_sensor_model.py flu_to_body_ned and quaternion_to_ned_yaw, the same functions imported by vrx_trace_exporter.py",
+    "third_converter_created": false
+  },
+  "sensor_generation": {
+    "phaseASensors": true,
+    "preparer": "validation/rl-campaign/ports/prepare-gazebo-episode.ts",
+    "generator_sha256": "7660a99ee6383bba28516be7acb6136c3bda4fd28db114cdf8a58b6ed8443412"
+  },
+  "checks": {
+    "wgs84_origin_generated": true,
+    "live_navsat_nonzero_and_finite": true,
+    "local_ned_fix_observed": true,
+    "local_coordinate_error_bounded": true,
+    "fix_valid_finite_rule": true,
+    "fix_valid_freshness_rule": true,
+    "shared_frame_conversion_reused": true,
+    "phase_a_sensors_enabled": true
+  },
+  "all_checks_pass": true,
+  "asymmetries": [],
+  "notes": [
+    "No training was run.",
+    "The phaseASensors=true task-world path was already enabled before this gate; the geodetic-origin generator change is independently tested. No generated golden checksum was silently rewritten."
+  ]
+}

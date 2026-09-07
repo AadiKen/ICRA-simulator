@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-b-rudder-transient-bound-sensitivity-result",
+  "date": "2026-09-04",
+  "status": "task2-completed-separate-diagnostic",
+  "protocol": {
+    "path": "artifacts/gazebo/vehicle-b/rudder-transient/task2-bound-sensitivity-protocol.json",
+    "checksum_sha256": "35afc47c8c00bcfdade7b2319eb757b3efe8bad6e51f4ffed00d7b88e08696d1",
+    "registered_before_results": true
+  },
+  "source_fit": {
+    "report": "validation/external-references/kvlcc2-marin/artifacts/identification/identification-report.json",
+    "checksum_sha256": "d9ca710cb93ab010d5a4bfd4d40e073d19484b186cfd5b526275a0c4132c239a",
+    "unchanged": true
+  },
+  "premise_audit": {
+    "prompt_claimed_bound_hit_count": 3,
+    "reproducible_final_bound_hit_count": 2,
+    "rule": "abs(abs(q) - 2) <= 1e-9",
+    "bound_hits": [
+      {
+        "coefficient": "Y_R",
+        "baseline": 0.083,
+        "identified": -0.083,
+        "q": -2,
+        "original_bounds": [
+          -0.083,
+          0.249
+        ]
+      },
+      {
+        "coefficient": "X_vr",
+        "baseline": 0.002,
+        "identified": -0.098,
+        "q": -2,
+        "original_bounds": [
+          -0.098,
+          0.102
+        ]
+      }
+    ],
+    "discrepancy_disposition": "No third coefficient is designated: the immutable source artifact has only two final values at a bound. N_rrr, the closest remaining normalized magnitude, is q=1.227368934 and is not a bound hit."
+  },
+  "method": {
+    "base_runner": "validation/external-references/kvlcc2-marin/identify.mjs",
+    "base_runner_checksum_sha256": "51e3c417b169d838e40a3269640cde47ff316faee211d981fa43b53c9cefccbf",
+    "held_constant": [
+      "two turning-circle training runs",
+      "four held-out zig-zags",
+      "residual definitions and normalization",
+      "ridge weight",
+      "zero initialization",
+      "12-iteration deterministic Gauss-Newton schedule"
+    ],
+    "changed_only": "Y_R and X_vr normalized bound half-width: 2 to 10"
+  },
+  "optimization": {
+    "original_final_cost": 0.22436066613270883,
+    "relaxed_final_cost": 0.222305627805775,
+    "coefficient_rows": [
+      {
+        "coefficient": "Y_R",
+        "baseline": 0.083,
+        "identified": -0.10031392650708777,
+        "q": -2.2086015241817805,
+        "normalized_bounds": [
+          -10,
+          10
+        ],
+        "coefficient_bounds": [
+          -0.7470000000000001,
+          0.913
+        ],
+        "bound_relaxed": true,
+        "at_bound": false,
+        "stable_away_from_bound": true
+      },
+      {
+        "coefficient": "N_R",
+        "baseline": -0.049,
+        "identified": -0.044939678266861335,
+        "q": 0.08120643466277333,
+        "normalized_bounds": [
+          -2,
+          2
+        ],
+        "coefficient_bounds": [
+          -0.14900000000000002,
+          0.051000000000000004
+        ],
+        "bound_relaxed": false,
+        "at_bound": false,
+        "stable_away_from_bound": true
+      },
+      {
+        "coefficient": "Y_rrr",
+        "baseline": 0.008,
+        "identified": 0.044249044239558895,
+        "q": 0.7249808847911778,
+        "normalized_bounds": [
+          -2,
+          2
+        ],
+        "coefficient_bounds": [
+          -0.092,
+          0.10800000000000001
+        ],
+        "bound_relaxed": false,
+        "at_bound": false,
+        "stable_away_from_bound": true
+      },
+      {
+        "coefficient": "N_rrr",
+        "baseline": -0.013,
+        "identified": 0.05324913584728645,
+        "q": 1.3249827169457289,
+        "normalized_bounds": [
+          -2,
+          2
+        ],
+        "coefficient_bounds": [
+          -0.113,
+          0.08700000000000001
+        ],
+        "bound_relaxed": false,
+        "at_bound": false,
+        "stable_away_from_bound": true
+      },
+      {
+        "coefficient": "Y_vvr",
+        "baseline": 0.379,
+        "identified": 0.04487031596619018,
+        "q": -0.8816086649968596,
+        "normalized_bounds": [
+          -2,
+          2
+        ],
+        "coefficient_bounds": [
+          -0.379,
+          1.137
+        ],
+        "bound_relaxed": false,
+        "at_bound": false,
+        "stable_away_from_bound": true
+      },
+      {
+        "coefficient": "Y_vrr",
+        "baseline": -0.391,
+        "identified": -0.4907351524429751,
+        "q": -0.25507711622244267,
+        "normalized_bounds": [
+          -2,
+          2
+        ],
+        "coefficient_bounds": [
+          -1.173,
+          0.391
+        ],
+        "bound_relaxed": false,
+        "at_bound": false,
+        "stable_away_from_bound": true
+      },
+      {
+        "coefficient": "N_vvr",
+        "baseline": -0.294,
+        "identified": -0.39816522770182183,
+        "q": -0.3543034955844281,
+        "normalized_bounds": [
+          -2,
+          2
+        ],
+        "coefficient_bounds": [
+          -0.8819999999999999,
+          0.294
+        ],
+        "bound_relaxed": false,
+        "at_bound": false,
+        "stable_away_from_bound": true
+      },
+      {
+        "coefficient": "N_vrr",
+        "baseline": 0.055,
+        "identified": 0.1120914151346272,
+        "q": 1.0380257297204944,
+        "normalized_bounds": [
+          -2,
+          2
+        ],
+        "coefficient_bounds": [
+          -0.055,
+          0.165
+        ],
+        "bound_relaxed": false,
+        "at_bound": false,
+        "stable_away_from_bound": true
+      },
+      {
+        "coefficient": "X_vr",
+        "baseline": 0.002,
+        "identified": -0.10968017442377093,
+        "q": -2.2336034884754183,
+        "normalized_bounds": [
+          -10,
+          10
+        ],
+        "coefficient_bounds": [
+          -0.498,
+          0.502
+        ],
+        "bound_relaxed": true,
+        "at_bound": false,
+        "stable_away_from_bound": true
+      }
+    ],
+    "formerly_pinned_ran_to_new_bound": false
+  },
+  "held_out_zig_zags": [
+    {
+      "id": "MARIN_FREE_KVLCC2_zz_-10_m",
+      "heading_rmse_deg": {
+        "original": 55.13839046399277,
+        "relaxed": 70.62391478128603,
+        "reduction_percent": -28.084831978194632
+      },
+      "yaw_rate_rmse_deg_s": {
+        "original": 0.20994856345707058,
+        "relaxed": 0.26934027639538133,
+        "reduction_percent": -28.288696983847153
+      },
+      "imo": {
+        "first_overshoot_deg": {
+          "reference": 8.024999999999999,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        },
+        "second_overshoot_deg": {
+          "reference": 22.074999999999996,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_zz_10_m",
+      "heading_rmse_deg": {
+        "original": 95.46517660897787,
+        "relaxed": 98.98880109011584,
+        "reduction_percent": -3.691005041105846
+      },
+      "yaw_rate_rmse_deg_s": {
+        "original": 0.3919395312192826,
+        "relaxed": 0.40128702744054695,
+        "reduction_percent": -2.3849332554400102
+      },
+      "imo": {
+        "first_overshoot_deg": {
+          "reference": 9.387,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        },
+        "second_overshoot_deg": {
+          "reference": 15.113,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_zz_-20_m",
+      "heading_rmse_deg": {
+        "original": 15.040252726240508,
+        "relaxed": 16.517943890765874,
+        "reduction_percent": -9.824909138310288
+      },
+      "yaw_rate_rmse_deg_s": {
+        "original": 0.15209971817062945,
+        "relaxed": 0.1665093287909744,
+        "reduction_percent": -9.473791795051113
+      },
+      "imo": {
+        "first_overshoot_deg": {
+          "reference": 12.772000000000006,
+          "actual": 19.95483363918936,
+          "absolute_percent_error": 56.2389104227165,
+          "tolerance_percent": 10,
+          "passed": false
+        },
+        "second_overshoot_deg": {
+          "reference": 15.827999999999996,
+          "actual": 4.62190124460421,
+          "absolute_percent_error": 70.79920871490894,
+          "tolerance_percent": 10,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    },
+    {
+      "id": "MARIN_FREE_KVLCC2_zz_20_m",
+      "heading_rmse_deg": {
+        "original": 60.09437122114092,
+        "relaxed": 69.01929861336964,
+        "reduction_percent": -14.851519719519048
+      },
+      "yaw_rate_rmse_deg_s": {
+        "original": 0.20686574766588928,
+        "relaxed": 0.22846317784804815,
+        "reduction_percent": -10.440312340659254
+      },
+      "imo": {
+        "first_overshoot_deg": {
+          "reference": 15.590000000000003,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        },
+        "second_overshoot_deg": {
+          "reference": 12.809999999999995,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    }
+  ],
+  "preregistered_summary": {
+    "original_median_heading_rmse_deg": 57.61638084256684,
+    "relaxed_median_heading_rmse_deg": 69.82160669732784,
+    "heading_reduction_percent": -21.183603822862484,
+    "original_median_yaw_rate_rmse_deg_s": 0.20840715556147993,
+    "relaxed_median_yaw_rate_rmse_deg_s": 0.24890172712171474,
+    "yaw_rate_reduction_percent": -19.430509212189186,
+    "threshold_percent_each": 20,
+    "substantial_improvement": false
+  },
+  "interpretation": "Relaxing the reproducible active bounds did not meet the preregistered substantial-improvement rule; the too-tight-bound explanation is not supported by this check.",
+  "provenance_finding": "The coefficient baseline values are recorded from Yasukawa & Yoshimura (2015) Table 3. The +/-2 optimization bounds are a repository identification choice, not literature-sourced physical bounds; therefore there is no evidence that the numeric bounds were copied from a different hull scale.",
+  "claim_limit": "KVLCC2 model-scale Task 2 diagnostic only. This does not change the original Vehicle B protocol, fit, scoped negative result, or Vehicle-B-USV parameters.",
+  "files": {
+    "fitted_parameters": "artifacts/gazebo/vehicle-b/rudder-transient/task2-fit/fitted-kvlcc2-marin.json",
+    "raw_identification_report": "artifacts/gazebo/vehicle-b/rudder-transient/task2-fit/identification-report.json"
+  }
+}

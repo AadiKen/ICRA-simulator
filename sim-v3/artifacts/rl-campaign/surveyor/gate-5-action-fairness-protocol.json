@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gate-5-action-space-fairness-protocol",
+  "status": "RESOLVED_GATE_5_REPORT_BOTH_SEPARATE_CONDITIONS",
+  "decision_date": "2026-09-05",
+  "decision": "report both as separate conditions",
+  "conditions": [
+    {
+      "id": "topology-native-normalized-actuators",
+      "policy_output": "Each vehicle's native normalized actuator coordinates.",
+      "interpretation": "Measures performance with direct access to the control coordinates natural to each propulsion topology."
+    },
+    {
+      "id": "common-body-wrench-frozen-allocator",
+      "policy_output": "A common body-wrench command mapped through a versioned, frozen allocator for each vehicle.",
+      "interpretation": "Controls the policy-facing action semantics while exposing allocation feasibility and topology-specific residuals."
+    }
+  ],
+  "rationale": [
+    "Topology-native actions avoid imposing an allocator that may favor one propulsion layout, but expose different policy action semantics across vehicles.",
+    "Common body-wrench actions align policy semantics, but allocator limits and residuals are part of the condition and may affect vehicles differently.",
+    "Reporting both makes those two defensible perspectives visible without asserting that either one alone is universally fair."
+  ],
+  "reporting_rules": {
+    "required_row_field": "gate_5_condition",
+    "required_values": [
+      "topology-native-normalized-actuators",
+      "common-body-wrench-frozen-allocator"
+    ],
+    "separate_training_runs": true,
+    "separate_metrics_and_confidence_intervals": true,
+    "pooling_prohibited": true,
+    "host_class_must_match_within_each_comparison": true,
+    "portable_rows_only_for_figures": [
+      "Fig 1",
+      "Fig 5 benchmark half"
+    ]
+  },
+  "allocator_freeze_requirement": "Each common-body-wrench condition must record the allocator artifact path and content hash before training begins; allocator retuning after observing policy outcomes is prohibited.",
+  "scope_limit": "This resolves comparison protocol, not equivalence of actuator authority, allocator feasibility, vehicle dynamics, or simulator fidelity.",
+  "contract": {
+    "path": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+    "previous_content_sha256": "b55b74e2485b3a2cd186779fb6d3efef6e466beaee639d6739170ff8321e97df",
+    "content_sha256": "7e0bedf89d58dd18b32508f430f6bee10d62de20be630a2d0dabbe7464b11e59"
+  }
+}

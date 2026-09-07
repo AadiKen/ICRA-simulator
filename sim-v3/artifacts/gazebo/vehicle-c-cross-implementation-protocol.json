@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-cross-implementation-protocol",
+  "status": "preregistered-before-trajectory-results",
+  "registered_before_trajectory_results": true,
+  "gazebo_version": "8.15.0",
+  "input_definition": "The same applied per-pod thrust in newtons and applied pod azimuth in radians are recorded from bcod-sim and replayed in Gazebo.",
+  "cases": ["straight-ahead", "pure-lateral", "rotation-in-place", "allocation-chirp"],
+  "metrics": {
+    "horizontal_position_rmse_m": {"maximum": 0.5},
+    "yaw_rmse_rad": {"maximum": 0.15},
+    "final_horizontal_position_error_m": {"maximum": 1.0},
+    "final_yaw_error_rad": {"maximum": 0.25}
+  },
+  "pass_rule": "Every metric must pass in every case.",
+  "scope": "Kinematic thrust-vectoring, allocation, frame conversion and mapped actuator response only.",
+  "interaction_exclusion": "Neither implementation models pod-hull interaction, pod-pod interaction, or angle-dependent thrust degradation. Agreement cannot validate those mechanisms.",
+  "validation_status_unchanged": "allocation-demonstrated-dynamics-unvalidated"
+}

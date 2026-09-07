@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-gazebo-cross-implementation-check",
+  "vehicle": "vehicle-c-azimuth",
+  "gazebo_version": "8.15.0",
+  "status": "cross-implementation-consistency-checked-gazebo-harmonic-8.15",
+  "cross_implementation_gate_passed": true,
+  "validation_status_unchanged": "allocation-demonstrated-dynamics-unvalidated",
+  "is_real_world_validation": false,
+  "parameter_mapping": "validation/gazebo-vehicles/vehicle-c-parameter-map.json",
+  "sdf": "gazebo/models/vehicle-c-azimuth/model.sdf",
+  "sdf_checks": {
+    "gz_sdf_check": "passed",
+    "headless_world_load": "passed",
+    "inertia_triangle_inequality": true
+  },
+  "frame_mapping": "bcod body NED/FRD positive azimuth is mapped to negative Gazebo FLU joint angle",
+  "direction_checks": [
+    {
+      "case": "both-pods-0deg",
+      "expected": "forward translation dominates lateral translation; negligible yaw",
+      "node_final": {
+        "N_m": 0.09778006979649945,
+        "E_m": 0.025410235193703556,
+        "yaw_rad": 0.00010046594758351801,
+        "u_mps": 0.04266054418253147,
+        "v_mps": 0.0037178396052978033,
+        "r_rad_s": -0.0004300443337490724
+      },
+      "gazebo_final": {
+        "time_s": 5.95,
+        "N_m": 0.08024952446940822,
+        "E_m": 0.00000858419798062019,
+        "yaw_rad": 0.00005067984568873918,
+        "u_mps": -9.191881612872189e-7,
+        "v_mps": 0.0393018264430905,
+        "r_rad_s": 0.00003968693547025367
+      },
+      "passed": true
+    },
+    {
+      "case": "both-pods-positive-90deg",
+      "expected": "pure positive lateral translation: lateral displacement dominates, forward displacement <=10% of lateral, and |yaw| <=0.01 rad",
+      "node_final": {
+        "N_m": 0.029312684124306543,
+        "E_m": 0.055527663687826134,
+        "yaw_rad": -0.03816577731985475,
+        "u_mps": 0.0038143830800320133,
+        "v_mps": 0.019099558323365688,
+        "r_rad_s": -0.017616766079539343
+      },
+      "gazebo_final": {
+        "time_s": 5.95,
+        "N_m": 0.020795458464297034,
+        "E_m": 0.029901739181023727,
+        "yaw_rad": -0.041357094402084904,
+        "u_mps": -0.015151354047370853,
+        "v_mps": 0.0028104295107879806,
+        "r_rad_s": -0.015790449076626443
+      },
+      "passed": false
+    },
+    {
+      "case": "opposed-pods-0deg-and-180deg",
+      "expected": "rotation sense agrees and translation remains small",
+      "node_final": {
+        "N_m": 0.05021144510465092,
+        "E_m": 0.0383398131289141,
+        "yaw_rad": -0.0026383413285291806,
+        "u_mps": 0.011253204958162857,
+        "v_mps": 0.008387902711980083,
+        "r_rad_s": 0.003462091131371578
+      },
+      "gazebo_final": {
+        "time_s": 5.95,
+        "N_m": 0.038628635873288936,
+        "E_m": 0.012808505923844306,
+        "yaw_rad": -0.031225932770018172,
+        "u_mps": -0.005277842785179091,
+        "v_mps": 0.008927318384367364,
+        "r_rad_s": -0.011771976323822455
+      },
+      "passed": true
+    }
+  ],
+  "known_answer_protocol_disposition": {
+    "status": "MIS_SPECIFIED_PREMISE_NOT_A_VEHICLE_FAILURE",
+    "affected_case": "both-pods-positive-90deg",
+    "finding": "The prescribed test is not pure sway for the mapped design: both pods are 1.5 m aft of CG, so equal lateral forces create a nonzero yaw moment. Both implementations agree on the coupled sway/yaw response.",
+    "correction_rule": "Retain the observed result and failed literal pure-sway assertion; do not count it against the cross-implementation gate. A future pure-sway demonstration requires a separately specified moment-cancelling allocation or a different pod placement."
+  },
+  "protocol": {
+    "path": "artifacts/gazebo/vehicle-c-cross-implementation-protocol.json",
+    "sha256": "cfc7753a97b7c0ce2858369dff1d7a140b077be9dad6b415a2ba2f42a20ae401",
+    "registered_before_results": true
+  },
+  "trajectory_results": [
+    {
+      "case": "straight-ahead",
+      "node_path": "artifacts/gazebo/vehicle-c/node-reference/straight-ahead.json",
+      "node_sha256": "d423be2261dc309270f6454876397b027bd74cf23dff40c9378dab7fd6969cd2",
+      "gazebo_path": "artifacts/gazebo/vehicle-c/gazebo/straight-ahead.json",
+      "gazebo_sha256": "f528ab49af2e52189c5e20c03c11cef7270949df11b418830f64952be6a39c64",
+      "sample_count": 120,
+      "metrics": {
+        "horizontal_position_rmse_m": {
+          "value": 0.014599441118958606,
+          "maximum": 0.5,
+          "passed": true
+        },
+        "yaw_rmse_rad": {
+          "value": 0.00023778408405159766,
+          "maximum": 0.15,
+          "passed": true
+        },
+        "final_horizontal_position_error_m": {
+          "value": 0.030863633823218422,
+          "maximum": 1,
+          "passed": true
+        },
+        "final_yaw_error_rad": {
+          "value": 0.00004978610189477883,
+          "maximum": 0.25,
+          "passed": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "pure-lateral",
+      "node_path": "artifacts/gazebo/vehicle-c/node-reference/pure-lateral.json",
+      "node_sha256": "2b9166b186356282f34dd27dd8fa298f3c50487f3411f3190ad53e189d7030ad",
+      "gazebo_path": "artifacts/gazebo/vehicle-c/gazebo/pure-lateral.json",
+      "gazebo_sha256": "9b64ef2f7b52e758232480b257c067f95b2b367b12c6bbe90f5c6a5af718f74e",
+      "sample_count": 120,
+      "metrics": {
+        "horizontal_position_rmse_m": {
+          "value": 0.0139221211540994,
+          "maximum": 0.5,
+          "passed": true
+        },
+        "yaw_rmse_rad": {
+          "value": 0.001179316789638978,
+          "maximum": 0.15,
+          "passed": true
+        },
+        "final_horizontal_position_error_m": {
+          "value": 0.02700428002691167,
+          "maximum": 1,
+          "passed": true
+        },
+        "final_yaw_error_rad": {
+          "value": 0.003191317082230152,
+          "maximum": 0.25,
+          "passed": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "rotation-in-place",
+      "node_path": "artifacts/gazebo/vehicle-c/node-reference/rotation-in-place.json",
+      "node_sha256": "4b10f5fc44b5abb46f19d942c7f375ff803537dbaea9583eb97e7cb35a9f01e4",
+      "gazebo_path": "artifacts/gazebo/vehicle-c/gazebo/rotation-in-place.json",
+      "gazebo_sha256": "21cf9e6b55d30d54cf81729e76c5c5fd775ab8b9c795935c441337721ee736d6",
+      "sample_count": 120,
+      "metrics": {
+        "horizontal_position_rmse_m": {
+          "value": 0.014085837380641583,
+          "maximum": 0.5,
+          "passed": true
+        },
+        "yaw_rmse_rad": {
+          "value": 0.009824348902471424,
+          "maximum": 0.15,
+          "passed": true
+        },
+        "final_horizontal_position_error_m": {
+          "value": 0.02803585413875906,
+          "maximum": 1,
+          "passed": true
+        },
+        "final_yaw_error_rad": {
+          "value": 0.02858759144148899,
+          "maximum": 0.25,
+          "passed": true
+        }
+      },
+      "passed": true
+    },
+    {
+      "case": "allocation-chirp",
+      "node_path": "artifacts/gazebo/vehicle-c/node-reference/allocation-chirp.json",
+      "node_sha256": "c56b732852b20512ea97ad5b945de42fc8e07d8d844f4eeba270705e2a899b1c",
+      "gazebo_path": "artifacts/gazebo/vehicle-c/gazebo/allocation-chirp.json",
+      "gazebo_sha256": "d92cd138c51ca6d6b2529358107d56348a20251bb71968c5664bb3ca9f771f36",
+      "sample_count": 120,
+      "metrics": {
+        "horizontal_position_rmse_m": {
+          "value": 0.014440021002770321,
+          "maximum": 0.5,
+          "passed": true
+        },
+        "yaw_rmse_rad": {
+          "value": 0.0016761177226280381,
+          "maximum": 0.15,
+          "passed": true
+        },
+        "final_horizontal_position_error_m": {
+          "value": 0.029331628430645962,
+          "maximum": 1,
+          "passed": true
+        },
+        "final_yaw_error_rad": {
+          "value": 0.006840907794181727,
+          "maximum": 0.25,
+          "passed": true
+        }
+      },
+      "passed": true
+    }
+  ],
+  "claim_limit": "Checks independent implementation consistency for thrust-vector kinematics, allocation, frames, and mapped dynamics. It is not real-vessel validation and excludes pod-hull, pod-pod, and angle-dependent thrust interaction."
+}

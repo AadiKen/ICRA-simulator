@@ -1,0 +1,79 @@
+(2026-08-20T18:32:03.3482053) (2026-08-20T18:32:03.3710344) [Msg] Gazebo Sim Server v8.15.0
+(2026-08-20T18:32:03.4734303) (2026-08-20T18:32:03.4813219) [Msg] Setting seed value: 7319
+(2026-08-20T18:32:03.194121845) (2026-08-20T18:32:03.194220011) [Msg] Loading SDF world file[/usr/share/gz/gz-sim8/worlds/shapes.sdf].
+(2026-08-20T18:32:03.461126928) (2026-08-20T18:32:03.461296095) [Msg] Serving entity system service on [/entity/system/add]
+(2026-08-20T18:32:03.483550511) (2026-08-20T18:32:03.483644428) [Dbg] [SdfEntityCreator.cc:531] Link has auto-inertial enabled: cone::cone_link
+(2026-08-20T18:32:03.484019470) (2026-08-20T18:32:03.484093136) [Dbg] [SdfEntityCreator.cc:533]   pose: 0 0 -0.25 0 0 0
+(2026-08-20T18:32:03.484695011) (2026-08-20T18:32:03.484767928) [Dbg] [SdfEntityCreator.cc:534]   mass: 0.261799
+(2026-08-20T18:32:03.484940011) (2026-08-20T18:32:03.485009220) [Dbg] [SdfEntityCreator.cc:535]   ixx iyy izz: 0.019635 0.019635 0.019635
+(2026-08-20T18:32:03.485346345) (2026-08-20T18:32:03.485415761) [Dbg] [SdfEntityCreator.cc:537]   ixy ixz iyz: 0 0 0
+(2026-08-20T18:32:03.487506970) (2026-08-20T18:32:03.487688511) [Msg] Loaded level [default]
+(2026-08-20T18:32:03.488151220) (2026-08-20T18:32:03.488242386) [Msg] No systems loaded from SDF, loading defaults
+(2026-08-20T18:32:03.489999845) (2026-08-20T18:32:03.490196678) [Msg] Copied installed config [/usr/share/gz/gz-sim8/server.config] to default config [/root/.gz/sim/8/server.config].
+(2026-08-20T18:32:03.492605636) (2026-08-20T18:32:03.492719386) [Dbg] [ServerConfig.cc:1034] Loaded (3) plugins from file [/root/.gz/sim/8/server.config]
+(2026-08-20T18:32:03.859368720) (2026-08-20T18:32:03.859487178) [Dbg] [Physics.cc:1004] Loaded [gz::physics::dartsim::Plugin] from library [/usr/lib/x86_64-linux-gnu/gz-physics-7/engine-plugins/libgz-physics-dartsim-plugin.so]
+(2026-08-20T18:32:03.860209095) (2026-08-20T18:32:03.860298720) [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::Physics] for entity [1]
+(2026-08-20T18:32:03.870146720) (2026-08-20T18:32:03.870250762) [Msg] Create service on [/world/shapes/create_multiple] (async)
+(2026-08-20T18:32:03.870848345) (2026-08-20T18:32:03.870965553) [Msg] Create service on [/world/shapes/create_multiple/blocking] (blocking)
+(2026-08-20T18:32:03.872005887) (2026-08-20T18:32:03.872078512) [Msg] Remove service on [/world/shapes/remove] (async)
+(2026-08-20T18:32:03.872290720) (2026-08-20T18:32:03.872367637) [Msg] Remove service on [/world/shapes/remove/blocking] (blocking)
+(2026-08-20T18:32:03.873001970) (2026-08-20T18:32:03.873080512) [Msg] Pose service on [/world/shapes/set_pose] (async)
+(2026-08-20T18:32:03.873295303) (2026-08-20T18:32:03.873378678) [Msg] Pose service on [/world/shapes/set_pose/blocking] (blocking)
+(2026-08-20T18:32:03.874019053) (2026-08-20T18:32:03.874103428) [Msg] Pose service on [/world/shapes/set_pose_vector] (async)
+(2026-08-20T18:32:03.874319845) (2026-08-20T18:32:03.874390053) [Msg] Pose service on [/world/shapes/set_pose_vector/blocking] (blocking)
+(2026-08-20T18:32:03.876727428) (2026-08-20T18:32:03.876845928) [Msg] Light configuration service on [/world/shapes/light_config] (async)
+(2026-08-20T18:32:03.877227137) (2026-08-20T18:32:03.877356095) [Msg] Light configuration service on [/world/shapes/light_config/blocking] (blocking)
+(2026-08-20T18:32:03.880621345) (2026-08-20T18:32:03.880724637) [Msg] Physics service on [/world/shapes/set_physics] (async)
+(2026-08-20T18:32:03.881001512) (2026-08-20T18:32:03.881089637) [Msg] Physics service on [/world/shapes/set_physics/blocking] (blocking)
+(2026-08-20T18:32:03.882087137) (2026-08-20T18:32:03.882196262) [Msg] SphericalCoordinates service on [/world/shapes/set_spherical_coordinates] (async)
+(2026-08-20T18:32:03.882514678) (2026-08-20T18:32:03.882617262) [Msg] SphericalCoordinates service on [/world/shapes/set_spherical_coordinates/blocking] (blocking)
+(2026-08-20T18:32:03.883046637) (2026-08-20T18:32:03.883172095) [Msg] Enable collision service on [/world/shapes/enable_collision] (async)
+(2026-08-20T18:32:03.883531470) (2026-08-20T18:32:03.883655095) [Msg] Enable collision service on [/world/shapes/enable_collision/blocking] (blocking)
+(2026-08-20T18:32:03.884050803) (2026-08-20T18:32:03.884178470) [Msg] Disable collision service on [/world/shapes/disable_collision] (async)
+(2026-08-20T18:32:03.884513970) (2026-08-20T18:32:03.884604178) [Msg] Disable collision service on [/world/shapes/disable_collision/blocking] (blocking)
+(2026-08-20T18:32:03.885903678) (2026-08-20T18:32:03.886033220) [Msg] Material service on [/world/shapes/visual_config] (async)
+(2026-08-20T18:32:03.886478887) (2026-08-20T18:32:03.886554928) [Msg] Material service on [/world/shapes/visual_config/blocking] (blocking)
+(2026-08-20T18:32:03.887257595) (2026-08-20T18:32:03.887405803) [Msg] Material service on [/world/shapes/wheel_slip] (async)
+(2026-08-20T18:32:03.887705845) (2026-08-20T18:32:03.887780220) [Msg] Material service on [/world/shapes/wheel_slip/blocking] (blocking)
+(2026-08-20T18:32:03.888019553) (2026-08-20T18:32:03.888086470) [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::UserCommands] for entity [1]
+(2026-08-20T18:32:03.896541470) (2026-08-20T18:32:03.896626928) [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::SceneBroadcaster] for entity [1]
+(2026-08-20T18:32:03.897209470) (2026-08-20T18:32:03.897277678) [Dbg] [ServerConfig.cc:657] Generating LogRecord SDF:
+(2026-08-20T18:32:03.898003137) (2026-08-20T18:32:03.898083637) [Dbg] [ServerConfig.cc:713] <plugin name='gz::sim::systems::LogRecord' filename='gz-sim-log-system'>
+  <record_path>/evidence/gazebo-probe</record_path>
+  <record_resources>false</record_resources>
+</plugin>
+
+(2026-08-20T18:32:03.915721803) (2026-08-20T18:32:03.915850762) [Msg] Recording to log file [/evidence/gazebo-probe/state.tlog]
+(2026-08-20T18:32:03.916243720) (2026-08-20T18:32:03.916331553) [Dbg] [LogRecord.cc:333] Recording default topic[/gazebo-probe/sdf].
+(2026-08-20T18:32:03.916618262) (2026-08-20T18:32:03.917194345) [Dbg] [LogRecord.cc:334] Recording default topic[/world/shapes/changed_state].
+(2026-08-20T18:32:03.972250053) (2026-08-20T18:32:03.972371845) [Dbg] [SystemManager.cc:80] Loaded system [gz::sim::systems::LogRecord] for entity [1]
+(2026-08-20T18:32:03.975635762) (2026-08-20T18:32:03.975778512) [Msg] Serving world controls on [/world/shapes/control], [/world/shapes/control/state] and [/world/shapes/playback/control]
+(2026-08-20T18:32:03.976855220) (2026-08-20T18:32:03.976936387) [Msg] Serving GUI information on [/world/shapes/gui/info]
+(2026-08-20T18:32:03.977179595) (2026-08-20T18:32:03.977251428) [Msg] World [shapes] initialized with [default_physics] physics profile.
+(2026-08-20T18:32:03.977990387) (2026-08-20T18:32:03.978061428) [Msg] Serving world SDF generation service on [/world/shapes/generate_world_sdf]
+(2026-08-20T18:32:03.979152220) (2026-08-20T18:32:03.979221887) [Msg] Serving world names on [/gazebo/worlds]
+(2026-08-20T18:32:03.979646928) (2026-08-20T18:32:03.979722053) [Msg] Resource path add service on [/gazebo/resource_paths/add].
+(2026-08-20T18:32:03.979955053) (2026-08-20T18:32:03.980030345) [Msg] Resource path get service on [/gazebo/resource_paths/get].
+(2026-08-20T18:32:03.980438220) (2026-08-20T18:32:03.980513178) [Msg] Resource path resolve service on [/gazebo/resource_paths/resolve].
+(2026-08-20T18:32:03.980836887) (2026-08-20T18:32:03.980913887) [Msg] Resource paths published on [/gazebo/resource_paths].
+(2026-08-20T18:32:03.981404428) (2026-08-20T18:32:03.981476303) [Msg] Server control service on [/server_control].
+(2026-08-20T18:32:05.55629595) (2026-08-20T18:32:05.55783512) [Msg] Found no publishers on /stats, adding root stats topic
+(2026-08-20T18:32:05.56400595) (2026-08-20T18:32:05.56529345) [Msg] Found no publishers on /clock, adding root clock topic
+(2026-08-20T18:32:05.58879220) (2026-08-20T18:32:05.59004762) [Dbg] [SimulationRunner.cc:627] Creating PostUpdate worker threads: 3
+(2026-08-20T18:32:05.59413304) (2026-08-20T18:32:05.59511220) [Dbg] [SimulationRunner.cc:638] Creating postupdate worker thread (0)
+(2026-08-20T18:32:05.60066012) (2026-08-20T18:32:05.60174637) [Dbg] [SimulationRunner.cc:638] Creating postupdate worker thread (1)
+(2026-08-20T18:32:05.118446720) (2026-08-20T18:32:05.118663012) [Wrn] [SDFFeatures.cc:366] DART: Ellipsoid is not a supported collision geomerty primitive, using generated mesh of an ellipsoid instead
+(2026-08-20T18:32:05.131878720) (2026-08-20T18:32:05.131964762) [Wrn] [SDFFeatures.cc:351] DART: Cone is not a supported collision geomerty primitive, using generated mesh of a cone instead
+(2026-08-20T18:32:05.213107679) (2026-08-20T18:32:05.213370471) [Msg] Serving scene information on [/world/shapes/scene/info]
+(2026-08-20T18:32:05.215327679) (2026-08-20T18:32:05.215548721) [Msg] Serving graph information on [/world/shapes/scene/graph]
+(2026-08-20T18:32:05.216909471) (2026-08-20T18:32:05.217136429) [Msg] Serving full state on [/world/shapes/state]
+(2026-08-20T18:32:05.218244096) (2026-08-20T18:32:05.218467179) [Msg] Serving full state (async) on [/world/shapes/state_async]
+(2026-08-20T18:32:05.219459262) (2026-08-20T18:32:05.219678137) [Msg] Publishing scene information on [/world/shapes/scene/info]
+(2026-08-20T18:32:05.220917096) (2026-08-20T18:32:05.221117429) [Msg] Publishing entity deletions on [/world/shapes/scene/deletion]
+(2026-08-20T18:32:05.221710929) (2026-08-20T18:32:05.221875929) [Msg] Publishing state changes on [/world/shapes/state]
+(2026-08-20T18:32:05.222659846) (2026-08-20T18:32:05.222853054) [Msg] Publishing pose messages on [/world/shapes/pose/info]
+(2026-08-20T18:32:05.223529054) (2026-08-20T18:32:05.223702846) [Msg] Publishing dynamic pose messages on [/world/shapes/dynamic_pose/info]
+(2026-08-20T18:32:05.253026054) (2026-08-20T18:32:05.253295554) [Dbg] [gz.cc:434] Shutting down gz-sim-server
+(2026-08-20T18:32:05.260134804) (2026-08-20T18:32:05.260378387) [Dbg] [SimulationRunner.cc:654] Exiting postupdate worker thread (1)
+(2026-08-20T18:32:05.260970846) (2026-08-20T18:32:05.261134012) [Dbg] [SimulationRunner.cc:654] Exiting postupdate worker thread (0)
+(2026-08-20T18:32:05.291033679) (2026-08-20T18:32:05.291134137) [Msg] Stopping recording

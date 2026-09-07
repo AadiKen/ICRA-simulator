@@ -1,0 +1,4367 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "task-5-default-noise-entropy-full-phase1",
+  "status": "complete-awaiting-review",
+  "contract_sha256": "7e0bedf89d58dd18b32508f430f6bee10d62de20be630a2d0dabbe7464b11e59",
+  "contract_transition": {
+    "training_started_under": "b55b74e2485b3a2cd186779fb6d3efef6e466beaee639d6739170ff8321e97df",
+    "current": "7e0bedf89d58dd18b32508f430f6bee10d62de20be630a2d0dabbe7464b11e59",
+    "execution_fields_changed": false,
+    "change": "Gate-5 reporting metadata only"
+  },
+  "training": {
+    "seed": 7319,
+    "ent_coef": 0.005,
+    "condition": "default-noise",
+    "algorithm": "RecurrentPPO",
+    "policy": "MlpLstmPolicy",
+    "nominal_budget": 1500000
+  },
+  "v6_reference_curve": [
+    0.04,
+    0.12,
+    0.14,
+    0.24,
+    0.48,
+    0.5
+  ],
+  "curve": [
+    {
+      "checkpoint_steps": 250000,
+      "actual_model_timesteps": 253952,
+      "evaluation": {
+        "first_seed": 30000,
+        "last_seed": 30049,
+        "episodes": 50,
+        "success_rate": 0.08,
+        "median_return": -1160.8850690536037,
+        "median_component_contributions": {
+          "progress": -154.47441677346387,
+          "cross_track": -994.3026110613566,
+          "action_delta": -0.06808762413687759,
+          "terminal": -10.0,
+          "base_reward": -1148.814125666828,
+          "potential_shaping": -13.572190699309552
+        },
+        "rows": [
+          {
+            "seed": 30000,
+            "success": false,
+            "return": -2677.6355570715386,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -368.13385476130185,
+              "cross_track": -2267.073361160801,
+              "action_delta": -0.08393756434820825,
+              "terminal": -10.0,
+              "base_reward": -2645.291153486449,
+              "potential_shaping": -32.344403585090014
+            }
+          },
+          {
+            "seed": 30001,
+            "success": false,
+            "return": -1828.9453205798734,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -232.93745109388186,
+              "cross_track": -1565.4814120585888,
+              "action_delta": -0.06046976878884979,
+              "terminal": -10.0,
+              "base_reward": -1808.479332921256,
+              "potential_shaping": -20.46598765861367
+            }
+          },
+          {
+            "seed": 30002,
+            "success": false,
+            "return": -18.18111116831967,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 41.80023057732417,
+              "cross_track": -53.515465639736064,
+              "action_delta": -0.1384628844843721,
+              "terminal": -10.0,
+              "base_reward": -21.853697946896254,
+              "potential_shaping": 3.6725867785765955
+            }
+          },
+          {
+            "seed": 30003,
+            "success": false,
+            "return": -3813.245650564997,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -525.8177988885317,
+              "cross_track": -3231.1677219453763,
+              "action_delta": -0.061544951373525364,
+              "terminal": -10.0,
+              "base_reward": -3767.0470657852834,
+              "potential_shaping": -46.198584779717905
+            }
+          },
+          {
+            "seed": 30004,
+            "success": false,
+            "return": -1398.5855847840578,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -191.68055274111194,
+              "cross_track": -1180.0043008195971,
+              "action_delta": -0.05959293333363986,
+              "terminal": -10.0,
+              "base_reward": -1381.7444464940447,
+              "potential_shaping": -16.841138290015746
+            }
+          },
+          {
+            "seed": 30005,
+            "success": false,
+            "return": -264.27154432588617,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -28.8040690243094,
+              "cross_track": -222.83552718510617,
+              "action_delta": -0.10120985003418174,
+              "terminal": -10.0,
+              "base_reward": -261.7408060594497,
+              "potential_shaping": -2.5307382664360922
+            }
+          },
+          {
+            "seed": 30006,
+            "success": false,
+            "return": -2298.254576504447,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -348.7738735533926,
+              "cross_track": -1908.7816073111853,
+              "action_delta": -0.05566858135727638,
+              "terminal": -10.0,
+              "base_reward": -2267.6111494459356,
+              "potential_shaping": -30.64342705851004
+            }
+          },
+          {
+            "seed": 30007,
+            "success": false,
+            "return": -1718.736942953111,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -240.3850549772063,
+              "cross_track": -1447.1428228651716,
+              "action_delta": -0.0887276751859138,
+              "terminal": -10.0,
+              "base_reward": -1697.6166055175638,
+              "potential_shaping": -21.120337435545547
+            }
+          },
+          {
+            "seed": 30008,
+            "success": false,
+            "return": -681.9363838294182,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -116.2879671869157,
+              "cross_track": -545.3857054366698,
+              "action_delta": -0.045598886124160444,
+              "terminal": -10.0,
+              "base_reward": -671.7192715097092,
+              "potential_shaping": -10.217112319708036
+            }
+          },
+          {
+            "seed": 30009,
+            "success": false,
+            "return": -1599.8439926325432,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -198.5234301291825,
+              "cross_track": -1373.8088552756262,
+              "action_delta": -0.06935069859057423,
+              "terminal": -10.0,
+              "base_reward": -1582.4016361034012,
+              "potential_shaping": -17.442356529143876
+            }
+          },
+          {
+            "seed": 30010,
+            "success": false,
+            "return": -1399.4728590438729,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -197.199560936298,
+              "cross_track": -1174.863957144047,
+              "action_delta": -0.08330016822699321,
+              "terminal": -10.0,
+              "base_reward": -1382.1468182485705,
+              "potential_shaping": -17.32604079530221
+            }
+          },
+          {
+            "seed": 30011,
+            "success": false,
+            "return": -146.53403721324412,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 23.812476507841193,
+              "cross_track": -162.38813687073272,
+              "action_delta": -0.05055158671177836,
+              "terminal": -10.0,
+              "base_reward": -148.62621194960317,
+              "potential_shaping": 2.092174736359112
+            }
+          },
+          {
+            "seed": 30012,
+            "success": false,
+            "return": -310.1263950667894,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 1.5625023835106404,
+              "cross_track": -301.74908608270493,
+              "action_delta": -0.0770935192947358,
+              "terminal": -10.0,
+              "base_reward": -310.2636772184888,
+              "potential_shaping": 0.13728215169914826
+            }
+          },
+          {
+            "seed": 30013,
+            "success": false,
+            "return": -376.82198691402215,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -11.270363770132896,
+              "cross_track": -354.45590526103695,
+              "action_delta": -0.10549872855001398,
+              "terminal": -10.0,
+              "base_reward": -375.83176775971947,
+              "potential_shaping": -0.9902191543027703
+            }
+          },
+          {
+            "seed": 30014,
+            "success": false,
+            "return": -2096.818667027485,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -268.59919105425826,
+              "cross_track": -1794.5772808628335,
+              "action_delta": -0.04295117853708323,
+              "terminal": -10.0,
+              "base_reward": -2073.2194230956266,
+              "potential_shaping": -23.599243931859302
+            }
+          },
+          {
+            "seed": 30015,
+            "success": true,
+            "return": 138.29156348459819,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.02385174290634,
+              "cross_track": -10.985381106067289,
+              "action_delta": -0.04553963301500157,
+              "terminal": 100.0,
+              "base_reward": 133.99293100382405,
+              "potential_shaping": 4.29863248077416
+            }
+          },
+          {
+            "seed": 30016,
+            "success": false,
+            "return": -2110.668737150512,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -308.30345036946676,
+              "cross_track": -1765.2264754529663,
+              "action_delta": -0.05113358137559564,
+              "terminal": -10.0,
+              "base_reward": -2083.581059403809,
+              "potential_shaping": -27.087677746703246
+            }
+          },
+          {
+            "seed": 30017,
+            "success": false,
+            "return": -219.12222114342245,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -34.19151126881579,
+              "cross_track": -171.78119903550137,
+              "action_delta": -0.14542951010125493,
+              "terminal": -10.0,
+              "base_reward": -216.11813981441867,
+              "potential_shaping": -3.0040813290040917
+            }
+          },
+          {
+            "seed": 30018,
+            "success": false,
+            "return": -369.3086763537489,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -6.651722853271181,
+              "cross_track": -352.00883312789733,
+              "action_delta": -0.06369705557281508,
+              "terminal": -10.0,
+              "base_reward": -368.7242530367416,
+              "potential_shaping": -0.5844233170075332
+            }
+          },
+          {
+            "seed": 30019,
+            "success": false,
+            "return": -1151.5457513150868,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -162.22030810971947,
+              "cross_track": -965.0328987250786,
+              "action_delta": -0.039796336272820344,
+              "terminal": -10.0,
+              "base_reward": -1137.2930031710707,
+              "potential_shaping": -14.252748144015499
+            }
+          },
+          {
+            "seed": 30020,
+            "success": false,
+            "return": -1540.0716752630328,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -207.645512720034,
+              "cross_track": -1304.1142548919856,
+              "action_delta": -0.06808090379742994,
+              "terminal": -10.0,
+              "base_reward": -1521.8278485158185,
+              "potential_shaping": -18.24382674721532
+            }
+          },
+          {
+            "seed": 30021,
+            "success": false,
+            "return": -126.20482213961996,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 26.025484990047822,
+              "cross_track": -144.41109352055983,
+              "action_delta": -0.1058242512115082,
+              "terminal": -10.0,
+              "base_reward": -128.49143278172357,
+              "potential_shaping": 2.286610642103588
+            }
+          },
+          {
+            "seed": 30022,
+            "success": false,
+            "return": -1305.4495489445862,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -167.08190829132917,
+              "cross_track": -1113.619533651547,
+              "action_delta": -0.06821651175202881,
+              "terminal": -10.0,
+              "base_reward": -1290.7696584546266,
+              "potential_shaping": -14.67989048995727
+            }
+          },
+          {
+            "seed": 30023,
+            "success": false,
+            "return": -2194.33784397069,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -325.7197307086208,
+              "cross_track": -1829.9468997886113,
+              "action_delta": -0.053333619681257174,
+              "terminal": -10.0,
+              "base_reward": -2165.7199641169127,
+              "potential_shaping": -28.617879853776294
+            }
+          },
+          {
+            "seed": 30024,
+            "success": false,
+            "return": -2741.521050435932,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -393.85474794865036,
+              "cross_track": -2303.0084211243593,
+              "action_delta": -0.05362870646554686,
+              "terminal": -10.0,
+              "base_reward": -2706.9167977794773,
+              "potential_shaping": -34.60425265645568
+            }
+          },
+          {
+            "seed": 30025,
+            "success": false,
+            "return": -45.508157989044236,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 43.190414773044985,
+              "cross_track": -82.40706486546087,
+              "action_delta": -0.08623687457736677,
+              "terminal": -10.0,
+              "base_reward": -49.30288696699328,
+              "potential_shaping": 3.794728977949056
+            }
+          },
+          {
+            "seed": 30026,
+            "success": false,
+            "return": -303.6590160257951,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 0.914643007334071,
+              "cross_track": -294.58884423740426,
+              "action_delta": -0.06517573559218044,
+              "terminal": -10.0,
+              "base_reward": -303.7393769656617,
+              "potential_shaping": 0.08036093986703108
+            }
+          },
+          {
+            "seed": 30027,
+            "success": false,
+            "return": -3069.8723620660967,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -410.0290052351732,
+              "cross_track": -2613.7619508956645,
+              "action_delta": -0.056075867424981336,
+              "terminal": -10.0,
+              "base_reward": -3033.847031998264,
+              "potential_shaping": -36.02533006783254
+            }
+          },
+          {
+            "seed": 30028,
+            "success": false,
+            "return": -2149.245187039141,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -284.50963154522617,
+              "cross_track": -1829.6897441140973,
+              "action_delta": -0.0486690971239921,
+              "terminal": -10.0,
+              "base_reward": -2124.2480447564462,
+              "potential_shaping": -24.997142282691772
+            }
+          },
+          {
+            "seed": 30029,
+            "success": true,
+            "return": 142.68127288233376,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.13402805259741,
+              "cross_track": -6.700669376849289,
+              "action_delta": -0.050718274188806076,
+              "terminal": 100.0,
+              "base_reward": 138.38264040155929,
+              "potential_shaping": 4.298632480774396
+            }
+          },
+          {
+            "seed": 30030,
+            "success": false,
+            "return": -1645.9081190188112,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -218.61207815598308,
+              "cross_track": -1397.9936069429448,
+              "action_delta": -0.09507987460773487,
+              "terminal": -10.0,
+              "base_reward": -1626.7007649735367,
+              "potential_shaping": -19.20735404527551
+            }
+          },
+          {
+            "seed": 30031,
+            "success": false,
+            "return": -111.98733540770718,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 30.08402204034399,
+              "cross_track": -134.62837976261616,
+              "action_delta": -0.08617319095690418,
+              "terminal": -10.0,
+              "base_reward": -114.63053091322928,
+              "potential_shaping": 2.6431955055221787
+            }
+          },
+          {
+            "seed": 30032,
+            "success": false,
+            "return": -1170.2243867921206,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -112.5550735348185,
+              "cross_track": -1037.7439492431813,
+              "action_delta": -0.036225384586506024,
+              "terminal": -10.0,
+              "base_reward": -1160.3352481625852,
+              "potential_shaping": -9.889138629535099
+            }
+          },
+          {
+            "seed": 30033,
+            "success": false,
+            "return": -230.15490708274308,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 11.32710370661566,
+              "cross_track": -232.36710606366557,
+              "action_delta": -0.11010907595440689,
+              "terminal": -10.0,
+              "base_reward": -231.1501114330046,
+              "potential_shaping": 0.9952043502613988
+            }
+          },
+          {
+            "seed": 30034,
+            "success": false,
+            "return": -1218.2925266751536,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -169.75241225424043,
+              "cross_track": -1023.5723233976346,
+              "action_delta": -0.05326887194264323,
+              "terminal": -10.0,
+              "base_reward": -1203.3780045238163,
+              "potential_shaping": -14.914522151334875
+            }
+          },
+          {
+            "seed": 30035,
+            "success": false,
+            "return": -426.66008925944726,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -41.91602805994388,
+              "cross_track": -371.0092314267304,
+              "action_delta": -0.052068976067229204,
+              "terminal": -10.0,
+              "base_reward": -422.9773284627421,
+              "potential_shaping": -3.6827607967049127
+            }
+          },
+          {
+            "seed": 30036,
+            "success": false,
+            "return": -651.3214513863202,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -57.843394084701565,
+              "cross_track": -578.316486511022,
+              "action_delta": -0.07942455816089794,
+              "terminal": -10.0,
+              "base_reward": -646.2393051538844,
+              "potential_shaping": -5.082146232435195
+            }
+          },
+          {
+            "seed": 30037,
+            "success": false,
+            "return": -1001.3199748236228,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -146.7285254372083,
+              "cross_track": -831.6577616898269,
+              "action_delta": -0.04205444198430731,
+              "terminal": -10.0,
+              "base_reward": -988.4283415690194,
+              "potential_shaping": -12.891633254603603
+            }
+          },
+          {
+            "seed": 30038,
+            "success": false,
+            "return": -2372.60154916472,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -327.477816396617,
+              "cross_track": -2006.2353981396298,
+              "action_delta": -0.11598858720887507,
+              "terminal": -10.0,
+              "base_reward": -2343.8292031234564,
+              "potential_shaping": -28.772346041262878
+            }
+          },
+          {
+            "seed": 30039,
+            "success": false,
+            "return": -459.98924025892,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -20.119090938209858,
+              "cross_track": -428.0095936719424,
+              "action_delta": -0.09288340495198757,
+              "terminal": -10.0,
+              "base_reward": -458.221568015104,
+              "potential_shaping": -1.7676722438161176
+            }
+          },
+          {
+            "seed": 30040,
+            "success": true,
+            "return": 123.28263076356302,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.993262249268135,
+              "cross_track": -25.920769107845945,
+              "action_delta": -0.08849485863340141,
+              "terminal": 100.0,
+              "base_reward": 118.98399828278879,
+              "potential_shaping": 4.298632480774226
+            }
+          },
+          {
+            "seed": 30041,
+            "success": false,
+            "return": -1984.4104463895023,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -244.3893639390521,
+              "cross_track": -1708.4431036532164,
+              "action_delta": -0.10582100214571419,
+              "terminal": -10.0,
+              "base_reward": -1962.9382885944135,
+              "potential_shaping": -21.47215779508654
+            }
+          },
+          {
+            "seed": 30042,
+            "success": false,
+            "return": -3088.9206410192432,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -414.01602978355237,
+              "cross_track": -2628.460885080068,
+              "action_delta": -0.06809434447632524,
+              "terminal": -10.0,
+              "base_reward": -3052.5450092080955,
+              "potential_shaping": -36.37563181114831
+            }
+          },
+          {
+            "seed": 30043,
+            "success": false,
+            "return": -266.80934448398654,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -11.239125515453544,
+              "cross_track": -244.48927051485478,
+              "action_delta": -0.0934739062718917,
+              "terminal": -10.0,
+              "base_reward": -265.8218699365804,
+              "potential_shaping": -0.9874745474061895
+            }
+          },
+          {
+            "seed": 30044,
+            "success": false,
+            "return": -2722.778458190308,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -390.9793150792337,
+              "cross_track": -2287.3999297800483,
+              "action_delta": -0.04759748046731321,
+              "terminal": -10.0,
+              "base_reward": -2688.426842339751,
+              "potential_shaping": -34.35161585055651
+            }
+          },
+          {
+            "seed": 30045,
+            "success": false,
+            "return": -310.2347631524166,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -46.152728925300686,
+              "cross_track": -249.96260503374987,
+              "action_delta": -0.06442998151395918,
+              "terminal": -10.0,
+              "base_reward": -306.1797639405647,
+              "potential_shaping": -4.054999211852177
+            }
+          },
+          {
+            "seed": 30046,
+            "success": true,
+            "return": 141.73823430336472,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.98200192764161,
+              "cross_track": -7.49756129279972,
+              "action_delta": -0.04483881225143388,
+              "terminal": 100.0,
+              "base_reward": 137.43960182259045,
+              "potential_shaping": 4.29863248077425
+            }
+          },
+          {
+            "seed": 30047,
+            "success": false,
+            "return": -2802.104673769792,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -377.6672830973221,
+              "cross_track": -2381.163050649747,
+              "action_delta": -0.09232520013515048,
+              "terminal": -10.0,
+              "base_reward": -2768.922658947209,
+              "potential_shaping": -33.18201482258326
+            }
+          },
+          {
+            "seed": 30048,
+            "success": false,
+            "return": -2094.993411035342,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -295.86746721704566,
+              "cross_track": -1763.0340996664715,
+              "action_delta": -0.09679739478964376,
+              "terminal": -10.0,
+              "base_reward": -2068.998364278309,
+              "potential_shaping": -25.995046757032128
+            }
+          },
+          {
+            "seed": 30049,
+            "success": false,
+            "return": -446.879455124277,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 4.8105184528055815,
+              "cross_track": -442.00588320933804,
+              "action_delta": -0.10674465036107512,
+              "terminal": -10.0,
+              "base_reward": -447.3021094068931,
+              "potential_shaping": 0.42265428261672167
+            }
+          }
+        ]
+      },
+      "v6_success_rate": 0.04
+    },
+    {
+      "checkpoint_steps": 500000,
+      "actual_model_timesteps": 507904,
+      "evaluation": {
+        "first_seed": 30000,
+        "last_seed": 30049,
+        "episodes": 50,
+        "success_rate": 0.5,
+        "median_return": 28.36920349715197,
+        "median_component_contributions": {
+          "progress": 44.022688293452035,
+          "cross_track": -54.433119949978646,
+          "action_delta": -0.4099307789192936,
+          "terminal": 45.0,
+          "base_reward": 24.875390738251408,
+          "potential_shaping": 4.043547984393563
+        },
+        "rows": [
+          {
+            "seed": 30000,
+            "success": true,
+            "return": 144.6412113814569,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.96106221374984,
+              "cross_track": -4.37366611503249,
+              "action_delta": -0.24481719803481947,
+              "terminal": 100.0,
+              "base_reward": 140.34257890068253,
+              "potential_shaping": 4.298632480774365
+            }
+          },
+          {
+            "seed": 30001,
+            "success": false,
+            "return": -706.0133388136803,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -76.4580690062412,
+              "cross_track": -611.6461957848167,
+              "action_delta": -1.191434204144665,
+              "terminal": -10.0,
+              "base_reward": -699.2956989952022,
+              "potential_shaping": -6.717639818478569
+            }
+          },
+          {
+            "seed": 30002,
+            "success": true,
+            "return": 140.70582313889818,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.13785348122086,
+              "cross_track": -8.473294900524103,
+              "action_delta": -0.2573679225729871,
+              "terminal": 100.0,
+              "base_reward": 136.40719065812385,
+              "potential_shaping": 4.298632480774337
+            }
+          },
+          {
+            "seed": 30003,
+            "success": false,
+            "return": -3496.368361325878,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -503.2129286167034,
+              "cross_track": -2938.6677850233004,
+              "action_delta": -0.275136823569944,
+              "terminal": -10.0,
+              "base_reward": -3452.1558504635773,
+              "potential_shaping": -44.21251086229814
+            }
+          },
+          {
+            "seed": 30004,
+            "success": true,
+            "return": 121.35870053708227,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.073775361238994,
+              "cross_track": -27.657236039599695,
+              "action_delta": -0.3564712653314151,
+              "terminal": 100.0,
+              "base_reward": 117.06006805630793,
+              "potential_shaping": 4.29863248077435
+            }
+          },
+          {
+            "seed": 30005,
+            "success": false,
+            "return": -60.39867398950994,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 37.28316139207908,
+              "cross_track": -90.41505888896272,
+              "action_delta": -0.5424915712501351,
+              "terminal": -10.0,
+              "base_reward": -63.674389068133635,
+              "potential_shaping": 3.275715078623678
+            }
+          },
+          {
+            "seed": 30006,
+            "success": false,
+            "return": -1607.827624375007,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -237.53603640304462,
+              "cross_track": -1339.159502551344,
+              "action_delta": -0.2620640192887459,
+              "terminal": -10.0,
+              "base_reward": -1586.957602973676,
+              "potential_shaping": -20.870021401330618
+            }
+          },
+          {
+            "seed": 30007,
+            "success": false,
+            "return": -1686.4644590837577,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -236.9706337463163,
+              "cross_track": -1418.1624692320963,
+              "action_delta": -0.5110112319421353,
+              "terminal": -10.0,
+              "base_reward": -1665.6441142103577,
+              "potential_shaping": -20.820344873402593
+            }
+          },
+          {
+            "seed": 30008,
+            "success": false,
+            "return": -31.136740270722473,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 43.11910293215989,
+              "cross_track": -67.65635947669969,
+              "action_delta": -0.38794721419612105,
+              "terminal": -10.0,
+              "base_reward": -34.92520375873592,
+              "potential_shaping": 3.7884634880133943
+            }
+          },
+          {
+            "seed": 30009,
+            "success": false,
+            "return": -18.582677747971303,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 30.605275176673885,
+              "cross_track": -39.712274417426514,
+              "action_delta": -2.164671544245705,
+              "terminal": -10.0,
+              "base_reward": -21.271670784998385,
+              "potential_shaping": 2.6889930370270765
+            }
+          },
+          {
+            "seed": 30010,
+            "success": false,
+            "return": -462.53631107577223,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -58.816824145392886,
+              "cross_track": -387.21235731880233,
+              "action_delta": -1.3394573827211294,
+              "terminal": -10.0,
+              "base_reward": -457.36863884691536,
+              "potential_shaping": -5.1676722288564605
+            }
+          },
+          {
+            "seed": 30011,
+            "success": true,
+            "return": 132.4816877391788,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.06147334932737,
+              "cross_track": -16.67062159504214,
+              "action_delta": -0.2077964958806933,
+              "terminal": 100.0,
+              "base_reward": 128.18305525840452,
+              "potential_shaping": 4.298632480774251
+            }
+          },
+          {
+            "seed": 30012,
+            "success": true,
+            "return": 111.50417125922912,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.977481737122645,
+              "cross_track": -37.49373942747069,
+              "action_delta": -0.2782035311967916,
+              "terminal": 100.0,
+              "base_reward": 107.20553877845511,
+              "potential_shaping": 4.29863248077405
+            }
+          },
+          {
+            "seed": 30013,
+            "success": true,
+            "return": 143.97585421949037,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.927676138243584,
+              "cross_track": -4.878810064925385,
+              "action_delta": -0.3716443346015852,
+              "terminal": 100.0,
+              "base_reward": 139.67722173871664,
+              "potential_shaping": 4.298632480773732
+            }
+          },
+          {
+            "seed": 30014,
+            "success": false,
+            "return": -1621.6185595041536,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -210.50445617591987,
+              "cross_track": -1382.2161161128383,
+              "action_delta": -0.40297242945923467,
+              "terminal": -10.0,
+              "base_reward": -1603.1235447182196,
+              "potential_shaping": -18.495014785935872
+            }
+          },
+          {
+            "seed": 30015,
+            "success": true,
+            "return": 111.71058826048186,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.933940458187216,
+              "cross_track": -37.265635241041,
+              "action_delta": -0.2563494374384136,
+              "terminal": 100.0,
+              "base_reward": 107.41195577970768,
+              "potential_shaping": 4.298632480774154
+            }
+          },
+          {
+            "seed": 30016,
+            "success": false,
+            "return": -1800.506949528899,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -278.79477757996244,
+              "cross_track": -1486.7430185738392,
+              "action_delta": -0.47412069382461197,
+              "terminal": -10.0,
+              "base_reward": -1776.011916847625,
+              "potential_shaping": -24.49503268127466
+            }
+          },
+          {
+            "seed": 30017,
+            "success": true,
+            "return": 75.32108474227525,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.015008410260506,
+              "cross_track": -73.48861588916661,
+              "action_delta": -0.5039402595925755,
+              "terminal": 100.0,
+              "base_reward": 71.0224522615012,
+              "potential_shaping": 4.298632480773994
+            }
+          },
+          {
+            "seed": 30018,
+            "success": true,
+            "return": 105.33470202023958,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.930446212610555,
+              "cross_track": -43.60524764243288,
+              "action_delta": -0.28912903071224694,
+              "terminal": 100.0,
+              "base_reward": 101.03606953946539,
+              "potential_shaping": 4.298632480774194
+            }
+          },
+          {
+            "seed": 30019,
+            "success": false,
+            "return": -25.206176460871458,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 37.84358574683303,
+              "cross_track": -55.93023710735294,
+              "action_delta": -0.4444793110860336,
+              "terminal": -10.0,
+              "base_reward": -28.53113067160592,
+              "potential_shaping": 3.3249542107345373
+            }
+          },
+          {
+            "seed": 30020,
+            "success": false,
+            "return": -889.1765461739508,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -137.07153209601682,
+              "cross_track": -729.637164079452,
+              "action_delta": -0.424684457473744,
+              "terminal": -10.0,
+              "base_reward": -877.1333806329418,
+              "potential_shaping": -12.043165541009168
+            }
+          },
+          {
+            "seed": 30021,
+            "success": true,
+            "return": 142.60026794828184,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.97919432272368,
+              "cross_track": -6.495941788966678,
+              "action_delta": -0.18161706624928547,
+              "terminal": 100.0,
+              "base_reward": 138.30163546750774,
+              "potential_shaping": 4.298632480774151
+            }
+          },
+          {
+            "seed": 30022,
+            "success": false,
+            "return": -392.86507197823585,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -47.11473587088191,
+              "cross_track": -331.24705611619623,
+              "action_delta": -0.3637584228392095,
+              "terminal": -10.0,
+              "base_reward": -388.7255504099173,
+              "potential_shaping": -4.139521568318724
+            }
+          },
+          {
+            "seed": 30023,
+            "success": false,
+            "return": -103.49578646043649,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 28.227671580956464,
+              "cross_track": -123.24789277871072,
+              "action_delta": -0.9556609943659391,
+              "terminal": -10.0,
+              "base_reward": -105.97588219212038,
+              "potential_shaping": 2.480095731683864
+            }
+          },
+          {
+            "seed": 30024,
+            "success": false,
+            "return": -2031.0608659188104,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -315.3539041235299,
+              "cross_track": -1677.5149753794435,
+              "action_delta": -0.4848526785219583,
+              "terminal": -10.0,
+              "base_reward": -2003.353732181493,
+              "potential_shaping": -27.70713373731648
+            }
+          },
+          {
+            "seed": 30025,
+            "success": true,
+            "return": 141.36421975125256,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.085787039110066,
+              "cross_track": -7.8192491952671785,
+              "action_delta": -0.20095057336451944,
+              "terminal": 100.0,
+              "base_reward": 137.06558727047837,
+              "potential_shaping": 4.298632480774194
+            }
+          },
+          {
+            "seed": 30026,
+            "success": true,
+            "return": 138.96616373501388,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.08107985981314,
+              "cross_track": -10.213422467764216,
+              "action_delta": -0.20012613780905456,
+              "terminal": 100.0,
+              "base_reward": 134.66753125423986,
+              "potential_shaping": 4.298632480774047
+            }
+          },
+          {
+            "seed": 30027,
+            "success": false,
+            "return": -2117.111844206013,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -316.997582670003,
+              "cross_track": -1761.9524584652243,
+              "action_delta": -0.3102550081254394,
+              "terminal": -10.0,
+              "base_reward": -2089.260296143351,
+              "potential_shaping": -27.851548062659504
+            }
+          },
+          {
+            "seed": 30028,
+            "success": true,
+            "return": 143.53256020359606,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.05285112232877,
+              "cross_track": -5.641762885481825,
+              "action_delta": -0.17716051402505392,
+              "terminal": 100.0,
+              "base_reward": 139.23392772282193,
+              "potential_shaping": 4.29863248077416
+            }
+          },
+          {
+            "seed": 30029,
+            "success": true,
+            "return": 127.97737281496585,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.00193536242268,
+              "cross_track": -21.086092237677747,
+              "action_delta": -0.2371027905535212,
+              "terminal": 100.0,
+              "base_reward": 123.67874033419146,
+              "potential_shaping": 4.298632480774397
+            }
+          },
+          {
+            "seed": 30030,
+            "success": false,
+            "return": -1183.394552864627,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -159.67769641436445,
+              "cross_track": -999.1465524417794,
+              "action_delta": -0.5409508545538456,
+              "terminal": -10.0,
+              "base_reward": -1169.3651997106977,
+              "potential_shaping": -14.029353153929476
+            }
+          },
+          {
+            "seed": 30031,
+            "success": true,
+            "return": 132.92334429622207,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.96581033202746,
+              "cross_track": -16.08989293619535,
+              "action_delta": -0.25120558038427915,
+              "terminal": 100.0,
+              "base_reward": 128.62471181544782,
+              "potential_shaping": 4.298632480774212
+            }
+          },
+          {
+            "seed": 30032,
+            "success": false,
+            "return": -310.9175447879208,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -36.68387231404306,
+              "cross_track": -260.5873141749348,
+              "action_delta": -0.423297024237013,
+              "terminal": -10.0,
+              "base_reward": -307.6944835132146,
+              "potential_shaping": -3.223061274705792
+            }
+          },
+          {
+            "seed": 30033,
+            "success": true,
+            "return": 131.58856516681533,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.13362583796804,
+              "cross_track": -17.615215242650283,
+              "action_delta": -0.22847790927663358,
+              "terminal": 100.0,
+              "base_reward": 127.28993268604113,
+              "potential_shaping": 4.298632480774206
+            }
+          },
+          {
+            "seed": 30034,
+            "success": true,
+            "return": 131.0966323464075,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.92627365474418,
+              "cross_track": -17.7277628643336,
+              "action_delta": -0.4005109247773889,
+              "terminal": 100.0,
+              "base_reward": 126.7979998656332,
+              "potential_shaping": 4.298632480774266
+            }
+          },
+          {
+            "seed": 30035,
+            "success": false,
+            "return": -228.05633365551233,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -26.40747941117789,
+              "cross_track": -188.08851280635872,
+              "action_delta": -1.240168596784975,
+              "terminal": -10.0,
+              "base_reward": -225.73616081432138,
+              "potential_shaping": -2.3201728411909137
+            }
+          },
+          {
+            "seed": 30036,
+            "success": true,
+            "return": 119.22702590538039,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.97061571936966,
+              "cross_track": -29.802040041557415,
+              "action_delta": -0.24018225320599304,
+              "terminal": 100.0,
+              "base_reward": 114.92839342460626,
+              "potential_shaping": 4.298632480774141
+            }
+          },
+          {
+            "seed": 30037,
+            "success": false,
+            "return": -165.51691540652533,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -37.31801359085598,
+              "cross_track": -113.71852758974985,
+              "action_delta": -1.2015970176696662,
+              "terminal": -10.0,
+              "base_reward": -162.23813819827546,
+              "potential_shaping": -3.278777208249858
+            }
+          },
+          {
+            "seed": 30038,
+            "success": false,
+            "return": -1774.971998248999,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -245.73759835269016,
+              "cross_track": -1496.5519273559494,
+              "action_delta": -1.0918582723399464,
+              "terminal": -10.0,
+              "base_reward": -1753.381383980982,
+              "potential_shaping": -21.5906142680189
+            }
+          },
+          {
+            "seed": 30039,
+            "success": true,
+            "return": 135.22827193880786,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.952906699504986,
+              "cross_track": -13.538265176562824,
+              "action_delta": -0.4850020649081575,
+              "terminal": 100.0,
+              "base_reward": 130.92963945803396,
+              "potential_shaping": 4.298632480773891
+            }
+          },
+          {
+            "seed": 30040,
+            "success": true,
+            "return": 129.48367503838418,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.95021807349304,
+              "cross_track": -19.348286387503787,
+              "action_delta": -0.4168891283793525,
+              "terminal": 100.0,
+              "base_reward": 125.18504255760995,
+              "potential_shaping": 4.298632480774229
+            }
+          },
+          {
+            "seed": 30041,
+            "success": false,
+            "return": -515.262256540913,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -58.97429834308385,
+              "cross_track": -439.25325836090406,
+              "action_delta": -1.8531918552891664,
+              "terminal": -10.0,
+              "base_reward": -510.0807485592771,
+              "potential_shaping": -5.18150798163626
+            }
+          },
+          {
+            "seed": 30042,
+            "success": true,
+            "return": 144.96887687106837,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.006368858508225,
+              "cross_track": -3.707135232201001,
+              "action_delta": -0.6289892360129792,
+              "terminal": 100.0,
+              "base_reward": 140.67024439029424,
+              "potential_shaping": 4.298632480774136
+            }
+          },
+          {
+            "seed": 30043,
+            "success": true,
+            "return": 115.36993523981484,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.00425298576629,
+              "cross_track": -33.27418877397288,
+              "action_delta": -0.6587614527525685,
+              "terminal": 100.0,
+              "base_reward": 111.07130275904068,
+              "potential_shaping": 4.298632480774144
+            }
+          },
+          {
+            "seed": 30044,
+            "success": false,
+            "return": -2515.2411809403557,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -385.8386216344009,
+              "cross_track": -2085.2219598021393,
+              "action_delta": -0.2806472569641367,
+              "terminal": -10.0,
+              "base_reward": -2481.3412286935054,
+              "potential_shaping": -33.8999522468526
+            }
+          },
+          {
+            "seed": 30045,
+            "success": true,
+            "return": 95.18530514351495,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.944703630650025,
+              "cross_track": -52.93600279260435,
+              "action_delta": -1.1220281753047763,
+              "terminal": 100.0,
+              "base_reward": 90.88667266274089,
+              "potential_shaping": 4.298632480774051
+            }
+          },
+          {
+            "seed": 30046,
+            "success": true,
+            "return": 140.6123815309749,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.934199676461006,
+              "cross_track": -8.466901917855727,
+              "action_delta": -0.15354870840469081,
+              "terminal": 100.0,
+              "base_reward": 136.3137490502006,
+              "potential_shaping": 4.29863248077425
+            }
+          },
+          {
+            "seed": 30047,
+            "success": false,
+            "return": -1758.9142551192215,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -278.1701950429174,
+              "cross_track": -1445.7121792963171,
+              "action_delta": -0.5917241971459284,
+              "terminal": -10.0,
+              "base_reward": -1734.4740985363812,
+              "potential_shaping": -24.440156582841706
+            }
+          },
+          {
+            "seed": 30048,
+            "success": false,
+            "return": -1866.9303683019743,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -273.80576059044427,
+              "cross_track": -1558.2860609902416,
+              "action_delta": -0.7818512831513232,
+              "terminal": -10.0,
+              "base_reward": -1842.8736728638382,
+              "potential_shaping": -24.05669543813663
+            }
+          },
+          {
+            "seed": 30049,
+            "success": true,
+            "return": 129.75268555945328,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.037149734794326,
+              "cross_track": -19.04789799494727,
+              "action_delta": -0.5351986611681254,
+              "terminal": 100.0,
+              "base_reward": 125.45405307867891,
+              "potential_shaping": 4.298632480774357
+            }
+          }
+        ]
+      },
+      "v6_success_rate": 0.12
+    },
+    {
+      "checkpoint_steps": 750000,
+      "actual_model_timesteps": 761856,
+      "evaluation": {
+        "first_seed": 30000,
+        "last_seed": 30049,
+        "episodes": 50,
+        "success_rate": 0.68,
+        "median_return": 133.7964604648178,
+        "median_component_contributions": {
+          "progress": 44.966816189563446,
+          "cross_track": -15.278672834788953,
+          "action_delta": -0.4336781310169448,
+          "terminal": 100.0,
+          "base_reward": 129.4978279840435,
+          "potential_shaping": 4.298632480774147
+        },
+        "rows": [
+          {
+            "seed": 30000,
+            "success": true,
+            "return": 133.63291104509022,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.02803619633448,
+              "cross_track": -15.42266375116207,
+              "action_delta": -0.2710938808565278,
+              "terminal": 100.0,
+              "base_reward": 129.33427856431587,
+              "potential_shaping": 4.298632480774362
+            }
+          },
+          {
+            "seed": 30001,
+            "success": false,
+            "return": -698.0940517967996,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -70.35878589042241,
+              "cross_track": -609.6979487415916,
+              "action_delta": -1.8555630632168545,
+              "terminal": -10.0,
+              "base_reward": -691.9122976952304,
+              "potential_shaping": -6.181754101568117
+            }
+          },
+          {
+            "seed": 30002,
+            "success": true,
+            "return": 143.0936301696637,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.939632967224625,
+              "cross_track": -5.804425484846241,
+              "action_delta": -0.3402097934890058,
+              "terminal": 100.0,
+              "base_reward": 138.79499768888937,
+              "potential_shaping": 4.2986324807743355
+            }
+          },
+          {
+            "seed": 30003,
+            "success": false,
+            "return": -3205.4664417846557,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -484.1473521502131,
+              "cross_track": -2668.198767830732,
+              "action_delta": -0.5829209369728837,
+              "terminal": -10.0,
+              "base_reward": -3162.9290409179207,
+              "potential_shaping": -42.53740086673851
+            }
+          },
+          {
+            "seed": 30004,
+            "success": true,
+            "return": 142.87174551705542,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.97108095300714,
+              "cross_track": -6.081384380270873,
+              "action_delta": -0.3165835364552121,
+              "terminal": 100.0,
+              "base_reward": 138.57311303628106,
+              "potential_shaping": 4.298632480774353
+            }
+          },
+          {
+            "seed": 30005,
+            "success": true,
+            "return": 137.1095477908629,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.94814328191434,
+              "cross_track": -11.894216300028845,
+              "action_delta": -0.24301167179703506,
+              "terminal": 100.0,
+              "base_reward": 132.81091531008846,
+              "potential_shaping": 4.298632480774428
+            }
+          },
+          {
+            "seed": 30006,
+            "success": false,
+            "return": -1253.5130992335369,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -201.87002768836263,
+              "cross_track": -1022.9392885248171,
+              "action_delta": -0.9673929469165875,
+              "terminal": -10.0,
+              "base_reward": -1235.7767091600954,
+              "potential_shaping": -17.736390073440376
+            }
+          },
+          {
+            "seed": 30007,
+            "success": true,
+            "return": 143.49265665064286,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.97636080958227,
+              "cross_track": -5.241336183159008,
+              "action_delta": -0.5410004565545582,
+              "terminal": 100.0,
+              "base_reward": 139.1940241698687,
+              "potential_shaping": 4.298632480774151
+            }
+          },
+          {
+            "seed": 30008,
+            "success": true,
+            "return": 133.06125510973595,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.0550972235985,
+              "cross_track": -15.874289898822921,
+              "action_delta": -0.4181846958139663,
+              "terminal": 100.0,
+              "base_reward": 128.76262262896162,
+              "potential_shaping": 4.298632480774316
+            }
+          },
+          {
+            "seed": 30009,
+            "success": false,
+            "return": -72.7929972337019,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 39.1665899395056,
+              "cross_track": -102.84512249518048,
+              "action_delta": -2.5556586233012615,
+              "terminal": -10.0,
+              "base_reward": -76.2341911789762,
+              "potential_shaping": 3.441193945274346
+            }
+          },
+          {
+            "seed": 30010,
+            "success": false,
+            "return": -333.3674139839488,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -15.597910169852092,
+              "cross_track": -304.46707543649745,
+              "action_delta": -1.9319890792499392,
+              "terminal": -10.0,
+              "base_reward": -331.99697468559964,
+              "potential_shaping": -1.3704392983492286
+            }
+          },
+          {
+            "seed": 30011,
+            "success": true,
+            "return": 138.78461662490326,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.9481880836588,
+              "cross_track": -10.226850894019861,
+              "action_delta": -0.23535304550991884,
+              "terminal": 100.0,
+              "base_reward": 134.48598414412902,
+              "potential_shaping": 4.29863248077425
+            }
+          },
+          {
+            "seed": 30012,
+            "success": true,
+            "return": 129.4706257252434,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.97872814291741,
+              "cross_track": -19.336499746002737,
+              "action_delta": -0.4702351524453556,
+              "terminal": 100.0,
+              "base_reward": 125.17199324446933,
+              "potential_shaping": 4.298632480774048
+            }
+          },
+          {
+            "seed": 30013,
+            "success": true,
+            "return": 144.72277305296504,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.96025914835589,
+              "cross_track": -4.063586349190595,
+              "action_delta": -0.47253222697397046,
+              "terminal": 100.0,
+              "base_reward": 140.42414057219133,
+              "potential_shaping": 4.298632480773736
+            }
+          },
+          {
+            "seed": 30014,
+            "success": false,
+            "return": -950.6793186374118,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -132.23133702333197,
+              "cross_track": -795.6457000178558,
+              "action_delta": -1.184377738801543,
+              "terminal": -10.0,
+              "base_reward": -939.0614147799895,
+              "potential_shaping": -11.617903857421311
+            }
+          },
+          {
+            "seed": 30015,
+            "success": true,
+            "return": 144.5513550488106,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.08052326236201,
+              "cross_track": -4.58097702184301,
+              "action_delta": -0.2468236724825587,
+              "terminal": 100.0,
+              "base_reward": 140.2527225680364,
+              "potential_shaping": 4.2986324807741605
+            }
+          },
+          {
+            "seed": 30016,
+            "success": false,
+            "return": -81.22762344267308,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -6.761410552260912,
+              "cross_track": -61.86954026293887,
+              "action_delta": -2.0026121006342414,
+              "terminal": -10.0,
+              "base_reward": -80.63356291583389,
+              "potential_shaping": -0.5940605268391153
+            }
+          },
+          {
+            "seed": 30017,
+            "success": true,
+            "return": 128.52199184376389,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.051692357839,
+              "cross_track": -20.44491283476928,
+              "action_delta": -0.3834201600797965,
+              "terminal": 100.0,
+              "base_reward": 124.22335936298991,
+              "potential_shaping": 4.298632480773991
+            }
+          },
+          {
+            "seed": 30018,
+            "success": true,
+            "return": 135.6787859955584,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.06731212403948,
+              "cross_track": -13.379152975527962,
+              "action_delta": -0.30800563372724704,
+              "terminal": 100.0,
+              "base_reward": 131.38015351478424,
+              "potential_shaping": 4.298632480774188
+            }
+          },
+          {
+            "seed": 30019,
+            "success": true,
+            "return": 143.7647801529219,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.94568002905044,
+              "cross_track": -4.96407671258742,
+              "action_delta": -0.5154556443153291,
+              "terminal": 100.0,
+              "base_reward": 139.46614767214766,
+              "potential_shaping": 4.298632480774204
+            }
+          },
+          {
+            "seed": 30020,
+            "success": true,
+            "return": 146.19603530630076,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.97621230682588,
+              "cross_track": -2.9235407324267233,
+              "action_delta": -0.15526874887270822,
+              "terminal": 100.0,
+              "base_reward": 141.89740282552643,
+              "potential_shaping": 4.29863248077432
+            }
+          },
+          {
+            "seed": 30021,
+            "success": true,
+            "return": 128.71083761780005,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.197906676679445,
+              "cross_track": -20.265187385619395,
+              "action_delta": -0.5205141540341162,
+              "terminal": 100.0,
+              "base_reward": 124.41220513702591,
+              "potential_shaping": 4.298632480774152
+            }
+          },
+          {
+            "seed": 30022,
+            "success": true,
+            "return": 144.71770715523593,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.96255142611975,
+              "cross_track": -4.364663474223744,
+              "action_delta": -0.17881327743422176,
+              "terminal": 100.0,
+              "base_reward": 140.4190746744618,
+              "potential_shaping": 4.2986324807741205
+            }
+          },
+          {
+            "seed": 30023,
+            "success": true,
+            "return": 95.63327351640473,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.93660814664146,
+              "cross_track": -52.136833267391026,
+              "action_delta": -1.4651338436197567,
+              "terminal": 100.0,
+              "base_reward": 91.33464103563072,
+              "potential_shaping": 4.298632480773993
+            }
+          },
+          {
+            "seed": 30024,
+            "success": false,
+            "return": -1203.8027809558075,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -228.983184472027,
+              "cross_track": -943.3711039074237,
+              "action_delta": -1.329928535121555,
+              "terminal": -10.0,
+              "base_reward": -1183.6842169145727,
+              "potential_shaping": -20.118564041236095
+            }
+          },
+          {
+            "seed": 30025,
+            "success": true,
+            "return": 120.12351596176575,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.927078824854114,
+              "cross_track": -28.799416402154606,
+              "action_delta": -0.30277894170795017,
+              "terminal": 100.0,
+              "base_reward": 115.82488348099153,
+              "potential_shaping": 4.2986324807741925
+            }
+          },
+          {
+            "seed": 30026,
+            "success": true,
+            "return": 145.55438429073283,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.09007436802409,
+              "cross_track": -3.54510059873553,
+              "action_delta": -0.28922195932977396,
+              "terminal": 100.0,
+              "base_reward": 141.25575180995884,
+              "potential_shaping": 4.298632480774048
+            }
+          },
+          {
+            "seed": 30027,
+            "success": false,
+            "return": -1743.5986513254013,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -269.40413261436436,
+              "cross_track": -1439.9116764628805,
+              "action_delta": -0.6128757941869325,
+              "terminal": -10.0,
+              "base_reward": -1719.928684871432,
+              "potential_shaping": -23.66996645396846
+            }
+          },
+          {
+            "seed": 30028,
+            "success": false,
+            "return": -1494.4579733654757,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -218.9668819329096,
+              "cross_track": -1245.8368539322023,
+              "action_delta": -0.4157102380468671,
+              "terminal": -10.0,
+              "base_reward": -1475.219446103159,
+              "potential_shaping": -19.238527262315998
+            }
+          },
+          {
+            "seed": 30029,
+            "success": true,
+            "return": 139.83730839676372,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.16533378150002,
+              "cross_track": -9.412354987946125,
+              "action_delta": -0.21430287756460004,
+              "terminal": 100.0,
+              "base_reward": 135.5386759159893,
+              "potential_shaping": 4.298632480774396
+            }
+          },
+          {
+            "seed": 30030,
+            "success": false,
+            "return": -177.6789276129939,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 19.390164218447705,
+              "cross_track": -186.80902301316408,
+              "action_delta": -1.9636972375364972,
+              "terminal": -10.0,
+              "base_reward": -179.38255603225252,
+              "potential_shaping": 1.7036284192588007
+            }
+          },
+          {
+            "seed": 30031,
+            "success": true,
+            "return": 133.97489525515397,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.99209844676186,
+              "cross_track": -14.938477647928021,
+              "action_delta": -0.37735802445409444,
+              "terminal": 100.0,
+              "base_reward": 129.67626277437972,
+              "potential_shaping": 4.298632480774214
+            }
+          },
+          {
+            "seed": 30032,
+            "success": true,
+            "return": 145.74129774081953,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.98573118519495,
+              "cross_track": -3.212338240610933,
+              "action_delta": -0.3307276845388487,
+              "terminal": 100.0,
+              "base_reward": 141.44266526004515,
+              "potential_shaping": 4.2986324807743586
+            }
+          },
+          {
+            "seed": 30033,
+            "success": true,
+            "return": 144.79016840728985,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.17988958116922,
+              "cross_track": -4.311787032371994,
+              "action_delta": -0.37656662228155224,
+              "terminal": 100.0,
+              "base_reward": 140.49153592651564,
+              "potential_shaping": 4.298632480774205
+            }
+          },
+          {
+            "seed": 30034,
+            "success": true,
+            "return": 141.3166111519111,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.05264632660073,
+              "cross_track": -7.708911607173997,
+              "action_delta": -0.3257560482898484,
+              "terminal": 100.0,
+              "base_reward": 137.0179786711369,
+              "potential_shaping": 4.298632480774266
+            }
+          },
+          {
+            "seed": 30035,
+            "success": true,
+            "return": 132.91622135543628,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.063444738580074,
+              "cross_track": -16.003058798595877,
+              "action_delta": -0.442797065322218,
+              "terminal": 100.0,
+              "base_reward": 128.61758887466198,
+              "potential_shaping": 4.298632480774288
+            }
+          },
+          {
+            "seed": 30036,
+            "success": true,
+            "return": 136.6354266570239,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.10224014903398,
+              "cross_track": -12.359028314088423,
+              "action_delta": -0.4064176586957849,
+              "terminal": 100.0,
+              "base_reward": 132.3367941762498,
+              "potential_shaping": 4.298632480774144
+            }
+          },
+          {
+            "seed": 30037,
+            "success": false,
+            "return": 2.242161412184773,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 39.80704726885061,
+              "cross_track": -29.040527659842752,
+              "action_delta": -2.0218230068152883,
+              "terminal": -10.0,
+              "base_reward": -1.2553033978075039,
+              "potential_shaping": 3.497464809992269
+            }
+          },
+          {
+            "seed": 30038,
+            "success": false,
+            "return": -1694.0133831918563,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -255.9135625947335,
+              "cross_track": -1404.3067061861927,
+              "action_delta": -1.308435416034551,
+              "terminal": -10.0,
+              "base_reward": -1671.5287041969598,
+              "potential_shaping": -22.484678994897944
+            }
+          },
+          {
+            "seed": 30039,
+            "success": true,
+            "return": 142.27899684753737,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.99652089055415,
+              "cross_track": -6.3147961035706155,
+              "action_delta": -0.7013604202200846,
+              "terminal": 100.0,
+              "base_reward": 137.98036436676347,
+              "potential_shaping": 4.2986324807738905
+            }
+          },
+          {
+            "seed": 30040,
+            "success": true,
+            "return": 139.27949084461312,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.00755094283311,
+              "cross_track": -9.482836309063087,
+              "action_delta": -0.5438562699311293,
+              "terminal": 100.0,
+              "base_reward": 134.98085836383888,
+              "potential_shaping": 4.298632480774229
+            }
+          },
+          {
+            "seed": 30041,
+            "success": false,
+            "return": -526.1525263222417,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -38.33015533917996,
+              "cross_track": -472.0267697700475,
+              "action_delta": -2.427896782315647,
+              "terminal": -10.0,
+              "base_reward": -522.7848218915435,
+              "potential_shaping": -3.3677044306981587
+            }
+          },
+          {
+            "seed": 30042,
+            "success": false,
+            "return": -1784.6704658991578,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -279.93874945873915,
+              "cross_track": -1469.016799036419,
+              "action_delta": -1.1193748466049673,
+              "terminal": -10.0,
+              "base_reward": -1760.0749233417623,
+              "potential_shaping": -24.59554255739334
+            }
+          },
+          {
+            "seed": 30043,
+            "success": true,
+            "return": 134.67329544300188,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.03484886801496,
+              "cross_track": -14.292278148583922,
+              "action_delta": -0.36790775720328855,
+              "terminal": 100.0,
+              "base_reward": 130.37466296222772,
+              "potential_shaping": 4.298632480774153
+            }
+          },
+          {
+            "seed": 30044,
+            "success": false,
+            "return": -1565.710043942634,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -301.9824764457651,
+              "cross_track": -1226.3688296021307,
+              "action_delta": -0.8264237175483493,
+              "terminal": -10.0,
+              "base_reward": -1539.177729765445,
+              "potential_shaping": -26.532314177189654
+            }
+          },
+          {
+            "seed": 30045,
+            "success": true,
+            "return": 116.80436590942867,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.00371647312833,
+              "cross_track": -31.982217051548584,
+              "action_delta": -0.5157659929251409,
+              "terminal": 100.0,
+              "base_reward": 112.50573342865461,
+              "potential_shaping": 4.29863248077405
+            }
+          },
+          {
+            "seed": 30046,
+            "success": true,
+            "return": 147.3468509608486,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.97680802142521,
+              "cross_track": -1.7061620660008854,
+              "action_delta": -0.22242747534996118,
+              "terminal": 100.0,
+              "base_reward": 143.04821848007435,
+              "potential_shaping": 4.298632480774251
+            }
+          },
+          {
+            "seed": 30047,
+            "success": true,
+            "return": 133.96000988454537,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.11630815471377,
+              "cross_track": -15.134681918415836,
+              "action_delta": -0.3202488325268253,
+              "terminal": 100.0,
+              "base_reward": 129.66137740377113,
+              "potential_shaping": 4.298632480774233
+            }
+          },
+          {
+            "seed": 30048,
+            "success": true,
+            "return": 144.90345393613686,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.077951741043876,
+              "cross_track": -4.04857108896956,
+              "action_delta": -0.4245591967116716,
+              "terminal": 100.0,
+              "base_reward": 140.60482145536264,
+              "potential_shaping": 4.2986324807742085
+            }
+          },
+          {
+            "seed": 30049,
+            "success": true,
+            "return": 144.96031214232443,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.93259787068193,
+              "cross_track": -3.8911730555817456,
+              "action_delta": -0.3797451535501327,
+              "terminal": 100.0,
+              "base_reward": 140.66167966155007,
+              "potential_shaping": 4.298632480774356
+            }
+          }
+        ]
+      },
+      "v6_success_rate": 0.14
+    },
+    {
+      "checkpoint_steps": 1000000,
+      "actual_model_timesteps": 1015808,
+      "evaluation": {
+        "first_seed": 30000,
+        "last_seed": 30049,
+        "episodes": 50,
+        "success_rate": 0.68,
+        "median_return": 127.43132965289382,
+        "median_component_contributions": {
+          "progress": 44.97038753224767,
+          "cross_track": -21.18820718321652,
+          "action_delta": -0.6771545207120013,
+          "terminal": 100.0,
+          "base_reward": 123.13269717211973,
+          "potential_shaping": 4.298632480774138
+        },
+        "rows": [
+          {
+            "seed": 30000,
+            "success": false,
+            "return": -2244.6323894135985,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -310.08896563653445,
+              "cross_track": -1896.6658551522778,
+              "action_delta": -0.633014715627468,
+              "terminal": -10.0,
+              "base_reward": -2217.3878355044394,
+              "potential_shaping": -27.244553909160036
+            }
+          },
+          {
+            "seed": 30001,
+            "success": false,
+            "return": -253.8028040767585,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 3.546876584367787,
+              "cross_track": -242.98463355730723,
+              "action_delta": -4.676677252004294,
+              "terminal": -10.0,
+              "base_reward": -254.11443422494403,
+              "potential_shaping": 0.3116301481853192
+            }
+          },
+          {
+            "seed": 30002,
+            "success": true,
+            "return": 142.1375906251779,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.01708480337182,
+              "cross_track": -6.724342234312696,
+              "action_delta": -0.4537844246555537,
+              "terminal": 100.0,
+              "base_reward": 137.83895814440353,
+              "potential_shaping": 4.298632480774335
+            }
+          },
+          {
+            "seed": 30003,
+            "success": false,
+            "return": -2986.051026726404,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -456.74395826289674,
+              "cross_track": -2478.3716633868107,
+              "action_delta": -0.8056785382724635,
+              "terminal": -10.0,
+              "base_reward": -2945.92130018798,
+              "potential_shaping": -40.129726538423185
+            }
+          },
+          {
+            "seed": 30004,
+            "success": true,
+            "return": 134.24890473862067,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.950235929598065,
+              "cross_track": -14.465628804009562,
+              "action_delta": -0.5343348677422082,
+              "terminal": 100.0,
+              "base_reward": 129.9502722578463,
+              "potential_shaping": 4.298632480774351
+            }
+          },
+          {
+            "seed": 30005,
+            "success": true,
+            "return": 136.7600634874177,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.99352618194908,
+              "cross_track": -12.138677651462677,
+              "action_delta": -0.39341752384311446,
+              "terminal": 100.0,
+              "base_reward": 132.4614310066433,
+              "potential_shaping": 4.298632480774429
+            }
+          },
+          {
+            "seed": 30006,
+            "success": false,
+            "return": -1253.843300883879,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -203.7366400616455,
+              "cross_track": -1020.7316346316478,
+              "action_delta": -1.4746347270056053,
+              "terminal": -10.0,
+              "base_reward": -1235.9429094202999,
+              "potential_shaping": -17.900391463580196
+            }
+          },
+          {
+            "seed": 30007,
+            "success": true,
+            "return": 141.54056293257034,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.011447605219125,
+              "cross_track": -7.038703524900392,
+              "action_delta": -0.7308136285225495,
+              "terminal": 100.0,
+              "base_reward": 137.24193045179618,
+              "potential_shaping": 4.298632480774152
+            }
+          },
+          {
+            "seed": 30008,
+            "success": true,
+            "return": 125.04353145116289,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.05435882231498,
+              "cross_track": -23.587764798583024,
+              "action_delta": -0.7216950533433946,
+              "terminal": 100.0,
+              "base_reward": 120.74489897038859,
+              "potential_shaping": 4.298632480774318
+            }
+          },
+          {
+            "seed": 30009,
+            "success": false,
+            "return": -38.402461146068156,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 36.84509213995239,
+              "cross_track": -64.8955949576937,
+              "action_delta": -3.5891844483674236,
+              "terminal": -10.0,
+              "base_reward": -41.63968726610859,
+              "potential_shaping": 3.2372261200404147
+            }
+          },
+          {
+            "seed": 30010,
+            "success": true,
+            "return": 145.151612992313,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.00503942597585,
+              "cross_track": -2.915979715116237,
+              "action_delta": -1.2360791993210187,
+              "terminal": 100.0,
+              "base_reward": 140.85298051153862,
+              "potential_shaping": 4.298632480774403
+            }
+          },
+          {
+            "seed": 30011,
+            "success": true,
+            "return": 133.81721777373826,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.042375063178724,
+              "cross_track": -15.15889700493785,
+              "action_delta": -0.3648927652768576,
+              "terminal": 100.0,
+              "base_reward": 129.51858529296402,
+              "potential_shaping": 4.29863248077425
+            }
+          },
+          {
+            "seed": 30012,
+            "success": true,
+            "return": 126.71265908096981,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.93260856656774,
+              "cross_track": -21.81237227817309,
+              "action_delta": -0.7062096881988684,
+              "terminal": 100.0,
+              "base_reward": 122.41402660019577,
+              "potential_shaping": 4.29863248077405
+            }
+          },
+          {
+            "seed": 30013,
+            "success": true,
+            "return": 143.78795748905216,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.93623976923781,
+              "cross_track": -4.785910378011924,
+              "action_delta": -0.6610043829474914,
+              "terminal": 100.0,
+              "base_reward": 139.48932500827837,
+              "potential_shaping": 4.298632480773736
+            }
+          },
+          {
+            "seed": 30014,
+            "success": false,
+            "return": -1264.468984509399,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -179.5165313988817,
+              "cross_track": -1058.1120464614535,
+              "action_delta": -1.068004663580654,
+              "terminal": -10.0,
+              "base_reward": -1248.6965825239163,
+              "potential_shaping": -15.772401985483667
+            }
+          },
+          {
+            "seed": 30015,
+            "success": true,
+            "return": 139.1140341159248,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.22230076007467,
+              "cross_track": -9.987540373797273,
+              "action_delta": -0.4193587511267359,
+              "terminal": 100.0,
+              "base_reward": 134.81540163515066,
+              "potential_shaping": 4.2986324807741605
+            }
+          },
+          {
+            "seed": 30016,
+            "success": false,
+            "return": -50.88368846433219,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 10.921193531266397,
+              "cross_track": -49.29373254087094,
+              "action_delta": -3.470690357139959,
+              "terminal": -10.0,
+              "base_reward": -51.84322936674445,
+              "potential_shaping": 0.9595409024122361
+            }
+          },
+          {
+            "seed": 30017,
+            "success": true,
+            "return": 126.32444194295442,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.07578043516765,
+              "cross_track": -22.429805396435455,
+              "action_delta": -0.6201655765517956,
+              "terminal": 100.0,
+              "base_reward": 122.02580946218043,
+              "potential_shaping": 4.29863248077399
+            }
+          },
+          {
+            "seed": 30018,
+            "success": true,
+            "return": 141.21666793211966,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.079379195550906,
+              "cross_track": -7.709656435784679,
+              "action_delta": -0.45168730842075694,
+              "terminal": 100.0,
+              "base_reward": 136.91803545134547,
+              "potential_shaping": 4.298632480774186
+            }
+          },
+          {
+            "seed": 30019,
+            "success": true,
+            "return": 123.21965286428326,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.980596036383034,
+              "cross_track": -25.3082640708615,
+              "action_delta": -0.7513115820124509,
+              "terminal": 100.0,
+              "base_reward": 118.92102038350907,
+              "potential_shaping": 4.2986324807742
+            }
+          },
+          {
+            "seed": 30020,
+            "success": true,
+            "return": 148.67588282916523,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.0215366801144,
+              "cross_track": -0.4095261096489346,
+              "action_delta": -0.2347602220745008,
+              "terminal": 100.0,
+              "base_reward": 144.37725034839093,
+              "potential_shaping": 4.2986324807743195
+            }
+          },
+          {
+            "seed": 30021,
+            "success": true,
+            "return": 126.1187080700902,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.032251700711114,
+              "cross_track": -22.656796971134863,
+              "action_delta": -0.5553791402602217,
+              "terminal": 100.0,
+              "base_reward": 121.82007558931606,
+              "potential_shaping": 4.298632480774147
+            }
+          },
+          {
+            "seed": 30022,
+            "success": true,
+            "return": 142.015928543601,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.98999971040914,
+              "cross_track": -6.815449045852241,
+              "action_delta": -0.45725460173003946,
+              "terminal": 100.0,
+              "base_reward": 137.71729606282688,
+              "potential_shaping": 4.298632480774119
+            }
+          },
+          {
+            "seed": 30023,
+            "success": true,
+            "return": 95.57403043427074,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.03019225868152,
+              "cross_track": -51.67191115145221,
+              "action_delta": -2.0828831537324506,
+              "terminal": 100.0,
+              "base_reward": 91.27539795349674,
+              "potential_shaping": 4.298632480773996
+            }
+          },
+          {
+            "seed": 30024,
+            "success": false,
+            "return": -1152.8795096806596,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -224.8295971686405,
+              "cross_track": -896.182314726059,
+              "action_delta": -2.1139697654918934,
+              "terminal": -10.0,
+              "base_reward": -1133.1258816601912,
+              "potential_shaping": -19.753628020467918
+            }
+          },
+          {
+            "seed": 30025,
+            "success": true,
+            "return": 138.3501043073124,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.977334304523914,
+              "cross_track": -10.533975777117426,
+              "action_delta": -0.39188670086833316,
+              "terminal": 100.0,
+              "base_reward": 134.05147182653815,
+              "potential_shaping": 4.298632480774195
+            }
+          },
+          {
+            "seed": 30026,
+            "success": true,
+            "return": 104.69829261422362,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.928256057690156,
+              "cross_track": -43.884479675722254,
+              "action_delta": -0.6441162485182939,
+              "terminal": 100.0,
+              "base_reward": 100.39966013344957,
+              "potential_shaping": 4.298632480774042
+            }
+          },
+          {
+            "seed": 30027,
+            "success": false,
+            "return": -1538.8040952094766,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -227.01216150436542,
+              "cross_track": -1280.9979416851727,
+              "action_delta": -0.848602929928738,
+              "terminal": -10.0,
+              "base_reward": -1518.8587061194653,
+              "potential_shaping": -19.945389090013894
+            }
+          },
+          {
+            "seed": 30028,
+            "success": true,
+            "return": 136.77292152828505,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.98948661888766,
+              "cross_track": -12.034381242904884,
+              "action_delta": -0.480816328471929,
+              "terminal": 100.0,
+              "base_reward": 132.47428904751087,
+              "potential_shaping": 4.298632480774162
+            }
+          },
+          {
+            "seed": 30029,
+            "success": true,
+            "return": 129.66929952476318,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.94461135772372,
+              "cross_track": -19.053648049190503,
+              "action_delta": -0.5202962645443977,
+              "terminal": 100.0,
+              "base_reward": 125.37066704398879,
+              "potential_shaping": 4.298632480774398
+            }
+          },
+          {
+            "seed": 30030,
+            "success": false,
+            "return": -144.53336584921783,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 30.396217495182277,
+              "cross_track": -165.00976347202217,
+              "action_delta": -2.5904450088836763,
+              "terminal": -10.0,
+              "base_reward": -147.20399098572383,
+              "potential_shaping": 2.6706251365059046
+            }
+          },
+          {
+            "seed": 30031,
+            "success": false,
+            "return": -669.9564027627405,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -61.51565870999465,
+              "cross_track": -592.4756039440525,
+              "action_delta": -0.560347079241668,
+              "terminal": -10.0,
+              "base_reward": -664.5516097332888,
+              "potential_shaping": -5.404793029450767
+            }
+          },
+          {
+            "seed": 30032,
+            "success": true,
+            "return": 139.15386089576754,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.97909045415397,
+              "cross_track": -9.527163139053124,
+              "action_delta": -0.596698900107679,
+              "terminal": 100.0,
+              "base_reward": 134.85522841499318,
+              "potential_shaping": 4.298632480774363
+            }
+          },
+          {
+            "seed": 30033,
+            "success": true,
+            "return": 142.39013654707065,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.981807839164375,
+              "cross_track": -6.59948992978417,
+              "action_delta": -0.2908138430837577,
+              "terminal": 100.0,
+              "base_reward": 138.0915040662965,
+              "potential_shaping": 4.298632480774207
+            }
+          },
+          {
+            "seed": 30034,
+            "success": true,
+            "return": 142.03845305232562,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.94399975108385,
+              "cross_track": -6.680568333178106,
+              "action_delta": -0.5236108463544014,
+              "terminal": 100.0,
+              "base_reward": 137.73982057155132,
+              "potential_shaping": 4.298632480774267
+            }
+          },
+          {
+            "seed": 30035,
+            "success": true,
+            "return": 131.41915690111466,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.96240986852105,
+              "cross_track": -17.15162275264325,
+              "action_delta": -0.6902626955374356,
+              "terminal": 100.0,
+              "base_reward": 127.1205244203404,
+              "potential_shaping": 4.298632480774286
+            }
+          },
+          {
+            "seed": 30036,
+            "success": true,
+            "return": 136.99522819039936,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.04594386170483,
+              "cross_track": -12.011677088377995,
+              "action_delta": -0.3376710637016121,
+              "terminal": 100.0,
+              "base_reward": 132.6965957096253,
+              "potential_shaping": 4.298632480774142
+            }
+          },
+          {
+            "seed": 30037,
+            "success": false,
+            "return": 1.5419214667925782,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 39.692534719130435,
+              "cross_track": -28.322242774857667,
+              "action_delta": -3.3157741641180283,
+              "terminal": -10.0,
+              "base_reward": -1.945482219845239,
+              "potential_shaping": 3.487403686637818
+            }
+          },
+          {
+            "seed": 30038,
+            "success": false,
+            "return": -1238.724510343359,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -160.72344269376126,
+              "cross_track": -1051.666900927376,
+              "action_delta": -2.2129338368562617,
+              "terminal": -10.0,
+              "base_reward": -1224.6032774579928,
+              "potential_shaping": -14.121232885366688
+            }
+          },
+          {
+            "seed": 30039,
+            "success": true,
+            "return": 136.51126697274202,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.17812234533828,
+              "cross_track": -12.063846138770494,
+              "action_delta": -0.9016417145996583,
+              "terminal": 100.0,
+              "base_reward": 132.21263449196812,
+              "potential_shaping": 4.298632480773892
+            }
+          },
+          {
+            "seed": 30040,
+            "success": true,
+            "return": 121.05465190341658,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.07525195511544,
+              "cross_track": -27.31777045346783,
+              "action_delta": -1.0014620790052755,
+              "terminal": 100.0,
+              "base_reward": 116.75601942264237,
+              "potential_shaping": 4.29863248077423
+            }
+          },
+          {
+            "seed": 30041,
+            "success": false,
+            "return": -228.506831934506,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 10.129656543808643,
+              "cross_track": -225.15554657550234,
+              "action_delta": -4.370938014807141,
+              "terminal": -10.0,
+              "base_reward": -229.39682804650073,
+              "potential_shaping": 0.8899961119950146
+            }
+          },
+          {
+            "seed": 30042,
+            "success": true,
+            "return": 145.986615827302,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.031121227376765,
+              "cross_track": -2.491349461724709,
+              "action_delta": -0.8517884191242221,
+              "terminal": 100.0,
+              "base_reward": 141.68798334652786,
+              "potential_shaping": 4.298632480774136
+            }
+          },
+          {
+            "seed": 30043,
+            "success": true,
+            "return": 128.15000022481783,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.99432918472245,
+              "cross_track": -20.564042088259953,
+              "action_delta": -0.5789193524187835,
+              "terminal": 100.0,
+              "base_reward": 123.8513677440437,
+              "potential_shaping": 4.29863248077415
+            }
+          },
+          {
+            "seed": 30044,
+            "success": false,
+            "return": -1299.7605077190503,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -268.1881236706034,
+              "cross_track": -996.574610784231,
+              "action_delta": -1.4346458948123944,
+              "terminal": -10.0,
+              "base_reward": -1276.1973803496485,
+              "potential_shaping": -23.563127369403457
+            }
+          },
+          {
+            "seed": 30045,
+            "success": true,
+            "return": 121.39091080274514,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.938515074008805,
+              "cross_track": -26.740916081893783,
+              "action_delta": -1.1053206701439313,
+              "terminal": 100.0,
+              "base_reward": 117.09227832197107,
+              "potential_shaping": 4.298632480774048
+            }
+          },
+          {
+            "seed": 30046,
+            "success": true,
+            "return": 141.22387586217266,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.963440759971434,
+              "cross_track": -7.666346707050979,
+              "action_delta": -0.371850671522042,
+              "terminal": 100.0,
+              "base_reward": 136.9252433813984,
+              "potential_shaping": 4.2986324807742475
+            }
+          },
+          {
+            "seed": 30047,
+            "success": false,
+            "return": -2086.874081709684,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -299.76474438569005,
+              "cross_track": -1749.9218744745574,
+              "action_delta": -0.8499995936345761,
+              "terminal": -10.0,
+              "base_reward": -2060.536618453882,
+              "potential_shaping": -26.337463255800817
+            }
+          },
+          {
+            "seed": 30048,
+            "success": true,
+            "return": 148.33166228362302,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.094090213356864,
+              "cross_track": -0.5110070281790994,
+              "action_delta": -0.5500533823289433,
+              "terminal": 100.0,
+              "base_reward": 144.03302980284883,
+              "potential_shaping": 4.298632480774207
+            }
+          },
+          {
+            "seed": 30049,
+            "success": true,
+            "return": 132.79457291685682,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.05824953650752,
+              "cross_track": -15.898262754538491,
+              "action_delta": -0.6640463458865671,
+              "terminal": 100.0,
+              "base_reward": 128.49594043608244,
+              "potential_shaping": 4.2986324807743586
+            }
+          }
+        ]
+      },
+      "v6_success_rate": 0.24
+    },
+    {
+      "checkpoint_steps": 1250000,
+      "actual_model_timesteps": 1269760,
+      "evaluation": {
+        "first_seed": 30000,
+        "last_seed": 30049,
+        "episodes": 50,
+        "success_rate": 0.74,
+        "median_return": 134.08132297137146,
+        "median_component_contributions": {
+          "progress": 44.96357614371256,
+          "cross_track": -14.561651342078925,
+          "action_delta": -0.7323572228543673,
+          "terminal": 100.0,
+          "base_reward": 129.78269049059736,
+          "potential_shaping": 4.298632480774145
+        },
+        "rows": [
+          {
+            "seed": 30000,
+            "success": true,
+            "return": 147.66996515756276,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.175646814727784,
+              "cross_track": -1.6047648383371265,
+              "action_delta": -0.199549299602316,
+              "terminal": 100.0,
+              "base_reward": 143.37133267678837,
+              "potential_shaping": 4.298632480774365
+            }
+          },
+          {
+            "seed": 30001,
+            "success": false,
+            "return": -253.63169816258136,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 8.003472028131995,
+              "cross_track": -247.98462299947903,
+              "action_delta": -4.353735789652327,
+              "terminal": -10.0,
+              "base_reward": -254.3348867609993,
+              "potential_shaping": 0.7031885984181794
+            }
+          },
+          {
+            "seed": 30002,
+            "success": true,
+            "return": 143.83706827470715,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.93706966632485,
+              "cross_track": -4.83536186553345,
+              "action_delta": -0.5632720068585992,
+              "terminal": 100.0,
+              "base_reward": 139.5384357939328,
+              "potential_shaping": 4.298632480774336
+            }
+          },
+          {
+            "seed": 30003,
+            "success": false,
+            "return": -2912.3916699892834,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -444.1281367010526,
+              "cross_track": -2418.3110025201795,
+              "action_delta": -0.9312359016345608,
+              "terminal": -10.0,
+              "base_reward": -2873.3703751228645,
+              "potential_shaping": -39.02129486642075
+            }
+          },
+          {
+            "seed": 30004,
+            "success": true,
+            "return": 129.77628740550335,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.024819848743896,
+              "cross_track": -18.822222732903732,
+              "action_delta": -0.7249421911111791,
+              "terminal": 100.0,
+              "base_reward": 125.477654924729,
+              "potential_shaping": 4.298632480774354
+            }
+          },
+          {
+            "seed": 30005,
+            "success": true,
+            "return": 139.333639739942,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.27377549648814,
+              "cross_track": -9.876290532431087,
+              "action_delta": -0.36247770488943065,
+              "terminal": 100.0,
+              "base_reward": 135.03500725916757,
+              "potential_shaping": 4.298632480774426
+            }
+          },
+          {
+            "seed": 30006,
+            "success": false,
+            "return": -1290.7225736310083,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -202.88070206707638,
+              "cross_track": -1056.5202696291258,
+              "action_delta": -3.4964135626605763,
+              "terminal": -10.0,
+              "base_reward": -1272.8973852588636,
+              "potential_shaping": -17.82518837214459
+            }
+          },
+          {
+            "seed": 30007,
+            "success": true,
+            "return": 137.59117442139325,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.94968751356565,
+              "cross_track": -10.938381277323886,
+              "action_delta": -0.7187642956226882,
+              "terminal": 100.0,
+              "base_reward": 133.2925419406191,
+              "potential_shaping": 4.298632480774149
+            }
+          },
+          {
+            "seed": 30008,
+            "success": true,
+            "return": 128.9834274719051,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.00310145692942,
+              "cross_track": -19.567257234555875,
+              "action_delta": -0.7510492312427047,
+              "terminal": 100.0,
+              "base_reward": 124.68479499113083,
+              "potential_shaping": 4.298632480774317
+            }
+          },
+          {
+            "seed": 30009,
+            "success": true,
+            "return": 144.91119783965613,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.97230415495653,
+              "cross_track": -2.932466988092331,
+              "action_delta": -1.4272718079822535,
+              "terminal": 100.0,
+              "base_reward": 140.61256535888197,
+              "potential_shaping": 4.298632480774137
+            }
+          },
+          {
+            "seed": 30010,
+            "success": true,
+            "return": 143.29857697758325,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.981736566386445,
+              "cross_track": -4.780500903374171,
+              "action_delta": -1.2012911662034063,
+              "terminal": 100.0,
+              "base_reward": 138.99994449680887,
+              "potential_shaping": 4.298632480774399
+            }
+          },
+          {
+            "seed": 30011,
+            "success": true,
+            "return": 137.85827649467876,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.00370089115764,
+              "cross_track": -10.995481053200981,
+              "action_delta": -0.44857582405216845,
+              "terminal": 100.0,
+              "base_reward": 133.55964401390452,
+              "potential_shaping": 4.298632480774251
+            }
+          },
+          {
+            "seed": 30012,
+            "success": true,
+            "return": 132.26716534212846,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.003110397480064,
+              "cross_track": -16.058472293538212,
+              "action_delta": -0.9761052425874536,
+              "terminal": 100.0,
+              "base_reward": 127.96853286135442,
+              "potential_shaping": 4.2986324807740495
+            }
+          },
+          {
+            "seed": 30013,
+            "success": true,
+            "return": 143.58664777521057,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.11245701418741,
+              "cross_track": -5.201856569893331,
+              "action_delta": -0.6225851498572398,
+              "terminal": 100.0,
+              "base_reward": 139.2880152944369,
+              "potential_shaping": 4.298632480773737
+            }
+          },
+          {
+            "seed": 30014,
+            "success": false,
+            "return": -855.8846207676667,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -110.77065819190771,
+              "cross_track": -723.3763156384517,
+              "action_delta": -2.0052878304046815,
+              "terminal": -10.0,
+              "base_reward": -846.1522616607642,
+              "potential_shaping": -9.732359106902072
+            }
+          },
+          {
+            "seed": 30015,
+            "success": true,
+            "return": 138.50156016418566,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.961054989508305,
+              "cross_track": -10.262997104637622,
+              "action_delta": -0.4951302014591865,
+              "terminal": 100.0,
+              "base_reward": 134.20292768341147,
+              "potential_shaping": 4.29863248077416
+            }
+          },
+          {
+            "seed": 30016,
+            "success": false,
+            "return": -85.41786421052274,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 13.106174225553247,
+              "cross_track": -86.82972198056088,
+              "action_delta": -2.845830729807252,
+              "terminal": -10.0,
+              "base_reward": -86.5693784848149,
+              "potential_shaping": 1.151514274292059
+            }
+          },
+          {
+            "seed": 30017,
+            "success": true,
+            "return": 130.4350175307405,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.05194127713273,
+              "cross_track": -18.295625161008076,
+              "action_delta": -0.6199310661581687,
+              "terminal": 100.0,
+              "base_reward": 126.13638504996648,
+              "potential_shaping": 4.298632480773993
+            }
+          },
+          {
+            "seed": 30018,
+            "success": true,
+            "return": 143.1174086012174,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.06576623446754,
+              "cross_track": -5.7939119978250435,
+              "action_delta": -0.4530781161993357,
+              "terminal": 100.0,
+              "base_reward": 138.81877612044318,
+              "potential_shaping": 4.298632480774187
+            }
+          },
+          {
+            "seed": 30019,
+            "success": true,
+            "return": 120.74130798059059,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.97752106594016,
+              "cross_track": -27.66307946958078,
+              "action_delta": -0.8717660965429748,
+              "terminal": 100.0,
+              "base_reward": 116.44267549981637,
+              "potential_shaping": 4.2986324807742005
+            }
+          },
+          {
+            "seed": 30020,
+            "success": true,
+            "return": 147.23840336675397,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.063276732185244,
+              "cross_track": -1.8758472874979601,
+              "action_delta": -0.247658558707621,
+              "terminal": 100.0,
+              "base_reward": 142.93977088597964,
+              "potential_shaping": 4.29863248077432
+            }
+          },
+          {
+            "seed": 30021,
+            "success": true,
+            "return": 140.53475248674846,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.2524368246958,
+              "cross_track": -8.427837612672558,
+              "action_delta": -0.5884792060489322,
+              "terminal": 100.0,
+              "base_reward": 136.23612000597436,
+              "potential_shaping": 4.298632480774146
+            }
+          },
+          {
+            "seed": 30022,
+            "success": true,
+            "return": 138.45707679840982,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.94003232296587,
+              "cross_track": -10.247953610406865,
+              "action_delta": -0.5336343949233002,
+              "terminal": 100.0,
+              "base_reward": 134.1584443176357,
+              "potential_shaping": 4.298632480774117
+            }
+          },
+          {
+            "seed": 30023,
+            "success": true,
+            "return": 113.23325050364107,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.94578783337533,
+              "cross_track": -34.22702018288739,
+              "action_delta": -1.78414962762083,
+              "terminal": 100.0,
+              "base_reward": 108.93461802286708,
+              "potential_shaping": 4.298632480773995
+            }
+          },
+          {
+            "seed": 30024,
+            "success": false,
+            "return": -901.7888477126512,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -188.01330420064403,
+              "cross_track": -684.6757427268711,
+              "action_delta": -2.5808685766997983,
+              "terminal": -10.0,
+              "base_reward": -885.2699155042151,
+              "potential_shaping": -16.518932208435345
+            }
+          },
+          {
+            "seed": 30025,
+            "success": true,
+            "return": 139.05532084654044,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.06061431470341,
+              "cross_track": -9.885385261284894,
+              "action_delta": -0.4185406876522527,
+              "terminal": 100.0,
+              "base_reward": 134.75668836576625,
+              "potential_shaping": 4.298632480774196
+            }
+          },
+          {
+            "seed": 30026,
+            "success": true,
+            "return": 117.3430847100208,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.01653131806703,
+              "cross_track": -31.206959145742672,
+              "action_delta": -0.7651199430776057,
+              "terminal": 100.0,
+              "base_reward": 113.04445222924676,
+              "potential_shaping": 4.298632480774042
+            }
+          },
+          {
+            "seed": 30027,
+            "success": false,
+            "return": -1645.5400414553371,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -245.24875494170615,
+              "cross_track": -1367.8471895100038,
+              "action_delta": -0.8964327342856849,
+              "terminal": -10.0,
+              "base_reward": -1623.9923771859942,
+              "potential_shaping": -21.547664269342384
+            }
+          },
+          {
+            "seed": 30028,
+            "success": true,
+            "return": 138.60001654121658,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.94606662202749,
+              "cross_track": -10.38150101064821,
+              "action_delta": -0.263181550936872,
+              "terminal": 100.0,
+              "base_reward": 134.3013840604424,
+              "potential_shaping": 4.298632480774159
+            }
+          },
+          {
+            "seed": 30029,
+            "success": true,
+            "return": 127.55966340675198,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.96609729791682,
+              "cross_track": -20.965294117341642,
+              "action_delta": -0.7397722545975557,
+              "terminal": 100.0,
+              "base_reward": 123.26103092597761,
+              "potential_shaping": 4.298632480774394
+            }
+          },
+          {
+            "seed": 30030,
+            "success": false,
+            "return": -126.75672246612089,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 34.10095402228716,
+              "cross_track": -150.75803644986692,
+              "action_delta": -3.0957649677429657,
+              "terminal": -10.0,
+              "base_reward": -129.7528473953225,
+              "potential_shaping": 2.996124929201697
+            }
+          },
+          {
+            "seed": 30031,
+            "success": true,
+            "return": 136.00448752270083,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.031706748028625,
+              "cross_track": -12.843061381042476,
+              "action_delta": -0.4827903250594986,
+              "terminal": 100.0,
+              "base_reward": 131.70585504192664,
+              "potential_shaping": 4.298632480774213
+            }
+          },
+          {
+            "seed": 30032,
+            "success": true,
+            "return": 144.3525978844191,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.012054723991184,
+              "cross_track": -4.251605970332881,
+              "action_delta": -0.7064833500135625,
+              "terminal": 100.0,
+              "base_reward": 140.05396540364472,
+              "potential_shaping": 4.29863248077436
+            }
+          },
+          {
+            "seed": 30033,
+            "success": true,
+            "return": 144.89152188742383,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.935155935899715,
+              "cross_track": -4.118997734589635,
+              "action_delta": -0.22326879466045202,
+              "terminal": 100.0,
+              "base_reward": 140.5928894066496,
+              "potential_shaping": 4.298632480774201
+            }
+          },
+          {
+            "seed": 30034,
+            "success": true,
+            "return": 144.3264022728151,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.08729649251671,
+              "cross_track": -4.576780946896886,
+              "action_delta": -0.48274575357897237,
+              "terminal": 100.0,
+              "base_reward": 140.02776979204083,
+              "potential_shaping": 4.298632480774268
+            }
+          },
+          {
+            "seed": 30035,
+            "success": true,
+            "return": 133.3800107341482,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.14892228692116,
+              "cross_track": -15.498097382581502,
+              "action_delta": -0.569446650965723,
+              "terminal": 100.0,
+              "base_reward": 129.0813782533739,
+              "potential_shaping": 4.2986324807742875
+            }
+          },
+          {
+            "seed": 30036,
+            "success": true,
+            "return": 144.45916756262545,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.174268155921375,
+              "cross_track": -4.601891551021163,
+              "action_delta": -0.41184152304889476,
+              "terminal": 100.0,
+              "base_reward": 140.16053508185132,
+              "potential_shaping": 4.298632480774145
+            }
+          },
+          {
+            "seed": 30037,
+            "success": true,
+            "return": 114.44094714910335,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.951041741788515,
+              "cross_track": -32.3434147086085,
+              "action_delta": -2.4653123648507886,
+              "terminal": 100.0,
+              "base_reward": 110.1423146683293,
+              "potential_shaping": 4.29863248077405
+            }
+          },
+          {
+            "seed": 30038,
+            "success": false,
+            "return": -1548.4896050956195,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -230.01382619891626,
+              "cross_track": -1286.239632888627,
+              "action_delta": -2.027029328077529,
+              "terminal": -10.0,
+              "base_reward": -1528.2804884156214,
+              "potential_shaping": -20.20911667999776
+            }
+          },
+          {
+            "seed": 30039,
+            "success": true,
+            "return": 134.78263520859474,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.99219807387374,
+              "cross_track": -13.625205301576347,
+              "action_delta": -0.8829900444765743,
+              "terminal": 100.0,
+              "base_reward": 130.48400272782084,
+              "potential_shaping": 4.2986324807738905
+            }
+          },
+          {
+            "seed": 30040,
+            "success": false,
+            "return": -326.10709107040293,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -8.803772867240593,
+              "cross_track": -305.33595666098546,
+              "action_delta": -1.1938581574523617,
+              "terminal": -10.0,
+              "base_reward": -325.33358768567825,
+              "potential_shaping": -0.7735033847243651
+            }
+          },
+          {
+            "seed": 30041,
+            "success": false,
+            "return": -74.91296323347808,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 34.22036700494613,
+              "cross_track": -96.98674898443733,
+              "action_delta": -5.153197860752208,
+              "terminal": -10.0,
+              "base_reward": -77.91957984024344,
+              "potential_shaping": 3.0066166067653386
+            }
+          },
+          {
+            "seed": 30042,
+            "success": true,
+            "return": 145.20169477548416,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.12841800357681,
+              "cross_track": -3.435688402345373,
+              "action_delta": -0.7896673065214548,
+              "terminal": 100.0,
+              "base_reward": 140.90306229470997,
+              "potential_shaping": 4.298632480774134
+            }
+          },
+          {
+            "seed": 30043,
+            "success": true,
+            "return": 129.32935952869357,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.0680308865852,
+              "cross_track": -19.387653889164465,
+              "action_delta": -0.6496499495012951,
+              "terminal": 100.0,
+              "base_reward": 125.03072704791941,
+              "potential_shaping": 4.29863248077415
+            }
+          },
+          {
+            "seed": 30044,
+            "success": false,
+            "return": -620.7201161066661,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -141.93000172034766,
+              "cross_track": -453.71796307992514,
+              "action_delta": -2.6021184715913486,
+              "terminal": -10.0,
+              "base_reward": -608.2500832718649,
+              "potential_shaping": -12.470032834801401
+            }
+          },
+          {
+            "seed": 30045,
+            "success": true,
+            "return": 124.6711243594424,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.93201380606323,
+              "cross_track": -23.919707191653355,
+              "action_delta": -0.6398147357415188,
+              "terminal": 100.0,
+              "base_reward": 120.37249187866834,
+              "potential_shaping": 4.2986324807740495
+            }
+          },
+          {
+            "seed": 30046,
+            "success": true,
+            "return": 141.99033105765815,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.942218764654676,
+              "cross_track": -6.797588750430149,
+              "action_delta": -0.45293143734061536,
+              "terminal": 100.0,
+              "base_reward": 137.6916985768839,
+              "potential_shaping": 4.298632480774248
+            }
+          },
+          {
+            "seed": 30047,
+            "success": false,
+            "return": -2094.360546433829,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -302.3944438521256,
+              "cross_track": -1754.0252703107365,
+              "action_delta": -1.3723224549257642,
+              "terminal": -10.0,
+              "base_reward": -2067.7920366177887,
+              "potential_shaping": -26.56850981603919
+            }
+          },
+          {
+            "seed": 30048,
+            "success": true,
+            "return": 147.4292653548648,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.95763309166762,
+              "cross_track": -1.3625883325524866,
+              "action_delta": -0.46441188502449593,
+              "terminal": 100.0,
+              "base_reward": 143.1306328740906,
+              "potential_shaping": 4.298632480774208
+            }
+          },
+          {
+            "seed": 30049,
+            "success": true,
+            "return": 134.80897518295185,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.956287360144486,
+              "cross_track": -13.6163322202733,
+              "action_delta": -0.8296124376936617,
+              "terminal": 100.0,
+              "base_reward": 130.5103427021775,
+              "potential_shaping": 4.298632480774355
+            }
+          }
+        ]
+      },
+      "v6_success_rate": 0.48
+    },
+    {
+      "checkpoint_steps": 1500000,
+      "actual_model_timesteps": 1523712,
+      "evaluation": {
+        "first_seed": 30000,
+        "last_seed": 30049,
+        "episodes": 50,
+        "success_rate": 0.66,
+        "median_return": 139.04628273808453,
+        "median_component_contributions": {
+          "progress": 44.95827583471352,
+          "cross_track": -8.957468246224634,
+          "action_delta": -0.7411977066571168,
+          "terminal": 100.0,
+          "base_reward": 134.7476502573104,
+          "potential_shaping": 4.298632480774131
+        },
+        "rows": [
+          {
+            "seed": 30000,
+            "success": false,
+            "return": -2707.1018425117823,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -395.05284038719543,
+              "cross_track": -2266.8747997325586,
+              "action_delta": -0.46468480309456156,
+              "terminal": -10.0,
+              "base_reward": -2672.392324922847,
+              "potential_shaping": -34.70951758893431
+            }
+          },
+          {
+            "seed": 30001,
+            "success": false,
+            "return": -227.06485505795757,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 12.734014435032918,
+              "cross_track": -225.55403942885374,
+              "action_delta": -5.363646214344331,
+              "terminal": -10.0,
+              "base_reward": -228.18367120816512,
+              "potential_shaping": 1.118816150207452
+            }
+          },
+          {
+            "seed": 30002,
+            "success": true,
+            "return": 145.1865120611591,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.01715608013178,
+              "cross_track": -3.6386098798809656,
+              "action_delta": -0.49066661986605253,
+              "terminal": 100.0,
+              "base_reward": 140.88787958038478,
+              "potential_shaping": 4.2986324807743355
+            }
+          },
+          {
+            "seed": 30003,
+            "success": false,
+            "return": -3351.8282750965705,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -489.188675906349,
+              "cross_track": -2809.0128744278322,
+              "action_delta": -0.6463909568197801,
+              "terminal": -10.0,
+              "base_reward": -3308.847941290998,
+              "potential_shaping": -42.98033380556666
+            }
+          },
+          {
+            "seed": 30004,
+            "success": true,
+            "return": 144.11732413131625,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.959206986028654,
+              "cross_track": -4.57237477830292,
+              "action_delta": -0.5681405571838625,
+              "terminal": 100.0,
+              "base_reward": 139.8186916505419,
+              "potential_shaping": 4.298632480774349
+            }
+          },
+          {
+            "seed": 30005,
+            "success": true,
+            "return": 142.41380046605076,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.06441688400753,
+              "cross_track": -6.548603029849673,
+              "action_delta": -0.40064586888153153,
+              "terminal": 100.0,
+              "base_reward": 138.11516798527634,
+              "potential_shaping": 4.298632480774429
+            }
+          },
+          {
+            "seed": 30006,
+            "success": false,
+            "return": -1571.0718454694943,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -233.01978744546702,
+              "cross_track": -1305.1237202436528,
+              "action_delta": -2.4551160134263945,
+              "terminal": -10.0,
+              "base_reward": -1550.5986237025475,
+              "potential_shaping": -20.473221766943976
+            }
+          },
+          {
+            "seed": 30007,
+            "success": true,
+            "return": 146.15105683138555,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.96297086806153,
+              "cross_track": -2.236321005137993,
+              "action_delta": -0.8742255123121558,
+              "terminal": 100.0,
+              "base_reward": 141.8524243506114,
+              "potential_shaping": 4.298632480774151
+            }
+          },
+          {
+            "seed": 30008,
+            "success": true,
+            "return": 139.42495251198602,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.98746085562279,
+              "cross_track": -8.897776414138619,
+              "action_delta": -0.9633644102724913,
+              "terminal": 100.0,
+              "base_reward": 135.1263200312117,
+              "potential_shaping": 4.298632480774314
+            }
+          },
+          {
+            "seed": 30009,
+            "success": false,
+            "return": -48.29693746516173,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 39.30470312193307,
+              "cross_track": -76.47195207504126,
+              "action_delta": -4.5830171427285835,
+              "terminal": -10.0,
+              "base_reward": -51.75026609583671,
+              "potential_shaping": 3.453328630674992
+            }
+          },
+          {
+            "seed": 30010,
+            "success": false,
+            "return": -285.2115293077229,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -10.031579223244005,
+              "cross_track": -259.6239609095576,
+              "action_delta": -4.674610179765541,
+              "terminal": -10.0,
+              "base_reward": -284.3301503125674,
+              "potential_shaping": -0.8813789951559658
+            }
+          },
+          {
+            "seed": 30011,
+            "success": true,
+            "return": 144.33141079988454,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.00221543055807,
+              "cross_track": -4.5907116649692545,
+              "action_delta": -0.37872544647847745,
+              "terminal": 100.0,
+              "base_reward": 140.03277831911032,
+              "potential_shaping": 4.298632480774252
+            }
+          },
+          {
+            "seed": 30012,
+            "success": true,
+            "return": 140.2997003330831,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.09550389697381,
+              "cross_track": -8.42491841338127,
+              "action_delta": -0.6695176312834845,
+              "terminal": 100.0,
+              "base_reward": 136.00106785230903,
+              "potential_shaping": 4.298632480774048
+            }
+          },
+          {
+            "seed": 30013,
+            "success": true,
+            "return": 143.17810619541257,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.04820876534811,
+              "cross_track": -5.3306139207555105,
+              "action_delta": -0.8381211299538004,
+              "terminal": 100.0,
+              "base_reward": 138.87947371463883,
+              "potential_shaping": 4.298632480773735
+            }
+          },
+          {
+            "seed": 30014,
+            "success": false,
+            "return": -450.67662923598215,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -23.109450757214262,
+              "cross_track": -411.5114282643926,
+              "action_delta": -4.025343631949014,
+              "terminal": -10.0,
+              "base_reward": -448.6462226535551,
+              "potential_shaping": -2.030406582425723
+            }
+          },
+          {
+            "seed": 30015,
+            "success": true,
+            "return": 135.16339063984745,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.05917547672914,
+              "cross_track": -13.523358130263812,
+              "action_delta": -0.671059187392038,
+              "terminal": 100.0,
+              "base_reward": 130.86475815907332,
+              "potential_shaping": 4.298632480774162
+            }
+          },
+          {
+            "seed": 30016,
+            "success": false,
+            "return": -126.93914475066761,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 5.404591675558663,
+              "cross_track": -119.40780711176555,
+              "action_delta": -3.4107791336392532,
+              "terminal": -10.0,
+              "base_reward": -127.41399456984601,
+              "potential_shaping": 0.4748498191784969
+            }
+          },
+          {
+            "seed": 30017,
+            "success": true,
+            "return": 136.37181621491555,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.99883944505771,
+              "cross_track": -12.192253149750453,
+              "action_delta": -0.7334025611656582,
+              "terminal": 100.0,
+              "base_reward": 132.0731837341416,
+              "potential_shaping": 4.298632480773991
+            }
+          },
+          {
+            "seed": 30018,
+            "success": true,
+            "return": 133.85847881112235,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.95852245566062,
+              "cross_track": -14.780272248075194,
+              "action_delta": -0.6184038772372643,
+              "terminal": 100.0,
+              "base_reward": 129.55984633034817,
+              "potential_shaping": 4.298632480774189
+            }
+          },
+          {
+            "seed": 30019,
+            "success": true,
+            "return": 117.63299759912053,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.00317415578395,
+              "cross_track": -30.559624116102114,
+              "action_delta": -1.1091849213354865,
+              "terminal": 100.0,
+              "base_reward": 113.33436511834633,
+              "potential_shaping": 4.298632480774203
+            }
+          },
+          {
+            "seed": 30020,
+            "success": true,
+            "return": 141.88523225487415,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.021432608569036,
+              "cross_track": -7.102306933950878,
+              "action_delta": -0.3325259005183416,
+              "terminal": 100.0,
+              "base_reward": 137.5865997740998,
+              "potential_shaping": 4.298632480774323
+            }
+          },
+          {
+            "seed": 30021,
+            "success": true,
+            "return": 144.55734074978002,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.10773177329388,
+              "cross_track": -4.361069970341421,
+              "action_delta": -0.4879535339466017,
+              "terminal": 100.0,
+              "base_reward": 140.25870826900587,
+              "potential_shaping": 4.298632480774152
+            }
+          },
+          {
+            "seed": 30022,
+            "success": true,
+            "return": 143.46061220108797,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.26708794403103,
+              "cross_track": -5.7674680857921246,
+              "action_delta": -0.3376401379250645,
+              "terminal": 100.0,
+              "base_reward": 139.16197972031387,
+              "potential_shaping": 4.298632480774119
+            }
+          },
+          {
+            "seed": 30023,
+            "success": true,
+            "return": 105.2844318803555,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.9479699258419,
+              "cross_track": -41.565573610224256,
+              "action_delta": -2.3965969160362306,
+              "terminal": 100.0,
+              "base_reward": 100.9857993995815,
+              "potential_shaping": 4.298632480773996
+            }
+          },
+          {
+            "seed": 30024,
+            "success": false,
+            "return": -1956.6523875678904,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -310.4699838433078,
+              "cross_track": -1607.4419561144784,
+              "action_delta": -1.4624172724817586,
+              "terminal": -10.0,
+              "base_reward": -1929.374357230269,
+              "potential_shaping": -27.278030337621455
+            }
+          },
+          {
+            "seed": 30025,
+            "success": true,
+            "return": 138.52107615954333,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.057490603967246,
+              "cross_track": -10.179590958343912,
+              "action_delta": -0.6554559668542486,
+              "terminal": 100.0,
+              "base_reward": 134.22244367876908,
+              "potential_shaping": 4.298632480774196
+            }
+          },
+          {
+            "seed": 30026,
+            "success": true,
+            "return": 146.55452535496067,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.00894709644926,
+              "cross_track": -2.3738776881635086,
+              "action_delta": -0.3791765340991336,
+              "terminal": 100.0,
+              "base_reward": 142.2558928741866,
+              "potential_shaping": 4.298632480774045
+            }
+          },
+          {
+            "seed": 30027,
+            "success": false,
+            "return": -2200.65556293862,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -296.0525653332182,
+              "cross_track": -1868.1745420757736,
+              "action_delta": -0.4171459700963083,
+              "terminal": -10.0,
+              "base_reward": -2174.644253379092,
+              "potential_shaping": -26.0113095595288
+            }
+          },
+          {
+            "seed": 30028,
+            "success": true,
+            "return": 133.54344129614162,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.94615296029316,
+              "cross_track": -15.076473673001233,
+              "action_delta": -0.6248704719244199,
+              "terminal": 100.0,
+              "base_reward": 129.2448088153675,
+              "potential_shaping": 4.29863248077416
+            }
+          },
+          {
+            "seed": 30029,
+            "success": true,
+            "return": 143.35457382904596,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.23550878542126,
+              "cross_track": -5.749720685821856,
+              "action_delta": -0.4298467513278479,
+              "terminal": 100.0,
+              "base_reward": 139.05594134827155,
+              "potential_shaping": 4.298632480774397
+            }
+          },
+          {
+            "seed": 30030,
+            "success": false,
+            "return": -244.86848985664824,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 36.791631958918416,
+              "cross_track": -270.3620949605507,
+              "action_delta": -4.530555939864553,
+              "terminal": -10.0,
+              "base_reward": -248.10101894149707,
+              "potential_shaping": 3.2325290848486414
+            }
+          },
+          {
+            "seed": 30031,
+            "success": true,
+            "return": 141.55481334545803,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.05535469639391,
+              "cross_track": -7.302907915951692,
+              "action_delta": -0.4962659157584356,
+              "terminal": 100.0,
+              "base_reward": 137.2561808646838,
+              "potential_shaping": 4.298632480774213
+            }
+          },
+          {
+            "seed": 30032,
+            "success": true,
+            "return": 142.25863138942972,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.00447866100291,
+              "cross_track": -6.233427610339659,
+              "action_delta": -0.8110521420078671,
+              "terminal": 100.0,
+              "base_reward": 137.9599989086554,
+              "potential_shaping": 4.298632480774365
+            }
+          },
+          {
+            "seed": 30033,
+            "success": true,
+            "return": 145.44279154879737,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.95802921376641,
+              "cross_track": -3.431289789311544,
+              "action_delta": -0.38258035643167254,
+              "terminal": 100.0,
+              "base_reward": 141.14415906802316,
+              "potential_shaping": 4.298632480774202
+            }
+          },
+          {
+            "seed": 30034,
+            "success": true,
+            "return": 139.06541959819867,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.95183890288209,
+              "cross_track": -8.827966462601005,
+              "action_delta": -1.3570853228566557,
+              "terminal": 100.0,
+              "base_reward": 134.76678711742446,
+              "potential_shaping": 4.298632480774266
+            }
+          },
+          {
+            "seed": 30035,
+            "success": true,
+            "return": 139.54785342027785,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.0153738699628,
+              "cross_track": -9.01716007831065,
+              "action_delta": -0.7489928521485755,
+              "terminal": 100.0,
+              "base_reward": 135.24922093950357,
+              "potential_shaping": 4.298632480774286
+            }
+          },
+          {
+            "seed": 30036,
+            "success": true,
+            "return": 142.46318523183646,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.01089286551438,
+              "cross_track": -6.1677217173152385,
+              "action_delta": -0.6786183971367863,
+              "terminal": 100.0,
+              "base_reward": 138.1645527510624,
+              "potential_shaping": 4.2986324807741445
+            }
+          },
+          {
+            "seed": 30037,
+            "success": false,
+            "return": -5.591203393667828,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 41.05407002326599,
+              "cross_track": -37.141836548240356,
+              "action_delta": -3.110465650395769,
+              "terminal": -10.0,
+              "base_reward": -9.198232175370206,
+              "potential_shaping": 3.6070287817023825
+            }
+          },
+          {
+            "seed": 30038,
+            "success": false,
+            "return": -1111.4203094290149,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -169.32002395367806,
+              "cross_track": -913.5359977071656,
+              "action_delta": -3.6877554444976304,
+              "terminal": -10.0,
+              "base_reward": -1096.543777105341,
+              "potential_shaping": -14.87653232367306
+            }
+          },
+          {
+            "seed": 30039,
+            "success": true,
+            "return": 146.26922047973403,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.9483198604478,
+              "cross_track": -2.0399444917828142,
+              "action_delta": -0.9377873697048638,
+              "terminal": 100.0,
+              "base_reward": 141.97058799896013,
+              "potential_shaping": 4.298632480773892
+            }
+          },
+          {
+            "seed": 30040,
+            "success": true,
+            "return": 139.7419884268683,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.93963248367371,
+              "cross_track": -8.360595229536061,
+              "action_delta": -1.1356813080435384,
+              "terminal": 100.0,
+              "base_reward": 135.44335594609407,
+              "potential_shaping": 4.298632480774231
+            }
+          },
+          {
+            "seed": 30041,
+            "success": false,
+            "return": -144.0439418952438,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": 31.083174377321864,
+              "cross_track": -162.04766757383624,
+              "action_delta": -5.8104301712638105,
+              "terminal": -10.0,
+              "base_reward": -146.77492336777826,
+              "potential_shaping": 2.7309814725345065
+            }
+          },
+          {
+            "seed": 30042,
+            "success": false,
+            "return": -2083.263927125549,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -329.6609891549654,
+              "cross_track": -1712.9424076451428,
+              "action_delta": -1.6963697583534574,
+              "terminal": -10.0,
+              "base_reward": -2054.2997665584617,
+              "potential_shaping": -28.96416056709013
+            }
+          },
+          {
+            "seed": 30043,
+            "success": true,
+            "return": 141.31881236551817,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.15168050993421,
+              "cross_track": -7.607435212006776,
+              "action_delta": -0.5240654131834271,
+              "terminal": 100.0,
+              "base_reward": 137.02017988474398,
+              "potential_shaping": 4.298632480774153
+            }
+          },
+          {
+            "seed": 30044,
+            "success": false,
+            "return": -908.5543721035557,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -209.2660514512858,
+              "cross_track": -668.8268016071706,
+              "action_delta": -2.075311046958846,
+              "terminal": -10.0,
+              "base_reward": -890.1681641054149,
+              "potential_shaping": -18.386207998140655
+            }
+          },
+          {
+            "seed": 30045,
+            "success": true,
+            "return": 139.0271458779704,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.01668482469697,
+              "cross_track": -8.51550468354031,
+              "action_delta": -1.7726667439602868,
+              "terminal": 100.0,
+              "base_reward": 134.72851339719634,
+              "potential_shaping": 4.298632480774048
+            }
+          },
+          {
+            "seed": 30046,
+            "success": true,
+            "return": 144.48525880073402,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.95489429955689,
+              "cross_track": -4.358660714556692,
+              "action_delta": -0.40960726504043987,
+              "terminal": 100.0,
+              "base_reward": 140.18662631995974,
+              "potential_shaping": 4.298632480774249
+            }
+          },
+          {
+            "seed": 30047,
+            "success": true,
+            "return": 143.18885946723813,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 44.95397876622719,
+              "cross_track": -5.580875455643074,
+              "action_delta": -0.4828763241202664,
+              "terminal": 100.0,
+              "base_reward": 138.89022698646386,
+              "potential_shaping": 4.2986324807742315
+            }
+          },
+          {
+            "seed": 30048,
+            "success": false,
+            "return": -1621.1110186414455,
+            "termination_reason": "timeout",
+            "component_totals": {
+              "progress": -231.5181257864233,
+              "cross_track": -1358.147764781996,
+              "action_delta": -1.10384296477429,
+              "terminal": -10.0,
+              "base_reward": -1600.7697335331934,
+              "potential_shaping": -20.341285108252638
+            }
+          },
+          {
+            "seed": 30049,
+            "success": true,
+            "return": 140.52207781528804,
+            "termination_reason": "success",
+            "component_totals": {
+              "progress": 45.31646871225832,
+              "cross_track": -8.389300741183774,
+              "action_delta": -0.7037226365608614,
+              "terminal": 100.0,
+              "base_reward": 136.2234453345137,
+              "potential_shaping": 4.298632480774356
+            }
+          }
+        ]
+      },
+      "v6_success_rate": 0.5
+    }
+  ],
+  "cross_track_context": {
+    "finding": "At 250k, failed policies accumulated median cross-track penalties roughly 5.5-8.0 times the magnitude of progress. Retained as diagnostic context; no reward term changed."
+  },
+  "phase_2_started": false,
+  "wall_clock_s": 2941.9810798168182
+}

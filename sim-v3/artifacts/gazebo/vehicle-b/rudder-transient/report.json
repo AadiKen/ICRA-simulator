@@ -1,0 +1,1984 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-b-rudder-transient-diagnostic-campaign",
+  "date": "2026-09-05",
+  "status": "working-hypothesis-not-supported-stop-before-task3",
+  "priority": "background; does not block Vehicle C, figure machinery, or PPO work",
+  "immutable_prior_work": {
+    "modified": false,
+    "paths": [
+      "artifacts/gazebo/vehicle-b-cross-implementation-protocol.json",
+      "validation/external-references/kvlcc2-marin/artifacts/identification/identification-report.json",
+      "artifacts/gazebo/vehicle-b/scoped-negative-result.json"
+    ]
+  },
+  "task1": {
+    "name": "leave-one-out refit",
+    "protocol": {
+      "path": "artifacts/gazebo/vehicle-b/rudder-transient/task1-protocol.json",
+      "sha256": "2a729fb3e03744a6fbf1ba242869dd814ddf9189d86ecc1de7ecd37ac8543e1b",
+      "registered_before_results": true
+    },
+    "prediction": {
+      "working_hypothesis": "Turning-circle-only coverage under-constrains the fast rudder transient response exercised by zig-zags.",
+      "prospective_prediction": "Held-out zig-zag trajectories will have larger primary held-out error than held-out turning-circle trajectories because the two turning circles are relatively redundant while zig-zags exercise distinct transient regimes.",
+      "support_rule": "Supported only if every held-out zig-zag primary error is greater than both held-out turning-circle primary errors (min zig-zag error > max turning-circle error).",
+      "contradiction_rule": "If the strict separation rule is not met, this leave-one-out result does not support the coverage-gap hypothesis and Task 3 must not proceed on that assumption without review.",
+      "aggregation_guard": "All six folds must be reported individually. Group extrema are used only to evaluate the precommitted ordering prediction; no six-case average is a verdict."
+    },
+    "result": {
+      "schema_version": 1,
+      "artifact_kind": "vehicle-b-rudder-transient-leave-one-out-results",
+      "status": "completed",
+      "protocol": "artifacts/gazebo/vehicle-b/rudder-transient/task1-protocol.json",
+      "case_count_confirmed": 6,
+      "model_scope": "KVLCC2 MARIN L7 model-scale diagnostic; no Vehicle B USV coefficient validation",
+      "folds": [
+        {
+          "held_out_id": "MARIN_FREE_KVLCC2_tc_-35_m",
+          "maneuver": "turning-circle",
+          "training_ids": [
+            "MARIN_FREE_KVLCC2_tc_35_m",
+            "MARIN_FREE_KVLCC2_zz_-10_m",
+            "MARIN_FREE_KVLCC2_zz_10_m",
+            "MARIN_FREE_KVLCC2_zz_-20_m",
+            "MARIN_FREE_KVLCC2_zz_20_m"
+          ],
+          "fit_error": {
+            "initial_regularized_training_mse": 1.9337465344962812,
+            "final_regularized_training_mse": 1.1386448518247279,
+            "held_out_primary_normalized_mse": 0.5176436865317382,
+            "held_out_heading_rmse_deg": 14.825509095118933,
+            "held_out_yaw_rate_rmse_deg_s": 0.03539634564550269,
+            "held_out_position_rmse_lpp": 0.7562327053475965
+          },
+          "coefficients": {
+            "Y_R": {
+              "baseline": 0.083,
+              "fitted": 0.09368789126056556,
+              "normalized_q": 0.12876977422368135,
+              "lower": -0.083,
+              "upper": 0.249,
+              "hit_bound": false
+            },
+            "N_R": {
+              "baseline": -0.049,
+              "fitted": -0.03726906251952302,
+              "normalized_q": 0.23461874960953963,
+              "lower": -0.14900000000000002,
+              "upper": 0.051000000000000004,
+              "hit_bound": false
+            },
+            "Y_rrr": {
+              "baseline": 0.008,
+              "fitted": -0.08733269325587817,
+              "normalized_q": -1.9066538651175635,
+              "lower": -0.092,
+              "upper": 0.10800000000000001,
+              "hit_bound": false
+            },
+            "N_rrr": {
+              "baseline": -0.013,
+              "fitted": -0.028705140974506223,
+              "normalized_q": -0.3141028194901245,
+              "lower": -0.113,
+              "upper": 0.08700000000000001,
+              "hit_bound": false
+            },
+            "Y_vvr": {
+              "baseline": 0.379,
+              "fitted": 1.137,
+              "normalized_q": 2,
+              "lower": -0.379,
+              "upper": 1.137,
+              "hit_bound": true
+            },
+            "Y_vrr": {
+              "baseline": -0.391,
+              "fitted": -1.173,
+              "normalized_q": -2,
+              "lower": -1.173,
+              "upper": 0.391,
+              "hit_bound": true
+            },
+            "N_vvr": {
+              "baseline": -0.294,
+              "fitted": -0.7154706104187797,
+              "normalized_q": -1.4335735048257814,
+              "lower": -0.8819999999999999,
+              "upper": 0.294,
+              "hit_bound": false
+            },
+            "N_vrr": {
+              "baseline": 0.055,
+              "fitted": -0.055,
+              "normalized_q": -2,
+              "lower": -0.055,
+              "upper": 0.165,
+              "hit_bound": true
+            },
+            "X_vr": {
+              "baseline": 0.002,
+              "fitted": 0.10200000000000001,
+              "normalized_q": 2,
+              "lower": -0.098,
+              "upper": 0.10200000000000001,
+              "hit_bound": true
+            }
+          },
+          "bound_hits": [
+            "Y_vvr",
+            "Y_vrr",
+            "N_vrr",
+            "X_vr"
+          ],
+          "imo": {
+            "advance_lpp": {
+              "reference": 3.2536550128650346,
+              "actual": 3.2864349512236943,
+              "absolute_percent_error": 1.007480455950218,
+              "tolerance_percent": 5,
+              "passed": true
+            },
+            "tactical_diameter_lpp": {
+              "reference": 3.337529720786607,
+              "actual": 3.357886691002168,
+              "absolute_percent_error": 0.6099412415348747,
+              "tolerance_percent": 5,
+              "passed": true
+            }
+          },
+          "held_out_imo_passed": true,
+          "iterations": [
+            {
+              "iteration": 0,
+              "cost": 1.9337465344962812,
+              "candidate_cost": 9.881264996794718,
+              "lambda": 0.1,
+              "accepted": false
+            },
+            {
+              "iteration": 1,
+              "cost": 1.9337465344962812,
+              "candidate_cost": 1.7448988217195243,
+              "lambda": 0.5,
+              "accepted": true
+            },
+            {
+              "iteration": 2,
+              "cost": 1.7448988217195243,
+              "candidate_cost": 2.391258203197762,
+              "lambda": 0.25,
+              "accepted": false
+            },
+            {
+              "iteration": 3,
+              "cost": 1.7448988217195243,
+              "candidate_cost": 2.8307035929555098,
+              "lambda": 1.25,
+              "accepted": false
+            },
+            {
+              "iteration": 4,
+              "cost": 1.7448988217195243,
+              "candidate_cost": 1.4528258576073538,
+              "lambda": 6.25,
+              "accepted": true
+            },
+            {
+              "iteration": 5,
+              "cost": 1.4528258576073538,
+              "candidate_cost": 1.3147747608541633,
+              "lambda": 3.125,
+              "accepted": true
+            },
+            {
+              "iteration": 6,
+              "cost": 1.3147747608541633,
+              "candidate_cost": 1.6467088963229477,
+              "lambda": 1.5625,
+              "accepted": false
+            },
+            {
+              "iteration": 7,
+              "cost": 1.3147747608541633,
+              "candidate_cost": 1.2103132073954819,
+              "lambda": 7.8125,
+              "accepted": true
+            },
+            {
+              "iteration": 8,
+              "cost": 1.2103132073954819,
+              "candidate_cost": 1.45284876554422,
+              "lambda": 3.90625,
+              "accepted": false
+            },
+            {
+              "iteration": 9,
+              "cost": 1.2103132073954819,
+              "candidate_cost": 1.1834946593692663,
+              "lambda": 19.53125,
+              "accepted": true
+            },
+            {
+              "iteration": 10,
+              "cost": 1.1834946593692663,
+              "candidate_cost": 1.292867985037181,
+              "lambda": 9.765625,
+              "accepted": false
+            },
+            {
+              "iteration": 11,
+              "cost": 1.1834946593692663,
+              "candidate_cost": 1.1386448518247279,
+              "lambda": 48.828125,
+              "accepted": true
+            }
+          ],
+          "prediction_comparison": {
+            "expected_ordering": "error less than all four zig-zag folds",
+            "comparison_extreme": 0.7789464994152304,
+            "result": "matched"
+          }
+        },
+        {
+          "held_out_id": "MARIN_FREE_KVLCC2_tc_35_m",
+          "maneuver": "turning-circle",
+          "training_ids": [
+            "MARIN_FREE_KVLCC2_tc_-35_m",
+            "MARIN_FREE_KVLCC2_zz_-10_m",
+            "MARIN_FREE_KVLCC2_zz_10_m",
+            "MARIN_FREE_KVLCC2_zz_-20_m",
+            "MARIN_FREE_KVLCC2_zz_20_m"
+          ],
+          "fit_error": {
+            "initial_regularized_training_mse": 1.5514004284087133,
+            "final_regularized_training_mse": 0.9677866394880527,
+            "held_out_primary_normalized_mse": 1.9235927007613163,
+            "held_out_heading_rmse_deg": 11.91139735960996,
+            "held_out_yaw_rate_rmse_deg_s": 0.034369663430693184,
+            "held_out_position_rmse_lpp": 0.300137645411913
+          },
+          "coefficients": {
+            "Y_R": {
+              "baseline": 0.083,
+              "fitted": 0.09157366610214612,
+              "normalized_q": 0.1032971819535677,
+              "lower": -0.083,
+              "upper": 0.249,
+              "hit_bound": false
+            },
+            "N_R": {
+              "baseline": -0.049,
+              "fitted": -0.03797034616976534,
+              "normalized_q": 0.22059307660469318,
+              "lower": -0.14900000000000002,
+              "upper": 0.051000000000000004,
+              "hit_bound": false
+            },
+            "Y_rrr": {
+              "baseline": 0.008,
+              "fitted": -0.08903797465660485,
+              "normalized_q": -1.9407594931320966,
+              "lower": -0.092,
+              "upper": 0.10800000000000001,
+              "hit_bound": false
+            },
+            "N_rrr": {
+              "baseline": -0.013,
+              "fitted": -0.013330579186456457,
+              "normalized_q": -0.006611583729129157,
+              "lower": -0.113,
+              "upper": 0.08700000000000001,
+              "hit_bound": false
+            },
+            "Y_vvr": {
+              "baseline": 0.379,
+              "fitted": 1.137,
+              "normalized_q": 2,
+              "lower": -0.379,
+              "upper": 1.137,
+              "hit_bound": true
+            },
+            "Y_vrr": {
+              "baseline": -0.391,
+              "fitted": -1.173,
+              "normalized_q": -2,
+              "lower": -1.173,
+              "upper": 0.391,
+              "hit_bound": true
+            },
+            "N_vvr": {
+              "baseline": -0.294,
+              "fitted": -0.8294047577135477,
+              "normalized_q": -1.8211046180732915,
+              "lower": -0.8819999999999999,
+              "upper": 0.294,
+              "hit_bound": false
+            },
+            "N_vrr": {
+              "baseline": 0.055,
+              "fitted": -0.022280470938712042,
+              "normalized_q": -1.4050994716129461,
+              "lower": -0.055,
+              "upper": 0.165,
+              "hit_bound": false
+            },
+            "X_vr": {
+              "baseline": 0.002,
+              "fitted": 0.10200000000000001,
+              "normalized_q": 2,
+              "lower": -0.098,
+              "upper": 0.10200000000000001,
+              "hit_bound": true
+            }
+          },
+          "bound_hits": [
+            "Y_vvr",
+            "Y_vrr",
+            "X_vr"
+          ],
+          "imo": {
+            "advance_lpp": {
+              "reference": 3.1216763690754528,
+              "actual": 3.2744116522095594,
+              "absolute_percent_error": 4.892732784447553,
+              "tolerance_percent": 5,
+              "passed": true
+            },
+            "tactical_diameter_lpp": {
+              "reference": 3.066876338822931,
+              "actual": 3.4817062054134182,
+              "absolute_percent_error": 13.526136066826188,
+              "tolerance_percent": 5,
+              "passed": false
+            }
+          },
+          "held_out_imo_passed": false,
+          "iterations": [
+            {
+              "iteration": 0,
+              "cost": 1.5514004284087133,
+              "candidate_cost": 4.179097992458844,
+              "lambda": 0.1,
+              "accepted": false
+            },
+            {
+              "iteration": 1,
+              "cost": 1.5514004284087133,
+              "candidate_cost": 1.0966164593988486,
+              "lambda": 0.5,
+              "accepted": true
+            },
+            {
+              "iteration": 2,
+              "cost": 1.0966164593988486,
+              "candidate_cost": 1.3114885210179392,
+              "lambda": 0.25,
+              "accepted": false
+            },
+            {
+              "iteration": 3,
+              "cost": 1.0966164593988486,
+              "candidate_cost": 0.9856057975493112,
+              "lambda": 1.25,
+              "accepted": true
+            },
+            {
+              "iteration": 4,
+              "cost": 0.9856057975493112,
+              "candidate_cost": 1.4259595210041596,
+              "lambda": 0.625,
+              "accepted": false
+            },
+            {
+              "iteration": 5,
+              "cost": 0.9856057975493112,
+              "candidate_cost": 1.1126139575287959,
+              "lambda": 3.125,
+              "accepted": false
+            },
+            {
+              "iteration": 6,
+              "cost": 0.9856057975493112,
+              "candidate_cost": 1.0391775641404908,
+              "lambda": 15.625,
+              "accepted": false
+            },
+            {
+              "iteration": 7,
+              "cost": 0.9856057975493112,
+              "candidate_cost": 0.9805868625371983,
+              "lambda": 78.125,
+              "accepted": true
+            },
+            {
+              "iteration": 8,
+              "cost": 0.9805868625371983,
+              "candidate_cost": 0.9963589172678337,
+              "lambda": 39.0625,
+              "accepted": false
+            },
+            {
+              "iteration": 9,
+              "cost": 0.9805868625371983,
+              "candidate_cost": 0.9704438744944185,
+              "lambda": 195.3125,
+              "accepted": true
+            },
+            {
+              "iteration": 10,
+              "cost": 0.9704438744944185,
+              "candidate_cost": 0.9750712103943486,
+              "lambda": 97.65625,
+              "accepted": false
+            },
+            {
+              "iteration": 11,
+              "cost": 0.9704438744944185,
+              "candidate_cost": 0.9677866394880527,
+              "lambda": 488.28125,
+              "accepted": true
+            }
+          ],
+          "prediction_comparison": {
+            "expected_ordering": "error less than all four zig-zag folds",
+            "comparison_extreme": 0.7789464994152304,
+            "result": "contradicted"
+          }
+        },
+        {
+          "held_out_id": "MARIN_FREE_KVLCC2_zz_-10_m",
+          "maneuver": "zig-zag",
+          "training_ids": [
+            "MARIN_FREE_KVLCC2_tc_-35_m",
+            "MARIN_FREE_KVLCC2_tc_35_m",
+            "MARIN_FREE_KVLCC2_zz_10_m",
+            "MARIN_FREE_KVLCC2_zz_-20_m",
+            "MARIN_FREE_KVLCC2_zz_20_m"
+          ],
+          "fit_error": {
+            "initial_regularized_training_mse": 1.6798489015544151,
+            "final_regularized_training_mse": 1.0698099109213868,
+            "held_out_primary_normalized_mse": 0.7789464994152304,
+            "held_out_heading_rmse_deg": 5.452117329263359,
+            "held_out_yaw_rate_rmse_deg_s": 0.03933312906393531,
+            "held_out_position_rmse_lpp": 0.5743388882889511
+          },
+          "coefficients": {
+            "Y_R": {
+              "baseline": 0.083,
+              "fitted": 0.11511801221281165,
+              "normalized_q": 0.3869640025639956,
+              "lower": -0.083,
+              "upper": 0.249,
+              "hit_bound": false
+            },
+            "N_R": {
+              "baseline": -0.049,
+              "fitted": -0.03386913218037854,
+              "normalized_q": 0.30261735639242915,
+              "lower": -0.14900000000000002,
+              "upper": 0.051000000000000004,
+              "hit_bound": false
+            },
+            "Y_rrr": {
+              "baseline": 0.008,
+              "fitted": -0.092,
+              "normalized_q": -2,
+              "lower": -0.092,
+              "upper": 0.10800000000000001,
+              "hit_bound": true
+            },
+            "N_rrr": {
+              "baseline": -0.013,
+              "fitted": -0.010999496729907621,
+              "normalized_q": 0.04001006540184754,
+              "lower": -0.113,
+              "upper": 0.08700000000000001,
+              "hit_bound": false
+            },
+            "Y_vvr": {
+              "baseline": 0.379,
+              "fitted": 1.137,
+              "normalized_q": 2,
+              "lower": -0.379,
+              "upper": 1.137,
+              "hit_bound": true
+            },
+            "Y_vrr": {
+              "baseline": -0.391,
+              "fitted": -0.8896339645542608,
+              "normalized_q": -1.2752786817244521,
+              "lower": -1.173,
+              "upper": 0.391,
+              "hit_bound": false
+            },
+            "N_vvr": {
+              "baseline": -0.294,
+              "fitted": -0.8819999999999999,
+              "normalized_q": -2,
+              "lower": -0.8819999999999999,
+              "upper": 0.294,
+              "hit_bound": true
+            },
+            "N_vrr": {
+              "baseline": 0.055,
+              "fitted": -0.04329303625378771,
+              "normalized_q": -1.7871461137052311,
+              "lower": -0.055,
+              "upper": 0.165,
+              "hit_bound": false
+            },
+            "X_vr": {
+              "baseline": 0.002,
+              "fitted": 0.10200000000000001,
+              "normalized_q": 2,
+              "lower": -0.098,
+              "upper": 0.10200000000000001,
+              "hit_bound": true
+            }
+          },
+          "bound_hits": [
+            "Y_rrr",
+            "Y_vvr",
+            "N_vvr",
+            "X_vr"
+          ],
+          "imo": {
+            "first_overshoot_deg": {
+              "reference": 8.024999999999999,
+              "actual": 5.561236795896928,
+              "absolute_percent_error": 30.701099116549173,
+              "tolerance_percent": 10,
+              "passed": false
+            },
+            "second_overshoot_deg": {
+              "reference": 22.074999999999996,
+              "actual": 28.18813859087205,
+              "absolute_percent_error": 27.692587048118035,
+              "tolerance_percent": 10,
+              "passed": false
+            }
+          },
+          "held_out_imo_passed": false,
+          "iterations": [
+            {
+              "iteration": 0,
+              "cost": 1.6798489015544151,
+              "candidate_cost": 17.84510545273538,
+              "lambda": 0.1,
+              "accepted": false
+            },
+            {
+              "iteration": 1,
+              "cost": 1.6798489015544151,
+              "candidate_cost": 1.3176301786920708,
+              "lambda": 0.5,
+              "accepted": true
+            },
+            {
+              "iteration": 2,
+              "cost": 1.3176301786920708,
+              "candidate_cost": 1.320220123290521,
+              "lambda": 0.25,
+              "accepted": false
+            },
+            {
+              "iteration": 3,
+              "cost": 1.3176301786920708,
+              "candidate_cost": 1.8018570171778179,
+              "lambda": 1.25,
+              "accepted": false
+            },
+            {
+              "iteration": 4,
+              "cost": 1.3176301786920708,
+              "candidate_cost": 1.2243231466501598,
+              "lambda": 6.25,
+              "accepted": true
+            },
+            {
+              "iteration": 5,
+              "cost": 1.2243231466501598,
+              "candidate_cost": 1.6276441212110593,
+              "lambda": 3.125,
+              "accepted": false
+            },
+            {
+              "iteration": 6,
+              "cost": 1.2243231466501598,
+              "candidate_cost": 1.2395757168553327,
+              "lambda": 15.625,
+              "accepted": false
+            },
+            {
+              "iteration": 7,
+              "cost": 1.2243231466501598,
+              "candidate_cost": 1.130941630788608,
+              "lambda": 78.125,
+              "accepted": true
+            },
+            {
+              "iteration": 8,
+              "cost": 1.130941630788608,
+              "candidate_cost": 1.118351834527924,
+              "lambda": 39.0625,
+              "accepted": true
+            },
+            {
+              "iteration": 9,
+              "cost": 1.118351834527924,
+              "candidate_cost": 1.1205866810955003,
+              "lambda": 19.53125,
+              "accepted": false
+            },
+            {
+              "iteration": 10,
+              "cost": 1.118351834527924,
+              "candidate_cost": 1.0698099109213868,
+              "lambda": 97.65625,
+              "accepted": true
+            },
+            {
+              "iteration": 11,
+              "cost": 1.0698099109213868,
+              "candidate_cost": 1.0742784513089032,
+              "lambda": 48.828125,
+              "accepted": false
+            }
+          ],
+          "prediction_comparison": {
+            "expected_ordering": "error greater than both turning-circle folds",
+            "comparison_extreme": 1.9235927007613163,
+            "result": "contradicted"
+          }
+        },
+        {
+          "held_out_id": "MARIN_FREE_KVLCC2_zz_10_m",
+          "maneuver": "zig-zag",
+          "training_ids": [
+            "MARIN_FREE_KVLCC2_tc_-35_m",
+            "MARIN_FREE_KVLCC2_tc_35_m",
+            "MARIN_FREE_KVLCC2_zz_-10_m",
+            "MARIN_FREE_KVLCC2_zz_-20_m",
+            "MARIN_FREE_KVLCC2_zz_20_m"
+          ],
+          "fit_error": {
+            "initial_regularized_training_mse": 1.6680007709579443,
+            "final_regularized_training_mse": 0.8740020408695862,
+            "held_out_primary_normalized_mse": 3.2007305433248363,
+            "held_out_heading_rmse_deg": 14.131802985166496,
+            "held_out_yaw_rate_rmse_deg_s": 0.0797937755242729,
+            "held_out_position_rmse_lpp": 0.7226508395410441
+          },
+          "coefficients": {
+            "Y_R": {
+              "baseline": 0.083,
+              "fitted": 0.08611119854445602,
+              "normalized_q": 0.037484319812723085,
+              "lower": -0.083,
+              "upper": 0.249,
+              "hit_bound": false
+            },
+            "N_R": {
+              "baseline": -0.049,
+              "fitted": -0.032338053427230756,
+              "normalized_q": 0.3332389314553848,
+              "lower": -0.14900000000000002,
+              "upper": 0.051000000000000004,
+              "hit_bound": false
+            },
+            "Y_rrr": {
+              "baseline": 0.008,
+              "fitted": -0.08427761988190707,
+              "normalized_q": -1.8455523976381416,
+              "lower": -0.092,
+              "upper": 0.10800000000000001,
+              "hit_bound": false
+            },
+            "N_rrr": {
+              "baseline": -0.013,
+              "fitted": -0.025505582424996922,
+              "normalized_q": -0.25011164849993844,
+              "lower": -0.113,
+              "upper": 0.08700000000000001,
+              "hit_bound": false
+            },
+            "Y_vvr": {
+              "baseline": 0.379,
+              "fitted": 1.137,
+              "normalized_q": 2,
+              "lower": -0.379,
+              "upper": 1.137,
+              "hit_bound": true
+            },
+            "Y_vrr": {
+              "baseline": -0.391,
+              "fitted": -1.173,
+              "normalized_q": -2,
+              "lower": -1.173,
+              "upper": 0.391,
+              "hit_bound": true
+            },
+            "N_vvr": {
+              "baseline": -0.294,
+              "fitted": -0.8819999999999999,
+              "normalized_q": -2,
+              "lower": -0.8819999999999999,
+              "upper": 0.294,
+              "hit_bound": true
+            },
+            "N_vrr": {
+              "baseline": 0.055,
+              "fitted": -0.054553365566151,
+              "normalized_q": -1.9918793739300182,
+              "lower": -0.055,
+              "upper": 0.165,
+              "hit_bound": false
+            },
+            "X_vr": {
+              "baseline": 0.002,
+              "fitted": 0.10200000000000001,
+              "normalized_q": 2,
+              "lower": -0.098,
+              "upper": 0.10200000000000001,
+              "hit_bound": true
+            }
+          },
+          "bound_hits": [
+            "Y_vvr",
+            "Y_vrr",
+            "N_vvr",
+            "X_vr"
+          ],
+          "imo": {
+            "first_overshoot_deg": {
+              "reference": 9.387,
+              "actual": null,
+              "absolute_percent_error": null,
+              "tolerance_percent": 10,
+              "passed": false
+            },
+            "second_overshoot_deg": {
+              "reference": 15.113,
+              "actual": null,
+              "absolute_percent_error": null,
+              "tolerance_percent": 10,
+              "passed": false
+            }
+          },
+          "held_out_imo_passed": false,
+          "iterations": [
+            {
+              "iteration": 0,
+              "cost": 1.6680007709579443,
+              "candidate_cost": 22.222389826164168,
+              "lambda": 0.1,
+              "accepted": false
+            },
+            {
+              "iteration": 1,
+              "cost": 1.6680007709579443,
+              "candidate_cost": 1.5649324247715424,
+              "lambda": 0.5,
+              "accepted": true
+            },
+            {
+              "iteration": 2,
+              "cost": 1.5649324247715424,
+              "candidate_cost": 8.967447808924032,
+              "lambda": 0.25,
+              "accepted": false
+            },
+            {
+              "iteration": 3,
+              "cost": 1.5649324247715424,
+              "candidate_cost": 2.737321527155357,
+              "lambda": 1.25,
+              "accepted": false
+            },
+            {
+              "iteration": 4,
+              "cost": 1.5649324247715424,
+              "candidate_cost": 1.2021061967071816,
+              "lambda": 6.25,
+              "accepted": true
+            },
+            {
+              "iteration": 5,
+              "cost": 1.2021061967071816,
+              "candidate_cost": 1.8306765349156726,
+              "lambda": 3.125,
+              "accepted": false
+            },
+            {
+              "iteration": 6,
+              "cost": 1.2021061967071816,
+              "candidate_cost": 0.9834418327446762,
+              "lambda": 15.625,
+              "accepted": true
+            },
+            {
+              "iteration": 7,
+              "cost": 0.9834418327446762,
+              "candidate_cost": 1.433789007544636,
+              "lambda": 7.8125,
+              "accepted": false
+            },
+            {
+              "iteration": 8,
+              "cost": 0.9834418327446762,
+              "candidate_cost": 0.9076230621257564,
+              "lambda": 39.0625,
+              "accepted": true
+            },
+            {
+              "iteration": 9,
+              "cost": 0.9076230621257564,
+              "candidate_cost": 1.02602942488769,
+              "lambda": 19.53125,
+              "accepted": false
+            },
+            {
+              "iteration": 10,
+              "cost": 0.9076230621257564,
+              "candidate_cost": 0.8740020408695862,
+              "lambda": 97.65625,
+              "accepted": true
+            },
+            {
+              "iteration": 11,
+              "cost": 0.8740020408695862,
+              "candidate_cost": 0.8880745812611165,
+              "lambda": 48.828125,
+              "accepted": false
+            }
+          ],
+          "prediction_comparison": {
+            "expected_ordering": "error greater than both turning-circle folds",
+            "comparison_extreme": 1.9235927007613163,
+            "result": "matched"
+          }
+        },
+        {
+          "held_out_id": "MARIN_FREE_KVLCC2_zz_-20_m",
+          "maneuver": "zig-zag",
+          "training_ids": [
+            "MARIN_FREE_KVLCC2_tc_-35_m",
+            "MARIN_FREE_KVLCC2_tc_35_m",
+            "MARIN_FREE_KVLCC2_zz_-10_m",
+            "MARIN_FREE_KVLCC2_zz_10_m",
+            "MARIN_FREE_KVLCC2_zz_20_m"
+          ],
+          "fit_error": {
+            "initial_regularized_training_mse": 0.8209575044632715,
+            "final_regularized_training_mse": 0.5311210527126697,
+            "held_out_primary_normalized_mse": 7.2370435912948645,
+            "held_out_heading_rmse_deg": 20.518527460090393,
+            "held_out_yaw_rate_rmse_deg_s": 0.0615564270142472,
+            "held_out_position_rmse_lpp": 1.6102154945175071
+          },
+          "coefficients": {
+            "Y_R": {
+              "baseline": 0.083,
+              "fitted": 0.1089399890653871,
+              "normalized_q": 0.3125299887396035,
+              "lower": -0.083,
+              "upper": 0.249,
+              "hit_bound": false
+            },
+            "N_R": {
+              "baseline": -0.049,
+              "fitted": -0.047408961535712515,
+              "normalized_q": 0.0318207692857498,
+              "lower": -0.14900000000000002,
+              "upper": 0.051000000000000004,
+              "hit_bound": false
+            },
+            "Y_rrr": {
+              "baseline": 0.008,
+              "fitted": -0.08378904610806898,
+              "normalized_q": -1.8357809221613794,
+              "lower": -0.092,
+              "upper": 0.10800000000000001,
+              "hit_bound": false
+            },
+            "N_rrr": {
+              "baseline": -0.013,
+              "fitted": 0.08348772937443358,
+              "normalized_q": 1.9297545874886715,
+              "lower": -0.113,
+              "upper": 0.08700000000000001,
+              "hit_bound": false
+            },
+            "Y_vvr": {
+              "baseline": 0.379,
+              "fitted": 0.15932093047641482,
+              "normalized_q": -0.5796281517772696,
+              "lower": -0.379,
+              "upper": 1.137,
+              "hit_bound": false
+            },
+            "Y_vrr": {
+              "baseline": -0.391,
+              "fitted": -0.23460539003509295,
+              "normalized_q": 0.3999862147440078,
+              "lower": -1.173,
+              "upper": 0.391,
+              "hit_bound": false
+            },
+            "N_vvr": {
+              "baseline": -0.294,
+              "fitted": -0.6538868371274938,
+              "normalized_q": -1.2241048881887546,
+              "lower": -0.8819999999999999,
+              "upper": 0.294,
+              "hit_bound": false
+            },
+            "N_vrr": {
+              "baseline": 0.055,
+              "fitted": 0.07187893820250442,
+              "normalized_q": 0.3068897855000803,
+              "lower": -0.055,
+              "upper": 0.165,
+              "hit_bound": false
+            },
+            "X_vr": {
+              "baseline": 0.002,
+              "fitted": -0.04794164406880336,
+              "normalized_q": -0.9988328813760672,
+              "lower": -0.098,
+              "upper": 0.10200000000000001,
+              "hit_bound": false
+            }
+          },
+          "bound_hits": [],
+          "imo": {
+            "first_overshoot_deg": {
+              "reference": 12.772000000000006,
+              "actual": 3.844793396998007,
+              "absolute_percent_error": 69.89670061855617,
+              "tolerance_percent": 10,
+              "passed": false
+            },
+            "second_overshoot_deg": {
+              "reference": 15.827999999999996,
+              "actual": 34.61224115623688,
+              "absolute_percent_error": 118.67728807326816,
+              "tolerance_percent": 10,
+              "passed": false
+            }
+          },
+          "held_out_imo_passed": false,
+          "iterations": [
+            {
+              "iteration": 0,
+              "cost": 0.8209575044632715,
+              "candidate_cost": 0.5637934989731269,
+              "lambda": 0.1,
+              "accepted": true
+            },
+            {
+              "iteration": 1,
+              "cost": 0.5637934989731269,
+              "candidate_cost": 2.517669820863481,
+              "lambda": 0.05,
+              "accepted": false
+            },
+            {
+              "iteration": 2,
+              "cost": 0.5637934989731269,
+              "candidate_cost": 0.7236889375655224,
+              "lambda": 0.25,
+              "accepted": false
+            },
+            {
+              "iteration": 3,
+              "cost": 0.5637934989731269,
+              "candidate_cost": 0.6157207983073743,
+              "lambda": 1.25,
+              "accepted": false
+            },
+            {
+              "iteration": 4,
+              "cost": 0.5637934989731269,
+              "candidate_cost": 0.5471407975839853,
+              "lambda": 6.25,
+              "accepted": true
+            },
+            {
+              "iteration": 5,
+              "cost": 0.5471407975839853,
+              "candidate_cost": 0.5465356996943033,
+              "lambda": 3.125,
+              "accepted": true
+            },
+            {
+              "iteration": 6,
+              "cost": 0.5465356996943033,
+              "candidate_cost": 0.5341948039779298,
+              "lambda": 1.5625,
+              "accepted": true
+            },
+            {
+              "iteration": 7,
+              "cost": 0.5341948039779298,
+              "candidate_cost": 0.5322489409664695,
+              "lambda": 0.78125,
+              "accepted": true
+            },
+            {
+              "iteration": 8,
+              "cost": 0.5322489409664695,
+              "candidate_cost": 0.5316291527993517,
+              "lambda": 0.390625,
+              "accepted": true
+            },
+            {
+              "iteration": 9,
+              "cost": 0.5316291527993517,
+              "candidate_cost": 0.5316019484628405,
+              "lambda": 0.1953125,
+              "accepted": true
+            },
+            {
+              "iteration": 10,
+              "cost": 0.5316019484628405,
+              "candidate_cost": 0.5311210527126697,
+              "lambda": 0.09765625,
+              "accepted": true
+            },
+            {
+              "iteration": 11,
+              "cost": 0.5311210527126697,
+              "candidate_cost": 0.5768362038474228,
+              "lambda": 0.048828125,
+              "accepted": false
+            }
+          ],
+          "prediction_comparison": {
+            "expected_ordering": "error greater than both turning-circle folds",
+            "comparison_extreme": 1.9235927007613163,
+            "result": "matched"
+          }
+        },
+        {
+          "held_out_id": "MARIN_FREE_KVLCC2_zz_20_m",
+          "maneuver": "zig-zag",
+          "training_ids": [
+            "MARIN_FREE_KVLCC2_tc_-35_m",
+            "MARIN_FREE_KVLCC2_tc_35_m",
+            "MARIN_FREE_KVLCC2_zz_-10_m",
+            "MARIN_FREE_KVLCC2_zz_10_m",
+            "MARIN_FREE_KVLCC2_zz_-20_m"
+          ],
+          "fit_error": {
+            "initial_regularized_training_mse": 1.747130217165934,
+            "final_regularized_training_mse": 0.9900008876306845,
+            "held_out_primary_normalized_mse": 1.421307184781117,
+            "held_out_heading_rmse_deg": 9.53312130235239,
+            "held_out_yaw_rate_rmse_deg_s": 0.03874455590502906,
+            "held_out_position_rmse_lpp": 0.6113725916472691
+          },
+          "coefficients": {
+            "Y_R": {
+              "baseline": 0.083,
+              "fitted": 0.09916071834225068,
+              "normalized_q": 0.19470744990663466,
+              "lower": -0.083,
+              "upper": 0.249,
+              "hit_bound": false
+            },
+            "N_R": {
+              "baseline": -0.049,
+              "fitted": -0.033095339652561076,
+              "normalized_q": 0.31809320694877846,
+              "lower": -0.14900000000000002,
+              "upper": 0.051000000000000004,
+              "hit_bound": false
+            },
+            "Y_rrr": {
+              "baseline": 0.008,
+              "fitted": -0.06392953634582874,
+              "normalized_q": -1.4385907269165745,
+              "lower": -0.092,
+              "upper": 0.10800000000000001,
+              "hit_bound": false
+            },
+            "N_rrr": {
+              "baseline": -0.013,
+              "fitted": 0.0014630940364179622,
+              "normalized_q": 0.28926188072835923,
+              "lower": -0.113,
+              "upper": 0.08700000000000001,
+              "hit_bound": false
+            },
+            "Y_vvr": {
+              "baseline": 0.379,
+              "fitted": 1.137,
+              "normalized_q": 2,
+              "lower": -0.379,
+              "upper": 1.137,
+              "hit_bound": true
+            },
+            "Y_vrr": {
+              "baseline": -0.391,
+              "fitted": -0.8886547227555793,
+              "normalized_q": -1.2727742269963664,
+              "lower": -1.173,
+              "upper": 0.391,
+              "hit_bound": false
+            },
+            "N_vvr": {
+              "baseline": -0.294,
+              "fitted": -0.7707451144913109,
+              "normalized_q": -1.6215820220792887,
+              "lower": -0.8819999999999999,
+              "upper": 0.294,
+              "hit_bound": false
+            },
+            "N_vrr": {
+              "baseline": 0.055,
+              "fitted": 0.041603325015341135,
+              "normalized_q": -0.2435759088119794,
+              "lower": -0.055,
+              "upper": 0.165,
+              "hit_bound": false
+            },
+            "X_vr": {
+              "baseline": 0.002,
+              "fitted": 0.10200000000000001,
+              "normalized_q": 2,
+              "lower": -0.098,
+              "upper": 0.10200000000000001,
+              "hit_bound": true
+            }
+          },
+          "bound_hits": [
+            "Y_vvr",
+            "X_vr"
+          ],
+          "imo": {
+            "first_overshoot_deg": {
+              "reference": 15.590000000000003,
+              "actual": 19.366366980758542,
+              "absolute_percent_error": 24.223008215256815,
+              "tolerance_percent": 10,
+              "passed": false
+            },
+            "second_overshoot_deg": {
+              "reference": 12.809999999999995,
+              "actual": 4.173732104572267,
+              "absolute_percent_error": 67.41817248577465,
+              "tolerance_percent": 10,
+              "passed": false
+            }
+          },
+          "held_out_imo_passed": false,
+          "iterations": [
+            {
+              "iteration": 0,
+              "cost": 1.747130217165934,
+              "candidate_cost": 17.393086825214716,
+              "lambda": 0.1,
+              "accepted": false
+            },
+            {
+              "iteration": 1,
+              "cost": 1.747130217165934,
+              "candidate_cost": 2.2718988847251205,
+              "lambda": 0.5,
+              "accepted": false
+            },
+            {
+              "iteration": 2,
+              "cost": 1.747130217165934,
+              "candidate_cost": null,
+              "lambda": 2.5,
+              "accepted": false
+            },
+            {
+              "iteration": 3,
+              "cost": 1.747130217165934,
+              "candidate_cost": 5.539419935032405,
+              "lambda": 12.5,
+              "accepted": false
+            },
+            {
+              "iteration": 4,
+              "cost": 1.747130217165934,
+              "candidate_cost": 1.4183540870037783,
+              "lambda": 62.5,
+              "accepted": true
+            },
+            {
+              "iteration": 5,
+              "cost": 1.4183540870037783,
+              "candidate_cost": 1.0573912423661977,
+              "lambda": 31.25,
+              "accepted": true
+            },
+            {
+              "iteration": 6,
+              "cost": 1.0573912423661977,
+              "candidate_cost": 1.0189945904622177,
+              "lambda": 15.625,
+              "accepted": true
+            },
+            {
+              "iteration": 7,
+              "cost": 1.0189945904622177,
+              "candidate_cost": 0.9943761587981119,
+              "lambda": 7.8125,
+              "accepted": true
+            },
+            {
+              "iteration": 8,
+              "cost": 0.9943761587981119,
+              "candidate_cost": 1.0234495125317533,
+              "lambda": 3.90625,
+              "accepted": false
+            },
+            {
+              "iteration": 9,
+              "cost": 0.9943761587981119,
+              "candidate_cost": 0.9940167208732887,
+              "lambda": 19.53125,
+              "accepted": true
+            },
+            {
+              "iteration": 10,
+              "cost": 0.9940167208732887,
+              "candidate_cost": 1.0066309571108636,
+              "lambda": 9.765625,
+              "accepted": false
+            },
+            {
+              "iteration": 11,
+              "cost": 0.9940167208732887,
+              "candidate_cost": 0.9900008876306845,
+              "lambda": 48.828125,
+              "accepted": true
+            }
+          ],
+          "prediction_comparison": {
+            "expected_ordering": "error greater than both turning-circle folds",
+            "comparison_extreme": 1.9235927007613163,
+            "result": "contradicted"
+          }
+        }
+      ],
+      "prediction_assessment": {
+        "rule": "Supported only if every held-out zig-zag primary error is greater than both held-out turning-circle primary errors (min zig-zag error > max turning-circle error).",
+        "max_turning_circle_primary_error": 1.9235927007613163,
+        "min_zig_zag_primary_error": 0.7789464994152304,
+        "strict_separation": false,
+        "result": "not-supported",
+        "task3_action": "stop-for-review",
+        "statement": "The per-fold errors do not strictly separate by maneuver type; Task 1 does not support the coverage-gap hypothesis."
+      },
+      "aggregation_guard": "All six folds must be reported individually. Group extrema are used only to evaluate the precommitted ordering prediction; no six-case average is a verdict.",
+      "immutability": "This diagnostic does not alter the original preregistered protocol, original fit, or scoped-negative-result artifact."
+    },
+    "conclusion": "The strict predicted separation is false: maximum turning-circle held-out normalized MSE (1.923593) exceeds minimum zig-zag held-out normalized MSE (0.778946). The coverage-gap hypothesis is not supported by Task 1.",
+    "prediction_confirmed": false
+  },
+  "task2": {
+    "name": "bound sensitivity",
+    "protocol": {
+      "path": "artifacts/gazebo/vehicle-b/rudder-transient/task2-bound-sensitivity-protocol.json",
+      "sha256": "35afc47c8c00bcfdade7b2319eb757b3efe8bad6e51f4ffed00d7b88e08696d1",
+      "registered_before_results": true
+    },
+    "predictions": {
+      "tightly_bounded_prediction": "If the original constraints were merely too tight, at least one formerly pinned coefficient should converge away from the relaxed bounds and held-out zig-zag error should improve substantially.",
+      "underdetermined_prediction": "If turning-circle data do not constrain these terms, a formerly pinned coefficient will run to a relaxed bound or the fit will remain unstable/non-improving.",
+      "substantial_improvement_rule": "At least 20% reduction from the original fit in both the median held-out zig-zag heading RMSE and median held-out zig-zag yaw-rate RMSE; report every trajectory and IMO metric regardless.",
+      "stable_away_from_new_bound_rule": "abs(q) <= 9.5 for a relaxed coefficient (at least 5% of the relaxed half-width away from either boundary)."
+    },
+    "premise_correction": "The immutable source fit has two exact bound hits, Y_R and X_vr, not three. N_rrr is interior. Only the two reproducible hits were relaxed.",
+    "result": {
+      "schema_version": 1,
+      "artifact_kind": "vehicle-b-rudder-transient-bound-sensitivity-result",
+      "date": "2026-09-04",
+      "status": "task2-completed-separate-diagnostic",
+      "protocol": {
+        "path": "artifacts/gazebo/vehicle-b/rudder-transient/task2-bound-sensitivity-protocol.json",
+        "checksum_sha256": "35afc47c8c00bcfdade7b2319eb757b3efe8bad6e51f4ffed00d7b88e08696d1",
+        "registered_before_results": true
+      },
+      "source_fit": {
+        "report": "validation/external-references/kvlcc2-marin/artifacts/identification/identification-report.json",
+        "checksum_sha256": "d9ca710cb93ab010d5a4bfd4d40e073d19484b186cfd5b526275a0c4132c239a",
+        "unchanged": true
+      },
+      "premise_audit": {
+        "prompt_claimed_bound_hit_count": 3,
+        "reproducible_final_bound_hit_count": 2,
+        "rule": "abs(abs(q) - 2) <= 1e-9",
+        "bound_hits": [
+          {
+            "coefficient": "Y_R",
+            "baseline": 0.083,
+            "identified": -0.083,
+            "q": -2,
+            "original_bounds": [
+              -0.083,
+              0.249
+            ]
+          },
+          {
+            "coefficient": "X_vr",
+            "baseline": 0.002,
+            "identified": -0.098,
+            "q": -2,
+            "original_bounds": [
+              -0.098,
+              0.102
+            ]
+          }
+        ],
+        "discrepancy_disposition": "No third coefficient is designated: the immutable source artifact has only two final values at a bound. N_rrr, the closest remaining normalized magnitude, is q=1.227368934 and is not a bound hit."
+      },
+      "method": {
+        "base_runner": "validation/external-references/kvlcc2-marin/identify.mjs",
+        "base_runner_checksum_sha256": "51e3c417b169d838e40a3269640cde47ff316faee211d981fa43b53c9cefccbf",
+        "held_constant": [
+          "two turning-circle training runs",
+          "four held-out zig-zags",
+          "residual definitions and normalization",
+          "ridge weight",
+          "zero initialization",
+          "12-iteration deterministic Gauss-Newton schedule"
+        ],
+        "changed_only": "Y_R and X_vr normalized bound half-width: 2 to 10"
+      },
+      "optimization": {
+        "original_final_cost": 0.22436066613270883,
+        "relaxed_final_cost": 0.222305627805775,
+        "coefficient_rows": [
+          {
+            "coefficient": "Y_R",
+            "baseline": 0.083,
+            "identified": -0.10031392650708777,
+            "q": -2.2086015241817805,
+            "normalized_bounds": [
+              -10,
+              10
+            ],
+            "coefficient_bounds": [
+              -0.7470000000000001,
+              0.913
+            ],
+            "bound_relaxed": true,
+            "at_bound": false,
+            "stable_away_from_bound": true
+          },
+          {
+            "coefficient": "N_R",
+            "baseline": -0.049,
+            "identified": -0.044939678266861335,
+            "q": 0.08120643466277333,
+            "normalized_bounds": [
+              -2,
+              2
+            ],
+            "coefficient_bounds": [
+              -0.14900000000000002,
+              0.051000000000000004
+            ],
+            "bound_relaxed": false,
+            "at_bound": false,
+            "stable_away_from_bound": true
+          },
+          {
+            "coefficient": "Y_rrr",
+            "baseline": 0.008,
+            "identified": 0.044249044239558895,
+            "q": 0.7249808847911778,
+            "normalized_bounds": [
+              -2,
+              2
+            ],
+            "coefficient_bounds": [
+              -0.092,
+              0.10800000000000001
+            ],
+            "bound_relaxed": false,
+            "at_bound": false,
+            "stable_away_from_bound": true
+          },
+          {
+            "coefficient": "N_rrr",
+            "baseline": -0.013,
+            "identified": 0.05324913584728645,
+            "q": 1.3249827169457289,
+            "normalized_bounds": [
+              -2,
+              2
+            ],
+            "coefficient_bounds": [
+              -0.113,
+              0.08700000000000001
+            ],
+            "bound_relaxed": false,
+            "at_bound": false,
+            "stable_away_from_bound": true
+          },
+          {
+            "coefficient": "Y_vvr",
+            "baseline": 0.379,
+            "identified": 0.04487031596619018,
+            "q": -0.8816086649968596,
+            "normalized_bounds": [
+              -2,
+              2
+            ],
+            "coefficient_bounds": [
+              -0.379,
+              1.137
+            ],
+            "bound_relaxed": false,
+            "at_bound": false,
+            "stable_away_from_bound": true
+          },
+          {
+            "coefficient": "Y_vrr",
+            "baseline": -0.391,
+            "identified": -0.4907351524429751,
+            "q": -0.25507711622244267,
+            "normalized_bounds": [
+              -2,
+              2
+            ],
+            "coefficient_bounds": [
+              -1.173,
+              0.391
+            ],
+            "bound_relaxed": false,
+            "at_bound": false,
+            "stable_away_from_bound": true
+          },
+          {
+            "coefficient": "N_vvr",
+            "baseline": -0.294,
+            "identified": -0.39816522770182183,
+            "q": -0.3543034955844281,
+            "normalized_bounds": [
+              -2,
+              2
+            ],
+            "coefficient_bounds": [
+              -0.8819999999999999,
+              0.294
+            ],
+            "bound_relaxed": false,
+            "at_bound": false,
+            "stable_away_from_bound": true
+          },
+          {
+            "coefficient": "N_vrr",
+            "baseline": 0.055,
+            "identified": 0.1120914151346272,
+            "q": 1.0380257297204944,
+            "normalized_bounds": [
+              -2,
+              2
+            ],
+            "coefficient_bounds": [
+              -0.055,
+              0.165
+            ],
+            "bound_relaxed": false,
+            "at_bound": false,
+            "stable_away_from_bound": true
+          },
+          {
+            "coefficient": "X_vr",
+            "baseline": 0.002,
+            "identified": -0.10968017442377093,
+            "q": -2.2336034884754183,
+            "normalized_bounds": [
+              -10,
+              10
+            ],
+            "coefficient_bounds": [
+              -0.498,
+              0.502
+            ],
+            "bound_relaxed": true,
+            "at_bound": false,
+            "stable_away_from_bound": true
+          }
+        ],
+        "formerly_pinned_ran_to_new_bound": false
+      },
+      "held_out_zig_zags": [
+        {
+          "id": "MARIN_FREE_KVLCC2_zz_-10_m",
+          "heading_rmse_deg": {
+            "original": 55.13839046399277,
+            "relaxed": 70.62391478128603,
+            "reduction_percent": -28.084831978194632
+          },
+          "yaw_rate_rmse_deg_s": {
+            "original": 0.20994856345707058,
+            "relaxed": 0.26934027639538133,
+            "reduction_percent": -28.288696983847153
+          },
+          "imo": {
+            "first_overshoot_deg": {
+              "reference": 8.024999999999999,
+              "actual": null,
+              "absolute_percent_error": null,
+              "tolerance_percent": 10,
+              "passed": false
+            },
+            "second_overshoot_deg": {
+              "reference": 22.074999999999996,
+              "actual": null,
+              "absolute_percent_error": null,
+              "tolerance_percent": 10,
+              "passed": false
+            }
+          },
+          "imo_passed": false
+        },
+        {
+          "id": "MARIN_FREE_KVLCC2_zz_10_m",
+          "heading_rmse_deg": {
+            "original": 95.46517660897787,
+            "relaxed": 98.98880109011584,
+            "reduction_percent": -3.691005041105846
+          },
+          "yaw_rate_rmse_deg_s": {
+            "original": 0.3919395312192826,
+            "relaxed": 0.40128702744054695,
+            "reduction_percent": -2.3849332554400102
+          },
+          "imo": {
+            "first_overshoot_deg": {
+              "reference": 9.387,
+              "actual": null,
+              "absolute_percent_error": null,
+              "tolerance_percent": 10,
+              "passed": false
+            },
+            "second_overshoot_deg": {
+              "reference": 15.113,
+              "actual": null,
+              "absolute_percent_error": null,
+              "tolerance_percent": 10,
+              "passed": false
+            }
+          },
+          "imo_passed": false
+        },
+        {
+          "id": "MARIN_FREE_KVLCC2_zz_-20_m",
+          "heading_rmse_deg": {
+            "original": 15.040252726240508,
+            "relaxed": 16.517943890765874,
+            "reduction_percent": -9.824909138310288
+          },
+          "yaw_rate_rmse_deg_s": {
+            "original": 0.15209971817062945,
+            "relaxed": 0.1665093287909744,
+            "reduction_percent": -9.473791795051113
+          },
+          "imo": {
+            "first_overshoot_deg": {
+              "reference": 12.772000000000006,
+              "actual": 19.95483363918936,
+              "absolute_percent_error": 56.2389104227165,
+              "tolerance_percent": 10,
+              "passed": false
+            },
+            "second_overshoot_deg": {
+              "reference": 15.827999999999996,
+              "actual": 4.62190124460421,
+              "absolute_percent_error": 70.79920871490894,
+              "tolerance_percent": 10,
+              "passed": false
+            }
+          },
+          "imo_passed": false
+        },
+        {
+          "id": "MARIN_FREE_KVLCC2_zz_20_m",
+          "heading_rmse_deg": {
+            "original": 60.09437122114092,
+            "relaxed": 69.01929861336964,
+            "reduction_percent": -14.851519719519048
+          },
+          "yaw_rate_rmse_deg_s": {
+            "original": 0.20686574766588928,
+            "relaxed": 0.22846317784804815,
+            "reduction_percent": -10.440312340659254
+          },
+          "imo": {
+            "first_overshoot_deg": {
+              "reference": 15.590000000000003,
+              "actual": null,
+              "absolute_percent_error": null,
+              "tolerance_percent": 10,
+              "passed": false
+            },
+            "second_overshoot_deg": {
+              "reference": 12.809999999999995,
+              "actual": null,
+              "absolute_percent_error": null,
+              "tolerance_percent": 10,
+              "passed": false
+            }
+          },
+          "imo_passed": false
+        }
+      ],
+      "preregistered_summary": {
+        "original_median_heading_rmse_deg": 57.61638084256684,
+        "relaxed_median_heading_rmse_deg": 69.82160669732784,
+        "heading_reduction_percent": -21.183603822862484,
+        "original_median_yaw_rate_rmse_deg_s": 0.20840715556147993,
+        "relaxed_median_yaw_rate_rmse_deg_s": 0.24890172712171474,
+        "yaw_rate_reduction_percent": -19.430509212189186,
+        "threshold_percent_each": 20,
+        "substantial_improvement": false
+      },
+      "interpretation": "Relaxing the reproducible active bounds did not meet the preregistered substantial-improvement rule; the too-tight-bound explanation is not supported by this check.",
+      "provenance_finding": "The coefficient baseline values are recorded from Yasukawa & Yoshimura (2015) Table 3. The +/-2 optimization bounds are a repository identification choice, not literature-sourced physical bounds; therefore there is no evidence that the numeric bounds were copied from a different hull scale.",
+      "claim_limit": "KVLCC2 model-scale Task 2 diagnostic only. This does not change the original Vehicle B protocol, fit, scoped negative result, or Vehicle-B-USV parameters.",
+      "files": {
+        "fitted_parameters": "artifacts/gazebo/vehicle-b/rudder-transient/task2-fit/fitted-kvlcc2-marin.json",
+        "raw_identification_report": "artifacts/gazebo/vehicle-b/rudder-transient/task2-fit/identification-report.json"
+      }
+    },
+    "conclusion": "Fivefold wider bounds produced stable interior solutions just beyond the old bounds, but all four held-out zig-zags worsened and the preregistered substantial-improvement criterion failed. Tight original bounds are not supported as the explanation.",
+    "prediction_confirmed": false
+  },
+  "task3": {
+    "name": "KVLCC2 full-scale structural check",
+    "status": "not-run-by-preregistered-decision-rule",
+    "reason": "Task 1 did not support the coverage-gap hypothesis; instructions require stopping for review rather than proceeding on the current assumption."
+  },
+  "task4": {
+    "name": "source new transient-maneuver data",
+    "status": "not-authorized-not-started"
+  },
+  "candidate_separation": {
+    "protocol": {
+      "path": "artifacts/gazebo/vehicle-b/rudder-transient/candidate-separation-protocol.json",
+      "sha256": "2763c18d5903c44b0989b1f3b775369ce354b10fffd7d187c7b5944bedda1037",
+      "registered_before_results": true
+    },
+    "sign_or_frame": {
+      "sign_inversion_indicated": false,
+      "kinematic_mapping_failure": false,
+      "strict_mirror_symmetry_passed": false,
+      "conclusion": "No ingestion sign/frame error is indicated. Reflected signs agree and all six raw kinematic mapping checks pass, but strict mirror symmetry fails, especially for 20/20 zig-zags; timing and/or physical asymmetry remains."
+    },
+    "measured_mirror_pairs": [
+      {
+        "pair": "turning-circle",
+        "channels": {
+          "along": {
+            "reflected_correlation": 0.9938266736271839,
+            "rmse": 72.2095698849642
+          },
+          "cross": {
+            "reflected_correlation": 0.9777642853984428,
+            "rmse": 99.394633786649
+          },
+          "heading": {
+            "reflected_correlation": 0.9992672217299439,
+            "rmse": 10.934801099791446
+          },
+          "sway": {
+            "reflected_correlation": 0.976548108907206,
+            "rmse": 0.5292409034598828
+          },
+          "yaw_rate": {
+            "reflected_correlation": 0.9783956489942599,
+            "rmse": 0.05016672483329963
+          },
+          "rudder": {
+            "reflected_correlation": 0.9411618416625595,
+            "rmse": 5.322756621482891
+          },
+          "rpm": {
+            "reflected_correlation": -0.01007170954035621,
+            "rmse": 0.19867058161690726
+          }
+        }
+      },
+      {
+        "pair": "zig-zag-10",
+        "channels": {
+          "along": {
+            "reflected_correlation": 0.9999381096193409,
+            "rmse": 190.86238118340847
+          },
+          "cross": {
+            "reflected_correlation": 0.8510342467226302,
+            "rmse": 147.61728110730098
+          },
+          "heading": {
+            "reflected_correlation": 0.9769700246770544,
+            "rmse": 5.6098455841778865
+          },
+          "sway": {
+            "reflected_correlation": 0.9750041690693022,
+            "rmse": 0.7322034714940329
+          },
+          "yaw_rate": {
+            "reflected_correlation": 0.9574032142167779,
+            "rmse": 0.060827644777855794
+          },
+          "rudder": {
+            "reflected_correlation": 0.878801641450065,
+            "rmse": 4.893995659989919
+          },
+          "rpm": {
+            "reflected_correlation": 0.019400906746906758,
+            "rmse": 0.19367498547824985
+          }
+        }
+      },
+      {
+        "pair": "zig-zag-20",
+        "channels": {
+          "along": {
+            "reflected_correlation": 0.999855636609297,
+            "rmse": 207.9805084501974
+          },
+          "cross": {
+            "reflected_correlation": 0.7098706060185512,
+            "rmse": 179.59139109054595
+          },
+          "heading": {
+            "reflected_correlation": 0.711724079425636,
+            "rmse": 17.800206551820132
+          },
+          "sway": {
+            "reflected_correlation": 0.7131321172393131,
+            "rmse": 1.8016984196668713
+          },
+          "yaw_rate": {
+            "reflected_correlation": 0.6192584382299017,
+            "rmse": 0.2775048998447955
+          },
+          "rudder": {
+            "reflected_correlation": 0.525084285629014,
+            "rmse": 18.982237728782188
+          },
+          "rpm": {
+            "reflected_correlation": -0.011926812046674192,
+            "rmse": 0.20199009876724197
+          }
+        }
+      }
+    ],
+    "asymmetry_representation": {
+      "sign_dependent_rudder_flow": {
+        "present": true,
+        "negative": 0.395,
+        "positive": 0.64,
+        "implementation": true
+      },
+      "transverse_propeller_rotation_force": {
+        "present": false,
+        "evidence": "propeller wrench is [axial thrust, 0, 0]; no rotation-direction parameter or transverse propeller force exists"
+      },
+      "conclusion": "The model can represent asymmetric rudder inflow through unequal gamma_R branches, but cannot represent propeller-walk force from screw rotation."
+    },
+    "multistart": {
+      "schema_version": 1,
+      "status": "completed",
+      "protocol": "artifacts/gazebo/vehicle-b/rudder-transient/candidate-separation-protocol.json",
+      "runs": [
+        {
+          "run": 0,
+          "initial_q": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "final_cost": 0.22436066613270883,
+          "final_q": [
+            -2,
+            0.08726206195195804,
+            0.4478349578109611,
+            1.227368934024882,
+            -0.6077118573403789,
+            -0.08553053440211666,
+            -0.4863060437898165,
+            0.49701952421165985,
+            -2
+          ],
+          "median_held_out_heading_rmse_deg": 57.61638084256684,
+          "median_held_out_yaw_rate_rmse_deg_s": 0.20840715556147993
+        },
+        {
+          "run": 1,
+          "initial_q": [
+            0.5,
+            -0.5,
+            0.5,
+            -0.5,
+            0.5,
+            -0.5,
+            0.5,
+            -0.5,
+            0.5
+          ],
+          "final_cost": 0.26344678611359124,
+          "final_q": [
+            -0.6308219425835588,
+            0.12282771236838297,
+            -0.5171505884959838,
+            1.9137869799902685,
+            0.6317008086376908,
+            1.0180169104874894,
+            -1.3095800410997112,
+            -0.1871355091116661,
+            -1.5431141364004046
+          ],
+          "median_held_out_heading_rmse_deg": 19.84688353157614,
+          "median_held_out_yaw_rate_rmse_deg_s": 0.10026613353488653
+        },
+        {
+          "run": 2,
+          "initial_q": [
+            -0.5,
+            0.5,
+            -0.5,
+            0.5,
+            -0.5,
+            0.5,
+            -0.5,
+            0.5,
+            -0.5
+          ],
+          "final_cost": 0.2273015435224181,
+          "final_q": [
+            -2,
+            0.0825480284056998,
+            1.342231832471426,
+            1.4890139797330861,
+            -1.5797428615169706,
+            -0.3174935759418602,
+            -0.24345995770318066,
+            1.582265970463515,
+            -2
+          ],
+          "median_held_out_heading_rmse_deg": 61.17591911939055,
+          "median_held_out_yaw_rate_rmse_deg_s": 0.2182770149966824
+        },
+        {
+          "run": 3,
+          "initial_q": [
+            1,
+            1,
+            -1,
+            -1,
+            1,
+            1,
+            -1,
+            -1,
+            1
+          ],
+          "final_cost": 0.22640899894649424,
+          "final_q": [
+            -2,
+            0.08333293620080368,
+            1.334204126890786,
+            1.463627933864983,
+            -1.3962137478828762,
+            -0.2292815051776802,
+            -0.272435458346018,
+            1.4643863336187526,
+            -2
+          ],
+          "median_held_out_heading_rmse_deg": 60.67482923959348,
+          "median_held_out_yaw_rate_rmse_deg_s": 0.21689084332091113
+        },
+        {
+          "run": 4,
+          "initial_q": [
+            -1,
+            -1,
+            1,
+            1,
+            -1,
+            -1,
+            1,
+            1,
+            -1
+          ],
+          "final_cost": 0.25230452371319323,
+          "final_q": [
+            -1.5958321240476263,
+            0.2941192266520366,
+            0.8691582134856185,
+            0.9177289519009169,
+            -1.020750004229097,
+            -0.7189770302892253,
+            -0.4498463615340956,
+            1.312919892538789,
+            -0.8335736670212396
+          ],
+          "median_held_out_heading_rmse_deg": 60.01180214491746,
+          "median_held_out_yaw_rate_rmse_deg_s": 0.219039174661596
+        }
+      ],
+      "within_two_percent_of_best": [
+        0,
+        2,
+        3
+      ],
+      "comparisons": [
+        {
+          "runs": [
+            0,
+            2
+          ],
+          "coefficient_l2_distance": 1.7617636952239455,
+          "heading_difference_fraction": 0.06177996994552512,
+          "yaw_rate_difference_fraction": 0.04735854394543985,
+          "meets_rule": false
+        },
+        {
+          "runs": [
+            0,
+            3
+          ],
+          "coefficient_l2_distance": 1.5701664883630695,
+          "heading_difference_fraction": 0.053082966203372904,
+          "yaw_rate_difference_fraction": 0.04070727675628451,
+          "meets_rule": false
+        },
+        {
+          "runs": [
+            2,
+            3
+          ],
+          "coefficient_l2_distance": 0.23855608326330904,
+          "heading_difference_fraction": 0.00825861211439692,
+          "yaw_rate_difference_fraction": 0.006391102798748806,
+          "meets_rule": false
+        }
+      ],
+      "underdetermination_rule_met": false,
+      "interpretation": "This five-start test does not demonstrate the preregistered form of optimizer non-uniqueness; it does not prove identifiability."
+    }
+  },
+  "overall_interpretation": "The tested data-coverage and tight-bound explanations do not account for the transient failures. No simple ingestion sign/frame error is indicated. Real port/starboard asymmetry is present in the measurements and only partly representable by the model. The preregistered multi-start non-uniqueness rule was not met, although one higher-training-cost solution had much better held-out errors, pointing to possible objective mismatch rather than demonstrated equal-cost local minima. Model-form mismatch and identifiability limitations remain open.",
+  "claim_limit": "Separate diagnostic campaign only. It does not relax, supersede, or reinterpret the original preregistered Vehicle B result, and it does not validate Vehicle B USV coefficients."
+}

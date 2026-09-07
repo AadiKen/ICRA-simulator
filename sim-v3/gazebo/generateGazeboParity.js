@@ -67,12 +67,14 @@ function inertiaFromCoeffs(coeffs) {
     // Its checked-in diagonal is an obsolete, non-realizable value, so derive
     // the rigid-body tensor directly from that stated mass and geometry.
     if (geometryBootstrap) {
-        return {
+        const derived = {
             ixx: mass * (beam * beam + height * height) / 12,
             iyy: mass * (length * length + height * height) / 12,
             izz: mass * (length * length + beam * beam) / 12,
             ixy: 0, ixz: 0, iyz: 0
         };
+        assertRigidBodyInertia(derived);
+        return derived;
     }
     const inertia = {
         ixx: coeffs.massProps.inertia?.Ix || mass * (beam * beam + height * height) / 12,
@@ -82,7 +84,16 @@ function inertiaFromCoeffs(coeffs) {
         ixz: 0,
         iyz: 0
     };
+    assertRigidBodyInertia(inertia);
     return inertia;
+}
+
+function assertRigidBodyInertia(inertia) {
+    const {ixx,iyy,izz}=inertia;
+    if(![ixx,iyy,izz].every(value=>Number.isFinite(value)&&value>0) ||
+       ixx+iyy<izz-1e-12 || ixx+izz<iyy-1e-12 || iyy+izz<ixx-1e-12) {
+        throw new Error("Rigid-body inertia must be finite, positive, and satisfy all triangle inequalities.");
+    }
 }
 
 function skew(v) {
@@ -290,24 +301,26 @@ function primitiveGeometry(primitive, fallbackGeometry = {}) {
     throw new Error(`Unsupported primitive for SDF generation: ${primitive.type}`);
 }
 
-function buoyancyCollisionPrimitive(primitive, coeffs, idx, count) {
-    if (primitive.type !== "box" || count !== 1) {
+function buoyancyCollisionPrimitive(primitive, coeffs, fullVolume) {
+    if (primitive.type !== "box") {
         return primitive;
     }
     const dims = primitive.dims || {};
-    const length = dims.length || dims.x || coeffs.geometry?.length || 0;
-    const beam = dims.beam || dims.y || coeffs.geometry?.beam || 0;
     const rho = coeffs.buoyancy?.rho || coeffs.restoring?.waterDensity || 1025;
     const displacementVolume = coeffs.restoring?.displacementVolume || coeffs.massProps?.mass / rho;
-    const neutralHeight = length > 0 && beam > 0
-        ? 2 * displacementVolume / (length * beam)
-        : dims.height || dims.z || coeffs.geometry?.draft || 0;
+    // Every box is centered on the initial waterline, so half its collision
+    // volume is displaced. Scale a multi-body hull uniformly such that the
+    // submerged half-volume equals mass/rho; previously only single-box hulls
+    // were normalized and the Surveyor displaced >3x its mass at z=0.
+    const submergedFraction=coeffs.buoyancy?.mode==="uniform-neutral"?1:.5;
+    const scale = fullVolume > 0 ? Math.min(1, displacementVolume / (submergedFraction*fullVolume)) : 1;
+    const height=(dims.height || dims.z || coeffs.geometry?.draft || 0)*scale;
     return {
         ...primitive,
         dims: {
             ...dims,
-            height: Math.min(neutralHeight, dims.height || dims.z || neutralHeight),
-            z: Math.min(neutralHeight, dims.height || dims.z || neutralHeight)
+            height,
+            z:height
         }
     };
 }
@@ -316,10 +329,15 @@ function renderHullPrimitives(coeffs) {
     const primitives = coeffs.hullPrimitives?.length
         ? coeffs.hullPrimitives
         : [{type: "box", dims: coeffs.geometry, offset: {pos: [0, 0, 0], rot: [0, 0, 0]}}];
+    const fullVolume=primitives.reduce((sum,primitive)=>{
+        if(primitive.type!=="box")return sum;
+        const dims=primitive.dims||{};
+        return sum*(1)+Number(dims.length||dims.x||coeffs.geometry?.length||0)*Number(dims.beam||dims.y||coeffs.geometry?.beam||0)*Number(dims.height||dims.z||coeffs.geometry?.draft||0);
+    },0);
     return primitives.map((primitive, idx) => `
       <collision name="hull_collision_${idx}">
         <pose>${primitivePose(primitive)}</pose>
-        <geometry>${primitiveGeometry(buoyancyCollisionPrimitive(primitive, coeffs, idx, primitives.length), coeffs.geometry)}</geometry>
+        <geometry>${primitiveGeometry(buoyancyCollisionPrimitive(primitive, coeffs, fullVolume), coeffs.geometry)}</geometry>
       </collision>
       <visual name="hull_visual_${idx}">
         <pose>${primitivePose(primitive)}</pose>
@@ -477,9 +495,15 @@ ${renderThrusterLinks(coeffs, options)}
       <water_density>${format(coeffs.buoyancy?.rho || coeffs.restoring?.waterDensity || 1025)}</water_density>
       <xU>${format(linear.Xu || 0)}</xU>
       <yV>${format(linear.Yv || 0)}</yV>
+      <zW>${format(linear.Zw || 0)}</zW>
+      <kP>${format(linear.Kp || 0)}</kP>
+      <mQ>${format(linear.Mq || 0)}</mQ>
       <nR>${format(linear.Nr || 0)}</nR>
       <xUabsU>${format(quadratic.Xuu || 0)}</xUabsU>
       <yVabsV>${format(quadratic.Yvv || 0)}</yVabsV>
+      <zWabsW>${format(quadratic.Zww || 0)}</zWabsW>
+      <kPabsP>${format(quadratic.Kpp || 0)}</kPabsP>
+      <mQabsQ>${format(quadratic.Mqq || 0)}</mQabsQ>
       <nRabsR>${format(quadratic.Nrr || 0)}</nRabsR>
       ${options.includeAddedMass ? "<disable_added_mass>true</disable_added_mass>" : ""}
     </plugin>
@@ -509,6 +533,12 @@ function renderModelConfig(coeffs) {
 
 function renderBuoyancyPlugin(coeffs) {
     const rho = coeffs.buoyancy?.rho || coeffs.restoring?.waterDensity || 1025;
+    if(coeffs.buoyancy?.mode==="uniform-neutral")return `
+    <!-- Vehicle integration stability fixture, matching Vehicles B/C: the
+         collision volume is normalized to mass/rho and is neutrally buoyant. -->
+    <plugin filename="gz-sim-buoyancy-system" name="gz::sim::systems::Buoyancy">
+      <uniform_fluid_density>${format(rho)}</uniform_fluid_density>
+    </plugin>`;
     return `
     <plugin filename="gz-sim-buoyancy-system" name="gz::sim::systems::Buoyancy">
       <graded_buoyancy>
@@ -518,7 +548,6 @@ function renderBuoyancyPlugin(coeffs) {
           <density>0</density>
         </density_change>
       </graded_buoyancy>
-      <enable>${xmlEscape(coeffs.id)}</enable>
     </plugin>`;
 }
 
@@ -528,26 +557,46 @@ function renderWorldSdf(coeffs, maneuver, options = {}) {
     const gravity = coeffs.buoyancy?.g || coeffs.restoring?.gravity || 9.81;
     const initialYawEnu = options.initialStateNed ? Math.PI / 2 - options.initialStateNed.yaw : Math.PI / 2;
     const initialEnu = options.initialStateNed ? {x:options.initialStateNed.E,y:options.initialStateNed.N,z:0} : {x:0,y:0,z:0};
+    // Use the same WGS84 reference used by the retained VRX sensor audit.  A
+    // heading of zero preserves Gazebo's ENU axes; the shared trace bridge is
+    // the sole place that maps ENU/NavSat output into the task's local NED
+    // convention (N=y, E=x).
+    const geodeticOrigin = options.geodeticOrigin || {
+        latitudeDeg: -33.72276876888639,
+        longitudeDeg: 150.67399110174387,
+        elevationM: 0,
+        headingDeg: 0
+    };
+    const sphericalCoordinates = options.omitSphericalCoordinates ? "" : `
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>${format(geodeticOrigin.latitudeDeg)}</latitude_deg>
+      <longitude_deg>${format(geodeticOrigin.longitudeDeg)}</longitude_deg>
+      <elevation>${format(geodeticOrigin.elevationM)}</elevation>
+      <heading_deg>${format(geodeticOrigin.headingDeg)}</heading_deg>
+    </spherical_coordinates>`;
     return `<?xml version="1.0" ?>
 <sdf version="1.10">
   <world name="bcod_parity_${xmlEscape(maneuver.name)}">
+${sphericalCoordinates}
     <physics name="parity_physics" type="dart">
       <max_step_size>${format(maxStep)}</max_step_size>
       <real_time_factor>1</real_time_factor>
     </physics>
     <gravity>0 0 -${format(gravity)}</gravity>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+${renderBuoyancyPlugin(coeffs)}
     <include>
       <uri>model://${xmlEscape(coeffs.id)}</uri>
       <pose>${format(initialEnu.x)} ${format(initialEnu.y)} ${format(initialEnu.z)} 0 0 ${format(initialYawEnu)}</pose>
     </include>
-    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
-    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
     <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
     <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"/>
     <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
     <plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat"/>
     <plugin filename="gz-sim-apply-link-wrench-system" name="gz::sim::systems::ApplyLinkWrench"/>
-${renderBuoyancyPlugin(coeffs)}
     <!-- BCOD parity metadata: current ENU ${format(current.x || 0)} ${format(current.z || 0)} ${format(current.y || 0)} -->
   </world>
 </sdf>

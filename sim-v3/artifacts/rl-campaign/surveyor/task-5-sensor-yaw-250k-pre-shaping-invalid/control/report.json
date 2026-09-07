@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "task-5-sensor-yaw-250k-condition",
+  "condition": "control",
+  "contract_sha256": "d586a0473bdafdea67968e301e1b757220258b0d45a4c74d2f35b7b5e6a4dc85",
+  "training": {
+    "timesteps": 250000,
+    "seed": 7319,
+    "algorithm": "RecurrentPPO",
+    "policy": "MlpLstmPolicy",
+    "n_steps": 512,
+    "batch_size": 512,
+    "n_epochs": 10,
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0,
+    "net_arch": [
+      128,
+      128
+    ],
+    "lstm_hidden_size": 128,
+    "enable_critic_lstm": true,
+    "final_leg_curriculum": true
+  },
+  "evaluation": {
+    "first_seed": 30000,
+    "last_seed": 30049,
+    "episodes": 50,
+    "success_rate": 0.08,
+    "median_return": -1196.7671477833596,
+    "rows": [
+      {
+        "seed": 30000,
+        "success": false,
+        "return": -2346.661667673693,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30001,
+        "success": false,
+        "return": -2225.8536748325196,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30002,
+        "success": false,
+        "return": -51.701747730391006,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30003,
+        "success": false,
+        "return": -3516.02941657554,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30004,
+        "success": false,
+        "return": -1262.308661026781,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30005,
+        "success": false,
+        "return": -181.5414957140274,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30006,
+        "success": false,
+        "return": -2486.8702023028586,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30007,
+        "success": false,
+        "return": -1532.785223564684,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30008,
+        "success": false,
+        "return": -875.3837808135166,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30009,
+        "success": false,
+        "return": -1308.046487444314,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30010,
+        "success": false,
+        "return": -1366.0691365527666,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30011,
+        "success": false,
+        "return": -321.4027647382228,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30012,
+        "success": false,
+        "return": -295.14584878829703,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30013,
+        "success": false,
+        "return": -794.6449607516714,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30014,
+        "success": false,
+        "return": -1899.448942972791,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30015,
+        "success": false,
+        "return": -350.3278398449518,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30016,
+        "success": false,
+        "return": -1292.94671979074,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30017,
+        "success": false,
+        "return": -275.8558352675284,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30018,
+        "success": false,
+        "return": -274.94479059271174,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30019,
+        "success": false,
+        "return": -1173.510934752036,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30020,
+        "success": false,
+        "return": -1159.6567382295952,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30021,
+        "success": false,
+        "return": -95.89041359322398,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30022,
+        "success": true,
+        "return": 135.74798176230922,
+        "termination_reason": "success"
+      },
+      {
+        "seed": 30023,
+        "success": false,
+        "return": -2079.3315696198397,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30024,
+        "success": false,
+        "return": -2387.287290068879,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30025,
+        "success": false,
+        "return": -14.627078999645526,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30026,
+        "success": false,
+        "return": -1070.6866572250626,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30027,
+        "success": false,
+        "return": -2858.12448612798,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30028,
+        "success": false,
+        "return": -1822.482498051698,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30029,
+        "success": false,
+        "return": -1352.3130298470396,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30030,
+        "success": false,
+        "return": -1363.3691202777272,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30031,
+        "success": true,
+        "return": 153.17225336844808,
+        "termination_reason": "success"
+      },
+      {
+        "seed": 30032,
+        "success": false,
+        "return": -1220.023360814683,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30033,
+        "success": true,
+        "return": 92.37232126571803,
+        "termination_reason": "success"
+      },
+      {
+        "seed": 30034,
+        "success": false,
+        "return": -1358.1092837263614,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30035,
+        "success": false,
+        "return": -363.9642793901497,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30036,
+        "success": false,
+        "return": -361.07140263155867,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30037,
+        "success": false,
+        "return": -2234.3865454080883,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30038,
+        "success": false,
+        "return": -2395.0092064368714,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30039,
+        "success": false,
+        "return": -877.4533470842243,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30040,
+        "success": true,
+        "return": 141.30104207854214,
+        "termination_reason": "success"
+      },
+      {
+        "seed": 30041,
+        "success": false,
+        "return": -2142.9687398514025,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30042,
+        "success": false,
+        "return": -2125.6621314250906,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30043,
+        "success": false,
+        "return": -70.4853150259343,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30044,
+        "success": false,
+        "return": -2010.5661442625158,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30045,
+        "success": false,
+        "return": -921.4455132082793,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30046,
+        "success": false,
+        "return": -486.5767793804852,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30047,
+        "success": false,
+        "return": -2502.8450965955435,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30048,
+        "success": false,
+        "return": -2009.9535631758959,
+        "termination_reason": "timeout"
+      },
+      {
+        "seed": 30049,
+        "success": false,
+        "return": -409.0674609558645,
+        "termination_reason": "timeout"
+      }
+    ]
+  },
+  "output_directory": "artifacts/rl-campaign/surveyor/task-5-sensor-yaw-250k/control",
+  "phase_2_started": false
+}

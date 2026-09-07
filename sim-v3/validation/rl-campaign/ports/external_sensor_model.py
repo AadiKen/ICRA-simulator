@@ -5,6 +5,14 @@ import random
 
 EARTH_RADIUS_M = 6_378_137.0
 
+def gazebo_navsat_valid(latitude_deg, longitude_deg):
+    """Gazebo NavSat has no status bit: finite geodetic coordinates are valid.
+
+    Timestamp freshness remains a separate contract check at observation time,
+    matching bcod-sim's distinction between sensor validity and staleness.
+    """
+    return all(isinstance(x,(int,float)) and math.isfinite(x) for x in (latitude_deg,longitude_deg))
+
 class ExternalGpsModel:
     """Delayed 2 Hz position-only GPS; ground velocity is excluded."""
     def __init__(self, seed, initial_n_m, initial_e_m, rate_hz=2.0, latency_s=0.2, position_std_m=0.8):

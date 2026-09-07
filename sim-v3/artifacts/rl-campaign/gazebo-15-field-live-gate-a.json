@@ -1,29 +1,85 @@
 {
-  "schema_version": 1,
+  "schema_version": 3,
   "artifact_kind": "gazebo-15-field-live-sensor-gate-a",
-  "status": "blocked-runtime-unavailable",
+  "status": "PASS",
   "contract_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
-  "observation_field_count": 15,
+  "training_authorized": false,
+  "next_gate_started": false,
   "runtime": {
-    "required": "Gazebo Harmonic 8.15.0 pinned container",
-    "available_during_attempt": false,
-    "evidence": "docker version returned no server version on 2026-09-06; no usable host Gazebo 8.15 runtime was available"
+    "image": "icra27-gazebo-harmonic:harmonic-8.15.0",
+    "image_id": "174e8baad590",
+    "gazebo_sim_version": "8.15.0",
+    "host_architecture": "arm64",
+    "container_architecture": "linux/amd64",
+    "execution": "AMD64 emulation on Apple Silicon",
+    "timing_basis": "/world/.../clock and sensor header simulation timestamps only; wall clock excluded"
   },
-  "completed_evidence": {
-    "static_oracle_exclusion": "The 15-field TaskTraceBridge uses IMU for acceleration, angular rate, and yaw; delayed NavSat position for goal-relative north/east and validity; ground velocity is absent. Odometry remains privileged scoring state only.",
-    "regression_test": "validation/rl-campaign/ports/sensor-observation-audit.test.ts",
-    "generated_sensor_entities": "prepare-gazebo-episode.ts enables phaseASensors for the generated Surveyor model"
+  "connected_path": {
+    "entrypoint": "GazeboGymEnv -> JsonLineSimulatorBridge -> gazebo_gym_runtime.py",
+    "adapter": "validation/rl-campaign/ports/gazebo_gym_runtime.py",
+    "adapter_sha256": "8a38920eddbf21c645e1ca6c5c3ae010edcd9cf37656c3d742bc26bff3b61479",
+    "gps_conditioner": "validation/rl-campaign/ports/external_sensor_model.py",
+    "gps_conditioner_sha256": "76e85d566f24e1127c49824a5552353c7184b57e2c82456f464c63a69ab900f3",
+    "frame_converter": "validation/rl-campaign/ports/task-trace-bridge.ts via task-trace-jsonl-bridge.ts",
+    "actuator": "validation/rl-campaign/ports/shared-actuators.ts via actuator-jsonl-bridge.ts"
   },
-  "live_measurement": {
-    "executed": false,
-    "required_checks": [
-      "connected moving trajectory under pinned Harmonic 8.15.0",
-      "IMU and NavSat publication rate",
-      "configured release latency and sample-and-hold staleness",
-      "empirical position, acceleration, angular-rate, and yaw errors",
-      "full emitted 15-field rows with no odometry-derived observation value"
-    ]
+  "simulation_timing": {
+    "physics_step_s": 0.05,
+    "gym_control_interval_s": 0.1,
+    "post_reset_simulation_epoch_s": 0.6000000000000001,
+    "note": "Harmonic model reset preserves the already-paused /clock epoch; interval assertions are relative to this epoch.",
+    "expected_final_simulation_time_s": 3.1,
+    "final_simulation_time_s": 3.1,
+    "gps_timestamps_s": [
+      0.6000000000000001,
+      1.0,
+      1.5,
+      2.0
+    ],
+    "gps_positive_deltas_s": [
+      0.4,
+      0.5,
+      0.5
+    ],
+    "gps_scheduled_deltas_s": [
+      0.5,
+      0.5
+    ],
+    "first_conditioned_gps_fix_control_step": 2,
+    "first_conditioned_gps_source_timestamp_s": 0.6000000000000001,
+    "first_conditioned_gps_release_simulation_time_s": 0.8,
+    "first_conditioned_gps_release_age_s": 0.19999999999999996,
+    "release_tolerance": "configured 0.2 s plus at most one 0.05 s physics tick"
   },
-  "gate_a": "blocked",
-  "training_policy": "External VRX/Gazebo training remains prohibited until this live measurement passes; the bcod-sim-only SLURM rerun is independent."
+  "observation": {
+    "field_count": 15,
+    "rows_examined": 26,
+    "imu_fields_source": "live /imu linearAcceleration, angularVelocity, orientation",
+    "gps_fields_source": "live /gps through ExternalGpsModel",
+    "missing_invalid_stale_policy": "zero-fill",
+    "odometry_use": "privileged truth/reward/termination only; never observation fallback"
+  },
+  "active_staleness": {
+    "method": "Ignore live topic callbacks while retaining the last message object; advance Gazebo by fixed simulation steps through the same Gym endpoint.",
+    "imu_age_limit_s": 0.08,
+    "gps_age_limit_s": 0.75
+  },
+  "checks": {
+    "exactly_15_fields": true,
+    "reset_seed": true,
+    "gps_2_hz_sim_time": true,
+    "gps_conditioning_config": true,
+    "gps_released_on_connected_path": true,
+    "gps_release_latency_sim_time": true,
+    "active_imu_stall_zero_fills": true,
+    "imu_recovers_from_live_topic": true,
+    "active_gps_stall_zero_fills": true,
+    "gps_did_not_refresh_from_retained_object": true,
+    "fixed_simulation_step_timing": true
+  },
+  "all_checks_pass": true,
+  "notes": [
+    "No training was run.",
+    "Gazebo plant vertical instability observed during the sensor run is retained for later gate diagnosis; it did not alter the sensor source or simulation-time checks."
+  ]
 }

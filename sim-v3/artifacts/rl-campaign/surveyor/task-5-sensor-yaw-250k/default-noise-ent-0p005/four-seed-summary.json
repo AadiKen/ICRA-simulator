@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "task-5-default-noise-entropy-four-seed-summary",
+  "contract_sha256": "b55b74e2485b3a2cd186779fb6d3efef6e466beaee639d6739170ff8321e97df",
+  "training": {
+    "timesteps_per_seed": 250000,
+    "algorithm": "RecurrentPPO",
+    "policy": "MlpLstmPolicy",
+    "ent_coef": 0.005,
+    "condition": "default-noise",
+    "all_other_settings_unchanged": true
+  },
+  "evaluation": {
+    "seeds_per_training_run": "30000-30049",
+    "training_seed_results": [
+      {"training_seed": 7319, "successes": 4, "episodes": 50, "success_rate": 0.08, "median_shaped_return": -1160.8850690536037, "median_progress_component": -154.47441677346387, "component_source": "evaluation-only replay of retained checkpoint"},
+      {"training_seed": 7320, "successes": 4, "episodes": 50, "success_rate": 0.08, "median_shaped_return": -907.8211129918245, "median_progress_component": -97.66636374827104},
+      {"training_seed": 7321, "successes": 2, "episodes": 50, "success_rate": 0.04, "median_shaped_return": -1084.9406119214766, "median_progress_component": -163.13849782786156},
+      {"training_seed": 7322, "successes": 6, "episodes": 50, "success_rate": 0.12, "median_shaped_return": -806.1804055322928, "median_progress_component": -97.67408742974156}
+    ],
+    "pooled": {
+      "successes": 16,
+      "episodes": 200,
+      "success_rate": 0.08,
+      "wilson_95_ci": [0.049840585889759974, 0.12598948826714396],
+      "interval_unit": "evaluation episode; does not model training-seed hierarchy"
+    },
+    "los_pid_v2_reference": {
+      "same_evaluation_seeds": "30000-30049",
+      "success_rate": 0.70,
+      "median_progress_component": 44.99805461664651
+    }
+  },
+  "training_performed_by_summary_step": false
+}

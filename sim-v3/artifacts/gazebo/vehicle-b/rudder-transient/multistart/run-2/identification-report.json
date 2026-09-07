@@ -1,0 +1,471 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "kvlcc2-marin-preregistered-identification",
+  "status": "executed-insufficient-yaw-transient-coverage",
+  "plan_checksum_input": {
+    "schema_version": 2,
+    "status": "precommitted-before-identification",
+    "strategy": "steady-yaw identification to transient-yaw validation",
+    "coefficient_groups": {
+      "fixed_added_mass": {
+        "coefficients": [
+          "m_x",
+          "m_y",
+          "J_z"
+        ],
+        "dimensional_roles": [
+          "X_u_dot",
+          "Y_v_dot",
+          "N_r_dot"
+        ],
+        "source": "Yasukawa & Yoshimura 2015 Table 3",
+        "method": "Motora empirical charts, geometry-derived",
+        "fit_permitted": false,
+        "reason": "Turning-circle data weakly observes transient added yaw inertia. These geometry-derived terms are fixed before optimization rather than inferred from an insensitive dataset.",
+        "model_mismatch_limitation": "Values originate from the HMRI KVLCC2 geometry and are retained for the MARIN model as a documented geometry-transfer assumption."
+      },
+      "captive_identified": {
+        "source": "captive.csv; all r=0",
+        "coefficients": [
+          "X_vv",
+          "Y_v",
+          "N_v",
+          "Y_vvv",
+          "N_vvv",
+          "rudder force chain",
+          "a_H",
+          "x_H"
+        ],
+        "free_running_data_used": false
+      },
+      "turning_circle_identified": {
+        "source_runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "coefficients": [
+          "Y_r",
+          "N_r",
+          "Y_rrr",
+          "N_rrr",
+          "Y_vvr",
+          "Y_vrr",
+          "N_vvr",
+          "N_vrr",
+          "X_vr"
+        ],
+        "evidence_role": "identification; never reported as held-out validation"
+      },
+      "held_out_validation": {
+        "source_runs": [
+          "MARIN_FREE_KVLCC2_zz_-10_m",
+          "MARIN_FREE_KVLCC2_zz_10_m",
+          "MARIN_FREE_KVLCC2_zz_-20_m",
+          "MARIN_FREE_KVLCC2_zz_20_m"
+        ],
+        "evidence_role": "held-out transient-yaw validation; no coefficient fitting permitted"
+      }
+    },
+    "failure_interpretation": {
+      "precommitted": true,
+      "rule": "If held-out zig-zag overshoot metrics fail after turning-circle damping identification, report a yaw-transient observability and data-coverage limitation, not automatically a simulator defect.",
+      "basis": "captive.csv contains no yaw-rate excitation and steady portions of turning circles constrain yaw damping much more strongly than added yaw inertia",
+      "prohibited_response": "Do not move any held-out zig-zag into identification or relax its tolerance after observing the result.",
+      "additional_evidence_needed": [
+        "pure-yaw captive test",
+        "PMM or circular-motion captive test",
+        "independent yaw-transient dataset"
+      ]
+    },
+    "provenance_requirement": "Every fitted coefficient must identify captive, turning-circle, or retained-literature provenance separately.",
+    "usv_transfer_permitted": false
+  },
+  "method": "deterministic bounded regularized Gauss-Newton",
+  "initial_cost": 0.703172724483618,
+  "final_cost": 0.2273015435224181,
+  "iterations": [
+    {
+      "iteration": 0,
+      "cost": 0.703172724483618,
+      "candidate_cost": 0.3492768044433699,
+      "lambda": 0.1,
+      "accepted": true
+    },
+    {
+      "iteration": 1,
+      "cost": 0.3492768044433699,
+      "candidate_cost": 0.49932373678997466,
+      "lambda": 0.05,
+      "accepted": false
+    },
+    {
+      "iteration": 2,
+      "cost": 0.3492768044433699,
+      "candidate_cost": 0.4157705507860423,
+      "lambda": 0.25,
+      "accepted": false
+    },
+    {
+      "iteration": 3,
+      "cost": 0.3492768044433699,
+      "candidate_cost": 0.328399840793188,
+      "lambda": 1.25,
+      "accepted": true
+    },
+    {
+      "iteration": 4,
+      "cost": 0.328399840793188,
+      "candidate_cost": 0.29773119268269654,
+      "lambda": 0.625,
+      "accepted": true
+    },
+    {
+      "iteration": 5,
+      "cost": 0.29773119268269654,
+      "candidate_cost": 0.4243637162774286,
+      "lambda": 0.3125,
+      "accepted": false
+    },
+    {
+      "iteration": 6,
+      "cost": 0.29773119268269654,
+      "candidate_cost": 0.29304274040591616,
+      "lambda": 1.5625,
+      "accepted": true
+    },
+    {
+      "iteration": 7,
+      "cost": 0.29304274040591616,
+      "candidate_cost": 0.4408604638283496,
+      "lambda": 0.78125,
+      "accepted": false
+    },
+    {
+      "iteration": 8,
+      "cost": 0.29304274040591616,
+      "candidate_cost": 0.2508162056944698,
+      "lambda": 3.90625,
+      "accepted": true
+    },
+    {
+      "iteration": 9,
+      "cost": 0.2508162056944698,
+      "candidate_cost": 0.2692698913771761,
+      "lambda": 1.953125,
+      "accepted": false
+    },
+    {
+      "iteration": 10,
+      "cost": 0.2508162056944698,
+      "candidate_cost": 0.22850133912687653,
+      "lambda": 9.765625,
+      "accepted": true
+    },
+    {
+      "iteration": 11,
+      "cost": 0.22850133912687653,
+      "candidate_cost": 0.2273015435224181,
+      "lambda": 4.8828125,
+      "accepted": true
+    }
+  ],
+  "coefficients": {
+    "Y_R": {
+      "baseline": 0.083,
+      "identified": -0.083,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "N_R": {
+      "baseline": -0.049,
+      "identified": -0.04487259857971501,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "Y_rrr": {
+      "baseline": 0.008,
+      "identified": 0.07511159162357131,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "N_rrr": {
+      "baseline": -0.013,
+      "identified": 0.06145069898665431,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "Y_vvr": {
+      "baseline": 0.379,
+      "identified": -0.2197225445149319,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "Y_vrr": {
+      "baseline": -0.391,
+      "identified": -0.5151399881932673,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "N_vvr": {
+      "baseline": -0.294,
+      "identified": -0.3655772275647351,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "N_vrr": {
+      "baseline": 0.055,
+      "identified": 0.14202462837549332,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    },
+    "X_vr": {
+      "baseline": 0.002,
+      "identified": -0.098,
+      "provenance": {
+        "source": "MARIN KVLCC2 turning circles",
+        "runs": [
+          "MARIN_FREE_KVLCC2_tc_-35_m",
+          "MARIN_FREE_KVLCC2_tc_35_m"
+        ],
+        "role": "identification-not-validation",
+        "method": "deterministic bounded regularized least squares"
+      }
+    }
+  },
+  "fixed_added_mass": {
+    "m_x": {
+      "value": 0.022,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3",
+        "method": "Motora empirical charts",
+        "potential_flow": false
+      }
+    },
+    "m_y": {
+      "value": 0.223,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3",
+        "method": "Motora empirical charts",
+        "potential_flow": false
+      }
+    },
+    "J_z": {
+      "value": 0.011,
+      "unit": "nondimensional",
+      "provenance": {
+        "source": "Yasukawa & Yoshimura 2015",
+        "table": "Table 3",
+        "method": "Motora empirical charts",
+        "potential_flow": false
+      }
+    }
+  },
+  "training": {
+    "MARIN_FREE_KVLCC2_tc_-35_m": {
+      "samples": 15752,
+      "heading_rmse_deg": 14.444147020473576,
+      "yaw_rate_rmse_deg_s": 0.018297293372647606,
+      "imo": {
+        "advance_lpp": {
+          "reference": 3.2536550128650346,
+          "actual": 3.2974993959473715,
+          "absolute_percent_error": 1.347542468669086,
+          "tolerance_percent": 5,
+          "passed": true
+        },
+        "tactical_diameter_lpp": {
+          "reference": 3.337529720786607,
+          "actual": 3.2017358957811908,
+          "absolute_percent_error": 4.068692606980333,
+          "tolerance_percent": 5,
+          "passed": true
+        }
+      },
+      "imo_passed": true
+    },
+    "MARIN_FREE_KVLCC2_tc_35_m": {
+      "samples": 15287,
+      "heading_rmse_deg": null,
+      "yaw_rate_rmse_deg_s": null,
+      "imo": {
+        "advance_lpp": {
+          "reference": 3.1216763690754528,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 5,
+          "passed": false
+        },
+        "tactical_diameter_lpp": {
+          "reference": 3.066876338822931,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 5,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    }
+  },
+  "held_out": {
+    "MARIN_FREE_KVLCC2_zz_-10_m": {
+      "samples": 4176,
+      "heading_rmse_deg": 56.55402936465113,
+      "yaw_rate_rmse_deg_s": 0.21622938999629912,
+      "imo": {
+        "first_overshoot_deg": {
+          "reference": 8.024999999999999,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        },
+        "second_overshoot_deg": {
+          "reference": 22.074999999999996,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    },
+    "MARIN_FREE_KVLCC2_zz_10_m": {
+      "samples": 3843,
+      "heading_rmse_deg": 96.4510675868793,
+      "yaw_rate_rmse_deg_s": 0.39574073955643696,
+      "imo": {
+        "first_overshoot_deg": {
+          "reference": 9.387,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        },
+        "second_overshoot_deg": {
+          "reference": 15.113,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    },
+    "MARIN_FREE_KVLCC2_zz_-20_m": {
+      "samples": 5056,
+      "heading_rmse_deg": 16.27335859550772,
+      "yaw_rate_rmse_deg_s": 0.16051630059044794,
+      "imo": {
+        "first_overshoot_deg": {
+          "reference": 12.772000000000006,
+          "actual": 18.904042807772903,
+          "absolute_percent_error": 48.01160983223375,
+          "tolerance_percent": 10,
+          "passed": false
+        },
+        "second_overshoot_deg": {
+          "reference": 15.827999999999996,
+          "actual": 7.229547238936124,
+          "absolute_percent_error": 54.32431615531888,
+          "tolerance_percent": 10,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    },
+    "MARIN_FREE_KVLCC2_zz_20_m": {
+      "samples": 4480,
+      "heading_rmse_deg": 65.79780887412997,
+      "yaw_rate_rmse_deg_s": 0.22032463999706567,
+      "imo": {
+        "first_overshoot_deg": {
+          "reference": 15.590000000000003,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        },
+        "second_overshoot_deg": {
+          "reference": 12.809999999999995,
+          "actual": null,
+          "absolute_percent_error": null,
+          "tolerance_percent": 10,
+          "passed": false
+        }
+      },
+      "imo_passed": false
+    }
+  },
+  "interpretation": {
+    "precommitted": true,
+    "rule": "If held-out zig-zag overshoot metrics fail after turning-circle damping identification, report a yaw-transient observability and data-coverage limitation, not automatically a simulator defect.",
+    "basis": "captive.csv contains no yaw-rate excitation and steady portions of turning circles constrain yaw damping much more strongly than added yaw inertia",
+    "prohibited_response": "Do not move any held-out zig-zag into identification or relax its tolerance after observing the result.",
+    "additional_evidence_needed": [
+      "pure-yaw captive test",
+      "PMM or circular-motion captive test",
+      "independent yaw-transient dataset"
+    ]
+  },
+  "claim_limit": "KVLCC2 model-scale identification only; no transfer to Vehicle B USV coefficients."
+}

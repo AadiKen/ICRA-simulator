@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "publication-competitor-comparison",
+  "source": {
+    "path": "bench/competitors/comparison-results.json",
+    "sha256": "74c29236bcacc880a02461b121f9197fc381b39c8762cae393edf015cdd5e7ca"
+  },
+  "methodology_tags": [
+    "measured",
+    "cited",
+    "not-obtainable"
+  ],
+  "rows": [
+    {
+      "tool": "Gazebo Harmonic",
+      "setup": {
+        "value": "574.73 s total (561.22 s build + 13.51 s first step); linux/amd64 under ARM64 emulation",
+        "methodology": "measured"
+      },
+      "determinism": {
+        "value": "Not established: the stock 50-iteration shapes.sdf probe did not provide a seed-sensitive negative control",
+        "methodology": "not-obtainable"
+      }
+    },
+    {
+      "tool": "VRX (Virtual RobotX)",
+      "setup": {
+        "value": "206.09 s build measured; first simulation step blocked during the recorded cold-cache attempt",
+        "methodology": "measured"
+      },
+      "determinism": {
+        "value": "Component-level only: Gaussian-noise IMU, 41 samples; same-seed bit-identical and altered-seed divergent. Passive WAM-V trajectory was observed only",
+        "methodology": "measured"
+      }
+    },
+    {
+      "tool": "MarineGym",
+      "setup": {
+        "value": "No supported run: official requirements specify Ubuntu 24.04+, NVIDIA CUDA/RTX, and at least 50 GB disk",
+        "methodology": "cited"
+      },
+      "determinism": {
+        "value": "Not tested on the available host",
+        "methodology": "not-obtainable"
+      }
+    },
+    {
+      "tool": "bcod-sim",
+      "setup": {
+        "value": "8.0 s earlier warm-filesystem clean-clone check; not comparable with cold emulated container timings",
+        "methodology": "measured"
+      },
+      "determinism": {
+        "value": "Not reported in the competitor source artifact; no claim made in this table",
+        "methodology": "not-obtainable"
+      }
+    }
+  ],
+  "notes": [
+    "Methodology labels are normalized for publication; the source artifact remains unchanged.",
+    "Measured determinism is scoped to the named component and scenario, not the simulator as a whole."
+  ]
+}
