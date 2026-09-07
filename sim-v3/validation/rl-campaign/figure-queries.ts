@@ -7,6 +7,7 @@ export const FIGURE_QUERIES={
   "fig-3-sensing":[],
   "fig-4-determinism":[],
   "fig-5-validation":["task_id","task_portable","simulator","vehicle","algorithm","seed","return","success","termination_reason","collision_type","host_class"],
+  "fig-7-field-trial":[],
   "table-6-comparison":[],
 } as const;
 
