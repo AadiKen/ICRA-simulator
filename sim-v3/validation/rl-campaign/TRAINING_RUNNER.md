@@ -13,7 +13,7 @@ On CodeNimbus, commands can be launched from the checkout root
   --eval-episodes 50 --device cuda
 ```
 
-To submit the same run to Slurm (one A30, 32 CPUs, 24 hours):
+To submit the same run to Slurm (one A30, 32 CPUs, CodeNimbus's 2.5-hour limit):
 
 ```bash
 ./submit-portable-training.sh bcod-sim 300000 \

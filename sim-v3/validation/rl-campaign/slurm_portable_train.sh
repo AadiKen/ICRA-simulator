@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=32
 #SBATCH --gres=gpu:nvidia_a30:1
-#SBATCH --time=24:00:00
+#SBATCH --time=02:30:00
 #SBATCH --output=sim-v3/artifacts/rl-campaign/training-runs/slurm-logs/%x-%j.log
 set -euo pipefail
 
@@ -20,7 +20,7 @@ shift 2
 
 repository_root="${BCOD_REPOSITORY_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../../.." && pwd)}"
 export BCOD_HOST_CLASS=cluster
-export PATH="${CODENIMBUS_NODE24_BIN:-/opt/nodejs/24/bin}:$PATH"
+export PATH="${CODENIMBUS_NODE24_BIN:-$HOME/.local/node-v24.20.0-linux-x64/bin}:$PATH"
 
 exec "$repository_root/train-portable.sh" \
   --backend "$backend" \
