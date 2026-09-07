@@ -1,0 +1,797 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "holoocean-fixed-action-scenario-and-actuator-path-audit",
+  "status": "PASS",
+  "training_run": false,
+  "scenario": {
+    "seed": 10000,
+    "requested_spawn_ned_m": [
+      -0.2830456434749067,
+      -0.21625046012923121
+    ],
+    "observed_initial_gps_ned_m": [
+      0.26617181301116943,
+      -0.18692196905612946
+    ],
+    "spawn_position_error_m": 0.5499999771796904,
+    "requested_initial_distance_m": 27.139087825103655,
+    "observed_initial_distance_m": 26.589983438664554,
+    "first_leg_bearing_deg": -0.18015961162745953,
+    "requested_heading_deg": 3.0567204067483544,
+    "requested_heading_error_deg": 3.236880018375814,
+    "observed_sensor_yaw_deg": 3.0567205356713303,
+    "current_nwu_mps": [
+      -0.061105300255517456,
+      -0.4847959376462646,
+      0.0
+    ],
+    "current_applied": true,
+    "wind_mode": "off",
+    "wind_applied": false
+  },
+  "actuator": {
+    "configured_force_ceiling_n": 501.1328125,
+    "configured_time_constant_s": 0.25,
+    "physics_timestep_s": 0.05,
+    "physics_steps_per_action": 2,
+    "wind_mode": "off",
+    "expected_formula": "target=clip(action,-1,1)*501.1328125; x_next=x+(target-x)*(1-exp(-dt/0.25)) on every physics tick",
+    "max_errors": {
+      "target_error_n": 0.0,
+      "lag_error_n": 0.0,
+      "applied_vs_lagged_error_n": 0.0
+    },
+    "samples": [
+      {
+        "control_step": 1,
+        "normalized_action": [
+          0.0,
+          0.4058622419834137
+        ],
+        "expected_target_force_n": [
+          0.0,
+          203.39088681270368
+        ],
+        "reported_target_force_n": [
+          0.0,
+          203.39088681270368
+        ],
+        "expected_lagged_force_n": [
+          0.0,
+          67.05389820118266
+        ],
+        "reported_lagged_force_n": [
+          0.0,
+          67.05389820118266
+        ],
+        "applied_native_force_n": [
+          0.0,
+          67.05389820118266
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 2,
+        "normalized_action": [
+          0.0390172004699707,
+          0.4311714768409729
+        ],
+        "expected_target_force_n": [
+          19.55279940739274,
+          216.07417485909536
+        ],
+        "reported_target_force_n": [
+          19.55279940739274,
+          216.07417485909536
+        ],
+        "expected_lagged_force_n": [
+          6.446166008503619,
+          116.18289614951962
+        ],
+        "reported_lagged_force_n": [
+          6.446166008503619,
+          116.18289614951962
+        ],
+        "applied_native_force_n": [
+          6.446166008503619,
+          116.18289614951962
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 3,
+        "normalized_action": [
+          0.07783779501914978,
+          0.45430806279182434
+        ],
+        "expected_target_force_n": [
+          39.00707313674502,
+          227.66867724829353
+        ],
+        "reported_target_force_n": [
+          39.00707313674502,
+          227.66867724829353
+        ],
+        "expected_lagged_force_n": [
+          17.180844371580072,
+          152.93752332984423
+        ],
+        "reported_lagged_force_n": [
+          17.180844371580072,
+          152.93752332984423
+        ],
+        "applied_native_force_n": [
+          17.180844371580072,
+          152.93752332984423
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 4,
+        "normalized_action": [
+          0.1162661761045456,
+          0.47515544295310974
+        ],
+        "expected_target_force_n": [
+          58.26479582989123,
+          238.1159835017752
+        ],
+        "reported_target_force_n": [
+          58.26479582989123,
+          238.1159835017752
+        ],
+        "expected_lagged_force_n": [
+          30.725399597030126,
+          181.01915415808156
+        ],
+        "reported_lagged_force_n": [
+          30.725399597030126,
+          181.01915415808156
+        ],
+        "applied_native_force_n": [
+          30.725399597030126,
+          181.01915415808156
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 5,
+        "normalized_action": [
+          0.1541087031364441,
+          0.49360859394073486
+        ],
+        "expected_target_force_n": [
+          77.2289278334938,
+          247.36346295569092
+        ],
+        "reported_target_force_n": [
+          77.2289278334938,
+          247.36346295569092
+        ],
+        "expected_lagged_force_n": [
+          46.05668064520782,
+          202.89154282827477
+        ],
+        "reported_lagged_force_n": [
+          46.05668064520782,
+          202.89154282827477
+        ],
+        "applied_native_force_n": [
+          46.05668064520782,
+          202.89154282827477
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 6,
+        "normalized_action": [
+          0.1911747008562088,
+          0.5095744729042053
+        ],
+        "expected_target_force_n": [
+          95.80391551891807,
+          255.36448878468946
+        ],
+        "reported_target_force_n": [
+          95.80391551891807,
+          255.36448878468946
+        ],
+        "expected_lagged_force_n": [
+          62.45734674822686,
+          220.19082123555995
+        ],
+        "reported_lagged_force_n": [
+          62.45734674822686,
+          220.19082123555995
+        ],
+        "applied_native_force_n": [
+          62.45734674822686,
+          220.19082123555995
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 7,
+        "normalized_action": [
+          0.22727738320827484,
+          0.5229727029800415
+        ],
+        "expected_target_force_n": [
+          113.89615426480304,
+          262.07878150511533
+        ],
+        "reported_target_force_n": [
+          113.89615426480304,
+          262.07878150511533
+        ],
+        "expected_lagged_force_n": [
+          79.41569044227332,
+          234.00044204888795
+        ],
+        "reported_lagged_force_n": [
+          79.41569044227332,
+          234.00044204888795
+        ],
+        "applied_native_force_n": [
+          79.41569044227332,
+          234.00044204888795
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 8,
+        "normalized_action": [
+          0.2622348368167877,
+          0.5337356925010681
+        ],
+        "expected_target_force_n": [
+          131.41448130947538,
+          267.4724687146954
+        ],
+        "reported_target_force_n": [
+          131.41448130947538,
+          267.4724687146954
+        ],
+        "expected_lagged_force_n": [
+          96.55864942157493,
+          245.03549825916522
+        ],
+        "reported_lagged_force_n": [
+          96.55864942157493,
+          245.03549825916522
+        ],
+        "applied_native_force_n": [
+          96.55864942157493,
+          245.03549825916522
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 9,
+        "normalized_action": [
+          0.29587092995643616,
+          0.5418093204498291
+        ],
+        "expected_target_force_n": [
+          148.27063126605935,
+          271.5184285957366
+        ],
+        "reported_target_force_n": [
+          148.27063126605935,
+          271.5184285957366
+        ],
+        "expected_lagged_force_n": [
+          113.60705321547042,
+          253.76638951336747
+        ],
+        "reported_lagged_force_n": [
+          113.60705321547042,
+          253.76638951336747
+        ],
+        "applied_native_force_n": [
+          113.60705321547042,
+          253.76638951336747
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 10,
+        "normalized_action": [
+          0.32801616191864014,
+          0.5471527576446533
+        ],
+        "expected_target_force_n": [
+          164.37966176774353,
+          274.196200305596
+        ],
+        "reported_target_force_n": [
+          164.37966176774353,
+          274.196200305596
+        ],
+        "expected_lagged_force_n": [
+          130.34576446563432,
+          260.50168859485
+        ],
+        "reported_lagged_force_n": [
+          130.34576446563432,
+          260.50168859485
+        ],
+        "applied_native_force_n": [
+          130.34576446563432,
+          260.50168859485
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 11,
+        "normalized_action": [
+          0.3585085868835449,
+          0.5497391819953918
+        ],
+        "expected_target_force_n": [
+          179.66041645035148,
+          275.4923424148001
+        ],
+        "reported_target_force_n": [
+          179.66041645035148,
+          275.4923424148001
+        ],
+        "expected_lagged_force_n": [
+          146.60381666172435,
+          265.4438066561068
+        ],
+        "reported_lagged_force_n": [
+          146.60381666172435,
+          265.4438066561068
+        ],
+        "applied_native_force_n": [
+          146.60381666172435,
+          265.4438066561068
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 12,
+        "normalized_action": [
+          0.3871944844722748,
+          0.5495555400848389
+        ],
+        "expected_target_force_n": [
+          194.03586098807864,
+          275.4003134276718
+        ],
+        "reported_target_force_n": [
+          194.03586098807864,
+          275.4003134276718
+        ],
+        "expected_lagged_force_n": [
+          162.24121085167235,
+          268.7262673502022
+        ],
+        "reported_lagged_force_n": [
+          162.24121085167235,
+          268.7262673502022
+        ],
+        "applied_native_force_n": [
+          162.24121085167235,
+          268.7262673502022
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 13,
+        "normalized_action": [
+          0.41392937302589417,
+          0.5466027855873108
+        ],
+        "expected_target_force_n": [
+          207.43359088082798,
+          273.9205912617035
+        ],
+        "reported_target_force_n": [
+          207.43359088082798,
+          273.9205912617035
+        ],
+        "expected_lagged_force_n": [
+          177.14023261922426,
+          270.4387318182219
+        ],
+        "reported_lagged_force_n": [
+          177.14023261922426,
+          270.4387318182219
+        ],
+        "applied_native_force_n": [
+          177.14023261922426,
+          270.4387318182219
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 14,
+        "normalized_action": [
+          0.4385785162448883,
+          0.5408957004547119
+        ],
+        "expected_target_force_n": [
+          219.78608534787782,
+          271.0605836380273
+        ],
+        "reported_target_force_n": [
+          219.78608534787782,
+          271.0605836380273
+        ],
+        "expected_lagged_force_n": [
+          191.19971538357765,
+          270.643743897548
+        ],
+        "reported_lagged_force_n": [
+          191.19971538357765,
+          270.643743897548
+        ],
+        "applied_native_force_n": [
+          191.19971538357765,
+          270.643743897548
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 15,
+        "normalized_action": [
+          0.4610177278518677,
+          0.5324631929397583
+        ],
+        "expected_target_force_n": [
+          231.03111057076603,
+          266.8347774306312
+        ],
+        "reported_target_force_n": [
+          231.03111057076603,
+          266.8347774306312
+        ],
+        "expected_lagged_force_n": [
+          204.33132791522618,
+          269.3880040080831
+        ],
+        "reported_lagged_force_n": [
+          204.33132791522618,
+          269.3880040080831
+        ],
+        "applied_native_force_n": [
+          204.33132791522618,
+          269.3880040080831
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 16,
+        "normalized_action": [
+          0.48113390803337097,
+          0.5213475823402405
+        ],
+        "expected_target_force_n": [
+          241.11198852187954,
+          261.26438022824004
+        ],
+        "reported_target_force_n": [
+          241.11198852187954,
+          261.26438022824004
+        ],
+        "expected_lagged_force_n": [
+          216.45717441080643,
+          266.7098080943207
+        ],
+        "reported_lagged_force_n": [
+          216.45717441080643,
+          266.7098080943207
+        ],
+        "applied_native_force_n": [
+          216.45717441080643,
+          266.7098080943207
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 17,
+        "normalized_action": [
+          0.49882572889328003,
+          0.5076050162315369
+        ],
+        "expected_target_force_n": [
+          249.97794046765193,
+          254.37752942321822
+        ],
+        "reported_target_force_n": [
+          249.97794046765193,
+          254.37752942321822
+        ],
+        "expected_lagged_force_n": [
+          227.50829902127737,
+          262.64410302975597
+        ],
+        "reported_lagged_force_n": [
+          227.50829902127737,
+          262.64410302975597
+        ],
+        "applied_native_force_n": [
+          227.50829902127737,
+          262.64410302975597
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 18,
+        "normalized_action": [
+          0.5140039920806885,
+          0.4913046360015869
+        ],
+        "expected_target_force_n": [
+          257.58426618762314,
+          246.208874033764
+        ],
+        "reported_target_force_n": [
+          257.58426618762314,
+          246.208874033764
+        ],
+        "expected_lagged_force_n": [
+          237.42374249211187,
+          257.22573749096364
+        ],
+        "reported_lagged_force_n": [
+          237.42374249211187,
+          257.22573749096364
+        ],
+        "applied_native_force_n": [
+          237.42374249211187,
+          257.22573749096364
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 19,
+        "normalized_action": [
+          0.5265922546386719,
+          0.4725286662578583
+        ],
+        "expected_target_force_n": [
+          263.8926576077938,
+          236.79961950867437
+        ],
+        "reported_target_force_n": [
+          263.8926576077938,
+          236.79961950867437
+        ],
+        "expected_lagged_force_n": [
+          246.15001320893646,
+          250.49165585489192
+        ],
+        "reported_lagged_force_n": [
+          246.15001320893646,
+          250.49165585489192
+        ],
+        "applied_native_force_n": [
+          246.15001320893646,
+          250.49165585489192
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 20,
+        "normalized_action": [
+          0.5365270972251892,
+          0.4513716697692871
+        ],
+        "expected_target_force_n": [
+          268.87133321492,
+          226.19715435430408
+        ],
+        "reported_target_force_n": [
+          268.87133321492,
+          226.19715435430408
+        ],
+        "expected_lagged_force_n": [
+          253.64077694251864,
+          242.48224571859103
+        ],
+        "reported_lagged_force_n": [
+          253.64077694251864,
+          242.48224571859103
+        ],
+        "applied_native_force_n": [
+          253.64077694251864,
+          242.48224571859103
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 21,
+        "normalized_action": [
+          0.5437584519386292,
+          0.4279402494430542
+        ],
+        "expected_target_force_n": [
+          272.4952023406513,
+          214.4549007853493
+        ],
+        "reported_target_force_n": [
+          272.4952023406513,
+          214.4549007853493
+        ],
+        "expected_lagged_force_n": [
+          259.85670303979947,
+          233.24219193125666
+        ],
+        "reported_lagged_force_n": [
+          259.85670303979947,
+          233.24219193125666
+        ],
+        "applied_native_force_n": [
+          259.85670303979947,
+          233.24219193125666
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 22,
+        "normalized_action": [
+          0.5482499003410339,
+          0.402352511882782
+        ],
+        "expected_target_force_n": [
+          274.74601451074705,
+          201.6320458962582
+        ],
+        "reported_target_force_n": [
+          274.74601451074705,
+          201.6320458962582
+        ],
+        "expected_lagged_force_n": [
+          264.7654105601025,
+          222.82096044163166
+        ],
+        "reported_lagged_force_n": [
+          264.7654105601025,
+          222.82096044163166
+        ],
+        "applied_native_force_n": [
+          264.7654105601025,
+          222.82096044163166
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 23,
+        "normalized_action": [
+          0.5499787330627441,
+          0.37473735213279724
+        ],
+        "expected_target_force_n": [
+          275.6123893149197,
+          187.79318322311155
+        ],
+        "reported_target_force_n": [
+          275.6123893149197,
+          187.79318322311155
+        ],
+        "expected_lagged_force_n": [
+          268.34144201664304,
+          211.27300446075606
+        ],
+        "reported_lagged_force_n": [
+          268.34144201664304,
+          211.27300446075606
+        ],
+        "applied_native_force_n": [
+          268.34144201664304,
+          211.27300446075606
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 24,
+        "normalized_action": [
+          0.5489363074302673,
+          0.3452339470386505
+        ],
+        "expected_target_force_n": [
+          275.0899956258945,
+          173.00805884995498
+        ],
+        "reported_target_force_n": [
+          275.0899956258945,
+          173.00805884995498
+        ],
+        "expected_lagged_force_n": [
+          270.5663048598671,
+          198.6578189533384
+        ],
+        "reported_lagged_force_n": [
+          270.5663048598671,
+          198.6578189533384
+        ],
+        "applied_native_force_n": [
+          270.5663048598671,
+          198.6578189533384
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      },
+      {
+        "control_step": 25,
+        "normalized_action": [
+          0.545127809047699,
+          0.3139909505844116
+        ],
+        "expected_target_force_n": [
+          273.18143212003633,
+          157.35116816591471
+        ],
+        "reported_target_force_n": [
+          273.18143212003633,
+          157.35116816591471
+        ],
+        "expected_lagged_force_n": [
+          271.4284598946106,
+          185.03984422331862
+        ],
+        "reported_lagged_force_n": [
+          271.4284598946106,
+          185.03984422331862
+        ],
+        "applied_native_force_n": [
+          271.4284598946106,
+          185.03984422331862
+        ],
+        "target_error_n": 0.0,
+        "lag_error_n": 0.0,
+        "applied_vs_lagged_error_n": 0.0
+      }
+    ]
+  }
+}

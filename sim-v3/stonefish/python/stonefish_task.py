@@ -16,13 +16,50 @@ from termination import StonefishTerminationMonitor
 
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(REPOSITORY_ROOT / "packages/python-client"))
 sys.path.insert(0, str(REPOSITORY_ROOT / "packages/python-client/bcod_sim"))
 from common_task import (  # noqa: E402
+    CompletionTracker,
     classify_termination,
     compute_reward,
     cross_track_distance,
     passed_waypoint_plane,
 )
+from bcod_sim.common_task_env import Mulberry32  # noqa: E402
+
+
+def draw_reset_randomization(contract: dict[str, Any], seed: int) -> dict[str, Any]:
+    """Use the frozen bcod-sim PRNG and draw order for a portable scenario."""
+    ranges = contract["reset_randomization"]
+    rng = Mulberry32(seed)
+
+    def uniform(bounds):
+        low, high = bounds
+        return low + (high - low) * rng.next()
+
+    angle = math.radians(uniform(ranges["route_rotation_deg"]))
+    north = float(uniform(ranges["start_position_offset_m"]))
+    east = float(uniform(ranges["start_position_offset_m"]))
+    current_speed = uniform(ranges["current_speed_m_s"])
+    current_direction = 2.0 * math.pi * rng.next()
+    wind_speed = uniform(ranges["wind_speed_m_s"])
+    wind_direction = 2.0 * math.pi * rng.next()
+    yaw = math.radians(uniform(ranges["start_heading_deg"]))
+    return {
+        "angle_rad": angle,
+        "start_ned_m": [north, east],
+        "heading_ned_rad": yaw,
+        "current_ned_mps": [
+            current_speed * math.cos(current_direction),
+            current_speed * math.sin(current_direction),
+            0.0,
+        ],
+        "wind_ned_mps": [
+            wind_speed * math.cos(wind_direction),
+            wind_speed * math.sin(wind_direction),
+            0.0,
+        ],
+    }
 
 
 class StonefishCommonTask:
@@ -62,11 +99,10 @@ class StonefishCommonTask:
 
     def reset(self, seed: int) -> tuple[np.ndarray, dict[str, Any]]:
         ranges = self.contract["reset_randomization"]
-        rng = np.random.default_rng(seed)
-        angle = math.radians(rng.uniform(*ranges["route_rotation_deg"]))
-        north = float(rng.uniform(*ranges["start_position_offset_m"]))
-        east = float(rng.uniform(*ranges["start_position_offset_m"]))
-        yaw = math.radians(rng.uniform(*ranges["start_heading_deg"]))
+        randomization = draw_reset_randomization(self.contract, seed)
+        angle = randomization["angle_rad"]
+        north, east = randomization["start_ned_m"]
+        yaw = randomization["heading_ned_rad"]
         ca, sa = math.cos(angle), math.sin(angle)
         self.start = np.asarray([north, east], dtype=np.float64)
         self.route = [
@@ -86,6 +122,7 @@ class StonefishCommonTask:
         self.previous_action[:] = 0.0
         self.previous_distance = self._distance(self.waypoint)
         self.previous_final_distance = self._distance(len(self.route) - 1)
+        self.completion_tracker = CompletionTracker.for_route(self.start, self.route)
         self.cross_track_sum = 0.0
         self.control_steps = 0
         self.termination.reset()
@@ -94,6 +131,8 @@ class StonefishCommonTask:
             "start_ned_m": self.start.tolist(),
             "initial_yaw_ned_rad": yaw,
             "route_ned_m": self.route,
+            "sampled_current_ned_mps": randomization["current_ned_mps"],
+            "sampled_wind_ned_mps": randomization["wind_ned_mps"],
             "current_ned_mps": [0.0, 0.0],
             "wind_ned_mps": [0.0, 0.0],
         }
@@ -148,6 +187,7 @@ class StonefishCommonTask:
             shaping_gamma=self.shaping_gamma,
             shaping_enabled=True,
         )
+        completion_fraction = self.completion_tracker.update(scored.progress_reward)
         self.previous_distance = next_previous_distance
         self.previous_final_distance = final_distance
         self.previous_action = applied.copy()
@@ -158,6 +198,7 @@ class StonefishCommonTask:
         forward = np.asarray([math.cos(yaw), math.sin(yaw)])
         return np.asarray(sample.observation), scored.reward, terminated, truncated, {
             "success": success,
+            "completion_fraction": completion_fraction,
             "termination_reason": reason,
             "reward_components": scored.components(),
             "position_ned_m": self.position.tolist(),

@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "packages/python-client"))
 
 from bcod_sim.holoocean_vehicle_a_env import HoloOceanVehicleAEnv
+from bcod_sim.common_task_env import CommonWaypointEnv
 
 
 class _FakeHoloOcean:
@@ -121,6 +122,28 @@ class HoloOceanVehicleAEnvTest(unittest.TestCase):
         second.reset()
         self.assertEqual(first._last_randomization, second._last_randomization)
         np.testing.assert_array_equal(first.action_space.sample(), second.action_space.sample())
+
+    def test_reset_draws_match_bcod_mulberry_sequence_and_field_order(self):
+        holo, _ = self.make_env()
+        reference = CommonWaypointEnv(ROOT, bridge=object())
+        for seed in range(10000, 10005):
+            start, heading, route, current, wind = reference._randomization(seed)
+            draw = holo._draw_randomization(seed)
+            np.testing.assert_allclose(
+                draw["spawn_nwu_m"][:2],
+                [start[0] - 10000.0, -(start[1] - 10000.0)],
+                atol=1e-12,
+            )
+            np.testing.assert_allclose(
+                draw["route_nwu_m"],
+                [[point[0] - 10000.0, -(point[1] - 10000.0)] for point in route],
+                atol=1e-12,
+            )
+            self.assertAlmostEqual(draw["heading_ned_rad"], heading)
+            np.testing.assert_allclose(
+                draw["current_nwu_mps"], [current[0], -current[1], current[2]], atol=1e-12
+            )
+            np.testing.assert_allclose(draw["wind_ned_mps"], wind, atol=1e-12)
 
     def test_gps_validity_expires_when_no_new_payload_arrives(self):
         env, _ = self.make_env(fixed_reset_seed=99)

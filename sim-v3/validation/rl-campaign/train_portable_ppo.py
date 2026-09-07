@@ -21,6 +21,7 @@ import subprocess
 import sys
 import time
 
+import gymnasium as gym
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -41,6 +42,12 @@ BCOD_PROTOCOL_ARTIFACT = (
     ROOT / "artifacts/rl-campaign/surveyor/15-field-rerun-preregistration.json"
 )
 FROZEN_CONTRACT_SHA256 = "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36"
+REWARD_COMPONENT_COLUMNS = (
+    "episode_index", "episode_seed", "control_step", "physics_steps",
+    "progress", "cross_track", "action_delta", "terminal", "base_reward",
+    "potential_shaping", "shaped_reward", "completion_fraction", "success",
+    "waypoints_reached", "termination_reason", "terminated", "truncated",
+)
 _SHARED_ALGORITHM_CONFIG = {
     "algorithm": "RecurrentPPO",
     "policy": "MlpLstmPolicy",
@@ -196,13 +203,75 @@ def make_env(args):
     return cls(ROOT, runtime, allow_unconformant_diagnostic=args.diagnostic_only, **common)
 
 
+class RewardComponentTrace(gym.Wrapper):
+    """Stream every portable reward component without changing environment data."""
+
+    def __init__(self, env: gym.Env, filename: Path) -> None:
+        super().__init__(env)
+        self.filename = Path(filename)
+        self._stream = self.filename.open("w", newline="")
+        self._writer = csv.DictWriter(self._stream, fieldnames=REWARD_COMPONENT_COLUMNS)
+        self._writer.writeheader()
+        self._episode_index = -1
+        self._episode_seed = None
+        self._control_step = 0
+
+    def reset(self, **kwargs):
+        observation, info = self.env.reset(**kwargs)
+        self._episode_index += 1
+        self._episode_seed = info.get("seed")
+        self._control_step = 0
+        return observation, info
+
+    def step(self, action):
+        observation, reward, terminated, truncated, info = self.env.step(action)
+        components = info.get("reward_components")
+        required = {
+            "progress", "cross_track", "action_delta", "terminal",
+            "base_reward", "potential_shaping", "shaped_reward",
+        }
+        if not isinstance(components, dict) or not required <= components.keys():
+            raise RuntimeError("portable environment omitted required reward components")
+        metric_fields = ("completion_fraction", "success", "waypoints_reached", "termination_reason")
+        missing_metrics = [name for name in metric_fields if name not in info]
+        if missing_metrics:
+            raise RuntimeError(
+                "portable environment omitted completion metrics: " + ", ".join(missing_metrics)
+            )
+        self._control_step += 1
+        self._writer.writerow({
+            "episode_index": self._episode_index,
+            "episode_seed": self._episode_seed,
+            "control_step": self._control_step,
+            "physics_steps": info.get("physics_steps"),
+            **{name: float(components[name]) for name in required},
+            "completion_fraction": float(info["completion_fraction"]),
+            "success": bool(info["success"]),
+            "waypoints_reached": int(info["waypoints_reached"]),
+            "termination_reason": info["termination_reason"],
+            "terminated": bool(terminated),
+            "truncated": bool(truncated),
+        })
+        self._stream.flush()
+        return observation, reward, terminated, truncated, info
+
+    def close(self) -> None:
+        if not self._stream.closed:
+            self._stream.close()
+        super().close()
+
+
 def training_env_factory(args, rank: int, run_dir: Path):
     """Build one isolated monitored environment for a vector training run."""
     def factory():
         from stable_baselines3.common.monitor import Monitor
         ranked = argparse.Namespace(**vars(args))
         ranked.base_seed = args.base_seed + rank * 1_000_000
-        return Monitor(make_env(ranked), filename=str(
+        traced = RewardComponentTrace(
+            make_env(ranked),
+            run_dir / "metrics" / f"reward-components-env-{rank}.csv",
+        )
+        return Monitor(traced, filename=str(
             run_dir / "metrics" / f"episodes-env-{rank}"))
     return factory
 
@@ -469,7 +538,9 @@ def main():
                 "wall_clock_s": time.time() - started,
                 "model": "model-final.zip",
                 "training_metrics": {"csv": "metrics/progress.csv", "json": "metrics/progress.json",
-                                     "episodes_csv_glob": "metrics/episodes-env-*.monitor.csv"},
+                                     "episodes_csv_glob": "metrics/episodes-env-*.monitor.csv",
+                                     "reward_components_csv_glob": "metrics/reward-components-env-*.csv",
+                                     "reward_component_columns": list(REWARD_COMPONENT_COLUMNS)},
                 "evaluation_summary": None if evaluation is None else {
                     key: value for key, value in evaluation.items() if key != "rows"
                 },

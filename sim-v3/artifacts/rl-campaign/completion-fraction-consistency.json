@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "artifact_kind": "completion-fraction-logging-validation",
+  "training_started": false,
+  "definition": "clamp(signed cumulative route progress / full seeded route length, 0, 1); each step's route progress is the exact distance delta used by the shared progress reward, and full route length is start-to-first-waypoint plus all subsequent waypoint-leg lengths",
+  "shared_definition_source": "packages/python-client/bcod_sim/common_task.py",
+  "fixed_action_protocol_reused": {
+    "source": "artifacts/rl-campaign/cross-simulator-fixed-action-calm-after-rng-fix.json",
+    "environment_seed": 10000,
+    "purpose": "computation-correctness replay at identical positions, not physics comparison"
+  },
+  "scripted_route": {
+    "start_ned_m": [
+      0.0,
+      0.0
+    ],
+    "route_ned_m": [
+      [
+        10.0,
+        0.0
+      ],
+      [
+        20.0,
+        0.0
+      ]
+    ]
+  },
+  "scripted_positions_ned_m": [
+    [
+      0.0,
+      0.0
+    ],
+    [
+      4.0,
+      0.0
+    ],
+    [
+      10.0,
+      0.0
+    ]
+  ],
+  "fractions_by_backend": {
+    "bcod-sim": [
+      0.2,
+      0.5
+    ],
+    "gazebo-harmonic": [
+      0.2,
+      0.5
+    ],
+    "vrx": [
+      0.2,
+      0.5
+    ],
+    "holoocean": [
+      0.2,
+      0.5
+    ],
+    "stonefish": [
+      0.2,
+      0.5
+    ]
+  },
+  "expected_after_one_of_two_legs": 0.5,
+  "max_absolute_difference": 0.0,
+  "per_harness_focused_test": {
+    "bcod-sim": {
+      "status": "PASS",
+      "one_leg_completion_fraction": 0.5
+    },
+    "gazebo-harmonic": {
+      "status": "PASS",
+      "one_leg_completion_fraction": 0.5
+    },
+    "vrx": {
+      "status": "PASS",
+      "one_leg_completion_fraction": 0.5
+    },
+    "holoocean": {
+      "status": "PASS",
+      "one_leg_completion_fraction": 0.5
+    },
+    "stonefish": {
+      "status": "PASS",
+      "one_leg_completion_fraction": 0.5
+    }
+  },
+  "csv_columns_added": [
+    "completion_fraction",
+    "success",
+    "waypoints_reached",
+    "termination_reason"
+  ],
+  "documentation_updated": [
+    "docs/completion-fraction-metric.md",
+    "artifacts/rl-campaign/CROSS_SIMULATOR_REWARD_AUDIT.md",
+    "artifacts/rl-campaign/HOLOOCEAN_SCENARIO_ACTUATOR_AUDIT.md",
+    "artifacts/rl-campaign/gazebo-still-water-protocol.json",
+    "artifacts/rl-campaign/vrx-task-6-disturbed-protocol.json",
+    "stonefish/GATED_VALIDATION_REPORT.md"
+  ],
+  "interpretation_caveat": "Completion fraction reduces reward-scale and geometry confounds but does not eliminate simulator-specific hull-response effects; HoloOcean's stiffer damping may inflate completion independently of policy quality."
+}

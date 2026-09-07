@@ -1,0 +1,435 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "holoocean-bcod-reset-scenario-parity",
+  "status": "PASS",
+  "training_run": false,
+  "contract_path": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+  "required_mapping": "shared Mulberry32 draws in bcod-sim contract order",
+  "holoocean_mapping": "numpy.default_rng draws in a different field order",
+  "comparison_frame": "NED; route positions expressed relative to the sampled start so the backend's arbitrary world-origin translation is excluded",
+  "absolute_tolerance": 1e-09,
+  "seeds": [
+    10000,
+    10001,
+    10002,
+    10003,
+    10004
+  ],
+  "rows": [
+    {
+      "seed": 10000,
+      "bcod_sim": {
+        "start_offset_m": [
+          -0.2830456434749067,
+          -0.21625046012923121
+        ],
+        "route_relative_m": [
+          [
+            27.13895366156612,
+            -0.08533542098666658
+          ],
+          [
+            47.557170473481165,
+            20.20487825944656
+          ],
+          [
+            67.86871800916197,
+            6.571399862923499
+          ]
+        ],
+        "initial_distance_to_first_waypoint_m": 27.139087825104,
+        "first_leg_bearing_deg": -0.1801596116262363,
+        "initial_heading_deg": 3.0567204067483544,
+        "initial_heading_error_deg": 3.236880018374591,
+        "current_ned_mps": [
+          -0.061105300255517456,
+          0.4847959376462646,
+          0.0
+        ],
+        "wind_ned_mps": [
+          0.45089495997147794,
+          3.275752590771574,
+          0.0
+        ]
+      },
+      "holoocean": {
+        "start_offset_m": [
+          -0.2830456434749067,
+          -0.21625046012923121
+        ],
+        "route_relative_m": [
+          [
+            27.138953661565775,
+            -0.08533542098724489
+          ],
+          [
+            47.55717047348053,
+            20.20487825944665
+          ],
+          [
+            67.86871800916124,
+            6.5713998629233314
+          ]
+        ],
+        "initial_distance_to_first_waypoint_m": 27.139087825103655,
+        "first_leg_bearing_deg": -0.18015961162745953,
+        "initial_heading_deg": 3.0567204067483544,
+        "initial_heading_error_deg": 3.236880018375814,
+        "current_ned_mps": [
+          -0.061105300255517456,
+          0.4847959376462646,
+          0.0
+        ],
+        "wind_ned_mps": [
+          0.45089495997147794,
+          3.275752590771574,
+          0.0
+        ]
+      },
+      "absolute_errors": {
+        "route_relative_max_m": 7.247535904753022e-13,
+        "initial_distance_m": 3.446132268436486e-13,
+        "first_leg_bearing_deg": 1.2232159729563818e-12,
+        "initial_heading_deg": 0.0,
+        "initial_heading_error_deg": 1.2230216839270724e-12,
+        "current_vector_max_mps": 0.0,
+        "wind_vector_max_mps": 0.0
+      },
+      "match": true
+    },
+    {
+      "seed": 10001,
+      "bcod_sim": {
+        "start_offset_m": [
+          -0.15271257609128952,
+          -0.02860787371173501
+        ],
+        "route_relative_m": [
+          [
+            25.915087770283208,
+            8.058431226807443
+          ],
+          [
+            39.307580177890486,
+            33.538570474625885
+          ],
+          [
+            62.77311161900616,
+            26.624850009589863
+          ]
+        ],
+        "initial_distance_to_first_waypoint_m": 27.139087825103253,
+        "first_leg_bearing_deg": 17.273353142663492,
+        "initial_heading_deg": 6.306688115000725,
+        "initial_heading_error_deg": -10.966665027662767,
+        "current_ned_mps": [
+          0.9909020013534645,
+          -0.8750079644211244,
+          0.0
+        ],
+        "wind_ned_mps": [
+          6.25882380165675,
+          1.4598929135872112,
+          0.0
+        ]
+      },
+      "holoocean": {
+        "start_offset_m": [
+          -0.15271257609128952,
+          -0.02860787371173501
+        ],
+        "route_relative_m": [
+          [
+            25.915087770283545,
+            8.058431226807718
+          ],
+          [
+            39.30758017789041,
+            33.53857047462616
+          ],
+          [
+            62.773111619006926,
+            26.624850009590183
+          ]
+        ],
+        "initial_distance_to_first_waypoint_m": 27.139087825103655,
+        "first_leg_bearing_deg": 17.273353142663836,
+        "initial_heading_deg": 6.306688115000725,
+        "initial_heading_error_deg": -10.966665027663112,
+        "current_ned_mps": [
+          0.9909020013534645,
+          -0.8750079644211244,
+          0.0
+        ],
+        "wind_ned_mps": [
+          6.25882380165675,
+          1.4598929135872112,
+          0.0
+        ]
+      },
+      "absolute_errors": {
+        "route_relative_max_m": 7.673861546209082e-13,
+        "initial_distance_m": 4.014566457044566e-13,
+        "first_leg_bearing_deg": 3.446132268436486e-13,
+        "initial_heading_deg": 0.0,
+        "initial_heading_error_deg": 3.446132268436486e-13,
+        "current_vector_max_mps": 0.0,
+        "wind_vector_max_mps": 0.0
+      },
+      "match": true
+    },
+    {
+      "seed": 10002,
+      "bcod_sim": {
+        "start_offset_m": [
+          0.8882987517863512,
+          -0.11370701435953379
+        ],
+        "route_relative_m": [
+          [
+            26.31513260390966,
+            -6.636556638595721
+          ],
+          [
+            51.028899535789606,
+            8.122375335387915
+          ],
+          [
+            67.44697066942535,
+            -10.01260844551507
+          ]
+        ],
+        "initial_distance_to_first_waypoint_m": 27.13908782510271,
+        "first_leg_bearing_deg": -14.154572635887638,
+        "initial_heading_deg": -3.2690143771469593,
+        "initial_heading_error_deg": 10.885558258740678,
+        "current_ned_mps": [
+          -0.13554848268291944,
+          0.09531111361140843,
+          0.0
+        ],
+        "wind_ned_mps": [
+          -0.07211789030487029,
+          0.34433852857449776,
+          0.0
+        ]
+      },
+      "holoocean": {
+        "start_offset_m": [
+          0.8882987517863512,
+          -0.11370701435953379
+        ],
+        "route_relative_m": [
+          [
+            26.315132603910413,
+            -6.636556638596602
+          ],
+          [
+            51.02889953579067,
+            8.122375335388757
+          ],
+          [
+            67.44697066942518,
+            -10.012608445513902
+          ]
+        ],
+        "initial_distance_to_first_waypoint_m": 27.139087825103655,
+        "first_leg_bearing_deg": -14.154572635889053,
+        "initial_heading_deg": -3.2690143771469593,
+        "initial_heading_error_deg": 10.885558258742094,
+        "current_ned_mps": [
+          -0.13554848268291944,
+          0.09531111361140843,
+          0.0
+        ],
+        "wind_ned_mps": [
+          -0.07211789030487029,
+          0.34433852857449776,
+          0.0
+        ]
+      },
+      "absolute_errors": {
+        "route_relative_max_m": 1.1688428003253648e-12,
+        "initial_distance_m": 9.450218385609332e-13,
+        "first_leg_bearing_deg": 1.4157564010019996e-12,
+        "initial_heading_deg": 0.0,
+        "initial_heading_error_deg": 1.4157564010019996e-12,
+        "current_vector_max_mps": 0.0,
+        "wind_vector_max_mps": 0.0
+      },
+      "match": true
+    },
+    {
+      "seed": 10003,
+      "bcod_sim": {
+        "start_offset_m": [
+          0.6751250023953617,
+          -0.13005322311073542
+        ],
+        "route_relative_m": [
+          [
+            25.612178120210956,
+            8.974765730496074
+          ],
+          [
+            38.09023741249803,
+            34.914973618526346
+          ],
+          [
+            61.78675386790201,
+            28.83995885629156
+          ]
+        ],
+        "initial_distance_to_first_waypoint_m": 27.139087825103843,
+        "first_leg_bearing_deg": 19.310975950211283,
+        "initial_heading_deg": 2.5400061113759875,
+        "initial_heading_error_deg": -16.770969838835295,
+        "current_ned_mps": [
+          -0.45916064733507156,
+          -0.45047900776125416,
+          0.0
+        ],
+        "wind_ned_mps": [
+          -7.23009816042497,
+          -5.400583322569543,
+          0.0
+        ]
+      },
+      "holoocean": {
+        "start_offset_m": [
+          0.6751250023953617,
+          -0.13005322311073542
+        ],
+        "route_relative_m": [
+          [
+            25.612178120210782,
+            8.974765730496014
+          ],
+          [
+            38.09023741249685,
+            34.914973618526105
+          ],
+          [
+            61.786753867902945,
+            28.839958856292732
+          ]
+        ],
+        "initial_distance_to_first_waypoint_m": 27.13908782510366,
+        "first_leg_bearing_deg": 19.310975950211287,
+        "initial_heading_deg": 2.5400061113759875,
+        "initial_heading_error_deg": -16.7709698388353,
+        "current_ned_mps": [
+          -0.45916064733507156,
+          -0.45047900776125416,
+          0.0
+        ],
+        "wind_ned_mps": [
+          -7.23009816042497,
+          -5.400583322569543,
+          0.0
+        ]
+      },
+      "absolute_errors": {
+        "route_relative_max_m": 1.1795009413617663e-12,
+        "initial_distance_m": 1.8474111129762605e-13,
+        "first_leg_bearing_deg": 3.552713678800501e-15,
+        "initial_heading_deg": 0.0,
+        "initial_heading_error_deg": 3.552713678800501e-15,
+        "current_vector_max_mps": 0.0,
+        "wind_vector_max_mps": 0.0
+      },
+      "match": true
+    },
+    {
+      "seed": 10004,
+      "bcod_sim": {
+        "start_offset_m": [
+          -0.6680965377017856,
+          -0.35745468409731984
+        ],
+        "route_relative_m": [
+          [
+            26.93961637187749,
+            -3.284380872360998
+          ],
+          [
+            49.60761430505772,
+            14.457045752275008
+          ],
+          [
+            68.17013614778625,
+            -1.476048087934032
+          ]
+        ],
+        "initial_distance_to_first_waypoint_m": 27.139087825103122,
+        "first_leg_bearing_deg": -6.950991321353793,
+        "initial_heading_deg": 6.228280570358038,
+        "initial_heading_error_deg": 13.17927189171183,
+        "current_ned_mps": [
+          -0.14041890505189192,
+          -0.3309788976471902,
+          0.0
+        ],
+        "wind_ned_mps": [
+          -9.912505028256948,
+          1.0323105249099989,
+          0.0
+        ]
+      },
+      "holoocean": {
+        "start_offset_m": [
+          -0.6680965377017856,
+          -0.35745468409731984
+        ],
+        "route_relative_m": [
+          [
+            26.939616371877943,
+            -3.2843808723616794
+          ],
+          [
+            49.60761430505765,
+            14.457045752275517
+          ],
+          [
+            68.17013614778527,
+            -1.4760480879347133
+          ]
+        ],
+        "initial_distance_to_first_waypoint_m": 27.139087825103655,
+        "first_leg_bearing_deg": -6.9509913213551044,
+        "initial_heading_deg": 6.228280570358038,
+        "initial_heading_error_deg": 13.17927189171314,
+        "current_ned_mps": [
+          -0.14041890505189192,
+          -0.3309788976471902,
+          0.0
+        ],
+        "wind_ned_mps": [
+          -9.912505028256948,
+          1.0323105249099989,
+          0.0
+        ]
+      },
+      "absolute_errors": {
+        "route_relative_max_m": 9.805489753489383e-13,
+        "initial_distance_m": 5.329070518200751e-13,
+        "first_leg_bearing_deg": 1.311839525897085e-12,
+        "initial_heading_deg": 0.0,
+        "initial_heading_error_deg": 1.3109513474773848e-12,
+        "current_vector_max_mps": 0.0,
+        "wind_vector_max_mps": 0.0
+      },
+      "match": true
+    }
+  ],
+  "all_match": true,
+  "maximum_absolute_errors": {
+    "route_relative_max_m": 1.1795009413617663e-12,
+    "initial_distance_m": 9.450218385609332e-13,
+    "first_leg_bearing_deg": 1.4157564010019996e-12,
+    "initial_heading_deg": 0.0,
+    "initial_heading_error_deg": 1.4157564010019996e-12,
+    "current_vector_max_mps": 0.0,
+    "wind_vector_max_mps": 0.0
+  }
+}

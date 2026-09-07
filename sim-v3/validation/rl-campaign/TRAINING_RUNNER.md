@@ -77,6 +77,11 @@ runtime requires Docker and the pinned image referenced by
 installed on the instance. These checks fail before policy optimization rather
 than producing incomparable data.
 
+On CodeNimbus, `submit-portable-training.sh` automatically runs Gazebo inside
+the cached Pyxis base image, installs the exact Harmonic 8.15 packages, and
+enables the native bridge. Gate D selected `--n-envs 8`; larger counts are not
+recommended because 16 environments violated exact simulation-step timing.
+
 Stonefish requires the four installation paths shown above and verifies the
 committed passing Gate D result before training. The bridge deliberately hides
 CUDA from each headless Stonefish subprocess; `--device cuda` applies to PPO.

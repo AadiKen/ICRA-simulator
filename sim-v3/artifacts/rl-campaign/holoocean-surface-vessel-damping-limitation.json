@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "holoocean-surface-vessel-structural-dynamics-limitation",
+  "status": "DOCUMENTED_LIMITATION",
+  "training_run": false,
+  "holoocean_source_revision": "49e70552dfd97273b7dfbe755fbe65d7738b24b7",
+  "built_in_agent": "SurfaceVessel",
+  "control_scheme": "native two-thruster force scheme (index 0)",
+  "engine_source": {
+    "surface_vessel_cpp": "engine/Source/Holodeck/Agents/Private/SurfaceVessel.cpp",
+    "surface_vessel_cpp_sha256": "1144c9082c14f3f7d3f63c7081caeb8fe70817d7de809053fffc358a71367bca",
+    "python_agent_api": "client/src/holoocean/agents.py",
+    "python_agent_api_sha256": "110120ed0c4276f9473e1e6fa54426d3d0c2185bdeefcd29c06dfa3fbc5aad54"
+  },
+  "hardcoded_parameters": {
+    "mass_kg": 200.0,
+    "coefficient_of_drag": 0.8,
+    "drag_area_m2": 1.0,
+    "unreal_linear_damping": 3.0,
+    "unreal_angular_damping": 0.75,
+    "native_thruster_limit_n": 1500.0
+  },
+  "configuration_audit": {
+    "surface_vessel_scenario_damping_fields": [],
+    "surface_vessel_python_damping_setters": [],
+    "python_api_warning": "SurfaceVessel constants used by C++ thruster/PD schemes cannot be changed by editing their Python mirrors.",
+    "custom_dynamics_available": true,
+    "custom_dynamics_disposition": "A custom-dynamics control scheme would replace the built-in SurfaceVessel plant. It is not an exposed calibration parameter for the native thruster scheme and was not used."
+  },
+  "post_rng_fix_calm_fixed_action_residual": {
+    "seed": 10000,
+    "control_steps": 1200,
+    "disturbance_condition": "zero wind and zero current in all three simulators",
+    "identical_normalized_actions": true,
+    "bcod_sim": {
+      "return": -97.89076820589219,
+      "mean_cross_track_m": 6.488092262786666
+    },
+    "stonefish": {
+      "return": -414.49578337140485,
+      "mean_cross_track_m": 16.11115990540267
+    },
+    "holoocean": {
+      "return": -27.288055046366004,
+      "mean_cross_track_m": 0.8472512109439796
+    },
+    "cross_track_ratio_bcod_to_holoocean": 7.657817528263042,
+    "cross_track_ratio_stonefish_to_holoocean": 19.01579995113849
+  },
+  "interpretation": "The residual is a native-plant response difference, not a reset, reward, or actuator-wrapper wiring error. The built-in SurfaceVessel damping and drag cannot be tuned through the public scenario/API. Rebuilding the engine or substituting custom dynamics would change the simulator plant and is not justified as curve-fitting for this comparison."
+}

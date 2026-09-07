@@ -18,6 +18,48 @@ TerminationReason = Literal[
     "allocation_failure", "instability", "simulator_termination", "timeout",
 ]
 
+PROGRESS_REWARD_GAIN = 2.0
+COMPLETION_FRACTION_DEFINITION = (
+    "clamp(signed cumulative route progress / full seeded route length, 0, 1); "
+    "each step's route progress is the exact distance delta used by the shared "
+    "progress reward, and full route length is start-to-first-waypoint plus all "
+    "subsequent waypoint-leg lengths"
+)
+
+
+def full_route_length_m(
+    start: tuple[float, float] | list[float] | np.ndarray,
+    route: list[tuple[float, float] | list[float] | np.ndarray],
+) -> float:
+    """Return the length of every seeded route leg, including start -> waypoint 0."""
+    points = [np.asarray(start, dtype=float), *(np.asarray(p, dtype=float) for p in route)]
+    if len(points) < 2:
+        raise ValueError("completion fraction requires at least one waypoint")
+    total = sum(float(np.linalg.norm(b - a)) for a, b in zip(points, points[1:]))
+    if total <= 0.0:
+        raise ValueError("completion fraction requires a non-zero full route length")
+    return total
+
+
+@dataclass
+class CompletionTracker:
+    """Shared completion metric driven only by the reward's progress component."""
+
+    total_route_length_m: float
+    cumulative_route_progress_m: float = 0.0
+
+    @classmethod
+    def for_route(cls, start, route) -> "CompletionTracker":
+        return cls(full_route_length_m(start, route))
+
+    def update(self, progress_reward: float) -> float:
+        # This is deliberately derived from the already-computed reward component:
+        # no harness is allowed to recompute progress from simulator positions.
+        self.cumulative_route_progress_m += float(progress_reward) / PROGRESS_REWARD_GAIN
+        return float(np.clip(
+            self.cumulative_route_progress_m / self.total_route_length_m, 0.0, 1.0
+        ))
+
 
 @dataclass(frozen=True)
 class RewardResult:
@@ -68,7 +110,7 @@ def compute_reward(
     shaping_enabled: bool = False,
 ) -> RewardResult:
     """Evaluate the frozen reward after backend telemetry is normalized."""
-    progress = 2.0 * (float(previous_distance_m) - float(distance_m))
+    progress = PROGRESS_REWARD_GAIN * (float(previous_distance_m) - float(distance_m))
     cross_track = -0.02 * float(cross_track_m)
     delta = np.asarray(action, dtype=float) - np.asarray(previous_action, dtype=float)
     action_delta = -0.05 * float(np.sum(delta * delta))

@@ -22,5 +22,14 @@
     "standalone_gazebo": "Remains a still-water primary comparison under artifacts/rl-campaign/gazebo-still-water-protocol.json; Gazebo's missing disturbance mechanism is not generalized to VRX.",
     "bcod_sim_robustness": "Retain the previously planned bcod-sim disturbed-versus-calm robustness comparison as a separate analysis; do not pool it with the matched bcod-sim/VRX primary comparison."
   },
+  "completion_reporting": {
+    "metric": "completion_fraction",
+    "definition": "clamp(signed cumulative progress from the shared reward component / full seeded route length, 0, 1)",
+    "denominator": "start-to-waypoint-0 plus every consecutive waypoint leg",
+    "csv_fields": ["completion_fraction", "success", "waypoints_reached", "termination_reason"],
+    "implementation": "packages/python-client/bcod_sim/common_task.py",
+    "comparison_rule": "Present reward, completion fraction, and success side by side; reward alone is not the primary cross-simulator metric.",
+    "caveat": "Completion reduces but does not eliminate simulator-specific hull-response confounds; HoloOcean's stiffer damping may inflate completion independently of policy quality."
+  },
   "figure_caption_requirement": "Label the VRX comparison as matched seeded wind/current with flat waves, and label standalone Gazebo separately as still-water."
 }

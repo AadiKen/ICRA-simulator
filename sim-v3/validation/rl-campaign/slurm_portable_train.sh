@@ -22,6 +22,12 @@ repository_root="${BCOD_REPOSITORY_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/..
 export BCOD_HOST_CLASS=cluster
 export PATH="${CODENIMBUS_NODE24_BIN:-$HOME/.local/node-v24.20.0-linux-x64/bin}:$PATH"
 
+if [[ "$backend" == "gazebo-harmonic" ]]; then
+  apt-get update -qq
+  DEBIAN_FRONTEND=noninteractive apt-get install -y -qq gz-harmonic >/tmp/bcod-gazebo-install.log
+  export BCOD_GAZEBO_NATIVE=1
+fi
+
 exec "$repository_root/train-portable.sh" \
   --backend "$backend" \
   --timesteps "$timesteps" \

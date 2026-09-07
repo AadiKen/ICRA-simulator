@@ -1,5 +1,21 @@
 # Stonefish Gate D and pre-training validation
 
+## Completion logging
+
+Stonefish now uses the simulator-neutral completion-fraction definition in
+`packages/python-client/bcod_sim/common_task.py`. The numerator comes directly
+from the shared progress reward component, while the denominator is the full
+seeded route length including the start-to-first-waypoint leg. Per-step reward
+CSV rows include completion fraction, success, waypoints reached, and
+termination reason. This logging change does not alter Gate D physics results
+and did not launch training.
+
+Reward alone is not the primary comparison metric. Completion fraction reduces
+the known scale and geometry confounds, but simulator-specific hull response
+(including HoloOcean's stiffer damping) can still change completion without a
+policy-quality change; reports must show reward, completion, and success side
+by side.
+
 Date: 2026-09-07  
 Remote host: `codenimbus-000-3.csl.illinois.edu` (`x86_64`, 32 visible CPUs)  
 Training/PPO started: no

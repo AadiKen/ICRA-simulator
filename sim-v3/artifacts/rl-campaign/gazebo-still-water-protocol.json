@@ -38,6 +38,15 @@
     "status": "OPEN_NOT_RESOLVED_HERE",
     "statement": "This still-water decision does not automatically extend to VRX. Once VRX Gates A/B are known, decide separately whether its native wind, wave, and current plugins can reproduce bcod-sim's seeded per-episode ranges or are restricted to fixed values."
   },
+  "completion_reporting": {
+    "metric": "completion_fraction",
+    "definition": "clamp(signed cumulative progress from the shared reward component / full seeded route length, 0, 1)",
+    "denominator": "start-to-waypoint-0 plus every consecutive waypoint leg",
+    "csv_fields": ["completion_fraction", "success", "waypoints_reached", "termination_reason"],
+    "implementation": "packages/python-client/bcod_sim/common_task.py",
+    "comparison_rule": "Present reward, completion fraction, and success side by side; reward alone is not the primary cross-simulator metric.",
+    "caveat": "Completion reduces but does not eliminate simulator-specific hull-response confounds; HoloOcean's stiffer damping may inflate completion independently of policy quality."
+  },
   "gate_d": {
     "measurement_host": "CodeNimbus native x86_64 training hardware; target partition gpu-a30-csl-cnice unless the submitted allocation selects another training partition",
     "local_amd64_emulation_eligible": false,

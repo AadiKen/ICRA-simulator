@@ -8,6 +8,7 @@ export type VehicleCTarget={north_m:number;east_m:number;heading_rad:number;wayp
 export type VehicleCSlidingModeOptions={mode:VehicleCControllerMode;dt_s:number;lambda?:number;kp?:[number,number,number];kd?:[number,number,number];boundary_layer?:[number,number,number];uncertainty_bound?:[number,number,number]};
 
 export const VEHICLE_C_LAMBDA_DERIVATION=(()=>{const gravity_m_s2=9.80665,beam_m=1.98,wave_celerity_m_s=Math.sqrt(gravity_m_s2*beam_m/(2*Math.PI)),resonant_frequency_hz=wave_celerity_m_s/beam_m,sampling_frequency_hz=20,actuator_delay_s=.35,resonant=(2/3)*Math.PI*resonant_frequency_hz,sampling=sampling_frequency_hz/5,delay=1/(3*actuator_delay_s);return{gravity_m_s2,beam_m,wave_celerity_m_s,resonant_frequency_hz,candidates_per_s:{resonant,sampling,actuator_delay:delay},selected_per_s:Math.min(resonant,sampling,delay),selected_by:"slowest-decay-rate",azimuth_slew_note:"30 deg/s is a nonlinear rate limit, not folded into the paper's pure-delay criterion."};})();
+export const VEHICLE_C_WORKING_CONTROLLER={mode:"backstepping",lambda:.9523809523809526,kp:[485.9950330344873,485.9950330344873,485.9950330344873],kd:[849.6899964175157,849.6899964175157,849.6899964175157],provenance:"vehicle-c-sliding-mode-final-attempt: sliding mode stopped after failing to clearly beat this reproduced checkpoint"} as const;
 
 const wrap=(x:number)=>Math.atan2(Math.sin(x),Math.cos(x));
 const transpose=(m:number[][])=>m[0].map((_,j)=>m.map(row=>row[j]));
@@ -37,3 +38,5 @@ export class VehicleCSlidingModeController{
     return{desired_wrench:wrench,eta_error:etaError,eta_dot:etaDot,eta_dot_r:reference,surface,integral_error:[...this.#integral],model_wrench:model,feedback_wrench:feedbackBody,uncommanded_dof_wrench:[wrench[2],wrench[3],wrench[4]],target_switch_transient:switched?"piecewise-constant target changed; controller state reset without differentiating the jump":"none"};
   }
 }
+
+export function createVehicleCWorkingController(dt_s:number){return new VehicleCSlidingModeController({mode:VEHICLE_C_WORKING_CONTROLLER.mode,dt_s,lambda:VEHICLE_C_WORKING_CONTROLLER.lambda,kp:[...VEHICLE_C_WORKING_CONTROLLER.kp],kd:[...VEHICLE_C_WORKING_CONTROLLER.kd]});}

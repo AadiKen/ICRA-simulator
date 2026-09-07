@@ -1,5 +1,7 @@
 import importlib.util
+import csv
 from pathlib import Path
+import tempfile
 import unittest
 
 import numpy as np
@@ -29,6 +31,35 @@ class FakeRecurrentModel:
     def predict(self, observation, *, state, episode_start, deterministic):
         self.calls.append((state, bool(episode_start[0]), deterministic))
         return np.zeros(2), 1 if state is None else state + 1
+
+
+class FakeComponentEnv(MODULE.gym.Env):
+    observation_space = None
+    action_space = None
+    metadata = {}
+    render_mode = None
+    spec = None
+    def __init__(self): self.i = 0
+    def reset(self, **_kwargs): self.i = 0; return np.zeros(15), {"seed": 42}
+    def step(self, _action):
+        self.i += 1
+        done = self.i == 2
+        components = {
+            "progress": 1.0, "cross_track": -0.2, "action_delta": -0.1,
+            "terminal": -10.0 if done else 0.0,
+            "base_reward": -9.3 if done else 0.7,
+            "potential_shaping": 0.3,
+            "shaped_reward": -9.0 if done else 1.0,
+        }
+        return np.zeros(15), components["shaped_reward"], False, done, {
+            "physics_steps": self.i * 2,
+            "completion_fraction": self.i / 2,
+            "success": False,
+            "waypoints_reached": self.i - 1,
+            "termination_reason": "timeout" if done else "running",
+            "reward_components": components,
+        }
+    def close(self): pass
 
 
 class PortableRecurrentPPOTest(unittest.TestCase):
@@ -70,6 +101,26 @@ class PortableRecurrentPPOTest(unittest.TestCase):
             (None, True, True), (1, False, True), (2, False, True),
             (None, True, True), (1, False, True), (2, False, True),
         ])
+
+    def test_reward_component_trace_writes_every_step_and_flushes_terminal_state(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "components.csv"
+            env = MODULE.RewardComponentTrace(FakeComponentEnv(), path)
+            env.reset()
+            env.step(np.zeros(2))
+            env.step(np.zeros(2))
+            env.close()
+            with path.open(newline="") as stream:
+                rows = list(csv.DictReader(stream))
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["episode_seed"], "42")
+        self.assertEqual(rows[0]["control_step"], "1")
+        self.assertEqual(rows[0]["action_delta"], "-0.1")
+        self.assertEqual(rows[1]["terminal"], "-10.0")
+        self.assertEqual(rows[1]["termination_reason"], "timeout")
+        self.assertEqual(rows[1]["completion_fraction"], "1.0")
+        self.assertEqual(rows[1]["waypoints_reached"], "1")
+        self.assertEqual(rows[1]["truncated"], "True")
 
     def test_v7_protocol_contains_frozen_gate_and_budget(self):
         source = SCRIPT.read_text()

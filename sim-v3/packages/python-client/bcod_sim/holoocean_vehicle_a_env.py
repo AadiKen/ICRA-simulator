@@ -18,19 +18,23 @@ import numpy as np
 try:
     from .holoocean_termination import HoloOceanTerminationMonitor
     from .common_task import (
+        CompletionTracker,
         classify_termination,
         compute_reward,
         cross_track_distance,
         passed_waypoint_plane,
     )
+    from .common_task_env import Mulberry32
 except ImportError:  # Direct validation-script import from this directory.
     from holoocean_termination import HoloOceanTerminationMonitor
     from common_task import (
+        CompletionTracker,
         classify_termination,
         compute_reward,
         cross_track_distance,
         passed_waypoint_plane,
     )
+    from common_task_env import Mulberry32
 
 
 class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
@@ -164,11 +168,15 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
 
     def _draw_randomization(self, seed: int) -> dict[str, Any]:
         ranges = self.contract["reset_randomization"]
-        rng = np.random.default_rng(seed)
-        route_angle_ned = math.radians(rng.uniform(*ranges["route_rotation_deg"]))
-        offset_north = rng.uniform(*ranges["start_position_offset_m"])
-        offset_east = rng.uniform(*ranges["start_position_offset_m"])
-        heading_ned = math.radians(rng.uniform(*ranges["start_heading_deg"]))
+        rng = Mulberry32(seed)
+
+        def uniform(bounds):
+            low, high = bounds
+            return low + (high - low) * rng.next()
+
+        route_angle_ned = math.radians(uniform(ranges["route_rotation_deg"]))
+        offset_north = uniform(ranges["start_position_offset_m"])
+        offset_east = uniform(ranges["start_position_offset_m"])
 
         # Contract world is NED. HoloOcean world is NWU: north=x, east=-y.
         route_nwu = []
@@ -177,16 +185,19 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
             rotated_east = north * math.sin(route_angle_ned) + east * math.cos(route_angle_ned)
             route_nwu.append([offset_north + rotated_north, -(offset_east + rotated_east)])
 
-        current_speed = rng.uniform(*ranges["current_speed_m_s"])
-        current_direction_ned = rng.uniform(0.0, 2.0 * math.pi)
+        # Keep the literal bcod-sim draw order: route, start N/E, current
+        # magnitude/direction, wind magnitude/direction, then heading.
+        current_speed = uniform(ranges["current_speed_m_s"])
+        current_direction_ned = 2.0 * math.pi * rng.next()
         # Convert the horizontal NED vector to HoloOcean NWU.
         current_nwu = [
             current_speed * math.cos(current_direction_ned),
             -current_speed * math.sin(current_direction_ned),
             0.0,
         ]
-        wind_speed = rng.uniform(*ranges["wind_speed_m_s"])
-        wind_direction_ned = rng.uniform(0.0, 2.0 * math.pi)
+        wind_speed = uniform(ranges["wind_speed_m_s"])
+        wind_direction_ned = 2.0 * math.pi * rng.next()
+        heading_ned = math.radians(uniform(ranges["start_heading_deg"]))
         return {
             "seed": seed,
             "spawn_nwu_m": [offset_north, -offset_east, 0.15],
@@ -496,6 +507,9 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
         self._previous_final_distance_m = self._distance_to_waypoint(
             len(self._route_ned) - 1
         )
+        self._completion_tracker = CompletionTracker.for_route(
+            self._start_ned, self._route_ned
+        )
         return observation, {
             "seed": actual_seed,
             "oracle_safe_policy_sensors": [
@@ -604,6 +618,7 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
             shaping_gamma=self.shaping_gamma,
             shaping_enabled=self.shaping_enabled,
         )
+        completion_fraction = self._completion_tracker.update(scored.progress_reward)
         self._previous_distance_m = next_previous_distance_m
         self._previous_final_distance_m = final_distance_m
         self._control_steps += 1
@@ -623,6 +638,7 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
             "wind_lateral_force_supported": False,
             "termination_reason": termination_reason,
             "success": success,
+            "completion_fraction": completion_fraction,
             "waypoints_reached": self._waypoint + (1 if success else 0),
             "current_waypoint_index": self._waypoint,
             "final_leg_active": self._waypoint == len(self._route_ned) - 1,

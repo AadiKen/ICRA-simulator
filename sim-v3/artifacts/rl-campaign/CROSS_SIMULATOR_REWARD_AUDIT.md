@@ -1,5 +1,21 @@
 # Cross-simulator reward and harness divergence audit
 
+## Completion-fraction logging addendum
+
+All five portable harnesses now report a shared `completion_fraction` alongside
+the reward components, `success`, `waypoints_reached`, and
+`termination_reason`. Its numerator is the signed cumulative distance delta
+already encoded in `reward_components.progress`; its denominator is the full
+seeded path from start through every waypoint. The implementation and exact
+definition live in `packages/python-client/bcod_sim/common_task.py`, preventing
+backend-specific distance calculations. This is instrumentation only: no
+training comparison was run or reinterpreted.
+
+Reward alone is therefore not the primary cross-simulator comparison metric.
+Completion fraction and success must be presented beside it. Completion
+fraction reduces, but cannot eliminate, the hull-response confound: HoloOcean's
+stiffer damping may inflate completion independently of policy quality.
+
 Date: 2026-09-07  
 Scope: diagnosis only; no simulator, reward, task, or training code was changed.  
 Audited revision: `1f1afad79a6a09491f67abd0788271a0f55a6f74`
