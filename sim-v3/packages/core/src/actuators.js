@@ -1,4 +1,5 @@
 import {ForceModel} from "./force-model.js";
+import {allocatePlanarAzimuthMinimumNorm} from "./azimuth-allocation.js";
 
 function clamp(value, min, max) {
     return Math.min(Math.max(value, min), max);
@@ -711,6 +712,14 @@ export class ActuationModel extends ForceModel {
     allocateIntegrated(tau6, state = null, env = {}) {
         const stuck = this.effectors.filter((effector) => effector.failureMode === "stuck");
         const controllable = this.effectors.filter((effector) => effector.failureMode === "healthy");
+        if (this.params.allocator?.mode === "dual-azimuth-minimum-thrust-norm" && stuck.length === 0 && controllable.length === this.effectors.length && controllable.every((effector) => effector instanceof AzimuthThruster)) {
+            const allocation=allocatePlanarAzimuthMinimumNorm([tau6[0],tau6[1],tau6[5]],controllable.map((effector)=>({id:effector.id,pos:effector.pos,maxThrust:effector.dynamics.max,maxReverseThrust:Math.abs(effector.dynamics.min)})),{regularization:this.params.allocator?.regularization ?? 0,angleContinuityWeight:this.params.allocator?.angleContinuityWeight??0,currentAzimuths:controllable.map((effector)=>effector.azimuth)});
+            const output=Object.fromEntries(allocation.pods.map((pod)=>[pod.id,{thrust:pod.thrust,azimuth:pod.azimuth}]));
+            const residual=tau6.map((value,index)=>value-([allocation.achieved_wrench[0],allocation.achieved_wrench[1],0,0,0,allocation.achieved_wrench[2]][index]));
+            const residualNorm=Math.hypot(residual[0],residual[1],residual[5]);
+            this.lastAllocationDiagnostics={mode:"dual-azimuth-minimum-thrust-norm",strategy:allocation.strategy,requested_wrench:[...allocation.requested_wrench],ideal_pods:structuredClone(allocation.pods),rank:3,condition_number:null,singular_values:[],bias_wrench:[0,0,0,0,0,0],achieved_wrench:[allocation.achieved_wrench[0],allocation.achieved_wrench[1],0,0,0,allocation.achieved_wrench[2]],residual_wrench:residual,reachable:residualNorm<=Math.max(this.params.allocator?.reachabilityTolerance??1e-6,1e-12),degradation:allocation.saturation_scale<1?"infeasible":"none",saturation_scale:allocation.saturation_scale};
+            return output;
+        }
         const bias = stuck.reduce((sum, effector) => add6(sum, effector.wrench(this.params, state, env)), [0,0,0,0,0,0]);
         const residualTarget = tau6.map((value, index) => value - bias[index]);
         const controlledDOF = this.params.controlledDOF || ["surge", "yaw"];

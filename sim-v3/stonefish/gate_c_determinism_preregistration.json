@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "created_before_measurement": true,
+  "date": "2026-09-07",
+  "prediction": "Same-seed identical-action traces will be bit-identical at both Stonefish's default physical-core thread-pool setting and max_physics_threads=1 because this scenario contains one hydrodynamic hull job and uses fixed-step Bullet state.",
+  "diagnostic_rule": {
+    "default_diverges_single_collapses": "thread scheduling is the supported cause",
+    "divergence_persists_single": "thread scheduling is not the cause",
+    "both_bit_identical": "no scheduling-induced divergence is measurable in this scenario"
+  },
+  "protocol": {
+    "repeats_per_thread_setting": 8,
+    "same_seed": 24680,
+    "sensor_noise_enabled": true,
+    "trace_fields": "all 15 frozen contract observation fields",
+    "comparison": "exact float64 equality plus maximum absolute divergence and worst step per field"
+  }
+}

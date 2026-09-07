@@ -112,7 +112,7 @@ def detect_host_class():
 
 def episode_metric_row(*, seed, env, info, total_return, wall_clock_s, policy_id, algorithm):
     reason = str(info["termination_reason"])
-    collision = "grounding" if reason == "grounding" else "object" if reason == "collision" else "none"
+    collision = "grounding" if reason == "grounding" else "object" if reason in ("collision","object_collision") else "none"
     backend_type=getattr(env,"backend_type","test");vehicle_preset=getattr(env,"vehicle_preset","test")
     row = {
         "run_id": f"{backend_type}__{vehicle_preset}__{policy_id}__seed-{seed}",

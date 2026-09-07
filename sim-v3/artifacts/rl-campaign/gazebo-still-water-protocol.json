@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gazebo-still-water-and-gate-d-protocol",
+  "date": "2026-09-07",
+  "status": "TASK_1_COMPLETE_GATE_D_PENDING_CLUSTER_MEASUREMENT",
+  "training_authorized": false,
+  "comparison_arms": {
+    "primary": {
+      "simulators": ["bcod-sim", "Gazebo Harmonic 8.15.0"],
+      "disturbance": {
+        "current_mps": [0, 0, 0],
+        "wind_mps": [0, 0, 0]
+      },
+      "figure_use": "The cross-simulator learning-curve figure plots this arm only.",
+      "interpretation": "Both simulators receive exactly zero disturbance, isolating simulator implementation as the comparison variable with no disturbance-distribution confound."
+    },
+    "bcod_sim_disturbed_robustness": {
+      "simulator": "bcod-sim",
+      "disturbance": "Existing seeded per-episode wind/current randomization from the frozen task contract.",
+      "reporting": "Report separately as robustness evidence and never plot it on the same axes as the primary comparison.",
+      "interpretation": "A lower result does not mean bcod-sim is worse than Gazebo; this arm solves a strictly harder task with disturbances."
+    }
+  },
+  "decision_basis": "The still-water primary comparison is selected specifically because the current Gazebo runtime cannot apply seeded wind/current at reset.",
+  "bcod_zero_disturbance_verification": {
+    "status": "CONFIRMED_EXACT_ZERO_NO_RESIDUAL",
+    "config_path": "CommonWaypointEnv(disturbance_mode='zero') -> _randomization -> _config -> LegacyProductionEngine.reset",
+    "resolved_values": {
+      "environment.current_mps": [0, 0, 0],
+      "environment.wind_mps": [0, 0, 0]
+    },
+    "sampled_seeds": [0, 1, 7319, 30000, 4294967295],
+    "seed_dependent_floor_or_minimum": false,
+    "verification_test": "packages/python-client/tests/test_still_water_config.py",
+    "result": "Both vectors were exactly zero for every sampled seed; the seeded arm remains separately available and nonzero."
+  },
+  "vrx_open_question": {
+    "status": "OPEN_NOT_RESOLVED_HERE",
+    "statement": "This still-water decision does not automatically extend to VRX. Once VRX Gates A/B are known, decide separately whether its native wind, wave, and current plugins can reproduce bcod-sim's seeded per-episode ranges or are restricted to fixed values."
+  },
+  "gate_d": {
+    "measurement_host": "CodeNimbus native x86_64 training hardware; target partition gpu-a30-csl-cnice unless the submitted allocation selects another training partition",
+    "local_amd64_emulation_eligible": false,
+    "environment_counts": [1, 4, 8, 16],
+    "throughput": [],
+    "parallel_environments": null,
+    "budget_decision": null,
+    "dry_run": null,
+    "status": "BLOCKED_MISSING_CLUSTER_ENDPOINT_OR_ACTIVE_ALLOCATION",
+    "access_audit": {
+      "ssh_client_available": true,
+      "configured_codenimbus_ssh_host": false,
+      "local_slurm_client_available": false,
+      "active_slurm_allocation": false,
+      "prior_workspace_status": "artifacts/rl-campaign/batch64-gpu-profile-cluster-status.json records blocked-no-cluster-endpoint-or-gpu-allocation",
+      "measurements_collected": 0
+    },
+    "blocker": "No CodeNimbus login endpoint, mounted cluster workspace, scheduler client, or active allocation is available from this task. Native x86_64 Gazebo throughput cannot be measured from the local AMD64-emulated host.",
+    "required_input": "Provide an accessible CodeNimbus SSH host/login or run this task from the cluster checkout with permission to submit to the target partition."
+  }
+}

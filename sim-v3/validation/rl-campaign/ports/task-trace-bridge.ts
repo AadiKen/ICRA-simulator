@@ -6,6 +6,19 @@ export interface GpsSample {timestamp_s:number;valid:boolean;position_ned_m:[num
 export interface OdomSample {time_s:number;N_m:number;E_m:number;yaw_rad:number;u_mps:number;v_mps:number;r_rad_s:number;imu?:ImuSample;gps?:GpsSample;}
 export interface TaskReset {seed:number;initial_state:TraceState;route_ned_m:Array<[number,number]>;disturbance:{wind_speed_m_s:number;wind_direction_deg:number;current_speed_m_s:number;current_direction_deg:number};}
 
+/** Canonical ENU heading to wrapped NED heading conversion. */
+export function enuYawToNed(yawEnu:number):number {
+  const wrapped=((Math.PI/2-yawEnu+Math.PI)%(2*Math.PI)+2*Math.PI)%(2*Math.PI)-Math.PI;
+  // Stable language boundary: Python's exact port applies the same 15-digit
+  // decimal quantization, eliminating platform-libm last-bit differences.
+  return Number(wrapped.toPrecision(15));
+}
+
+/** Canonical quaternion entry point used by external IMU adapters. */
+export function enuQuaternionToNedYaw(w:number,x:number,y:number,z:number):number {
+  return enuYawToNed(Math.atan2(2*(w*z+x*y),1-2*(y*y+z*z)));
+}
+
 /**
  * The only simulator-specific input is calibrated/transported sensor state.
  * Actuator semantics, cadence, and the contract observation ordering remain here.
@@ -31,8 +44,11 @@ export class TaskTraceBridge {
   trace(actions:Array<{step:number;time_s:number;command:FrozenAction}>,samples:TraceV2["samples"]):TraceV2 {const out={schema_version:"trace-schema-v2" as const,simulator:this.simulator,reset:this.reset,action_trace:actions,samples};assertTraceV2(out);return out;}
 }
 
-/** Convert Gazebo ENU true odometry to the NED/body ordering required by Node. */
+/** Convert Gazebo odometry (ENU pose, body-FLU twist) to task NED/body ordering. */
 export function gazeboOdomToTask(time_s:number,enu:{x:number;y:number;vx:number;vy:number;yaw_rad:number;angular_z:number},sensors?:Pick<OdomSample,"imu"|"gps">):OdomSample {
-  const yaw=Math.PI/2-enu.yaw_rad, Ndot=enu.vy, Edot=enu.vx;
-  return {time_s,N_m:enu.y,E_m:enu.x,yaw_rad:yaw,u_mps:Math.cos(yaw)*Ndot+Math.sin(yaw)*Edot,v_mps:-Math.sin(yaw)*Ndot+Math.cos(yaw)*Edot,r_rad_s:-enu.angular_z,...sensors};
+  const yaw=enuYawToNed(enu.yaw_rad);
+  // OdometryPublisher serializes twist in the child/body frame.  Its X axis is
+  // already forward, so rotating vx/vy as if they were world ENU applies the
+  // hull heading twice.  Only FLU-left -> NED-starboard needs a sign change.
+  return {time_s,N_m:enu.y,E_m:enu.x,yaw_rad:yaw,u_mps:enu.vx,v_mps:-enu.vy,r_rad_s:-enu.angular_z,...sensors};
 }

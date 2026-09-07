@@ -1,0 +1,2116 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-los-small-gain-sweep",
+  "status": "COMPLETE",
+  "selection_objective": [
+    "pattern_successes_max",
+    "pattern_reversals_min",
+    "pattern_final_minus_closest_min",
+    "pattern_mean_closest_min"
+  ],
+  "seed_30003_disposition": "reported but excluded from selection because calm counterfactual identifies disturbance-authority failure",
+  "selected": {
+    "candidate": 3,
+    "gains": {
+      "lookahead": 8,
+      "kp": 60,
+      "kd": 60,
+      "speed": 1
+    },
+    "pattern_successes": 0,
+    "pattern_reversals": 4,
+    "pattern_final_minus_closest_m": 34.42923639782086,
+    "pattern_mean_closest_m": 14.799620736176733,
+    "seed_30003": {
+      "candidate": 3,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134048753,
+      "closest_distance_m": 68.18684134048753,
+      "final_distance_m": 187.3897362271584,
+      "rebound_after_closest_m": 119.20289488667088,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    }
+  },
+  "summaries": [
+    {
+      "candidate": 3,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 34.42923639782086,
+      "pattern_mean_closest_m": 14.799620736176733,
+      "seed_30003": {
+        "candidate": 3,
+        "gains": {
+          "lookahead": 8,
+          "kp": 60,
+          "kd": 60,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684134048753,
+        "closest_distance_m": 68.18684134048753,
+        "final_distance_m": 187.3897362271584,
+        "rebound_after_closest_m": 119.20289488667088,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 16,
+      "gains": {
+        "lookahead": 16,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 34.666318576458494,
+      "pattern_mean_closest_m": 16.469680503835438,
+      "seed_30003": {
+        "candidate": 16,
+        "gains": {
+          "lookahead": 16,
+          "kp": 80,
+          "kd": 35,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684133914059,
+        "closest_distance_m": 68.18684133914059,
+        "final_distance_m": 179.37710292397114,
+        "rebound_after_closest_m": 111.19026158483055,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 11,
+      "gains": {
+        "lookahead": 12,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 34.67320556015362,
+      "pattern_mean_closest_m": 15.404119720112945,
+      "seed_30003": {
+        "candidate": 11,
+        "gains": {
+          "lookahead": 12,
+          "kp": 80,
+          "kd": 60,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684133914059,
+        "closest_distance_m": 68.18684133914059,
+        "final_distance_m": 179.96282349451727,
+        "rebound_after_closest_m": 111.77598215537668,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 17,
+      "gains": {
+        "lookahead": 16,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 34.68727407705407,
+      "pattern_mean_closest_m": 16.810990223237717,
+      "seed_30003": {
+        "candidate": 17,
+        "gains": {
+          "lookahead": 16,
+          "kp": 80,
+          "kd": 60,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684133914059,
+        "closest_distance_m": 68.18684133914059,
+        "final_distance_m": 178.66855470714648,
+        "rebound_after_closest_m": 110.4817133680059,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 2,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 34.840639890823596,
+      "pattern_mean_closest_m": 14.74638752581206,
+      "seed_30003": {
+        "candidate": 2,
+        "gains": {
+          "lookahead": 8,
+          "kp": 60,
+          "kd": 35,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684134048753,
+        "closest_distance_m": 68.18684134048753,
+        "final_distance_m": 188.05059549427753,
+        "rebound_after_closest_m": 119.86375415379,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 10,
+      "gains": {
+        "lookahead": 12,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 35.01357031939261,
+      "pattern_mean_closest_m": 15.63882589596684,
+      "seed_30003": {
+        "candidate": 10,
+        "gains": {
+          "lookahead": 12,
+          "kp": 80,
+          "kd": 35,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684133914059,
+        "closest_distance_m": 68.18684133914059,
+        "final_distance_m": 180.64068416874102,
+        "rebound_after_closest_m": 112.45384282960043,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 9,
+      "gains": {
+        "lookahead": 12,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 35.044912197665674,
+      "pattern_mean_closest_m": 15.97847687995732,
+      "seed_30003": {
+        "candidate": 9,
+        "gains": {
+          "lookahead": 12,
+          "kp": 60,
+          "kd": 60,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684134048753,
+        "closest_distance_m": 68.18684134048753,
+        "final_distance_m": 185.84427541837846,
+        "rebound_after_closest_m": 117.65743407789093,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 8,
+      "gains": {
+        "lookahead": 12,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 35.14240815609001,
+      "pattern_mean_closest_m": 15.930802044108084,
+      "seed_30003": {
+        "candidate": 8,
+        "gains": {
+          "lookahead": 12,
+          "kp": 60,
+          "kd": 35,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684134048753,
+        "closest_distance_m": 68.18684134048753,
+        "final_distance_m": 186.5364128813901,
+        "rebound_after_closest_m": 118.34957154090257,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 15,
+      "gains": {
+        "lookahead": 16,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 35.14931707239426,
+      "pattern_mean_closest_m": 16.904400293357973,
+      "seed_30003": {
+        "candidate": 15,
+        "gains": {
+          "lookahead": 16,
+          "kp": 60,
+          "kd": 60,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684134048753,
+        "closest_distance_m": 68.18684134048753,
+        "final_distance_m": 184.7251064266448,
+        "rebound_after_closest_m": 116.53826508615727,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 5,
+      "gains": {
+        "lookahead": 8,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 35.17295078472357,
+      "pattern_mean_closest_m": 14.549211978388417,
+      "seed_30003": {
+        "candidate": 5,
+        "gains": {
+          "lookahead": 8,
+          "kp": 80,
+          "kd": 60,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684133914059,
+        "closest_distance_m": 68.18684133914059,
+        "final_distance_m": 182.13667402533315,
+        "rebound_after_closest_m": 113.94983268619256,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 14,
+      "gains": {
+        "lookahead": 16,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 35.230743685327816,
+      "pattern_mean_closest_m": 16.679910222637996,
+      "seed_30003": {
+        "candidate": 14,
+        "gains": {
+          "lookahead": 16,
+          "kp": 60,
+          "kd": 35,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684134048753,
+        "closest_distance_m": 68.18684134048753,
+        "final_distance_m": 185.4379947433356,
+        "rebound_after_closest_m": 117.25115340284806,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 4,
+      "gains": {
+        "lookahead": 8,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 35.804829912013446,
+      "pattern_mean_closest_m": 14.397215607661236,
+      "seed_30003": {
+        "candidate": 4,
+        "gains": {
+          "lookahead": 8,
+          "kp": 80,
+          "kd": 35,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684133914059,
+        "closest_distance_m": 68.18684133914059,
+        "final_distance_m": 182.71882205501072,
+        "rebound_after_closest_m": 114.53198071587013,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 13,
+      "gains": {
+        "lookahead": 16,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 37.708470063564874,
+      "pattern_mean_closest_m": 17.293616683691265,
+      "seed_30003": {
+        "candidate": 13,
+        "gains": {
+          "lookahead": 16,
+          "kp": 40,
+          "kd": 60,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684134183674,
+        "closest_distance_m": 68.18684134183674,
+        "final_distance_m": 188.29114749249425,
+        "rebound_after_closest_m": 120.10430615065751,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 12,
+      "gains": {
+        "lookahead": 16,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 37.90242985262736,
+      "pattern_mean_closest_m": 16.987767430440687,
+      "seed_30003": {
+        "candidate": 12,
+        "gains": {
+          "lookahead": 16,
+          "kp": 40,
+          "kd": 35,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684134183674,
+        "closest_distance_m": 68.18684134183674,
+        "final_distance_m": 189.05950835972268,
+        "rebound_after_closest_m": 120.87266701788595,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 7,
+      "gains": {
+        "lookahead": 12,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 37.98252023557112,
+      "pattern_mean_closest_m": 16.14464743987352,
+      "seed_30003": {
+        "candidate": 7,
+        "gains": {
+          "lookahead": 12,
+          "kp": 40,
+          "kd": 60,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684134183674,
+        "closest_distance_m": 68.18684134183674,
+        "final_distance_m": 188.85501853678525,
+        "rebound_after_closest_m": 120.66817719494851,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 6,
+      "gains": {
+        "lookahead": 12,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 38.156482021508026,
+      "pattern_mean_closest_m": 16.12821986628677,
+      "seed_30003": {
+        "candidate": 6,
+        "gains": {
+          "lookahead": 12,
+          "kp": 40,
+          "kd": 35,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684134183674,
+        "closest_distance_m": 68.18684134183674,
+        "final_distance_m": 189.61947616001757,
+        "rebound_after_closest_m": 121.43263481818083,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 1,
+      "gains": {
+        "lookahead": 8,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 38.82001970623551,
+      "pattern_mean_closest_m": 15.69595760442022,
+      "seed_30003": {
+        "candidate": 1,
+        "gains": {
+          "lookahead": 8,
+          "kp": 40,
+          "kd": 60,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684134183674,
+        "closest_distance_m": 68.18684134183674,
+        "final_distance_m": 189.5812338409014,
+        "rebound_after_closest_m": 121.39439249906467,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    },
+    {
+      "candidate": 0,
+      "gains": {
+        "lookahead": 8,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "pattern_successes": 0,
+      "pattern_reversals": 4,
+      "pattern_final_minus_closest_m": 39.1319249333072,
+      "pattern_mean_closest_m": 15.159794238786652,
+      "seed_30003": {
+        "candidate": 0,
+        "gains": {
+          "lookahead": 8,
+          "kp": 40,
+          "kd": 35,
+          "speed": 1
+        },
+        "seed": 30003,
+        "success": false,
+        "start_distance_m": 68.18684134183674,
+        "closest_distance_m": 68.18684134183674,
+        "final_distance_m": 190.33139493931344,
+        "rebound_after_closest_m": 122.1445535974767,
+        "approach_then_reverse": false,
+        "waypoints_reached": 0
+      }
+    }
+  ],
+  "rows": [
+    {
+      "candidate": 0,
+      "gains": {
+        "lookahead": 8,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564032209446,
+      "closest_distance_m": 36.18590103818566,
+      "final_distance_m": 91.39089976947922,
+      "rebound_after_closest_m": 55.20499873129356,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 0,
+      "gains": {
+        "lookahead": 8,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134183674,
+      "closest_distance_m": 68.18684134183674,
+      "final_distance_m": 190.33139493931344,
+      "rebound_after_closest_m": 122.1445535974767,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 0,
+      "gains": {
+        "lookahead": 8,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.18573891468928,
+      "closest_distance_m": 11.600939368186083,
+      "final_distance_m": 44.636470920647334,
+      "rebound_after_closest_m": 33.03553155246125,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 0,
+      "gains": {
+        "lookahead": 8,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.18589465460468,
+      "closest_distance_m": 1.7812419269218038,
+      "final_distance_m": 20.32680441171366,
+      "rebound_after_closest_m": 18.545562484791855,
+      "approach_then_reverse": true,
+      "waypoints_reached": 1
+    },
+    {
+      "candidate": 0,
+      "gains": {
+        "lookahead": 8,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553382980299,
+      "closest_distance_m": 11.071094621853065,
+      "final_distance_m": 60.812701586535226,
+      "rebound_after_closest_m": 49.74160696468216,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 1,
+      "gains": {
+        "lookahead": 8,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564032209446,
+      "closest_distance_m": 37.21335559042129,
+      "final_distance_m": 91.70378048796583,
+      "rebound_after_closest_m": 54.49042489754454,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 1,
+      "gains": {
+        "lookahead": 8,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134183674,
+      "closest_distance_m": 68.18684134183674,
+      "final_distance_m": 189.5812338409014,
+      "rebound_after_closest_m": 121.39439249906467,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 1,
+      "gains": {
+        "lookahead": 8,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.18573891468928,
+      "closest_distance_m": 11.421338948685872,
+      "final_distance_m": 44.310755199976775,
+      "rebound_after_closest_m": 32.8894162512909,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 1,
+      "gains": {
+        "lookahead": 8,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.18589465460468,
+      "closest_distance_m": 1.6636906757137693,
+      "final_distance_m": 21.210881857351158,
+      "rebound_after_closest_m": 19.547191181637388,
+      "approach_then_reverse": true,
+      "waypoints_reached": 1
+    },
+    {
+      "candidate": 1,
+      "gains": {
+        "lookahead": 8,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553382980299,
+      "closest_distance_m": 12.485445202859959,
+      "final_distance_m": 60.83849169732916,
+      "rebound_after_closest_m": 48.353046494469204,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 2,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564028098618,
+      "closest_distance_m": 33.317936628851236,
+      "final_distance_m": 89.11273474882081,
+      "rebound_after_closest_m": 55.79479811996958,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 2,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134048753,
+      "closest_distance_m": 68.18684134048753,
+      "final_distance_m": 188.05059549427753,
+      "rebound_after_closest_m": 119.86375415379,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 2,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.18573891341077,
+      "closest_distance_m": 10.802439756495819,
+      "final_distance_m": 44.9511227925025,
+      "rebound_after_closest_m": 34.14868303600669,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 2,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.18589465599581,
+      "closest_distance_m": 3.7174820656355227,
+      "final_distance_m": 9.740235490390495,
+      "rebound_after_closest_m": 6.022753424754972,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 2,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553384299314,
+      "closest_distance_m": 11.147691652265655,
+      "final_distance_m": 54.5440166348288,
+      "rebound_after_closest_m": 43.396324982563144,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 3,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564028098618,
+      "closest_distance_m": 33.06773635645286,
+      "final_distance_m": 88.70080664573229,
+      "rebound_after_closest_m": 55.63307028927942,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 3,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134048753,
+      "closest_distance_m": 68.18684134048753,
+      "final_distance_m": 187.3897362271584,
+      "rebound_after_closest_m": 119.20289488667088,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 3,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.18573891341077,
+      "closest_distance_m": 10.738760155617523,
+      "final_distance_m": 44.78542451659531,
+      "rebound_after_closest_m": 34.046664360977786,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 3,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.18589465599581,
+      "closest_distance_m": 3.932363757722543,
+      "final_distance_m": 9.23141538405433,
+      "rebound_after_closest_m": 5.299051626331787,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 3,
+      "gains": {
+        "lookahead": 8,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553384299314,
+      "closest_distance_m": 11.459622674914007,
+      "final_distance_m": 54.197781989608465,
+      "rebound_after_closest_m": 42.73815931469446,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 4,
+      "gains": {
+        "lookahead": 8,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564023988023,
+      "closest_distance_m": 31.703902299253574,
+      "final_distance_m": 88.7147681253246,
+      "rebound_after_closest_m": 57.010865826071026,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 4,
+      "gains": {
+        "lookahead": 8,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684133914059,
+      "closest_distance_m": 68.18684133914059,
+      "final_distance_m": 182.71882205501072,
+      "rebound_after_closest_m": 114.53198071587013,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 4,
+      "gains": {
+        "lookahead": 8,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.1857389121323,
+      "closest_distance_m": 12.538391643563793,
+      "final_distance_m": 48.424787020934176,
+      "rebound_after_closest_m": 35.886395377370384,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 4,
+      "gains": {
+        "lookahead": 8,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.1858946573888,
+      "closest_distance_m": 3.310406613431498,
+      "final_distance_m": 8.42598523092465,
+      "rebound_after_closest_m": 5.115578617493153,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 4,
+      "gains": {
+        "lookahead": 8,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553385618438,
+      "closest_distance_m": 10.036161874396079,
+      "final_distance_m": 55.242641701515296,
+      "rebound_after_closest_m": 45.20647982711922,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 5,
+      "gains": {
+        "lookahead": 8,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564023988023,
+      "closest_distance_m": 31.689249844608693,
+      "final_distance_m": 88.5609305812295,
+      "rebound_after_closest_m": 56.8716807366208,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 5,
+      "gains": {
+        "lookahead": 8,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684133914059,
+      "closest_distance_m": 68.18684133914059,
+      "final_distance_m": 182.13667402533315,
+      "rebound_after_closest_m": 113.94983268619256,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 5,
+      "gains": {
+        "lookahead": 8,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.1857389121323,
+      "closest_distance_m": 11.799564232596358,
+      "final_distance_m": 47.60934306985031,
+      "rebound_after_closest_m": 35.80977883725395,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 5,
+      "gains": {
+        "lookahead": 8,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.1858946573888,
+      "closest_distance_m": 3.4114741647237867,
+      "final_distance_m": 8.732846982897154,
+      "rebound_after_closest_m": 5.3213728181733675,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 5,
+      "gains": {
+        "lookahead": 8,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553385618438,
+      "closest_distance_m": 11.296559671624836,
+      "final_distance_m": 53.98553041847096,
+      "rebound_after_closest_m": 42.688970746846124,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 6,
+      "gains": {
+        "lookahead": 12,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564032209446,
+      "closest_distance_m": 40.40871912260035,
+      "final_distance_m": 91.90690605898736,
+      "rebound_after_closest_m": 51.49818693638701,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 6,
+      "gains": {
+        "lookahead": 12,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134183674,
+      "closest_distance_m": 68.18684134183674,
+      "final_distance_m": 189.61947616001757,
+      "rebound_after_closest_m": 121.43263481818083,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 6,
+      "gains": {
+        "lookahead": 12,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.18573891468928,
+      "closest_distance_m": 11.433853652042474,
+      "final_distance_m": 44.90135503328144,
+      "rebound_after_closest_m": 33.46750138123897,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 6,
+      "gains": {
+        "lookahead": 12,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.18589465460468,
+      "closest_distance_m": 0.4372264801200264,
+      "final_distance_m": 21.155696378360613,
+      "rebound_after_closest_m": 20.718469898240585,
+      "approach_then_reverse": true,
+      "waypoints_reached": 1
+    },
+    {
+      "candidate": 6,
+      "gains": {
+        "lookahead": 12,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553382980299,
+      "closest_distance_m": 12.233080210384225,
+      "final_distance_m": 59.17485008054977,
+      "rebound_after_closest_m": 46.941769870165544,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 7,
+      "gains": {
+        "lookahead": 12,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564032209446,
+      "closest_distance_m": 39.972066714858165,
+      "final_distance_m": 91.54343346469206,
+      "rebound_after_closest_m": 51.57136674983389,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 7,
+      "gains": {
+        "lookahead": 12,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134183674,
+      "closest_distance_m": 68.18684134183674,
+      "final_distance_m": 188.85501853678525,
+      "rebound_after_closest_m": 120.66817719494851,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 7,
+      "gains": {
+        "lookahead": 12,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.18573891468928,
+      "closest_distance_m": 11.106784124327039,
+      "final_distance_m": 44.26038283856467,
+      "rebound_after_closest_m": 33.15359871423763,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 7,
+      "gains": {
+        "lookahead": 12,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.18589465460468,
+      "closest_distance_m": 1.0357692420575855,
+      "final_distance_m": 20.722153139407673,
+      "rebound_after_closest_m": 19.686383897350087,
+      "approach_then_reverse": true,
+      "waypoints_reached": 1
+    },
+    {
+      "candidate": 7,
+      "gains": {
+        "lookahead": 12,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553382980299,
+      "closest_distance_m": 12.463969678251283,
+      "final_distance_m": 59.98270125911416,
+      "rebound_after_closest_m": 47.51873158086288,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 8,
+      "gains": {
+        "lookahead": 12,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564028098618,
+      "closest_distance_m": 35.33937513158215,
+      "final_distance_m": 89.58841048434873,
+      "rebound_after_closest_m": 54.249035352766576,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 8,
+      "gains": {
+        "lookahead": 12,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134048753,
+      "closest_distance_m": 68.18684134048753,
+      "final_distance_m": 186.5364128813901,
+      "rebound_after_closest_m": 118.34957154090257,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 8,
+      "gains": {
+        "lookahead": 12,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.18573891341077,
+      "closest_distance_m": 12.305841692578484,
+      "final_distance_m": 47.034112337268,
+      "rebound_after_closest_m": 34.728270644689516,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 8,
+      "gains": {
+        "lookahead": 12,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.18589465599581,
+      "closest_distance_m": 3.8824960309353886,
+      "final_distance_m": 12.793377847264695,
+      "rebound_after_closest_m": 8.910881816329306,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 8,
+      "gains": {
+        "lookahead": 12,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553384299314,
+      "closest_distance_m": 12.19549532133632,
+      "final_distance_m": 54.87694013191097,
+      "rebound_after_closest_m": 42.68144481057465,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 9,
+      "gains": {
+        "lookahead": 12,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564028098618,
+      "closest_distance_m": 35.70868411477877,
+      "final_distance_m": 88.83728771811587,
+      "rebound_after_closest_m": 53.128603603337105,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 9,
+      "gains": {
+        "lookahead": 12,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134048753,
+      "closest_distance_m": 68.18684134048753,
+      "final_distance_m": 185.84427541837846,
+      "rebound_after_closest_m": 117.65743407789093,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 9,
+      "gains": {
+        "lookahead": 12,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.18573891341077,
+      "closest_distance_m": 11.95533704819265,
+      "final_distance_m": 47.34234900442489,
+      "rebound_after_closest_m": 35.38701195623224,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 9,
+      "gains": {
+        "lookahead": 12,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.18589465599581,
+      "closest_distance_m": 4.353709314908117,
+      "final_distance_m": 12.771067809126256,
+      "rebound_after_closest_m": 8.417358494218139,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 9,
+      "gains": {
+        "lookahead": 12,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553384299314,
+      "closest_distance_m": 11.896177041949743,
+      "final_distance_m": 55.142851778824955,
+      "rebound_after_closest_m": 43.246674736875214,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 10,
+      "gains": {
+        "lookahead": 12,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564023988023,
+      "closest_distance_m": 32.4689449125482,
+      "final_distance_m": 87.07580103264677,
+      "rebound_after_closest_m": 54.60685612009856,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 10,
+      "gains": {
+        "lookahead": 12,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684133914059,
+      "closest_distance_m": 68.18684133914059,
+      "final_distance_m": 180.64068416874102,
+      "rebound_after_closest_m": 112.45384282960043,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 10,
+      "gains": {
+        "lookahead": 12,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.1857389121323,
+      "closest_distance_m": 13.995509947177329,
+      "final_distance_m": 50.50230275926197,
+      "rebound_after_closest_m": 36.50679281208464,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 10,
+      "gains": {
+        "lookahead": 12,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.1858946573888,
+      "closest_distance_m": 4.127447291641877,
+      "final_distance_m": 10.961847844337015,
+      "rebound_after_closest_m": 6.834400552695138,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 10,
+      "gains": {
+        "lookahead": 12,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553385618438,
+      "closest_distance_m": 11.96340143249994,
+      "final_distance_m": 54.069633225192035,
+      "rebound_after_closest_m": 42.1062317926921,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 11,
+      "gains": {
+        "lookahead": 12,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564023988023,
+      "closest_distance_m": 33.55263271628903,
+      "final_distance_m": 85.7609693966285,
+      "rebound_after_closest_m": 52.208336680339464,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 11,
+      "gains": {
+        "lookahead": 12,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684133914059,
+      "closest_distance_m": 68.18684133914059,
+      "final_distance_m": 179.96282349451727,
+      "rebound_after_closest_m": 111.77598215537668,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 11,
+      "gains": {
+        "lookahead": 12,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.1857389121323,
+      "closest_distance_m": 12.553095089608508,
+      "final_distance_m": 48.38069888110844,
+      "rebound_after_closest_m": 35.827603791499925,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 11,
+      "gains": {
+        "lookahead": 12,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.1858946573888,
+      "closest_distance_m": 4.395094795150444,
+      "final_distance_m": 11.141722619425932,
+      "rebound_after_closest_m": 6.746627824275488,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 11,
+      "gains": {
+        "lookahead": 12,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553385618438,
+      "closest_distance_m": 11.115656279403797,
+      "final_distance_m": 55.02591022390338,
+      "rebound_after_closest_m": 43.91025394449959,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 12,
+      "gains": {
+        "lookahead": 16,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564032209446,
+      "closest_distance_m": 42.233136112646896,
+      "final_distance_m": 94.2180651097766,
+      "rebound_after_closest_m": 51.98492899712971,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 12,
+      "gains": {
+        "lookahead": 16,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134183674,
+      "closest_distance_m": 68.18684134183674,
+      "final_distance_m": 189.05950835972268,
+      "rebound_after_closest_m": 120.87266701788595,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 12,
+      "gains": {
+        "lookahead": 16,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.18573891468928,
+      "closest_distance_m": 11.13453635076464,
+      "final_distance_m": 44.12399434135557,
+      "rebound_after_closest_m": 32.98945799059093,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 12,
+      "gains": {
+        "lookahead": 16,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.18589465460468,
+      "closest_distance_m": 2.144885145752064,
+      "final_distance_m": 21.158386609867875,
+      "rebound_after_closest_m": 19.013501464115812,
+      "approach_then_reverse": true,
+      "waypoints_reached": 1
+    },
+    {
+      "candidate": 12,
+      "gains": {
+        "lookahead": 16,
+        "kp": 40,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553382980299,
+      "closest_distance_m": 12.438512112599149,
+      "final_distance_m": 60.06034307127211,
+      "rebound_after_closest_m": 47.62183095867296,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 13,
+      "gains": {
+        "lookahead": 16,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564032209446,
+      "closest_distance_m": 43.03965017624806,
+      "final_distance_m": 95.71576773771002,
+      "rebound_after_closest_m": 52.676117561461965,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 13,
+      "gains": {
+        "lookahead": 16,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134183674,
+      "closest_distance_m": 68.18684134183674,
+      "final_distance_m": 188.29114749249425,
+      "rebound_after_closest_m": 120.10430615065751,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 13,
+      "gains": {
+        "lookahead": 16,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.18573891468928,
+      "closest_distance_m": 11.052386470679977,
+      "final_distance_m": 43.799767154178326,
+      "rebound_after_closest_m": 32.74738068349835,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 13,
+      "gains": {
+        "lookahead": 16,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.18589465460468,
+      "closest_distance_m": 2.3835932750751128,
+      "final_distance_m": 21.0652114970808,
+      "rebound_after_closest_m": 18.681618222005685,
+      "approach_then_reverse": true,
+      "waypoints_reached": 1
+    },
+    {
+      "candidate": 13,
+      "gains": {
+        "lookahead": 16,
+        "kp": 40,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553382980299,
+      "closest_distance_m": 12.698836812761911,
+      "final_distance_m": 59.42760060005543,
+      "rebound_after_closest_m": 46.728763787293516,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 14,
+      "gains": {
+        "lookahead": 16,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564028098618,
+      "closest_distance_m": 38.40600991031282,
+      "final_distance_m": 88.94523970959693,
+      "rebound_after_closest_m": 50.539229799284115,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 14,
+      "gains": {
+        "lookahead": 16,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134048753,
+      "closest_distance_m": 68.18684134048753,
+      "final_distance_m": 185.4379947433356,
+      "rebound_after_closest_m": 117.25115340284806,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 14,
+      "gains": {
+        "lookahead": 16,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.18573891341077,
+      "closest_distance_m": 12.235999977131046,
+      "final_distance_m": 47.0335256372153,
+      "rebound_after_closest_m": 34.797525660084254,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 14,
+      "gains": {
+        "lookahead": 16,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.18589465599581,
+      "closest_distance_m": 3.807273230489693,
+      "final_distance_m": 14.364783384062836,
+      "rebound_after_closest_m": 10.557510153573142,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 14,
+      "gains": {
+        "lookahead": 16,
+        "kp": 60,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553384299314,
+      "closest_distance_m": 12.270357772618437,
+      "final_distance_m": 57.29906690098818,
+      "rebound_after_closest_m": 45.02870912836974,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 15,
+      "gains": {
+        "lookahead": 16,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564028098618,
+      "closest_distance_m": 38.69979471598443,
+      "final_distance_m": 88.56480216086835,
+      "rebound_after_closest_m": 49.86500744488392,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 15,
+      "gains": {
+        "lookahead": 16,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684134048753,
+      "closest_distance_m": 68.18684134048753,
+      "final_distance_m": 184.7251064266448,
+      "rebound_after_closest_m": 116.53826508615727,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 15,
+      "gains": {
+        "lookahead": 16,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.18573891341077,
+      "closest_distance_m": 12.401877708329284,
+      "final_distance_m": 47.73834643821464,
+      "rebound_after_closest_m": 35.336468729885354,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 15,
+      "gains": {
+        "lookahead": 16,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.18589465599581,
+      "closest_distance_m": 4.083811498324947,
+      "final_distance_m": 14.283308116439356,
+      "rebound_after_closest_m": 10.19949661811441,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 15,
+      "gains": {
+        "lookahead": 16,
+        "kp": 60,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553384299314,
+      "closest_distance_m": 12.43211725079323,
+      "final_distance_m": 57.62841274748658,
+      "rebound_after_closest_m": 45.19629549669335,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 16,
+      "gains": {
+        "lookahead": 16,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564023988023,
+      "closest_distance_m": 35.451969733385475,
+      "final_distance_m": 86.86997918987181,
+      "rebound_after_closest_m": 51.41800945648634,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 16,
+      "gains": {
+        "lookahead": 16,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684133914059,
+      "closest_distance_m": 68.18684133914059,
+      "final_distance_m": 179.37710292397114,
+      "rebound_after_closest_m": 111.19026158483055,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 16,
+      "gains": {
+        "lookahead": 16,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.1857389121323,
+      "closest_distance_m": 13.322846411963814,
+      "final_distance_m": 50.25873925339871,
+      "rebound_after_closest_m": 36.93589284143489,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 16,
+      "gains": {
+        "lookahead": 16,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.1858946573888,
+      "closest_distance_m": 4.4719879264529645,
+      "final_distance_m": 12.812077259839873,
+      "rebound_after_closest_m": 8.340089333386908,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 16,
+      "gains": {
+        "lookahead": 16,
+        "kp": 80,
+        "kd": 35,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553385618438,
+      "closest_distance_m": 12.631917943539497,
+      "final_distance_m": 54.60320061806532,
+      "rebound_after_closest_m": 41.971282674525824,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 17,
+      "gains": {
+        "lookahead": 16,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30000,
+      "success": false,
+      "start_distance_m": 68.18564023988023,
+      "closest_distance_m": 36.23326791072209,
+      "final_distance_m": 87.51270792602396,
+      "rebound_after_closest_m": 51.27944001530187,
+      "approach_then_reverse": true,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 17,
+      "gains": {
+        "lookahead": 16,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30003,
+      "success": false,
+      "start_distance_m": 68.18684133914059,
+      "closest_distance_m": 68.18684133914059,
+      "final_distance_m": 178.66855470714648,
+      "rebound_after_closest_m": 110.4817133680059,
+      "approach_then_reverse": false,
+      "waypoints_reached": 0
+    },
+    {
+      "candidate": 17,
+      "gains": {
+        "lookahead": 16,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30007,
+      "success": false,
+      "start_distance_m": 68.1857389121323,
+      "closest_distance_m": 13.804797892045109,
+      "final_distance_m": 50.57075210071115,
+      "rebound_after_closest_m": 36.76595420866604,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 17,
+      "gains": {
+        "lookahead": 16,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30013,
+      "success": false,
+      "start_distance_m": 68.1858946573888,
+      "closest_distance_m": 4.604531530700837,
+      "final_distance_m": 12.775385406681625,
+      "rebound_after_closest_m": 8.17085387598079,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    },
+    {
+      "candidate": 17,
+      "gains": {
+        "lookahead": 16,
+        "kp": 80,
+        "kd": 60,
+        "speed": 1
+      },
+      "seed": 30048,
+      "success": false,
+      "start_distance_m": 68.18553385618438,
+      "closest_distance_m": 12.601363559482824,
+      "final_distance_m": 55.13421176775041,
+      "rebound_after_closest_m": 42.53284820826758,
+      "approach_then_reverse": true,
+      "waypoints_reached": 2
+    }
+  ]
+}

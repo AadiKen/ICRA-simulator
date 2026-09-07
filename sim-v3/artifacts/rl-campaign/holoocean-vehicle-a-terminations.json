@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "holoocean-vehicle-a-termination-implementation",
+  "status": "PARTIAL_NATIVE_MAPPING_LIVE_SMOKE_PASS",
+  "determinism": {
+    "reproducibility": "statistical_not_bit_identical",
+    "dominant_field": "linear_accel_z",
+    "approximate_divergence_mps2": [0.1, 0.6],
+    "mechanism": "SurfacePoints are randomly generated per agent initialization when unauthored; submerged-point ratio directly scales vertical buoyant force",
+    "wall_clock_read_in_force": false,
+    "raycast_in_force": false,
+    "dynamic_water_height_query_in_force": false,
+    "fix_attempted": false
+  },
+  "terminations": {
+    "instability": {
+      "source": "policy-safe IMUSensor gravity direction",
+      "criterion": "non-finite acceleration immediately, or combined tilt greater than 60 degrees for 1.0 continuous simulation second",
+      "implemented": true,
+      "limitation": "translational acceleration can contaminate tilt; one-second hold rejects brief transients"
+    },
+    "collision": {
+      "source": "native CollisionSensor OnActorHit boolean",
+      "criterion": "any reported collision terminates immediately",
+      "implemented": true
+    },
+    "grounding_and_object_collision": {
+      "implemented_separately": false,
+      "mapping": "generic collision with collision_type=unclassified",
+      "reason": "native CollisionSensor discards OtherActor and FHitResult and exports only a boolean"
+    },
+    "allocation_failure": {
+      "source": "requested versus wrapper-applied native thruster force",
+      "criterion": "non-finite command immediately, or relative residual greater than 20% for 1.0 continuous simulation second",
+      "implemented": true,
+      "limitation": "command-path integrity and saturation only; HoloOcean exposes no achieved-force feedback"
+    }
+  },
+  "precedence": ["instability", "collision", "allocation_failure"],
+  "verification": {
+    "unit_tests_passed": 12,
+    "live_gpu_smoke": "PASS",
+    "live_control_steps": 5,
+    "native_collision_sensor_payload_present": true,
+    "unexpected_termination": false
+  },
+  "scope": {
+    "throughput_benchmark_started": false,
+    "reward_action_parity_started": false,
+    "training_started": false,
+    "gate_d_started": false
+  }
+}

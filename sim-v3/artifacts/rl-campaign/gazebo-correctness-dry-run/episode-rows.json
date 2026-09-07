@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "columns": [
+    "run_id",
+    "seed",
+    "simulator",
+    "vehicle",
+    "task_id",
+    "task_portable",
+    "policy_id",
+    "algorithm",
+    "return",
+    "success",
+    "episode_length",
+    "wall_clock_s",
+    "termination_reason",
+    "collision_type",
+    "host_class"
+  ],
+  "rows": [
+    {
+      "run_id": "gazebo-harmonic__surveyor__RecurrentPPO-correctness-only__seed-50000",
+      "seed": 50000,
+      "simulator": "gazebo-harmonic",
+      "vehicle": "surveyor",
+      "task_id": "common-waypoint-transit-v1",
+      "task_portable": true,
+      "policy_id": "RecurrentPPO-correctness-only",
+      "algorithm": "RecurrentPPO",
+      "return": -13.019787671014848,
+      "success": false,
+      "episode_length": 20,
+      "wall_clock_s": 7.636999082984403,
+      "termination_reason": "allocation_failure",
+      "collision_type": "none",
+      "host_class": "local"
+    }
+  ]
+}

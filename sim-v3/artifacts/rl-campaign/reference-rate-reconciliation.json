@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "reference-rate-provenance-reconciliation",
+  "status": "RECONCILED_DISTINCT_PROTOCOLS_DO_NOT_COMPARE_DIRECTLY",
+  "frozen_contract_reference": {
+    "rate": 0.66,
+    "policy": "LOS-PID-v2",
+    "vehicle": "surveyor",
+    "protocol_scope": "full-route terminal-radius calibration",
+    "episodes": 200,
+    "terminal": "2 m pass-through within 120 s",
+    "source": "artifacts/rl-campaign/surveyor/terminal-radius-sweep-rescaled.json",
+    "source_sha256": "6909114dffe501698d9ca498ca9016e721202b99b76cd342ed7f943ede98f94e",
+    "contract": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+    "contract_file_sha256": "49bd9c23e440febe460091c825d38a1306c134aa723faa8069daa7337178d2d5"
+  },
+  "los_sanity_reference": {
+    "rate": 0.70,
+    "policy": "LOS-PID-v2 label used by the diagnostic",
+    "vehicle": "surveyor",
+    "protocol_scope": "final-leg-isolation curriculum only",
+    "episodes": 50,
+    "evaluation_seeds": [30000, 30049],
+    "gains": {"lookahead_m": 4, "yaw_kp": 70, "yaw_kd": 35, "target_speed_mps": 1.5},
+    "terminal": "2 m radius entry; the diagnostic does not implement the full-route advancement protocol",
+    "source": "artifacts/rl-campaign/surveyor/task-5-sensor-yaw-250k/los-pid-v2-corrected-reward-sanity.json",
+    "source_sha256": "52fa65f1de5d864ff6237a0b0585724fa401e3a398e65c8cb0e39ccf62ec4eb1"
+  },
+  "coincident_ppo_rate": {
+    "rate": 0.66,
+    "policy": "RecurrentPPO-deterministic",
+    "vehicle": "surveyor",
+    "protocol_scope": "final-leg-isolation curriculum only",
+    "episodes": 50,
+    "evaluation_seeds": [30000, 30049],
+    "source": "artifacts/rl-campaign/surveyor/task-5-default-noise-ent-0p005-phase1-1p5m/seed-7319/phase1-1500000-episode-schema-v1.json",
+    "source_sha256": "b229e0f2ac0b9b353f930e196168e8af21b63d1354a10182792d553251d9218b",
+    "note": "Numerically equal to the frozen LOS rate but produced by a different policy, sample count, and curriculum protocol."
+  },
+  "portable_los_pid_v2": {
+    "gains": {"lookahead_m": 8, "yaw_kp": 100, "yaw_kd": 35, "target_speed_mps": 1.0},
+    "source": "validation/rl-campaign/ports/portable-controllers.ts"
+  },
+  "comparison_rule": "A Vehicle C rate may be compared with the frozen 0.66 only when it uses the full-route frozen contract and frozen portable LOS-PID-v2 gains. It must not be compared with the 0.70 final-leg-only sanity rate or the coincident 0.66 PPO checkpoint rate."
+}

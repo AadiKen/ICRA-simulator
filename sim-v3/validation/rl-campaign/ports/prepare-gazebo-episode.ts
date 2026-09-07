@@ -6,7 +6,7 @@ import {surveyorGazeboCoefficients} from "./surveyor-gazebo-coefficients.ts";
 
 export function prepareGazeboEpisode(seed:number,out:string,steps=2400,phaseASensors=true){
  const episode=prepareEpisode("Gazebo Harmonic",seed,steps), root=resolve(out),model=resolve(root,"models",surveyorGazeboCoefficients.id);mkdirSync(model,{recursive:true});mkdirSync(resolve(root,"worlds"),{recursive:true});
- writeFileSync(resolve(model,"model.config"),renderModelConfig(surveyorGazeboCoefficients));writeFileSync(resolve(model,"model.sdf"),renderModelSdf(surveyorGazeboCoefficients,{perThrusterActuation:true,trueOdometry:true,odomHz:100,phaseASensors}));
+ writeFileSync(resolve(model,"model.config"),renderModelConfig(surveyorGazeboCoefficients));writeFileSync(resolve(model,"model.sdf"),renderModelSdf(surveyorGazeboCoefficients,{perThrusterActuation:true,trueOdometry:true,odomHz:100,phaseASensors,contactSensors:true}));
  const maneuver={name:`gate-${seed}`,dt:.005,steps,env:{waterV:{x:0,y:0,z:0}}};
  const initialStateNed=phaseASensors?{N:episode.reset.initial_state[0],E:episode.reset.initial_state[1],yaw:episode.reset.initial_state[2]}:{N:0,E:0,yaw:episode.reset.initial_state[2]};
  const world=resolve(root,"worlds",`gate-${seed}.sdf`);writeFileSync(world,renderWorldSdf(surveyorGazeboCoefficients,maneuver,{initialStateNed,omitSphericalCoordinates:!phaseASensors}));

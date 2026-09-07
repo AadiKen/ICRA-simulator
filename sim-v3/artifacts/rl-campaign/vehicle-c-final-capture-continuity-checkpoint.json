@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-final-waypoint-capture-five-seed-checkpoint",
+  "status": "COMPLETE",
+  "controller": "shared LOS-PID-v2",
+  "guidance_change": "point capture after along >= leg length",
+  "allocator_angle_continuity_weight": 1,
+  "terminal_radius_m": 2,
+  "seeds": [
+    30000,
+    30003,
+    30007,
+    30013,
+    30048
+  ],
+  "rows": [
+    {
+      "seed": 30000,
+      "success": false,
+      "termination_reason": "timeout",
+      "episode_length_steps": 2400,
+      "closest_final_m": 34.70168274213179,
+      "final_waypoint_handoff": null
+    },
+    {
+      "seed": 30003,
+      "success": false,
+      "termination_reason": "timeout",
+      "episode_length_steps": 2400,
+      "closest_final_m": 68.18684133779362,
+      "final_waypoint_handoff": null
+    },
+    {
+      "seed": 30007,
+      "success": false,
+      "termination_reason": "timeout",
+      "episode_length_steps": 2400,
+      "closest_final_m": 10.007410461928128,
+      "final_waypoint_handoff": {
+        "before": {
+          "time_s": 83.80000000000291,
+          "desired_rad": -1.696695030081752,
+          "along_m": 24.42347109317473,
+          "leg_length_m": 24.46284318068253,
+          "mode": "line",
+          "hull_heading_rad": -0.6684541069275269
+        },
+        "after": {
+          "time_s": 83.90000000000146,
+          "desired_rad": -2.2746954361955574,
+          "along_m": 24.50656093740217,
+          "leg_length_m": 24.46284318068253,
+          "mode": "point-capture",
+          "hull_heading_rad": -0.6707998844255035
+        },
+        "heading_discontinuity_rad": -0.5780004061138053
+      }
+    },
+    {
+      "seed": 30013,
+      "success": false,
+      "termination_reason": "timeout",
+      "episode_length_steps": 2400,
+      "closest_final_m": 3.4163203418851995,
+      "final_waypoint_handoff": {
+        "before": {
+          "time_s": 102.5,
+          "desired_rad": -1.0942120095508159,
+          "along_m": 24.446711133494944,
+          "leg_length_m": 24.46284318068017,
+          "mode": "line",
+          "hull_heading_rad": -1.5253479504738607
+        },
+        "after": {
+          "time_s": 102.59999999999854,
+          "desired_rad": -2.245282231522375,
+          "along_m": 24.51109881151664,
+          "leg_length_m": 24.46284318068017,
+          "mode": "point-capture",
+          "hull_heading_rad": -1.525588118393326
+        },
+        "heading_discontinuity_rad": -1.1510702219715592
+      }
+    },
+    {
+      "seed": 30048,
+      "success": false,
+      "termination_reason": "timeout",
+      "episode_length_steps": 2400,
+      "closest_final_m": 10.773079327351807,
+      "final_waypoint_handoff": {
+        "before": {
+          "time_s": 62.80000000000291,
+          "desired_rad": -1.318052091393799,
+          "along_m": 24.41221659527643,
+          "leg_length_m": 24.462843180682857,
+          "mode": "line",
+          "hull_heading_rad": -1.3990287331923723
+        },
+        "after": {
+          "time_s": 62.900000000001455,
+          "desired_rad": -1.9234773504447067,
+          "along_m": 24.538365864678614,
+          "leg_length_m": 24.462843180682857,
+          "mode": "point-capture",
+          "hull_heading_rad": -1.4144592331366472
+        },
+        "heading_discontinuity_rad": -0.6054252590509077
+      }
+    }
+  ]
+}

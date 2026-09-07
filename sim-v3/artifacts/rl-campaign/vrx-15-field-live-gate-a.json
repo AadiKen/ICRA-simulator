@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-15-field-live-sensor-gate-a",
+  "status": "PASS",
+  "connected_path_status": "FULLY_CONNECTED_AND_PASSING",
+  "training_authorized": false,
+  "next_gate_started": false,
+  "runtime": {
+    "image": "leadcat/vrx:surveyor-patched-v3.0.1",
+    "gazebo_sim_version": "8.10.0",
+    "host_architecture": "arm64",
+    "container_architecture": "linux/amd64",
+    "execution": "AMD64 emulation on Apple Silicon",
+    "timing_basis": "VRX /clock and sensor-header simulation timestamps only"
+  },
+  "live_topic_resolution": {
+    "method": "ros2 topic list and ros2 topic info against running VRX v3.0.1",
+    "actual": [
+      "/clock",
+      "/odometry",
+      "/imu",
+      "/gps",
+      "/surveyor/thrusters/port/thrust",
+      "/surveyor/thrusters/starboard/thrust"
+    ],
+    "absent": [
+      "/wamv/thrusters/left/thrust",
+      "/wamv/thrusters/right/thrust"
+    ],
+    "exporter_corrected": true
+  },
+  "connected_path": {
+    "entrypoint": "VrxGymEnv -> JsonLineSimulatorBridge -> vrx_gym_runtime.py -> live VRX v3.0.1",
+    "adapter_sha256": "5f7a2aed38b45d79f904afc77c37f7ad9185d44cff0495d19517219da266815c",
+    "conditioning": "external_sensor_model.py (shared)",
+    "conversion": "task-trace-bridge.ts via task-trace-jsonl-bridge.ts (shared)",
+    "actuation": "FrozenActuatorBank via actuator-jsonl-bridge.ts -> verified Surveyor topics"
+  },
+  "simulation_timing": {
+    "reset_epoch_s": 1.0,
+    "expected_final_s": 3.5,
+    "observed_final_s": 3.5,
+    "gps_timestamps_s": [
+      1.0,
+      1.5,
+      2.0,
+      2.5
+    ],
+    "gps_positive_deltas_s": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "first_release_age_s": 0.19999999999999996
+  },
+  "observation": {
+    "field_count": 15,
+    "rows_examined": 26,
+    "imu_source": "live /imu",
+    "gps_source": "live /gps through shared conditioning",
+    "odometry_use": "privileged truth/reward only; no observation fallback"
+  },
+  "checks": {
+    "fully_connected_runtime_exists": true,
+    "exactly_15_fields": true,
+    "reset_seed": true,
+    "gps_2_hz_sim_time": true,
+    "gps_conditioning_config": true,
+    "gps_released_on_connected_path": true,
+    "gps_release_latency_sim_time": true,
+    "active_imu_stall_zero_fills": true,
+    "imu_recovers_from_live_topic": true,
+    "active_gps_stall_zero_fills": true,
+    "gps_did_not_refresh_from_retained_object": true,
+    "fixed_simulation_step_timing": true,
+    "no_observation_truth_fallback": true
+  },
+  "all_checks_pass": true
+}

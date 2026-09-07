@@ -1,0 +1,940 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "holoocean-vehicle-a-gates-a-b-c-partial",
+  "status": "DIAGNOSTIC_COMPLETE",
+  "training_run": false,
+  "gate_d_run": false,
+  "reward_action_parity_touched": false,
+  "termination_logic_touched": false,
+  "contract_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
+  "seed": 7319,
+  "gate_a_oracle_isolation": {
+    "passed": true,
+    "configured_policy_sensors": [
+      "GPSSensor",
+      "IMUSensor"
+    ],
+    "observed_state_keys": [
+      "GPSSensor",
+      "IMUSensor",
+      "t"
+    ],
+    "forbidden_policy_sensors": [
+      "DynamicsSensor",
+      "LocationSensor",
+      "PoseSensor",
+      "VelocitySensor"
+    ],
+    "absolute_yaw_source": "none; gyro-integrated from wrapper-commanded seeded heading"
+  },
+  "gate_b_frame_conversion": {
+    "passed": true,
+    "imu_flu_to_contract_frd": [
+      "x",
+      "-y",
+      "-z"
+    ],
+    "gps_nwu_to_contract_ne": [
+      "x",
+      "-y"
+    ],
+    "source_basis": {
+      "imu": "engine rotates acceleration/angular velocity into sensor-local frame, then applies client conversion; Platform socket is FLU",
+      "gps": "engine converts Unreal component location with UEToClient into NWU metres"
+    }
+  },
+  "gps_freshness": {
+    "maximum_age_s": 0.1,
+    "source_timestamp_available": false,
+    "sequence_number_available": false,
+    "implemented_basis": "wrapper receipt time and configured every-physics-tick schedule"
+  },
+  "wind": {
+    "mode_exercised": "off",
+    "default_mode": "off",
+    "optional_mode": "surge_equivalent",
+    "training_protocol_decision": "deferred",
+    "lateral_force_supported": false
+  },
+  "gate_c_reset_determinism": {
+    "sequence_shape": [
+      33,
+      15
+    ],
+    "exact_match": false,
+    "max_abs_difference": 0.5507488250732422,
+    "max_abs_difference_by_field": {
+      "linear_accel_x": 4.5709311962127686e-05,
+      "linear_accel_y": 0.0004995083436369896,
+      "linear_accel_z": 0.5507488250732422,
+      "angular_rate_x": 5.648471415042877e-06,
+      "angular_rate_y": 1.3733369996771216e-08,
+      "angular_rate_z": 5.960464477539063e-08,
+      "orientation_yaw_rad": 7.450580596923828e-09,
+      "relative_goal_north_m": 1.9073486328125e-06,
+      "relative_goal_east_m": 2.384185791015625e-07,
+      "fix_valid": 0.0,
+      "previous_effector_0": 0.0,
+      "previous_effector_1": 0.0,
+      "previous_steer_0": 0.0,
+      "previous_steer_1": 0.0,
+      "normalized_time_remaining": 0.0
+    },
+    "differing_value_count": 212,
+    "max_difference_location": {
+      "control_step": 2,
+      "field_index": 2,
+      "field_name": "linear_accel_z"
+    },
+    "first_reset_info": {
+      "seed": 7319,
+      "oracle_safe_policy_sensors": [
+        "GPSSensor",
+        "IMUSensor"
+      ],
+      "yaw_mapping": "gyro-integrated from seeded commanded spawn heading; no absolute heading sensor",
+      "gps_freshness": "wrapper receipt time; HoloOcean payload has no timestamp or sequence",
+      "current_applied": true,
+      "wind_mode": "off",
+      "wind_applied": false,
+      "wind_mapping": "longitudinal aerodynamic force injected equally through native fixed thrusters; lateral load unavailable"
+    },
+    "second_reset_info": {
+      "seed": 7319,
+      "oracle_safe_policy_sensors": [
+        "GPSSensor",
+        "IMUSensor"
+      ],
+      "yaw_mapping": "gyro-integrated from seeded commanded spawn heading; no absolute heading sensor",
+      "gps_freshness": "wrapper receipt time; HoloOcean payload has no timestamp or sequence",
+      "current_applied": true,
+      "wind_mode": "off",
+      "wind_applied": false,
+      "wind_mapping": "longitudinal aerodynamic force injected equally through native fixed thrusters; lateral load unavailable"
+    },
+    "scope": "same wrapper seed and action sequence; no claim of general engine determinism"
+  },
+  "gate_c_scripted_trace": {
+    "control_steps": 32,
+    "physics_steps": 64,
+    "all_finite": true,
+    "gps_valid_all_steps": true,
+    "max_abs_step_change_by_field": {
+      "linear_accel_x": 2.0276899337768555,
+      "linear_accel_y": 0.09992662072181702,
+      "linear_accel_z": 0.6179866790771484,
+      "angular_rate_x": 0.0017129415646195412,
+      "angular_rate_y": 5.244414751359727e-07,
+      "angular_rate_z": 0.01793438196182251,
+      "orientation_yaw_rad": 0.00907425582408905,
+      "relative_goal_north_m": 0.07431983947753906,
+      "relative_goal_east_m": 0.005019187927246094,
+      "fix_valid": 0.0,
+      "previous_effector_0": 0.3499999940395355,
+      "previous_effector_1": 0.25,
+      "previous_steer_0": 0.0,
+      "previous_steer_1": 0.0,
+      "normalized_time_remaining": 0.0008333325386047363
+    },
+    "yaw_start_rad": 0.08320099115371704,
+    "yaw_end_rad": 0.03569614514708519,
+    "yaw_range_rad": [
+      0.01978439837694168,
+      0.08320099115371704
+    ],
+    "trace": [
+      {
+        "control_step": 0,
+        "action": [
+          0.0,
+          0.0
+        ],
+        "fields": {
+          "linear_accel_x": 0.0,
+          "linear_accel_y": -0.0,
+          "linear_accel_z": -10.148969650268555,
+          "angular_rate_x": 0.0,
+          "angular_rate_y": -0.0,
+          "angular_rate_z": -0.0,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.495607376098633,
+          "relative_goal_east_m": 2.227647066116333,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.0,
+          "previous_effector_1": 0.0,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 1.0
+        }
+      },
+      {
+        "control_step": 1,
+        "action": [
+          0.0,
+          0.0
+        ],
+        "fields": {
+          "linear_accel_x": 0.00016459210019093007,
+          "linear_accel_y": 0.00015025916218291968,
+          "linear_accel_z": -9.673377990722656,
+          "angular_rate_x": 0.0,
+          "angular_rate_y": -0.0,
+          "angular_rate_z": -0.0,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.49560546875,
+          "relative_goal_east_m": 2.2276461124420166,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.0,
+          "previous_effector_1": 0.0,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9991666674613953
+        }
+      },
+      {
+        "control_step": 2,
+        "action": [
+          0.0,
+          0.0
+        ],
+        "fields": {
+          "linear_accel_x": 0.00011054944479838014,
+          "linear_accel_y": 0.00010092263255501166,
+          "linear_accel_z": -9.055391311645508,
+          "angular_rate_x": 0.0,
+          "angular_rate_y": -0.0,
+          "angular_rate_z": -0.0,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.495603561401367,
+          "relative_goal_east_m": 2.227644205093384,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.0,
+          "previous_effector_1": 0.0,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9983333349227905
+        }
+      },
+      {
+        "control_step": 3,
+        "action": [
+          0.0,
+          0.0
+        ],
+        "fields": {
+          "linear_accel_x": 8.489960600854829e-05,
+          "linear_accel_y": 7.750642544124275e-05,
+          "linear_accel_z": -9.165159225463867,
+          "angular_rate_x": 0.0,
+          "angular_rate_y": -0.0,
+          "angular_rate_z": -0.0,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.495601654052734,
+          "relative_goal_east_m": 2.2276418209075928,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.0,
+          "previous_effector_1": 0.0,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9975000023841858
+        }
+      },
+      {
+        "control_step": 4,
+        "action": [
+          0.0,
+          0.0
+        ],
+        "fields": {
+          "linear_accel_x": 7.485006062779576e-05,
+          "linear_accel_y": 6.833200313849375e-05,
+          "linear_accel_z": -9.426929473876953,
+          "angular_rate_x": 0.0,
+          "angular_rate_y": -0.0,
+          "angular_rate_z": -0.0,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.4955997467041,
+          "relative_goal_east_m": 2.2276389598846436,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.0,
+          "previous_effector_1": 0.0,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.996666669845581
+        }
+      },
+      {
+        "control_step": 5,
+        "action": [
+          0.25,
+          0.25
+        ],
+        "fields": {
+          "linear_accel_x": 2.024897336959839,
+          "linear_accel_y": 3.8559152017114684e-05,
+          "linear_accel_z": -10.030525207519531,
+          "angular_rate_x": -1.1012883635196115e-19,
+          "angular_rate_y": 2.2890472559848685e-21,
+          "angular_rate_z": 1.759009705556517e-18,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.484760284423828,
+          "relative_goal_east_m": 2.226731777191162,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.25,
+          "previous_effector_1": 0.25,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9958333373069763
+        }
+      },
+      {
+        "control_step": 6,
+        "action": [
+          0.25,
+          0.25
+        ],
+        "fields": {
+          "linear_accel_x": 1.6400666236877441,
+          "linear_accel_y": 2.006059185077902e-05,
+          "linear_accel_z": -10.261882781982422,
+          "angular_rate_x": -3.277726958683983e-19,
+          "angular_rate_y": 6.812813813558023e-21,
+          "angular_rate_z": 5.235280690768541e-18,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.46177864074707,
+          "relative_goal_east_m": 2.2248120307922363,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.25,
+          "previous_effector_1": 0.25,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9950000047683716
+        }
+      },
+      {
+        "control_step": 7,
+        "action": [
+          0.25,
+          0.25
+        ],
+        "fields": {
+          "linear_accel_x": 1.328348159790039,
+          "linear_accel_y": 4.93985899083782e-05,
+          "linear_accel_z": -10.205853462219238,
+          "angular_rate_x": -4.2454158305065065e-19,
+          "angular_rate_y": 8.824171327640333e-21,
+          "angular_rate_z": 6.780901166138681e-18,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.428964614868164,
+          "relative_goal_east_m": 2.222071886062622,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.25,
+          "previous_effector_1": 0.25,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9941666722297668
+        }
+      },
+      {
+        "control_step": 8,
+        "action": [
+          0.25,
+          0.25
+        ],
+        "fields": {
+          "linear_accel_x": 1.0758202075958252,
+          "linear_accel_y": 8.307786629302427e-05,
+          "linear_accel_z": -10.06168270111084,
+          "angular_rate_x": -6.266613304209989e-19,
+          "angular_rate_y": 1.302526575463874e-20,
+          "angular_rate_z": 1.0009216284136656e-17,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.388187408447266,
+          "relative_goal_east_m": 2.2186672687530518,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.25,
+          "previous_effector_1": 0.25,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9933333396911621
+        }
+      },
+      {
+        "control_step": 9,
+        "action": [
+          0.25,
+          0.25
+        ],
+        "fields": {
+          "linear_accel_x": 0.8712708950042725,
+          "linear_accel_y": 9.921242599375546e-05,
+          "linear_accel_z": -9.786162376403809,
+          "angular_rate_x": -7.058487263279839e-19,
+          "angular_rate_y": 1.4671190383731608e-20,
+          "angular_rate_z": 1.1274020935663926e-17,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.340959548950195,
+          "relative_goal_east_m": 2.21472430229187,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.25,
+          "previous_effector_1": 0.25,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9925000071525574
+        }
+      },
+      {
+        "control_step": 10,
+        "action": [
+          0.25,
+          0.25
+        ],
+        "fields": {
+          "linear_accel_x": 0.7056045532226562,
+          "linear_accel_y": 0.00010089702846016735,
+          "linear_accel_z": -9.520678520202637,
+          "angular_rate_x": -8.940789479908304e-19,
+          "angular_rate_y": 1.8583588275632638e-20,
+          "angular_rate_z": 1.4280489108507323e-17,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.28850746154785,
+          "relative_goal_east_m": 2.2103447914123535,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.25,
+          "previous_effector_1": 0.25,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9916666746139526
+        }
+      },
+      {
+        "control_step": 11,
+        "action": [
+          0.25,
+          0.25
+        ],
+        "fields": {
+          "linear_accel_x": 0.5714224576950073,
+          "linear_accel_y": 0.00010046498209703714,
+          "linear_accel_z": -9.436192512512207,
+          "angular_rate_x": -1.0730152784837607e-18,
+          "angular_rate_y": 2.230281202952126e-20,
+          "angular_rate_z": 1.7138512275802565e-17,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.231826782226562,
+          "relative_goal_east_m": 2.2056119441986084,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.25,
+          "previous_effector_1": 0.25,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9908333420753479
+        }
+      },
+      {
+        "control_step": 12,
+        "action": [
+          0.25,
+          0.25
+        ],
+        "fields": {
+          "linear_accel_x": 0.4627133011817932,
+          "linear_accel_y": 0.00010950735304504633,
+          "linear_accel_z": -9.639410972595215,
+          "angular_rate_x": -1.2431165962515888e-18,
+          "angular_rate_y": 2.5838398456248842e-20,
+          "angular_rate_z": 1.9855420084957487e-17,
+          "orientation_yaw_rad": 0.08320099115371704,
+          "relative_goal_north_m": 26.17171859741211,
+          "relative_goal_east_m": 2.2005927562713623,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.25,
+          "previous_effector_1": 0.25,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9900000095367432
+        }
+      },
+      {
+        "control_step": 13,
+        "action": [
+          0.15000000596046448,
+          0.3499999940395355
+        ],
+        "fields": {
+          "linear_accel_x": 0.3746372163295746,
+          "linear_accel_y": -0.05487348139286041,
+          "linear_accel_z": -9.84281063079834,
+          "angular_rate_x": 0.001176694524474442,
+          "angular_rate_y": 3.4750824315582865e-14,
+          "angular_rate_z": -0.013452106155455112,
+          "orientation_yaw_rad": 0.08185578137636185,
+          "relative_goal_north_m": 26.108814239501953,
+          "relative_goal_east_m": 2.1956167221069336,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.15000000596046448,
+          "previous_effector_1": 0.3499999940395355,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9891666769981384
+        }
+      },
+      {
+        "control_step": 14,
+        "action": [
+          0.15000000596046448,
+          0.3499999940395355
+        ],
+        "fields": {
+          "linear_accel_x": 0.3032279908657074,
+          "linear_accel_y": -0.0554758720099926,
+          "linear_accel_z": -9.929927825927734,
+          "angular_rate_x": 0.0022899231407791376,
+          "angular_rate_y": -4.308151335674637e-10,
+          "angular_rate_z": -0.026239953935146332,
+          "orientation_yaw_rad": 0.07923179119825363,
+          "relative_goal_north_m": 26.043636322021484,
+          "relative_goal_east_m": 2.1908140182495117,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.15000000596046448,
+          "previous_effector_1": 0.3499999940395355,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9883333444595337
+        }
+      },
+      {
+        "control_step": 15,
+        "action": [
+          0.15000000596046448,
+          0.3499999940395355
+        ],
+        "fields": {
+          "linear_accel_x": 0.2453165203332901,
+          "linear_accel_y": -0.05829320102930069,
+          "linear_accel_z": -9.975799560546875,
+          "angular_rate_x": 0.0033376484643667936,
+          "angular_rate_y": -3.4977822860327024e-09,
+          "angular_rate_z": -0.03839628025889397,
+          "orientation_yaw_rad": 0.07539215683937073,
+          "relative_goal_north_m": 25.97661018371582,
+          "relative_goal_east_m": 2.1862237453460693,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.15000000596046448,
+          "previous_effector_1": 0.3499999940395355,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.987500011920929
+        }
+      },
+      {
+        "control_step": 16,
+        "action": [
+          0.15000000596046448,
+          0.3499999940395355
+        ],
+        "fields": {
+          "linear_accel_x": 0.19835832715034485,
+          "linear_accel_y": -0.06295623630285263,
+          "linear_accel_z": -9.94239616394043,
+          "angular_rate_x": 0.004318198189139366,
+          "angular_rate_y": -1.4630833433670887e-08,
+          "angular_rate_z": -0.04995221272110939,
+          "orientation_yaw_rad": 0.07039693742990494,
+          "relative_goal_north_m": 25.908084869384766,
+          "relative_goal_east_m": 2.181886672973633,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.15000000596046448,
+          "previous_effector_1": 0.3499999940395355,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9866666793823242
+        }
+      },
+      {
+        "control_step": 17,
+        "action": [
+          0.15000000596046448,
+          0.3499999940395355
+        ],
+        "fields": {
+          "linear_accel_x": 0.16028709709644318,
+          "linear_accel_y": -0.06910845637321472,
+          "linear_accel_z": -9.8447904586792,
+          "angular_rate_x": 0.005230790935456753,
+          "angular_rate_y": -4.330478020619921e-08,
+          "angular_rate_z": -0.06093734875321388,
+          "orientation_yaw_rad": 0.0643032044172287,
+          "relative_goal_north_m": 25.838342666625977,
+          "relative_goal_east_m": 2.1778454780578613,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.15000000596046448,
+          "previous_effector_1": 0.3499999940395355,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9858333468437195
+        }
+      },
+      {
+        "control_step": 18,
+        "action": [
+          0.15000000596046448,
+          0.3499999940395355
+        ],
+        "fields": {
+          "linear_accel_x": 0.1294236183166504,
+          "linear_accel_y": -0.07646719366312027,
+          "linear_accel_z": -9.730469703674316,
+          "angular_rate_x": 0.00607552332803607,
+          "angular_rate_y": -1.0329873845194015e-07,
+          "angular_rate_z": -0.07137983292341232,
+          "orientation_yaw_rad": 0.05716522037982941,
+          "relative_goal_north_m": 25.767610549926758,
+          "relative_goal_east_m": 2.1741433143615723,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.15000000596046448,
+          "previous_effector_1": 0.3499999940395355,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9850000143051147
+        }
+      },
+      {
+        "control_step": 19,
+        "action": [
+          0.15000000596046448,
+          0.3499999940395355
+        ],
+        "fields": {
+          "linear_accel_x": 0.10441462695598602,
+          "linear_accel_y": -0.08477959036827087,
+          "linear_accel_z": -9.609671592712402,
+          "angular_rate_x": 0.006853870581835508,
+          "angular_rate_y": -2.118602111522705e-07,
+          "angular_rate_z": -0.08130643516778946,
+          "orientation_yaw_rad": 0.04903457686305046,
+          "relative_goal_north_m": 25.696077346801758,
+          "relative_goal_east_m": 2.170823097229004,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.15000000596046448,
+          "previous_effector_1": 0.3499999940395355,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.98416668176651
+        }
+      },
+      {
+        "control_step": 20,
+        "action": [
+          0.15000000596046448,
+          0.3499999940395355
+        ],
+        "fields": {
+          "linear_accel_x": 0.08413123339414597,
+          "linear_accel_y": -0.09421591460704803,
+          "linear_accel_z": -9.645895004272461,
+          "angular_rate_x": 0.007564453408122063,
+          "angular_rate_y": -3.945369542179833e-07,
+          "angular_rate_z": -0.0907425731420517,
+          "orientation_yaw_rad": 0.03996032103896141,
+          "relative_goal_north_m": 25.623889923095703,
+          "relative_goal_east_m": 2.1679277420043945,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.15000000596046448,
+          "previous_effector_1": 0.3499999940395355,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9833333492279053
+        }
+      },
+      {
+        "control_step": 21,
+        "action": [
+          0.3499999940395355,
+          0.15000000596046448
+        ],
+        "fields": {
+          "linear_accel_x": 0.06858508288860321,
+          "linear_accel_y": 0.005710706580430269,
+          "linear_accel_z": -9.777458190917969,
+          "angular_rate_x": 0.0058515118435025215,
+          "angular_rate_y": -6.81091989918059e-07,
+          "angular_rate_z": -0.07280819118022919,
+          "orientation_yaw_rad": 0.03267950192093849,
+          "relative_goal_north_m": 25.55120277404785,
+          "relative_goal_east_m": 2.164947986602783,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.3499999940395355,
+          "previous_effector_1": 0.15000000596046448,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9825000166893005
+        }
+      },
+      {
+        "control_step": 22,
+        "action": [
+          0.3499999940395355,
+          0.15000000596046448
+        ],
+        "fields": {
+          "linear_accel_x": 0.05619442090392113,
+          "linear_accel_y": -0.0036898732651025057,
+          "linear_accel_z": -9.943953514099121,
+          "angular_rate_x": 0.0041910577565431595,
+          "angular_rate_y": -1.0772474752229755e-06,
+          "angular_rate_z": -0.05575895681977272,
+          "orientation_yaw_rad": 0.0271036047488451,
+          "relative_goal_north_m": 25.478116989135742,
+          "relative_goal_east_m": 2.161752223968506,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.3499999940395355,
+          "previous_effector_1": 0.15000000596046448,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9816666841506958
+        }
+      },
+      {
+        "control_step": 23,
+        "action": [
+          0.3499999940395355,
+          0.15000000596046448
+        ],
+        "fields": {
+          "linear_accel_x": 0.046081069856882095,
+          "linear_accel_y": -0.00860243383795023,
+          "linear_accel_z": -9.94827651977539,
+          "angular_rate_x": 0.0025916120503097773,
+          "angular_rate_y": -1.556193751639512e-06,
+          "angular_rate_z": -0.03955128788948059,
+          "orientation_yaw_rad": 0.02314847521483898,
+          "relative_goal_north_m": 25.404701232910156,
+          "relative_goal_east_m": 2.158374071121216,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.3499999940395355,
+          "previous_effector_1": 0.15000000596046448,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9808333516120911
+        }
+      },
+      {
+        "control_step": 24,
+        "action": [
+          0.3499999940395355,
+          0.15000000596046448
+        ],
+        "fields": {
+          "linear_accel_x": 0.03779589384794235,
+          "linear_accel_y": -0.009536742232739925,
+          "linear_accel_z": -9.7789306640625,
+          "angular_rate_x": 0.001061932067386806,
+          "angular_rate_y": -2.079008027067175e-06,
+          "angular_rate_z": -0.02414376474916935,
+          "orientation_yaw_rad": 0.02073409967124462,
+          "relative_goal_north_m": 25.33102035522461,
+          "relative_goal_east_m": 2.1548285484313965,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.3499999940395355,
+          "previous_effector_1": 0.15000000596046448,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9800000190734863
+        }
+      },
+      {
+        "control_step": 25,
+        "action": [
+          0.3499999940395355,
+          0.15000000596046448
+        ],
+        "fields": {
+          "linear_accel_x": 0.03094000183045864,
+          "linear_accel_y": -0.007936797104775906,
+          "linear_accel_z": -9.687674522399902,
+          "angular_rate_x": -0.0003903227625414729,
+          "angular_rate_y": -2.603449502203148e-06,
+          "angular_rate_z": -0.009497011080384254,
+          "orientation_yaw_rad": 0.01978439837694168,
+          "relative_goal_north_m": 25.257122039794922,
+          "relative_goal_east_m": 2.1511151790618896,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.3499999940395355,
+          "previous_effector_1": 0.15000000596046448,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9791666865348816
+        }
+      },
+      {
+        "control_step": 26,
+        "action": [
+          0.3499999940395355,
+          0.15000000596046448
+        ],
+        "fields": {
+          "linear_accel_x": 0.02522890269756317,
+          "linear_accel_y": -0.0044309841468930244,
+          "linear_accel_z": -9.71255874633789,
+          "angular_rate_x": -0.0017684785416349769,
+          "angular_rate_y": -3.1168801797321066e-06,
+          "angular_rate_z": 0.004426531959325075,
+          "orientation_yaw_rad": 0.02022705227136612,
+          "relative_goal_north_m": 25.18305015563965,
+          "relative_goal_east_m": 2.1472227573394775,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.3499999940395355,
+          "previous_effector_1": 0.15000000596046448,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9783333539962769
+        }
+      },
+      {
+        "control_step": 27,
+        "action": [
+          0.3499999940395355,
+          0.15000000596046448
+        ],
+        "fields": {
+          "linear_accel_x": 0.020446673035621643,
+          "linear_accel_y": 0.000696392438840121,
+          "linear_accel_z": -9.835029602050781,
+          "angular_rate_x": -0.0030733956955373287,
+          "angular_rate_y": -3.602697915994213e-06,
+          "angular_rate_z": 0.017662540078163147,
+          "orientation_yaw_rad": 0.021993305534124374,
+          "relative_goal_north_m": 25.108837127685547,
+          "relative_goal_east_m": 2.1431312561035156,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.3499999940395355,
+          "previous_effector_1": 0.15000000596046448,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9775000214576721
+        }
+      },
+      {
+        "control_step": 28,
+        "action": [
+          0.3499999940395355,
+          0.15000000596046448
+        ],
+        "fields": {
+          "linear_accel_x": 0.016451599076390266,
+          "linear_accel_y": 0.007689904421567917,
+          "linear_accel_z": -9.895415306091309,
+          "angular_rate_x": -0.004303833935409784,
+          "angular_rate_y": -4.04164939027396e-06,
+          "angular_rate_z": 0.03024490736424923,
+          "orientation_yaw_rad": 0.025017796084284782,
+          "relative_goal_north_m": 25.034517288208008,
+          "relative_goal_east_m": 2.1388139724731445,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.3499999940395355,
+          "previous_effector_1": 0.15000000596046448,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9766666889190674
+        }
+      },
+      {
+        "control_step": 29,
+        "action": [
+          0.0,
+          0.0
+        ],
+        "fields": {
+          "linear_accel_x": -2.0112383365631104,
+          "linear_accel_y": -0.03727911785244942,
+          "linear_accel_z": -9.877283096313477,
+          "angular_rate_x": -0.004277873784303665,
+          "angular_rate_y": -4.4099374463257845e-06,
+          "angular_rate_z": 0.028753696009516716,
+          "orientation_yaw_rad": 0.02789316512644291,
+          "relative_goal_north_m": 24.970962524414062,
+          "relative_goal_east_m": 2.1349964141845703,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.0,
+          "previous_effector_1": 0.0,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9758333563804626
+        }
+      },
+      {
+        "control_step": 30,
+        "action": [
+          0.0,
+          0.0
+        ],
+        "fields": {
+          "linear_accel_x": -1.6285661458969116,
+          "linear_accel_y": -0.029638871550559998,
+          "linear_accel_z": -9.72148323059082,
+          "angular_rate_x": -0.004231792408972979,
+          "angular_rate_y": -4.707176685769809e-06,
+          "angular_rate_z": 0.027335867285728455,
+          "orientation_yaw_rad": 0.030626753345131874,
+          "relative_goal_north_m": 24.919496536254883,
+          "relative_goal_east_m": 2.1318111419677734,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.0,
+          "previous_effector_1": 0.0,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9750000238418579
+        }
+      },
+      {
+        "control_step": 31,
+        "action": [
+          0.0,
+          0.0
+        ],
+        "fields": {
+          "linear_accel_x": -1.3188055753707886,
+          "linear_accel_y": -0.023942461237311363,
+          "linear_accel_z": -9.736413955688477,
+          "angular_rate_x": -0.004167183302342892,
+          "angular_rate_y": -4.94431697006803e-06,
+          "angular_rate_z": 0.025987807661294937,
+          "orientation_yaw_rad": 0.03322553262114525,
+          "relative_goal_north_m": 24.877817153930664,
+          "relative_goal_east_m": 2.129143714904785,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.0,
+          "previous_effector_1": 0.0,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9741666913032532
+        }
+      },
+      {
+        "control_step": 32,
+        "action": [
+          0.0,
+          0.0
+        ],
+        "fields": {
+          "linear_accel_x": -1.0680139064788818,
+          "linear_accel_y": -0.01937568560242653,
+          "linear_accel_z": -9.783782005310059,
+          "angular_rate_x": -0.004087628331035376,
+          "angular_rate_y": -5.137726475368254e-06,
+          "angular_rate_z": 0.024706101045012474,
+          "orientation_yaw_rad": 0.03569614514708519,
+          "relative_goal_north_m": 24.84406280517578,
+          "relative_goal_east_m": 2.1269004344940186,
+          "fix_valid": 1.0,
+          "previous_effector_0": 0.0,
+          "previous_effector_1": 0.0,
+          "previous_steer_0": 0.0,
+          "previous_steer_1": 0.0,
+          "normalized_time_remaining": 0.9733333587646484
+        }
+      }
+    ]
+  }
+}

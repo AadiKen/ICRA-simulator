@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-pre-gate-b-live-statistics-and-stock-wamv-stability",
+  "status": "PRE_GATE_B_FIXES_PASS_REVIEW_REQUIRED",
+  "gate_b_started": false,
+  "training_started": false,
+  "yaw_root_cause_diagnosis": {
+    "fix_attempted": true,
+    "classification": "fresh IMU sample with reset-relative orientation reference, plus separately implemented conversion paths",
+    "freshness": {
+      "reset_simulation_time_s": 0.65,
+      "imu_timestamp_s": 0.65,
+      "odom_timestamp_s": 0.65,
+      "age_s": 0.0,
+      "conclusion": "The sample was genuinely fresh and was not a stale or zero-filled observation."
+    },
+    "raw_reset_values": {
+      "imu_quaternion_wxyz": [0.9999959648999834, 0.00277797693641237, 0.0005941587241879774, 0.0000018173641909702276],
+      "odom_quaternion_wxyz": [0.6539530952972371, 0.0013671779010128306, 0.002490181727454824, 0.7565297607964369],
+      "imu_converted_ned_yaw_rad": 1.5707893909578194,
+      "truth_ned_yaw_rad": -0.1451966993728715
+    },
+    "persistence": "The near-identity IMU orientation persists through fresh samples at simulation times 0.75, 0.85, and 0.95 seconds while odometry retains the seeded heading.",
+    "model_configuration": "renderSurveyorVrxModel emits the task_imu sensor without orientation_reference_frame/localization=ENU. Gazebo therefore reports orientation relative to its default/custom initial reference, making the seeded initial orientation appear near identity.",
+    "conversion_paths": {
+      "observation": "Python external_sensor_model.quaternion_to_ned_yaw, also used by vrx_trace_exporter.py",
+      "truth": "TypeScript task-trace-bridge.ts gazeboOdomToTask through task-trace-jsonl-bridge.ts",
+      "same_code_path": false,
+      "assessment": "The duplicate implementations are a structural defect and invalidate the earlier claim that the live observation used the TypeScript bridge. They produce the same pi/2-minus-yaw result for this sample, so duplication does not numerically cause the measured 1.716 rad error; the raw IMU reference does."
+    }
+  },
+  "yaw_fix_verification": {
+    "generated_model_imu_reference": "ENU",
+    "live_seeds": [30000, 30001, 30007, 30013],
+    "samples_per_seed": ["reset", "control_step_1", "control_step_2", "control_step_3"],
+    "nominal_sample_times_s": [0.65, 0.75, 0.85, 0.95],
+    "note_on_seed_30000_times": "The equivalent reset-plus-three-step samples occurred at 0.60, 0.70, 0.80, and 0.90 simulation seconds because the asynchronous startup epoch settled one 50 ms physics tick earlier; all freshness ages were zero.",
+    "reset_yaw_by_seed": [
+      {"seed": 30000, "observed_ned_rad": -0.1451934278011322, "truth_ned_rad": -0.145193433925609, "circular_error_rad": 6.124476925606359e-9},
+      {"seed": 30001, "observed_ned_rad": 0.021292125806212425, "truth_ned_rad": 0.021292126270664, "circular_error_rad": -4.644515883001077e-10},
+      {"seed": 30007, "observed_ned_rad": -0.10073237121105194, "truth_ned_rad": -0.100732368110354, "circular_error_rad": -3.1006979206438245e-9},
+      {"seed": 30013, "observed_ned_rad": 0.06494776904582977, "truth_ned_rad": 0.0649477669176939, "circular_error_rad": 2.1281358897340397e-9}
+    ],
+    "maximum_absolute_circular_error_across_16_live_samples_rad": 7.19144566119212e-9,
+    "freshness": "All IMU timestamps equaled their observation simulation times.",
+    "raw_quaternion_match": "At every live sample, IMU and odometry quaternions were identical.",
+    "status": "PASS"
+  },
+  "conversion_deduplication_verification": {
+    "canonical_implementation": "task-trace-bridge.ts enuYawToNed / enuQuaternionToNedYaw",
+    "python_implementation": "exact port with the same wrapping and 15-significant-digit language-boundary quantization",
+    "regression_quaternions": 120,
+    "coverage": "5 roll values x 3 pitch values x 8 yaw values, including both pi boundaries",
+    "comparison": "IEEE-754 binary64 bytes",
+    "status": "PASS_BIT_FOR_BIT"
+  },
+  "runtime": {
+    "host_architecture": "Apple Silicon",
+    "container_architecture": "linux/amd64",
+    "execution": "AMD64 emulation on Apple Silicon",
+    "timing_basis": "Gazebo /clock and sensor header simulation timestamps only"
+  },
+  "live_vrx_sensor_statistics": {
+    "seed": 30000,
+    "gps_samples": 20,
+    "configured_position_standard_deviation_per_axis_m": 0.8,
+    "measured_component_rms_m": 0.7899436141077226,
+    "measured_mean_radial_magnitude_m": 0.9467767438252361,
+    "measured_rms_radial_magnitude_m": 1.1171489725811599,
+    "measured_maximum_radial_magnitude_m": 2.202116327995797,
+    "first_noise_ned_m": [0.4324143042873244, 1.3538949744248632],
+    "first_radial_magnitude_m": 1.4212718713621233,
+    "gps_statistical_behavior": "PASS: component RMS is 0.790 m versus the shared model's configured 0.800 m per axis",
+    "initial_yaw_conversion": {
+      "observed_ned_rad": 1.5707882642745972,
+      "truth_ned_rad": -0.14519780796215698,
+      "circular_error_rad": 1.7159860722367544,
+      "status": "FAIL"
+    }
+  },
+  "stock_wamv_idle_stability": {
+    "model": "unmodified stock WAM-V from leadcat/vrx:stock-v3.0.1",
+    "actuator_command": "zero throughout both episodes",
+    "stock_wave_episode": {
+      "wave_gain": 0.3,
+      "wind_mean_velocity_mps": 0.0,
+      "simulation_interval_s": 120.0,
+      "net_horizontal_displacement_m": 0.2423777391454055,
+      "maximum_horizontal_excursion_m": 0.2423777391454055,
+      "vertical_range_m": 0.312562734721758,
+      "maximum_abs_roll_rad": 0.019757501708894624,
+      "maximum_abs_pitch_rad": 0.05139968672895593
+    },
+    "zero_disturbance_episode": {
+      "wave_gain": 0.0,
+      "wind_mean_velocity_mps": 0.0,
+      "applied_wave_topic_verified": true,
+      "simulation_interval_s": 120.01599999999999,
+      "net_horizontal_displacement_m": 0.0022343274359176543,
+      "maximum_horizontal_excursion_m": 0.00768854523120594,
+      "vertical_range_m": 0.18633127438014221,
+      "maximum_abs_roll_rad": 0.0003075681579636313,
+      "maximum_abs_pitch_rad": 0.02883609128562471
+    },
+    "floats_at_rest": true,
+    "does_not_sink_or_launch": true,
+    "bounded_roll_pitch_over_120_simulation_seconds": true,
+    "zero_command_has_no_net_horizontal_motion_beyond_noise_in_zero_disturbance": true,
+    "status": "PASS",
+    "note": "The initial vertical transient is settling to the stock waterline, not sustained sinking or launch. Stock 0.3-gain waves produce bounded wave-driven motion and are reported separately from the zero-disturbance numerical-noise check."
+  },
+  "checks": {
+    "live_gps_noise_matches_shared_conditioner": true,
+    "live_initial_yaw_conversion_matches_truth": true,
+    "cross_language_yaw_conversion_bit_identical": true,
+    "stock_wamv_plant_stability": true
+  }
+}

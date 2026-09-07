@@ -1,0 +1,620 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-los-pid-v2-bcod-reference",
+  "status": "BCOD_REFERENCE_COMPLETE",
+  "paper_measurement_eligible": true,
+  "task": {
+    "task_id": "common-waypoint-transit-v1",
+    "contract_path": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+    "contract_content_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
+    "terminal_radius_m": 2,
+    "terminal_variant": "pass-through",
+    "intermediate_radius_m": 6,
+    "plane_crossing_lateral_corridor_m": 15.361124064575238,
+    "corridor_protocol_path": "artifacts/rl-campaign/p2.5-corrected-corridor-protocol.json",
+    "corridor_protocol_sha256": "f49e51040f82e0e358396a8f71ffac0cdc8473226076a40520b7271e21bfbc82",
+    "physics_timestep_s": 0.05,
+    "control_interval_s": 0.1,
+    "episode_length_steps": 2400,
+    "evaluation_seeds": [
+      30000,
+      30049
+    ]
+  },
+  "controller": {
+    "id": "LOS-PID-v2",
+    "gains": {
+      "lookahead": 8,
+      "kp": 100,
+      "kd": 35,
+      "speed": 1
+    },
+    "source_path": "validation/rl-campaign/ports/portable-controllers.ts",
+    "source_sha256": "3d0131ac1b9f7307ae9f35da44d74c63fd7387cc67f9ed663ace13c94e8b8cc1",
+    "condition": "common-body-wrench-frozen-allocator",
+    "mapping": {
+      "vehicle-b-rudder": "surge/yaw wrench -> production surgeForce/yawMoment -> frozen MMG propeller/rudder resolver",
+      "vehicle-c-azimuth": "shared surge/yaw guidance wrench -> production minimum-thrust-norm dual-azimuth allocator"
+    }
+  },
+  "allocation": {
+    "strategy": "minimum-thrust-norm",
+    "pure_sway_moment_cancellation": "included by general 3-DOF constraint",
+    "implementation": "packages/core/src/azimuth-allocation.js"
+  },
+  "results": [
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "episodes": 50,
+      "success_count": 0,
+      "reference_success_rate": 0,
+      "termination_counts": {
+        "timeout": 50
+      }
+    }
+  ],
+  "gazebo_remeasurement": {
+    "status": "DEFERRED_UNTIL_GATE_D",
+    "requirement": "Reuse this allocator code; do not rebuild it."
+  },
+  "claim_limit": "This rate is a bcod-sim reference on design-derived Vehicle C dynamics, not physical validation. Gazebo remeasurement remains deferred until Gate D.",
+  "provenance": {
+    "contract_file_sha256": "49bd9c23e440febe460091c825d38a1306c134aa723faa8069daa7337178d2d5",
+    "controller_file_sha256": "3d0131ac1b9f7307ae9f35da44d74c63fd7387cc67f9ed663ace13c94e8b8cc1",
+    "corridor_protocol_file_sha256": "f49e51040f82e0e358396a8f71ffac0cdc8473226076a40520b7271e21bfbc82",
+    "git_sha": "working-tree",
+    "deterministic": true
+  },
+  "rows": [
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30000,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 44.70287519425771
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30001,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 59.440875406577206
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30002,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 33.60748033041536
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30003,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18688871865936
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30004,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 58.7064150797723
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30005,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 40.964036256079375
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30006,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18636815382622
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30007,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 10.743759898796544
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30008,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18626151791952
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30009,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.13473441707464
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30010,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 54.378327270715914
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30011,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 21.251188590954566
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30012,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 43.440347500888954
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30013,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 5.19711583859369
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30014,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18625261756205
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30015,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 14.33557227508568
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30016,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18633290867213
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30017,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 61.321023398121945
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30018,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 47.946904442873794
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30019,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18630304892663
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30020,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 45.02095928650926
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30021,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 34.35375673849651
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30022,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 19.9376442895325
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30023,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18633469356281
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30024,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18642239321822
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30025,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 30.634832267199844
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30026,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18619303623983
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30027,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18665307760699
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30028,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 25.26702531918217
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30029,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 14.337247008376258
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30030,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.1861797754819
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30031,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 19.866338815331424
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30032,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18631429936829
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30033,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 28.80360035859452
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30034,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 59.722481499205614
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30035,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18622324680948
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30036,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 58.29091474556731
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30037,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18634983355759
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30038,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 33.98306538876412
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30039,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 22.204603272918195
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30040,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 13.763401983596065
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30041,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 62.00539831547749
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30042,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 31.125750463646355
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30043,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18624376436895
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30044,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18645601591578
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30045,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 68.18619346020712
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30046,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 50.592716482536886
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30047,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 27.959138177211702
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30048,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 10.27842155781248
+    },
+    {
+      "vehicle": "vehicle-c-azimuth",
+      "seed": 30049,
+      "policy": "LOS-PID-v2",
+      "gate_5_condition": "common-body-wrench-frozen-allocator",
+      "plant": "coupled6",
+      "success": false,
+      "episode_length_steps": 2400,
+      "termination_reason": "timeout",
+      "closest_final_m": 15.76299643478805
+    }
+  ]
+}

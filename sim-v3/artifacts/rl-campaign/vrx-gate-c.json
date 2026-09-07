@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-gate-c-closed-loop-acceptance",
+  "status": "FAIL",
+  "gate_c_complete": true,
+  "reward_action_parity_started": false,
+  "gate_d_started": false,
+  "training_started": false,
+  "runtime": {
+    "image": "leadcat/vrx:surveyor-patched-v3.0.1",
+    "gazebo_sim_version": "8.10.0",
+    "execution": "AMD64 emulation on Apple Silicon",
+    "host_architecture": "arm64",
+    "timing_basis": "/clock and sensor-header simulation timestamps only"
+  },
+  "stability": {
+    "artifact": "artifacts/rl-campaign/vrx-pre-gate-b-live-statistics-and-stability.json",
+    "passed": true
+  },
+  "reset_determinism": {
+    "position_delta_m": 0.11766571536037171,
+    "heading_delta_rad": 8.322020668138919e-07
+  },
+  "seeded_reset_parity": {
+    "reference": "bcod-sim post-heading-fix",
+    "position_error_m": 0.18037971137580514,
+    "heading_error_rad": 9.471219570400535e-06
+  },
+  "disturbances": {
+    "protocol": "artifacts/rl-campaign/vrx-task-6-disturbed-protocol.json",
+    "requested": {
+      "current_mps": [
+        1.142819479452231,
+        -0.6508951290617273,
+        0
+      ],
+      "wind_mps": [
+        1.5627285423556794,
+        -2.8258413730019427,
+        0
+      ]
+    },
+    "applied": {
+      "current_mps": [
+        1.1428194794522317,
+        -0.6508951290617263,
+        0
+      ],
+      "wind_mps": [
+        1.562728542355682,
+        -2.8258413730019414,
+        0
+      ],
+      "wave": {
+        "gain": 0,
+        "mechanism": "No wave-parameter publisher in the common-task world; flat water is explicit."
+      }
+    }
+  },
+  "step_timing": {
+    "control_steps": 12,
+    "expected_elapsed_s": 1.2000000000000002,
+    "observed_elapsed_s": 1.1999999999999997
+  },
+  "terminations": {
+    "grounding": {
+      "terminated": true,
+      "stop_reason": "grounding",
+      "physics_ticks": 1
+    },
+    "object_collision": {
+      "terminated": true,
+      "stop_reason": "object_collision",
+      "physics_ticks": 1
+    },
+    "instability": {
+      "terminated": true,
+      "stop_reason": "instability",
+      "physics_ticks": 20
+    },
+    "allocation_failure": {
+      "terminated": true,
+      "stop_reason": "allocation_failure",
+      "physics_ticks": 20
+    },
+    "precedence": {
+      "terminated": true,
+      "stop_reason": "instability",
+      "physics_ticks": 1
+    }
+  },
+  "observation_equivalence": {
+    "fields": {
+      "accel_x": {
+        "median_abs": 0.13859081268310547,
+        "max_abs": 0.24392029643058777,
+        "max_tolerance": 0.1,
+        "passed": false
+      },
+      "accel_y": {
+        "median_abs": 0.2724037077277899,
+        "max_abs": 0.8948044180870056,
+        "max_tolerance": 0.1,
+        "passed": false
+      },
+      "accel_z": {
+        "median_abs": 9.7803788980018,
+        "max_abs": 19.67609770875424,
+        "max_tolerance": 0.1,
+        "passed": false
+      },
+      "gyro_x": {
+        "median_abs": 0.07534841849701479,
+        "max_abs": 0.21471792762167752,
+        "max_tolerance": 0.01,
+        "passed": false
+      },
+      "gyro_y": {
+        "median_abs": 0.03649706160649657,
+        "max_abs": 0.09201939759077504,
+        "max_tolerance": 0.01,
+        "passed": false
+      },
+      "gyro_z": {
+        "median_abs": 0.49854311253875494,
+        "max_abs": 0.7887431159615517,
+        "max_tolerance": 0.01,
+        "passed": false
+      },
+      "yaw": {
+        "median_abs": 0.16488158702850342,
+        "max_abs": 0.5215026810765266,
+        "max_tolerance": 0.01,
+        "passed": false
+      },
+      "goal_north": {
+        "median_abs": 1.5760765075683594,
+        "max_abs": 27.3526611328125,
+        "max_tolerance": 4.0,
+        "passed": false
+      },
+      "goal_east": {
+        "median_abs": 0.3352956771850586,
+        "max_abs": 6.772319316864014,
+        "max_tolerance": 4.0,
+        "passed": false
+      },
+      "fix_valid": {
+        "median_abs": 0.0,
+        "max_abs": 1.0,
+        "max_tolerance": 0.0,
+        "passed": false
+      },
+      "prev_port": {
+        "median_abs": 0.0,
+        "max_abs": 0.0,
+        "max_tolerance": 1e-07,
+        "passed": true
+      },
+      "prev_starboard": {
+        "median_abs": 0.0,
+        "max_abs": 0.0,
+        "max_tolerance": 1e-07,
+        "passed": true
+      },
+      "prev_steer_0": {
+        "median_abs": 0.0,
+        "max_abs": 0.0,
+        "max_tolerance": 1e-07,
+        "passed": true
+      },
+      "prev_steer_1": {
+        "median_abs": 0.0,
+        "max_abs": 0.0,
+        "max_tolerance": 1e-07,
+        "passed": true
+      },
+      "time_remaining": {
+        "median_abs": 0.0,
+        "max_abs": 0.0,
+        "max_tolerance": 1e-07,
+        "passed": true
+      }
+    },
+    "truth_path_divergence": {
+      "position_m": {
+        "median_abs": 0.44398880566624527,
+        "max_abs": 0.6509834127476851
+      },
+      "yaw_rad": {
+        "median_abs": 0.19148766637390224,
+        "max_abs": 0.5651319019549135
+      },
+      "velocity_body_mps": {
+        "median_abs": 0.850781678079535,
+        "max_abs": 1.567685670193828
+      },
+      "yaw_rate_rad_s": {
+        "median_abs": 0.5414769879566577,
+        "max_abs": 0.8448313191068642
+      }
+    },
+    "passed": false
+  },
+  "checks": {
+    "stock_wamv_stability_precheck": true,
+    "reset_determinism": false,
+    "seeded_reset_parity_post_heading_fix": true,
+    "matched_seeded_wind_current": true,
+    "step_timing": true,
+    "sensor_freshness_gate_a": true,
+    "diagnostic_termination_logic_and_precedence": true,
+    "live_contact_trajectory_terminations": false,
+    "observation_equivalence": false
+  },
+  "all_checks_pass": false,
+  "termination_validation_scope": "Diagnostic signal injection only; the connected VRX runtime does not yet subscribe to generated-model hull contact sensors, so grounding and object-collision trajectories are not live-validated.",
+  "blocking_rework": [
+    "Make reset publication epoch deterministic under active disturbances; the repeated seed-30000 start positions differed by 0.118 m.",
+    "Diagnose conversion-layer acceleration/gyro failures before plant tuning; accel_z reached 19.68 m/s^2 divergence.",
+    "Add live hull contact sensors/topics and exercise grounding/object collision with physical trajectories.",
+    "After conversion and contact fixes, rerun observation equivalence; current truth yaw-rate divergence reached 0.845 rad/s."
+  ]
+}

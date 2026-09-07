@@ -325,7 +325,7 @@ function buoyancyCollisionPrimitive(primitive, coeffs, fullVolume) {
     };
 }
 
-function renderHullPrimitives(coeffs) {
+function renderHullPrimitives(coeffs, options = {}) {
     const primitives = coeffs.hullPrimitives?.length
         ? coeffs.hullPrimitives
         : [{type: "box", dims: coeffs.geometry, offset: {pos: [0, 0, 0], rot: [0, 0, 0]}}];
@@ -338,7 +338,14 @@ function renderHullPrimitives(coeffs) {
       <collision name="hull_collision_${idx}">
         <pose>${primitivePose(primitive)}</pose>
         <geometry>${primitiveGeometry(buoyancyCollisionPrimitive(primitive, coeffs, fullVolume), coeffs.geometry)}</geometry>
-      </collision>
+      </collision>${options.contactSensors ? `
+      <sensor name="hull_contact_${idx}" type="contact">
+        <always_on>true</always_on><update_rate>100</update_rate>
+        <contact>
+          <collision>hull_collision_${idx}</collision>
+          <topic>/surveyor/contacts/hull_${idx}</topic>
+        </contact>
+      </sensor>` : ""}
       <visual name="hull_visual_${idx}">
         <pose>${primitivePose(primitive)}</pose>
         <geometry>${primitiveGeometry(primitive, coeffs.geometry)}</geometry>
@@ -487,7 +494,7 @@ function renderModelSdf(coeffs, options = {}) {
         </inertia>
 ${renderFluidAddedMass(coeffs, options)}
       </inertial>
-${renderHullPrimitives(coeffs)}
+${renderHullPrimitives(coeffs, options)}
 ${renderPhaseASensors(options)}
     </link>
 ${renderThrusterLinks(coeffs, options)}
@@ -597,6 +604,7 @@ ${renderBuoyancyPlugin(coeffs)}
     <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"/>
     <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
     <plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat"/>
+    <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact"/>
     <plugin filename="gz-sim-apply-link-wrench-system" name="gz::sim::systems::ApplyLinkWrench"/>
     <!-- BCOD parity metadata: current ENU ${format(current.x || 0)} ${format(current.z || 0)} ${format(current.y || 0)} -->
   </world>

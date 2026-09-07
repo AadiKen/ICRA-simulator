@@ -1,0 +1,702 @@
+{
+  "dynamics": {
+    "hull_changes": [],
+    "decision": "No geometry/drag change: the existing hull exceeds the frozen route envelope at the 1 m/s working speed.",
+    "bcod_theoretical_full_speed_mps": 5.45,
+    "frozen_route_centerline_m": 80.387,
+    "frozen_timeout_s": 120.0,
+    "minimum_average_speed_mps": 0.6698916666666667,
+    "speed_force_curve": [
+      {
+        "normalized_command_each": 0.25,
+        "thrust_each_n": 23.74999999999992,
+        "one_second_interval_speeds_mps": [
+          0.07144544116162507,
+          0.3868099823093282,
+          0.5486052245490236,
+          0.6047395832583427,
+          0.6425142768991037,
+          0.6501869912281284,
+          0.6548515032528862,
+          0.6585405604093325,
+          0.6580370196475422,
+          0.6590420301042493,
+          0.659090595024231,
+          0.6591360723229196,
+          0.6594543517008572,
+          0.6594473614757326,
+          0.6595381950040077,
+          0.659711156258484,
+          0.6598364098778448,
+          0.659870732895404,
+          0.6596986838310634,
+          0.6594506149352807,
+          0.6592602513656288,
+          0.6590586712786118,
+          0.658742213754052,
+          0.6584970613827009,
+          0.6583858908421371
+        ],
+        "steady_speed_final_5s_mean_mps": 0.6587888177246262,
+        "two_percent_settling_time_s": 6.0
+      },
+      {
+        "normalized_command_each": 0.5,
+        "thrust_each_n": 47.49999999999984,
+        "one_second_interval_speeds_mps": [
+          0.1614563398599367,
+          0.804203396465604,
+          1.1352657924618859,
+          1.2581712858913177,
+          1.328950007956051,
+          1.3599912435479242,
+          1.3760788960267882,
+          1.3863149700314978,
+          1.3900811206695958,
+          1.393507683234557,
+          1.3943229615772663,
+          1.395560473800753,
+          1.395620976073988,
+          1.396108536838832,
+          1.3960416625390655,
+          1.396152723787268,
+          1.3961894439323548,
+          1.396104158998979,
+          1.39625897894299,
+          1.3960263843498506,
+          1.3963647074697998,
+          1.396034041680293,
+          1.3964804529094892,
+          1.3960818015464322,
+          1.3964900578281416
+        ],
+        "steady_speed_final_5s_mean_mps": 1.396290212286831,
+        "two_percent_settling_time_s": 7.0
+      },
+      {
+        "normalized_command_each": 0.75,
+        "thrust_each_n": 71.24999999999821,
+        "one_second_interval_speeds_mps": [
+          0.2541424629418761,
+          1.1991179742597882,
+          1.6580998473377966,
+          1.8486497381717204,
+          1.9503661809785993,
+          1.9999917855079241,
+          2.0235714960466047,
+          2.036077816103056,
+          2.0408869294994947,
+          2.043968426326855,
+          2.0450433079824704,
+          2.0459044625540144,
+          2.045747858029777,
+          2.046062228979894,
+          2.0464731239993674,
+          2.0462203158127563,
+          2.0460889469166075,
+          2.046333128647801,
+          2.0466093700540444,
+          2.0464098667072057,
+          2.046331381436823,
+          2.0463834788985973,
+          2.0469331566416336,
+          2.046414636857143,
+          2.046473365238466
+        ],
+        "steady_speed_final_5s_mean_mps": 2.0465072038145324,
+        "two_percent_settling_time_s": 7.0
+      },
+      {
+        "normalized_command_each": 1.0,
+        "thrust_each_n": 94.99999999999967,
+        "one_second_interval_speeds_mps": [
+          0.35069947903057025,
+          1.5672893959578973,
+          2.129850967346171,
+          2.3780411245142656,
+          2.4641009345226577,
+          2.487989886962028,
+          2.49117778855762,
+          2.493041521925712,
+          2.4940127230991624,
+          2.4943058899241586,
+          2.494068186063936,
+          2.4943421762743787,
+          2.494179612334276,
+          2.4935215713827064,
+          2.492528644687732,
+          2.490525057712095,
+          2.491519643694383,
+          2.488813418148706,
+          2.4851979843972893,
+          2.4835779869752073,
+          2.483452611952005,
+          2.478645851130217,
+          2.4701113362244307,
+          2.4632606822662817,
+          2.459065482398578
+        ],
+        "steady_speed_final_5s_mean_mps": 2.4709071927943027,
+        "two_percent_settling_time_s": 5.0
+      }
+    ],
+    "turning_radius_vs_yaw_demand": [
+      {
+        "yaw_demand": 0.1,
+        "action": [
+          0.7,
+          0.5,
+          0.0,
+          0.0
+        ],
+        "achieved_speed_final_5s_mean_mps": 1.572037401477568,
+        "achieved_yaw_rate_rad_s": 0.0982962138173278,
+        "turn_radius_m": 15.992858121667012
+      },
+      {
+        "yaw_demand": 0.2,
+        "action": [
+          0.8,
+          0.39999999999999997,
+          0.0,
+          0.0
+        ],
+        "achieved_speed_final_5s_mean_mps": 1.4816597387280592,
+        "achieved_yaw_rate_rad_s": 0.16981964040319475,
+        "turn_radius_m": 8.724902109144882
+      },
+      {
+        "yaw_demand": 0.3,
+        "action": [
+          0.8999999999999999,
+          0.3,
+          0.0,
+          0.0
+        ],
+        "achieved_speed_final_5s_mean_mps": 1.4116271866613335,
+        "achieved_yaw_rate_rad_s": 0.23301750288290762,
+        "turn_radius_m": 6.058030702400423
+      },
+      {
+        "yaw_demand": 0.4,
+        "action": [
+          1.0,
+          0.19999999999999996,
+          0.0,
+          0.0
+        ],
+        "achieved_speed_final_5s_mean_mps": 1.3466483219799201,
+        "achieved_yaw_rate_rad_s": 0.29161363243755106,
+        "turn_radius_m": 4.617919644988834
+      }
+    ]
+  },
+  "determinism": {
+    "preregistered_prediction_artifact": "gate_c_determinism_preregistration.json",
+    "sensor_rng_hook": {
+      "noise_enabled": true,
+      "same_seed_exactly_equal": true,
+      "different_seed_changes_draws": true,
+      "same_seed_sample": [
+        49.99999993427282,
+        19.99999980490646,
+        -0.0073104886463941175,
+        -0.013987378310680386,
+        -0.000448513752929126,
+        -0.0012510554496295541,
+        0.001134046020178162,
+        0.00043646328498509737,
+        6.767324889954675e-05,
+        0.0008920147629060345,
+        0.00562658235982287,
+        0.014923952656124749,
+        -9.802722956063754,
+        -1.607824232755794e-05
+      ],
+      "different_seed_sample": [
+        49.99999981652105,
+        20.000000317529082,
+        -0.020407908138172223,
+        0.022765487041194545,
+        -7.970926263214481e-05,
+        -0.0014355812574513563,
+        -4.315454475950717e-05,
+        3.9736835619635546e-05,
+        0.0007309000535022563,
+        0.0011110110325106037,
+        -0.0008073768993003039,
+        0.0065488866202896645,
+        -9.811414206905818,
+        -0.0007857112292283173
+      ]
+    },
+    "default_threads": {
+      "thread_setting": "default_physical_cores",
+      "repeats": 8,
+      "samples_per_repeat": 101,
+      "exactly_equal": true,
+      "worst_field": "imu.linear_accel_x",
+      "worst_divergence": 0.0,
+      "per_field": [
+        {
+          "field": "imu.linear_accel_x",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "imu.linear_accel_y",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "imu.linear_accel_z",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "imu.angular_rate_x",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "imu.angular_rate_y",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "imu.angular_rate_z",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "imu.orientation_yaw_rad",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "gps.relative_goal_north_m",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "gps.relative_goal_east_m",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "gps.fix_valid",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "previous_action.effector_0",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "previous_action.effector_1",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "previous_action.steer_0",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "previous_action.steer_1",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "normalized_time_remaining",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        }
+      ]
+    },
+    "single_thread": {
+      "thread_setting": 1,
+      "repeats": 8,
+      "samples_per_repeat": 101,
+      "exactly_equal": true,
+      "worst_field": "imu.linear_accel_x",
+      "worst_divergence": 0.0,
+      "per_field": [
+        {
+          "field": "imu.linear_accel_x",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "imu.linear_accel_y",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "imu.linear_accel_z",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "imu.angular_rate_x",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "imu.angular_rate_y",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "imu.angular_rate_z",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "imu.orientation_yaw_rad",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "gps.relative_goal_north_m",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "gps.relative_goal_east_m",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "gps.fix_valid",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "previous_action.effector_0",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "previous_action.effector_1",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "previous_action.steer_0",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "previous_action.steer_1",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        },
+        {
+          "field": "normalized_time_remaining",
+          "maximum_absolute_divergence": 0.0,
+          "worst_step_by_repeat": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "worst_step_consistent": true
+        }
+      ]
+    }
+  },
+  "terminations": {
+    "normal": {
+      "contacts": {
+        "grounding": false,
+        "object_collision": false
+      },
+      "termination_reason": null
+    },
+    "grounding": {
+      "contacts": {
+        "grounding": true,
+        "object_collision": false
+      },
+      "termination_reason": "grounding"
+    },
+    "object_collision": {
+      "contacts": {
+        "grounding": false,
+        "object_collision": true
+      },
+      "termination_reason": "object_collision"
+    },
+    "synthetic_threshold_checks": {
+      "tilt_61deg_for_1s": "instability",
+      "nonfinite_direct_mapping": "allocation_failure"
+    },
+    "allocation_gap": "Vehicle A has no allocator or native infeasibility signal; only non-finite direct command/output can map cleanly to allocation_failure. Rotor lag is not allocation failure."
+  }
+}

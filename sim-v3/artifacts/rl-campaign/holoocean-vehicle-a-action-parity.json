@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "holoocean-vehicle-a-action-parity-groundwork",
+  "status": "FORCE_AND_LAG_PARITY_CONFIRMED",
+  "training_run": false,
+  "reward_implementation_started": false,
+  "contract_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
+  "comparisons": {
+    "normalized_range": {
+      "bcod_sim": [-1.0, 1.0],
+      "holoocean": [-1.0, 1.0],
+      "match": true
+    },
+    "shape": {
+      "bcod_sim_frozen_contract": 4,
+      "bcod_sim_common_task_gym_interface": 2,
+      "holoocean_wrapper": 2,
+      "bcod_sim_fields": ["effector_0", "effector_1", "steer_0", "steer_1"],
+      "holoocean_fields": ["port", "starboard"],
+      "contract_unused_fields_must_be_zero": ["steer_0", "steer_1"],
+      "match": true,
+      "mapping": "both Gym interfaces expose port/starboard; the frozen serialized action appends steer_0=0 and steer_1=0"
+    },
+    "effector_order": {
+      "bcod_sim": ["port fixed-thruster", "starboard fixed-thruster"],
+      "holoocean": ["port fixed-thruster", "starboard fixed-thruster"],
+      "match": true
+    },
+    "sign_convention": {
+      "positive_command": "forward thrust in both implementations",
+      "differential_probe": "[+0.25, -0.25] produces positive NED yaw in HoloOcean, matching bcod-sim's port-minus-starboard positive-yaw convention",
+      "match": true
+    },
+    "force_scale_n_each": {
+      "bcod_sim_vehicle_a": [-95.0, 95.0],
+      "holoocean_wrapper_output": [-95.0, 95.0],
+      "holoocean_native_limit_retained_but_unreached": [-1500.0, 1500.0],
+      "ratio_holoocean_wrapper_to_bcod": 1.0,
+      "match": true
+    },
+    "actuator_dynamics": {
+      "bcod_sim_vehicle_a": "first-order motor lag, time constant 0.25 s",
+      "holoocean_wrapper": "exact bcod-sim exponential first-order update at each 0.05 s physics tick, time constant 0.25 s",
+      "match": true
+    }
+  },
+  "conclusion": "The policy-facing normalized actions, port/starboard mapping, sign convention, force scale, and per-physics-tick actuator lag now match bcod-sim Vehicle A. The frozen four-field serialization is represented by appending two mandatory zero steering fields."
+}

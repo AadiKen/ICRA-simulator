@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-real-contact-termination-validation",
+  "method": "zero-disturbance live worlds with physical static targets 0.7 m ahead (inside the hull forward envelope); equal positive thrust trajectory; no diagnostic termination injection",
+  "rows": [
+    {
+      "scenario": "grounding",
+      "expected": "grounding",
+      "controls": 1,
+      "terminated": true,
+      "stop_reason": "grounding",
+      "contact_topic_message_counts": {
+        "contact0": 3,
+        "contact1": 3,
+        "world_contacts": 0
+      },
+      "contact_subscriber_exit_codes": {
+        "contact0": null,
+        "contact1": null,
+        "world_contacts": null
+      },
+      "contact_parse_diagnostics": {
+        "contact0": {
+          "parse_errors": 0,
+          "last_unparsed": null
+        },
+        "contact1": {
+          "parse_errors": 0,
+          "last_unparsed": null
+        },
+        "world_contacts": {
+          "parse_errors": 0,
+          "last_unparsed": null
+        }
+      },
+      "published_contact_topics": [
+        "/surveyor/contacts/hull_0",
+        "/surveyor/contacts/hull_1",
+        "/world/surveyor_vrx/physics/contacts"
+      ],
+      "final_position_ned_m": [
+        9999.808204458452,
+        10000.69233572818
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "object_collision",
+      "expected": "object_collision",
+      "controls": 1,
+      "terminated": true,
+      "stop_reason": "object_collision",
+      "contact_topic_message_counts": {
+        "contact0": 3,
+        "contact1": 0,
+        "world_contacts": 0
+      },
+      "contact_subscriber_exit_codes": {
+        "contact0": null,
+        "contact1": null,
+        "world_contacts": null
+      },
+      "contact_parse_diagnostics": {
+        "contact0": {
+          "parse_errors": 0,
+          "last_unparsed": null
+        },
+        "contact1": {
+          "parse_errors": 0,
+          "last_unparsed": null
+        },
+        "world_contacts": {
+          "parse_errors": 0,
+          "last_unparsed": null
+        }
+      },
+      "published_contact_topics": [
+        "/surveyor/contacts/hull_0",
+        "/surveyor/contacts/hull_1",
+        "/world/surveyor_vrx/physics/contacts"
+      ],
+      "final_position_ned_m": [
+        9999.824791279254,
+        10000.692036384531
+      ],
+      "passed": true
+    }
+  ],
+  "all_pass": true
+}

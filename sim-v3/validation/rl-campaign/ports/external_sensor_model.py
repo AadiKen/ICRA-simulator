@@ -25,7 +25,7 @@ class ExternalGpsModel:
         self.reference=(reference_latitude_deg,reference_longitude_deg) if anchored else None
         self.reference_elevation_m=reference_elevation_m
         self.anchor_n_m=0.0 if anchored else initial_n_m; self.anchor_e_m=0.0 if anchored else initial_e_m
-        self.last_ingested_s=-math.inf; self.pending=deque(); self.held=None
+        self.last_ingested_s=-math.inf; self.pending=deque(); self.held=None; self.last_diagnostic=None
     def ingest(self,timestamp_s,latitude_deg,longitude_deg,valid,altitude_m=0.0):
         if timestamp_s-self.last_ingested_s < self.period_s-1e-9:return
         self.last_ingested_s=timestamp_s
@@ -49,15 +49,21 @@ class ExternalGpsModel:
             east=self.initial_e_m+math.radians(longitude_deg-lon0)*prime_vertical_radius*math.cos(lat0_rad)
         base_n=north if self.geodetic_anchored else self.anchor_n_m+north-self.initial_n_m
         base_e=east if self.geodetic_anchored else self.anchor_e_m+east-self.initial_e_m
-        position=(base_n+self.random.gauss(0,self.position_std_m),base_e+self.random.gauss(0,self.position_std_m))
-        self.pending.append((timestamp_s+self.latency_s,{"timestamp_s":timestamp_s,"valid":True,"position_ned_m":list(position)}))
+        noise_n=self.random.gauss(0,self.position_std_m);noise_e=self.random.gauss(0,self.position_std_m)
+        position=(base_n+noise_n,base_e+noise_e)
+        self.last_diagnostic={"timestamp_s":timestamp_s,"base_position_ned_m":[base_n,base_e],
+                              "noise_ned_m":[noise_n,noise_e],"noise_magnitude_m":math.hypot(noise_n,noise_e)}
+        self.pending.append((timestamp_s+self.latency_s,{"timestamp_s":timestamp_s,"valid":True,
+                            "position_ned_m":list(position),"diagnostic":self.last_diagnostic}))
     def sample(self,now_s):
         while self.pending and self.pending[0][0]<=now_s+1e-12:_,self.held=self.pending.popleft()
         return self.held
 
 def quaternion_to_ned_yaw(w,x,y,z):
+    """Exact Python port of task-trace-bridge.ts enuQuaternionToNedYaw."""
     yaw_enu=math.atan2(2*(w*z+x*y),1-2*(y*y+z*z))
-    return (math.pi/2-yaw_enu+math.pi)%(2*math.pi)-math.pi
+    wrapped=((math.pi/2-yaw_enu+math.pi)%(2*math.pi)+2*math.pi)%(2*math.pi)-math.pi
+    return float(format(wrapped,'.15g'))
 
 def flu_to_body_ned(x,y,z):return [x,-y,-z]
 

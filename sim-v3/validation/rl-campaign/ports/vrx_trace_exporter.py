@@ -28,11 +28,14 @@ class VrxTraceExporter(Node):
         self.gps_model = ExternalGpsModel(self.get_parameter('seed').value,
             self.get_parameter('initial_n_m').value, self.get_parameter('initial_e_m').value)
         self.left = 0.; self.right = 0.
-        self.create_subscription(Odometry, 'wamv/odometry', self.on_odom, 20)
-        self.create_subscription(Imu, 'wamv/imu', self.on_imu, 20)
-        self.create_subscription(NavSatFix, 'wamv/gps', self.on_gps, 20)
-        self.create_subscription(Float64, 'wamv/thrusters/left/thrust', lambda m: setattr(self, 'left', m.data), 20)
-        self.create_subscription(Float64, 'wamv/thrusters/right/thrust', lambda m: setattr(self, 'right', m.data), 20)
+        # Names verified from a live VRX v3.0.1 ROS graph.  The old
+        # wamv/{sensor} and wamv/thrusters/{left,right} names do not exist in
+        # the Surveyor VRX runtime.
+        self.create_subscription(Odometry, '/odometry', self.on_odom, 20)
+        self.create_subscription(Imu, '/imu', self.on_imu, 20)
+        self.create_subscription(NavSatFix, '/gps', self.on_gps, 20)
+        self.create_subscription(Float64, '/surveyor/thrusters/port/thrust', lambda m: setattr(self, 'left', m.data), 20)
+        self.create_subscription(Float64, '/surveyor/thrusters/starboard/thrust', lambda m: setattr(self, 'right', m.data), 20)
     def on_imu(self, msg): self.imu = msg
     def on_gps(self, msg):
         timestamp=msg.header.stamp.sec+msg.header.stamp.nanosec*1e-9

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-pre-full-gate-c-filter-and-contact-report",
+  "status": "REVIEW_REQUIRED_BEFORE_FULL_GATE_C_RERUN",
+  "full_gate_c_rerun_started": false,
+  "surface_imu_ablation": {
+    "artifact": "artifacts/rl-campaign/vrx-surface-imu-ablation.json",
+    "surface_enabled_raw_z_mps2": {"min": 0.008660452168287591, "max": 31.361989418698126, "median": 3.684299389587758, "population_std": 11.79549802822158},
+    "surface_disabled_raw_z_mps2": {"min": 0.0187213740457981, "max": 0.01872137417666586, "median": 0.0187213740457981, "population_std": 2.8521967274078053e-11},
+    "conclusion": "The acceleration pulses are specific to the VRX Surface/buoyancy path, not general rigid-body integration or gravity-compensation code."
+  },
+  "preregistered_filter": {
+    "artifact": "artifacts/rl-campaign/vrx-imu-filter-preregistered.json",
+    "type": "causal fourth-order critically damped low-pass, four identical one-pole sections",
+    "cutoff_hz_each_pole": 1.0,
+    "placement": "after quaternion gravity compensation and FLU-to-body-NED conversion",
+    "timestamp_basis": "IMU simulation time"
+  },
+  "filtered_observation_equivalence": {
+    "artifact": "artifacts/rl-campaign/vrx-filtered-observation-equivalence.json",
+    "accel_z_max_before_mps2": 19.67609770875424,
+    "accel_z_max_after_mps2": 1.389010103419423,
+    "gyro_z_max_before_rad_s": 0.7887431159615517,
+    "gyro_z_max_after_rad_s": 0.7884087264537811,
+    "yaw_max_before_rad": 0.5215026810765266,
+    "yaw_max_after_rad": 0.5215194299817085,
+    "truth_yaw_rate_max_after_rad_s": 11.54658432537116,
+    "conclusion": "Filtering substantially attenuates the buoyancy acceleration pulses but does not meet the acceleration tolerance and does not resolve gyro, yaw, or plant yaw-rate divergence."
+  },
+  "contact_wiring": {
+    "collision_masks": {"hull": 65535, "targets": 65535, "compatible": true},
+    "subscribed_topics": ["/surveyor/contacts/hull_0", "/surveyor/contacts/hull_1", "/world/surveyor_vrx/physics/contacts"],
+    "live_advertised_topics": ["/world/surveyor_vrx/model/surveyor/link/base_link/sensor/port_hull_contact/contact", "/world/surveyor_vrx/model/surveyor/link/base_link/sensor/starboard_hull_contact/contact", "/surveyor/contacts/hull_0", "/surveyor/contacts/hull_1", "/world/surveyor_vrx/physics/contacts"],
+    "exact_configured_topic_matches": true,
+    "subscriber_processes_alive": true,
+    "json_parse_errors": 0,
+    "grounding_contact_messages": 0,
+    "object_collision_contact_messages": 0,
+    "physics_collision_evidence": "The object-collision run displaced the hull by approximately 0.51 m despite only 2 simulation seconds and a target initially intersecting the port-pontoon envelope.",
+    "conclusion": "Collision filtering and topic naming are not the fault. The pinned VRX/Gazebo 8.10 contact publishers advertise correctly but emit no Contacts messages for resolved collisions in this generated DART world; real termination validation remains failed."
+  },
+  "training_started": false
+}

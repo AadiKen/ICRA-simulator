@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gazebo-local-correctness-dry-run",
+  "status": "PASS",
+  "classification": "correctness-only validation; not a Gate D throughput measurement",
+  "run_scope": "short debugging pass; does not satisfy Task 4 10k acceptance",
+  "training_authorized": false,
+  "scientific_training_result": false,
+  "runtime": {
+    "image": "icra27-gazebo-harmonic:harmonic-8.15.0",
+    "image_id": "174e8baad590",
+    "host_architecture": "arm64",
+    "container_architecture": "linux/amd64",
+    "execution": "AMD64-emulated on Apple Silicon",
+    "timing_label": "AMD64-emulated, not representative of cluster throughput"
+  },
+  "still_water_running_instance": {
+    "requested": {
+      "current_mps": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wind_mps": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "applied": {
+      "current_mps": [
+        0,
+        0,
+        0
+      ],
+      "wind_mps": [
+        0,
+        0,
+        0
+      ]
+    },
+    "mechanism": "No Gazebo wind/current plugin is loaded; the running world is still water."
+  },
+  "construction": {
+    "parallel_environments": 2,
+    "selection_basis": "small local correctness run only; not cluster performance",
+    "reset_shape": [
+      2,
+      15
+    ],
+    "finite": true
+  },
+  "rollout_and_update": {
+    "requested_timesteps": 256,
+    "actual_timesteps": 256,
+    "updates_applied": true,
+    "wall_clock_s": 149.76425429200754,
+    "timing_label": "AMD64-emulated, not representative of cluster throughput"
+  },
+  "checkpoint": {
+    "path": "artifacts/rl-campaign/gazebo-correctness-dry-run/recurrent-ppo-correctness-only.zip",
+    "exists": true,
+    "sha256": "3ee23066fa9ef4f48916abfa5dd9be8f25fbf242a218c7b1a0be8bb78b177ea9"
+  },
+  "evaluation": {
+    "controls": 10,
+    "lstm_state_threaded": true,
+    "episode_start_threaded": true,
+    "trace": [
+      {
+        "control": 1,
+        "episode_start": true,
+        "state_was_none": true
+      },
+      {
+        "control": 2,
+        "episode_start": false,
+        "state_was_none": false
+      },
+      {
+        "control": 3,
+        "episode_start": false,
+        "state_was_none": false
+      },
+      {
+        "control": 4,
+        "episode_start": false,
+        "state_was_none": false
+      },
+      {
+        "control": 5,
+        "episode_start": false,
+        "state_was_none": false
+      },
+      {
+        "control": 6,
+        "episode_start": false,
+        "state_was_none": false
+      },
+      {
+        "control": 7,
+        "episode_start": false,
+        "state_was_none": false
+      },
+      {
+        "control": 8,
+        "episode_start": false,
+        "state_was_none": false
+      },
+      {
+        "control": 9,
+        "episode_start": false,
+        "state_was_none": false
+      },
+      {
+        "control": 10,
+        "episode_start": false,
+        "state_was_none": false
+      }
+    ],
+    "episode_row_path": "artifacts/rl-campaign/gazebo-correctness-dry-run/episode-rows.json",
+    "episode_row_columns": [
+      "run_id",
+      "seed",
+      "simulator",
+      "vehicle",
+      "task_id",
+      "task_portable",
+      "policy_id",
+      "algorithm",
+      "return",
+      "success",
+      "episode_length",
+      "wall_clock_s",
+      "termination_reason",
+      "collision_type",
+      "host_class"
+    ],
+    "host_class": "local"
+  },
+  "termination_exercises": {
+    "grounding": {
+      "terminated": true,
+      "stop_reason": "grounding",
+      "physics_ticks": 1
+    },
+    "object_collision": {
+      "terminated": true,
+      "stop_reason": "object_collision",
+      "physics_ticks": 1
+    },
+    "instability": {
+      "terminated": true,
+      "stop_reason": "instability",
+      "physics_ticks": 20
+    },
+    "allocation_failure": {
+      "terminated": true,
+      "stop_reason": "allocation_failure",
+      "physics_ticks": 20
+    },
+    "precedence": {
+      "terminated": true,
+      "stop_reason": "instability",
+      "physics_ticks": 1
+    }
+  },
+  "precedence_expected": [
+    "instability",
+    "grounding",
+    "object_collision",
+    "allocation_failure"
+  ],
+  "gate_d": {
+    "throughput_measurement": false,
+    "parallel_environments_selected_for_cluster": false,
+    "budget_decision_made": false,
+    "cluster_access_still_blocked": true
+  },
+  "total_wall_clock_s": 177.55721491601435
+}

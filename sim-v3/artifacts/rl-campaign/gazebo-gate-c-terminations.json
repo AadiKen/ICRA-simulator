@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "gazebo-gate-c-termination-implementation",
+  "status": "PASS_IMPLEMENTATION_AND_CONNECTED_SMOKE",
+  "runtime": {
+    "image": "icra27-gazebo-harmonic:harmonic-8.15.0",
+    "image_id": "174e8baad590",
+    "execution": "linux/amd64 emulation on Apple Silicon",
+    "timing_basis": "Gazebo /clock simulation time only"
+  },
+  "terminations": {
+    "instability": {
+      "source": "Gazebo IMU quaternion converted to body roll/pitch",
+      "criterion": "non-finite attitude immediately, or abs(roll/pitch) > 60 degrees for 1.0 continuous simulation second",
+      "verified": true
+    },
+    "grounding": {
+      "source": "contact sensors bound to every hull collision geometry",
+      "criterion": "contact counterpart classified as bathymetry, seabed, ground, or bottom",
+      "verified": true
+    },
+    "object_collision": {
+      "source": "contact sensors bound to every hull collision geometry",
+      "criterion": "external hull contact not classified as grounding",
+      "verified": true
+    },
+    "allocation_failure": {
+      "source": "normalized command target versus FrozenActuatorBank achieved thrust",
+      "criterion": "non-finite output immediately, or relative residual > 20% for ten consecutive 0.1 s control intervals",
+      "verified": true
+    }
+  },
+  "precedence": [
+    "instability",
+    "grounding",
+    "object_collision",
+    "allocation_failure"
+  ],
+  "verification": {
+    "termination_unit_tests": 6,
+    "sensor_conditioning_unit_tests": 6,
+    "generator_contact_wiring_test": "PASS",
+    "connected_harmonic_smoke": {
+      "control_steps": 12,
+      "simulation_time_s": 1.2,
+      "unexpected_termination": false,
+      "contact_sensor_model_loaded": true
+    }
+  },
+  "known_plant_gap_unchanged": {
+    "seeded_wind_current_applied_by_gazebo": false,
+    "primary_disturbed_run_divergence_driver": true,
+    "still_water_residual_yaw_rate_divergence_rad_s": 0.008,
+    "residual_interpretation": "known added-mass difference; not fixed",
+    "figure_caption_required": true
+  },
+  "scope": {
+    "gate_d_started": false,
+    "training_started": false
+  }
+}

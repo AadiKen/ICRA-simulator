@@ -1,0 +1,30 @@
+diff --git a/Library/include/sensors/Sensor.h b/Library/include/sensors/Sensor.h
+index 2ed425f..b3b91a1 100644
+--- a/Library/include/sensors/Sensor.h
++++ b/Library/include/sensors/Sensor.h
+@@ -35,6 +35,9 @@ namespace sf
+     class Sensor
+     {
+     public:
++        //! Set the process-global sensor noise generator seed.
++        static void SetRandomSeed(uint32_t seed);
++
+         //! A constructor.
+         /*!
+          \param uniqueName a name for the sensor
+diff --git a/Library/src/sensors/Sensor.cpp b/Library/src/sensors/Sensor.cpp
+index b0d7bab..e749196 100644
+--- a/Library/src/sensors/Sensor.cpp
++++ b/Library/src/sensors/Sensor.cpp
+@@ -37,6 +37,11 @@ namespace sf
+ std::random_device Sensor::randomDevice;
+ std::mt19937 Sensor::randomGenerator(randomDevice());
+ 
++void Sensor::SetRandomSeed(uint32_t seed)
++{
++    randomGenerator.seed(seed);
++}
++
+ Sensor::Sensor(std::string uniqueName, Scalar frequency)
+ {
+     name = SimulationApp::getApp()->getSimulationManager()->getNameManager()->AddName(uniqueName);

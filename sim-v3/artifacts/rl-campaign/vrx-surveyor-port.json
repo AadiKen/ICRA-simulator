@@ -217,8 +217,8 @@
   "files": {
     "model_sdf": "artifacts/rl-campaign/vrx-surveyor-runtime/models/surveyor/model.sdf",
     "world_sdf": "artifacts/rl-campaign/vrx-surveyor-runtime/worlds/surveyor-vrx.sdf",
-    "model_sha256": "077ae3d4c4804050bd2b6131b69b05a400ccc63da413880485c2363b11ff2238",
-    "world_sha256": "0b94bba5f8f66ac0bce707f359177fd9294541d2c996e6fb9617a5e5a1bef7c1"
+    "model_sha256": "1bf02bb7684dc0e9ec546a592070e349813e12022bc8cd690ea91de59723f957",
+    "world_sha256": "f917a09b75feb30e1e19855a67171b029db72cfd20a77d5f7f110b07a0cf6b74"
   },
   "provenance_statement": "Established hull, mass, inertia, damping, actuator placement, lag and force bounds are serialized from the Surveyor source artifact, never bcod_usv. Only explicitly labeled rotor values are engineering estimates; no WAM-V rotor number is used.",
   "smoke_test": {
@@ -288,13 +288,13 @@
   "governing_contract": {
     "path": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
     "version": "4.0.0-surveyor-rate-corrected-shaping-scale",
-    "content_sha256": "905347f3e894841aa7e6613dfc286e585a0bf284f5f21820600cc09c0e6358ba",
+    "content_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
     "observation_fields": 16
   },
   "gate_7": {
     "executed": false,
     "status": "BLOCKED_INVALID_HARNESS",
-    "contract_content_sha256": "905347f3e894841aa7e6613dfc286e585a0bf284f5f21820600cc09c0e6358ba",
+    "contract_content_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
     "reason": "The checked-in Gate 7 runner cannot yet execute a faithful VRX conformance episode.",
     "verified_repairs": [
       "Node reference preset changed from vehicle-a-otter to searobotics-surveyor-m1.8.",

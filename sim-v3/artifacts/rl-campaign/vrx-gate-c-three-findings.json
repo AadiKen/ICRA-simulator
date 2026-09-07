@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-gate-c-ordered-investigation-findings",
+  "status": "REPORTED_BEFORE_FULL_GATE_C_RERUN",
+  "full_gate_c_rerun_started": false,
+  "training_started": false,
+  "imu_gravity": {
+    "same_compensation_path_as_standalone_gazebo": true,
+    "function": "external_sensor_model.inertial_acceleration_from_gazebo_imu",
+    "method": "Rotate world gravity into the body frame with the current quaternion, then subtract it from proper acceleration.",
+    "separate_vrx_gravity_implementation": false,
+    "finding": "The approximately 2g residual is not a missed gravity-compensation port. VRX Surface produces discrete vertical acceleration pulses: sampled raw vertical acceleration included approximately 0.019, 19.31, and 29.43 m/s^2. Correct subtraction of one gravity therefore leaves approximately +1g, -1g, or -2g residuals after FLU-to-body-NED conversion.",
+    "finer_internal_step_probe": "A temporary 5 ms internal-step probe did not remove the pulses and was reverted; no unapproved filtering or derived-acceleration substitution was retained.",
+    "observation_equivalence_remaining": {
+      "accel_z_max_abs_mps2": 19.67609770875424,
+      "gyro_z_max_abs_rad_s": 0.7887431159615517,
+      "yaw_max_abs_rad": 0.5215026810765266,
+      "truth_yaw_rate_max_abs_rad_s": 0.8448313191068642
+    },
+    "resolution": "OPEN: requires an explicit sensor-conditioning or VRX buoyancy/integration decision; it is not safe to label this a gravity-code bug."
+  },
+  "reset_position_variance": {
+    "root_cause": "The runtime launched gz sim with -r, so seeded wind/current forces acted while service discovery and pause requests were still in progress. The published reset snapshot therefore came from a variable simulation epoch.",
+    "fix": "Launch the episode paused and advance only through fixed /clock-controlled steps.",
+    "three_repeat_simulation_times_s": [0.1, 0.1, 0.1],
+    "maximum_position_delta_m": 0.0,
+    "status": "PASS"
+  },
+  "real_contacts": {
+    "method": "Generated hull contact sensors plus the Gazebo Contact system; zero-disturbance worlds; physical bathymetry and buoy targets inside the forward hull envelope; equal-positive-thrust trajectories; no diagnostic injection.",
+    "grounding": {"terminated": false, "contact_messages": 0},
+    "object_collision": {"terminated": false, "contact_messages": 0},
+    "finding": "The real event path remains unvalidated: neither configured hull contact topic published during the collision runs. Diagnostic precedence logic still passes, but cannot substitute for transport evidence.",
+    "artifact": "artifacts/rl-campaign/vrx-real-contact-terminations.json",
+    "status": "FAIL_OPEN_GAP"
+  }
+}

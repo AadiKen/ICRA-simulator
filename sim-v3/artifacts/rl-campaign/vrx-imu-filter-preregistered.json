@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-imu-acceleration-filter-preregistration",
+  "status": "LOCKED_BEFORE_FILTERED_TRACE",
+  "trigger": "Surface-enabled raw vertical acceleration standard deviation 11.7955 m/s^2 versus 2.85e-11 m/s^2 with Surface disabled.",
+  "scope": "VRX linear acceleration only; angular rate and orientation are not filtered.",
+  "placement": "After quaternion-based gravity compensation and FLU-to-body-NED conversion, before the 15-field observation conditioner.",
+  "design": {
+    "type": "causal fourth-order critically damped low-pass implemented as four identical one-pole sections",
+    "cutoff_hz_each_pole": 1.0,
+    "nominal_sample_rate_hz": 20.0,
+    "coefficient": "alpha = 1 - exp(-2*pi*cutoff_hz*delta_simulation_time_s)",
+    "initial_state": [0, 0, 0],
+    "timestamp_basis": "IMU simulation timestamp",
+    "duplicate_timestamp_rule": "Return cached output without advancing filter state",
+    "missing_or_stale_rule": "Existing timestamp-based zero-fill remains authoritative"
+  },
+  "rationale": "The Surface impulse sequence contains large near-Nyquist components at the 20 Hz physics/sample rate. Four 1 Hz poles strongly attenuate those impulses while preserving the common task's slow vessel acceleration envelope.",
+  "acceptance": {
+    "acceleration_max_abs_divergence_mps2": 0.1,
+    "gyro_max_abs_divergence_rad_s": 0.01,
+    "yaw_max_abs_divergence_rad": 0.01,
+    "report_truth_yaw_rate_without_filtering": true
+  },
+  "prohibited_posthoc_changes": "Do not change order, cutoff, initialization, or placement after viewing the filtered equivalence result without creating a new explicitly reviewed protocol."
+}

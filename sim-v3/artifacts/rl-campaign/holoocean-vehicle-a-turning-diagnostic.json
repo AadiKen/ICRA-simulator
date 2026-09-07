@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "holoocean-vehicle-a-turning-diagnostic",
+  "status": "diagnostic-only-no-gain-changes",
+  "cruise_target_mps": 1.0,
+  "holoocean": [
+    {
+      "turn_demand": 25.0,
+      "scheduled_speed_mps": 0.9267766952966369,
+      "meaning_in_holoocean_adapter": "added to port force and subtracted from starboard force before per-thruster clipping",
+      "steady_ground_speed_mps": 0.9275792834304251,
+      "steady_surge_speed_mps": 0.9275944640590259,
+      "steady_abs_yaw_rate_rad_s": 0.045362113676965236,
+      "steady_turn_radius_m": 20.448325887897226,
+      "steady_requested_surge_force_n": 464.46720914908093,
+      "steady_applied_port_force_n": 489.481270353356,
+      "steady_applied_starboard_force_n": 439.48127015537904,
+      "effective_yaw_moment_nm": 50.00000019797699,
+      "maximum_abs_yaw_rate_rad_s": 0.0453629195690155
+    },
+    {
+      "turn_demand": 50.0,
+      "scheduled_speed_mps": 0.75,
+      "meaning_in_holoocean_adapter": "added to port force and subtracted from starboard force before per-thruster clipping",
+      "steady_ground_speed_mps": 0.7524860229510307,
+      "steady_surge_speed_mps": 0.7525188696979856,
+      "steady_abs_yaw_rate_rad_s": 0.09072726838290691,
+      "steady_turn_radius_m": 8.293934517847775,
+      "steady_requested_surge_force_n": 376.7059612089256,
+      "steady_applied_port_force_n": 426.7492325527747,
+      "steady_applied_starboard_force_n": 326.74923222833263,
+      "effective_yaw_moment_nm": 100.00000032444206,
+      "maximum_abs_yaw_rate_rad_s": 0.09072808921337128
+    },
+    {
+      "turn_demand": 100.0,
+      "scheduled_speed_mps": 0.5,
+      "meaning_in_holoocean_adapter": "added to port force and subtracted from starboard force before per-thruster clipping",
+      "steady_ground_speed_mps": 0.5056109421264505,
+      "steady_surge_speed_mps": 0.5051347210221495,
+      "steady_abs_yaw_rate_rad_s": 0.18147015258669852,
+      "steady_turn_radius_m": 2.7861934038154934,
+      "steady_requested_surge_force_n": 252.73968569124986,
+      "steady_applied_port_force_n": 352.82796110326365,
+      "steady_applied_starboard_force_n": 152.82795990173076,
+      "effective_yaw_moment_nm": 200.00000120153288,
+      "maximum_abs_yaw_rate_rad_s": 0.1814720183610916
+    },
+    {
+      "turn_demand": 250.0,
+      "scheduled_speed_mps": 0.5,
+      "meaning_in_holoocean_adapter": "added to port force and subtracted from starboard force before per-thruster clipping",
+      "steady_ground_speed_mps": 0.5217281324008778,
+      "steady_surge_speed_mps": 0.5195593174018811,
+      "steady_abs_yaw_rate_rad_s": 0.4293341588973999,
+      "steady_turn_radius_m": 1.2152029406203333,
+      "steady_requested_surge_force_n": 273.41912557527036,
+      "steady_applied_port_force_n": 501.13281249999983,
+      "steady_applied_starboard_force_n": 23.785159779906458,
+      "effective_yaw_moment_nm": 477.3476527200934,
+      "maximum_abs_yaw_rate_rad_s": 0.4377209544181824
+    },
+    {
+      "turn_demand": 500.0,
+      "scheduled_speed_mps": 0.5,
+      "meaning_in_holoocean_adapter": "added to port force and subtracted from starboard force before per-thruster clipping",
+      "steady_ground_speed_mps": 0.498363896948272,
+      "steady_surge_speed_mps": 0.495252105735939,
+      "steady_abs_yaw_rate_rad_s": 0.45466230750083925,
+      "steady_turn_radius_m": 1.0961187869028532,
+      "steady_requested_surge_force_n": 500.87341353514705,
+      "steady_applied_port_force_n": 501.13281249999983,
+      "steady_applied_starboard_force_n": 0.8374004692796277,
+      "effective_yaw_moment_nm": 500.29541203072023,
+      "maximum_abs_yaw_rate_rad_s": 0.46497616171836853
+    }
+  ],
+  "bcod_sim": {
+    "source": "packages/vehicle-sdk/src/index.ts and packages/python-client/bcod_sim/linear_mpc.py",
+    "yaw_inertia_kg_m2": 30.0,
+    "yaw_damping": "2*r + abs(r)*r Nm",
+    "thruster_lateral_offset_m": 0.395,
+    "ideal_requested_moment_response": [
+      {
+        "commanded_yaw_moment_nm": 25.0,
+        "steady_abs_yaw_rate_rad_s": 4.0990195135927845,
+        "turn_radius_at_1_mps_m": 0.24396078054371143,
+        "initial_yaw_acceleration_rad_s2": 0.8333333333333334
+      },
+      {
+        "commanded_yaw_moment_nm": 50.0,
+        "steady_abs_yaw_rate_rad_s": 6.14142842854285,
+        "turn_radius_at_1_mps_m": 0.16282856857085698,
+        "initial_yaw_acceleration_rad_s2": 1.6666666666666667
+      },
+      {
+        "commanded_yaw_moment_nm": 100.0,
+        "steady_abs_yaw_rate_rad_s": 9.04987562112089,
+        "turn_radius_at_1_mps_m": 0.1104987562112089,
+        "initial_yaw_acceleration_rad_s2": 3.3333333333333335
+      },
+      {
+        "commanded_yaw_moment_nm": 250.0,
+        "steady_abs_yaw_rate_rad_s": 14.84297951775486,
+        "turn_radius_at_1_mps_m": 0.06737191807101944,
+        "initial_yaw_acceleration_rad_s2": 8.333333333333334
+      },
+      {
+        "commanded_yaw_moment_nm": 500.0,
+        "steady_abs_yaw_rate_rad_s": 21.38302928559939,
+        "turn_radius_at_1_mps_m": 0.04676605857119878,
+        "initial_yaw_acceleration_rad_s2": 16.666666666666668
+      }
+    ]
+  },
+  "guidance": {
+    "lookahead_m": 8.0,
+    "desired_heading": "leg_heading - atan2(cross_track, lookahead)",
+    "heading_kp_nm_per_rad": 100.0,
+    "yaw_rate_kd_nm_per_rad_s": 35.0,
+    "explicit_cross_track_gain": null
+  }
+}

@@ -34,6 +34,15 @@ function testModelContainsHydrodynamicsAndStablePlantActuation() {
     assert(!sdf.includes("<nDotR>"), "Hydrodynamics plugin should not double-count added mass through legacy nDotR.");
 }
 
+function testContactTerminationWiring() {
+    const model = renderModelSdf(otterCoefficients, {contactSensors:true});
+    const world = renderWorldSdf(otterCoefficients, {...getParityManeuver("coast-down"), name:"contact-test"});
+    assert(model.includes('type="contact"'), "Hull contact sensors must be emitted for termination detection.");
+    assert(model.includes("<collision>hull_collision_0</collision>"), "Contact sensor must bind the hull collision geometry.");
+    assert(/<contact>[\s\S]*?<collision>hull_collision_0<\/collision>[\s\S]*?<topic>\/surveyor\/contacts\/hull_0<\/topic>[\s\S]*?<\/contact>/.test(model), "Contact topic must be nested inside the contact element, matching Gazebo's sensor schema.");
+    assert(world.includes("gz::sim::systems::Contact"), "World must load Gazebo's Contact system.");
+}
+
 function testAddedMassMatrixIsSymmetricAndTotalInertiaSpd() {
     const matrix = addedMassMatrix3(otterCoefficients);
     assert(Math.abs(matrix[0][0] - 5.28152100957639) < 1e-12, "Added mass surge diagonal should match pinned MSS.");
@@ -111,6 +120,7 @@ function testGeneratorEmitsPrimitiveAndEffectorMetadata() {
 
 const tests = [
     testModelContainsHydrodynamicsAndStablePlantActuation,
+    testContactTerminationWiring,
     testAddedMassMatrixIsSymmetricAndTotalInertiaSpd,
     testWorldPinsStepSizeAndMetadata,
     testModelConfigIsGenerated,

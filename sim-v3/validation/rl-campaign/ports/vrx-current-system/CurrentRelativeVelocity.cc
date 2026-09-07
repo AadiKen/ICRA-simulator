@@ -20,6 +20,8 @@ class CurrentRelativeVelocity final : public gz::sim::System,
     this->current = sdf->Get<gz::math::Vector3d>("current_enu", gz::math::Vector3d::Zero).first;
     this->xu=sdf->Get<double>("xU",6).first; this->xuu=sdf->Get<double>("xUU",18).first;
     this->yv=sdf->Get<double>("yV",18).first; this->yvv=sdf->Get<double>("yVV",60).first;
+    this->xuDot=sdf->Get<double>("xDotU",-2.615).first;
+    this->yvDot=sdf->Get<double>("yDotV",-39.225).first;
   }
   void PreUpdate(const gz::sim::UpdateInfo &info, gz::sim::EntityComponentManager &ecm) override {
     if(info.paused || this->link==gz::sim::kNullEntity) return;
@@ -34,11 +36,18 @@ class CurrentRelativeVelocity final : public gz::sim::System,
     const gz::math::Vector3d correctionBody(
       damp(relativeU,this->xu,this->xuu)-damp(bodyVelocity.X(),this->xu,this->xuu),
       damp(relativeV,this->yv,this->yvv)-damp(bodyVelocity.Y(),this->yv,this->yvv),0);
-    hull.AddWorldWrench(ecm,pose->Rot().RotateVector(correctionBody),gz::math::Vector3d::Zero);
+    // Node's diagonal added-mass Coriolis model produces the current-relative
+    // Munk moment (Y_vdot-X_udot)*u_r*v_r.  Apply only the current-induced
+    // difference here, preserving the already-validated calm-water response.
+    const double currentMomentZ=(this->yvDot-this->xuDot)*
+      (relativeU*relativeV-bodyVelocity.X()*bodyVelocity.Y());
+    hull.AddWorldWrench(ecm,pose->Rot().RotateVector(correctionBody),
+      pose->Rot().RotateVector(gz::math::Vector3d(0,0,currentMomentZ)));
   }
  private:
   gz::sim::Entity link{gz::sim::kNullEntity}; gz::math::Vector3d current{0,0,0};
   double xu{6},xuu{18},yv{18},yvv{60};
+  double xuDot{-2.615},yvDot{-39.225};
 };
 }
 GZ_ADD_PLUGIN(vrx_surveyor::CurrentRelativeVelocity,gz::sim::System,

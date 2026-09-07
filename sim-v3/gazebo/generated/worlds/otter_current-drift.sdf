@@ -1,22 +1,22 @@
 <?xml version="1.0" ?>
 <sdf version="1.10">
   <world name="bcod_parity_current-drift">
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>-33.7227687689</latitude_deg>
+      <longitude_deg>150.6739911017</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
     <physics name="parity_physics" type="dart">
       <max_step_size>0.05</max_step_size>
       <real_time_factor>1</real_time_factor>
     </physics>
     <gravity>0 0 -9.81</gravity>
-    <include>
-      <uri>model://otter</uri>
-      <pose>0 0 0 0 0 1.5707963268</pose>
-    </include>
     <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
     <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
-    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
-    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"/>
-    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
-    <plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat"/>
-    <plugin filename="gz-sim-apply-link-wrench-system" name="gz::sim::systems::ApplyLinkWrench"/>
 
     <plugin filename="gz-sim-buoyancy-system" name="gz::sim::systems::Buoyancy">
       <graded_buoyancy>
@@ -26,8 +26,17 @@
           <density>0</density>
         </density_change>
       </graded_buoyancy>
-      <enable>otter</enable>
     </plugin>
+    <include>
+      <uri>model://otter</uri>
+      <pose>0 0 0 0 0 1.5707963268</pose>
+    </include>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors"/>
+    <plugin filename="gz-sim-imu-system" name="gz::sim::systems::Imu"/>
+    <plugin filename="gz-sim-navsat-system" name="gz::sim::systems::NavSat"/>
+    <plugin filename="gz-sim-contact-system" name="gz::sim::systems::Contact"/>
+    <plugin filename="gz-sim-apply-link-wrench-system" name="gz::sim::systems::ApplyLinkWrench"/>
     <!-- BCOD parity metadata: current ENU 0.3 0 0 -->
   </world>
 </sdf>

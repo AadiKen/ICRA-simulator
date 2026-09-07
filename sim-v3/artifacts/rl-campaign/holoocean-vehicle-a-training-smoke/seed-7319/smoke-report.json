@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "holoocean-vehicle-a-recurrent-ppo-smoke",
+  "status": "passed",
+  "interpretation": "mechanical smoke test only; not evidence of learning",
+  "host": "codenimbus-002-1.csl.illinois.edu",
+  "pid": 298011,
+  "cuda": {
+    "available": true,
+    "device_name": "NVIDIA L40",
+    "torch_version": "2.14.0+cu130"
+  },
+  "environment": {
+    "parallel_environments": 4,
+    "wind": "off",
+    "ocean_current": "off",
+    "observation_fields": 15
+  },
+  "training": {
+    "algorithm": "RecurrentPPO",
+    "policy": "MlpLstmPolicy",
+    "seed": 7319,
+    "requested_timesteps": 2048,
+    "actual_timesteps": 2048,
+    "wall_clock_s": 40.292250633239746,
+    "n_steps": 512,
+    "batch_size": 512,
+    "n_epochs": 10,
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0.005,
+    "policy_kwargs": {
+      "net_arch": [
+        128,
+        128
+      ],
+      "lstm_hidden_size": 128,
+      "enable_critic_lstm": true
+    }
+  },
+  "checkpoint": {
+    "count": 1,
+    "files": [
+      "artifacts/training-smoke/seed-7319/checkpoints/holoocean-smoke_2048_steps.zip"
+    ],
+    "reload_target": "artifacts/training-smoke/seed-7319/checkpoints/holoocean-smoke_2048_steps.zip",
+    "reload_num_timesteps": 2048,
+    "inference_probe_action": [
+      [
+        -0.0007900857017375529,
+        0.00041968366713263094
+      ]
+    ],
+    "loadable": true
+  },
+  "logging": {
+    "csv": "artifacts/training-smoke/seed-7319/metrics/progress.csv",
+    "json": "artifacts/training-smoke/seed-7319/metrics/progress.json",
+    "csv_rows": 2,
+    "json_rows": 2,
+    "columns": [
+      "time/fps",
+      "time/iterations",
+      "time/time_elapsed",
+      "time/total_timesteps",
+      "train/approx_kl",
+      "train/clip_fraction",
+      "train/clip_range",
+      "train/entropy_loss",
+      "train/explained_variance",
+      "train/learning_rate",
+      "train/loss",
+      "train/n_updates",
+      "train/policy_gradient_loss",
+      "train/std",
+      "train/value_loss"
+    ],
+    "required_columns_present": true
+  }
+}

@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "holoocean-vehicle-a-reward-pretraining-validation",
+  "status": "PASS",
+  "training_run": false,
+  "ppo_started": false,
+  "reward_source": {
+    "implementation": "packages/python-client/bcod_sim/common_task.py:44-87",
+    "shaping_gamma": 1.0,
+    "shaping_k": 0.1757208861220446,
+    "timeout_keeps_nonabsorbing_potential": true
+  },
+  "controller": {
+    "id": "LOS-PID-v2",
+    "source": "validation/rl-campaign/ports/portable-controllers.ts:9-37",
+    "gains": {
+      "lookahead": 8.0,
+      "kp": 100.0,
+      "kd": 35.0,
+      "speed": 1.0
+    },
+    "state_adapter": "GPS position/difference-derived ground velocity, magnetometer yaw, IMU yaw rate; no privileged pose/velocity sensor",
+    "environment": "calm water; randomized route rotation, spawn offset, and initial heading retained",
+    "adaptation_finding": "HoloOcean-only actuator mapping uses port-minus-starboard for positive NED yaw and the wrapper's performance-calibrated +/-501.133 N per-thruster scale; the shared portable controller remains unchanged",
+    "thrust_calibration": {
+      "ceiling_n_per_thruster": 501.1328125,
+      "target_cruise_speed_mps": 1.0,
+      "artifact": "artifacts/rl-campaign/holoocean-vehicle-a-thrust-calibration.json",
+      "methodological_decision": "Literal +/-95 N force matching was tested first and abandoned because packaged HoloOcean mass and damping cannot be matched to bcod-sim; task-performance-envelope calibration replaces raw-force parity."
+    },
+    "surge_force_law": "clamp(100 * speed_error + 100 * integral(speed_error), +/-501.133 N)",
+    "surge_pi": {
+      "kp_n_per_mps": 100.0,
+      "ki_n_per_m": 100.0,
+      "anti_windup": "conditional integration: freeze when saturated and speed error would drive farther into saturation"
+    },
+    "turn_speed_schedule": {
+      "formula": "v_min + (v_max-v_min) * 0.5 * (1 + cos(pi * min(1, abs(yaw_demand)/100)))",
+      "maximum_speed_mps": 1.0,
+      "minimum_speed_mps": 0.5,
+      "full_scale_yaw_demand": 100.0,
+      "scope": "HoloOcean-local only"
+    }
+  },
+  "speed_step_response": {
+    "target_speed_mps": 1.0,
+    "duration_s": 40.0,
+    "final_speed_mps": 0.9994369353494551,
+    "mean_last_5_s_mps": 0.9991368446451742,
+    "maximum_speed_mps": 0.9994747522168593,
+    "overshoot_percent": 0.0,
+    "settling_time_2_percent_s": 20.400000000000002,
+    "final_force_n_per_thruster": 500.5342432554511,
+    "maximum_force_n_per_thruster": 500.5342432554511,
+    "final_integral_error_m": 5.00481718477137
+  },
+  "controller_results": [
+    {
+      "seed": 7319,
+      "policy": "LOS-PID-v2",
+      "success": true,
+      "termination_reason": "success",
+      "control_steps": 935,
+      "initial_first_waypoint_distance_m": 26.58908798001742,
+      "final_first_waypoint_distance_m": 39.966920196927916,
+      "initial_final_distance_m": 67.63890275315686,
+      "final_distance_m": 1.928245285089983,
+      "net_final_goal_progress_m": 65.71065746806687,
+      "shaped_return": 233.82108598900697,
+      "base_return": 221.93551806089954,
+      "waypoints_reached": 3,
+      "mean_cross_track_m": 1.1931121370398936,
+      "speed_profile_mps": {
+        "mean": 0.8359401994470024,
+        "maximum": 0.9921568299754566,
+        "final": 0.9767455954290292,
+        "mean_last_10_s": 0.9601606588706798
+      },
+      "final_surge_integral_error_m": 4.891629235933827,
+      "scheduled_speed_profile_mps": {
+        "mean": 0.8871972274444173,
+        "minimum": 0.5075206316679134,
+        "final": 0.9806153900741266
+      }
+    },
+    {
+      "seed": 7320,
+      "policy": "LOS-PID-v2",
+      "success": true,
+      "termination_reason": "success",
+      "control_steps": 938,
+      "initial_first_waypoint_distance_m": 26.61393379919737,
+      "final_first_waypoint_distance_m": 39.95107543421816,
+      "initial_final_distance_m": 67.67951792617633,
+      "final_distance_m": 1.9657965276245208,
+      "net_final_goal_progress_m": 65.71372139855181,
+      "shaped_return": 230.72450164487762,
+      "base_return": 218.83179678257744,
+      "waypoints_reached": 3,
+      "mean_cross_track_m": 1.3544784702855162,
+      "speed_profile_mps": {
+        "mean": 0.832258751294459,
+        "maximum": 0.9883861469063916,
+        "final": 0.9767150789513805,
+        "mean_last_10_s": 0.9594960704405388
+      },
+      "final_surge_integral_error_m": 4.89096894379002,
+      "scheduled_speed_profile_mps": {
+        "mean": 0.88334209757596,
+        "minimum": 0.5072446559852946,
+        "final": 0.980711635252991
+      }
+    },
+    {
+      "seed": 7321,
+      "policy": "LOS-PID-v2",
+      "success": true,
+      "termination_reason": "success",
+      "control_steps": 938,
+      "initial_first_waypoint_distance_m": 26.612232734728526,
+      "final_first_waypoint_distance_m": 39.95177062358158,
+      "initial_final_distance_m": 67.677292280095,
+      "final_distance_m": 1.9585482102788716,
+      "net_final_goal_progress_m": 65.71874406981613,
+      "shaped_return": 230.97058115151873,
+      "base_return": 219.07826738171985,
+      "waypoints_reached": 3,
+      "mean_cross_track_m": 1.3454056356373343,
+      "speed_profile_mps": {
+        "mean": 0.8325622795409554,
+        "maximum": 0.9887042699667364,
+        "final": 0.9766345319781391,
+        "mean_last_10_s": 0.9596119332957493
+      },
+      "final_surge_integral_error_m": 4.890637656868988,
+      "scheduled_speed_profile_mps": {
+        "mean": 0.8836423267657224,
+        "minimum": 0.5068363410065635,
+        "final": 0.980543593829122
+      }
+    },
+    {
+      "seed": 7322,
+      "policy": "LOS-PID-v2",
+      "success": true,
+      "termination_reason": "success",
+      "control_steps": 943,
+      "initial_first_waypoint_distance_m": 26.599678764467665,
+      "final_first_waypoint_distance_m": 39.95020991041589,
+      "initial_final_distance_m": 67.63860943819863,
+      "final_distance_m": 1.9474210831052898,
+      "net_final_goal_progress_m": 65.69118835509335,
+      "shaped_return": 231.26987975618368,
+      "base_return": 219.38436336964037,
+      "waypoints_reached": 3,
+      "mean_cross_track_m": 1.3152776525473122,
+      "speed_profile_mps": {
+        "mean": 0.830468067755071,
+        "maximum": 0.9903804470417781,
+        "final": 0.9767338393822099,
+        "mean_last_10_s": 0.9602944773560189
+      },
+      "final_surge_integral_error_m": 4.89158657972439,
+      "scheduled_speed_profile_mps": {
+        "mean": 0.8812885939138217,
+        "minimum": 0.5075196968557302,
+        "final": 0.9805347416452638
+      }
+    },
+    {
+      "seed": 7323,
+      "policy": "LOS-PID-v2",
+      "success": true,
+      "termination_reason": "success",
+      "control_steps": 935,
+      "initial_first_waypoint_distance_m": 26.600681339134038,
+      "final_first_waypoint_distance_m": 39.93629908886771,
+      "initial_final_distance_m": 67.66141384945438,
+      "final_distance_m": 1.9847785098891295,
+      "net_final_goal_progress_m": 65.67663533956525,
+      "shaped_return": 231.71541610528504,
+      "base_return": 219.82589250738852,
+      "waypoints_reached": 3,
+      "mean_cross_track_m": 1.3052154991750908,
+      "speed_profile_mps": {
+        "mean": 0.8348162347134847,
+        "maximum": 0.9903228079040688,
+        "final": 0.9767399775642388,
+        "mean_last_10_s": 0.9595543320966317
+      },
+      "final_surge_integral_error_m": 4.89094745523508,
+      "scheduled_speed_profile_mps": {
+        "mean": 0.8860648941354539,
+        "minimum": 0.5071798837604397,
+        "final": 0.9806760845550379
+      }
+    }
+  ],
+  "failed_run_baseline": {
+    "episodes": 5,
+    "successes": 0,
+    "success_rate": 0.0,
+    "median_shaped_return": -114.10937924152442
+  },
+  "summary": {
+    "episodes": 5,
+    "successes": 5,
+    "success_rate": 1.0,
+    "median_shaped_return": 231.26987975618368,
+    "successful_shaped_returns": [
+      233.82108598900697,
+      230.72450164487762,
+      230.97058115151873,
+      231.26987975618368,
+      231.71541610528504
+    ],
+    "all_successful_shaped_returns_positive": true
+  },
+  "exploit_check": {
+    "seed": 7319,
+    "approach": {
+      "seed": 7319,
+      "policy": "LOS-PID-v2",
+      "success": true,
+      "termination_reason": "success",
+      "control_steps": 935,
+      "initial_first_waypoint_distance_m": 26.58908798001742,
+      "final_first_waypoint_distance_m": 39.966920196927916,
+      "initial_final_distance_m": 67.63890275315686,
+      "final_distance_m": 1.928245285089983,
+      "net_final_goal_progress_m": 65.71065746806687,
+      "shaped_return": 233.82108598900697,
+      "base_return": 221.93551806089954,
+      "waypoints_reached": 3,
+      "mean_cross_track_m": 1.1931121370398936,
+      "speed_profile_mps": {
+        "mean": 0.8359401994470024,
+        "maximum": 0.9921568299754566,
+        "final": 0.9767455954290292,
+        "mean_last_10_s": 0.9601606588706798
+      },
+      "final_surge_integral_error_m": 4.891629235933827,
+      "scheduled_speed_profile_mps": {
+        "mean": 0.8871972274444173,
+        "minimum": 0.5075206316679134,
+        "final": 0.9806153900741266
+      }
+    },
+    "reverse_retreat": {
+      "seed": 7319,
+      "policy": "reverse-retreat",
+      "success": false,
+      "termination_reason": "timeout",
+      "control_steps": 1200,
+      "initial_first_waypoint_distance_m": 26.58908798001742,
+      "final_first_waypoint_distance_m": 146.001280031605,
+      "initial_final_distance_m": 67.63890275315686,
+      "final_distance_m": 186.83027439714147,
+      "net_final_goal_progress_m": -119.19137164398461,
+      "shaped_return": -1682.859005763123,
+      "base_return": -1661.9145923197389,
+      "waypoints_reached": 0,
+      "mean_cross_track_m": 58.87459200902349,
+      "speed_profile_mps": {
+        "mean": 0.9951016420658924,
+        "maximum": 1.0007763770468256,
+        "final": 1.0007003470403912,
+        "mean_last_10_s": 1.0007281135726036
+      },
+      "final_surge_integral_error_m": 0.0,
+      "scheduled_speed_profile_mps": {
+        "mean": 1.0,
+        "minimum": 1.0,
+        "final": 1.0
+      }
+    },
+    "safe": true,
+    "criterion": "approach makes positive net final-goal progress, retreat makes negative progress, and approach exceeds retreat in both shaped and base return"
+  },
+  "feasibility_probe": {
+    "policy": "sustained equal full-forward command; diagnostic only",
+    "result": {
+      "seed": 7319,
+      "policy": "full-forward",
+      "success": false,
+      "termination_reason": "timeout",
+      "control_steps": 1200,
+      "initial_first_waypoint_distance_m": 26.58908798001742,
+      "final_first_waypoint_distance_m": 92.82311856365732,
+      "initial_final_distance_m": 67.63890275315686,
+      "final_distance_m": 52.56459534781758,
+      "net_final_goal_progress_m": 15.074307405339276,
+      "shaped_return": -704.1515580024292,
+      "base_return": -706.8004286573707,
+      "waypoints_reached": 1,
+      "mean_cross_track_m": 27.246951727995782,
+      "speed_profile_mps": {
+        "mean": 0.9951016557201495,
+        "maximum": 1.0007763770468256,
+        "final": 1.0007755845368012,
+        "mean_last_10_s": 1.0007281135713995
+      },
+      "final_surge_integral_error_m": 0.0,
+      "scheduled_speed_profile_mps": {
+        "mean": 1.0,
+        "minimum": 1.0,
+        "final": 1.0
+      }
+    }
+  }
+}

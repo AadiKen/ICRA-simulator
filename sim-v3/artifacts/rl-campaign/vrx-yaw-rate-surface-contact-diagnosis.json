@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-yaw-rate-surface-contact-diagnosis",
+  "environment": {
+    "image": "leadcat/vrx:surveyor-patched-v3.0.1",
+    "gazebo_sim_version": "8.10.0",
+    "host": "Apple Silicon",
+    "container_architecture": "AMD64 under emulation",
+    "timing_basis": "Gazebo /clock simulation time"
+  },
+  "yaw_rate_spike": {
+    "classification": "odometry-publisher startup transient; not the IMU acceleration filter and not genuine vessel yaw motion",
+    "peak_divergence_rad_s": 11.54658432537116,
+    "peak_vrx_reported_truth_yaw_rate_rad_s": -11.438772831430834,
+    "control_step": 1,
+    "simulation_time_s": 0.2,
+    "filter_imu_timestamp_s": 0.2,
+    "timestamp_misalignment_s": 0.0,
+    "evidence": [
+      "The spike is read from OdometryPublisher twist and therefore is upstream of, and cannot be changed by, the observation-only acceleration filter.",
+      "The spike repeats with essentially identical magnitude when both, either one, or neither Surface plugin is loaded.",
+      "With Surface disabled and zero command, yaw pose is exactly constant while published odometry yaw rate reports -11.439907, -6.863944, -4.902817, and -3.813302 rad/s before becoming exactly zero at simulation time 0.6 s.",
+      "The filtered IMU and divergence samples have identical simulation timestamps, excluding the proposed filter-availability sampling offset."
+    ]
+  },
+  "surface_force_symmetry": {
+    "source_behavior": "VRX Surface computes one upward world-frame force independently at every configured body-frame point and calls Link::AddWorldForce at that point; it does not publish per-point force or torque telemetry.",
+    "configured_points_body_flu_m": {
+      "port": [[0.4575, -0.33, 0.0], [-0.4575, -0.33, 0.0]],
+      "starboard": [[0.4575, 0.33, 0.0], [-0.4575, 0.33, 0.0]]
+    },
+    "controlled_ablation": {
+      "command": "zero",
+      "wind_current": "zero",
+      "both_peak_abs_roll_rad": 0.0060117169109202605,
+      "port_only_final_roll_rad": -2.8089928824760384,
+      "starboard_only_final_roll_rad": 2.8148357130613304,
+      "no_surface_peak_abs_roll_rad": 8.584790512408199e-16,
+      "peak_reported_yaw_rate_rad_s": {
+        "both": 11.43990644043982,
+        "port_only": 11.439906036949367,
+        "starboard_only": 11.439908153787217,
+        "none": 11.439907268871268
+      }
+    },
+    "conclusion": "The two demi-hull buoyancy contributions are symmetric to the resolution of this test: removing either side produces nearly equal and opposite roll, while using both cancels roll by about three orders of magnitude. No Surface-dependent yaw impulse was detected."
+  },
+  "contact_issue_search": {
+    "stock_example_probe": {
+      "world": "/usr/share/gz/gz-sim8/worlds/contact_sensor.sdf",
+      "runtime_image": "leadcat/vrx:surveyor-patched-v3.0.1",
+      "physics_engine": "DART",
+      "topic": "/contact_example",
+      "message_received": true,
+      "message_contents_present": [
+        "collision1",
+        "collision2",
+        "position",
+        "normal",
+        "depth",
+        "wrench"
+      ],
+      "conclusion": "The pinned gz-sim/DART runtime publishes complete contact messages in Gazebo's stock contact_sensor world. The live Vehicle C contact failure is specific to the generated world or its sensor declaration, not a broad pinned-version failure."
+    },
+    "topic_placement_ablation": {
+      "method": "In a disposable container, move only the stock example's <topic> element from inside <contact> to a sibling directly under <sensor>, matching the generated hull declaration.",
+      "requested_topic": "/contact_example_sibling",
+      "requested_topic_advertised": false,
+      "requested_topic_message_received": false,
+      "fallback_topic_advertised": "/world/contact_sensor/model/contact_model/link/link/sensor/sensor_contact/contact",
+      "conclusion": "The generated topic placement is not honored by gz-sim 8.10. Nesting <topic> inside <contact> is required for the configured contact topic in this runtime."
+    },
+    "searched": [
+      "osrf/vrx issues: contact sensor DART",
+      "gazebosim/gz-sim issues: contact sensor DART",
+      "gazebosim/gz-sim issues: ContactSensorData DART",
+      "gazebosim/gz-sim issues: contact no messages"
+    ],
+    "exact_signature_found": false,
+    "vrx_matching_issue_count": 0,
+    "closest_upstream_issue": {
+      "url": "https://github.com/gazebosim/gz-sim/issues/2037",
+      "difference": "Issue 2037 reports Contacts messages whose depth, normal, and wrench arrays are empty; it does not report an advertised contact topic that emits zero messages. Its fix was merged in PR 2050."
+    },
+    "conclusion": "The stock Gazebo contact world publishes complete messages under the identical pinned image and DART runtime. A controlled topic-placement ablation reproduces the missing configured topic when <topic> is moved directly under <sensor>, confirming the generated SDF declaration as the cause. No production SDF change was made in this investigation."
+  },
+  "supporting_artifacts": [
+    "artifacts/rl-campaign/vrx-filtered-observation-equivalence.json",
+    "artifacts/rl-campaign/vrx-surface-half-hull-angular-ablation.json",
+    "artifacts/rl-campaign/vrx-real-contact-terminations.json"
+  ],
+  "gate_c_rerun_performed": false
+}

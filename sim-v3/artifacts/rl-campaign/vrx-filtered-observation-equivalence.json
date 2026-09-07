@@ -1,0 +1,370 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-filtered-observation-equivalence",
+  "filter_protocol": "artifacts/rl-campaign/vrx-imu-filter-preregistered.json",
+  "odometry_yaw_rate_warmup": {
+    "duration_s": 0.5,
+    "invalid_control_steps_after_reset": 4,
+    "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+  },
+  "seed": 30000,
+  "control_steps": 12,
+  "elapsed_simulation_s": 1.2,
+  "fields": {
+    "accel_x": {
+      "median_abs": 0.2245662808418274,
+      "max_abs": 0.5985186025500298,
+      "max_tolerance": 0.1,
+      "passed": false
+    },
+    "accel_y": {
+      "median_abs": 0.15840676054358482,
+      "max_abs": 0.42146480083465576,
+      "max_tolerance": 0.1,
+      "passed": false
+    },
+    "accel_z": {
+      "median_abs": 0.5854685357771814,
+      "max_abs": 1.38905337639153,
+      "max_tolerance": 0.1,
+      "passed": false
+    },
+    "gyro_x": {
+      "median_abs": 0.03636919951532036,
+      "max_abs": 0.11694211990106851,
+      "max_tolerance": 0.01,
+      "passed": false
+    },
+    "gyro_y": {
+      "median_abs": 0.03441188392753247,
+      "max_abs": 0.0677043127361685,
+      "max_tolerance": 0.01,
+      "passed": false
+    },
+    "gyro_z": {
+      "median_abs": 0.15758612379431725,
+      "max_abs": 0.7126485705375671,
+      "max_tolerance": 0.01,
+      "passed": false
+    },
+    "yaw": {
+      "median_abs": 0.05173650570213795,
+      "max_abs": 0.17113932967185974,
+      "max_tolerance": 0.01,
+      "passed": false
+    },
+    "goal_north": {
+      "median_abs": 1.4009008407592773,
+      "max_abs": 27.3526611328125,
+      "max_tolerance": 4,
+      "passed": false
+    },
+    "goal_east": {
+      "median_abs": 0.21475982666015625,
+      "max_abs": 6.772319316864014,
+      "max_tolerance": 4,
+      "passed": false
+    },
+    "fix_valid": {
+      "median_abs": 0.0,
+      "max_abs": 1.0,
+      "max_tolerance": 0,
+      "passed": false
+    },
+    "prev_port": {
+      "median_abs": 0.0,
+      "max_abs": 0.0,
+      "max_tolerance": 1e-07,
+      "passed": true
+    },
+    "prev_starboard": {
+      "median_abs": 0.0,
+      "max_abs": 0.0,
+      "max_tolerance": 1e-07,
+      "passed": true
+    },
+    "prev_steer_0": {
+      "median_abs": 0.0,
+      "max_abs": 0.0,
+      "max_tolerance": 1e-07,
+      "passed": true
+    },
+    "prev_steer_1": {
+      "median_abs": 0.0,
+      "max_abs": 0.0,
+      "max_tolerance": 1e-07,
+      "passed": true
+    },
+    "time_remaining": {
+      "median_abs": 0.0,
+      "max_abs": 0.0,
+      "max_tolerance": 1e-07,
+      "passed": true
+    }
+  },
+  "truth_path_divergence": {
+    "yaw_rad": {
+      "median_abs": 0.04036070752396026,
+      "max_abs": 0.21476855042442544
+    },
+    "yaw_rate_rad_s": {
+      "median_abs": 0.27745633380592527,
+      "max_abs": 0.6134568031348835
+    }
+  },
+  "per_step": [
+    {
+      "control_step": 1,
+      "simulation_time_s": 0.2,
+      "odometry_yaw_rate_warmup": {
+        "valid": false,
+        "valid_after_simulation_time_s": 0.6,
+        "duration_s": 0.5,
+        "invalid_control_steps_after_reset": 4,
+        "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+      },
+      "filter_imu_timestamp_s": 0.2,
+      "filtered_acceleration_body_mps2": [
+        0.03216220438480377,
+        -0.022996623069047928,
+        0.42538461089134216
+      ],
+      "bcod_yaw_rate_rad_s": 0.10781149394032719,
+      "vrx_yaw_rate_rad_s": 0.0,
+      "yaw_rate_abs_divergence_rad_s": 0.10781149394032719,
+      "yaw_abs_divergence_rad": 0.02179095068509973
+    },
+    {
+      "control_step": 2,
+      "simulation_time_s": 0.30000000000000004,
+      "odometry_yaw_rate_warmup": {
+        "valid": false,
+        "valid_after_simulation_time_s": 0.6,
+        "duration_s": 0.5,
+        "invalid_control_steps_after_reset": 4,
+        "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+      },
+      "filter_imu_timestamp_s": 0.30000000000000004,
+      "filtered_acceleration_body_mps2": [
+        0.09771586209535599,
+        -0.0641004666686058,
+        0.5816002488136292
+      ],
+      "bcod_yaw_rate_rad_s": 0.20342089805342128,
+      "vrx_yaw_rate_rad_s": 0.0,
+      "yaw_rate_abs_divergence_rad_s": 0.20342089805342128,
+      "yaw_abs_divergence_rad": 0.03240751422909405
+    },
+    {
+      "control_step": 3,
+      "simulation_time_s": 0.4,
+      "odometry_yaw_rate_warmup": {
+        "valid": false,
+        "valid_after_simulation_time_s": 0.6,
+        "duration_s": 0.5,
+        "invalid_control_steps_after_reset": 4,
+        "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+      },
+      "filter_imu_timestamp_s": 0.4,
+      "filtered_acceleration_body_mps2": [
+        0.19528213143348694,
+        -0.115719273686409,
+        -0.19254207611083984
+      ],
+      "bcod_yaw_rate_rad_s": 0.29019880806254356,
+      "vrx_yaw_rate_rad_s": 0.0,
+      "yaw_rate_abs_divergence_rad_s": 0.29019880806254356,
+      "yaw_abs_divergence_rad": 0.03981707482308172
+    },
+    {
+      "control_step": 4,
+      "simulation_time_s": 0.5,
+      "odometry_yaw_rate_warmup": {
+        "valid": false,
+        "valid_after_simulation_time_s": 0.6,
+        "duration_s": 0.5,
+        "invalid_control_steps_after_reset": 4,
+        "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+      },
+      "filter_imu_timestamp_s": 0.5,
+      "filtered_acceleration_body_mps2": [
+        0.3046334683895111,
+        -0.16963331401348114,
+        -1.1560653448104858
+      ],
+      "bcod_yaw_rate_rad_s": 0.370245454310821,
+      "vrx_yaw_rate_rad_s": 0.0,
+      "yaw_rate_abs_divergence_rad_s": 0.370245454310821,
+      "yaw_abs_divergence_rad": 0.043002781096472376
+    },
+    {
+      "control_step": 5,
+      "simulation_time_s": 0.6000000000000001,
+      "odometry_yaw_rate_warmup": {
+        "valid": true,
+        "valid_after_simulation_time_s": 0.6,
+        "duration_s": 0.5,
+        "invalid_control_steps_after_reset": 4,
+        "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+      },
+      "filter_imu_timestamp_s": 0.6000000000000001,
+      "filtered_acceleration_body_mps2": [
+        0.4066305160522461,
+        -0.21888360381126404,
+        -1.3802366256713867
+      ],
+      "bcod_yaw_rate_rad_s": 0.44507960480700387,
+      "vrx_yaw_rate_rad_s": 0.3040421510370989,
+      "yaw_rate_abs_divergence_rad_s": 0.14103745376990495,
+      "yaw_abs_divergence_rad": 0.0409043402248388
+    },
+    {
+      "control_step": 6,
+      "simulation_time_s": 0.7000000000000001,
+      "odometry_yaw_rate_warmup": {
+        "valid": true,
+        "valid_after_simulation_time_s": 0.6,
+        "duration_s": 0.5,
+        "invalid_control_steps_after_reset": 4,
+        "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+      },
+      "filter_imu_timestamp_s": 0.7000000000000001,
+      "filtered_acceleration_body_mps2": [
+        0.4922386407852173,
+        -0.2581489682197571,
+        -0.6917617917060852
+      ],
+      "bcod_yaw_rate_rad_s": 0.5154974811470704,
+      "vrx_yaw_rate_rad_s": 0.3462278809463363,
+      "yaw_rate_abs_divergence_rad_s": 0.16926960020073412,
+      "yaw_abs_divergence_rad": 0.03251123047965798
+    },
+    {
+      "control_step": 7,
+      "simulation_time_s": 0.8,
+      "odometry_yaw_rate_warmup": {
+        "valid": true,
+        "valid_after_simulation_time_s": 0.6,
+        "duration_s": 0.5,
+        "invalid_control_steps_after_reset": 4,
+        "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+      },
+      "filter_imu_timestamp_s": 0.8,
+      "filtered_acceleration_body_mps2": [
+        0.5587101578712463,
+        -0.28820815682411194,
+        0.1694638431072235
+      ],
+      "bcod_yaw_rate_rad_s": 0.5824316242370146,
+      "vrx_yaw_rate_rad_s": 0.3719287500811631,
+      "yaw_rate_abs_divergence_rad_s": 0.21050287415585145,
+      "yaw_abs_divergence_rad": 0.016738079515639104
+    },
+    {
+      "control_step": 8,
+      "simulation_time_s": 0.9,
+      "odometry_yaw_rate_warmup": {
+        "valid": true,
+        "valid_after_simulation_time_s": 0.6,
+        "duration_s": 0.5,
+        "invalid_control_steps_after_reset": 4,
+        "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+      },
+      "filter_imu_timestamp_s": 0.9,
+      "filtered_acceleration_body_mps2": [
+        0.6088637113571167,
+        -0.3130207657814026,
+        0.045914288610219955
+      ],
+      "bcod_yaw_rate_rad_s": 0.6462507476449791,
+      "vrx_yaw_rate_rad_s": 0.3815368880956722,
+      "yaw_rate_abs_divergence_rad_s": 0.26471385954930693,
+      "yaw_abs_divergence_rad": 0.007733407155686045
+    },
+    {
+      "control_step": 9,
+      "simulation_time_s": 1.0,
+      "odometry_yaw_rate_warmup": {
+        "valid": true,
+        "valid_after_simulation_time_s": 0.6,
+        "duration_s": 0.5,
+        "invalid_control_steps_after_reset": 4,
+        "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+      },
+      "filter_imu_timestamp_s": 1.0,
+      "filtered_acceleration_body_mps2": [
+        0.6439946293830872,
+        -0.33061930537223816,
+        -0.736892580986023
+      ],
+      "bcod_yaw_rate_rad_s": 0.7077768654108234,
+      "vrx_yaw_rate_rad_s": 0.37541470453390213,
+      "yaw_rate_abs_divergence_rad_s": 0.3323621608769213,
+      "yaw_abs_divergence_rad": 0.042274540253276705
+    },
+    {
+      "control_step": 10,
+      "simulation_time_s": 1.1,
+      "odometry_yaw_rate_warmup": {
+        "valid": true,
+        "valid_after_simulation_time_s": 0.6,
+        "duration_s": 0.5,
+        "invalid_control_steps_after_reset": 4,
+        "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+      },
+      "filter_imu_timestamp_s": 1.1,
+      "filtered_acceleration_body_mps2": [
+        0.6625814437866211,
+        -0.33332890272140503,
+        -1.1003340482711792
+      ],
+      "bcod_yaw_rate_rad_s": 0.767849221650566,
+      "vrx_yaw_rate_rad_s": 0.3544733001262813,
+      "yaw_rate_abs_divergence_rad_s": 0.4133759215242847,
+      "yaw_abs_divergence_rad": 0.08784514911751762
+    },
+    {
+      "control_step": 11,
+      "simulation_time_s": 1.2,
+      "odometry_yaw_rate_warmup": {
+        "valid": true,
+        "valid_after_simulation_time_s": 0.6,
+        "duration_s": 0.5,
+        "invalid_control_steps_after_reset": 4,
+        "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+      },
+      "filter_imu_timestamp_s": 1.2,
+      "filtered_acceleration_body_mps2": [
+        0.6672550439834595,
+        -0.31737399101257324,
+        -0.6158149242401123
+      ],
+      "bcod_yaw_rate_rad_s": 0.8273322360189975,
+      "vrx_yaw_rate_rad_s": 0.3202602052330891,
+      "yaw_rate_abs_divergence_rad_s": 0.5070720307859085,
+      "yaw_abs_divergence_rad": 0.14509288608930548
+    },
+    {
+      "control_step": 12,
+      "simulation_time_s": 1.3,
+      "odometry_yaw_rate_warmup": {
+        "valid": true,
+        "valid_after_simulation_time_s": 0.6,
+        "duration_s": 0.5,
+        "invalid_control_steps_after_reset": 4,
+        "policy": "zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"
+      },
+      "filter_imu_timestamp_s": 1.3,
+      "filtered_acceleration_body_mps2": [
+        0.6627807021141052,
+        -0.2928661108016968,
+        0.2546387016773224
+      ],
+      "bcod_yaw_rate_rad_s": 0.8879050660897071,
+      "vrx_yaw_rate_rad_s": 0.27444826295482355,
+      "yaw_rate_abs_divergence_rad_s": 0.6134568031348835,
+      "yaw_abs_divergence_rad": 0.21476855042442544
+    }
+  ],
+  "passed": false
+}

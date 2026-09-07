@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-wrench-ceiling-task-1",
+  "status": "TASK_1_COMPLETE_STOP_BEFORE_TASK_2",
+  "training_performed": false,
+  "controller": "LOS-PID-v2",
+  "environment": "original frozen seeded adverse disturbances",
+  "protocol": {
+    "seeds": [30003, 30000, 30007, 30013, 30048],
+    "duration_s": 120,
+    "physics_timestep_s": 0.05,
+    "control_interval_s": 0.1
+  },
+  "ceiling_origin": {
+    "classification": "Vehicle-A calibration-specific historical value, not a fundamental LOS-guidance property and not derived from actuator limits",
+    "evidence": [
+      "The 150 N surge and 100 Nm yaw limits entered the repository with the Vehicle A reference-calibration implementation and protocol.",
+      "The same values were later copied verbatim into portable-controllers.ts.",
+      "Vehicle A's actuator normalization also uses 150 as a denominator, but no derivation ties the 150/100 pair to its two physical thruster limits or moment arms.",
+      "The frozen Vehicle A protocol explicitly records these as its wrench limits; Vehicle C has two 500 N azimuth thrusters and approximately 810 Nm differential longitudinal-thrust yaw authority."
+    ]
+  },
+  "change": {
+    "kind": "per-vehicle guidance safety envelope",
+    "vehicle_a_unchanged": {"surge_n": 150, "yaw_nm": 100},
+    "vehicle_c": {"surge_n": 1000, "yaw_nm": 810},
+    "guidance_gains_unchanged": true,
+    "allocator_unchanged": true
+  },
+  "results": [
+    {
+      "seed": 30003,
+      "role": "capability-envelope",
+      "baseline": {"start_m": 68.18684133779362, "closest_m": 68.18684133779362, "final_m": 179.18412779383922},
+      "raised_ceiling": {"start_m": 68.18684133779362, "closest_m": 68.18684133779362, "final_m": 177.763410335461, "max_abs_requested_surge_n": 277.06510458855905, "max_abs_requested_yaw_nm": 143.78791491708856},
+      "finding": "Did not close and made no meaningful progress; it still moved away. Final distance improved by only 1.421 m."
+    },
+    {
+      "seed": 30000,
+      "role": "overshoot-pattern",
+      "baseline": {"start_m": 68.18564019877365, "closest_m": 34.627257068640375, "final_m": 76.53464146192688},
+      "raised_ceiling": {"start_m": 68.18564019877365, "closest_m": 34.960497822658745, "final_m": 76.57074261260625},
+      "finding": "Reversal persisted; closest approach worsened by 0.333 m and final distance changed by +0.036 m."
+    },
+    {
+      "seed": 30007,
+      "role": "overshoot-pattern",
+      "baseline": {"start_m": 68.18573891085381, "closest_m": 12.107046614591715, "final_m": 48.517782949519614},
+      "raised_ceiling": {"start_m": 68.18573891085381, "closest_m": 12.374763466516063, "final_m": 48.604122726941235},
+      "finding": "Overshoot persisted; closest and final distances both worsened slightly."
+    },
+    {
+      "seed": 30013,
+      "role": "overshoot-pattern",
+      "baseline": {"start_m": 68.18589465878173, "closest_m": 2.827315514016966, "final_m": 10.60763473016393},
+      "raised_ceiling": {"start_m": 68.18589465878173, "closest_m": 3.4651891685384313, "final_m": 10.720551611249594},
+      "finding": "Overshoot persisted; closest approach worsened by 0.638 m and final distance by 0.113 m."
+    },
+    {
+      "seed": 30048,
+      "role": "overshoot-pattern",
+      "baseline": {"start_m": 68.18553386937451, "closest_m": 10.812320967470662, "final_m": 53.29571695476961},
+      "raised_ceiling": {"start_m": 68.18553386937451, "closest_m": 10.812320967470662, "final_m": 50.48905509157538},
+      "finding": "Overshoot persisted; closest approach was unchanged and final distance improved by 2.807 m, insufficient to change the failure pattern."
+    }
+  ],
+  "decision": {
+    "retain_per_vehicle_ceiling": true,
+    "seed_30003_resolved": false,
+    "overshoot_pattern_persists": true,
+    "task_2_is_warranted": true,
+    "task_2_started": false,
+    "full_50_seed_reference_started": false
+  },
+  "detailed_trace_artifact": "artifacts/rl-campaign/vehicle-c-wrench-ceiling-task1.json"
+}

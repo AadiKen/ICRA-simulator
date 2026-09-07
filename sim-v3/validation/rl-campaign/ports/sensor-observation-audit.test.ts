@@ -1,5 +1,9 @@
 import assert from "node:assert/strict";
 import {TaskTraceBridge,gazeboOdomToTask,type OdomSample,type TaskReset} from "./task-trace-bridge.ts";
+import {renderSurveyorVrxModel} from "./prepare-vrx-surveyor.ts";
+
+assert.match(renderSurveyorVrxModel(),/<sensor name="task_imu"[\s\S]*?<orientation_reference_frame><localization>ENU<\/localization><\/orientation_reference_frame>[\s\S]*?<\/sensor>/,
+  "generated VRX task IMU must report orientation in world ENU");
 
 const reset:TaskReset={seed:1,initial_state:[10,20,.1,0,0,0],route_ned_m:[[30,50]],disturbance:{wind_speed_m_s:0,wind_direction_deg:0,current_speed_m_s:0,current_direction_deg:0}};
 const bridge=new TaskTraceBridge("VRX",reset);
@@ -30,6 +34,6 @@ assert.equal(gazebo.imu,undefined);assert.equal(gazebo.gps,undefined);
 assert.equal(gazebo.N_m,2);assert.equal(gazebo.E_m,1);
 assert.ok(Math.abs(gazebo.yaw_rad-(Math.PI/2-.2))<1e-12);
 assert.ok(Math.abs(gazebo.r_rad_s+.3)<1e-12);
-assert.ok(Math.abs(gazebo.u_mps-(Math.cos(gazebo.yaw_rad)*4+Math.sin(gazebo.yaw_rad)*3))<1e-12);
-assert.ok(Math.abs(gazebo.v_mps-(-Math.sin(gazebo.yaw_rad)*4+Math.cos(gazebo.yaw_rad)*3))<1e-12);
+assert.equal(gazebo.u_mps,3,"Gazebo body-FLU forward velocity must not be rotated by world heading a second time");
+assert.equal(gazebo.v_mps,-4,"Gazebo body-left velocity must become task body-starboard velocity");
 console.log("External observation oracle exclusion passed for VRX and Gazebo adapters.");

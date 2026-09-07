@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-bcod-reset-randomization-parity",
+  "contract_path": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+  "seeds": [
+    30000,
+    30001,
+    30002,
+    30003,
+    30004
+  ],
+  "distribution": "shared Mulberry32 uniform draws in contract order over reset_randomization ranges",
+  "rows": [
+    {
+      "seed": 30000,
+      "bcod_sim": {
+        "current_speed_m_s": 1.3151809121378515,
+        "current_direction_deg": 330.3362371399998,
+        "wind_speed_m_s": 3.229163972681259,
+        "wind_direction_deg": 298.9431879110634
+      },
+      "vrx": {
+        "current_speed_m_s": 1.3151809121378515,
+        "current_direction_deg": 330.33623713999987,
+        "wind_speed_m_s": 3.2291639726812593,
+        "wind_direction_deg": 298.94318791106343
+      },
+      "absolute_errors": {
+        "current_speed_m_s": 0.0,
+        "current_direction_deg": 5.684341886080802e-14,
+        "wind_speed_m_s": 4.440892098500626e-16,
+        "wind_direction_deg": 5.684341886080802e-14
+      },
+      "match": true
+    },
+    {
+      "seed": 30001,
+      "bcod_sim": {
+        "current_speed_m_s": 0.9076849995563602,
+        "current_direction_deg": 63.02990287542343,
+        "wind_speed_m_s": 10.269320177955533,
+        "wind_direction_deg": 127.12785886600615
+      },
+      "vrx": {
+        "current_speed_m_s": 0.9076849995563603,
+        "current_direction_deg": 63.02990287542343,
+        "wind_speed_m_s": 10.269320177955533,
+        "wind_direction_deg": 127.12785886600614
+      },
+      "absolute_errors": {
+        "current_speed_m_s": 1.1102230246251565e-16,
+        "current_direction_deg": 0.0,
+        "wind_speed_m_s": 0.0,
+        "wind_direction_deg": 1.4210854715202004e-14
+      },
+      "match": true
+    },
+    {
+      "seed": 30002,
+      "bcod_sim": {
+        "current_speed_m_s": 0.005156216357300697,
+        "current_direction_deg": 102.49079693108797,
+        "wind_speed_m_s": 3.966404528515409,
+        "wind_direction_deg": 322.07792202942073
+      },
+      "vrx": {
+        "current_speed_m_s": 0.005156216357300697,
+        "current_direction_deg": 102.49079693108797,
+        "wind_speed_m_s": 3.9664045285154095,
+        "wind_direction_deg": 322.07792202942073
+      },
+      "absolute_errors": {
+        "current_speed_m_s": 0.0,
+        "current_direction_deg": 0.0,
+        "wind_speed_m_s": 4.440892098500626e-16,
+        "wind_direction_deg": 0.0
+      },
+      "match": true
+    },
+    {
+      "seed": 30003,
+      "bcod_sim": {
+        "current_speed_m_s": 1.3226251899662487,
+        "current_direction_deg": 179.36114139854908,
+        "wind_speed_m_s": 9.780514189714403,
+        "wind_direction_deg": 203.3818520698696
+      },
+      "vrx": {
+        "current_speed_m_s": 1.3226251899662487,
+        "current_direction_deg": 179.36114139854908,
+        "wind_speed_m_s": 9.7805141897144,
+        "wind_direction_deg": 203.38185206986964
+      },
+      "absolute_errors": {
+        "current_speed_m_s": 0.0,
+        "current_direction_deg": 0.0,
+        "wind_speed_m_s": 1.7763568394002505e-15,
+        "wind_direction_deg": 2.842170943040401e-14
+      },
+      "match": true
+    },
+    {
+      "seed": 30004,
+      "bcod_sim": {
+        "current_speed_m_s": 0.433531106943584,
+        "current_direction_deg": 128.47443013451993,
+        "wind_speed_m_s": 9.669678663302042,
+        "wind_direction_deg": 32.460976364091046
+      },
+      "vrx": {
+        "current_speed_m_s": 0.433531106943584,
+        "current_direction_deg": 128.47443013451993,
+        "wind_speed_m_s": 9.669678663302042,
+        "wind_direction_deg": 32.46097636409104
+      },
+      "absolute_errors": {
+        "current_speed_m_s": 0.0,
+        "current_direction_deg": 0.0,
+        "wind_speed_m_s": 0.0,
+        "wind_direction_deg": 7.105427357601002e-15
+      },
+      "match": true
+    }
+  ],
+  "all_match": true,
+  "maximum_absolute_error": 5.684341886080802e-14
+}

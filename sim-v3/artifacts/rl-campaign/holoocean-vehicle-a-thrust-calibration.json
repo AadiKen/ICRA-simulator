@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "holoocean-vehicle-a-thrust-performance-calibration",
+  "method": "bisection over per-thruster ceiling; sustained equal full command; calm water; 40 s probe; final 10 s averaged",
+  "target_cruise_speed_mps": 1.0,
+  "seed": 7319,
+  "literal_force_match_baseline_n_per_thruster": 95.0,
+  "literal_force_match_abandoned_reason": "HoloOcean SurfaceVessel mass and damping are binary-hardcoded and cannot be matched to bcod-sim Vehicle A through scenario configuration.",
+  "probes": [
+    {
+      "ceiling_n_per_thruster": 95.0,
+      "mean_last_10_s_mps": 0.1899385002826354,
+      "final_speed_mps": 0.1899423721230216,
+      "maximum_speed_mps": 0.1899423721230216
+    },
+    {
+      "ceiling_n_per_thruster": 1500.0,
+      "mean_last_10_s_mps": 2.986541844580809,
+      "final_speed_mps": 2.9865575731200127,
+      "maximum_speed_mps": 2.9865583656732104
+    },
+    {
+      "ceiling_n_per_thruster": 797.5,
+      "mean_last_10_s_mps": 1.5911501724332455,
+      "final_speed_mps": 1.591159224706115,
+      "maximum_speed_mps": 1.5911596209841237
+    },
+    {
+      "ceiling_n_per_thruster": 446.25,
+      "mean_last_10_s_mps": 0.891276429490203,
+      "final_speed_mps": 0.8912971437114097,
+      "maximum_speed_mps": 0.8912973418476577
+    },
+    {
+      "ceiling_n_per_thruster": 621.875,
+      "mean_last_10_s_mps": 1.2413959897563387,
+      "final_speed_mps": 1.2414007378074468,
+      "maximum_speed_mps": 1.2414195471772451
+    },
+    {
+      "ceiling_n_per_thruster": 534.0625,
+      "mean_last_10_s_mps": 1.0663818575672805,
+      "final_speed_mps": 1.0663870548429637,
+      "maximum_speed_mps": 1.0663872529791754
+    },
+    {
+      "ceiling_n_per_thruster": 490.15625,
+      "mean_last_10_s_mps": 0.9788405332410005,
+      "final_speed_mps": 0.9788421983445557,
+      "maximum_speed_mps": 0.978851801166882
+    },
+    {
+      "ceiling_n_per_thruster": 512.109375,
+      "mean_last_10_s_mps": 1.0226141613818558,
+      "final_speed_mps": 1.0226337331703068,
+      "maximum_speed_mps": 1.0226337331703796
+    },
+    {
+      "ceiling_n_per_thruster": 501.1328125,
+      "mean_last_10_s_mps": 1.0007277314246528,
+      "final_speed_mps": 1.0006999507441328,
+      "maximum_speed_mps": 1.0007381638951995
+    },
+    {
+      "ceiling_n_per_thruster": 495.64453125,
+      "mean_last_10_s_mps": 0.9897842273702939,
+      "final_speed_mps": 0.98975196796768,
+      "maximum_speed_mps": 0.9897901811194783
+    },
+    {
+      "ceiling_n_per_thruster": 498.388671875,
+      "mean_last_10_s_mps": 0.9952560764167551,
+      "final_speed_mps": 0.9952261575000774,
+      "maximum_speed_mps": 0.9952641725072322
+    }
+  ],
+  "selected": {
+    "ceiling_n_per_thruster": 501.1328125,
+    "mean_last_10_s_mps": 1.0007277314246528,
+    "final_speed_mps": 1.0006999507441328,
+    "maximum_speed_mps": 1.0007381638951995
+  },
+  "lag_time_constant_s": 0.25
+}

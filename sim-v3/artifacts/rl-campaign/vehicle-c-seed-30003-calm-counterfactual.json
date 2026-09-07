@@ -1,0 +1,4872 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-los-pid-v2-distance-to-goal-diagnostic",
+  "status": "DIAGNOSTIC_COMPLETE_ALLOCATOR_UNCHANGED",
+  "training_performed": false,
+  "evaluation_seeds": [
+    30003
+  ],
+  "controller": "shared LOS-PID-v2",
+  "protocol": {
+    "task_contract": "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+    "physics_timestep_s": 0.05,
+    "control_interval_s": 0.1,
+    "duration_s": 120,
+    "environment": "calm-counterfactual"
+  },
+  "rows": [
+    {
+      "seed": 30003,
+      "classification": "approaches-but-does-not-close",
+      "start_distance_m": 68.18606501592517,
+      "closest_distance_m": 14.999606283631206,
+      "closest_time_s": 120,
+      "final_distance_m": 14.999606283631206,
+      "rebound_after_closest_m": 0,
+      "tail_20s_span_m": 9.553479131429945,
+      "radial_direction_changes": 0,
+      "trace_1hz": [
+        {
+          "time_s": 0.05,
+          "waypoint_index": 0,
+          "distance_to_current_m": 27.139036531772533,
+          "distance_to_final_m": 68.18606501592517,
+          "signed_cross_track_m": -0.00001785315472153208,
+          "heading_rad": -0.05951657945339603,
+          "surge_mps": 0.0021614053853787076,
+          "sway_mps": -0.0001812669331430172,
+          "yaw_rate_rad_s": 0.00022791446934067146,
+          "desired_wrench_surge_yaw": [
+            100,
+            25.129457569952145
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            13.312210024981843,
+            0,
+            3.3452861698507275
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 8.72109647536174,
+              "azimuth_rad": 0,
+              "target": {
+                "thrust": 65.51201084564947,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 4.591113549620102,
+              "azimuth_rad": 0,
+              "target": {
+                "thrust": 34.48798915435054,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 1,
+          "waypoint_index": 0,
+          "distance_to_current_m": 27.0615345371425,
+          "distance_to_final_m": 68.11101173373528,
+          "signed_cross_track_m": -0.02078195651842154,
+          "heading_rad": -0.05145102789657858,
+          "surge_mps": 0.18685698355364838,
+          "sway_mps": -0.0017524490980286478,
+          "yaw_rate_rad_s": 0.018737411845229045,
+          "desired_wrench_surge_yaw": [
+            83.50650348972725,
+            24.125771474085692
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            83.65585845351423,
+            -2.9823367346729344e-15,
+            23.08596802855575
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 56.078526775248314,
+              "azimuth_rad": -2.5954017722734518e-17,
+              "target": {
+                "thrust": 56.64570327207701,
+                "azimuth": -1.2543629873342147e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 27.57733167826591,
+              "azimuth_rad": -5.53669830967239e-17,
+              "target": {
+                "thrust": 26.860800217650244,
+                "azimuth": -2.6452776164620824e-16
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 2,
+          "waypoint_index": 0,
+          "distance_to_current_m": 26.790118586468484,
+          "distance_to_final_m": 67.84739090072743,
+          "signed_cross_track_m": -0.08587105732350833,
+          "heading_rad": -0.022127946578261795,
+          "surge_mps": 0.35569689893709344,
+          "sway_mps": -0.0018735253222800575,
+          "yaw_rate_rad_s": 0.039213650057316404,
+          "desired_wrench_surge_yaw": [
+            65.69523692104033,
+            21.442594981687563
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            70.21382092310938,
+            -1.6957163943394522e-15,
+            22.238392103062015
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 48.834312994309016,
+              "azimuth_rad": -1.736378760125662e-17,
+              "target": {
+                "thrust": 46.08378820230261,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 21.379507928800358,
+              "azimuth_rad": -3.965328662737627e-17,
+              "target": {
+                "thrust": 19.611448718737726,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 3,
+          "waypoint_index": 0,
+          "distance_to_current_m": 26.39399636939327,
+          "distance_to_final_m": 67.4610355252765,
+          "signed_cross_track_m": -0.1648852102323519,
+          "heading_rad": 0.024997376904938636,
+          "surge_mps": 0.4427671582156857,
+          "sway_mps": -0.0033492043916361386,
+          "yaw_rate_rad_s": 0.053674185017307925,
+          "desired_wrench_surge_yaw": [
+            56.34917390457217,
+            17.331398481580244
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            58.8920348699608,
+            3.715192645948738e-16,
+            18.62111434858262
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 40.94053246496967,
+              "azimuth_rad": 4.483009837957823e-18,
+              "target": {
+                "thrust": 38.87298107671833,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 17.951502404991132,
+              "azimuth_rad": 1.0471683680966866e-17,
+              "target": {
+                "thrust": 17.47619282785384,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 4,
+          "waypoint_index": 0,
+          "distance_to_current_m": 25.93241023632497,
+          "distance_to_final_m": 67.0086275975671,
+          "signed_cross_track_m": -0.23440913605970345,
+          "heading_rad": 0.08187352250323403,
+          "surge_mps": 0.48745343275238184,
+          "sway_mps": -0.007448928145853787,
+          "yaw_rate_rad_s": 0.05824042725938817,
+          "desired_wrench_surge_yaw": [
+            51.59858391576629,
+            12.384758885396302
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            52.92924705881285,
+            6.222301592488037e-17,
+            13.88829799244806
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 35.037646981534856,
+              "azimuth_rad": 9.151548727830347e-19,
+              "target": {
+                "thrust": 33.444204850103084,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 17.891600077277996,
+              "azimuth_rad": 1.6856034356131879e-18,
+              "target": {
+                "thrust": 18.15437906566321,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 5,
+          "waypoint_index": 0,
+          "distance_to_current_m": 25.43352272542467,
+          "distance_to_final_m": 66.51738187939101,
+          "signed_cross_track_m": -0.2855575524584555,
+          "heading_rad": 0.1379946396730037,
+          "surge_mps": 0.5142576221243242,
+          "sway_mps": -0.013891444953807812,
+          "yaw_rate_rad_s": 0.052533956619496086,
+          "desired_wrench_surge_yaw": [
+            48.784728210395066,
+            7.55116937672071
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            49.58223080111455,
+            -6.440983898264889e-16,
+            8.979369051484868
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 30.333935802708428,
+              "azimuth_rad": -1.0341211696726434e-17,
+              "target": {
+                "thrust": 29.053579769839946,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 19.248294998406124,
+              "azimuth_rad": -1.71656106747705e-17,
+              "target": {
+                "thrust": 19.73114844055512,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 6,
+          "waypoint_index": 0,
+          "distance_to_current_m": 24.91190475491224,
+          "distance_to_final_m": 66.00183601567603,
+          "signed_cross_track_m": -0.3183636374800495,
+          "heading_rad": 0.18487131622516642,
+          "surge_mps": 0.5295570474301385,
+          "sway_mps": -0.021144699919036572,
+          "yaw_rate_rad_s": 0.04070303463319121,
+          "desired_wrench_surge_yaw": [
+            47.146621185640626,
+            3.5795199706199874
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.595493099317636,
+            2.331559344324744e-16,
+            4.729011091035861
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.71688919844639,
+              "azimuth_rad": 4.812520567551664e-18,
+              "target": {
+                "thrust": 25.78289082159808,
+                "azimuth": 3.44483644540009e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 20.87860390087125,
+              "azimuth_rad": 5.008972638232203e-18,
+              "target": {
+                "thrust": 21.363730364042546,
+                "azimuth": 4.1574126080294714e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 7,
+          "waypoint_index": 0,
+          "distance_to_current_m": 24.379372934949895,
+          "distance_to_final_m": 65.4741172592612,
+          "signed_cross_track_m": -0.3366189670577505,
+          "heading_rad": 0.21938533369695848,
+          "surge_mps": 0.5340186826747712,
+          "sway_mps": -0.027113555584576184,
+          "yaw_rate_rad_s": 0.02878962100626343,
+          "desired_wrench_surge_yaw": [
+            46.60074531288279,
+            0.676936181598508
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.72313949651475,
+            -6.127716490317869e-17,
+            1.512595265596918
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 24.29527052949004,
+              "azimuth_rad": -1.218994985641699e-18,
+              "target": {
+                "thrust": 23.718234496934304,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 22.427868967024708,
+              "azimuth_rad": -1.4116968491064797e-18,
+              "target": {
+                "thrust": 22.88251081594849,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 8,
+          "waypoint_index": 0,
+          "distance_to_current_m": 23.846039523492752,
+          "distance_to_final_m": 64.94462591530197,
+          "signed_cross_track_m": -0.34398605755231415,
+          "heading_rad": 0.24400560591338283,
+          "surge_mps": 0.5305366501300914,
+          "sway_mps": -0.030312084260283857,
+          "yaw_rate_rad_s": 0.021398067706286078,
+          "desired_wrench_surge_yaw": [
+            46.88848182712425,
+            -1.4793740225558816
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.77776882917788,
+            -1.087335212726394e-16,
+            -0.8436973961788716
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 22.868083552750132,
+              "azimuth_rad": -2.4119746850188432e-18,
+              "target": {
+                "thrust": 22.53104707247825,
+                "azimuth": -9.855050420460022e-18
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 23.909685276427748,
+              "azimuth_rad": -2.240777410036864e-18,
+              "target": {
+                "thrust": 24.357434754646004,
+                "azimuth": -9.116091540907357e-18
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 9,
+          "waypoint_index": 0,
+          "distance_to_current_m": 23.31807392551294,
+          "distance_to_final_m": 64.41960840128908,
+          "signed_cross_track_m": -0.34177378258364816,
+          "heading_rad": 0.26395040359081895,
+          "surge_mps": 0.5234096111005172,
+          "sway_mps": -0.030684341144069757,
+          "yaw_rate_rad_s": 0.019153288580991492,
+          "desired_wrench_surge_yaw": [
+            47.584351596263396,
+            -3.4209098785889958
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.36954930676541,
+            2.98914170135103e-16,
+            -2.8294976863543297
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 21.938171143287438,
+              "azimuth_rad": 6.89985989807369e-18,
+              "target": {
+                "thrust": 21.68050303357059,
+                "azimuth": 2.0483344374548165e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 25.431378163477966,
+              "azimuth_rad": 5.801646370794975e-18,
+              "target": {
+                "thrust": 25.903848562692804,
+                "azimuth": 1.7143754094117427e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 10,
+          "waypoint_index": 0,
+          "distance_to_current_m": 22.797208845698815,
+          "distance_to_final_m": 63.90070818831409,
+          "signed_cross_track_m": -0.32936330353045934,
+          "heading_rad": 0.28288434586960853,
+          "surge_mps": 0.5172346840371748,
+          "sway_mps": -0.029401239801735972,
+          "yaw_rate_rad_s": 0.018586557666277353,
+          "desired_wrench_surge_yaw": [
+            48.235312962281455,
+            -5.443229104452291
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            48.05672955810776,
+            1.7340229228580887e-17,
+            -4.828692300964779
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 21.04769051919908,
+              "azimuth_rad": 3.962770265259669e-19,
+              "target": {
+                "thrust": 20.757638515429438,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 27.009039038908686,
+              "azimuth_rad": 3.332037471392214e-19,
+              "target": {
+                "thrust": 27.477674446852017,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 11,
+          "waypoint_index": 0,
+          "distance_to_current_m": 22.280031237487123,
+          "distance_to_final_m": 63.38445280398008,
+          "signed_cross_track_m": -0.30623104025462755,
+          "heading_rad": 0.30019736979761763,
+          "surge_mps": 0.5174650627526901,
+          "sway_mps": -0.027848643931118834,
+          "yaw_rate_rad_s": 0.015373117758036715,
+          "desired_wrench_surge_yaw": [
+            48.29520907318372,
+            -7.3812808488526676
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            48.31756228180683,
+            -3.3540408021186816e-16,
+            -6.811584931397725
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 19.95409908448507,
+              "azimuth_rad": -8.332192759779769e-18,
+              "target": {
+                "thrust": 19.59125833359639,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 28.363463197321764,
+              "azimuth_rad": -5.963400136135879e-18,
+              "target": {
+                "thrust": 28.70395073958733,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 12,
+          "waypoint_index": 0,
+          "distance_to_current_m": 21.75886618668732,
+          "distance_to_final_m": 62.86327663759177,
+          "signed_cross_track_m": -0.2734047428229516,
+          "heading_rad": 0.31235227975869256,
+          "surge_mps": 0.5258180084573286,
+          "sway_mps": -0.026553328761486916,
+          "yaw_rate_rad_s": 0.008485914013125123,
+          "desired_wrench_surge_yaw": [
+            47.526842956713764,
+            -8.832010406931483
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.78777745885513,
+            -6.368618377068828e-16,
+            -8.425680391318215
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 18.692851450836073,
+              "azimuth_rad": -1.702199145985812e-17,
+              "target": {
+                "thrust": 18.311563202473252,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 29.094926008019055,
+              "azimuth_rad": -1.095284723743663e-17,
+              "target": {
+                "thrust": 29.215279754240512,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 13,
+          "waypoint_index": 0,
+          "distance_to_current_m": 21.22782277633876,
+          "distance_to_final_m": 62.33154558651306,
+          "signed_cross_track_m": -0.23350939025209372,
+          "heading_rad": 0.3169215478984554,
+          "surge_mps": 0.536969117509072,
+          "sway_mps": -0.024820586795001025,
+          "yaw_rate_rad_s": 0.0009009325943908364,
+          "desired_wrench_surge_yaw": [
+            46.406099833640965,
+            -9.586703780152437
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.737120246095955,
+            -2.459014509528709e-16,
+            -9.387484756365708
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 17.573816446279025,
+              "azimuth_rad": -6.939727874490731e-18,
+              "target": {
+                "thrust": 17.28533153401034,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 29.163303799816934,
+              "azimuth_rad": -4.249996775064379e-18,
+              "target": {
+                "thrust": 29.120768299630626,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 14,
+          "waypoint_index": 0,
+          "distance_to_current_m": 20.68752943824512,
+          "distance_to_final_m": 61.79013244819961,
+          "signed_cross_track_m": -0.1893414640588249,
+          "heading_rad": 0.3152963231377496,
+          "surge_mps": 0.5444447053016515,
+          "sway_mps": -0.021469293689459948,
+          "yaw_rate_rad_s": -0.0033493345153473974,
+          "desired_wrench_surge_yaw": [
+            45.603658010791605,
+            -9.851357718354336
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.818294416006346,
+            1.7146722350519483e-16,
+            -9.779198239964808
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 16.872605084568107,
+              "azimuth_rad": 5.062489048799504e-18,
+              "target": {
+                "thrust": 16.72074399406597,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 28.94568933143824,
+              "azimuth_rad": 2.9728034476757212e-18,
+              "target": {
+                "thrust": 28.882914016725636,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 15,
+          "waypoint_index": 0,
+          "distance_to_current_m": 20.143231828674754,
+          "distance_to_final_m": 61.24431789656993,
+          "signed_cross_track_m": -0.14183998769935946,
+          "heading_rad": 0.31190982772389403,
+          "surge_mps": 0.5459369642518805,
+          "sway_mps": -0.016083398039515636,
+          "yaw_rate_rad_s": -0.002701701027167072,
+          "desired_wrench_surge_yaw": [
+            45.39579307895735,
+            -10.104631068141783
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.43219312214826,
+            3.896569298290983e-16,
+            -10.013618831556954
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 16.534850368755023,
+              "azimuth_rad": 1.180396467559571e-17,
+              "target": {
+                "thrust": 16.46046995420597,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 28.89734275339324,
+              "azimuth_rad": 6.730035416049341e-18,
+              "target": {
+                "thrust": 28.935323124751378,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 16,
+          "waypoint_index": 0,
+          "distance_to_current_m": 19.60071722794369,
+          "distance_to_final_m": 60.699696881141165,
+          "signed_cross_track_m": -0.08985315972709951,
+          "heading_rad": 0.3106868997104295,
+          "surge_mps": 0.5425096444063965,
+          "sway_mps": -0.009732403679987796,
+          "yaw_rate_rad_s": 0.0002178987929430064,
+          "desired_wrench_surge_yaw": [
+            45.69875355783189,
+            -10.698377726433758
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.59061047982553,
+            8.369232472326286e-16,
+            -10.501848728501853
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 16.312682567998042,
+              "azimuth_rad": 2.580034711219758e-17,
+              "target": {
+                "thrust": 16.245439910746963,
+                "azimuth": 1.0934495151621743e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 29.27792791182749,
+              "azimuth_rad": 1.421037635928844e-17,
+              "target": {
+                "thrust": 29.45331364708493,
+                "azimuth": 6.031093345505663e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 17,
+          "waypoint_index": 0,
+          "distance_to_current_m": 19.06384596591519,
+          "distance_to_final_m": 60.15996303378955,
+          "signed_cross_track_m": -0.03251312126694761,
+          "heading_rad": 0.31128224781555003,
+          "surge_mps": 0.5368120986390315,
+          "sway_mps": -0.004400633300047699,
+          "yaw_rate_rad_s": -0.0000013854050319553638,
+          "desired_wrench_surge_yaw": [
+            46.26241338043584,
+            -11.47951053377468
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.091827170482055,
+            2.6767954990502827e-16,
+            -11.25236026805594
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 16.1000121852065,
+              "azimuth_rad": 8.377428323322427e-18,
+              "target": {
+                "thrust": 16.04508907677676,
+                "azimuth": 1.1071031334885529e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 29.991814985275557,
+              "azimuth_rad": 4.427969827235948e-18,
+              "target": {
+                "thrust": 30.217324303659076,
+                "azimuth": 5.87860401387408e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 18,
+          "waypoint_index": 0,
+          "distance_to_current_m": 18.532843037612892,
+          "distance_to_final_m": 59.62552642875757,
+          "signed_cross_track_m": 0.028028687151524734,
+          "heading_rad": 0.3082348414740054,
+          "surge_mps": 0.53253789063942,
+          "sway_mps": -0.001434479323356422,
+          "yaw_rate_rad_s": -0.007357596749526152,
+          "desired_wrench_surge_yaw": [
+            46.71765220479577,
+            -11.7689328963432
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.595164756898626,
+            7.457177735781181e-16,
+            -11.729788885713925
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 16.05697195516911,
+              "azimuth_rad": 2.3232641145754345e-17,
+              "target": {
+                "thrust": 16.09405270959344,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 30.53819280172951,
+              "azimuth_rad": 1.2203469559440548e-17,
+              "target": {
+                "thrust": 30.623599495202328,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 19,
+          "waypoint_index": 0,
+          "distance_to_current_m": 18.004559607531878,
+          "distance_to_final_m": 59.0939012113046,
+          "signed_cross_track_m": 0.08593585921086411,
+          "heading_rad": 0.29457650419750087,
+          "surge_mps": 0.5310452287091874,
+          "sway_mps": -0.000501388916610523,
+          "yaw_rate_rad_s": -0.020490506103286392,
+          "desired_wrench_surge_yaw": [
+            46.887154572903924,
+            -10.816647437789898
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.844186304681685,
+            1.2083977818232213e-15,
+            -11.175356199168144
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 16.523725128162976,
+              "azimuth_rad": 3.622775269031188e-17,
+              "target": {
+                "thrust": 16.766634423618694,
+                "azimuth": 1.0594593968709342e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 30.32046117651871,
+              "azimuth_rad": 2.0111183362530035e-17,
+              "target": {
+                "thrust": 30.12052014928523,
+                "azimuth": 5.897497223142755e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 20,
+          "waypoint_index": 0,
+          "distance_to_current_m": 17.4764515311248,
+          "distance_to_final_m": 58.563511682334905,
+          "signed_cross_track_m": 0.13343630585639388,
+          "heading_rad": 0.26741840082940965,
+          "surge_mps": 0.5299131864546487,
+          "sway_mps": -0.00010719865270701447,
+          "yaw_rate_rad_s": -0.03312203327984442,
+          "desired_wrench_surge_yaw": [
+            46.99211899673106,
+            -8.384431699255352
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.954533027403,
+            -4.0015109889855326e-16,
+            -9.177661726447713
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 17.812043225770815,
+              "azimuth_rad": -1.0760865106332607e-17,
+              "target": {
+                "thrust": 18.3204843753684,
+                "azimuth": -9.696014597673704e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 29.142489801632188,
+              "azimuth_rad": -7.153750619694538e-18,
+              "target": {
+                "thrust": 28.671634621362657,
+                "azimuth": -6.195519937592685e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 21,
+          "waypoint_index": 0,
+          "distance_to_current_m": 16.94883659238948,
+          "distance_to_final_m": 58.03549580218381,
+          "signed_cross_track_m": 0.1645574827681402,
+          "heading_rad": 0.23072250537686015,
+          "surge_mps": 0.5276388261289093,
+          "sway_mps": 0.0015998285119188545,
+          "yaw_rate_rad_s": -0.03874389813449614,
+          "desired_wrench_surge_yaw": [
+            47.21031079320689,
+            -4.958504257720575
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.14029007244317,
+            -2.0383167339996895e-16,
+            -6.011664262856904
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 19.859241170260535,
+              "azimuth_rad": -4.772055695552717e-18,
+              "target": {
+                "thrust": 20.544350299245064,
+                "azimuth": -4.323224666456173e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 27.281048902182636,
+              "azimuth_rad": -3.997730030656796e-18,
+              "target": {
+                "thrust": 26.665960493961823,
+                "azimuth": -3.3307572772458066e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 22,
+          "waypoint_index": 0,
+          "distance_to_current_m": 16.422824504215562,
+          "distance_to_final_m": 57.51119557326831,
+          "signed_cross_track_m": 0.17833817749591319,
+          "heading_rad": 0.19312292884421975,
+          "surge_mps": 0.525149116845524,
+          "sway_mps": 0.005369244464890447,
+          "yaw_rate_rad_s": -0.03497023202622749,
+          "desired_wrench_surge_yaw": [
+            47.461918493916166,
+            -1.458380623024283
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.38786624350269,
+            -3.3363784674801605e-17,
+            -2.4899974386390085
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 22.156897665801342,
+              "azimuth_rad": -8.273455768002781e-19,
+              "target": {
+                "thrust": 22.830724294473956,
+                "azimuth": 9.725692538750333e-18
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 25.23096857770135,
+              "azimuth_rad": -5.957905797033011e-19,
+              "target": {
+                "thrust": 24.63119419944221,
+                "azimuth": 9.014772208245578e-18
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 23,
+          "waypoint_index": 0,
+          "distance_to_current_m": 15.898685653351146,
+          "distance_to_final_m": 56.99050837544165,
+          "signed_cross_track_m": 0.17848054832263482,
+          "heading_rad": 0.16313084760769964,
+          "surge_mps": 0.5232351562564391,
+          "sway_mps": 0.010181381917290873,
+          "yaw_rate_rad_s": -0.02426025874375137,
+          "desired_wrench_surge_yaw": [
+            47.66222200256271,
+            1.2717818484185452
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.605927868095215,
+            -3.3102528498440095e-17,
+            0.4988312211945356
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 24.110884440957815,
+              "azimuth_rad": -6.882736876941316e-19,
+              "target": {
+                "thrust": 24.616161524996503,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 23.4950434271374,
+              "azimuth_rad": -7.02601006118092e-19,
+              "target": {
+                "thrust": 23.046060477566204,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 24,
+          "waypoint_index": 0,
+          "distance_to_current_m": 15.37556942809171,
+          "distance_to_final_m": 56.47192993820224,
+          "signed_cross_track_m": 0.17059006200412297,
+          "heading_rad": 0.14516333159808684,
+          "surge_mps": 0.5232761214116182,
+          "sway_mps": 0.014234507299955049,
+          "yaw_rate_rad_s": -0.011866408036776242,
+          "desired_wrench_surge_yaw": [
+            47.68996949003108,
+            2.847797857940413
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.69757773239243,
+            2.386918096785695e-16,
+            2.4228336217531954
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 25.34436517592041,
+              "azimuth_rad": 4.6670937848549624e-18,
+              "target": {
+                "thrust": 25.602884657324438,
+                "azimuth": 1.7345280260168582e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 22.35321255647202,
+              "azimuth_rad": 5.3865760986590174e-18,
+              "target": {
+                "thrust": 22.087084832706644,
+                "azimuth": 2.010628442882845e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 25,
+          "waypoint_index": 0,
+          "distance_to_current_m": 14.850208334331475,
+          "distance_to_final_m": 55.95163982862365,
+          "signed_cross_track_m": 0.1593447709212814,
+          "heading_rad": 0.13829437346330278,
+          "surge_mps": 0.5279602939366949,
+          "sway_mps": 0.016272473296665108,
+          "yaw_rate_rad_s": -0.002680439171700113,
+          "desired_wrench_surge_yaw": [
+            47.27522687322347,
+            3.4291128213000275
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.42627030565656,
+            2.1853691904523673e-16,
+            3.2841579843447555
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 25.740393167855906,
+              "azimuth_rad": 4.227382467144021e-18,
+              "target": {
+                "thrust": 25.754349746056192,
+                "azimuth": 1.7243270136069607e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 21.685877137800652,
+              "azimuth_rad": 5.059626206163077e-18,
+              "target": {
+                "thrust": 21.520877127167275,
+                "azimuth": 2.0635274632438586e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 26,
+          "waypoint_index": 0,
+          "distance_to_current_m": 14.317724772112223,
+          "distance_to_final_m": 55.42451802172544,
+          "signed_cross_track_m": 0.14697773728005847,
+          "heading_rad": 0.13805462524187112,
+          "surge_mps": 0.5369615610039353,
+          "sway_mps": 0.016086745816226516,
+          "yaw_rate_rad_s": 0.0013766614197757252,
+          "desired_wrench_surge_yaw": [
+            46.40064860326195,
+            3.490255106183322
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.674289713215714,
+            2.1574516429800948e-16,
+            3.4790955449874623
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 25.48473469919271,
+              "azimuth_rad": 4.231407749319354e-18,
+              "target": {
+                "thrust": 25.354802762237963,
+                "azimuth": 1.7514993668634034e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 21.189555014023007,
+              "azimuth_rad": 5.092549623202787e-18,
+              "target": {
+                "thrust": 21.045845841023986,
+                "azimuth": 2.1101038808543104e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 27,
+          "waypoint_index": 0,
+          "distance_to_current_m": 13.776166148997262,
+          "distance_to_final_m": 54.888612845459825,
+          "signed_cross_track_m": 0.1336609420185142,
+          "heading_rad": 0.13976420564507913,
+          "surge_mps": 0.5452034458246319,
+          "sway_mps": 0.014389052220530517,
+          "yaw_rate_rad_s": 0.0016366946234888857,
+          "desired_wrench_surge_yaw": [
+            45.5418795566984,
+            3.469949597542299
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.781704997777936,
+            1.4263578897616026e-16,
+            3.4708879368039085
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 25.03337591666916,
+              "azimuth_rad": 2.8489631741721062e-18,
+              "target": {
+                "thrust": 24.912883974362963,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 20.74832908110878,
+              "azimuth_rad": 3.4372224667140182e-18,
+              "target": {
+                "thrust": 20.628995582335435,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 28,
+          "waypoint_index": 0,
+          "distance_to_current_m": 13.229038508755723,
+          "distance_to_final_m": 54.34747675199199,
+          "signed_cross_track_m": 0.11891747230361904,
+          "heading_rad": 0.14100512126612547,
+          "surge_mps": 0.5477698627868517,
+          "sway_mps": 0.012311558793895838,
+          "yaw_rate_rad_s": 0.0009045669385943164,
+          "desired_wrench_surge_yaw": [
+            45.21736631002352,
+            3.5471118732407945
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.28292916313605,
+            5.3971123600555e-16,
+            3.5198291320268957
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 24.814198613683395,
+              "azimuth_rad": 1.0877386257267828e-17,
+              "target": {
+                "thrust": 24.798258385407312,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 20.46873054945266,
+              "azimuth_rad": 1.3180964611758514e-17,
+              "target": {
+                "thrust": 20.41910792461621,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 29,
+          "waypoint_index": 0,
+          "distance_to_current_m": 12.68277664908478,
+          "distance_to_final_m": 53.80748921866853,
+          "signed_cross_track_m": 0.10286002460225685,
+          "heading_rad": 0.1419536902495322,
+          "surge_mps": 0.5438306713605173,
+          "sway_mps": 0.01065537277279841,
+          "yaw_rate_rad_s": 0.0012375313699357416,
+          "desired_wrench_surge_yaw": [
+            45.55415510079771,
+            3.647669545891054
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.42781171087729,
+            2.562917862883528e-16,
+            3.6212448403514053
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 24.949242176643217,
+              "azimuth_rad": 5.134863330500323e-18,
+              "target": {
+                "thrust": 25.02872541823284,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 20.478569534234076,
+              "azimuth_rad": 6.259267147417464e-18,
+              "target": {
+                "thrust": 20.52542968256487,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 30,
+          "waypoint_index": 0,
+          "distance_to_current_m": 12.142823107535145,
+          "distance_to_final_m": 53.27393341425214,
+          "signed_cross_track_m": 0.08639952286306674,
+          "heading_rad": 0.14384775400174413,
+          "surge_mps": 0.5356744670172429,
+          "sway_mps": 0.009359054566969508,
+          "yaw_rate_rad_s": 0.002598518995905821,
+          "desired_wrench_surge_yaw": [
+            46.340529277064704,
+            3.631195784837578
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.09141339567402,
+            5.812205214798339e-16,
+            3.6434636729259537
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 25.2947583477913,
+              "azimuth_rad": 1.1496434161012454e-17,
+              "target": {
+                "thrust": 25.41174351806172,
+                "azimuth": 3.4951494731907755e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 20.796655047882716,
+              "azimuth_rad": 1.396479370586562e-17,
+              "target": {
+                "thrust": 20.928785759002984,
+                "azimuth": 4.243812469235371e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 31,
+          "waypoint_index": 0,
+          "distance_to_current_m": 11.611861041772798,
+          "distance_to_final_m": 52.74936292094526,
+          "signed_cross_track_m": 0.07033851625633858,
+          "heading_rad": 0.1468654944957378,
+          "surge_mps": 0.5265257456897598,
+          "sway_mps": 0.007755173334427939,
+          "yaw_rate_rad_s": 0.0031045010901387857,
+          "desired_wrench_surge_yaw": [
+            47.2629394158116,
+            3.512471859420823
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.989660805684785,
+            1.1567667733436366e-16,
+            3.5473153426672326
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 25.684531231649327,
+              "azimuth_rad": 2.2533479384679934e-18,
+              "target": {
+                "thrust": 25.799662213721124,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 21.30512957403546,
+              "azimuth_rad": 2.712984759475542e-18,
+              "target": {
+                "thrust": 21.463277202090477,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 32,
+          "waypoint_index": 0,
+          "distance_to_current_m": 11.08880943821238,
+          "distance_to_final_m": 52.23277369013667,
+          "signed_cross_track_m": 0.05413854587226563,
+          "heading_rad": 0.1491639748888179,
+          "surge_mps": 0.5208140660007158,
+          "sway_mps": 0.00527888764867702,
+          "yaw_rate_rad_s": 0.0010287684686762105,
+          "desired_wrench_surge_yaw": [
+            47.890454381667084,
+            3.527559937192131
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.72951366682405,
+            5.610721599842626e-17,
+            3.507273191289272
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.029740284825156,
+              "azimuth_rad": 1.0773910691865847e-18,
+              "target": {
+                "thrust": 26.122733324902757,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 21.69977338199889,
+              "azimuth_rad": 1.2932396015522038e-18,
+              "target": {
+                "thrust": 21.767721056764326,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 33,
+          "waypoint_index": 0,
+          "distance_to_current_m": 10.568192631021912,
+          "distance_to_final_m": 51.71903158518057,
+          "signed_cross_track_m": 0.03557559064194793,
+          "heading_rad": 0.1482682226136818,
+          "surge_mps": 0.5221124086049692,
+          "sway_mps": 0.002024169908126021,
+          "yaw_rate_rad_s": -0.0029085744219231185,
+          "desired_wrench_surge_yaw": [
+            47.832731490940084,
+            3.940982498276651
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.883397660262716,
+            1.1342620204866052e-16,
+            3.794224701313375
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.283812843287762,
+              "azimuth_rad": 2.1391489865652177e-18,
+              "target": {
+                "thrust": 26.349070991319827,
+                "azimuth": 3.3708149330681065e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 21.599584816974954,
+              "azimuth_rad": 2.6482550903903315e-18,
+              "target": {
+                "thrust": 21.483660499620257,
+                "azimuth": 4.134204316419097e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 34,
+          "waypoint_index": 0,
+          "distance_to_current_m": 10.043457476937077,
+          "distance_to_final_m": 51.20198474175122,
+          "signed_cross_track_m": 0.012075396626864965,
+          "heading_rad": 0.14380022725348166,
+          "surge_mps": 0.5287975753346653,
+          "sway_mps": -0.001077425893147765,
+          "yaw_rate_rad_s": -0.00547728814300972,
+          "desired_wrench_surge_yaw": [
+            47.19707224023871,
+            4.747877761039226
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.401032385170936,
+            4.2114473771154854e-16,
+            4.494926817115548
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.475162375990127,
+              "azimuth_rad": 7.916803180526927e-18,
+              "target": {
+                "thrust": 26.529324861501593,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 20.925870009180812,
+              "azimuth_rad": 1.0109309095178904e-17,
+              "target": {
+                "thrust": 20.66774737873712,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 35,
+          "waypoint_index": 0,
+          "distance_to_current_m": 9.511765916399263,
+          "distance_to_final_m": 50.678891888211126,
+          "signed_cross_track_m": -0.016937919183101613,
+          "heading_rad": 0.13891968476469732,
+          "surge_mps": 0.5358458416671205,
+          "sway_mps": -0.0027780257938828366,
+          "yaw_rate_rad_s": -0.0033161676041124264,
+          "desired_wrench_surge_yaw": [
+            46.47479701220277,
+            5.555699388473201
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.681968371838224,
+            -2.604131643258544e-18,
+            5.3300571139210575
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.63114289821606,
+              "azimuth_rad": -3.8501741136660406e-20,
+              "target": {
+                "thrust": 26.66684257306015,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 20.05082547362216,
+              "azimuth_rad": -7.873921576420817e-20,
+              "target": {
+                "thrust": 19.80795443914262,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 36,
+          "waypoint_index": 0,
+          "distance_to_current_m": 8.974770861311471,
+          "distance_to_final_m": 50.15098020981208,
+          "signed_cross_track_m": -0.048480079870375725,
+          "heading_rad": 0.1391321434693425,
+          "surge_mps": 0.5394774103079495,
+          "sway_mps": -0.0025784988827401243,
+          "yaw_rate_rad_s": 0.00460720589542109,
+          "desired_wrench_surge_yaw": [
+            46.068045372217185,
+            5.746248519629252
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.16973701719046,
+            4.40405209752552e-16,
+            5.735478618421061
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.62528740885514,
+              "azimuth_rad": 8.257155790565242e-18,
+              "target": {
+                "thrust": 26.581089673534056,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 19.544449608335313,
+              "azimuth_rad": 1.1284843936203619e-17,
+              "target": {
+                "thrust": 19.48695569868313,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 37,
+          "waypoint_index": 0,
+          "distance_to_current_m": 8.436322595626043,
+          "distance_to_final_m": 49.62126416681715,
+          "signed_cross_track_m": -0.07652809680819983,
+          "heading_rad": 0.14929874811055882,
+          "surge_mps": 0.5386164841643651,
+          "sway_mps": -0.001109118955650642,
+          "yaw_rate_rad_s": 0.015908415733744748,
+          "desired_wrench_surge_yaw": [
+            46.11213663773548,
+            4.810011633188843
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.08008227794237,
+            3.2635696603416114e-16,
+            5.151405746908257
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.219921229655295,
+              "azimuth_rad": 6.182147616412509e-18,
+              "target": {
+                "thrust": 26.025211302317643,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 19.860161048287075,
+              "azimuth_rad": 8.270906872423945e-18,
+              "target": {
+                "thrust": 20.08692533541784,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 38,
+          "waypoint_index": 0,
+          "distance_to_current_m": 7.899991124255336,
+          "distance_to_final_m": 49.092436162173335,
+          "signed_cross_track_m": -0.0944713081632047,
+          "heading_rad": 0.17033979108738162,
+          "surge_mps": 0.5348953051968953,
+          "sway_mps": 0.0002297500811969692,
+          "yaw_rate_rad_s": 0.0253711516792793,
+          "desired_wrench_surge_yaw": [
+            46.47051280368737,
+            2.695791843286346
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.357904209971736,
+            2.372100739863994e-16,
+            3.3763771734126244
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 25.263135545364033,
+              "azimuth_rad": 4.6833667716234074e-18,
+              "target": {
+                "thrust": 24.89932544090933,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 21.094768664607706,
+              "azimuth_rad": 5.636162515766291e-18,
+              "target": {
+                "thrust": 21.57118736277804,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 39,
+          "waypoint_index": 0,
+          "distance_to_current_m": 7.366823976698595,
+          "distance_to_final_m": 48.565059734618835,
+          "signed_cross_track_m": -0.09845759688486044,
+          "heading_rad": 0.197609273456632,
+          "surge_mps": 0.5322068780180609,
+          "sway_mps": -0.00000888646810589926,
+          "yaw_rate_rad_s": 0.02766958683248828,
+          "desired_wrench_surge_yaw": [
+            46.7685372279028,
+            -0.04728662214557189
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.69463466316368,
+            -6.155502192086664e-18,
+            0.782747451987575
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 23.830494771080343,
+              "azimuth_rad": -1.4828133026401922e-19,
+              "target": {
+                "thrust": 23.355079341022034,
+                "azimuth": 2.9710427451725275e-19
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 22.864139892083337,
+              "azimuth_rad": -1.146723532551924e-19,
+              "target": {
+                "thrust": 23.413457886880764,
+                "azimuth": 2.9636348195262907e-19
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 40,
+          "waypoint_index": 0,
+          "distance_to_current_m": 6.83432058205182,
+          "distance_to_final_m": 48.036769433602174,
+          "signed_cross_track_m": -0.08942104466400247,
+          "heading_rad": 0.22258204667117054,
+          "surge_mps": 0.5334768345228724,
+          "sway_mps": -0.0023584498647228566,
+          "yaw_rate_rad_s": 0.020869635507886033,
+          "desired_wrench_surge_yaw": [
+            46.68088953223495,
+            -2.4991034003899735
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.72578037643565,
+            -1.39573980326689e-17,
+            -1.8000605270590029
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 22.251741714724616,
+              "azimuth_rad": -3.1397838858057867e-19,
+              "target": {
+                "thrust": 21.797788346123664,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 24.474038661711038,
+              "azimuth_rad": -2.848255705697686e-19,
+              "target": {
+                "thrust": 24.883101186111286,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 41,
+          "waypoint_index": 0,
+          "distance_to_current_m": 6.299314569737528,
+          "distance_to_final_m": 47.50505767998326,
+          "signed_cross_track_m": -0.07254241342468237,
+          "heading_rad": 0.23724823810609336,
+          "surge_mps": 0.5366039179678819,
+          "sway_mps": -0.005946906402130443,
+          "yaw_rate_rad_s": 0.007893034728953578,
+          "desired_wrench_surge_yaw": [
+            46.364937085631865,
+            -3.857576866238441
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.45582243170705,
+            5.154703373140292e-16,
+            -3.511163697316661
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 21.060526217509906,
+              "azimuth_rad": 1.2262457949460806e-17,
+              "target": {
+                "thrust": 20.80124825501443,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 25.395296214197142,
+              "azimuth_rad": 1.0128510335488868e-17,
+              "target": {
+                "thrust": 25.563688830617437,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 42,
+          "waypoint_index": 1,
+          "distance_to_current_m": 33.14503385673815,
+          "distance_to_final_m": 46.971247081467496,
+          "signed_cross_track_m": 4.0355889441047,
+          "heading_rad": 0.239351419775695,
+          "surge_mps": 0.5370332596752675,
+          "sway_mps": -0.009210020431818015,
+          "yaw_rate_rad_s": 0.0013391893248565138,
+          "desired_wrench_surge_yaw": [
+            46.28339797939904,
+            26.698975709305678
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.28777165287489,
+            8.255964631905485e-16,
+            16.6604953077441
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 33.42814218924244,
+              "azimuth_rad": 6.1062940257122335e-18,
+              "target": {
+                "thrust": 39.62254819297462,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 12.859629463632443,
+              "azimuth_rad": 4.832755096150113e-17,
+              "target": {
+                "thrust": 6.660849786424418,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 43,
+          "waypoint_index": 1,
+          "distance_to_current_m": 32.71455308253646,
+          "distance_to_final_m": 46.43899836666564,
+          "signed_cross_track_m": 3.6682728178682322,
+          "heading_rad": 0.25024490601020477,
+          "surge_mps": 0.5339858360265233,
+          "sway_mps": -0.013791409323051465,
+          "yaw_rate_rad_s": 0.021629240628231523,
+          "desired_wrench_surge_yaw": [
+            46.55667239595633,
+            28.849187034575046
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.460516953207836,
+            3.102461344558092e-17,
+            27.79167991752021
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 40.385616450381825,
+              "azimuth_rad": 3.507004599148569e-19,
+              "target": {
+                "thrust": 41.086476342777566,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 6.074900502826013,
+              "azimuth_rad": 2.775577834508267e-18,
+              "target": {
+                "thrust": 5.470196053178768,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 44,
+          "waypoint_index": 1,
+          "distance_to_current_m": 32.287258631343555,
+          "distance_to_final_m": 45.910669520849396,
+          "signed_cross_track_m": 3.308401417675631,
+          "heading_rad": 0.28308824683329903,
+          "surge_mps": 0.5276035379724131,
+          "sway_mps": -0.02000750993338317,
+          "yaw_rate_rad_s": 0.043998238504648325,
+          "desired_wrench_surge_yaw": [
+            47.16066616902498,
+            28.784317732050788
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.962290534463385,
+            -1.5141093477257343e-15,
+            28.874714493849012
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 41.30504310294096,
+              "azimuth_rad": -1.8207609144214283e-17,
+              "target": {
+                "thrust": 41.34843044997593,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 5.657247431522426,
+              "azimuth_rad": -1.34702127924673e-16,
+              "target": {
+                "thrust": 5.812235719049049,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 45,
+          "waypoint_index": 1,
+          "distance_to_current_m": 31.859593525168176,
+          "distance_to_final_m": 45.38848985508101,
+          "signed_cross_track_m": 2.9657052276362315,
+          "heading_rad": 0.3376599823391455,
+          "surge_mps": 0.5187006561997343,
+          "sway_mps": -0.02687664930796178,
+          "yaw_rate_rad_s": 0.0644921695821246,
+          "desired_wrench_surge_yaw": [
+            48.039902651541865,
+            26.52849379318922
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.77044735212974,
+            -1.8311051454222922e-15,
+            27.299963344018515
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 40.73705290076766,
+              "azimuth_rad": -2.2567850809943106e-17,
+              "target": {
+                "thrust": 40.395564778356864,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 7.033394451362086,
+              "azimuth_rad": -1.2963262894269162e-16,
+              "target": {
+                "thrust": 7.644337873185002,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 46,
+          "waypoint_index": 1,
+          "distance_to_current_m": 31.426725196832173,
+          "distance_to_final_m": 44.87288340476128,
+          "signed_cross_track_m": 2.647911225288505,
+          "heading_rad": 0.40982146777379097,
+          "surge_mps": 0.5123264984372511,
+          "sway_mps": -0.034195613874034275,
+          "yaw_rate_rad_s": 0.07826728757749059,
+          "desired_wrench_surge_yaw": [
+            48.73700456723525,
+            22.498484655238116
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            48.55842992185407,
+            6.708250124108617e-16,
+            23.77032874071249
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 38.95225739346561,
+              "azimuth_rad": 9.32204378769211e-18,
+              "target": {
+                "thrust": 38.25645577450535,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 9.606172528388461,
+              "azimuth_rad": 3.2032566815780816e-17,
+              "target": {
+                "thrust": 10.480548792729907,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 47,
+          "waypoint_index": 1,
+          "distance_to_current_m": 30.980894898676148,
+          "distance_to_final_m": 44.359115161735204,
+          "signed_cross_track_m": 2.35704969579888,
+          "heading_rad": 0.4906276960766884,
+          "surge_mps": 0.514828262381515,
+          "sway_mps": -0.042186998767645485,
+          "yaw_rate_rad_s": 0.0815758455283717,
+          "desired_wrench_surge_yaw": [
+            48.58580352271977,
+            17.637695911092727
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            48.678871826470214,
+            8.503821104044383e-16,
+            19.11041975441035
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 36.135991317192115,
+              "azimuth_rad": 1.2527861197503543e-17,
+              "target": {
+                "thrust": 35.18036837314551,
+                "azimuth": 1.0098568727644194e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 12.5428805092781,
+              "azimuth_rad": 3.1705271102144167e-17,
+              "target": {
+                "thrust": 13.405435149574256,
+                "azimuth": 2.6502039203951777e-16
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 48,
+          "waypoint_index": 1,
+          "distance_to_current_m": 30.51441814060178,
+          "distance_to_final_m": 43.84046370827585,
+          "signed_cross_track_m": 2.0911635167047637,
+          "heading_rad": 0.5701207430789642,
+          "surge_mps": 0.5242774943521766,
+          "sway_mps": -0.05040327034559792,
+          "yaw_rate_rad_s": 0.07651095625898904,
+          "desired_wrench_surge_yaw": [
+            47.67187799744349,
+            12.905375148080358
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.95663775765654,
+            -1.2153246850897193e-15,
+            14.311072572939663
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 32.81231429422312,
+              "azimuth_rad": -1.9005218721423012e-17,
+              "target": {
+                "thrust": 31.8022199543269,
+                "azimuth": -5.585637864122016e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 15.144323463433416,
+              "azimuth_rad": -3.907203095606514e-17,
+              "target": {
+                "thrust": 15.869658043116587,
+                "azimuth": -1.1193415980193344e-16
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 49,
+          "waypoint_index": 1,
+          "distance_to_current_m": 30.026621140228016,
+          "distance_to_final_m": 43.316736898414064,
+          "signed_cross_track_m": 1.8498864957837455,
+          "heading_rad": 0.6431230990170287,
+          "surge_mps": 0.5314867689177812,
+          "sway_mps": -0.05699213682689694,
+          "yaw_rate_rad_s": 0.06984678810971141,
+          "desired_wrench_surge_yaw": [
+            46.892162621737675,
+            8.646203774304341
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.09499833126128,
+            5.357355685533203e-16,
+            9.919001093430513
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 29.670339346760585,
+              "azimuth_rad": 8.892283589348096e-18,
+              "target": {
+                "thrust": 28.78324413451349,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 17.42465898450069,
+              "azimuth_rad": 1.5604236337226857e-17,
+              "target": {
+                "thrust": 18.108918487224184,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 50,
+          "waypoint_index": 1,
+          "distance_to_current_m": 29.52410494486773,
+          "distance_to_final_m": 42.79573398197347,
+          "signed_cross_track_m": 1.6366608508889802,
+          "heading_rad": 0.7113041148824716,
+          "surge_mps": 0.5314022633944595,
+          "sway_mps": -0.05984353920274418,
+          "yaw_rate_rad_s": 0.06740638306439538,
+          "desired_wrench_surge_yaw": [
+            46.82812929407405,
+            4.48262741728562
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.81435099551529,
+            -5.2590343077100916e-17,
+            5.757214458560778
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.96101158328899,
+              "azimuth_rad": -1.3224492549324008e-18,
+              "target": {
+                "thrust": 26.181118608324446,
+                "azimuth": -3.3924387761557424e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 19.8533394122263,
+              "azimuth_rad": -8.530440670412856e-19,
+              "target": {
+                "thrust": 20.647010685749606,
+                "azimuth": -4.301728871158761e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 51,
+          "waypoint_index": 1,
+          "distance_to_current_m": 29.0143440896662,
+          "distance_to_final_m": 42.28721036449189,
+          "signed_cross_track_m": 1.4570021523006078,
+          "heading_rad": 0.779150412000815,
+          "surge_mps": 0.5259683520019358,
+          "sway_mps": -0.05894818145244877,
+          "yaw_rate_rad_s": 0.06833811678994418,
+          "desired_wrench_surge_yaw": [
+            47.3370509822439,
+            -0.11718945971190031
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.17050517524852,
+            -5.652749110812504e-17,
+            1.2994938476346292
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 24.38740928369502,
+              "azimuth_rad": -1.0819367803658822e-18,
+              "target": {
+                "thrust": 23.596186318460283,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 22.783095891553504,
+              "azimuth_rad": -1.32299210650444e-18,
+              "target": {
+                "thrust": 23.74086466378362,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 52,
+          "waypoint_index": 1,
+          "distance_to_current_m": 28.501840559636683,
+          "distance_to_final_m": 41.79750296091237,
+          "signed_cross_track_m": 1.3143792828158354,
+          "heading_rad": 0.8465815807598982,
+          "surge_mps": 0.5201363940636607,
+          "sway_mps": -0.05727882691327866,
+          "yaw_rate_rad_s": 0.0651360728570786,
+          "desired_wrench_surge_yaw": [
+            47.94460149288871,
+            -5.029345815266519
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.776455560491215,
+            -2.6388862024050405e-16,
+            -3.5540669248054257
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 21.694359308143493,
+              "azimuth_rad": -6.1258218470139184e-18,
+              "target": {
+                "thrust": 20.867766292576135,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 26.082096252347725,
+              "azimuth_rad": -5.022327912846262e-18,
+              "target": {
+                "thrust": 27.076835200312573,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 53,
+          "waypoint_index": 1,
+          "distance_to_current_m": 27.986684639855465,
+          "distance_to_final_m": 41.32567241336003,
+          "signed_cross_track_m": 1.2056083745077086,
+          "heading_rad": 0.9060165222857745,
+          "surge_mps": 0.5191747363707483,
+          "sway_mps": -0.05787019920243906,
+          "yaw_rate_rad_s": 0.05211475291771021,
+          "desired_wrench_surge_yaw": [
+            48.09655862989115,
+            -9.31347299170015
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            48.078236464258964,
+            -1.5075313225152113e-17,
+            -8.081308072055641
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 19.050656459255627,
+              "azimuth_rad": -3.5182199384080264e-19,
+              "target": {
+                "thrust": 18.299221912661533,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 29.027580005003333,
+              "azimuth_rad": -2.8844544685562644e-19,
+              "target": {
+                "thrust": 29.797336717229616,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 54,
+          "waypoint_index": 1,
+          "distance_to_current_m": 27.466968705997477,
+          "distance_to_final_m": 40.865792596007694,
+          "signed_cross_track_m": 1.121801315704083,
+          "heading_rad": 0.9488367010816148,
+          "surge_mps": 0.5209272950173466,
+          "sway_mps": -0.059695805079383185,
+          "yaw_rate_rad_s": 0.03346736020291232,
+          "desired_wrench_surge_yaw": [
+            47.91696522131179,
+            -12.081424536342254
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.96398015006548,
+            -6.680975518524287e-16,
+            -11.321065374418216
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 16.993678115515326,
+              "azimuth_rad": -1.9966267973636584e-17,
+              "target": {
+                "thrust": 16.500813143777965,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 30.97030203455016,
+              "azimuth_rad": -1.0616532585750156e-17,
+              "target": {
+                "thrust": 31.416152077533827,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 55,
+          "waypoint_index": 1,
+          "distance_to_current_m": 26.94482113132249,
+          "distance_to_final_m": 40.41536906968336,
+          "signed_cross_track_m": 1.054858996320584,
+          "heading_rad": 0.9748595890265382,
+          "surge_mps": 0.5202685049405754,
+          "sway_mps": -0.05858126938199168,
+          "yaw_rate_rad_s": 0.020354485589296263,
+          "desired_wrench_surge_yaw": [
+            47.95675455320294,
+            -13.486157781267245
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.93196759557012,
+            -2.2199844399638444e-15,
+            -13.09232373488994
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 15.884302479951764,
+              "azimuth_rad": -7.016460618293739e-17,
+              "target": {
+                "thrust": 15.653588522732804,
+                "azimuth": -1.1347920873354694e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 32.04766511561836,
+              "azimuth_rad": -3.4494513343770106e-17,
+              "target": {
+                "thrust": 32.30316603047014,
+                "azimuth": -5.499017767251334e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 56,
+          "waypoint_index": 1,
+          "distance_to_current_m": 26.4234628553156,
+          "distance_to_final_m": 39.97610588270918,
+          "signed_cross_track_m": 1.0027051686264905,
+          "heading_rad": 0.9934724373763829,
+          "surge_mps": 0.5183724451202547,
+          "sway_mps": -0.05238536633429844,
+          "yaw_rate_rad_s": 0.01846993253530628,
+          "desired_wrench_surge_yaw": [
+            48.141214555726386,
+            -14.610368397907546
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            48.08502205561414,
+            -1.433486719083354e-15,
+            -14.248536729084634
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 15.247117985162232,
+              "azimuth_rad": -4.718181870272525e-17,
+              "target": {
+                "thrust": 15.05186135322891,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 32.837904070451906,
+              "azimuth_rad": -2.1746210142897855e-17,
+              "target": {
+                "thrust": 33.08935320249748,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 57,
+          "waypoint_index": 1,
+          "distance_to_current_m": 25.90437164273189,
+          "distance_to_final_m": 39.55105505725488,
+          "signed_cross_track_m": 0.9679277821152662,
+          "heading_rad": 1.012962140813492,
+          "surge_mps": 0.5157498298015749,
+          "sway_mps": -0.04409315157145549,
+          "yaw_rate_rad_s": 0.019876887278552816,
+          "desired_wrench_surge_yaw": [
+            48.40044162563887,
+            -16.152667270062302
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            48.32027020394482,
+            -2.9422891223768297e-15,
+            -15.674110535549932
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 14.484758228176155,
+              "azimuth_rad": -1.0273517667255115e-16,
+              "target": {
+                "thrust": 14.229438547348883,
+                "azimuth": -2.4967349674259737e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 33.83551197576867,
+              "azimuth_rad": -4.2978363318024757e-17,
+              "target": {
+                "thrust": 34.171003078289985,
+                "azimuth": -1.0396866813247464e-16
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 58,
+          "waypoint_index": 1,
+          "distance_to_current_m": 25.387380469210072,
+          "distance_to_final_m": 39.140247317836085,
+          "signed_cross_track_m": 0.9501702838440694,
+          "heading_rad": 1.030100379442361,
+          "surge_mps": 0.5160675861822877,
+          "sway_mps": -0.038541842171155305,
+          "yaw_rate_rad_s": 0.012412698645330851,
+          "desired_wrench_surge_yaw": [
+            48.42625188485534,
+            -17.47769822393635
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            48.45008617146931,
+            8.769523457723163e-16,
+            -17.12685654771665
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 13.652909414304627,
+              "azimuth_rad": 3.2482837129950545e-17,
+              "target": {
+                "thrust": 13.424423335059558,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 34.797176757164685,
+              "azimuth_rad": 1.2456962124901134e-17,
+              "target": {
+                "thrust": 35.00182854979578,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 59,
+          "waypoint_index": 1,
+          "distance_to_current_m": 24.867458640430314,
+          "distance_to_final_m": 38.735889717002074,
+          "signed_cross_track_m": 0.9424211307242942,
+          "heading_rad": 1.0347015866963982,
+          "surge_mps": 0.5219384911143842,
+          "sway_mps": -0.035960669882209514,
+          "yaw_rate_rad_s": -0.0038104029972745534,
+          "desired_wrench_surge_yaw": [
+            47.8761615346167,
+            -17.442308910844048
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            48.0568091123929,
+            -5.949832391251577e-16,
+            -17.53375714334932
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 13.205097677585758,
+              "azimuth_rad": -2.260186849457187e-17,
+              "target": {
+                "thrust": 13.171223414935485,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 34.85171143480714,
+              "azimuth_rad": -8.508143380937206e-18,
+              "target": {
+                "thrust": 34.704938119681216,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 60,
+          "waypoint_index": 1,
+          "distance_to_current_m": 24.34112929789632,
+          "distance_to_final_m": 38.330303378102144,
+          "signed_cross_track_m": 0.9360526727708496,
+          "heading_rad": 1.0237856460092047,
+          "surge_mps": 0.5288024419513444,
+          "sway_mps": -0.03207382475455673,
+          "yaw_rate_rad_s": -0.016263210788319736,
+          "desired_wrench_surge_yaw": [
+            47.1887551916748,
+            -15.933192036363433
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.3934295834243,
+            -8.955167661047754e-16,
+            -16.427303681273656
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 13.556403877345696,
+              "azimuth_rad": -3.276497009725556e-17,
+              "target": {
+                "thrust": 13.759073869687137,
+                "azimuth": -2.582087800711317e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 33.837025706078606,
+              "azimuth_rad": -1.3338690059751431e-17,
+              "target": {
+                "thrust": 33.429681321987665,
+                "azimuth": -1.0627423111161334e-16
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 61,
+          "waypoint_index": 1,
+          "distance_to_current_m": 23.808064860191045,
+          "distance_to_final_m": 37.92143961030025,
+          "signed_cross_track_m": 0.9278327604091539,
+          "heading_rad": 1.006471337611093,
+          "surge_mps": 0.5361400544843749,
+          "sway_mps": -0.024186497075849297,
+          "yaw_rate_rad_s": -0.016456462493246178,
+          "desired_wrench_surge_yaw": [
+            46.45836135918719,
+            -14.062241593989539
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.68130275289797,
+            -3.94450840141481e-15,
+            -14.60426873109424
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 14.325670678242659,
+              "azimuth_rad": -1.3603040801071697e-16,
+              "target": {
+                "thrust": 14.548784633921043,
+                "azimuth": -2.441931589610045e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 32.35563207465531,
+              "azimuth_rad": -6.168266376071277e-17,
+              "target": {
+                "thrust": 31.90957672526614,
+                "azimuth": -1.113369102131476e-16
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 62,
+          "waypoint_index": 1,
+          "distance_to_current_m": 23.26864949860448,
+          "distance_to_final_m": 37.511336966087086,
+          "signed_cross_track_m": 0.9202373294119959,
+          "heading_rad": 0.992759543257542,
+          "surge_mps": 0.5417209711273604,
+          "sway_mps": -0.014936917405525413,
+          "yaw_rate_rad_s": -0.011222757647485662,
+          "desired_wrench_surge_yaw": [
+            45.86727036584518,
+            -12.727961448861512
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.02798451477964,
+            -1.4881178800823585e-15,
+            -13.106436290145558
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 14.92359948569503,
+              "azimuth_rad": -4.967899511829456e-17,
+              "target": {
+                "thrust": 15.07686885646487,
+                "azimuth": -2.356400199950747e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 31.104385029084607,
+              "azimuth_rad": -2.4007176267490665e-17,
+              "target": {
+                "thrust": 30.79040150938031,
+                "azimuth": -1.153838048431478e-16
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 63,
+          "waypoint_index": 1,
+          "distance_to_current_m": 22.725450334263773,
+          "distance_to_final_m": 37.102669517055155,
+          "signed_cross_track_m": 0.9140987814130326,
+          "heading_rad": 0.9815777907951762,
+          "surge_mps": 0.5446879022002101,
+          "sway_mps": -0.009152968436640237,
+          "yaw_rate_rad_s": -0.01286594396320097,
+          "desired_wrench_surge_yaw": [
+            45.55667882756755,
+            -11.522911547894296
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.647184720644454,
+            -1.807031998798179e-16,
+            -11.915646756827
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 15.468254856108029,
+              "azimuth_rad": -5.8111273455806745e-18,
+              "target": {
+                "thrust": 15.665431050886067,
+                "azimuth": -1.133934223469565e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 30.178929864536425,
+              "azimuth_rad": -3.009225360366252e-18,
+              "target": {
+                "thrust": 29.891247776681485,
+                "azimuth": -5.942732309709758e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 64,
+          "waypoint_index": 1,
+          "distance_to_current_m": 22.179917031698853,
+          "distance_to_final_m": 36.693368911119684,
+          "signed_cross_track_m": 0.9042507124518413,
+          "heading_rad": 0.9642990872375428,
+          "surge_mps": 0.5460772049841622,
+          "sway_mps": -0.007143790577473089,
+          "yaw_rate_rad_s": -0.0221900445201299,
+          "desired_wrench_surge_yaw": [
+            45.391811399795486,
+            -9.459836449605909
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.42859259587222,
+            -3.8503776771029976e-16,
+            -10.139060404518494
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 16.455617035887656,
+              "azimuth_rad": -1.1725842756573547e-17,
+              "target": {
+                "thrust": 16.85650048409163,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 28.97297555998456,
+              "azimuth_rad": -6.629688051453649e-18,
+              "target": {
+                "thrust": 28.535310915703857,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 65,
+          "waypoint_index": 1,
+          "distance_to_current_m": 21.63450190809707,
+          "distance_to_final_m": 36.28109421953547,
+          "signed_cross_track_m": 0.8842692337076827,
+          "heading_rad": 0.9385347501311524,
+          "surge_mps": 0.5443819880659424,
+          "sway_mps": -0.004830755441763681,
+          "yaw_rate_rad_s": -0.0276615413299684,
+          "desired_wrench_surge_yaw": [
+            45.53816839197105,
+            -6.486237926919542
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.48424326991521,
+            -1.5003248397821024e-15,
+            -7.398251009924033
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 18.175300023893385,
+              "azimuth_rad": -4.1088736399955105e-17,
+              "target": {
+                "thrust": 18.765233623812968,
+                "azimuth": -4.73310611264137e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 27.308943246021823,
+              "azimuth_rad": -2.7592599293274287e-17,
+              "target": {
+                "thrust": 26.77293476815808,
+                "azimuth": -3.317448861663327e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 66,
+          "waypoint_index": 1,
+          "distance_to_current_m": 21.091287252299203,
+          "distance_to_final_m": 35.866954530812635,
+          "signed_cross_track_m": 0.8537223924627222,
+          "heading_rad": 0.9130358230608755,
+          "surge_mps": 0.5422039052152049,
+          "sway_mps": 0.0005497733560841894,
+          "yaw_rate_rad_s": -0.02152885142366238,
+          "desired_wrench_surge_yaw": [
+            45.75718163218551,
+            -3.6900244435658056
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.693543322636366,
+            2.2319604901485963e-16,
+            -4.488827198349593
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 20.075890674682633,
+              "azimuth_rad": 5.26418117590432e-18,
+              "target": {
+                "thrust": 20.60079794969411,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 25.617652647953733,
+              "azimuth_rad": 4.587185440078517e-18,
+              "target": {
+                "thrust": 25.1563836824914,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 67,
+          "waypoint_index": 1,
+          "distance_to_current_m": 20.550950575472772,
+          "distance_to_final_m": 35.45489476983913,
+          "signed_cross_track_m": 0.8180162236355839,
+          "heading_rad": 0.8972648930619438,
+          "surge_mps": 0.5380681960601447,
+          "sway_mps": 0.006575301523216714,
+          "yaw_rate_rad_s": -0.010295540500312934,
+          "desired_wrench_surge_yaw": [
+            46.13301951054788,
+            -1.9579587328494945
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.99818249548133,
+            -3.188275483734345e-16,
+            -2.432365172386241
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 21.497631264786197,
+              "azimuth_rad": -7.41496541741793e-18,
+              "target": {
+                "thrust": 21.857893253514995,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 24.500551230695137,
+              "azimuth_rad": -6.506929353855161e-18,
+              "target": {
+                "thrust": 24.275126257032888,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 68,
+          "waypoint_index": 1,
+          "distance_to_current_m": 20.01641808301828,
+          "distance_to_final_m": 35.049761038753104,
+          "signed_cross_track_m": 0.7813259937127426,
+          "heading_rad": 0.8898193258109771,
+          "surge_mps": 0.5313137012574948,
+          "sway_mps": 0.008949538272852917,
+          "yaw_rate_rad_s": -0.006524430871667586,
+          "desired_wrench_surge_yaw": [
+            46.80458463516025,
+            -0.8881560228833804
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.60299912874831,
+            4.039343542692457e-18,
+            -1.2181638478145125
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 22.549546571896062,
+              "azimuth_rad": 8.288550496537183e-20,
+              "target": {
+                "thrust": 22.85404785901014,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 24.05345255685225,
+              "azimuth_rad": 9.022875128678408e-20,
+              "target": {
+                "thrust": 23.950536776150113,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 69,
+          "waypoint_index": 1,
+          "distance_to_current_m": 19.48810708499355,
+          "distance_to_final_m": 34.6502658124666,
+          "signed_cross_track_m": 0.7413898879310112,
+          "heading_rad": 0.8808205166300519,
+          "surge_mps": 0.5262556435958908,
+          "sway_mps": 0.007219187293172748,
+          "yaw_rate_rad_s": -0.012399339748040989,
+          "desired_wrench_surge_yaw": [
+            47.33159692563872,
+            0.6279781370811703
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.18290981100413,
+            4.482285756953304e-18,
+            0.12535379035325178
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 23.66883378843617,
+              "azimuth_rad": 9.661305769371147e-20,
+              "target": {
+                "thrust": 24.053439288178108,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 23.51407602256796,
+              "azimuth_rad": 9.337246977091623e-20,
+              "target": {
+                "thrust": 23.278157637460613,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 70,
+          "waypoint_index": 1,
+          "distance_to_current_m": 18.96454780886697,
+          "distance_to_final_m": 34.251794701278435,
+          "signed_cross_track_m": 0.6931695995540395,
+          "heading_rad": 0.8655124602590636,
+          "surge_mps": 0.5226612811420401,
+          "sway_mps": 0.005199720499207857,
+          "yaw_rate_rad_s": -0.01686927399200646,
+          "desired_wrench_surge_yaw": [
+            47.70663918037808,
+            2.878494021923749
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.60008970169827,
+            2.5798838446084766e-16,
+            2.186279738540698
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 25.14960024501006,
+              "azimuth_rad": 5.059705703422986e-18,
+              "target": {
+                "thrust": 25.630167751870367,
+                "azimuth": 1.7326816357557985e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 22.450489456688214,
+              "azimuth_rad": 5.823427988712013e-18,
+              "target": {
+                "thrust": 22.076471428507716,
+                "azimuth": 2.011595065308321e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 71,
+          "waypoint_index": 1,
+          "distance_to_current_m": 18.444068191946823,
+          "distance_to_final_m": 33.8527844179839,
+          "signed_cross_track_m": 0.6363454196288751,
+          "heading_rad": 0.8508787812263846,
+          "surge_mps": 0.521545053249258,
+          "sway_mps": 0.006185362967746912,
+          "yaw_rate_rad_s": -0.010492821826146213,
+          "desired_wrench_surge_yaw": [
+            47.84636409768045,
+            4.913648413528195
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.81786123457707,
+            7.45086367352417e-17,
+            4.34758716206586
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.592626396341537,
+              "azimuth_rad": 1.4354089636715433e-18,
+              "target": {
+                "thrust": 26.956298353487256,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 21.225234838235536,
+              "azimuth_rad": 1.7119877690543048e-18,
+              "target": {
+                "thrust": 20.890065744193194,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 72,
+          "waypoint_index": 1,
+          "distance_to_current_m": 17.924037862731392,
+          "distance_to_final_m": 33.45518972449085,
+          "signed_cross_track_m": 0.5764101092788145,
+          "heading_rad": 0.8469000039062846,
+          "surge_mps": 0.5218686290223672,
+          "sway_mps": 0.008628339508031036,
+          "yaw_rate_rad_s": 0.0026648929448452614,
+          "desired_wrench_surge_yaw": [
+            47.81618778421463,
+            5.731901672956082
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.82307460556026,
+            -3.766018304382074e-17,
+            5.548695643890024
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 27.336658070613478,
+              "azimuth_rad": -7.08891253294147e-19,
+              "target": {
+                "thrust": 27.446304801339462,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 20.48641653494678,
+              "azimuth_rad": -8.923700839570716e-19,
+              "target": {
+                "thrust": 20.369882982875165,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 73,
+          "waypoint_index": 1,
+          "distance_to_current_m": 17.40310777664811,
+          "distance_to_final_m": 33.06219097766858,
+          "signed_cross_track_m": 0.5189939851018943,
+          "heading_rad": 0.8542801994414047,
+          "surge_mps": 0.5238428350096979,
+          "sway_mps": 0.008605514493629405,
+          "yaw_rate_rad_s": 0.010330375047077416,
+          "desired_wrench_surge_yaw": [
+            47.65807761121948,
+            5.490889382929566
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.727364816756804,
+            7.25157717521653e-16,
+            5.579996869659386
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 27.308124920513823,
+              "azimuth_rad": 1.3298749723066552e-17,
+              "target": {
+                "thrust": 27.218476696307004,
+                "azimuth": 3.263145214223664e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 20.419239896242978,
+              "azimuth_rad": 1.7728074141687702e-17,
+              "target": {
+                "thrust": 20.43960091491248,
+                "azimuth": 4.345380437697887e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 74,
+          "waypoint_index": 1,
+          "distance_to_current_m": 16.87752732197304,
+          "distance_to_final_m": 32.671387289922,
+          "signed_cross_track_m": 0.4639291986747649,
+          "heading_rad": 0.8639110712379044,
+          "surge_mps": 0.5309665022846582,
+          "sway_mps": 0.00476168770145702,
+          "yaw_rate_rad_s": 0.007574256061582766,
+          "desired_wrench_surge_yaw": [
+            46.98979040413216,
+            5.257791820153522
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.211884706222726,
+            -8.447420360137567e-16,
+            5.2971957255199555
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.87581625775331,
+              "azimuth_rad": -1.5730986868965886e-17,
+              "target": {
+                "thrust": 26.740445708333684,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 20.336068448469415,
+              "azimuth_rad": -2.074928713185257e-17,
+              "target": {
+                "thrust": 20.249344695798474,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 75,
+          "waypoint_index": 1,
+          "distance_to_current_m": 16.34419468906517,
+          "distance_to_final_m": 32.27810272932567,
+          "signed_cross_track_m": 0.4072228001646385,
+          "heading_rad": 0.8686633065110112,
+          "surge_mps": 0.5386134090481478,
+          "sway_mps": 0.000040274254109724556,
+          "yaw_rate_rad_s": 0.002604974167902914,
+          "desired_wrench_surge_yaw": [
+            46.2004332998318,
+            5.619772854757114
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.422334445119276,
+            -1.2522148447898943e-17,
+            5.491612892263689
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.601051723956974,
+              "azimuth_rad": -2.4441535704789727e-19,
+              "target": {
+                "thrust": 26.569212239272144,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 19.821282721162298,
+              "azimuth_rad": -3.037362908158642e-19,
+              "target": {
+                "thrust": 19.631221060559657,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 76,
+          "waypoint_index": 1,
+          "distance_to_current_m": 15.80508116618251,
+          "distance_to_final_m": 31.883427390012336,
+          "signed_cross_track_m": 0.3482370369667347,
+          "heading_rad": 0.8719578171403397,
+          "surge_mps": 0.5431482463203793,
+          "sway_mps": -0.001689405052675703,
+          "yaw_rate_rad_s": 0.005707289716182262,
+          "desired_wrench_surge_yaw": [
+            45.71861767121376,
+            5.977864705749283
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.852322331895586,
+            9.806207876700336e-17,
+            5.904460026956741
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.570889577649485,
+              "azimuth_rad": 1.84445854547343e-18,
+              "target": {
+                "thrust": 26.549348777427422,
+                "azimuth": 3.3453868384721557e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 19.2814327542461,
+              "azimuth_rad": 2.5440627286307098e-18,
+              "target": {
+                "thrust": 19.169268893786334,
+                "azimuth": 4.6333453019067715e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 77,
+          "waypoint_index": 1,
+          "distance_to_current_m": 15.262684816886402,
+          "distance_to_final_m": 31.49319825802027,
+          "signed_cross_track_m": 0.2922508082584345,
+          "heading_rad": 0.8826674327849791,
+          "surge_mps": 0.5447751211232269,
+          "sway_mps": -0.0006159790899155031,
+          "yaw_rate_rad_s": 0.01614684601274333,
+          "desired_wrench_surge_yaw": [
+            45.5231474120575,
+            5.362042345805946
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.567065274766605,
+            -2.459698520999878e-16,
+            5.60735827635515
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 26.244864906738336,
+              "azimuth_rad": -4.7106382085143716e-18,
+              "target": {
+                "thrust": 26.07147638862501,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 19.322200368028273,
+              "azimuth_rad": -6.331566093033552e-18,
+              "target": {
+                "thrust": 19.45167102343249,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 78,
+          "waypoint_index": 1,
+          "distance_to_current_m": 14.719668846567759,
+          "distance_to_final_m": 31.11439445641845,
+          "signed_cross_track_m": 0.24572789471239975,
+          "heading_rad": 0.9028997501433101,
+          "surge_mps": 0.5435351907438671,
+          "sway_mps": -0.0005984185800277526,
+          "yaw_rate_rad_s": 0.02267592224145841,
+          "desired_wrench_surge_yaw": [
+            45.6315483843561,
+            3.7426883091545946
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.59341275672601,
+            2.9615858333049883e-16,
+            4.250033505723373
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 25.420183851031755,
+              "azimuth_rad": 5.861686628831162e-18,
+              "target": {
+                "thrust": 25.12607561758212,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 20.17322890569426,
+              "azimuth_rad": 7.294490744956521e-18,
+              "target": {
+                "thrust": 20.50547276677398,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 79,
+          "waypoint_index": 1,
+          "distance_to_current_m": 14.17734731750956,
+          "distance_to_final_m": 30.74875379979031,
+          "signed_cross_track_m": 0.20926284395423078,
+          "heading_rad": 0.9240371004495213,
+          "surge_mps": 0.5426814720899383,
+          "sway_mps": -0.004196115676715485,
+          "yaw_rate_rad_s": 0.017815775873682792,
+          "desired_wrench_surge_yaw": [
+            45.72475909817908,
+            2.1836522229314697
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.70181994998305,
+            2.1063793245002635e-17,
+            2.6141896188255522
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 24.46460727056285,
+              "azimuth_rad": 4.0900031852774544e-19,
+              "target": {
+                "thrust": 24.21031302003489,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 21.237212679420196,
+              "azimuth_rad": 5.206785488098301e-19,
+              "target": {
+                "thrust": 21.51444607814419,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 80,
+          "waypoint_index": 1,
+          "distance_to_current_m": 13.636012945451656,
+          "distance_to_final_m": 30.392816811669814,
+          "signed_cross_track_m": 0.17766832730492776,
+          "heading_rad": 0.9367499673545907,
+          "surge_mps": 0.5404053477165915,
+          "sway_mps": -0.0090750296724325,
+          "yaw_rate_rad_s": 0.007871185248442152,
+          "desired_wrench_surge_yaw": [
+            45.92045823609385,
+            1.5609216173109648
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.84328480735938,
+            2.0423174097452107e-18,
+            1.7054002338201286
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 23.974358597395817,
+              "azimuth_rad": 4.465828832286702e-20,
+              "target": {
+                "thrust": 23.923760980584557,
+                "azimuth": 9.281341888728644e-18
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 21.86892620996356,
+              "azimuth_rad": 4.4431243757373385e-20,
+              "target": {
+                "thrust": 21.996697255509293,
+                "azimuth": 1.0094452014582236e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 81,
+          "waypoint_index": 1,
+          "distance_to_current_m": 13.09844698503936,
+          "distance_to_final_m": 30.04555747094688,
+          "signed_cross_track_m": 0.14720667600523019,
+          "heading_rad": 0.9423613919453447,
+          "surge_mps": 0.5354271085015606,
+          "sway_mps": -0.01090455900982974,
+          "yaw_rate_rad_s": 0.005281728255946139,
+          "desired_wrench_surge_yaw": [
+            46.40489764140987,
+            1.4800515030888206
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.25438867823311,
+            -6.836776122909652e-17,
+            1.5164048868546516
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 24.063246738409553,
+              "azimuth_rad": -1.423328634848589e-18,
+              "target": {
+                "thrust": 24.11606085964865,
+                "azimuth": -9.207333080526415e-18
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 22.191141939823563,
+              "azimuth_rad": -1.5374536917212175e-18,
+              "target": {
+                "thrust": 22.28883678176122,
+                "azimuth": -9.962144148622806e-18
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 82,
+          "waypoint_index": 1,
+          "distance_to_current_m": 12.565932478210353,
+          "distance_to_final_m": 29.709871959723756,
+          "signed_cross_track_m": 0.12041721945507433,
+          "heading_rad": 0.9508084153421157,
+          "surge_mps": 0.5300603639338834,
+          "sway_mps": -0.009031863124088204,
+          "yaw_rate_rad_s": 0.012613712864415249,
+          "desired_wrench_surge_yaw": [
+            46.93377983843805,
+            0.8141014367790445
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.7700038264485,
+            -7.040844812869251e-17,
+            1.0674031604585181
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 24.04389275301346,
+              "azimuth_rad": -1.4699231035159397e-18,
+              "target": {
+                "thrust": 23.9694216703172,
+                "azimuth": -4.6318306711588856e-18
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 22.72611107343504,
+              "azimuth_rad": -1.5429729512132666e-18,
+              "target": {
+                "thrust": 22.96435816812085,
+                "azimuth": -4.8345484620004294e-18
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 83,
+          "waypoint_index": 1,
+          "distance_to_current_m": 12.03927378913611,
+          "distance_to_final_m": 29.390655930584504,
+          "signed_cross_track_m": 0.1025898006024768,
+          "heading_rad": 0.9671554090526384,
+          "surge_mps": 0.5234573746912184,
+          "sway_mps": -0.007318753254510652,
+          "yaw_rate_rad_s": 0.01868172237480732,
+          "desired_wrench_surge_yaw": [
+            47.59247721536234,
+            -0.7592085130260361
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.39325396431282,
+            6.902203615829004e-17,
+            -0.26453832630833674
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 23.533331719003115,
+              "azimuth_rad": 1.4834410315458725e-18,
+              "target": {
+                "thrust": 23.327591377418184,
+                "azimuth": 4.7592698562950915e-18
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 23.859922245309704,
+              "azimuth_rad": 1.4296662799916044e-18,
+              "target": {
+                "thrust": 24.264885837944153,
+                "azimuth": 4.575430653331359e-18
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 84,
+          "waypoint_index": 1,
+          "distance_to_current_m": 11.517863474166418,
+          "distance_to_final_m": 29.088151695195556,
+          "signed_cross_track_m": 0.094155066441723,
+          "heading_rad": 0.9842089775451269,
+          "surge_mps": 0.5202996802613721,
+          "sway_mps": -0.00901350291456929,
+          "yaw_rate_rad_s": 0.013487925429967625,
+          "desired_wrench_surge_yaw": [
+            47.96525009169251,
+            -2.2548501174883655
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.88343171486135,
+            -6.266677783395352e-17,
+            -1.8469733793864265
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 22.801608833118067,
+              "azimuth_rad": -1.3729852695945274e-18,
+              "target": {
+                "thrust": 22.59074225727319,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 25.081822881743285,
+              "azimuth_rad": -1.2503279738034044e-18,
+              "target": {
+                "thrust": 25.37450783441932,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 85,
+          "waypoint_index": 1,
+          "distance_to_current_m": 10.997025660972744,
+          "distance_to_final_m": 28.795526583446158,
+          "signed_cross_track_m": 0.08968829289174352,
+          "heading_rad": 0.9919805819505381,
+          "surge_mps": 0.5215003148317445,
+          "sway_mps": -0.012172825938097332,
+          "yaw_rate_rad_s": 0.002176112964407574,
+          "desired_wrench_surge_yaw": [
+            47.86944915349736,
+            -2.692217772566832
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.90605337341303,
+            -1.8221728026144234e-16,
+            -2.6125318981418317
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 22.34035267550785,
+              "azimuth_rad": -4.087148493773276e-18,
+              "target": {
+                "thrust": 22.27286175417656,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 25.565700697905175,
+              "azimuth_rad": -3.55589477275018e-18,
+              "target": {
+                "thrust": 25.596587399320796,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 86,
+          "waypoint_index": 1,
+          "distance_to_current_m": 10.474177559836049,
+          "distance_to_final_m": 28.507896158989542,
+          "signed_cross_track_m": 0.08469689883601283,
+          "heading_rad": 0.991050674983629,
+          "surge_mps": 0.5241774353292616,
+          "sway_mps": -0.012461253133289791,
+          "yaw_rate_rad_s": -0.0020714237734826136,
+          "desired_wrench_surge_yaw": [
+            47.61769465586263,
+            -2.39786621942262
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.701053838276806,
+            2.567749187719712e-18,
+            -2.4833441979130804
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 22.317598401908104,
+              "azimuth_rad": 5.692535387535947e-20,
+              "target": {
+                "thrust": 22.328682994954388,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 25.3834554363687,
+              "azimuth_rad": 5.1108565746497384e-20,
+              "target": {
+                "thrust": 25.28901166090824,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 87,
+          "waypoint_index": 1,
+          "distance_to_current_m": 9.94782547120976,
+          "distance_to_final_m": 28.22622542834918,
+          "signed_cross_track_m": 0.08092633004843819,
+          "heading_rad": 0.9914546742123919,
+          "surge_mps": 0.5283585566911023,
+          "sway_mps": -0.008939861747725996,
+          "yaw_rate_rad_s": 0.003942790147586074,
+          "desired_wrench_surge_yaw": [
+            47.20549106559051,
+            -2.5164759583034724
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.33141930740711,
+            1.4633572941715883e-19,
+            -2.4353451874955176
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 22.162410155249532,
+              "azimuth_rad": 3.2693721757979036e-21,
+              "target": {
+                "thrust": 22.04936531162027,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 25.169009152157578,
+              "azimuth_rad": 2.935298797832571e-21,
+              "target": {
+                "thrust": 25.156125753970237,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 88,
+          "waypoint_index": 1,
+          "distance_to_current_m": 9.417570121430579,
+          "distance_to_final_m": 27.954788877430136,
+          "signed_cross_track_m": 0.0831618516175503,
+          "heading_rad": 0.9986281915490426,
+          "surge_mps": 0.5321829647030307,
+          "sway_mps": -0.0055198336233102,
+          "yaw_rate_rad_s": 0.009085033053914391,
+          "desired_wrench_surge_yaw": [
+            46.82379446598923,
+            -3.4025458195909057
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.939245025015566,
+            2.220883283133864e-16,
+            -3.1206950387089094
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 21.54326755034179,
+              "azimuth_rad": 5.202139952791003e-18,
+              "target": {
+                "thrust": 21.31156030732122,
+                "azimuth": 2.0837949143381276e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 25.395977474673774,
+              "azimuth_rad": 4.332073281518797e-18,
+              "target": {
+                "thrust": 25.51223415866801,
+                "azimuth": 1.7406911801143816e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 89,
+          "waypoint_index": 1,
+          "distance_to_current_m": 8.882883991849903,
+          "distance_to_final_m": 27.69391508881842,
+          "signed_cross_track_m": 0.09148031643377408,
+          "heading_rad": 1.005874214833594,
+          "surge_mps": 0.5378561190312557,
+          "sway_mps": -0.005810877138409148,
+          "yaw_rate_rad_s": 0.0035914391752897463,
+          "desired_wrench_surge_yaw": [
+            46.27935800066727,
+            -4.121481703373022
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.45591361429874,
+            1.2597195250257704e-17,
+            -3.9502759812460475
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 20.789514843417237,
+              "azimuth_rad": 2.987725232855062e-19,
+              "target": {
+                "thrust": 20.595554492078687,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 25.666398770881496,
+              "azimuth_rad": 2.488023154168867e-19,
+              "target": {
+                "thrust": 25.683803508588586,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 90,
+          "waypoint_index": 1,
+          "distance_to_current_m": 8.342245806875756,
+          "distance_to_final_m": 27.438328385045523,
+          "signed_cross_track_m": 0.10003082512598915,
+          "heading_rad": 1.0039006306330605,
+          "surge_mps": 0.5431589255195265,
+          "sway_mps": -0.007995606667682408,
+          "yaw_rate_rad_s": -0.0073038538160659985,
+          "desired_wrench_surge_yaw": [
+            45.720089771460806,
+            -3.760341519172837
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.87129110087956,
+            -1.0492052781099694e-16,
+            -3.921114531441667
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 20.515204481648627,
+              "azimuth_rad": -2.5684232507589207e-18,
+              "target": {
+                "thrust": 20.538846417105198,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 25.356086619230933,
+              "azimuth_rad": -2.0598131095925843e-18,
+              "target": {
+                "thrust": 25.18124335435561,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 91,
+          "waypoint_index": 1,
+          "distance_to_current_m": 7.79791401390119,
+          "distance_to_final_m": 27.18528029120265,
+          "signed_cross_track_m": 0.10392905812781983,
+          "heading_rad": 0.993958205995027,
+          "surge_mps": 0.5453474953573381,
+          "sway_mps": -0.007484555324503231,
+          "yaw_rate_rad_s": -0.010547310424336159,
+          "desired_wrench_surge_yaw": [
+            45.481600858068425,
+            -2.704777258741353
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.5471340525993,
+            1.451931982419594e-16,
+            -3.0173115545919877
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 20.911029029637927,
+              "azimuth_rad": 3.4557018472043062e-18,
+              "target": {
+                "thrust": 21.071184837218564,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 24.63610502296137,
+              "azimuth_rad": 2.960326582847555e-18,
+              "target": {
+                "thrust": 24.410416020849862,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 92,
+          "waypoint_index": 1,
+          "distance_to_current_m": 7.252017817268518,
+          "distance_to_final_m": 26.937752430218165,
+          "signed_cross_track_m": 0.105124359190091,
+          "heading_rad": 0.986514568799263,
+          "surge_mps": 0.5461312073764343,
+          "sway_mps": -0.0033448725157184077,
+          "yaw_rate_rad_s": -0.0032372115721848458,
+          "desired_wrench_surge_yaw": [
+            45.38188592310013,
+            -2.137018576190554
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.40216560560006,
+            3.135903241916494e-17,
+            -2.2592153470440053
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 21.306505428081508,
+              "azimuth_rad": 7.370314103054292e-19,
+              "target": {
+                "thrust": 21.371795692296637,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 24.09566017751855,
+              "azimuth_rad": 6.497215083333729e-19,
+              "target": {
+                "thrust": 24.010090230803492,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 93,
+          "waypoint_index": 1,
+          "distance_to_current_m": 6.7071810114879495,
+          "distance_to_final_m": 26.701807998178815,
+          "signed_cross_track_m": 0.10884428681637814,
+          "heading_rad": 0.9872565701659456,
+          "surge_mps": 0.5431035030092931,
+          "sway_mps": 0.00030675793351282233,
+          "yaw_rate_rad_s": 0.0034218628318504257,
+          "desired_wrench_surge_yaw": [
+            45.643834221947024,
+            -2.4401152466171894
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.54471396911843,
+            1.505745611572183e-16,
+            -2.3292125099295653
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 21.334571484602694,
+              "azimuth_rad": 3.5370969925787635e-18,
+              "target": {
+                "thrust": 21.315673131580187,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 24.21014248451574,
+              "azimuth_rad": 3.10250600834396e-18,
+              "target": {
+                "thrust": 24.328161090366837,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 94,
+          "waypoint_index": 1,
+          "distance_to_current_m": 6.166751808209529,
+          "distance_to_final_m": 26.479522922075034,
+          "signed_cross_track_m": 0.1155859313071339,
+          "heading_rad": 0.9895720668281494,
+          "surge_mps": 0.5382163817120694,
+          "sway_mps": -6.509213278912192e-7,
+          "yaw_rate_rad_s": -0.0006441193029052374,
+          "desired_wrench_surge_yaw": [
+            46.12909435268111,
+            -2.686176412614938
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.98389839977551,
+            -4.976802281672117e-17,
+            -2.6536101116050084
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 21.353918266798246,
+              "azimuth_rad": -1.1695307197824862e-18,
+              "target": {
+                "thrust": 21.40641358830664,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 24.62998013297727,
+              "azimuth_rad": -1.006657710729511e-18,
+              "target": {
+                "thrust": 24.722680764374466,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 95,
+          "waypoint_index": 2,
+          "distance_to_current_m": 26.262501880466665,
+          "distance_to_final_m": 26.262501880466665,
+          "signed_cross_track_m": -5.486838194721685,
+          "heading_rad": 0.9798025012862501,
+          "surge_mps": 0.576694423646769,
+          "sway_mps": 0.0007302718899750381,
+          "yaw_rate_rad_s": -0.027740291907671844,
+          "desired_wrench_surge_yaw": [
+            43.29039213730647,
+            -76.46103941454155
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            84.93075985039258,
+            5.0222461766088795,
+            -38.050231604638064
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 24.155669923395635,
+              "azimuth_rad": 0.20943951023931956,
+              "target": {
+                "thrust": 25.552976409458807,
+                "azimuth": 3.141592653589793
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 61.30294927070539,
+              "azimuth_rad": -3.839067821748607e-17,
+              "target": {
+                "thrust": 68.84336854676528,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 96,
+          "waypoint_index": 2,
+          "distance_to_current_m": 26.017111232566215,
+          "distance_to_final_m": 26.017111232566215,
+          "signed_cross_track_m": -4.875333958681141,
+          "heading_rad": 0.9282336517443653,
+          "surge_mps": 0.6662890873740803,
+          "sway_mps": 0.02012352033221022,
+          "yaw_rate_rad_s": -0.07620840899487685,
+          "desired_wrench_surge_yaw": [
+            34.06654174387372,
+            -75.3726713843829
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            87.75682884050788,
+            16.76320381500537,
+            -58.85027261388163
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 28.519265751608632,
+              "azimuth_rad": 0.6283185307179586,
+              "target": {
+                "thrust": 29.4930694887933,
+                "azimuth": 3.141592653589793
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 64.68425818036108,
+              "azimuth_rad": -8.624124440756014e-19,
+              "target": {
+                "thrust": 63.559611232667024,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 97,
+          "waypoint_index": 2,
+          "distance_to_current_m": 25.74263636766078,
+          "distance_to_final_m": 25.74263636766078,
+          "signed_cross_track_m": -4.204718177068499,
+          "heading_rad": 0.8254950935902593,
+          "surge_mps": 0.6966143498363463,
+          "sway_mps": 0.06664737431315566,
+          "yaw_rate_rad_s": -0.13066336322155755,
+          "desired_wrench_surge_yaw": [
+            30.275562996113337,
+            -70.02825934513432
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            71.59585063718467,
+            26.347113312363636,
+            -78.50991417744837
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 28.840506065622854,
+              "azimuth_rad": 1.1519173063162575,
+              "target": {
+                "thrust": 28.08953908535956,
+                "azimuth": 3.141592653589793
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 59.86536001544597,
+              "azimuth_rad": 2.1572944488045707e-17,
+              "target": {
+                "thrust": 58.3651020814729,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 98,
+          "waypoint_index": 2,
+          "distance_to_current_m": 25.452830715345378,
+          "distance_to_final_m": 25.452830715345378,
+          "signed_cross_track_m": -3.546919049587541,
+          "heading_rad": 0.6659111140031962,
+          "surge_mps": 0.6500798826926518,
+          "sway_mps": 0.12195717835472154,
+          "yaw_rate_rad_s": -0.18676314410451988,
+          "desired_wrench_surge_yaw": [
+            34.272963885965034,
+            -59.30348211623047
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            59.79715813597314,
+            21.88333014707909,
+            -73.72535174015289
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 22.372216760192675,
+              "azimuth_rad": 1.3613568165555765,
+              "target": {
+                "thrust": 19.470605783085656,
+                "azimuth": -3.1415926535897927
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 55.14571272202006,
+              "azimuth_rad": -1.1220743012753812e-16,
+              "target": {
+                "thrust": 53.743569669050686,
+                "azimuth": -2.6441962829621288e-16
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 99,
+          "waypoint_index": 2,
+          "distance_to_current_m": 25.153595791118637,
+          "distance_to_final_m": 25.153595791118637,
+          "signed_cross_track_m": -2.969342098611055,
+          "heading_rad": 0.4587381267010419,
+          "surge_mps": 0.5504503370179694,
+          "sway_mps": 0.15939795102186072,
+          "yaw_rate_rad_s": -0.22252772509908267,
+          "desired_wrench_surge_yaw": [
+            43.7967320174383,
+            -43.87659807661021
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            48.39918086133374,
+            9.481886101689089,
+            -56.69117376504725
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 9.69371707764327,
+              "azimuth_rad": 1.7802358370342144,
+              "target": {
+                "thrust": 5.185953791657504,
+                "azimuth": 3.141592653589792
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 50.414617969255524,
+              "azimuth_rad": 2.5038307255613972e-17,
+              "target": {
+                "thrust": 48.982685809095805,
+                "azimuth": 1.4505997864824236e-16
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 100,
+          "waypoint_index": 2,
+          "distance_to_current_m": 24.85327686940347,
+          "distance_to_final_m": 24.85327686940347,
+          "signed_cross_track_m": -2.511131500382907,
+          "heading_rad": 0.23420245808611798,
+          "surge_mps": 0.4460976636055065,
+          "sway_mps": 0.1695952876869421,
+          "yaw_rate_rad_s": -0.22281509871854,
+          "desired_wrench_surge_yaw": [
+            54.4779043406356,
+            -26.578747523251714
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.87985293157884,
+            7.271439188001856,
+            -46.37598043482682
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 7.433887464986704,
+              "azimuth_rad": 1.3613568165555765,
+              "target": {
+                "thrust": 10.832317896705636,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 45.334260819384504,
+              "azimuth_rad": -6.373373454684528e-18,
+              "target": {
+                "thrust": 43.64558644392996,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 101,
+          "waypoint_index": 2,
+          "distance_to_current_m": 24.55308541506115,
+          "distance_to_final_m": 24.55308541506115,
+          "signed_cross_track_m": -2.156770750328098,
+          "heading_rad": 0.015692358157006845,
+          "surge_mps": 0.381243528431481,
+          "sway_mps": 0.17810306130066053,
+          "yaw_rate_rad_s": -0.21241030975300731,
+          "desired_wrench_surge_yaw": [
+            61.47151943168324,
+            -9.128296142303999
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            52.73556990993167,
+            15.611318425184612,
+            -43.36126858491225
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 21.007101025235478,
+              "azimuth_rad": 0.8377580409572783,
+              "target": {
+                "thrust": 25.1010090107157,
+                "azimuth": -7.076834395947662e-17
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 38.679075663074066,
+              "azimuth_rad": -2.142186063797364e-17,
+              "target": {
+                "thrust": 36.37051042096754,
+                "azimuth": -4.8840580427383375e-17
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 102,
+          "waypoint_index": 2,
+          "distance_to_current_m": 24.232964103185036,
+          "distance_to_final_m": 24.232964103185036,
+          "signed_cross_track_m": -1.86960208785991,
+          "heading_rad": -0.18453378962736652,
+          "surge_mps": 0.3692113884273548,
+          "sway_mps": 0.18696860902040355,
+          "yaw_rate_rad_s": -0.18414787545189254,
+          "desired_wrench_surge_yaw": [
+            63.16007477502106,
+            6.820843826128258
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            61.2648530313283,
+            10.123741746971652,
+            -14.33471281481842
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 32.76111647985275,
+              "azimuth_rad": 0.3141592653589792,
+              "target": {
+                "thrust": 35.79043481104649,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 30.107179722059797,
+              "azimuth_rad": 2.872232582489325e-18,
+              "target": {
+                "thrust": 27.36963996397457,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 103,
+          "waypoint_index": 2,
+          "distance_to_current_m": 23.86563193558354,
+          "distance_to_final_m": 23.86563193558354,
+          "signed_cross_track_m": -1.6371023946724264,
+          "heading_rad": -0.3455893084139136,
+          "surge_mps": 0.39046698626400883,
+          "sway_mps": 0.18423971824194185,
+          "yaw_rate_rad_s": -0.137145052388696,
+          "desired_wrench_surge_yaw": [
+            61.22671866865525,
+            18.937647752218115
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            61.86292469462403,
+            0.8704354969590805,
+            14.16200107566712
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 40.488754594589125,
+              "azimuth_rad": 0.021499860102407085,
+              "target": {
+                "thrust": 42.30326535421535,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 21.38352758119736,
+              "azimuth_rad": -3.1772899339541047e-18,
+              "target": {
+                "thrust": 18.923453314439904,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 104,
+          "waypoint_index": 2,
+          "distance_to_current_m": 23.448451471626424,
+          "distance_to_final_m": 23.448451471626424,
+          "signed_cross_track_m": -1.4619101995812767,
+          "heading_rad": -0.4615291902311721,
+          "surge_mps": 0.41994372218824727,
+          "sway_mps": 0.17488449157364735,
+          "yaw_rate_rad_s": -0.09665098695098266,
+          "desired_wrench_surge_yaw": [
+            58.30872138717068,
+            27.30820415523393
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            59.19410977794697,
+            0.055528997981745945,
+            24.82129213300467
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 44.97029017855343,
+              "azimuth_rad": 0.001234793279568573,
+              "target": {
+                "thrust": 46.01127683879146,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 14.223853882814666,
+              "azimuth_rad": -2.642137138549387e-17,
+              "target": {
+                "thrust": 12.297444548379215,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 105,
+          "waypoint_index": 2,
+          "distance_to_current_m": 22.991459966020145,
+          "distance_to_final_m": 22.991459966020145,
+          "signed_cross_track_m": -1.3415727164460367,
+          "heading_rad": -0.5423367363937575,
+          "surge_mps": 0.4502209729952712,
+          "sway_mps": 0.161551772084566,
+          "yaw_rate_rad_s": -0.06646206042041719,
+          "desired_wrench_surge_yaw": [
+            55.27696447628099,
+            33.08393339941189
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            56.18954336007133,
+            0.0033680848793879725,
+            31.420173953910147
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 47.493059503926084,
+              "azimuth_rad": 0.00007091741229965736,
+              "target": {
+                "thrust": 48.06066334888857,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 8.696483975573178,
+              "azimuth_rad": -1.0812463789168746e-16,
+              "target": {
+                "thrust": 7.216301127392423,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 106,
+          "waypoint_index": 2,
+          "distance_to_current_m": 22.50404524729136,
+          "distance_to_final_m": 22.50404524729136,
+          "signed_cross_track_m": -1.2717364273982301,
+          "heading_rad": -0.5970561019099474,
+          "surge_mps": 0.4787027666978989,
+          "sway_mps": 0.14467373419493518,
+          "yaw_rate_rad_s": -0.04411471897125123,
+          "desired_wrench_surge_yaw": [
+            52.39764217823766,
+            37.06762458386851
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            53.25239444713942,
+            0.0001987639946162163,
+            35.92242571329943
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 48.80071812477163,
+              "azimuth_rad": 0.000004072972740047144,
+              "target": {
+                "thrust": 49.08007083224753,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 4.451676322772578,
+              "azimuth_rad": -3.448784305579915e-17,
+              "target": {
+                "thrust": 3.3175713459901353,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 107,
+          "waypoint_index": 2,
+          "distance_to_current_m": 21.994887287057242,
+          "distance_to_final_m": 21.994887287057242,
+          "signed_cross_track_m": -1.24707467257167,
+          "heading_rad": -0.6325411307776169,
+          "surge_mps": 0.5023224155591408,
+          "sway_mps": 0.1252301547708496,
+          "yaw_rate_rad_s": -0.027671884079729703,
+          "desired_wrench_surge_yaw": [
+            49.97442746360967,
+            39.8374754017456
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            50.67776560653083,
+            0.00001156455435380337,
+            39.04016196385205
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 49.437758920972676,
+              "azimuth_rad": 2.3392149263301788e-7,
+              "target": {
+                "thrust": 49.57824793041322,
+                "azimuth": -1.4331743565391823e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 1.2400066855595042,
+              "azimuth_rad": -4.372353953629519e-15,
+              "target": {
+                "thrust": 0.3961795331964524,
+                "azimuth": -1.7934867306932926e-14
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 108,
+          "waypoint_index": 2,
+          "distance_to_current_m": 21.472202730880287,
+          "distance_to_final_m": 21.472202730880287,
+          "signed_cross_track_m": -1.2611904130846041,
+          "heading_rad": -0.6538604344571569,
+          "surge_mps": 0.5212227464232156,
+          "sway_mps": 0.1049693657194242,
+          "yaw_rate_rad_s": -0.015845794847919852,
+          "desired_wrench_surge_yaw": [
+            48.06516811902256,
+            41.787193815475554
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            50.99536971877748,
+            0.32936410517375464,
+            38.820897565710354
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 49.76616863930911,
+              "azimuth_rad": 1.3434724028750014e-8,
+              "target": {
+                "thrust": 49.82714814313815,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 1.2725625985079765,
+              "azimuth_rad": 0.2617993877991462,
+              "target": {
+                "thrust": 1.7619800241155943,
+                "azimuth": 3.141592653589793
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 109,
+          "waypoint_index": 2,
+          "distance_to_current_m": 20.93926492280052,
+          "distance_to_final_m": 20.93926492280052,
+          "signed_cross_track_m": -1.307195651473824,
+          "heading_rad": -0.665945195603726,
+          "surge_mps": 0.5382179520722048,
+          "sway_mps": 0.08739638401677699,
+          "yaw_rate_rad_s": -0.008915642306496115,
+          "desired_wrench_surge_yaw": [
+            46.32245245760821,
+            43.33742509199513
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            52.045608450406604,
+            2.1652705952124616,
+            35.40129865011578
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 49.88033789368137,
+              "azimuth_rad": 7.715914387687648e-10,
+              "target": {
+                "thrust": 49.91272319917145,
+                "azimuth": 1.423570364864194e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 3.0621549875279572,
+              "azimuth_rad": 0.7853981633974453,
+              "target": {
+                "thrust": 3.590270741563245,
+                "azimuth": 3.1415926535897913
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 110,
+          "waypoint_index": 2,
+          "distance_to_current_m": 20.399219125138277,
+          "distance_to_final_m": 20.399219125138277,
+          "signed_cross_track_m": -1.3761020563528221,
+          "heading_rad": -0.6719198355857555,
+          "surge_mps": 0.5486845440529576,
+          "sway_mps": 0.07530079514156406,
+          "yaw_rate_rad_s": -0.0026817064693517726,
+          "desired_wrench_surge_yaw": [
+            45.210258443358356,
+            44.60028181037331
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            52.54518885815936,
+            3.8185284761640848,
+            32.81656441583277
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 50.06540747233826,
+              "azimuth_rad": 4.431447238926087e-11,
+              "target": {
+                "thrust": 50.13616737623059,
+                "azimuth": -1.4172258729472936e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 4.553073184981446,
+              "azimuth_rad": 0.9948376736367651,
+              "target": {
+                "thrust": 4.9259089328722325,
+                "azimuth": -3.141592653589792
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 111,
+          "waypoint_index": 2,
+          "distance_to_current_m": 19.856722757955975,
+          "distance_to_final_m": 19.856722757955975,
+          "signed_cross_track_m": -1.4572839208947697,
+          "heading_rad": -0.6700455106604759,
+          "surge_mps": 0.5520912709688927,
+          "sway_mps": 0.06819868582275089,
+          "yaw_rate_rad_s": 0.0071962606068339645,
+          "desired_wrench_surge_yaw": [
+            44.806969329510636,
+            45.15449891725032
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            51.63534616526991,
+            5.169834124918599,
+            31.825769542931038
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 50.250093286529356,
+              "azimuth_rad": 2.5451159039319433e-12,
+              "target": {
+                "thrust": 50.276632144539455,
+                "azimuth": 1.4132663733668012e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 5.352206126067032,
+              "azimuth_rad": 1.3089969389957437,
+              "target": {
+                "thrust": 5.469662815028819,
+                "azimuth": 3.141592653589792
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 112,
+          "waypoint_index": 2,
+          "distance_to_current_m": 19.313949863325142,
+          "distance_to_final_m": 19.313949863325142,
+          "signed_cross_track_m": -1.5405531499883969,
+          "heading_rad": -0.6563941070268573,
+          "surge_mps": 0.5544007864520735,
+          "sway_mps": 0.06306304984608803,
+          "yaw_rate_rad_s": 0.0204014774083069,
+          "desired_wrench_surge_yaw": [
+            44.57380680731372,
+            44.473450824197094
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            51.31709518586256,
+            5.111912793987331,
+            31.680010603588705
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 49.94736228093727,
+              "azimuth_rad": 1.4619273751045047e-13,
+              "target": {
+                "thrust": 49.73965082600074,
+                "azimuth": 1.4285237711975924e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 5.2922415519410855,
+              "azimuth_rad": 1.3089969389957437,
+              "target": {
+                "thrust": 5.1658440186870145,
+                "azimuth": 3.141592653589792
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 113,
+          "waypoint_index": 2,
+          "distance_to_current_m": 18.769975786922142,
+          "distance_to_final_m": 18.769975786922142,
+          "signed_cross_track_m": -1.6179862503101674,
+          "heading_rad": -0.6290122134516434,
+          "surge_mps": 0.5542110878875119,
+          "sway_mps": 0.05715874096311223,
+          "yaw_rate_rad_s": 0.034186220429135786,
+          "desired_wrench_surge_yaw": [
+            44.56793581028236,
+            42.331457920693964
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            48.62858647461511,
+            4.28279071946333,
+            33.32858047744375
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 48.85303802535616,
+              "azimuth_rad": 8.379697534260444e-15,
+              "target": {
+                "thrust": 48.414497485816455,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 4.288668190166708,
+              "azimuth_rad": 1.623156204354722,
+              "target": {
+                "thrust": 3.846561675534094,
+                "azimuth": 3.141592653589793
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 114,
+          "waypoint_index": 2,
+          "distance_to_current_m": 18.226119278211698,
+          "distance_to_final_m": 18.226119278211698,
+          "signed_cross_track_m": -1.6837447110138581,
+          "heading_rad": -0.5886163345181049,
+          "surge_mps": 0.5525706802490556,
+          "sway_mps": 0.04747747326475411,
+          "yaw_rate_rad_s": 0.04602463638821398,
+          "desired_wrench_surge_yaw": [
+            44.731830467536604,
+            38.79093494118884
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.94104851976893,
+            2.045108814202691,
+            35.83268275997982
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 46.98308350759054,
+              "azimuth_rad": 5.080308298516909e-16,
+              "target": {
+                "thrust": 46.310936802403376,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 2.295279280996942,
+              "azimuth_rad": 2.04203522483336,
+              "target": {
+                "thrust": 1.5791063348667684,
+                "azimuth": 3.141592653589793
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 115,
+          "waypoint_index": 2,
+          "distance_to_current_m": 17.68216539128723,
+          "distance_to_final_m": 17.68216539128723,
+          "signed_cross_track_m": -1.7360652156732228,
+          "heading_rad": -0.5385838414882802,
+          "surge_mps": 0.552403226302273,
+          "sway_mps": 0.03313779175105945,
+          "yaw_rate_rad_s": 0.052893332192558956,
+          "desired_wrench_surge_yaw": [
+            44.75308289560296,
+            34.237591950233416
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            44.15178310079857,
+            0.8339873760907769,
+            34.87397856266314
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 44.37524934471984,
+              "azimuth_rad": 2.950310261614669e-17,
+              "target": {
+                "thrust": 43.510857466464074,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 0.8634072652294844,
+              "azimuth_rad": 1.832595714594041,
+              "target": {
+                "thrust": 1.242225429138884,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 116,
+          "waypoint_index": 2,
+          "distance_to_current_m": 17.138387552728638,
+          "distance_to_final_m": 17.138387552728638,
+          "signed_cross_track_m": -1.7741879754419938,
+          "heading_rad": -0.4858586710710293,
+          "surge_mps": 0.5492243769137606,
+          "sway_mps": 0.018843068552542155,
+          "yaw_rate_rad_s": 0.051007732297507914,
+          "desired_wrench_surge_yaw": [
+            45.03019155787735,
+            29.457055181183975
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            42.41355884649557,
+            3.310785624050004,
+            27.95166604805802
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 41.52643651221879,
+              "azimuth_rad": 1.6944404597665969e-18,
+              "target": {
+                "thrust": 40.698463174731245,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 3.4275774950231046,
+              "azimuth_rad": 1.3089969389957437,
+              "target": {
+                "thrust": 4.331728383146107,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 117,
+          "waypoint_index": 2,
+          "distance_to_current_m": 16.597493808369947,
+          "distance_to_final_m": 16.597493808369947,
+          "signed_cross_track_m": -1.7967771390792078,
+          "heading_rad": -0.4387326341571431,
+          "surge_mps": 0.5441070070978202,
+          "sway_mps": 0.008122245651587543,
+          "yaw_rate_rad_s": 0.04288487863946647,
+          "desired_wrench_surge_yaw": [
+            45.538916235232286,
+            25.22696065719146
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            43.526928709094015,
+            4.493357999666697,
+            21.23753529540602
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 39.033570709427295,
+              "azimuth_rad": 3.4879263927001784e-17,
+              "target": {
+                "thrust": 38.34165605415407,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 6.354567823726301,
+              "azimuth_rad": 0.7853981633974453,
+              "target": {
+                "thrust": 7.197260181078212,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 118,
+          "waypoint_index": 2,
+          "distance_to_current_m": 16.06006697960843,
+          "distance_to_final_m": 16.06006697960843,
+          "signed_cross_track_m": -1.804849234723953,
+          "heading_rad": -0.39911361408488355,
+          "surge_mps": 0.5392324868659744,
+          "sway_mps": 0.00010536058737523556,
+          "yaw_rate_rad_s": 0.03767030876675037,
+          "desired_wrench_surge_yaw": [
+            46.02633445667267,
+            21.52978748591193
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            45.57393078486693,
+            2.31927089315998,
+            19.41384596414439
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 36.91829397507813,
+              "azimuth_rad": 2.6343645279613834e-17,
+              "target": {
+                "thrust": 36.30315950359061,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 8.96097461545506,
+              "azimuth_rad": 0.26179938779914624,
+              "target": {
+                "thrust": 9.723174953082063,
+                "azimuth": 0
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 119,
+          "waypoint_index": 2,
+          "distance_to_current_m": 15.526779668960446,
+          "distance_to_final_m": 15.526779668960446,
+          "signed_cross_track_m": -1.7998543942757204,
+          "heading_rad": -0.3599523013485388,
+          "surge_mps": 0.5327400224134677,
+          "sway_mps": -0.00738334114897244,
+          "yaw_rate_rad_s": 0.04194092437823071,
+          "desired_wrench_surge_yaw": [
+            46.648365290615835,
+            17.488126762898155
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            46.4433591987999,
+            0.18814686118744456,
+            18.47338207187633
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 34.79921192264531,
+              "azimuth_rad": -4.367747117423304e-17,
+              "target": {
+                "thrust": 34.11932262240554,
+                "azimuth": -1.0412614922394438e-16
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 11.645667221338279,
+              "azimuth_rad": 0.01615665667125382,
+              "target": {
+                "thrust": 12.529042668210296,
+                "azimuth": -2.8355827120093816e-16
+              }
+            }
+          ]
+        },
+        {
+          "time_s": 120,
+          "waypoint_index": 2,
+          "distance_to_current_m": 14.999606283631206,
+          "distance_to_final_m": 14.999606283631206,
+          "signed_cross_track_m": -1.7792357934141672,
+          "heading_rad": -0.314051787658872,
+          "surge_mps": 0.5248308592839032,
+          "sway_mps": -0.012860316048318,
+          "yaw_rate_rad_s": 0.04988467357899019,
+          "desired_wrench_surge_yaw": [
+            47.444011177907875,
+            12.476998398243655
+          ],
+          "actual_wrench_surge_sway_yaw": [
+            47.20811357349948,
+            0.013860985368000022,
+            14.018699390297014
+          ],
+          "pods": [
+            {
+              "id": "azimuth-port",
+              "thrust_n": 32.2704091746195,
+              "azimuth_rad": -3.7297150017219646e-18,
+              "target": {
+                "thrust": 31.4238564520673,
+                "azimuth": 0
+              }
+            },
+            {
+              "id": "azimuth-starboard",
+              "thrust_n": 14.93771082981705,
+              "azimuth_rad": 0.0009279191112377269,
+              "target": {
+                "thrust": 16.020154725840573,
+                "azimuth": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

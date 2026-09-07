@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-candidate-gain-four-seed-comparison",
+  "candidate": {
+    "id": "LOS-PID-v2-C-candidate-v1",
+    "gains": {"lookahead": 4, "kp": 100, "kd": 35, "speed": 1}
+  },
+  "current": {
+    "id": "LOS-PID-v2",
+    "gains": {"lookahead": 8, "kp": 100, "kd": 35, "speed": 1}
+  },
+  "seeds": [30000, 30007, 30013, 30048],
+  "excluded_seed_30003_touched": false,
+  "full_sweep_run": false,
+  "rows": [
+    {"seed": 30000, "current": {"success": false, "termination_reason": "timeout", "closest_distance_m": 34.93246906551441}, "candidate": {"success": false, "termination_reason": "timeout", "closest_distance_m": 31.406762817951208}},
+    {"seed": 30007, "current": {"success": false, "termination_reason": "timeout", "closest_distance_m": 12.366643916371382}, "candidate": {"success": false, "termination_reason": "timeout", "closest_distance_m": 12.304941660199917}},
+    {"seed": 30013, "current": {"success": false, "termination_reason": "timeout", "closest_distance_m": 3.4593922349398216}, "candidate": {"success": true, "termination_reason": "success", "closest_distance_m": 1.9980165923314328}},
+    {"seed": 30048, "current": {"success": false, "termination_reason": "timeout", "closest_distance_m": 10.81083216002424}, "candidate": {"success": false, "termination_reason": "timeout", "closest_distance_m": 9.203925136420327}}
+  ],
+  "wrench_path": [
+    {"seed": 30000, "current": {"pre_lag_noticeable_fraction": 0, "post_dynamics_noticeable_fraction": 0.88125}, "candidate": {"pre_lag_noticeable_fraction": 0, "post_dynamics_noticeable_fraction": 0.9091666666666667}, "post_dynamics_direction": "up", "post_dynamics_change_percentage_points": 2.7916666666666696},
+    {"seed": 30048, "current": {"pre_lag_noticeable_fraction": 0, "post_dynamics_noticeable_fraction": 0.8254166666666667}, "candidate": {"pre_lag_noticeable_fraction": 0, "post_dynamics_noticeable_fraction": 0.85875}, "post_dynamics_direction": "up", "post_dynamics_change_percentage_points": 3.33333333333333}
+  ],
+  "prediction": {
+    "preregistered": "lookahead=4 recovers or meaningfully improves 30007 without increasing 30000/30048 post-dynamics gap fraction or worsening their closest approach",
+    "verdict": "failed",
+    "reason": "30007 neither recovered nor meaningfully improved (0.0617 m closer and still timeout), while post-dynamics gap fractions increased for both 30000 and 30048. Closest approach did improve for both sentinel seeds, but the conjunction in the prediction did not hold."
+  }
+}

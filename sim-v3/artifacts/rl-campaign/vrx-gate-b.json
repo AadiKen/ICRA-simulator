@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-gate-b",
+  "status": "PASS",
+  "gate": "B",
+  "gate_c_started": false,
+  "training_started": false,
+  "runtime": {
+    "image": "leadcat/vrx:surveyor-patched-v3.0.1",
+    "gazebo_sim_version": "8.10.0",
+    "execution": "AMD64 emulation on Apple Silicon",
+    "host_architecture": "arm64",
+    "timing_basis": "/clock and sensor-header simulation timestamps only"
+  },
+  "evidence": {
+    "gps": {
+      "reference_latitude_longitude_deg": [
+        -33.72276876888639,
+        150.67399110174387
+      ],
+      "base_position_ned_m": [
+        9999.824989687684,
+        10000.69232143848
+      ],
+      "noise_ned_m": [
+        0.4324143042873244,
+        1.3538949744248632
+      ],
+      "expected_seeded_start_ned_m": [
+        9999.825020389631,
+        10000.692335725296
+      ],
+      "geodetic_origin_position_error_m": 3.386329381989152e-05,
+      "observation_reconstructed_position_ned_m": [
+        10000.257403901294,
+        10002.04621655754
+      ],
+      "startup_fix_valid": [
+        0,
+        1
+      ],
+      "stalled_fix_valid": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      "recovered_fix_valid": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "disturbance": {
+      "requested": {
+        "current_mps": [
+          1.142819479452231,
+          -0.6508951290617273,
+          0
+        ],
+        "wind_mps": [
+          1.5627285423556794,
+          -2.8258413730019427,
+          0
+        ]
+      },
+      "applied": {
+        "current_mps": [
+          1.1428194794522317,
+          -0.6508951290617263,
+          0
+        ],
+        "wind_mps": [
+          1.562728542355682,
+          -2.8258413730019414,
+          0
+        ],
+        "wave": {
+          "gain": 0,
+          "mechanism": "No wave-parameter publisher in the common-task world; flat water is explicit."
+        }
+      },
+      "mechanism": {
+        "current": "episode-local libVrxCurrentRelativeVelocity.so SDF current_enu",
+        "wind": "episode-local libVrxSurveyorRelativeWind.so SDF wind_enu",
+        "wave": "VRX Surface subscribes to /vrx/wavefield/parameters; common-task protocol has no seeded wave distribution and holds gain at zero"
+      },
+      "locked_to_competition_preset": false,
+      "zero_command_5_simulation_second_response": {
+        "calm_displacement_ned_m": [
+          -0.011749358161978307,
+          -0.0728841733016452
+        ],
+        "seeded_displacement_ned_m": [
+          3.6775702039012685,
+          -2.942702382641073
+        ],
+        "difference_m": 4.674070537088492
+      },
+      "capability_decision": {
+        "wind": "YES: configurable per episode across the seeded contract range via episode-local SDF plugin parameter",
+        "current": "YES: configurable per episode across the seeded contract range via episode-local SDF plugin parameter",
+        "waves": "YES at the VRX plugin level through /vrx/wavefield/parameters (live topic mutation was verified during the pre-Gate-B stock-WAM-V stability check), but NO seeded wave range exists in the frozen common-task contract; this harness therefore sets gain=0"
+      }
+    }
+  },
+  "checks": {
+    "geodetic_origin_configured_live": true,
+    "geodetic_origin_position_error_below_1_mm": true,
+    "gps_observation_uses_origin_anchored_position": true,
+    "fix_valid_becomes_one_only_after_release": true,
+    "fix_valid_zero_when_timestamp_stale": true,
+    "fix_valid_recovers_on_fresh_finite_fix": true,
+    "seeded_current_vector_applied": true,
+    "seeded_wind_vector_applied": true,
+    "disturbances_not_locked_to_competition_presets": true,
+    "wave_explicitly_flat_for_common_task": true,
+    "live_seeded_force_response_differs_from_calm": true,
+    "nonfinite_fix_rule_unit_regression": true
+  },
+  "all_checks_pass": true,
+  "reset_randomization_parity": {
+    "artifact": "artifacts/rl-campaign/vrx-reset-randomization-parity.json",
+    "seeds": [30000, 30001, 30002, 30003, 30004],
+    "all_speed_and_direction_draws_match": true,
+    "maximum_absolute_difference": 5.684341886080802e-14
+  },
+  "task_6_implication": "DISTURBED_PRIMARY_SELECTED: VRX and bcod-sim use matched seeded wind/current draws. Waves remain flat because the contract has no seeded wave distribution. Standalone Gazebo remains separately scoped as still-water, and bcod-sim disturbed-versus-calm remains a separate robustness analysis."
+}

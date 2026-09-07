@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "holoocean-vehicle-a-actuator-force-lag-parity",
+  "status": "PASS",
+  "training_run": false,
+  "reward_implementation_started": false,
+  "bcod_sim_source": {
+    "parameters": "core/vehicles/coefficients.js:165-186",
+    "update": "packages/core/src/actuators.js:77-93",
+    "command_conversion": "packages/core/src/actuators.js:219-247",
+    "formula": "x_next = x + clamp((clamp(target,min,max)-x)*(1-exp(-dt/tau)), -rateMax*dt, rateMax*dt)",
+    "vehicle_a_values": {
+      "min_force_n": -95.0,
+      "max_force_n": 95.0,
+      "tau_s": 0.25,
+      "rate_max_n_s": "Infinity",
+      "physics_dt_s": 0.05
+    }
+  },
+  "verification": {
+    "step_command": [
+      1.0,
+      1.0
+    ],
+    "samples": [
+      {
+        "control_step": 1,
+        "elapsed_s": 0.1,
+        "expected_force_n": 31.319595626614262,
+        "actual_force_n": 31.319595626614273,
+        "absolute_error_n": 1.0658141036401503e-14
+      },
+      {
+        "control_step": 2,
+        "elapsed_s": 0.2,
+        "expected_force_n": 52.31374840886395,
+        "actual_force_n": 52.31374840886396,
+        "absolute_error_n": 7.105427357601002e-15
+      },
+      {
+        "control_step": 3,
+        "elapsed_s": 0.30000000000000004,
+        "expected_force_n": 66.38654986834081,
+        "actual_force_n": 66.38654986834081,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 4,
+        "elapsed_s": 0.4,
+        "expected_force_n": 75.81983079050774,
+        "actual_force_n": 75.81983079050774,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 5,
+        "elapsed_s": 0.5,
+        "expected_force_n": 82.1431480925218,
+        "actual_force_n": 82.1431480925218,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 6,
+        "elapsed_s": 0.6000000000000001,
+        "expected_force_n": 86.38179443750582,
+        "actual_force_n": 86.38179443750582,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 7,
+        "elapsed_s": 0.7000000000000001,
+        "expected_force_n": 89.2230440506043,
+        "actual_force_n": 89.22304405060429,
+        "absolute_error_n": 1.4210854715202004e-14
+      },
+      {
+        "control_step": 8,
+        "elapsed_s": 0.8,
+        "expected_force_n": 91.12759062205521,
+        "actual_force_n": 91.12759062205521,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 9,
+        "elapsed_s": 0.9,
+        "expected_force_n": 92.40424636750721,
+        "actual_force_n": 92.40424636750721,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 10,
+        "elapsed_s": 1.0,
+        "expected_force_n": 93.26001430557025,
+        "actual_force_n": 93.26001430557025,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 11,
+        "elapsed_s": 1.1,
+        "expected_force_n": 93.8336527092085,
+        "actual_force_n": 93.8336527092085,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 12,
+        "elapsed_s": 1.2000000000000002,
+        "expected_force_n": 94.21817403034309,
+        "actual_force_n": 94.21817403034309,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 13,
+        "elapsed_s": 1.3,
+        "expected_force_n": 94.47592638002773,
+        "actual_force_n": 94.47592638002773,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 14,
+        "elapsed_s": 1.4000000000000001,
+        "expected_force_n": 94.64870294693412,
+        "actual_force_n": 94.64870294693412,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 15,
+        "elapsed_s": 1.5,
+        "expected_force_n": 94.7645185432167,
+        "actual_force_n": 94.7645185432167,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 16,
+        "elapsed_s": 1.6,
+        "expected_force_n": 94.84215205904847,
+        "actual_force_n": 94.84215205904847,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 17,
+        "elapsed_s": 1.7000000000000002,
+        "expected_force_n": 94.89419136095474,
+        "actual_force_n": 94.89419136095474,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 18,
+        "elapsed_s": 1.8,
+        "expected_force_n": 94.92907434820421,
+        "actual_force_n": 94.92907434820421,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 19,
+        "elapsed_s": 1.9000000000000001,
+        "expected_force_n": 94.95245711382314,
+        "actual_force_n": 94.95245711382314,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 20,
+        "elapsed_s": 2.0,
+        "expected_force_n": 94.96813105034926,
+        "actual_force_n": 94.96813105034927,
+        "absolute_error_n": 1.4210854715202004e-14
+      },
+      {
+        "control_step": 21,
+        "elapsed_s": 2.1,
+        "expected_force_n": 94.97863760420302,
+        "actual_force_n": 94.97863760420302,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 22,
+        "elapsed_s": 2.2,
+        "expected_force_n": 94.98568035786593,
+        "actual_force_n": 94.98568035786593,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 23,
+        "elapsed_s": 2.3000000000000003,
+        "expected_force_n": 94.99040125682546,
+        "actual_force_n": 94.99040125682548,
+        "absolute_error_n": 1.4210854715202004e-14
+      },
+      {
+        "control_step": 24,
+        "elapsed_s": 2.4000000000000004,
+        "expected_force_n": 94.99356577003337,
+        "actual_force_n": 94.99356577003337,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 25,
+        "elapsed_s": 2.5,
+        "expected_force_n": 94.99568700667257,
+        "actual_force_n": 94.99568700667257,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 26,
+        "elapsed_s": 2.6,
+        "expected_force_n": 94.99710891411421,
+        "actual_force_n": 94.99710891411421,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 27,
+        "elapsed_s": 2.7,
+        "expected_force_n": 94.99806204717594,
+        "actual_force_n": 94.99806204717595,
+        "absolute_error_n": 1.4210854715202004e-14
+      },
+      {
+        "control_step": 28,
+        "elapsed_s": 2.8000000000000003,
+        "expected_force_n": 94.99870095137376,
+        "actual_force_n": 94.99870095137378,
+        "absolute_error_n": 1.4210854715202004e-14
+      },
+      {
+        "control_step": 29,
+        "elapsed_s": 2.9000000000000004,
+        "expected_force_n": 94.99912922166506,
+        "actual_force_n": 94.99912922166507,
+        "absolute_error_n": 1.4210854715202004e-14
+      },
+      {
+        "control_step": 30,
+        "elapsed_s": 3.0,
+        "expected_force_n": 94.99941629982644,
+        "actual_force_n": 94.99941629982645,
+        "absolute_error_n": 1.4210854715202004e-14
+      },
+      {
+        "control_step": 31,
+        "elapsed_s": 3.1,
+        "expected_force_n": 94.99960873407278,
+        "actual_force_n": 94.9996087340728,
+        "absolute_error_n": 1.4210854715202004e-14
+      },
+      {
+        "control_step": 32,
+        "elapsed_s": 3.2,
+        "expected_force_n": 94.99973772660566,
+        "actual_force_n": 94.99973772660566,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 33,
+        "elapsed_s": 3.3000000000000003,
+        "expected_force_n": 94.99982419288622,
+        "actual_force_n": 94.99982419288622,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 34,
+        "elapsed_s": 3.4000000000000004,
+        "expected_force_n": 94.9998821529674,
+        "actual_force_n": 94.9998821529674,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 35,
+        "elapsed_s": 3.5,
+        "expected_force_n": 94.99992100477168,
+        "actual_force_n": 94.99992100477168,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 36,
+        "elapsed_s": 3.6,
+        "expected_force_n": 94.99994704791492,
+        "actual_force_n": 94.99994704791492,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 37,
+        "elapsed_s": 3.7,
+        "expected_force_n": 94.99996450515589,
+        "actual_force_n": 94.99996450515589,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 38,
+        "elapsed_s": 3.8000000000000003,
+        "expected_force_n": 94.99997620709446,
+        "actual_force_n": 94.99997620709446,
+        "absolute_error_n": 0.0
+      },
+      {
+        "control_step": 39,
+        "elapsed_s": 3.9000000000000004,
+        "expected_force_n": 94.99998405113845,
+        "actual_force_n": 94.99998405113847,
+        "absolute_error_n": 1.4210854715202004e-14
+      },
+      {
+        "control_step": 40,
+        "elapsed_s": 4.0,
+        "expected_force_n": 94.9999893091584,
+        "actual_force_n": 94.99998930915841,
+        "absolute_error_n": 1.4210854715202004e-14
+      }
+    ],
+    "max_absolute_formula_error_n": 1.4210854715202004e-14,
+    "final_force_n": 94.99998930915841,
+    "steady_state_target_n": 95.0,
+    "final_target_error_n": 1.069084159155409e-05,
+    "within_one_percent_at_end": true
+  },
+  "directional_sign_checks": {
+    "port_forward_starboard_reverse": {
+      "label": "port forward, starboard reverse",
+      "action": [
+        0.25,
+        -0.25
+      ],
+      "yaw_rate_tail_mean_rad_s": 0.023477774113416672,
+      "yaw_rate_tail_min_rad_s": 0.02144387736916542,
+      "yaw_rate_tail_max_rad_s": 0.025412339717149734,
+      "yaw_change_rad": 0.017978625372052193,
+      "relative_goal_east_change_m": -0.007462024688720703,
+      "relative_goal_east_max_deviation_m": 0.007462024688720703,
+      "initial_heading_ned_rad": 0.0,
+      "current_nwu_mps": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wind_ned_mps": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "equal_forward": {
+      "label": "equal forward",
+      "action": [
+        0.25,
+        0.25
+      ],
+      "yaw_rate_tail_mean_rad_s": 0.0,
+      "yaw_rate_tail_min_rad_s": -0.0,
+      "yaw_rate_tail_max_rad_s": -0.0,
+      "yaw_change_rad": 0.0,
+      "relative_goal_east_change_m": 0.0,
+      "relative_goal_east_max_deviation_m": 0.0,
+      "initial_heading_ned_rad": 0.0,
+      "current_nwu_mps": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wind_ned_mps": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "port_reverse_starboard_forward": {
+      "label": "port reverse, starboard forward",
+      "action": [
+        -0.25,
+        0.25
+      ],
+      "yaw_rate_tail_mean_rad_s": -0.02347777783870697,
+      "yaw_rate_tail_min_rad_s": -0.025412341579794884,
+      "yaw_rate_tail_max_rad_s": -0.02144388109445572,
+      "yaw_change_rad": -0.017978625372052193,
+      "relative_goal_east_change_m": 0.007462024688720703,
+      "relative_goal_east_max_deviation_m": 0.007462024688720703,
+      "initial_heading_ned_rad": 0.0,
+      "current_nwu_mps": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wind_ned_mps": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "opposite_yaw_rate_signs": true
+  },
+  "sign_checks_pass": true
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-task-6-primary-comparison-protocol",
+  "status": "DISTURBED_PRIMARY_SELECTED",
+  "decision": "Use matched seeded wind and current for the primary bcod-sim versus VRX comparison.",
+  "basis": {
+    "randomization_parity_artifact": "artifacts/rl-campaign/vrx-reset-randomization-parity.json",
+    "seeds_checked": [30000, 30001, 30002, 30003, 30004],
+    "all_scalar_draws_match": true,
+    "maximum_absolute_scalar_difference": 5.684341886080802e-14,
+    "draws_compared": ["current_speed_m_s", "current_direction_deg", "wind_speed_m_s", "wind_direction_deg"],
+    "distribution": "The same Mulberry32 stream, draw order, and uniform contract reset_randomization ranges are used by bcod-sim and VRX.",
+    "live_application": "Gate B verified exact requested/applied vectors and a nonzero running-plant response."
+  },
+  "vrx_primary_comparison": {
+    "disturbance_mode": "seeded",
+    "wind": "matched per seed",
+    "current": "matched per seed",
+    "waves": "gain 0 because the frozen common task defines no seeded wave distribution"
+  },
+  "separate_scopes": {
+    "standalone_gazebo": "Remains a still-water primary comparison under artifacts/rl-campaign/gazebo-still-water-protocol.json; Gazebo's missing disturbance mechanism is not generalized to VRX.",
+    "bcod_sim_robustness": "Retain the previously planned bcod-sim disturbed-versus-calm robustness comparison as a separate analysis; do not pool it with the matched bcod-sim/VRX primary comparison."
+  },
+  "figure_caption_requirement": "Label the VRX comparison as matched seeded wind/current with flat waves, and label standalone Gazebo separately as still-water."
+}
