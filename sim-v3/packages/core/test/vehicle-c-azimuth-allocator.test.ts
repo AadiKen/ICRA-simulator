@@ -33,4 +33,7 @@ for(let step=1;step<40;step++)production.commandWrench({desiredWrench:trackingWr
 assert.ok(Math.abs(production.effectors[0].thrust-targets[0])<.25&&Math.abs(production.effectors[1].thrust-targets[1])<.25,"requested split must settle through the 0.35 s thrust lag");
 assert.equal(production.effectors[0].steer.rateMax,30*Math.PI/180);assert.equal(production.effectors[1].steer.rateMax,30*Math.PI/180);
 
+const wider=buildVehicleCProductionConfiguration({podLateralOffsetM:.99}).parameters.effectors!;
+assert.deepEqual(wider.map(item=>item.pos),[[-1.5,-.99,-.18],[-1.5,.99,-.18]],"candidate spacing must change only the signed lateral offset");
+
 console.log("Vehicle C minimum-norm directional allocation tests passed.");

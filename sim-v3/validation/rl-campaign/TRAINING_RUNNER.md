@@ -5,7 +5,26 @@ Gazebo Harmonic, HoloOcean, and Stonefish. It uses the same frozen RecurrentPPO
 configuration for all three. The requested budget is always supplied with
 `--timesteps`.
 
-From `sim-v3`, run:
+On CodeNimbus, commands can be launched from the checkout root
+(`~/ICRA-simulator`). No `cd sim-v3` or npm lookup is needed:
+
+```bash
+./train-portable.sh --backend bcod-sim --timesteps 300000 \
+  --eval-episodes 50 --device cuda
+```
+
+To submit the same run to Slurm (one A30, 32 CPUs, 24 hours):
+
+```bash
+./submit-portable-training.sh bcod-sim 300000 \
+  --eval-episodes 50 --device cuda --n-envs 32
+```
+
+Set `SLURM_ACCOUNT` before submission if the cluster requires an explicit
+allocation account. Set `BCOD_PYTHON` if the training environment is not at
+`sim-v3/.venv/bin/python`.
+
+Alternatively, from `sim-v3`, run:
 
 ```bash
 # bcod-sim

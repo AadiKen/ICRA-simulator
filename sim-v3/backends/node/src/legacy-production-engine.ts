@@ -39,8 +39,8 @@ export class LegacyProductionEngine implements SimulationEngine {
   #typedOutputs: Record<string, unknown> = {};
   #typedPowerW = new Map<string, number>();
   readonly #sensorFactories: Readonly<Record<string, () => SensorPlugin>>;
-  readonly #vehicleCOptions: { angleContinuityWeight?: number };
-  constructor(sensorFactories: Readonly<Record<string, () => SensorPlugin>> = Object.fromEntries(Object.entries(BUILT_IN_SENSOR_REGISTRY).map(([id, registration]) => [id, registration.create])), options: { vehicleC?: { angleContinuityWeight?: number } } = {}) {
+  readonly #vehicleCOptions: { angleContinuityWeight?: number; podLateralOffsetM?: number };
+  constructor(sensorFactories: Readonly<Record<string, () => SensorPlugin>> = Object.fromEntries(Object.entries(BUILT_IN_SENSOR_REGISTRY).map(([id, registration]) => [id, registration.create])), options: { vehicleC?: { angleContinuityWeight?: number; podLateralOffsetM?: number } } = {}) {
     this.#sensorFactories = sensorFactories;
     this.#vehicleCOptions = options.vehicleC ?? {};
   }

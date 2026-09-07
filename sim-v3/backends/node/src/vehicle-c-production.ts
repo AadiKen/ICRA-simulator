@@ -5,7 +5,7 @@ import { VEHICLES } from "../../../packages/vehicle-sdk/src/index.ts";
 const symmetrize = (matrix: number[][]) => matrix.map((row, i) => row.map((value, j) => (value + matrix[j][i]) / 2));
 export const VEHICLE_C_MAX_FORWARD_THRUST_N = 1000;
 export const VEHICLE_C_MAX_REVERSE_THRUST_N = 500;
-export function buildVehicleCProductionConfiguration(options: { angleContinuityWeight?: number } = {}) {
+export function buildVehicleCProductionConfiguration(options: { angleContinuityWeight?: number; podLateralOffsetM?: number } = {}) {
   const definition = VEHICLES["vehicle-c-azimuth"],
     hydrodynamics = JSON.parse(readFileSync(new URL("../../../artifacts/capytaine/vehicle-c-parametric-resolved.json", import.meta.url), "utf8")),
     runtime = hydrodynamics.runtime_parameters;
@@ -47,7 +47,7 @@ export function buildVehicleCProductionConfiguration(options: { angleContinuityW
     effectors: definition.effectors.map((item) => ({
       id: item.id,
       type: "AzimuthThruster",
-      pos: item.position_m,
+      pos: options.podLateralOffsetM===undefined?item.position_m:[item.position_m[0],Math.sign(item.position_m[1])*options.podLateralOffsetM,item.position_m[2]],
       axis: [1, 0, 0],
       behaviorVersion: "integrated-v1",
       maxForwardThrust: VEHICLE_C_MAX_FORWARD_THRUST_N,
