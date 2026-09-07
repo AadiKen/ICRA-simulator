@@ -96,6 +96,20 @@ class Runtime(DockerVrxRuntime):
     def dexec(self, *args, **kwargs):
         return self.run(list(args), **kwargs)
 
+    def _wait_service(self):
+        # Sixteen simultaneous native servers can legitimately take longer
+        # than the local single-container 30 s discovery allowance.
+        deadline = time.monotonic() + 180
+        while time.monotonic() < deadline:
+            out = self.dexec("gz", "service", "-l", check=False, timeout=5)
+            if self.world + "/control" in out.stdout:
+                return
+            if self.gz_server is not None and self.gz_server.poll() is not None:
+                error = self.gz_server.stderr.read() if self.gz_server.stderr else ""
+                raise RuntimeError(f"Gazebo server exited during discovery: {error[-2000:]}")
+            time.sleep(.1)
+        raise TimeoutError("Gazebo world control service did not appear within 180 s")
+
     def _stop(self):
         for topic in self.topics.values():
             topic.close()

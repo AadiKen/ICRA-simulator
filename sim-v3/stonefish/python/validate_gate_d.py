@@ -108,7 +108,9 @@ def rollout(args, contract: Path, seed: int, policy: str,
             if policy == "LOS-PID-v2":
                 action = controller.action(env, observation)
             elif policy == "reverse-retreat":
-                action = np.asarray([-1.0, -1.0, 0.0, 0.0])
+                # Moderate reverse remains a deliberate retreat but avoids
+                # turning the exploit probe into an unrelated capsize test.
+                action = np.asarray([-0.25, -0.25, 0.0, 0.0])
             else:
                 raise ValueError(policy)
             observation, reward, terminated, truncated, info = env.step(action)
@@ -143,8 +145,10 @@ def main() -> None:
     args = parser.parse_args()
     corrected = [rollout(args, args.contract, seed, "LOS-PID-v2") for seed in SEEDS]
     retreat = rollout(args, args.contract, SEEDS[0], "reverse-retreat")
-    no_integral = rollout(args, args.contract, SEEDS[0], "LOS-PID-v2", use_integral=False)
-    no_schedule = rollout(args, args.contract, SEEDS[0], "LOS-PID-v2", use_schedule=False)
+    no_integral = [rollout(args, args.contract, seed, "LOS-PID-v2", use_integral=False)
+                   for seed in SEEDS]
+    no_schedule = [rollout(args, args.contract, seed, "LOS-PID-v2", use_schedule=False)
+                   for seed in SEEDS]
     approach = corrected[0]
     exploit_safe = (
         approach["net_final_goal_progress_m"] > 0
@@ -184,7 +188,21 @@ def main() -> None:
         },
         "corrected_controller_results": corrected,
         "correction_ablations_seed_7319": {
-            "no_pi_integral": no_integral, "no_turn_speed_schedule": no_schedule,
+            "no_pi_integral": no_integral[0], "no_turn_speed_schedule": no_schedule[0],
+        },
+        "correction_ablation_summaries": {
+            "no_pi_integral": {
+                "episodes": len(no_integral),
+                "successes": sum(row["success"] for row in no_integral),
+                "median_control_steps": statistics.median(row["control_steps"] for row in no_integral),
+                "median_mean_surge_speed_mps": statistics.median(row["mean_surge_speed_mps"] for row in no_integral),
+            },
+            "no_turn_speed_schedule": {
+                "episodes": len(no_schedule),
+                "successes": sum(row["success"] for row in no_schedule),
+                "median_control_steps": statistics.median(row["control_steps"] for row in no_schedule),
+                "median_mean_surge_speed_mps": statistics.median(row["mean_surge_speed_mps"] for row in no_schedule),
+            },
         },
         "summary": {
             "episodes": len(corrected), "successes": successes,

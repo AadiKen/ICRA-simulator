@@ -1,9 +1,9 @@
 import assert from "node:assert/strict";
 import {allocatePlanarAzimuthMinimumNorm} from "../src/azimuth-allocation.js";
 import {ActuationModel} from "../src/actuators.js";
-import {buildVehicleCProductionConfiguration} from "../../../backends/node/src/vehicle-c-production.ts";
+import {buildVehicleCProductionConfiguration,VEHICLE_C_MAX_FORWARD_THRUST_N,VEHICLE_C_MAX_REVERSE_THRUST_N} from "../../../backends/node/src/vehicle-c-production.ts";
 
-const placements=[{id:"azimuth-port",pos:[-1.5,-.81,-.18],maxThrust:500},{id:"azimuth-starboard",pos:[-1.5,.81,-.18],maxThrust:500}];
+const placements=[{id:"azimuth-port",pos:[-1.5,-.81,-.18],maxThrust:VEHICLE_C_MAX_FORWARD_THRUST_N},{id:"azimuth-starboard",pos:[-1.5,.81,-.18],maxThrust:VEHICLE_C_MAX_FORWARD_THRUST_N}];
 const close=(actual:number,expected:number,label:string)=>assert.ok(Math.abs(actual-expected)<1e-9,`${label}: ${actual} != ${expected}`);
 const check=(wrench:[number,number,number])=>{const result=allocatePlanarAzimuthMinimumNorm(wrench,placements);result.achieved_wrench.forEach((value,index)=>close(value,wrench[index],`wrench[${index}]`));return result};
 
@@ -11,7 +11,7 @@ const forward=check([200,0,0]);close(forward.pods[0].thrust,100,"forward port");
 
 const rotation=check([0,0,81]);close(rotation.pods[0].thrust,50,"rotation port");close(rotation.pods[1].thrust,50,"rotation starboard");close(rotation.pods[0].azimuth,0,"rotation port azimuth");close(Math.abs(rotation.pods[1].azimuth),Math.PI,"rotation starboard azimuth");
 
-const continuousRotation=allocatePlanarAzimuthMinimumNorm([0,0,81],placements.map(x=>({...x,maxReverseThrust:250})),{angleContinuityWeight:1,currentAzimuths:[0,0]});
+const continuousRotation=allocatePlanarAzimuthMinimumNorm([0,0,81],placements.map(x=>({...x,maxReverseThrust:VEHICLE_C_MAX_REVERSE_THRUST_N})),{angleContinuityWeight:1,currentAzimuths:[0,0]});
 close(continuousRotation.pods[1].azimuth,0,"continuity avoids starboard half-turn");close(continuousRotation.pods[1].thrust,-50,"continuity uses equivalent reverse thrust");continuousRotation.achieved_wrench.forEach((value,index)=>close(value,[0,0,81][index],`continuous wrench[${index}]`));
 
 const sway=check([0,100,0]);

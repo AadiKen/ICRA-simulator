@@ -1,5 +1,10 @@
 # Stonefish Gate C — dynamics, determinism, and terminations
 
+> Gate D supersession note: action-parity work later moved the propeller center
+> from NED `z=0.30 m` to `z=0.40 m` to prevent fluid-boundary thrust dropout.
+> The Gate D 120 s full-command diagnosis supersedes Gate C's full-command tail;
+> termination, determinism, and task-envelope conclusions remain unchanged.
+
 Date: 2026-09-07  
 Host: `codenimbus` (32 physical cores visible)  
 Stonefish integration step: 0.002 s; contract control interval: 0.1 s

@@ -91,7 +91,10 @@ void VehicleAManager::BuildScenario() {
     auto* vehicle = new sf::FeatherstoneRobot("VehicleA");
     vehicle->DefineLinks(hull);
     vehicle->BuildKinematicStructure();
-    constexpr sf::Scalar propeller_z = 0.30;
+    // Keep the 0.18 m propeller fully submerged through the startup heave and
+    // roll transient. At 0.30 m Stonefish's native fluid-boundary gate
+    // intermittently zeroed otherwise valid thrust commands.
+    constexpr sf::Scalar propeller_z = 0.40;
     vehicle->AddLinkActuator(
         port_, "VehicleAHull",
         sf::Transform(sf::IQ(), sf::Vector3(-0.8, -kThrusterOffset,

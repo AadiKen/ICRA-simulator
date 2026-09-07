@@ -4,7 +4,8 @@ export type LosGains={lookahead:number;kp:number;kd:number;speed:number};
 export type WrenchLimits={surge_n:number;yaw_nm:number};
 export const VEHICLE_WRENCH_LIMITS={
   "vehicle-a-otter":{surge_n:150,yaw_nm:100},
-  "vehicle-c-azimuth":{surge_n:1000,yaw_nm:810}
+  // Vehicle C thrust-increase task: 2 * 1000 N and 2 * 1000 N * 0.81 m.
+  "vehicle-c-azimuth":{surge_n:2000,yaw_nm:1620}
 } as const satisfies Record<string,WrenchLimits>;
 export const FROZEN_GAINS:Record<ControllerName,{lookahead:number;kp:number;kd:number;speed:number}>={
   "LOS-PID-v2":{lookahead:8,kp:100,kd:35,speed:1},

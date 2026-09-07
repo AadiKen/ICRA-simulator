@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "stonefish-gate-d-throughput",
+  "status": "COMPLETE_NO_TRAINING",
+  "runtime": {
+    "hostname": "codenimbus-000-3.csl.illinois.edu",
+    "cpu_visible": 32,
+    "gpu": "unavailable during CPU benchmark: Command '['nvidia-smi', '--query-gpu=name', '--format=csv,noheader']' returned non-zero exit status 9.",
+    "bridge": "Stonefish 1.6.0 console, one process per instance"
+  },
+  "method": {
+    "aggregate_control_steps_per_configuration": 4096,
+    "internal_steps_per_control_step": 50,
+    "action": [
+      0.35,
+      0.35
+    ],
+    "training": false,
+    "instance_physics_threads": 1,
+    "budget_note": "Equal timesteps remain fixed; throughput changes wall-clock cost only."
+  },
+  "results": [
+    {
+      "parallel_instances": 1,
+      "aggregate_control_steps": 4096,
+      "aggregate_internal_physics_steps": 204800,
+      "steady_state_wall_s": 8.346669520717114,
+      "control_steps_per_s": 490.7346564798563,
+      "internal_physics_steps_per_s": 24536.732823992817,
+      "end_to_end_wall_s_including_startup": 12.285412746947259,
+      "startup_s_range": [
+        3.87023858493194,
+        3.87023858493194
+      ]
+    },
+    {
+      "parallel_instances": 2,
+      "aggregate_control_steps": 4096,
+      "aggregate_internal_physics_steps": 204800,
+      "steady_state_wall_s": 4.161287246737629,
+      "control_steps_per_s": 984.3108050786898,
+      "internal_physics_steps_per_s": 49215.54025393449,
+      "end_to_end_wall_s_including_startup": 8.106002700980753,
+      "startup_s_range": [
+        3.871538097038865,
+        3.873463029973209
+      ]
+    },
+    {
+      "parallel_instances": 4,
+      "aggregate_control_steps": 4096,
+      "aggregate_internal_physics_steps": 204800,
+      "steady_state_wall_s": 2.0852904450148344,
+      "control_steps_per_s": 1964.2347711284226,
+      "internal_physics_steps_per_s": 98211.73855642113,
+      "end_to_end_wall_s_including_startup": 6.040953336283565,
+      "startup_s_range": [
+        3.8805766799487174,
+        3.884639499243349
+      ]
+    },
+    {
+      "parallel_instances": 8,
+      "aggregate_control_steps": 4096,
+      "aggregate_internal_physics_steps": 204800,
+      "steady_state_wall_s": 1.0496820169501007,
+      "control_steps_per_s": 3902.1341071471493,
+      "internal_physics_steps_per_s": 195106.70535735748,
+      "end_to_end_wall_s_including_startup": 5.021400079131126,
+      "startup_s_range": [
+        3.885816338006407,
+        3.8997931010089815
+      ]
+    },
+    {
+      "parallel_instances": 16,
+      "aggregate_control_steps": 4096,
+      "aggregate_internal_physics_steps": 204800,
+      "steady_state_wall_s": 0.531643770635128,
+      "control_steps_per_s": 7704.407022594688,
+      "internal_physics_steps_per_s": 385220.3511297344,
+      "end_to_end_wall_s_including_startup": 4.55588745418936,
+      "startup_s_range": [
+        3.9098421279340982,
+        3.9431605800054967
+      ]
+    },
+    {
+      "parallel_instances": 32,
+      "aggregate_control_steps": 4096,
+      "aggregate_internal_physics_steps": 204800,
+      "steady_state_wall_s": 0.2852059402503073,
+      "control_steps_per_s": 14361.552204716347,
+      "internal_physics_steps_per_s": 718077.6102358174,
+      "end_to_end_wall_s_including_startup": 4.4202137789689,
+      "startup_s_range": [
+        3.95799497468397,
+        4.031255275011063
+      ]
+    },
+    {
+      "parallel_instances": 64,
+      "aggregate_control_steps": 4096,
+      "aggregate_internal_physics_steps": 204800,
+      "steady_state_wall_s": 0.3331826007924974,
+      "control_steps_per_s": 12293.559118205412,
+      "internal_physics_steps_per_s": 614677.9559102706,
+      "end_to_end_wall_s_including_startup": 8.988529342226684,
+      "startup_s_range": [
+        5.931831981986761,
+        8.399901502300054
+      ]
+    }
+  ],
+  "peak": {
+    "parallel_instances": 32,
+    "aggregate_control_steps": 4096,
+    "aggregate_internal_physics_steps": 204800,
+    "steady_state_wall_s": 0.2852059402503073,
+    "control_steps_per_s": 14361.552204716347,
+    "internal_physics_steps_per_s": 718077.6102358174,
+    "end_to_end_wall_s_including_startup": 4.4202137789689,
+    "startup_s_range": [
+      3.95799497468397,
+      4.031255275011063
+    ]
+  },
+  "regressions_after_peak": [
+    {
+      "parallel_instances": 64,
+      "aggregate_control_steps": 4096,
+      "aggregate_internal_physics_steps": 204800,
+      "steady_state_wall_s": 0.3331826007924974,
+      "control_steps_per_s": 12293.559118205412,
+      "internal_physics_steps_per_s": 614677.9559102706,
+      "end_to_end_wall_s_including_startup": 8.988529342226684,
+      "startup_s_range": [
+        5.931831981986761,
+        8.399901502300054
+      ]
+    }
+  ]
+}

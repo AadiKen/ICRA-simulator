@@ -25,9 +25,11 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "packages/python-client"))
+sys.path.insert(0, str(ROOT / "stonefish/python"))
 
 from bcod_sim import (CommonWaypointEnv, GazeboGymEnv, HoloOceanVehicleAEnv,
                       VrxGymEnv)  # noqa: E402
+from stonefish_gym_env import StonefishGymEnv  # noqa: E402
 
 V7_OUT = ROOT / "artifacts/rl-campaign/surveyor/p3-v7-recurrent-local"
 EPISODE_COLUMNS = ("run_id", "seed", "simulator", "vehicle", "task_id",
@@ -66,7 +68,7 @@ def algorithm_config(backend: str) -> dict:
     The entropy coefficient is read from the preregistered bcod-sim protocol,
     rather than being copied into this training entry point.
     """
-    if backend not in ("bcod-sim", "vrx", "gazebo-harmonic", "holoocean"):
+    if backend not in ("bcod-sim", "vrx", "gazebo-harmonic", "holoocean", "stonefish"):
         raise ValueError(f"unsupported backend: {backend}")
     protocol = json.loads(BCOD_PROTOCOL_ARTIFACT.read_text())
     factors = protocol.get("frozen_run_factors", {})
@@ -158,6 +160,27 @@ def make_env(args):
             fixed_reset_seed=args.fixed_reset_seed,
             wind_mode=args.holoocean_wind_mode,
         )
+    if args.backend == "stonefish":
+        required = {
+            "--stonefish-executable": args.stonefish_executable,
+            "--stonefish-data-dir": args.stonefish_data_dir,
+            "--stonefish-lib": args.stonefish_lib,
+            "--stonefish-deps-lib": args.stonefish_deps_lib,
+        }
+        missing = [name for name, value in required.items() if value is None]
+        if missing:
+            raise SystemExit(f"Stonefish requires: {', '.join(missing)}")
+        gate = json.loads((ROOT / "stonefish/gate_d_validation.json").read_text())
+        if gate.get("status") != "PASS_READY_FOR_TRAINING_REVIEW":
+            raise RuntimeError("Stonefish Gate D has not passed; PPO training is blocked")
+        return StonefishGymEnv(
+            ROOT, executable=args.stonefish_executable,
+            data_dir=args.stonefish_data_dir,
+            library_dirs=(args.stonefish_lib, args.stonefish_deps_lib),
+            physics_threads=args.stonefish_physics_threads,
+            sensor_noise=args.stonefish_sensor_noise,
+            base_seed=args.base_seed, fixed_reset_seed=args.fixed_reset_seed,
+        )
     if args.backend == "gazebo-harmonic" and not args.runtime_command:
         runtime = [sys.executable, str(
             ROOT / "validation/rl-campaign/ports/gazebo_gym_runtime.py")]
@@ -168,6 +191,17 @@ def make_env(args):
     runtime = shlex.split(args.runtime_command)
     cls = VrxGymEnv if args.backend == "vrx" else GazeboGymEnv
     return cls(ROOT, runtime, allow_unconformant_diagnostic=args.diagnostic_only, **common)
+
+
+def training_env_factory(args, rank: int, run_dir: Path):
+    """Build one isolated monitored environment for a vector training run."""
+    def factory():
+        from stable_baselines3.common.monitor import Monitor
+        ranked = argparse.Namespace(**vars(args))
+        ranked.base_seed = args.base_seed + rank * 1_000_000
+        return Monitor(make_env(ranked), filename=str(
+            run_dir / "metrics" / f"episodes-env-{rank}"))
+    return factory
 
 
 def default_output(backend: str) -> Path:
@@ -303,7 +337,7 @@ def run_v7_protocol():
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--backend", choices=("bcod-sim", "vrx", "gazebo-harmonic", "holoocean"), required=True)
+    parser.add_argument("--backend", choices=("bcod-sim", "vrx", "gazebo-harmonic", "holoocean", "stonefish"), required=True)
     parser.add_argument("--runtime-command", help="Persistent normalized JSONL runtime command")
     parser.add_argument("--base-seed", type=int, default=0)
     parser.add_argument("--fixed-reset-seed", type=int)
@@ -315,9 +349,17 @@ def main():
     parser.add_argument("--output", type=Path,
                         help="Run directory (default: timestamped artifacts/rl-campaign/training-runs directory)")
     parser.add_argument("--device", default="auto", help="Torch device: auto, cpu, cuda, or cuda:N")
+    parser.add_argument("--n-envs", type=int, default=1,
+                        help="Parallel isolated simulator environments")
     parser.add_argument("--checkpoint-freq", type=int, default=250_000,
                         help="Checkpoint interval in training timesteps")
     parser.add_argument("--holoocean-wind-mode", choices=("off", "surge_equivalent"), default="off")
+    parser.add_argument("--stonefish-executable", type=Path)
+    parser.add_argument("--stonefish-data-dir", type=Path)
+    parser.add_argument("--stonefish-lib", type=Path)
+    parser.add_argument("--stonefish-deps-lib", type=Path)
+    parser.add_argument("--stonefish-physics-threads", type=int, default=1)
+    parser.add_argument("--stonefish-sensor-noise", action="store_true")
     parser.add_argument("--eval-first-seed", type=int, default=10000)
     parser.add_argument("--eval-episodes", type=int, default=0)
     parser.add_argument("--run-v7-protocol", action="store_true")
@@ -326,6 +368,20 @@ def main():
         parser.error("timestep and episode counts must be non-negative")
     if args.checkpoint_freq <= 0:
         parser.error("--checkpoint-freq must be positive")
+    if args.n_envs <= 0:
+        parser.error("--n-envs must be positive")
+    if args.stonefish_physics_threads <= 0:
+        parser.error("--stonefish-physics-threads must be positive")
+    if args.backend == "stonefish":
+        required = {
+            "--stonefish-executable": args.stonefish_executable,
+            "--stonefish-data-dir": args.stonefish_data_dir,
+            "--stonefish-lib": args.stonefish_lib,
+            "--stonefish-deps-lib": args.stonefish_deps_lib,
+        }
+        missing = [name for name, value in required.items() if value is None]
+        if missing:
+            parser.error(f"Stonefish requires: {', '.join(missing)}")
     if args.run_v7_protocol:
         if args.backend != "bcod-sim":
             raise SystemExit("The approved v7 protocol currently applies only to bcod-sim")
@@ -344,6 +400,7 @@ def main():
             "created_at": datetime.now(timezone.utc).isoformat(),
             "backend": args.backend, "requested_timesteps": args.timesteps,
             "seed": args.base_seed, "device": args.device,
+            "parallel_environments": args.n_envs,
             "action_fairness_condition": "topology-native normalized actuators",
             "checkpoint_frequency_timesteps": args.checkpoint_freq,
             "evaluation": {"episodes": args.eval_episodes,
@@ -364,9 +421,16 @@ def main():
             from sb3_contrib import RecurrentPPO
             from stable_baselines3.common.callbacks import CheckpointCallback
             from stable_baselines3.common.logger import configure
-            from stable_baselines3.common.monitor import Monitor
+            from stable_baselines3.common.vec_env import SubprocVecEnv
             env.close()
-            env = Monitor(make_env(args), filename=str(run_dir / "metrics" / "episodes"))
+            if args.n_envs == 1:
+                env = training_env_factory(args, 0, run_dir)()
+            else:
+                env = SubprocVecEnv(
+                    [training_env_factory(args, rank, run_dir)
+                     for rank in range(args.n_envs)],
+                    start_method="fork",
+                )
             policy, kwargs = recurrent_ppo_kwargs(args.backend)
             # A user-selected training seed is a run factor, not an algorithm
             # difference between simulators.
@@ -374,7 +438,8 @@ def main():
             model = RecurrentPPO(policy, env, **kwargs, verbose=1, device=args.device)
             model.set_logger(configure(str(run_dir / "metrics"), ["stdout", "csv", "json"]))
             callback = CheckpointCallback(
-                save_freq=args.checkpoint_freq, save_path=str(run_dir / "checkpoints"),
+                save_freq=max(1, args.checkpoint_freq // args.n_envs),
+                save_path=str(run_dir / "checkpoints"),
                 name_prefix=f"{args.backend}-recurrent-ppo",
             )
             started = time.time()
@@ -401,7 +466,7 @@ def main():
                 "wall_clock_s": time.time() - started,
                 "model": "model-final.zip",
                 "training_metrics": {"csv": "metrics/progress.csv", "json": "metrics/progress.json",
-                                     "episodes_csv": "metrics/episodes.monitor.csv"},
+                                     "episodes_csv_glob": "metrics/episodes-env-*.monitor.csv"},
                 "evaluation_summary": None if evaluation is None else {
                     key: value for key, value in evaluation.items() if key != "rows"
                 },

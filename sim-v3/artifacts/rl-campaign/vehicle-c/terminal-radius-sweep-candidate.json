@@ -137,12 +137,12 @@
     {
       "radius_m": 4,
       "rates": {
-        "untrained": 0.005,
+        "untrained": 0,
         "los_pid": 0.08,
         "los_speedcap": 0.075,
         "best_classical": 0.08
       },
-      "separation_ratio": 0.9375,
+      "separation_ratio": 1,
       "checks": {
         "best_classical_in_40_70": false,
         "defensibility_ceiling": "PASS",
@@ -154,12 +154,12 @@
     {
       "radius_m": 5,
       "rates": {
-        "untrained": 0.005,
+        "untrained": 0,
         "los_pid": 0.11,
         "los_speedcap": 0.09,
         "best_classical": 0.11
       },
-      "separation_ratio": 0.9545454545454545,
+      "separation_ratio": 1,
       "checks": {
         "best_classical_in_40_70": false,
         "defensibility_ceiling": "PASS",
@@ -171,12 +171,12 @@
     {
       "radius_m": 6,
       "rates": {
-        "untrained": 0.015,
+        "untrained": 0.005,
         "los_pid": 0.13,
         "los_speedcap": 0.095,
         "best_classical": 0.13
       },
-      "separation_ratio": 0.8846153846153846,
+      "separation_ratio": 0.9615384615384615,
       "checks": {
         "best_classical_in_40_70": false,
         "defensibility_ceiling": "PASS",
@@ -188,12 +188,12 @@
     {
       "radius_m": 7,
       "rates": {
-        "untrained": 0.015,
+        "untrained": 0.01,
         "los_pid": 0.135,
         "los_speedcap": 0.11,
         "best_classical": 0.135
       },
-      "separation_ratio": 0.888888888888889,
+      "separation_ratio": 0.9259259259259258,
       "checks": {
         "best_classical_in_40_70": false,
         "defensibility_ceiling": "PASS",
@@ -205,12 +205,12 @@
     {
       "radius_m": 8,
       "rates": {
-        "untrained": 0.02,
+        "untrained": 0.015,
         "los_pid": 0.145,
         "los_speedcap": 0.135,
         "best_classical": 0.145
       },
-      "separation_ratio": 0.8620689655172413,
+      "separation_ratio": 0.8965517241379312,
       "checks": {
         "best_classical_in_40_70": false,
         "defensibility_ceiling": "PASS",
@@ -222,12 +222,12 @@
     {
       "radius_m": 9,
       "rates": {
-        "untrained": 0.025,
+        "untrained": 0.02,
         "los_pid": 0.145,
         "los_speedcap": 0.17,
         "best_classical": 0.17
       },
-      "separation_ratio": 0.8529411764705883,
+      "separation_ratio": 0.8823529411764707,
       "checks": {
         "best_classical_in_40_70": false,
         "defensibility_ceiling": "PASS",
@@ -239,12 +239,12 @@
     {
       "radius_m": 10,
       "rates": {
-        "untrained": 0.025,
+        "untrained": 0.02,
         "los_pid": 0.165,
         "los_speedcap": 0.185,
         "best_classical": 0.185
       },
-      "separation_ratio": 0.8648648648648649,
+      "separation_ratio": 0.891891891891892,
       "checks": {
         "best_classical_in_40_70": false,
         "defensibility_ceiling": "PASS",
@@ -256,12 +256,12 @@
     {
       "radius_m": 12,
       "rates": {
-        "untrained": 0.025,
+        "untrained": 0.04,
         "los_pid": 0.21,
         "los_speedcap": 0.195,
         "best_classical": 0.21
       },
-      "separation_ratio": 0.8809523809523809,
+      "separation_ratio": 0.8095238095238095,
       "checks": {
         "best_classical_in_40_70": false,
         "defensibility_ceiling": "PASS",
@@ -273,12 +273,12 @@
     {
       "radius_m": 15,
       "rates": {
-        "untrained": 0.04,
+        "untrained": 0.055,
         "los_pid": 0.235,
         "los_speedcap": 0.225,
         "best_classical": 0.235
       },
-      "separation_ratio": 0.8297872340425532,
+      "separation_ratio": 0.7659574468085106,
       "checks": {
         "best_classical_in_40_70": false,
         "defensibility_ceiling": "PASS",
@@ -290,12 +290,12 @@
     {
       "radius_m": 17.5,
       "rates": {
-        "untrained": 0.045,
+        "untrained": 0.06,
         "los_pid": 0.26,
         "los_speedcap": 0.25,
         "best_classical": 0.26
       },
-      "separation_ratio": 0.826923076923077,
+      "separation_ratio": 0.7692307692307693,
       "checks": {
         "best_classical_in_40_70": false,
         "defensibility_ceiling": "PASS",
@@ -319,7 +319,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30100,
-      "closest_final_m": 8.710565129679114,
+      "closest_final_m": 10.881971852821094,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -328,8 +328,8 @@
         "6": false,
         "7": false,
         "8": false,
-        "9": true,
-        "10": true,
+        "9": false,
+        "10": false,
         "12": true,
         "15": true,
         "1.75": false,
@@ -343,12 +343,12 @@
         "6": null,
         "7": null,
         "8": null,
-        "9": 101.10000000000001,
-        "10": 99.5,
-        "12": 97.25,
-        "15": 94.45,
+        "9": null,
+        "10": null,
+        "12": 74.3,
+        "15": 71.3,
         "1.75": null,
-        "17.5": 92.85000000000001
+        "17.5": 69.35000000000001
       }
     },
     {
@@ -599,7 +599,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30108,
-      "closest_final_m": 27.646256503772253,
+      "closest_final_m": 25.50219704210942,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -2419,7 +2419,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30120,
-      "closest_final_m": 32.849292981539215,
+      "closest_final_m": null,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -2489,14 +2489,14 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30122,
-      "closest_final_m": 3.644192466800666,
+      "closest_final_m": 7.473150279564141,
       "terminal_hits": {
         "2": false,
         "3": false,
-        "4": true,
-        "5": true,
-        "6": true,
-        "7": true,
+        "4": false,
+        "5": false,
+        "6": false,
+        "7": false,
         "8": true,
         "9": true,
         "10": true,
@@ -2508,17 +2508,17 @@
       "terminal_hit_times_s": {
         "2": null,
         "3": null,
-        "4": 43.1,
-        "5": 42.150000000000006,
-        "6": 41.45,
-        "7": 40.800000000000004,
-        "8": 40.2,
-        "9": 39.550000000000004,
-        "10": 38.85,
-        "12": 38.2,
-        "15": 38.2,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": null,
+        "8": 37.7,
+        "9": 36.6,
+        "10": 35.85,
+        "12": 34.65,
+        "15": 33.2,
         "1.75": null,
-        "17.5": 38.2
+        "17.5": 32.800000000000004
       }
     },
     {
@@ -2699,7 +2699,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30128,
-      "closest_final_m": null,
+      "closest_final_m": 29.14525208109615,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -2909,7 +2909,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30134,
-      "closest_final_m": 5.790952325154782,
+      "closest_final_m": 5.006160987927654,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -2930,15 +2930,15 @@
         "3": null,
         "4": null,
         "5": null,
-        "6": 69.25,
-        "7": 67.75,
-        "8": 66.7,
-        "9": 65.75,
-        "10": 64.85000000000001,
-        "12": 62.7,
-        "15": 59.7,
+        "6": 70.2,
+        "7": 69.15,
+        "8": 68.4,
+        "9": 67.5,
+        "10": 66.60000000000001,
+        "12": 65.05,
+        "15": 62.900000000000006,
         "1.75": null,
-        "17.5": 58.95
+        "17.5": 60.25
       }
     },
     {
@@ -3084,7 +3084,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30139,
-      "closest_final_m": null,
+      "closest_final_m": 33.21721101240009,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -6829,7 +6829,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30166,
-      "closest_final_m": 7.482891924534353,
+      "closest_final_m": 10.004123209945908,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -6837,9 +6837,9 @@
         "5": false,
         "6": false,
         "7": false,
-        "8": true,
-        "9": true,
-        "10": true,
+        "8": false,
+        "9": false,
+        "10": false,
         "12": true,
         "15": true,
         "1.75": false,
@@ -6852,13 +6852,13 @@
         "5": null,
         "6": null,
         "7": null,
-        "8": 97.5,
-        "9": 91.35000000000001,
-        "10": 89.15,
-        "12": 86.35000000000001,
-        "15": 82.35000000000001,
+        "8": null,
+        "9": null,
+        "10": null,
+        "12": 84.65,
+        "15": 80.60000000000001,
         "1.75": null,
-        "17.5": 73.05
+        "17.5": 69.4
       }
     },
     {
@@ -7109,7 +7109,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30174,
-      "closest_final_m": 13.360770988878832,
+      "closest_final_m": 13.375120458747377,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -7136,9 +7136,9 @@
         "9": null,
         "10": null,
         "12": null,
-        "15": 103.65,
+        "15": 107.15,
         "1.75": null,
-        "17.5": 101.75
+        "17.5": 104.7
       }
     },
     {
@@ -7249,7 +7249,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30178,
-      "closest_final_m": null,
+      "closest_final_m": 29.741726977912236,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -7284,7 +7284,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30179,
-      "closest_final_m": null,
+      "closest_final_m": 32.71885085128793,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -8964,7 +8964,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30187,
-      "closest_final_m": 27.262623440788836,
+      "closest_final_m": null,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -9244,7 +9244,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30195,
-      "closest_final_m": null,
+      "closest_final_m": 12.686023921791074,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -9256,9 +9256,9 @@
         "9": false,
         "10": false,
         "12": false,
-        "15": false,
+        "15": true,
         "1.75": false,
-        "17.5": false
+        "17.5": true
       },
       "terminal_hit_times_s": {
         "2": null,
@@ -9271,9 +9271,9 @@
         "9": null,
         "10": null,
         "12": null,
-        "15": null,
+        "15": 116.60000000000001,
         "1.75": null,
-        "17.5": null
+        "17.5": 106.4
       }
     },
     {
@@ -10959,7 +10959,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30204,
-      "closest_final_m": 18.237850203421807,
+      "closest_final_m": null,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -11064,7 +11064,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30207,
-      "closest_final_m": null,
+      "closest_final_m": 29.856373080654542,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -11204,7 +11204,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30211,
-      "closest_final_m": 12.548158619470648,
+      "closest_final_m": 10.765527532165367,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -11215,7 +11215,7 @@
         "8": false,
         "9": false,
         "10": false,
-        "12": false,
+        "12": true,
         "15": true,
         "1.75": false,
         "17.5": true
@@ -11230,10 +11230,10 @@
         "8": null,
         "9": null,
         "10": null,
-        "12": null,
-        "15": 110.9,
+        "12": 90.75,
+        "15": 86.85000000000001,
         "1.75": null,
-        "17.5": 107.30000000000001
+        "17.5": 84.15
       }
     },
     {
@@ -13024,7 +13024,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30223,
-      "closest_final_m": 28.903435920065505,
+      "closest_final_m": 30.337945559457154,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -13374,7 +13374,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30233,
-      "closest_final_m": 21.984870937579647,
+      "closest_final_m": 17.415548808774336,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -13388,7 +13388,7 @@
         "12": false,
         "15": false,
         "1.75": false,
-        "17.5": false
+        "17.5": true
       },
       "terminal_hit_times_s": {
         "2": null,
@@ -13403,13 +13403,13 @@
         "12": null,
         "15": null,
         "1.75": null,
-        "17.5": null
+        "17.5": 103.85000000000001
       }
     },
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30234,
-      "closest_final_m": null,
+      "closest_final_m": 25.532263868752203,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -15019,7 +15019,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30240,
-      "closest_final_m": 24.24678799660484,
+      "closest_final_m": 19.69891199368593,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -15194,7 +15194,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30245,
-      "closest_final_m": 23.19933959305646,
+      "closest_final_m": 34.210221772892375,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -15369,7 +15369,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30250,
-      "closest_final_m": 23.054001125165087,
+      "closest_final_m": 28.416267292737057,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -15439,7 +15439,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30252,
-      "closest_final_m": null,
+      "closest_final_m": 27.294914406507036,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -15474,7 +15474,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30253,
-      "closest_final_m": 27.303273905922744,
+      "closest_final_m": 20.08582329633149,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -15509,7 +15509,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30254,
-      "closest_final_m": 13.490268313653107,
+      "closest_final_m": 8.225754736033,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -15518,9 +15518,9 @@
         "6": false,
         "7": false,
         "8": false,
-        "9": false,
-        "10": false,
-        "12": false,
+        "9": true,
+        "10": true,
+        "12": true,
         "15": true,
         "1.75": false,
         "17.5": true
@@ -15533,12 +15533,12 @@
         "6": null,
         "7": null,
         "8": null,
-        "9": null,
-        "10": null,
-        "12": null,
-        "15": 114.65,
+        "9": 110.2,
+        "10": 108.45,
+        "12": 106.25,
+        "15": 103.35000000000001,
         "1.75": null,
-        "17.5": 112.2
+        "17.5": 100.9
       }
     },
     {
@@ -17154,7 +17154,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30261,
-      "closest_final_m": null,
+      "closest_final_m": 35.20099201341474,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -17189,7 +17189,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30262,
-      "closest_final_m": null,
+      "closest_final_m": 28.426598812734092,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -17399,7 +17399,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30268,
-      "closest_final_m": 37.31771431345564,
+      "closest_final_m": 28.434016149990665,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -17434,21 +17434,21 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30269,
-      "closest_final_m": 19.46007238505984,
+      "closest_final_m": 6.622589410776247,
       "terminal_hits": {
         "2": false,
         "3": false,
         "4": false,
         "5": false,
         "6": false,
-        "7": false,
-        "8": false,
-        "9": false,
-        "10": false,
-        "12": false,
-        "15": false,
+        "7": true,
+        "8": true,
+        "9": true,
+        "10": true,
+        "12": true,
+        "15": true,
         "1.75": false,
-        "17.5": false
+        "17.5": true
       },
       "terminal_hit_times_s": {
         "2": null,
@@ -17456,14 +17456,14 @@
         "4": null,
         "5": null,
         "6": null,
-        "7": null,
-        "8": null,
-        "9": null,
-        "10": null,
-        "12": null,
-        "15": null,
+        "7": 72.3,
+        "8": 70.75,
+        "9": 69.8,
+        "10": 69.05,
+        "12": 67.15,
+        "15": 63.900000000000006,
         "1.75": null,
-        "17.5": null
+        "17.5": 60.300000000000004
       }
     },
     {
@@ -17679,7 +17679,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30276,
-      "closest_final_m": null,
+      "closest_final_m": 25.789395864948354,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -17749,7 +17749,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30278,
-      "closest_final_m": 17.808040559189333,
+      "closest_final_m": 20.89948910640386,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -19324,7 +19324,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30283,
-      "closest_final_m": 15.838754920140653,
+      "closest_final_m": 14.093723821813024,
       "terminal_hits": {
         "2": false,
         "3": false,
@@ -19336,7 +19336,7 @@
         "9": false,
         "10": false,
         "12": false,
-        "15": false,
+        "15": true,
         "1.75": false,
         "17.5": true
       },
@@ -19351,9 +19351,9 @@
         "9": null,
         "10": null,
         "12": null,
-        "15": null,
+        "15": 52.75,
         "1.75": null,
-        "17.5": 50.7
+        "17.5": 49.650000000000006
       }
     },
     {
@@ -19429,17 +19429,17 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30286,
-      "closest_final_m": 5.608953717558178,
+      "closest_final_m": 10.75320195006851,
       "terminal_hits": {
         "2": false,
         "3": false,
         "4": false,
         "5": false,
-        "6": true,
-        "7": true,
-        "8": true,
-        "9": true,
-        "10": true,
+        "6": false,
+        "7": false,
+        "8": false,
+        "9": false,
+        "10": false,
         "12": true,
         "15": true,
         "1.75": false,
@@ -19450,15 +19450,15 @@
         "3": null,
         "4": null,
         "5": null,
-        "6": 56.2,
-        "7": 54.95,
-        "8": 54.050000000000004,
-        "9": 53.35,
-        "10": 52.7,
-        "12": 51.6,
-        "15": 49.2,
+        "6": null,
+        "7": null,
+        "8": null,
+        "9": null,
+        "10": null,
+        "12": 51.7,
+        "15": 51.7,
         "1.75": null,
-        "17.5": 47.550000000000004
+        "17.5": 51.7
       }
     },
     {
@@ -19744,7 +19744,7 @@
     {
       "policy": "frozen-untrained-policy-v1",
       "seed": 30295,
-      "closest_final_m": 37.3799586239122,
+      "closest_final_m": null,
       "terminal_hits": {
         "2": false,
         "3": false,

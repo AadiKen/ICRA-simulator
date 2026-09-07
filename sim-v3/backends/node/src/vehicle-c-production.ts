@@ -3,6 +3,8 @@ import { createHash } from "node:crypto";
 import { VehicleParameters } from "../../../core/vehicleParameters.js";
 import { VEHICLES } from "../../../packages/vehicle-sdk/src/index.ts";
 const symmetrize = (matrix: number[][]) => matrix.map((row, i) => row.map((value, j) => (value + matrix[j][i]) / 2));
+export const VEHICLE_C_MAX_FORWARD_THRUST_N = 1000;
+export const VEHICLE_C_MAX_REVERSE_THRUST_N = 500;
 export function buildVehicleCProductionConfiguration(options: { angleContinuityWeight?: number } = {}) {
   const definition = VEHICLES["vehicle-c-azimuth"],
     hydrodynamics = JSON.parse(readFileSync(new URL("../../../artifacts/capytaine/vehicle-c-parametric-resolved.json", import.meta.url), "utf8")),
@@ -31,7 +33,7 @@ export function buildVehicleCProductionConfiguration(options: { angleContinuityW
     },
     actuator: {
       behaviorVersion: "integrated-v1",
-      maxThrust: 500,
+      maxThrust: VEHICLE_C_MAX_FORWARD_THRUST_N,
       beam: definition.geometry.width.value,
       motorTimeConstant: 0.35,
     },
@@ -48,8 +50,8 @@ export function buildVehicleCProductionConfiguration(options: { angleContinuityW
       pos: item.position_m,
       axis: [1, 0, 0],
       behaviorVersion: "integrated-v1",
-      maxForwardThrust: 500,
-      maxReverseThrust: 250,
+      maxForwardThrust: VEHICLE_C_MAX_FORWARD_THRUST_N,
+      maxReverseThrust: VEHICLE_C_MAX_REVERSE_THRUST_N,
       dynamics: { tau: item.time_constant_s },
       azimuth: {
         initial: 0,

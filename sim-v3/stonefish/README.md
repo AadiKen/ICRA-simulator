@@ -44,6 +44,33 @@ python3 test_gate_c.py \
   --output ../gate_c_results.json
 ```
 
+Gate D uses NumPy because the required shared reward implementation uses it:
+
+```bash
+python3 -m venv "$HOME/stonefish-python-env"
+"$HOME/stonefish-python-env/bin/pip" install -r ../requirements.txt
+```
+
+Run throughput and pre-training validation from this `python` directory:
+
+```bash
+python3 benchmark_gate_d.py \
+  --executable "$HOME/stonefish-vehicle-a-build/stonefish_vehicle_a_bridge" \
+  --data-dir "$HOME/stonefish-src/Tests/Data" \
+  --stonefish-lib "$HOME/stonefish-install/lib" \
+  --deps-lib "$HOME/stonefish-deps/lib" \
+  --output ../gate_d_throughput.json \
+  --parallel 1 2 4 8 16 32 64 --aggregate-steps 4096
+
+"$HOME/stonefish-python-env/bin/python" validate_gate_d.py \
+  --executable "$HOME/stonefish-vehicle-a-build/stonefish_vehicle_a_bridge" \
+  --data-dir "$HOME/stonefish-src/Tests/Data" \
+  --stonefish-lib "$HOME/stonefish-install/lib" \
+  --deps-lib "$HOME/stonefish-deps/lib" \
+  --contract ../../artifacts/rl-campaign/surveyor/task-contract-frozen.json \
+  --output ../gate_d_validation.json
+```
+
 `StonefishBridge` starts one headless simulator subprocess. `reset(seed)`
 rebuilds the scenario and seeds Stonefish's process-global sensor RNG. `step`
 accepts normalized port/starboard commands and an explicit physics-step count.

@@ -1,5 +1,10 @@
 # Stonefish Harness — Gate A Report
 
+> Gate D follow-up: the propeller center was subsequently moved from NED
+> `z=0.30 m` to `z=0.40 m` after native fluid-boundary gating was observed to
+> interrupt startup thrust. See `GATED_VALIDATION_REPORT.md`; Gate A/B
+> regressions pass with the retained placement.
+
 Date: 2026-09-07  
 Stonefish: 1.6.0, commit `b21eb8e194c570ff2f61e91aeffb38d73dc25f42`  
 Verification node: `codenimbus-002-1.csl.illinois.edu` (`gpu-l40-csl-cnice`)

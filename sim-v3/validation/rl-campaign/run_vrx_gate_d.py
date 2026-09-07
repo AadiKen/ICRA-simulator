@@ -33,11 +33,12 @@ def command(*args):
 
 def worker(index, mode, barrier, queue):
     started = time.perf_counter()
-    env = VrxGymEnv(
-        ROOT, RUNTIME, allow_unconformant_diagnostic=True,
-        fixed_reset_seed=30000 + index, disturbance_mode=mode,
-    )
+    env = None
     try:
+        env = VrxGymEnv(
+            ROOT, RUNTIME, allow_unconformant_diagnostic=True,
+            fixed_reset_seed=30000 + index, disturbance_mode=mode,
+        )
         env.reset()
         ready = time.perf_counter()
         barrier.wait()
@@ -58,9 +59,26 @@ def worker(index, mode, barrier, queue):
             "rollout_start_s": rollout_started,
             "rollout_end_s": finished,
             "termination_reason": terminal,
+            "error": None,
+        })
+    except Exception as error:
+        # Always satisfy the parent queue so a failed startup is a recorded
+        # capacity result, never an indefinitely hanging benchmark.
+        try:
+            barrier.abort()
+        except Exception:
+            pass
+        queue.put({
+            "index": index, "seed": 30000 + index,
+            "completed_control_steps": 0, "completed_physics_steps": 0,
+            "startup_s": time.perf_counter() - started,
+            "rollout_start_s": None, "rollout_end_s": None,
+            "termination_reason": None,
+            "error": f"{type(error).__name__}: {error}",
         })
     finally:
-        env.close()
+        if env is not None:
+            env.close()
 
 
 def benchmark(count, mode):
@@ -77,12 +95,21 @@ def benchmark(count, mode):
         if process.exitcode != 0:
             raise RuntimeError(f"benchmark worker exited with {process.exitcode}")
     wall_finished = time.perf_counter()
+    errors = [row for row in rows if row["error"] is not None]
+    if errors:
+        return {
+            "disturbance_mode": mode, "parallel_environments": count,
+            "status": "STARTUP_CAPACITY_FAILURE", "errors": errors,
+            "full_episodes": 0, "aggregate_control_steps": 0,
+            "aggregate_physics_steps": 0,
+        }
     control_steps = sum(row["completed_control_steps"] for row in rows)
     physics_steps = sum(row["completed_physics_steps"] for row in rows)
     rollout_wall = max(row["rollout_end_s"] for row in rows) - min(row["rollout_start_s"] for row in rows)
     return {
         "disturbance_mode": mode,
         "parallel_environments": count,
+        "status": "COMPLETE",
         "full_episodes": count,
         "aggregate_control_steps": control_steps,
         "aggregate_physics_steps": physics_steps,
@@ -109,8 +136,24 @@ def main():
     results = []
     for count in args.parallel:
         results.append(benchmark(count, "zero"))
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(json.dumps({
+            "schema_version": 1, "artifact_kind": "vrx-gate-d-throughput-and-protocol",
+            "status": "RUNNING", "completed_results": results,
+            "gate_d_complete": False, "training_started": False,
+        }, indent=2) + "\n")
+        print(f"completed zero/{count}", flush=True)
         results.append(benchmark(count, "seeded"))
-    disturbed = [row for row in results if row["disturbance_mode"] == "seeded"]
+        args.output.write_text(json.dumps({
+            "schema_version": 1, "artifact_kind": "vrx-gate-d-throughput-and-protocol",
+            "status": "RUNNING", "completed_results": results,
+            "gate_d_complete": False, "training_started": False,
+        }, indent=2) + "\n")
+        print(f"completed seeded/{count}", flush=True)
+    complete = [row for row in results if row["status"] == "COMPLETE"]
+    disturbed = [row for row in complete if row["disturbance_mode"] == "seeded"]
+    if len(complete) != len(results):
+        raise RuntimeError("one or more Gate D cells failed; inspect the incremental artifact")
     selected = max(disturbed, key=lambda row: row["control_steps_per_s"])
     comparisons = []
     for count in args.parallel:
@@ -136,6 +179,7 @@ def main():
             "hostname": platform.node(), "architecture": platform.machine(),
             "cpu": command("bash", "-lc", "lscpu | sed -n 's/^Model name:[[:space:]]*//p' | head -1"),
             "logical_cpus": os.cpu_count(),
+            "allocated_cpus": int(os.environ.get("SLURM_CPUS_ON_NODE", os.cpu_count() or 0)),
             "gpu": command("bash", "-lc", "nvidia-smi --query-gpu=name --format=csv,noheader | paste -sd ',' -"),
             "slurm_job_id": os.environ.get("SLURM_JOB_ID"),
             "slurm_partition": os.environ.get("SLURM_JOB_PARTITION"),

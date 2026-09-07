@@ -85,15 +85,20 @@ def main() -> None:
               if key not in ("parallel", "aggregate_steps")}
     rows = [benchmark(count, ns.aggregate_steps, values) for count in ns.parallel]
     peak = max(rows, key=lambda row: row["control_steps_per_s"])
+    try:
+        gpu = subprocess.check_output(
+            ["nvidia-smi", "--query-gpu=name", "--format=csv,noheader"],
+            text=True, stderr=subprocess.STDOUT,
+        ).strip()
+    except (OSError, subprocess.CalledProcessError) as error:
+        gpu = f"unavailable during CPU benchmark: {error}"
     artifact = {
         "schema_version": 1,
         "artifact_kind": "stonefish-gate-d-throughput",
         "status": "COMPLETE_NO_TRAINING",
         "runtime": {
             "hostname": platform.node(), "cpu_visible": os.cpu_count(),
-            "gpu": subprocess.check_output(
-                ["nvidia-smi", "--query-gpu=name", "--format=csv,noheader"], text=True
-            ).strip(),
+            "gpu": gpu,
             "bridge": "Stonefish 1.6.0 console, one process per instance",
         },
         "method": {

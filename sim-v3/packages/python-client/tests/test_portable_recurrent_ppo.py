@@ -46,6 +46,7 @@ class PortableRecurrentPPOTest(unittest.TestCase):
             "net_arch": [128, 128],
         })
         self.assertEqual(MODULE.algorithm_config_bytes("holoocean"), bcod)
+        self.assertEqual(MODULE.algorithm_config_bytes("stonefish"), bcod)
 
     def test_default_output_is_timestamped_and_backend_scoped(self):
         output = MODULE.default_output("bcod-sim")
