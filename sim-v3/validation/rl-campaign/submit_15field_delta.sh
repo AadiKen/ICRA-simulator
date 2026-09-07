@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-: "${BCOD_REPO:?Set BCOD_REPO to the absolute Delta checkout path}"
-: "${SLURM_ACCOUNT:?Set SLURM_ACCOUNT to the NCSA Delta allocation account}"
+: "${BCOD_REPO:?Set BCOD_REPO to the absolute CodeNimbus checkout path}"
+: "${SLURM_ACCOUNT:?Set SLURM_ACCOUNT to the CodeNimbus allocation account}"
 
 cd "$BCOD_REPO"
 mkdir -p artifacts/rl-campaign/surveyor/15-field-cluster-rerun

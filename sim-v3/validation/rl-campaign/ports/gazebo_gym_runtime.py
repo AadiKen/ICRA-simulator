@@ -19,7 +19,7 @@ import tempfile
 import threading
 import time
 
-from external_sensor_model import ExternalGpsModel, flu_to_body_ned, gazebo_navsat_valid, quaternion_to_ned_yaw
+from external_sensor_model import ExternalGpsModel, flu_to_body_ned, gazebo_navsat_valid, inertial_acceleration_from_gazebo_imu, quaternion_to_ned_yaw
 
 ROOT=Path(__file__).resolve().parents[3]
 IMAGE=os.environ.get("BCOD_GAZEBO_IMAGE","174e8baad590")
@@ -66,7 +66,7 @@ class Runtime:
     def __init__(self):
         self.container=f"icra27-gazebo-gym-{os.getpid()}"; self.temp=None; self.world=None
         self.topics={}; self.gps_model=None; self.actuator=None; self.converter=None
-        self.truth=None; self.sim_time=0.; self.last_gps_seq=None
+        self.truth=None; self.sim_time=0.; self.last_gps_stamp=None
         self.idle_mode=os.environ.get("BCOD_GAZEBO_IDLE_MODE")=="1"
     def run(self,args,check=True,timeout=20):
         return subprocess.run(args,text=True,capture_output=True,check=check,timeout=timeout)
@@ -115,7 +115,7 @@ class Runtime:
         self.actuator=subprocess.Popen(["node","--experimental-strip-types",str(ROOT/"validation/rl-campaign/ports/actuator-jsonl-bridge.ts")],cwd=ROOT,text=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE)
         self.converter=subprocess.Popen(["node","--experimental-strip-types",str(ROOT/"validation/rl-campaign/ports/task-trace-jsonl-bridge.ts")],cwd=ROOT,text=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE)
         self._node_request(self.actuator,{"op":"reset"})
-        self.gps_model=ExternalGpsModel(seed,initial[0],initial[1]);self.last_gps_seq=None
+        self.gps_model=ExternalGpsModel(seed,initial[0],initial[1],reference_latitude_deg=-33.72276876888639,reference_longitude_deg=150.67399110174387);self.last_gps_stamp=None
         # Advance one complete contract tick using the same 10 ms internal
         # resolution as the accepted B/C plants. Harmonic's multi_step N
         # advances N+1 iterations while remaining paused.
@@ -148,19 +148,22 @@ class Runtime:
         if "gps" not in self.topics:return
         msg=self.topics["gps"].latest
         if not msg:return
-        seq=next((v.get("value",[None])[0] for v in msg.get("header",{}).get("data",[]) if v.get("key")=="seq"),None)
-        if seq==self.last_gps_seq:return
-        self.last_gps_seq=seq; ts=self._header_time(msg)
-        lat=msg.get("latitudeDeg");lon=msg.get("longitudeDeg")
+        # Gazebo NavSat does not guarantee an incrementing `seq` header.  Its
+        # simulation timestamp is the freshness/deduplication identity.
+        ts=self._header_time(msg)
+        if self.last_gps_stamp is not None and ts<=self.last_gps_stamp+1e-12:return
+        self.last_gps_stamp=ts
+        lat=msg.get("latitudeDeg");lon=msg.get("longitudeDeg");alt=msg.get("altitude",0)
         valid=gazebo_navsat_valid(lat,lon)
-        self.gps_model.ingest(ts,float(lat or 0),float(lon or 0),valid)
+        self.gps_model.ingest(ts,float(lat or 0),float(lon or 0),valid,float(alt or 0))
     def observation(self):
         self._ingest_gps(); sensors={}
         imu=self.topics.get("imu").latest if "imu" in self.topics else None
         if imu:
             q=imu.get("orientation",{});a=imu.get("linearAcceleration",{});w=imu.get("angularVelocity",{})
             valid=all(isinstance(x,(int,float)) and math.isfinite(x) for x in [q.get("w"),q.get("x"),q.get("y"),q.get("z"),a.get("x"),a.get("y"),a.get("z"),w.get("x"),w.get("y"),w.get("z")])
-            payload=None if not valid else {"acceleration_body_mps2":flu_to_body_ned(a["x"],a["y"],a["z"]),"angular_rate_body_rad_s":flu_to_body_ned(w["x"],w["y"],w["z"]),"orientation_rad":[0,0,quaternion_to_ned_yaw(q["w"],q["x"],q["y"],q["z"])]}
+            inertial_accel=None if not valid else inertial_acceleration_from_gazebo_imu(q["w"],q["x"],q["y"],q["z"],a["x"],a["y"],a["z"])
+            payload=None if not valid else {"acceleration_body_mps2":flu_to_body_ned(*inertial_accel),"angular_rate_body_rad_s":flu_to_body_ned(w["x"],w["y"],w["z"]),"orientation_rad":[0,0,quaternion_to_ned_yaw(q["w"],q["x"],q["y"],q["z"])]}
             sensors["imu"]={"timestampS":self._header_time(imu),"valid":valid,"payload":payload}
         gps=self.gps_model.sample(self.sim_time)
         if gps:sensors["gps"]={"timestampS":gps["timestamp_s"],"valid":bool(gps["valid"]),"payload":{"position_ned_m":gps.get("position_ned_m",[0,0,0])}}

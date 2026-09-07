@@ -3,7 +3,7 @@
   "artifact_kind": "external-simulator-platform-discovery",
   "host_class": "local",
   "paper_measurement_eligible": false,
-  "status": "local-discovery-complete-cluster-discovery-pending",
+  "status": "local-and-cluster-discovery-complete",
   "local": {
     "architecture": "arm64",
     "chip_model": null,
@@ -16,8 +16,16 @@
     }
   },
   "cluster": {
-    "per_node_core_count": null,
-    "status": "not discovered; no cluster endpoint or scheduler allocation was supplied."
+    "platform": "CodeNimbus",
+    "partition": "gpu-a30-csl-cnice",
+    "per_node_core_count": 96,
+    "allocated_core_count": 32,
+    "gpu": {
+      "model": "NVIDIA A30",
+      "memory_gb": 24,
+      "allocated_count": 1
+    },
+    "status": "discovered from allocated node"
   },
   "conformance_episode_timing_s": {
     "VRX": null,

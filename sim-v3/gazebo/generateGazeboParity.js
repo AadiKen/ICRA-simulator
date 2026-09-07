@@ -449,6 +449,7 @@ function renderPhaseASensors(options = {}) {
       <sensor name="task_imu" type="imu">
         <always_on>true</always_on><update_rate>50</update_rate>
         <topic>imu</topic>
+        <imu><orientation_reference_frame><localization>ENU</localization></orientation_reference_frame></imu>
       </sensor>
       <sensor name="task_gps" type="navsat">
         <always_on>true</always_on><update_rate>2</update_rate>
