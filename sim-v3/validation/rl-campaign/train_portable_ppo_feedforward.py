@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One instrumented RecurrentPPO entry point for bcod-sim, Gazebo, and HoloOcean.
+"""One instrumented feedforward PPO entry point for bcod-sim, Gazebo, and HoloOcean.
 
 External backends deliberately refuse training until their conformance artifact
 passes and Gate 5 action fairness is resolved.  ``--diagnostic-only`` permits
@@ -32,7 +32,7 @@ from bcod_sim import (CommonWaypointEnv, GazeboGymEnv, HoloOceanVehicleAEnv,
                       VrxGymEnv)  # noqa: E402
 from stonefish_gym_env import StonefishGymEnv  # noqa: E402
 
-V7_OUT = ROOT / "artifacts/rl-campaign/surveyor/p3-v7-recurrent-local"
+FEEDFORWARD_PROTOCOL_OUT = ROOT / "artifacts/rl-campaign/surveyor/portable-feedforward-local"
 EPISODE_COLUMNS = ("run_id", "seed", "simulator", "vehicle", "task_id",
                    "task_portable", "policy_id", "algorithm", "return", "success",
                    "episode_length", "wall_clock_s", "termination_reason",
@@ -40,6 +40,9 @@ EPISODE_COLUMNS = ("run_id", "seed", "simulator", "vehicle", "task_id",
 
 BCOD_PROTOCOL_ARTIFACT = (
     ROOT / "artifacts/rl-campaign/surveyor/15-field-rerun-preregistration.json"
+)
+FEEDFORWARD_PROTOCOL_ARTIFACT = (
+    ROOT / "artifacts/rl-campaign/surveyor/portable-feedforward-training-protocol.json"
 )
 FROZEN_CONTRACT_SHA256 = "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36"
 REWARD_COMPONENT_COLUMNS = (
@@ -53,8 +56,8 @@ ALIGNED_EVALUATION_COLUMNS = (
     "median_return", "mean_return", "success_rate",
 )
 _SHARED_ALGORITHM_CONFIG = {
-    "algorithm": "RecurrentPPO",
-    "policy": "MlpLstmPolicy",
+    "algorithm": "PPO",
+    "policy": "MlpPolicy",
     "seed": 7319,
     "n_steps": 512,
     "batch_size": 512,
@@ -65,8 +68,6 @@ _SHARED_ALGORITHM_CONFIG = {
     "clip_range": 0.2,
     "policy_kwargs": {
         "net_arch": [128, 128],
-        "lstm_hidden_size": 128,
-        "enable_critic_lstm": True,
     },
 }
 
@@ -81,14 +82,20 @@ def algorithm_config(backend: str) -> dict:
     """
     if backend not in ("bcod-sim", "vrx", "gazebo-harmonic", "holoocean", "stonefish"):
         raise ValueError(f"unsupported backend: {backend}")
-    protocol = json.loads(BCOD_PROTOCOL_ARTIFACT.read_text())
+    protocol = json.loads(FEEDFORWARD_PROTOCOL_ARTIFACT.read_text())
     factors = protocol.get("frozen_run_factors", {})
-    if protocol.get("status") != "PREREGISTERED_BEFORE_ANY_15_FIELD_RUN":
+    source_protocol = json.loads(BCOD_PROTOCOL_ARTIFACT.read_text())
+    source_factors = source_protocol.get("frozen_run_factors", {})
+    if protocol.get("task_contract_content_sha256") != FROZEN_CONTRACT_SHA256:
+        raise RuntimeError("feedforward protocol does not match the frozen task contract")
+    if factors.get("algorithm") != "PPO" or factors.get("policy") != "MlpPolicy":
+        raise RuntimeError("feedforward protocol algorithm does not match the portable harness")
+    if source_protocol.get("status") != "PREREGISTERED_BEFORE_ANY_15_FIELD_RUN":
         raise RuntimeError("bcod-sim protocol artifact is not the frozen 15-field preregistration")
-    if factors.get("algorithm") != "RecurrentPPO" or factors.get("policy") != "MlpLstmPolicy":
-        raise RuntimeError("bcod-sim protocol algorithm does not match the portable harness")
+    if float(factors["ent_coef"]) != float(source_factors["ent_coef"]):
+        raise RuntimeError("feedforward entropy coefficient differs from the recurrent baseline")
     config = deepcopy(_SHARED_ALGORITHM_CONFIG)
-    config["ent_coef"] = float(factors["ent_coef"])
+    config["ent_coef"] = float(source_factors["ent_coef"])
     return config
 
 
@@ -98,12 +105,12 @@ def algorithm_config_bytes(backend: str) -> bytes:
                       separators=(",", ":")).encode("utf-8")
 
 
-def recurrent_ppo_kwargs(backend: str) -> tuple[str, dict]:
+def ppo_kwargs(backend: str) -> tuple[str, dict]:
     config = algorithm_config(backend)
     policy = config.pop("policy")
     algorithm = config.pop("algorithm")
-    if algorithm != "RecurrentPPO":
-        raise RuntimeError("portable harness only supports RecurrentPPO")
+    if algorithm != "PPO":
+        raise RuntimeError("portable harness only supports PPO")
     return policy, config
 
 
@@ -113,6 +120,7 @@ def algorithm_provenance(backend: str) -> dict:
         "config": algorithm_config(backend),
         "canonical_sha256": hashlib.sha256(payload).hexdigest(),
         "ent_coef_source": str(BCOD_PROTOCOL_ARTIFACT.relative_to(ROOT)),
+        "execution_protocol": str(FEEDFORWARD_PROTOCOL_ARTIFACT.relative_to(ROOT)),
         "contract_sha256": FROZEN_CONTRACT_SHA256,
     }
 
@@ -125,6 +133,17 @@ def detect_host_class():
             raise RuntimeError("BCOD_HOST_CLASS must be local, cluster, or synthetic")
         return configured
     return "cluster" if os.environ.get("SLURM_JOB_ID") else "local"
+
+
+def assert_execution_authorized() -> None:
+    protocol = json.loads(FEEDFORWARD_PROTOCOL_ARTIFACT.read_text())
+    if protocol.get("task_contract_content_sha256") != FROZEN_CONTRACT_SHA256:
+        raise RuntimeError("feedforward execution protocol has a stale contract hash")
+    if not protocol.get("execution_authorized", False):
+        raise RuntimeError(
+            "Feedforward training is disabled; explicitly authorize it in "
+            "portable-feedforward-training-protocol.json before launch."
+        )
 
 
 def assert_calm_disturbance(info: dict) -> None:
@@ -202,7 +221,7 @@ def aligned_evaluation_callback_class(base_callback):
             self.rows = []
 
         def _measure(self, checkpoint_timesteps):
-            result = evaluate_recurrent(
+            result = evaluate_feedforward(
                 self.model, self.evaluation_env, self.first_seed, self.episodes)
             returns = [float(row["return"]) for row in result["rows"]]
             row = {
@@ -219,7 +238,7 @@ def aligned_evaluation_callback_class(base_callback):
             atomic_json(
                 self.run_dir / "metrics" / "aligned-evaluation.json",
                 {"schema_version": 1,
-                 "measurement": "deterministic recurrent policy evaluation",
+                 "measurement": "deterministic feedforward policy evaluation",
                  "first_seed": self.first_seed,
                  "episodes_per_checkpoint": self.episodes,
                  "frequency_timesteps": self.frequency_timesteps,
@@ -380,7 +399,7 @@ def training_env_factory(args, rank: int, run_dir: Path):
 
 def default_output(backend: str) -> Path:
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    return ROOT / "artifacts/rl-campaign/training-runs" / f"{backend}-{stamp}"
+    return ROOT / "artifacts/rl-campaign/training-runs" / f"{backend}-feedforward-{stamp}"
 
 
 def git_revision() -> str | None:
@@ -401,27 +420,19 @@ def write_episode_rows(path: Path, rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
-def evaluate_recurrent(model, env_factory, first_seed: int, episodes: int):
-    """Evaluate without dropping recurrent state between control ticks."""
+def evaluate_feedforward(model, env_factory, first_seed: int, episodes: int):
+    """Evaluate a deterministic memoryless policy."""
     rows = []
     for seed in range(first_seed, first_seed + episodes):
         env = env_factory(seed)
         try:
             started = time.perf_counter()
             observation, _ = env.reset()
-            lstm_state = None
-            episode_start = np.ones((1,), dtype=bool)
             total_return = 0.0
             while True:
-                action, lstm_state = model.predict(
-                    observation,
-                    state=lstm_state,
-                    episode_start=episode_start,
-                    deterministic=True,
-                )
+                action, _ = model.predict(observation, deterministic=True)
                 observation, reward, terminated, truncated, info = env.step(action)
                 total_return += float(reward)
-                episode_start = np.asarray([terminated or truncated], dtype=bool)
                 if terminated or truncated:
                     break
             algorithm = model.__class__.__name__
@@ -440,26 +451,26 @@ def evaluate_recurrent(model, env_factory, first_seed: int, episodes: int):
     }
 
 
-def run_v7_protocol():
-    """Frozen recurrent Phase 1 gate followed by Phase 2 only on convergence."""
-    from sb3_contrib import RecurrentPPO
+def run_feedforward_protocol():
+    """Feedforward Phase 1 gate followed by Phase 2 only on convergence."""
+    from stable_baselines3 import PPO
     from stable_baselines3.common.vec_env import SubprocVecEnv
 
-    V7_OUT.mkdir(parents=True, exist_ok=True)
+    FEEDFORWARD_PROTOCOL_OUT.mkdir(parents=True, exist_ok=True)
     phase1_env = SubprocVecEnv([bcod_factory(i, True) for i in range(16)], start_method="fork")
-    policy, kwargs = recurrent_ppo_kwargs("bcod-sim")
-    model = RecurrentPPO(policy, phase1_env, **kwargs, verbose=1, device="cpu")
+    policy, kwargs = ppo_kwargs("bcod-sim")
+    model = PPO(policy, phase1_env, **kwargs, verbose=1, device="cpu")
     curve, consecutive = [], 0
-    atomic_json(V7_OUT / "training-state.json", {
+    atomic_json(FEEDFORWARD_PROTOCOL_OUT / "training-state.json", {
         "status": "phase-1-running", "timesteps": 0,
-        "algorithm": "RecurrentPPO", "policy": "MlpLstmPolicy",
+        "algorithm": "PPO", "policy": "MlpPolicy",
         "algorithm_provenance": algorithm_provenance("bcod-sim"),
         "convergence_rule": "success_rate >= 0.9 at two consecutive 250k checkpoints",
     })
     for steps in range(250_000, 1_500_001, 250_000):
         model.learn(total_timesteps=250_000, reset_num_timesteps=False, progress_bar=False)
-        model.save(V7_OUT / f"phase1-{steps}")
-        result = evaluate_recurrent(
+        model.save(FEEDFORWARD_PROTOCOL_OUT / f"phase1-{steps}")
+        result = evaluate_feedforward(
             model,
             lambda seed: CommonWaypointEnv(ROOT, fixed_reset_seed=seed,
                                             final_leg_curriculum=True),
@@ -467,9 +478,9 @@ def run_v7_protocol():
         )
         curve.append({"checkpoint_steps": steps, "evaluation": result})
         consecutive = consecutive + 1 if result["success_rate"] >= .9 else 0
-        atomic_json(V7_OUT / "phase-1-report.json", {
+        atomic_json(FEEDFORWARD_PROTOCOL_OUT / "phase-1-report.json", {
             "schema_version": 1, "converged": consecutive >= 2, "curve": curve})
-        atomic_json(V7_OUT / "training-state.json", {
+        atomic_json(FEEDFORWARD_PROTOCOL_OUT / "training-state.json", {
             "status": "phase-1-running", "timesteps": steps,
             "success_rate": result["success_rate"],
             "consecutive_passing_checkpoints": consecutive,
@@ -481,30 +492,30 @@ def run_v7_protocol():
             break
     phase1_env.close()
     if consecutive < 2:
-        atomic_json(V7_OUT / "training-state.json", {
+        atomic_json(FEEDFORWARD_PROTOCOL_OUT / "training-state.json", {
             "status": "phase-1-failed", "timesteps": curve[-1]["checkpoint_steps"],
             "success_rate": curve[-1]["evaluation"]["success_rate"],
             "full_episode_training_started": False,
-            "required_next_step": "Run recurrent success/failure heading-error diagnostic against the v6 baseline before any architecture or budget change.",
+            "required_next_step": "Diagnose the feedforward failure before any architecture or budget change.",
         })
         return 2
 
     phase2_env = SubprocVecEnv([bcod_factory(i, False) for i in range(16)], start_method="fork")
     model.set_env(phase2_env)
     model.learn(total_timesteps=3_000_000, reset_num_timesteps=True, progress_bar=False)
-    model.save(V7_OUT / "recurrent-ppo-final")
+    model.save(FEEDFORWARD_PROTOCOL_OUT / "feedforward-ppo-final")
     phase2_env.close()
-    evaluation = evaluate_recurrent(
+    evaluation = evaluate_feedforward(
         model, lambda seed: CommonWaypointEnv(ROOT, fixed_reset_seed=seed), 10000, 50)
-    atomic_json(V7_OUT / "report.json", {
-        "schema_version": 1, "artifact_kind": "surveyor-p3-v7-recurrent-ppo",
+    atomic_json(FEEDFORWARD_PROTOCOL_OUT / "report.json", {
+        "schema_version": 1, "artifact_kind": "surveyor-portable-feedforward-ppo",
         "phase_1_steps": curve[-1]["checkpoint_steps"],
         "phase_1_curve": curve, "phase_2_steps": 3_000_000,
         "evaluation": evaluation,
     })
-    atomic_json(V7_OUT / "training-state.json", {
+    atomic_json(FEEDFORWARD_PROTOCOL_OUT / "training-state.json", {
         "status": "completed", "phase_2_started": True,
-        "report": str((V7_OUT / "report.json").relative_to(ROOT)),
+        "report": str((FEEDFORWARD_PROTOCOL_OUT / "report.json").relative_to(ROOT)),
     })
     return 0
 
@@ -528,7 +539,7 @@ def main():
     parser.add_argument("--checkpoint-freq", type=int, default=250_000,
                         help="Checkpoint interval in training timesteps")
     parser.add_argument("--resume-from", type=Path,
-                        help="Load a saved RecurrentPPO .zip checkpoint and train additional timesteps")
+                        help="Load a saved PPO .zip checkpoint and train additional timesteps")
     parser.add_argument("--holoocean-wind-mode", choices=("off", "surge_equivalent"), default="off")
     parser.add_argument("--disturbance-mode", choices=("zero", "seeded"), default="zero",
                         help="Applied disturbance condition; portable three-way training requires zero")
@@ -544,7 +555,7 @@ def main():
                         help="Global timestep spacing for aligned learning-curve evaluations")
     parser.add_argument("--curve-eval-episodes", type=int, default=10,
                         help="Deterministic episodes per aligned checkpoint; 0 disables")
-    parser.add_argument("--run-v7-protocol", action="store_true")
+    parser.add_argument("--run-feedforward-protocol", action="store_true")
     args = parser.parse_args()
     if args.timesteps < 0 or args.smoke_steps < 0 or args.eval_episodes < 0:
         parser.error("timestep and episode counts must be non-negative")
@@ -581,14 +592,17 @@ def main():
         missing = [name for name, value in required.items() if value is None]
         if missing:
             parser.error(f"Stonefish requires: {', '.join(missing)}")
-    if args.run_v7_protocol:
+    if args.run_feedforward_protocol:
         if args.backend != "bcod-sim":
-            raise SystemExit("The approved v7 protocol currently applies only to bcod-sim")
+            raise SystemExit("The feedforward protocol currently applies only to bcod-sim")
         if args.timesteps or args.diagnostic_only or args.smoke_steps:
-            raise SystemExit("--run-v7-protocol cannot be combined with ad-hoc run options")
-        raise SystemExit(run_v7_protocol())
+            raise SystemExit("--run-feedforward-protocol cannot be combined with ad-hoc run options")
+        assert_execution_authorized()
+        raise SystemExit(run_feedforward_protocol())
     if args.diagnostic_only and args.timesteps:
         raise SystemExit("diagnostic-only runtimes cannot train a policy")
+    if args.timesteps:
+        assert_execution_authorized()
     run_dir = (args.output or default_output(args.backend)).resolve()
     if args.timesteps:
         run_dir.mkdir(parents=True, exist_ok=False)
@@ -629,7 +643,7 @@ def main():
             if terminated or truncated:
                 observation, info = env.reset()
         if args.timesteps:
-            from sb3_contrib import RecurrentPPO
+            from stable_baselines3 import PPO
             from stable_baselines3.common.callbacks import (BaseCallback, CallbackList,
                                                              CheckpointCallback)
             from stable_baselines3.common.logger import configure
@@ -643,23 +657,23 @@ def main():
                      for rank in range(args.n_envs)],
                     start_method="fork",
                 )
-            policy, kwargs = recurrent_ppo_kwargs(args.backend)
+            policy, kwargs = ppo_kwargs(args.backend)
             # A user-selected training seed is a run factor, not an algorithm
             # difference between simulators.
             kwargs["seed"] = args.base_seed
             if args.resume_from is None:
-                model = RecurrentPPO(policy, env, **kwargs, verbose=1,
+                model = PPO(policy, env, **kwargs, verbose=1,
                                      device=args.device)
                 initial_timesteps = 0
             else:
-                model = RecurrentPPO.load(args.resume_from, env=env,
+                model = PPO.load(args.resume_from, env=env,
                                           device=args.device)
                 initial_timesteps = int(model.num_timesteps)
             model.set_logger(configure(str(run_dir / "metrics"), ["stdout", "csv", "json"]))
             callback = CheckpointCallback(
                 save_freq=max(1, args.checkpoint_freq // args.n_envs),
                 save_path=str(run_dir / "checkpoints"),
-                name_prefix=f"{args.backend}-recurrent-ppo",
+                name_prefix=f"{args.backend}-feedforward-ppo",
             )
             callbacks = [callback]
             if args.curve_eval_episodes:
@@ -686,7 +700,7 @@ def main():
                     eval_args = argparse.Namespace(**vars(args))
                     eval_args.fixed_reset_seed = seed
                     return make_env(eval_args)
-                evaluation = evaluate_recurrent(
+                evaluation = evaluate_feedforward(
                     model, evaluation_env, args.eval_first_seed, args.eval_episodes)
                 write_episode_rows(run_dir, evaluation["rows"])
                 atomic_json(run_dir / "evaluation-summary.json", {

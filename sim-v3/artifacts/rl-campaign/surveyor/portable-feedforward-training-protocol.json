@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "portable-15-field-feedforward-ppo-preregistration",
+  "status": "PREREGISTERED_NOT_AUTHORIZED",
+  "task_contract_content_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
+  "task_id": "common-waypoint-transit-v1",
+  "algorithm": "PPO",
+  "policy": "MlpPolicy",
+  "library": "stable-baselines3 2.9.0",
+  "diagnosis_this_revision_responds_to": {
+    "observation_change": "The shared portable observation exposes absolute heading as imu.orientation_yaw_rad on every timestep; GPS remains goal-relative.",
+    "observability_consequence": "Direct absolute heading removes the hidden-state inference problem that originally justified recurrent PPO.",
+    "test": "Use the same cross-simulator harness and run factors to test feedforward PPO as the sole architecture change."
+  },
+  "not_authorized": "This protocol does not re-litigate the earlier recurrent choice, which addressed a real observability gap. It tests the current contract's changed premise and authorizes no run until explicitly flipped.",
+  "frozen_run_factors": {
+    "algorithm": "PPO",
+    "policy": "MlpPolicy",
+    "seed": 7319,
+    "n_steps": 512,
+    "batch_size": 512,
+    "n_epochs": 10,
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "ent_coef": 0.005,
+    "network": [128, 128],
+    "checkpoint_cadence_steps": 250000,
+    "evaluation_seeds": [30000, 30049],
+    "curriculum": "final_leg_curriculum=True",
+    "only_intended_change": "RecurrentPPO/MlpLstmPolicy to PPO/MlpPolicy"
+  },
+  "execution_authorized": false
+}

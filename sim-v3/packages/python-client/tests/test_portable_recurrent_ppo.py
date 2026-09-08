@@ -163,5 +163,11 @@ class PortableRecurrentPPOTest(unittest.TestCase):
         self.assertIn("if consecutive >= 2", source)
         self.assertIn('"full_episode_training_started": False', source)
 
+    def test_portable_harness_can_resume_saved_recurrent_checkpoint(self):
+        source = SCRIPT.read_text()
+        self.assertIn('parser.add_argument("--resume-from"', source)
+        self.assertIn("RecurrentPPO.load(args.resume_from, env=env", source)
+        self.assertIn("reset_num_timesteps=args.resume_from is None", source)
+
 
 if __name__ == "__main__": unittest.main()
