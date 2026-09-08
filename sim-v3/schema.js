@@ -166,7 +166,19 @@ export class boatModel{
                 this.actuatorModel,
                 new AddedMassCoriolis(),
                 new HydrodynamicDamping(),
-                ...(this.vehicleParameters.id === "searobotics-surveyor-m1.8" ? [new WindLoad(surveyorNodeWindConfig())] : []),
+                ...(this.vehicleParameters.id === "searobotics-surveyor-m1.8"
+                    ? [new WindLoad(surveyorNodeWindConfig())]
+                    : this.vehicleParameters.id === "vehicle-a-otter"
+                        // Placeholder coefficients are inherited verbatim from the
+                        // existing WindLoad unit fixture. They establish coupling,
+                        // not calibrated Otter aerodynamic validation.
+                        ? [new WindLoad({
+                            enabled: true,
+                            C_X: (angle) => Math.cos(angle),
+                            C_Y: (angle) => 0.5 * Math.sin(angle),
+                            C_N: (angle) => 0.25 * Math.sin(angle)
+                        })]
+                        : []),
                 this.hydrostaticsModel
             ],
             "rk4"

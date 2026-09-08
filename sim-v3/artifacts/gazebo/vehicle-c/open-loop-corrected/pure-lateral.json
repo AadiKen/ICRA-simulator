@@ -1,0 +1,3618 @@
+{
+  "schema_version": 2,
+  "synchronization": {
+    "source": "/world/vehicle_c_check/stats",
+    "initial_iteration": 1,
+    "initial_sim_time_s": 0.01,
+    "target_policy": "absolute initial_iteration + 5*(sample_index+1)",
+    "blind_retries": false,
+    "asserted_iteration_delta": 5,
+    "asserted_sim_time_delta_s": 0.05
+  },
+  "rows": [
+    {
+      "step": 0,
+      "time_s": 0.05,
+      "gazebo_iteration": 6,
+      "gazebo_sim_time_s": 0.05,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": -4.2493773157183156e-10,
+        "y": -3.0099557574172695e-07,
+        "yaw_rad": 1.570796325575579,
+        "vx": -7.520544415989206e-06,
+        "vy": 1.060787700053577e-08,
+        "angular_z": 39.269908131082474
+      },
+      "command": {
+        "step": 0,
+        "time_s": 0,
+        "port_thrust_n": 0.02617993877991494,
+        "port_azimuth_rad": 0.02617993877991494,
+        "starboard_thrust_n": 0.02617993877991494,
+        "starboard_azimuth_rad": 0.02617993877991494
+      },
+      "delivered": {
+        "port_thrust_n": 0.02617993877991494,
+        "port_azimuth_rad": 0.0052359882325615364,
+        "starboard_thrust_n": 0.02617993877991494,
+        "starboard_azimuth_rad": 0.0052359882325615364
+      }
+    },
+    {
+      "step": 1,
+      "time_s": 0.1,
+      "gazebo_iteration": 11,
+      "gazebo_sim_time_s": 0.1,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": -5.468557423414538e-10,
+        "y": -7.85772800589077e-07,
+        "yaw_rad": 1.5707963792775086,
+        "vx": -8.708465751324703e-06,
+        "vy": 6.015479731049816e-09,
+        "angular_z": 17.453293091439377
+      },
+      "command": {
+        "step": 1,
+        "time_s": 0.05,
+        "port_thrust_n": 0.05235987755982988,
+        "port_azimuth_rad": 0.05235987755982988,
+        "starboard_thrust_n": 0.05235987755982988,
+        "starboard_azimuth_rad": 0.05235987755982988
+      },
+      "delivered": {
+        "port_thrust_n": 0.05235987755982988,
+        "port_azimuth_rad": 0.01047197653583706,
+        "starboard_thrust_n": 0.05235987755982988,
+        "starboard_azimuth_rad": 0.010471976535837438
+      }
+    },
+    {
+      "step": 2,
+      "time_s": 0.15,
+      "gazebo_iteration": 16,
+      "gazebo_sim_time_s": 0.15,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 1.6186237724520876e-09,
+        "y": -1.0260877084276912e-06,
+        "yaw_rad": 1.5707966557628044,
+        "vx": -7.16396673536069e-06,
+        "vy": -2.063135884697711e-08,
+        "angular_z": 3.2719332620031668e-06
+      },
+      "command": {
+        "step": 2,
+        "time_s": 0.1,
+        "port_thrust_n": 0.07853981633974483,
+        "port_azimuth_rad": 0.07853981633974483,
+        "starboard_thrust_n": 0.07853981633974483,
+        "starboard_azimuth_rad": 0.07853981633974483
+      },
+      "delivered": {
+        "port_thrust_n": 0.07853981633974483,
+        "port_azimuth_rad": 0.030126032689633726,
+        "starboard_thrust_n": 0.07853981633974483,
+        "starboard_azimuth_rad": 0.030126032689633726
+      }
+    },
+    {
+      "step": 3,
+      "time_s": 0.2,
+      "gazebo_iteration": 21,
+      "gazebo_sim_time_s": 0.2,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 1.8406386334192055e-08,
+        "y": -6.005781221604851e-07,
+        "yaw_rad": 1.5707968855289356,
+        "vx": 2.088118617776111e-06,
+        "vy": -1.8999351445612635e-07,
+        "angular_z": 4.990080145333202e-06
+      },
+      "command": {
+        "step": 3,
+        "time_s": 0.15000000000000002,
+        "port_thrust_n": 0.10471975511965977,
+        "port_azimuth_rad": 0.10471975511965977,
+        "starboard_thrust_n": 0.10471975511965977,
+        "starboard_azimuth_rad": 0.10471975511965977
+      },
+      "delivered": {
+        "port_thrust_n": 0.10471975511965977,
+        "port_azimuth_rad": 0.05630597196557193,
+        "starboard_thrust_n": 0.10471975511965977,
+        "starboard_azimuth_rad": 0.05630597196557193
+      }
+    },
+    {
+      "step": 4,
+      "time_s": 0.25,
+      "gazebo_iteration": 26,
+      "gazebo_sim_time_s": 0.25,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 6.714381751747732e-08,
+        "y": 9.045774967237271e-07,
+        "yaw_rad": 1.5707972357538758,
+        "vx": 1.9801407804599252e-05,
+        "vy": -6.561224491155663e-07,
+        "angular_z": 5.661083565295802e-06
+      },
+      "command": {
+        "step": 4,
+        "time_s": 0.2,
+        "port_thrust_n": 0.1308996938995747,
+        "port_azimuth_rad": 0.1308996938995747,
+        "starboard_thrust_n": 0.1308996938995747,
+        "starboard_azimuth_rad": 0.1308996938995747
+      },
+      "delivered": {
+        "port_thrust_n": 0.1308996938995747,
+        "port_azimuth_rad": 0.08248591116651084,
+        "starboard_thrust_n": 0.1308996938995747,
+        "starboard_azimuth_rad": 0.08248591116651084
+      }
+    },
+    {
+      "step": 5,
+      "time_s": 0.3,
+      "gazebo_iteration": 31,
+      "gazebo_sim_time_s": 0.3,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 1.7547314610957163e-07,
+        "y": 3.894756343772945e-06,
+        "yaw_rad": 1.5707976861019468,
+        "vx": 4.583654503482944e-05,
+        "vy": -1.572109462028957e-06,
+        "angular_z": 7.774109028589034e-06
+      },
+      "command": {
+        "step": 5,
+        "time_s": 0.25,
+        "port_thrust_n": 0.15707963267948966,
+        "port_azimuth_rad": 0.15707963267948966,
+        "starboard_thrust_n": 0.15707963267948966,
+        "starboard_azimuth_rad": 0.15707963267948966
+      },
+      "delivered": {
+        "port_thrust_n": 0.15707963267948966,
+        "port_azimuth_rad": 0.10866585036749962,
+        "starboard_thrust_n": 0.15707963267948966,
+        "starboard_azimuth_rad": 0.10866585036749962
+      }
+    },
+    {
+      "step": 6,
+      "time_s": 0.35000000000000003,
+      "gazebo_iteration": 36,
+      "gazebo_sim_time_s": 0.35000000000000003,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 3.7778708852962527e-07,
+        "y": 8.766370525229776e-06,
+        "yaw_rad": 1.5707982964049052,
+        "vx": 8.003415374501631e-05,
+        "vy": -3.1086283462051047e-06,
+        "angular_z": 1.0253655400992377e-05
+      },
+      "command": {
+        "step": 6,
+        "time_s": 0.30000000000000004,
+        "port_thrust_n": 0.1832595714594046,
+        "port_azimuth_rad": 0.1832595714594046,
+        "starboard_thrust_n": 0.1832595714594046,
+        "starboard_azimuth_rad": 0.1832595714594046
+      },
+      "delivered": {
+        "port_thrust_n": 0.1832595714594046,
+        "port_azimuth_rad": 0.13484578956853863,
+        "starboard_thrust_n": 0.1832595714594046,
+        "starboard_azimuth_rad": 0.13484578956853863
+      }
+    },
+    {
+      "step": 7,
+      "time_s": 0.4,
+      "gazebo_iteration": 41,
+      "gazebo_sim_time_s": 0.4,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 7.155892658792956e-07,
+        "y": 1.590624882143747e-05,
+        "yaw_rad": 1.5707991381589375,
+        "vx": 0.00012221842253843808,
+        "vy": -5.40432333633247e-06,
+        "angular_z": 1.4016201149956777e-05
+      },
+      "command": {
+        "step": 7,
+        "time_s": 0.35000000000000003,
+        "port_thrust_n": 0.20943951023931956,
+        "port_azimuth_rad": 0.20943951023931956,
+        "starboard_thrust_n": 0.20943951023931956,
+        "starboard_azimuth_rad": 0.20943951023931956
+      },
+      "delivered": {
+        "port_thrust_n": 0.20943951023931956,
+        "port_azimuth_rad": 0.16102572876962848,
+        "starboard_thrust_n": 0.20943951023931956,
+        "starboard_azimuth_rad": 0.1610257287696282
+      }
+    },
+    {
+      "step": 8,
+      "time_s": 0.45,
+      "gazebo_iteration": 46,
+      "gazebo_sim_time_s": 0.45,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 1.2373911724936232e-06,
+        "y": 2.569101666854238e-05,
+        "yaw_rad": 1.5708002941788775,
+        "vx": 0.00017219682038296076,
+        "vy": -8.600429992675183e-06,
+        "angular_z": 1.9289745911264268e-05
+      },
+      "command": {
+        "step": 8,
+        "time_s": 0.4,
+        "port_thrust_n": 0.2356194490192345,
+        "port_azimuth_rad": 0.2356194490192345,
+        "starboard_thrust_n": 0.2356194490192345,
+        "starboard_azimuth_rad": 0.2356194490192345
+      },
+      "delivered": {
+        "port_thrust_n": 0.2356194490192345,
+        "port_azimuth_rad": 0.18720566797076882,
+        "starboard_thrust_n": 0.2356194490192345,
+        "starboard_azimuth_rad": 0.18720566797076882
+      }
+    },
+    {
+      "step": 9,
+      "time_s": 0.5,
+      "gazebo_iteration": 51,
+      "gazebo_sim_time_s": 0.5,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 1.9985991194977874e-06,
+        "y": 3.848647884177786e-05,
+        "yaw_rad": 1.5708018582482672,
+        "vx": 0.0002297607847529471,
+        "vy": -1.2836048643381949e-05,
+        "angular_z": 2.629517233819825e-05
+      },
+      "command": {
+        "step": 9,
+        "time_s": 0.45,
+        "port_thrust_n": 0.26179938779914946,
+        "port_azimuth_rad": 0.26179938779914946,
+        "starboard_thrust_n": 0.26179938779914946,
+        "starboard_azimuth_rad": 0.26179938779914946
+      },
+      "delivered": {
+        "port_thrust_n": 0.26179938779914946,
+        "port_azimuth_rad": 0.21338560717196042,
+        "starboard_thrust_n": 0.26179938779914946,
+        "starboard_azimuth_rad": 0.21338560717196042
+      }
+    },
+    {
+      "step": 10,
+      "time_s": 0.55,
+      "gazebo_iteration": 56,
+      "gazebo_sim_time_s": 0.55,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 3.0613914141697602e-06,
+        "y": 5.464700501414046e-05,
+        "yaw_rad": 1.5708039347656977,
+        "vx": 0.00029468642104110205,
+        "vy": -1.8247955292664024e-05,
+        "angular_z": 3.524601465665318e-05
+      },
+      "command": {
+        "step": 10,
+        "time_s": 0.5,
+        "port_thrust_n": 0.2879793265790644,
+        "port_azimuth_rad": 0.2879793265790644,
+        "starboard_thrust_n": 0.2879793265790644,
+        "starboard_azimuth_rad": 0.2879793265790644
+      },
+      "delivered": {
+        "port_thrust_n": 0.2879793265790644,
+        "port_azimuth_rad": 0.23956554637320274,
+        "starboard_thrust_n": 0.2879793265790644,
+        "starboard_azimuth_rad": 0.23956554637320274
+      }
+    },
+    {
+      "step": 11,
+      "time_s": 0.6,
+      "gazebo_iteration": 61,
+      "gazebo_sim_time_s": 0.6,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 4.494585970957746e-06,
+        "y": 7.451491871820492e-05,
+        "yaw_rad": 1.5708066383877857,
+        "vx": 0.0003667351693873017,
+        "vy": -2.4970417596706272e-05,
+        "angular_z": 4.6348243889608105e-05
+      },
+      "command": {
+        "step": 11,
+        "time_s": 0.55,
+        "port_thrust_n": 0.3141592653589793,
+        "port_azimuth_rad": 0.3141592653589793,
+        "starboard_thrust_n": 0.3141592653589793,
+        "starboard_azimuth_rad": 0.3141592653589793
+      },
+      "delivered": {
+        "port_thrust_n": 0.3141592653589793,
+        "port_azimuth_rad": 0.26574548557449607,
+        "starboard_thrust_n": 0.3141592653589793,
+        "starboard_azimuth_rad": 0.26574548557449645
+      }
+    },
+    {
+      "step": 12,
+      "time_s": 0.65,
+      "gazebo_iteration": 66,
+      "gazebo_sim_time_s": 0.65,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 6.3734985300255935e-06,
+        "y": 9.841989055979862e-05,
+        "yaw_rad": 1.5708100936691094,
+        "vx": 0.00044565444193793533,
+        "vy": -3.313501490908993e-05,
+        "angular_z": 5.9800065760439605e-05
+      },
+      "command": {
+        "step": 12,
+        "time_s": 0.6000000000000001,
+        "port_thrust_n": 0.34033920413889424,
+        "port_azimuth_rad": 0.34033920413889424,
+        "starboard_thrust_n": 0.34033920413889424,
+        "starboard_azimuth_rad": 0.34033920413889424
+      },
+      "delivered": {
+        "port_thrust_n": 0.34033920413889424,
+        "port_azimuth_rad": 0.29192542477584027,
+        "starboard_thrust_n": 0.34033920413889424,
+        "starboard_azimuth_rad": 0.29192542477584055
+      }
+    },
+    {
+      "step": 13,
+      "time_s": 0.7000000000000001,
+      "gazebo_iteration": 71,
+      "gazebo_sim_time_s": 0.7000000000000001,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 8.779791657702665e-06,
+        "y": 0.00012667833681200398,
+        "yaw_rad": 1.570814434699339,
+        "vx": 0.0005311782336007225,
+        "vy": -4.287046201658212e-05,
+        "angular_z": 7.579172926855141e-05
+      },
+      "command": {
+        "step": 13,
+        "time_s": 0.65,
+        "port_thrust_n": 0.36651914291880916,
+        "port_azimuth_rad": 0.36651914291880916,
+        "starboard_thrust_n": 0.36651914291880916,
+        "starboard_azimuth_rad": 0.36651914291880916
+      },
+      "delivered": {
+        "port_thrust_n": 0.36651914291880916,
+        "port_azimuth_rad": 0.31810536397723493,
+        "starboard_thrust_n": 0.36651914291880916,
+        "starboard_azimuth_rad": 0.31810536397723493
+      }
+    },
+    {
+      "step": 14,
+      "time_s": 0.75,
+      "gazebo_iteration": 76,
+      "gazebo_sim_time_s": 0.75,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 1.180131471010962e-05,
+        "y": 0.00015959282475414284,
+        "yaw_rad": 1.5708198047377946,
+        "vx": 0.0006230277092747182,
+        "vy": -5.4302436445387246e-05,
+        "angular_z": 9.450534448995683e-05
+      },
+      "command": {
+        "step": 14,
+        "time_s": 0.7000000000000001,
+        "port_thrust_n": 0.3926990816987241,
+        "port_azimuth_rad": 0.3926990816987241,
+        "starboard_thrust_n": 0.3926990816987241,
+        "starboard_azimuth_rad": 0.3926990816987241
+      },
+      "delivered": {
+        "port_thrust_n": 0.3926990816987241,
+        "port_azimuth_rad": 0.34428530317867906,
+        "starboard_thrust_n": 0.3926990816987241,
+        "starboard_azimuth_rad": 0.3442853031786794
+      }
+    },
+    {
+      "step": 15,
+      "time_s": 0.8,
+      "gazebo_iteration": 81,
+      "gazebo_sim_time_s": 0.8,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 1.5531934952211477e-05,
+        "y": 0.0001974514863132338,
+        "yaw_rad": 1.5708263558455597,
+        "vx": 0.0007209117703889707,
+        "vy": -6.755340933694797e-05,
+        "angular_z": 0.00011611470941464794
+      },
+      "command": {
+        "step": 15,
+        "time_s": 0.75,
+        "port_thrust_n": 0.418879020478639,
+        "port_azimuth_rad": 0.418879020478639,
+        "starboard_thrust_n": 0.418879020478639,
+        "starboard_azimuth_rad": 0.418879020478639
+      },
+      "delivered": {
+        "port_thrust_n": 0.418879020478639,
+        "port_azimuth_rad": 0.3704652423801737,
+        "starboard_thrust_n": 0.418879020478639,
+        "starboard_azimuth_rad": 0.370465242380174
+      }
+    },
+    {
+      "step": 16,
+      "time_s": 0.8500000000000001,
+      "gazebo_iteration": 86,
+      "gazebo_sim_time_s": 0.8500000000000001,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 2.0071360037593416e-05,
+        "y": 0.00024052744171640793,
+        "yaw_rad": 1.5708342485152471,
+        "vx": 0.0008245276034077812,
+        "vy": -8.274247995071853e-05,
+        "angular_z": 0.0001407851455090753
+      },
+      "command": {
+        "step": 16,
+        "time_s": 0.8,
+        "port_thrust_n": 0.44505895925855393,
+        "port_azimuth_rad": 0.44505895925855393,
+        "starboard_thrust_n": 0.44505895925855393,
+        "starboard_azimuth_rad": 0.44505895925855393
+      },
+      "delivered": {
+        "port_thrust_n": 0.44505895925855393,
+        "port_azimuth_rad": 0.3966451815817173,
+        "starboard_thrust_n": 0.44505895925855393,
+        "starboard_azimuth_rad": 0.3966451815817173
+      }
+    },
+    {
+      "step": 17,
+      "time_s": 0.9,
+      "gazebo_iteration": 91,
+      "gazebo_sim_time_s": 0.9,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 2.552495206833289e-05,
+        "y": 0.0002890782349741633,
+        "yaw_rad": 1.570843651298412,
+        "vx": 0.0009335612127713104,
+        "vy": -9.998521388123477e-05,
+        "angular_z": 0.00016867334148952
+      },
+      "command": {
+        "step": 17,
+        "time_s": 0.8500000000000001,
+        "port_thrust_n": 0.47123889803846886,
+        "port_azimuth_rad": 0.47123889803846886,
+        "starboard_thrust_n": 0.47123889803846886,
+        "starboard_azimuth_rad": 0.47123889803846886
+      },
+      "delivered": {
+        "port_thrust_n": 0.47123889803846886,
+        "port_azimuth_rad": 0.42282512078330997,
+        "starboard_thrust_n": 0.47123889803846886,
+        "starboard_azimuth_rad": 0.42282512078330997
+      }
+    },
+    {
+      "step": 18,
+      "time_s": 0.9500000000000001,
+      "gazebo_iteration": 96,
+      "gazebo_sim_time_s": 0.9500000000000001,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 3.200353346888373e-05,
+        "y": 0.00034334528308881465,
+        "yaw_rad": 1.5708547404306128,
+        "vx": 0.0010476879405460892,
+        "vy": -0.00011939348509250382,
+        "angular_z": 0.00019992720560013593
+      },
+      "command": {
+        "step": 18,
+        "time_s": 0.9,
+        "port_thrust_n": 0.4974188368183838,
+        "port_azimuth_rad": 0.4974188368183838,
+        "starboard_thrust_n": 0.4974188368183838,
+        "starboard_azimuth_rad": 0.4974188368183838
+      },
+      "delivered": {
+        "port_thrust_n": 0.4974188368183838,
+        "port_azimuth_rad": 0.4490050599849506,
+        "starboard_thrust_n": 0.4974188368183838,
+        "starboard_azimuth_rad": 0.4490050599849509
+      }
+    },
+    {
+      "step": 19,
+      "time_s": 1.0,
+      "gazebo_iteration": 101,
+      "gazebo_sim_time_s": 1.0,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 3.962318492255283e-05,
+        "y": 0.00040355334092300225,
+        "yaw_rad": 1.5708676994539779,
+        "vx": 0.0011665729748661822,
+        "vy": -0.0001410753218809604,
+        "angular_z": 0.00023468572639512167
+      },
+      "command": {
+        "step": 19,
+        "time_s": 0.9500000000000001,
+        "port_thrust_n": 0.5235987755982987,
+        "port_azimuth_rad": 0.5235987755982987,
+        "starboard_thrust_n": 0.5235987755982987,
+        "starboard_azimuth_rad": 0.5235987755982987
+      },
+      "delivered": {
+        "port_thrust_n": 0.5235987755982987,
+        "port_azimuth_rad": 0.47518499918663964,
+        "starboard_thrust_n": 0.5235987755982987,
+        "starboard_azimuth_rad": 0.47518499918663964
+      }
+    },
+    {
+      "step": 20,
+      "time_s": 1.05,
+      "gazebo_iteration": 106,
+      "gazebo_sim_time_s": 1.05,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 4.85050356337157e-05,
+        "y": 0.0004699099836727545,
+        "yaw_rad": 1.5708827188371535,
+        "vx": 0.0012898718490560054,
+        "vy": -0.00016513475688235822,
+        "angular_z": 0.0002730788417359784
+      },
+      "command": {
+        "step": 20,
+        "time_s": 1,
+        "port_thrust_n": 0.5497787143782137,
+        "port_azimuth_rad": 0.5497787143782137,
+        "starboard_thrust_n": 0.5497787143782137,
+        "starboard_azimuth_rad": 0.5497787143782137
+      },
+      "delivered": {
+        "port_thrust_n": 0.5497787143782137,
+        "port_azimuth_rad": 0.5013649383883756,
+        "starboard_thrust_n": 0.5497787143782137,
+        "starboard_azimuth_rad": 0.5013649383883757
+      }
+    },
+    {
+      "step": 21,
+      "time_s": 1.1,
+      "gazebo_iteration": 111,
+      "gazebo_sim_time_s": 1.1,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 5.8775046193225344e-05,
+        "y": 0.0005426051088714924,
+        "yaw_rad": 1.5708999955924081,
+        "vx": 0.0014172309331423943,
+        "vy": -0.00019167168123976472,
+        "angular_z": 0.0003152273167130953
+      },
+      "command": {
+        "step": 21,
+        "time_s": 1.05,
+        "port_thrust_n": 0.5759586531581287,
+        "port_azimuth_rad": 0.5759586531581287,
+        "starboard_thrust_n": 0.5759586531581287,
+        "starboard_azimuth_rad": 0.5759586531581287
+      },
+      "delivered": {
+        "port_thrust_n": 0.5759586531581287,
+        "port_azimuth_rad": 0.5275448775901588,
+        "starboard_thrust_n": 0.5759586531581287,
+        "starboard_azimuth_rad": 0.5275448775901591
+      }
+    },
+    {
+      "step": 22,
+      "time_s": 1.15,
+      "gazebo_iteration": 116,
+      "gazebo_sim_time_s": 1.15,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 7.056378433840379e-05,
+        "y": 0.0006218104598086837,
+        "yaw_rad": 1.570919732886311,
+        "vx": 0.00154828791918672,
+        "vy": -0.0002207817030485882,
+        "angular_z": 0.00036124259718265755
+      },
+      "command": {
+        "step": 22,
+        "time_s": 1.1,
+        "port_thrust_n": 0.6021385919380436,
+        "port_azimuth_rad": 0.6021385919380436,
+        "starboard_thrust_n": 0.6021385919380436,
+        "starboard_azimuth_rad": 0.6021385919380436
+      },
+      "delivered": {
+        "port_thrust_n": 0.6021385919380436,
+        "port_azimuth_rad": 0.5537248167919878,
+        "starboard_thrust_n": 0.6021385919380436,
+        "starboard_azimuth_rad": 0.553724816791988
+      }
+    },
+    {
+      "step": 23,
+      "time_s": 1.2,
+      "gazebo_iteration": 121,
+      "gazebo_sim_time_s": 1.2,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 8.400619391246465e-05,
+        "y": 0.0007076791721826722,
+        "yaw_rad": 1.5709421396599053,
+        "vx": 0.001682672302134989,
+        "vy": -0.0002525560102009561,
+        "angular_z": 0.0004112267978657293
+      },
+      "command": {
+        "step": 23,
+        "time_s": 1.1500000000000001,
+        "port_thrust_n": 0.6283185307179586,
+        "port_azimuth_rad": 0.6283185307179586,
+        "starboard_thrust_n": 0.6283185307179586,
+        "starboard_azimuth_rad": 0.6283185307179586
+      },
+      "delivered": {
+        "port_thrust_n": 0.6283185307179586,
+        "port_azimuth_rad": 0.5799047559938625,
+        "starboard_thrust_n": 0.6283185307179586,
+        "starboard_azimuth_rad": 0.5799047559938626
+      }
+    },
+    {
+      "step": 24,
+      "time_s": 1.25,
+      "gazebo_iteration": 126,
+      "gazebo_sim_time_s": 1.25,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 9.924135734107721e-05,
+        "y": 0.000800345345724262,
+        "yaw_rad": 1.5709674302268122,
+        "vx": 0.0018200058571802835,
+        "vy": -0.0002870812377432354,
+        "angular_z": 0.0004652725520527235
+      },
+      "command": {
+        "step": 24,
+        "time_s": 1.2000000000000002,
+        "port_thrust_n": 0.6544984694978736,
+        "port_azimuth_rad": 0.6544984694978736,
+        "starboard_thrust_n": 0.6544984694978736,
+        "starboard_azimuth_rad": 0.6544984694978736
+      },
+      "delivered": {
+        "port_thrust_n": 0.6544984694978736,
+        "port_azimuth_rad": 0.606084695195782,
+        "starboard_thrust_n": 0.6544984694978736,
+        "starboard_azimuth_rad": 0.606084695195782
+      }
+    },
+    {
+      "step": 25,
+      "time_s": 1.3,
+      "gazebo_iteration": 131,
+      "gazebo_sim_time_s": 1.3,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.00011641225195610552,
+        "y": 0.0008999236424292885,
+        "yaw_rad": 1.5709958238790953,
+        "vx": 0.0019599031143539072,
+        "vy": -0.00032443933985601035,
+        "angular_z": 0.0005234628601997214
+      },
+      "command": {
+        "step": 25,
+        "time_s": 1.25,
+        "port_thrust_n": 0.6806784082777886,
+        "port_azimuth_rad": 0.6806784082777886,
+        "starboard_thrust_n": 0.6806784082777886,
+        "starboard_azimuth_rad": 0.6806784082777886
+      },
+      "delivered": {
+        "port_thrust_n": 0.6806784082777886,
+        "port_azimuth_rad": 0.6322646343977454,
+        "starboard_thrust_n": 0.6806784082777886,
+        "starboard_azimuth_rad": 0.6322646343977458
+      }
+    },
+    {
+      "step": 26,
+      "time_s": 1.35,
+      "gazebo_iteration": 136,
+      "gazebo_sim_time_s": 1.35,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.00013566550050809532,
+        "y": 0.0010065089129268952,
+        "yaw_rad": 1.5710275444859965,
+        "vx": 0.0021019718317621338,
+        "vy": -0.00036470746657740256,
+        "angular_z": 0.0005858710997204248
+      },
+      "command": {
+        "step": 26,
+        "time_s": 1.3,
+        "port_thrust_n": 0.7068583470577036,
+        "port_azimuth_rad": 0.7068583470577036,
+        "starboard_thrust_n": 0.7068583470577036,
+        "starboard_azimuth_rad": 0.7068583470577036
+      },
+      "delivered": {
+        "port_thrust_n": 0.7068583470577036,
+        "port_azimuth_rad": 0.6584445735997525,
+        "starboard_thrust_n": 0.7068583470577036,
+        "starboard_azimuth_rad": 0.6584445735997525
+      }
+    },
+    {
+      "step": 27,
+      "time_s": 1.4000000000000001,
+      "gazebo_iteration": 141,
+      "gazebo_sim_time_s": 1.4000000000000001,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0001571511162198923,
+        "y": 0.001120175852388169,
+        "yaw_rad": 1.5710628200880197,
+        "vx": 0.002245813468225706,
+        "vy": -0.0004079578453820799,
+        "angular_z": 0.0006525609296233018
+      },
+      "command": {
+        "step": 27,
+        "time_s": 1.35,
+        "port_thrust_n": 0.7330382858376185,
+        "port_azimuth_rad": 0.7330382858376185,
+        "starboard_thrust_n": 0.7330382858376185,
+        "starboard_azimuth_rad": 0.7330382858376185
+      },
+      "delivered": {
+        "port_thrust_n": 0.7330382858376185,
+        "port_azimuth_rad": 0.684624512801803,
+        "starboard_thrust_n": 0.7330382858376185,
+        "starboard_azimuth_rad": 0.6846245128018031
+      }
+    },
+    {
+      "step": 28,
+      "time_s": 1.45,
+      "gazebo_iteration": 146,
+      "gazebo_sim_time_s": 1.45,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.00018102224274377474,
+        "y": 0.0012409786872495793,
+        "yaw_rad": 1.5711018824860004,
+        "vx": 0.00239102365584258,
+        "vy": -0.0004542576677241098,
+        "angular_z": 0.0007235862322348538
+      },
+      "command": {
+        "step": 28,
+        "time_s": 1.4000000000000001,
+        "port_thrust_n": 0.7592182246175335,
+        "port_azimuth_rad": 0.7592182246175335,
+        "starboard_thrust_n": 0.7592182246175335,
+        "starboard_azimuth_rad": 0.7592182246175335
+      },
+      "delivered": {
+        "port_thrust_n": 0.7592182246175335,
+        "port_azimuth_rad": 0.7108044520038949,
+        "starboard_thrust_n": 0.7592182246175335,
+        "starboard_azimuth_rad": 0.7108044520038951
+      }
+    },
+    {
+      "step": 29,
+      "time_s": 1.5,
+      "gazebo_iteration": 151,
+      "gazebo_sim_time_s": 1.5,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.00020743488939361723,
+        "y": 0.001368950893889428,
+        "yaw_rad": 1.571144966824864,
+        "vx": 0.002537192673123534,
+        "vy": -0.0005036689806538451,
+        "angular_z": 0.0007989910643207334
+      },
+      "command": {
+        "step": 29,
+        "time_s": 1.4500000000000002,
+        "port_thrust_n": 0.7853981633974485,
+        "port_azimuth_rad": 0.7853981633974485,
+        "starboard_thrust_n": 0.7853981633974485,
+        "starboard_azimuth_rad": 0.7853981633974485
+      },
+      "delivered": {
+        "port_thrust_n": 0.7853981633974485,
+        "port_azimuth_rad": 0.7369843912060282,
+        "starboard_thrust_n": 0.7853981633974485,
+        "starboard_azimuth_rad": 0.7369843912060289
+      }
+    },
+    {
+      "step": 30,
+      "time_s": 1.55,
+      "gazebo_iteration": 156,
+      "gazebo_sim_time_s": 1.55,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0002365476620318265,
+        "y": 0.0015041049502551983,
+        "yaw_rad": 1.5711923111717219,
+        "vx": 0.00268390591918969,
+        "vy": -0.0005562485836164311,
+        "angular_z": 0.0008788096189357843
+      },
+      "command": {
+        "step": 30,
+        "time_s": 1.5,
+        "port_thrust_n": 0.8115781021773635,
+        "port_azimuth_rad": 0.8115781021773635,
+        "starboard_thrust_n": 0.8115781021773635,
+        "starboard_azimuth_rad": 0.8115781021773635
+      },
+      "delivered": {
+        "port_thrust_n": 0.8115781021773635,
+        "port_azimuth_rad": 0.7631643304082029,
+        "starboard_thrust_n": 0.8115781021773635,
+        "starboard_azimuth_rad": 0.7631643304082031
+      }
+    },
+    {
+      "step": 31,
+      "time_s": 1.5999999999999999,
+      "gazebo_iteration": 161,
+      "gazebo_sim_time_s": 1.5999999999999999,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.00026852148999806494,
+        "y": 0.001646432121297094,
+        "yaw_rad": 1.571244156088045,
+        "vx": 0.0028307443894336976,
+        "vy": -0.0006120479305377634,
+        "angular_z": 0.000963066195386804
+      },
+      "command": {
+        "step": 31,
+        "time_s": 1.55,
+        "port_thrust_n": 0.8377580409572785,
+        "port_azimuth_rad": 0.8377580409572785,
+        "starboard_thrust_n": 0.8377580409572785,
+        "starboard_azimuth_rad": 0.8377580409572785
+      },
+      "delivered": {
+        "port_thrust_n": 0.8377580409572785,
+        "port_azimuth_rad": 0.7893442696104177,
+        "starboard_thrust_n": 0.8377580409572785,
+        "starboard_azimuth_rad": 0.7893442696104177
+      }
+    },
+    {
+      "step": 32,
+      "time_s": 1.6500000000000001,
+      "gazebo_iteration": 166,
+      "gazebo_sim_time_s": 1.6500000000000001,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.00030351934947306543,
+        "y": 0.0017959022789197573,
+        "yaw_rad": 1.5713007441956235,
+        "vx": 0.002977285152967104,
+        "vy": -0.000671113037301952,
+        "angular_z": 0.0010517751808540813
+      },
+      "command": {
+        "step": 32,
+        "time_s": 1.6,
+        "port_thrust_n": 0.8639379797371934,
+        "port_azimuth_rad": 0.8639379797371934,
+        "starboard_thrust_n": 0.8639379797371934,
+        "starboard_azimuth_rad": 0.8639379797371934
+      },
+      "delivered": {
+        "port_thrust_n": 0.8639379797371934,
+        "port_azimuth_rad": 0.8155242088126723,
+        "starboard_thrust_n": 0.8639379797371934,
+        "starboard_azimuth_rad": 0.8155242088126724
+      }
+    },
+    {
+      "step": 33,
+      "time_s": 1.7,
+      "gazebo_iteration": 171,
+      "gazebo_sim_time_s": 1.7,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.00034170598367611136,
+        "y": 0.0019524637570215845,
+        "yaw_rad": 1.5713623197360922,
+        "vx": 0.003123101832104686,
+        "vy": -0.0007334843947224766,
+        "angular_z": 0.0011449410421674228
+      },
+      "command": {
+        "step": 33,
+        "time_s": 1.6500000000000001,
+        "port_thrust_n": 0.8901179185171084,
+        "port_azimuth_rad": 0.8901179185171084,
+        "starboard_thrust_n": 0.8901179185171084,
+        "starboard_azimuth_rad": 0.8901179185171084
+      },
+      "delivered": {
+        "port_thrust_n": 0.8901179185171084,
+        "port_azimuth_rad": 0.8417041480149651,
+        "starboard_thrust_n": 0.8901179185171084,
+        "starboard_azimuth_rad": 0.8417041480149652
+      }
+    },
+    {
+      "step": 34,
+      "time_s": 1.75,
+      "gazebo_iteration": 176,
+      "gazebo_sim_time_s": 1.75,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0003832476202989821,
+        "y": 0.002116043242050463,
+        "yaw_rad": 1.5714291281238248,
+        "vx": 0.003267765084071517,
+        "vy": -0.0007991968871072982,
+        "angular_z": 0.0012425583266272447
+      },
+      "command": {
+        "step": 34,
+        "time_s": 1.7000000000000002,
+        "port_thrust_n": 0.9162978572970234,
+        "port_azimuth_rad": 0.9162978572970234,
+        "starboard_thrust_n": 0.9162978572970234,
+        "starboard_azimuth_rad": 0.9162978572970234
+      },
+      "delivered": {
+        "port_thrust_n": 0.9162978572970234,
+        "port_azimuth_rad": 0.8678840872172963,
+        "starboard_thrust_n": 0.9162978572970234,
+        "starboard_azimuth_rad": 0.8678840872172964
+      }
+    },
+    {
+      "step": 35,
+      "time_s": 1.8,
+      "gazebo_iteration": 181,
+      "gazebo_sim_time_s": 1.8,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.00042831168658232394,
+        "y": 0.002286545699367229,
+        "yaw_rad": 1.5715014154920408,
+        "vx": 0.003410843085059693,
+        "vy": -0.0008682797165161813,
+        "angular_z": 0.0013446116741121386
+      },
+      "command": {
+        "step": 35,
+        "time_s": 1.75,
+        "port_thrust_n": 0.9424777960769384,
+        "port_azimuth_rad": 0.9424777960769384,
+        "starboard_thrust_n": 0.9424777960769384,
+        "starboard_azimuth_rad": 0.9424777960769384
+      },
+      "delivered": {
+        "port_thrust_n": 0.9424777960769384,
+        "port_azimuth_rad": 0.8940640264196649,
+        "starboard_thrust_n": 0.9424777960769384,
+        "starboard_azimuth_rad": 0.8940640264196654
+      }
+    },
+    {
+      "step": 36,
+      "time_s": 1.85,
+      "gazebo_iteration": 186,
+      "gazebo_sim_time_s": 1.85,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.00047706652244248245,
+        "y": 0.00246385433557463,
+        "yaw_rad": 1.5715794282320152,
+        "vx": 0.00355190201670844,
+        "vy": -0.0009407563328063419,
+        "angular_z": 0.0014510758390279166
+      },
+      "command": {
+        "step": 36,
+        "time_s": 1.8,
+        "port_thrust_n": 0.9686577348568534,
+        "port_azimuth_rad": 0.9686577348568534,
+        "starboard_thrust_n": 0.9686577348568534,
+        "starboard_azimuth_rad": 0.9686577348568534
+      },
+      "delivered": {
+        "port_thrust_n": 0.9686577348568534,
+        "port_azimuth_rad": 0.9202439656220708,
+        "starboard_thrust_n": 0.9686577348568534,
+        "starboard_azimuth_rad": 0.920243965622071
+      }
+    },
+    {
+      "step": 37,
+      "time_s": 1.9000000000000001,
+      "gazebo_iteration": 191,
+      "gazebo_sim_time_s": 1.9000000000000001,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0005296810920578178,
+        "y": 0.0026478305968408904,
+        "yaw_rad": 1.5716634125253413,
+        "vx": 0.003690506555033153,
+        "vy": -0.001016644369560344,
+        "angular_z": 0.00156191572328957
+      },
+      "command": {
+        "step": 37,
+        "time_s": 1.85,
+        "port_thrust_n": 0.9948376736367683,
+        "port_azimuth_rad": 0.9948376736367683,
+        "starboard_thrust_n": 0.9948376736367683,
+        "starboard_azimuth_rad": 0.9948376736367683
+      },
+      "delivered": {
+        "port_thrust_n": 0.9948376736367683,
+        "port_azimuth_rad": 0.9464239048245134,
+        "starboard_thrust_n": 0.9948376736367683,
+        "starboard_azimuth_rad": 0.9464239048245134
+      }
+    },
+    {
+      "step": 38,
+      "time_s": 1.95,
+      "gazebo_iteration": 196,
+      "gazebo_sim_time_s": 1.95,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0005863246943234013,
+        "y": 0.0028383142031237537,
+        "yaw_rad": 1.5717536138692263,
+        "vx": 0.0038262203617849917,
+        "vy": -0.0010959555859878008,
+        "angular_z": 0.0016770864202520683
+      },
+      "command": {
+        "step": 38,
+        "time_s": 1.9000000000000001,
+        "port_thrust_n": 1.0210176124166832,
+        "port_azimuth_rad": 1.0210176124166832,
+        "starboard_thrust_n": 1.0210176124166832,
+        "starboard_azimuth_rad": 1.0210176124166832
+      },
+      "delivered": {
+        "port_thrust_n": 1.0210176124166832,
+        "port_azimuth_rad": 0.972603844026992,
+        "starboard_thrust_n": 1.0210176124166832,
+        "starboard_azimuth_rad": 0.972603844026992
+      }
+    },
+    {
+      "step": 39,
+      "time_s": 1.9999999999999998,
+      "gazebo_iteration": 201,
+      "gazebo_sim_time_s": 1.9999999999999998,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0006471666725817738,
+        "y": 0.0030351232180837085,
+        "yaw_rad": 1.571850276594887,
+        "vx": 0.00395860657818301,
+        "vy": -0.0011786958148899622,
+        "angular_z": 0.0017965332674378235
+      },
+      "command": {
+        "step": 39,
+        "time_s": 1.9500000000000002,
+        "port_thrust_n": 1.047197551196598,
+        "port_azimuth_rad": 1.047197551196598,
+        "starboard_thrust_n": 1.047197551196598,
+        "starboard_azimuth_rad": 1.047197551196598
+      },
+      "delivered": {
+        "port_thrust_n": 1.047197551196598,
+        "port_azimuth_rad": 0.9987837832295056,
+        "starboard_thrust_n": 1.047197551196598,
+        "starboard_azimuth_rad": 0.9987837832295053
+      }
+    },
+    {
+      "step": 40,
+      "time_s": 2.0500000000000003,
+      "gazebo_iteration": 206,
+      "gazebo_sim_time_s": 2.0500000000000003,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0007123761240351225,
+        "y": 0.00323805415436439,
+        "yaw_rad": 1.571953643379135,
+        "vx": 0.00408722832092418,
+        "vy": -0.0012648649167736482,
+        "angular_z": 0.001920191911529855
+      },
+      "command": {
+        "step": 40,
+        "time_s": 2,
+        "port_thrust_n": 1.073377489976513,
+        "port_azimuth_rad": 1.073377489976513,
+        "starboard_thrust_n": 1.073377489976513,
+        "starboard_azimuth_rad": 1.073377489976513
+      },
+      "delivered": {
+        "port_thrust_n": 1.073377489976513,
+        "port_azimuth_rad": 1.0249637224320534,
+        "starboard_thrust_n": 1.073377489976513,
+        "starboard_azimuth_rad": 1.0249637224320531
+      }
+    },
+    {
+      "step": 41,
+      "time_s": 2.1,
+      "gazebo_iteration": 211,
+      "gazebo_sim_time_s": 2.1,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0007821216092408208,
+        "y": 0.003446882113814269,
+        "yaw_rad": 1.5720639547493238,
+        "vx": 0.004211649180343462,
+        "vy": -0.0013544567401981443,
+        "angular_z": 0.0020479883841740382
+      },
+      "command": {
+        "step": 41,
+        "time_s": 2.0500000000000003,
+        "port_thrust_n": 1.0995574287564278,
+        "port_azimuth_rad": 1.0995574287564278,
+        "starboard_thrust_n": 1.0995574287564278,
+        "starboard_azimuth_rad": 1.0995574287564278
+      },
+      "delivered": {
+        "port_thrust_n": 1.0995574287564278,
+        "port_azimuth_rad": 1.0511436616346361,
+        "starboard_thrust_n": 1.0995574287564278,
+        "starboard_azimuth_rad": 1.0511436616346361
+      }
+    },
+    {
+      "step": 42,
+      "time_s": 2.1500000000000004,
+      "gazebo_iteration": 216,
+      "gazebo_sim_time_s": 2.1500000000000004,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0008565708620877887,
+        "y": 0.0036613609621268784,
+        "yaw_rad": 1.5721814485818946,
+        "vx": 0.004331433720565222,
+        "vy": -0.0014474590884357914,
+        "angular_z": 0.0021798391870934
+      },
+      "command": {
+        "step": 42,
+        "time_s": 2.1,
+        "port_thrust_n": 1.1257373675363427,
+        "port_azimuth_rad": 1.1257373675363427,
+        "starboard_thrust_n": 1.1257373675363427,
+        "starboard_azimuth_rad": 1.1257373675363427
+      },
+      "delivered": {
+        "port_thrust_n": 1.1257373675363427,
+        "port_azimuth_rad": 1.0773236008372529,
+        "starboard_thrust_n": 1.1257373675363427,
+        "starboard_azimuth_rad": 1.0773236008372526
+      }
+    },
+    {
+      "step": 43,
+      "time_s": 2.2,
+      "gazebo_iteration": 221,
+      "gazebo_sim_time_s": 2.2,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0009358905006455786,
+        "y": 0.003881223537287218,
+        "yaw_rad": 1.57230635959479,
+        "vx": 0.004446147981458679,
+        "vy": -0.0015438536925237848,
+        "angular_z": 0.0023156513891366905
+      },
+      "command": {
+        "step": 43,
+        "time_s": 2.15,
+        "port_thrust_n": 1.1519173063162575,
+        "port_azimuth_rad": 1.1519173063162575,
+        "starboard_thrust_n": 1.1519173063162575,
+        "starboard_azimuth_rad": 1.1519173063162575
+      },
+      "delivered": {
+        "port_thrust_n": 1.1519173063162575,
+        "port_azimuth_rad": 1.103503540039903,
+        "starboard_thrust_n": 1.1519173063162575,
+        "starboard_azimuth_rad": 1.1035035400399025
+      }
+    },
+    {
+      "step": 44,
+      "time_s": 2.25,
+      "gazebo_iteration": 226,
+      "gazebo_sim_time_s": 2.25,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0010202457392715066,
+        "y": 0.004106181891129647,
+        "yaw_rad": 1.5724389188340953,
+        "vx": 0.004555359982183737,
+        "vy": -0.0016436161907813014,
+        "angular_z": 0.002455322733474783
+      },
+      "command": {
+        "step": 44,
+        "time_s": 2.2,
+        "port_thrust_n": 1.1780972450961724,
+        "port_azimuth_rad": 1.1780972450961724,
+        "starboard_thrust_n": 1.1780972450961724,
+        "starboard_azimuth_rad": 1.1780972450961724
+      },
+      "delivered": {
+        "port_thrust_n": 1.1780972450961724,
+        "port_azimuth_rad": 1.129683479242586,
+        "starboard_thrust_n": 1.1780972450961724,
+        "starboard_azimuth_rad": 1.1296834792425854
+      }
+    },
+    {
+      "step": 45,
+      "time_s": 2.3000000000000003,
+      "gazebo_iteration": 231,
+      "gazebo_sim_time_s": 2.3000000000000003,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0011098001023535577,
+        "y": 0.0043359275632375615,
+        "yaw_rad": 1.572579353155328,
+        "vx": 0.004658640226088216,
+        "vy": -0.0017467161148625628,
+        "angular_z": 0.0025987417546715396
+      },
+      "command": {
+        "step": 45,
+        "time_s": 2.25,
+        "port_thrust_n": 1.2042771838760873,
+        "port_azimuth_rad": 1.2042771838760873,
+        "starboard_thrust_n": 1.2042771838760873,
+        "starboard_azimuth_rad": 1.2042771838760873
+      },
+      "delivered": {
+        "port_thrust_n": 1.2042771838760873,
+        "port_azimuth_rad": 1.1558634184453007,
+        "starboard_thrust_n": 1.2042771838760873,
+        "starboard_azimuth_rad": 1.1558634184453
+      }
+    },
+    {
+      "step": 46,
+      "time_s": 2.35,
+      "gazebo_iteration": 236,
+      "gazebo_sim_time_s": 2.35,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0012047151400582257,
+        "y": 0.0045701318863474345,
+        "yaw_rad": 1.5727278846998405,
+        "vx": 0.004755562206694147,
+        "vy": -0.0018531168824126511,
+        "angular_z": 0.0027457879092778054
+      },
+      "command": {
+        "step": 46,
+        "time_s": 2.3000000000000003,
+        "port_thrust_n": 1.2304571226560022,
+        "port_azimuth_rad": 1.2304571226560022,
+        "starboard_thrust_n": 1.2304571226560022,
+        "starboard_azimuth_rad": 1.2304571226560022
+      },
+      "delivered": {
+        "port_thrust_n": 1.2304571226560022,
+        "port_azimuth_rad": 1.1820433576480476,
+        "starboard_thrust_n": 1.2304571226560022,
+        "starboard_azimuth_rad": 1.1820433576480476
+      }
+    },
+    {
+      "step": 47,
+      "time_s": 2.4000000000000004,
+      "gazebo_iteration": 241,
+      "gazebo_sim_time_s": 2.4000000000000004,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0013051501464429367,
+        "y": 0.004808446322359273,
+        "yaw_rad": 1.572884730366879,
+        "vx": 0.004845702914488502,
+        "vy": -0.0019627757963887973,
+        "angular_z": 0.0028963317130231855
+      },
+      "command": {
+        "step": 47,
+        "time_s": 2.35,
+        "port_thrust_n": 1.256637061435917,
+        "port_azimuth_rad": 1.256637061435917,
+        "starboard_thrust_n": 1.256637061435917,
+        "starboard_azimuth_rad": 1.256637061435917
+      },
+      "delivered": {
+        "port_thrust_n": 1.256637061435917,
+        "port_azimuth_rad": 1.2082232968508269,
+        "starboard_thrust_n": 1.256637061435917,
+        "starboard_azimuth_rad": 1.2082232968508266
+      }
+    },
+    {
+      "step": 48,
+      "time_s": 2.45,
+      "gazebo_iteration": 246,
+      "gazebo_sim_time_s": 2.45,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0014112618802823002,
+        "y": 0.005050502828002041,
+        "yaw_rad": 1.5730501012819038,
+        "vx": 0.004928643344212092,
+        "vy": -0.0020756440511055544,
+        "angular_z": 0.003050234891088961
+      },
+      "command": {
+        "step": 48,
+        "time_s": 2.4000000000000004,
+        "port_thrust_n": 1.282817000215832,
+        "port_azimuth_rad": 1.282817000215832,
+        "starboard_thrust_n": 1.282817000215832,
+        "starboard_azimuth_rad": 1.282817000215832
+      },
+      "delivered": {
+        "port_thrust_n": 1.282817000215832,
+        "port_azimuth_rad": 1.2344032360536374,
+        "starboard_thrust_n": 1.282817000215832,
+        "starboard_azimuth_rad": 1.2344032360536368
+      }
+    },
+    {
+      "step": 49,
+      "time_s": 2.5,
+      "gazebo_iteration": 251,
+      "gazebo_sim_time_s": 2.5,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0015232042889461895,
+        "y": 0.005295914249155999,
+        "yaw_rad": 1.573224202261832,
+        "vx": 0.005003969002319835,
+        "vy": -0.0021916667450579204,
+        "angular_z": 0.0032073505388418287
+      },
+      "command": {
+        "step": 49,
+        "time_s": 2.45,
+        "port_thrust_n": 1.3089969389957468,
+        "port_azimuth_rad": 1.3089969389957468,
+        "starboard_thrust_n": 1.3089969389957468,
+        "starboard_azimuth_rad": 1.3089969389957468
+      },
+      "delivered": {
+        "port_thrust_n": 1.3089969389957468,
+        "port_azimuth_rad": 1.2605831752564787,
+        "starboard_thrust_n": 1.3089969389957468,
+        "starboard_azimuth_rad": 1.2605831752564784
+      }
+    },
+    {
+      "step": 50,
+      "time_s": 2.5500000000000003,
+      "gazebo_iteration": 256,
+      "gazebo_sim_time_s": 2.5500000000000003,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0016411282356555707,
+        "y": 0.005544274742793975,
+        "yaw_rad": 1.5734072312779095,
+        "vx": 0.005071270414265991,
+        "vy": -0.0023107829005714043,
+        "angular_z": 0.0033675232916562077
+      },
+      "command": {
+        "step": 50,
+        "time_s": 2.5,
+        "port_thrust_n": 1.3351768777756616,
+        "port_azimuth_rad": 1.3351768777756616,
+        "starboard_thrust_n": 1.3351768777756616,
+        "starboard_azimuth_rad": 1.3351768777756616
+      },
+      "delivered": {
+        "port_thrust_n": 1.3351768777756616,
+        "port_azimuth_rad": 1.2867631144593517,
+        "starboard_thrust_n": 1.3351768777756616,
+        "starboard_azimuth_rad": 1.2867631144593514
+      }
+    },
+    {
+      "step": 51,
+      "time_s": 2.6,
+      "gazebo_iteration": 261,
+      "gazebo_sim_time_s": 2.6,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0017651812304292159,
+        "y": 0.0057951602254700425,
+        "yaw_rad": 1.5735993789170222,
+        "vx": 0.005130143631248583,
+        "vy": -0.002432925490323075,
+        "angular_z": 0.0035305895063153527
+      },
+      "command": {
+        "step": 51,
+        "time_s": 2.5500000000000003,
+        "port_thrust_n": 1.3613568165555765,
+        "port_azimuth_rad": 1.3613568165555765,
+        "starboard_thrust_n": 1.3613568165555765,
+        "starboard_azimuth_rad": 1.3613568165555765
+      },
+      "delivered": {
+        "port_thrust_n": 1.3613568165555765,
+        "port_azimuth_rad": 1.3129430536622548,
+        "starboard_thrust_n": 1.3613568165555765,
+        "starboard_azimuth_rad": 1.3129430536622544
+      }
+    },
+    {
+      "step": 52,
+      "time_s": 2.6500000000000004,
+      "gazebo_iteration": 266,
+      "gazebo_sim_time_s": 2.6500000000000004,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0018955071650209247,
+        "y": 0.006048128847256545,
+        "yaw_rad": 1.5738008278422515,
+        "vx": 0.0051801907360284425,
+        "vy": -0.0025580214707724017,
+        "angular_z": 0.003696377450301558
+      },
+      "command": {
+        "step": 52,
+        "time_s": 2.6,
+        "port_thrust_n": 1.3875367553354914,
+        "port_azimuth_rad": 1.3875367553354914,
+        "starboard_thrust_n": 1.3875367553354914,
+        "starboard_azimuth_rad": 1.3875367553354914
+      },
+      "delivered": {
+        "port_thrust_n": 1.3875367553354914,
+        "port_azimuth_rad": 1.3391229928651889,
+        "starboard_thrust_n": 1.3875367553354914,
+        "starboard_azimuth_rad": 1.3391229928651884
+      }
+    },
+    {
+      "step": 53,
+      "time_s": 2.7,
+      "gazebo_iteration": 271,
+      "gazebo_sim_time_s": 2.7,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.002032246052132698,
+        "y": 0.006302721489984536,
+        "yaw_rad": 1.5740117522535872,
+        "vx": 0.0052210203474265995,
+        "vy": -0.0026859918225347707,
+        "angular_z": 0.0038647075067726987
+      },
+      "command": {
+        "step": 53,
+        "time_s": 2.6500000000000004,
+        "port_thrust_n": 1.4137166941154062,
+        "port_azimuth_rad": 1.4119326543790491,
+        "starboard_thrust_n": 1.4137166941154062,
+        "starboard_azimuth_rad": 1.4119326543790491
+      },
+      "delivered": {
+        "port_thrust_n": 1.4137166941154062,
+        "port_azimuth_rad": 1.3651272847596077,
+        "starboard_thrust_n": 1.4137166941154062,
+        "starboard_azimuth_rad": 1.365127284759608
+      }
+    },
+    {
+      "step": 54,
+      "time_s": 2.75,
+      "gazebo_iteration": 276,
+      "gazebo_sim_time_s": 2.75,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0021755336657526647,
+        "y": 0.006558463768177894,
+        "yaw_rad": 1.574232315297179,
+        "vx": 0.005252263414788783,
+        "vy": -0.0028167506087114027,
+        "angular_z": 0.004035372494390442
+      },
+      "command": {
+        "step": 54,
+        "time_s": 2.7,
+        "port_thrust_n": 1.439896632895321,
+        "port_azimuth_rad": 1.4330809201044459,
+        "starboard_thrust_n": 1.439896632895321,
+        "starboard_azimuth_rad": 1.4330809201044459
+      },
+      "delivered": {
+        "port_thrust_n": 1.439896632895321,
+        "port_azimuth_rad": 1.385066664074075,
+        "starboard_thrust_n": 1.439896632895321,
+        "starboard_azimuth_rad": 1.385066664074075
+      }
+    },
+    {
+      "step": 55,
+      "time_s": 2.8000000000000003,
+      "gazebo_iteration": 281,
+      "gazebo_sim_time_s": 2.8000000000000003,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.002325498126790974,
+        "y": 0.006814919526571301,
+        "yaw_rad": 1.5744625855065968,
+        "vx": 0.005274121864696271,
+        "vy": -0.0029501751562158946,
+        "angular_z": 0.004207334938915844
+      },
+      "command": {
+        "step": 55,
+        "time_s": 2.75,
+        "port_thrust_n": 1.466076571675236,
+        "port_azimuth_rad": 1.4514138842798365,
+        "starboard_thrust_n": 1.466076571675236,
+        "starboard_azimuth_rad": 1.4514138842798365
+      },
+      "delivered": {
+        "port_thrust_n": 1.466076571675236,
+        "port_azimuth_rad": 1.409547797896891,
+        "starboard_thrust_n": 1.466076571675236,
+        "starboard_azimuth_rad": 1.4095477978968907
+      }
+    },
+    {
+      "step": 56,
+      "time_s": 2.8500000000000005,
+      "gazebo_iteration": 286,
+      "gazebo_sim_time_s": 2.8500000000000005,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0024822591169736206,
+        "y": 0.0070716893242713606,
+        "yaw_rad": 1.5747028027177268,
+        "vx": 0.005287334398795318,
+        "vy": -0.0030861024856516234,
+        "angular_z": 0.004381324003269121
+      },
+      "command": {
+        "step": 56,
+        "time_s": 2.8000000000000003,
+        "port_thrust_n": 1.4922565104551508,
+        "port_azimuth_rad": 1.4673063257603944,
+        "starboard_thrust_n": 1.4922565104551508,
+        "starboard_azimuth_rad": 1.4673063257603944
+      },
+      "delivered": {
+        "port_thrust_n": 1.4922565104551508,
+        "port_azimuth_rad": 1.4193696618407925,
+        "starboard_thrust_n": 1.4922565104551508,
+        "starboard_azimuth_rad": 1.4193696618407925
+      }
+    },
+    {
+      "step": 57,
+      "time_s": 2.9000000000000004,
+      "gazebo_iteration": 291,
+      "gazebo_sim_time_s": 2.9000000000000004,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0026459291472788657,
+        "y": 0.007328454941420697,
+        "yaw_rad": 1.5749530062469173,
+        "vx": 0.005293089055619963,
+        "vy": -0.003224376158494207,
+        "angular_z": 0.0045570482252592645
+      },
+      "command": {
+        "step": 57,
+        "time_s": 2.85,
+        "port_thrust_n": 1.5184364492350657,
+        "port_azimuth_rad": 1.4810831320529632,
+        "starboard_thrust_n": 1.5184364492350657,
+        "starboard_azimuth_rad": 1.4810831320529632
+      },
+      "delivered": {
+        "port_thrust_n": 1.5184364492350657,
+        "port_azimuth_rad": 1.4341409931615798,
+        "starboard_thrust_n": 1.5184364492350657,
+        "starboard_azimuth_rad": 1.4341409931615798
+      }
+    },
+    {
+      "step": 58,
+      "time_s": 2.95,
+      "gazebo_iteration": 296,
+      "gazebo_sim_time_s": 2.95,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0028166133342033385,
+        "y": 0.00758496803521938,
+        "yaw_rad": 1.5752133227813432,
+        "vx": 0.005292922819503023,
+        "vy": -0.0033648521737721813,
+        "angular_z": 0.0047334069099980065
+      },
+      "command": {
+        "step": 58,
+        "time_s": 2.9000000000000004,
+        "port_thrust_n": 1.5446163880149806,
+        "port_azimuth_rad": 1.4930259409571303,
+        "starboard_thrust_n": 1.5446163880149806,
+        "starboard_azimuth_rad": 1.4930259409571303
+      },
+      "delivered": {
+        "port_thrust_n": 1.5446163880149806,
+        "port_azimuth_rad": 1.445381705159363,
+        "starboard_thrust_n": 1.5446163880149806,
+        "starboard_azimuth_rad": 1.445381705159363
+      }
+    },
+    {
+      "step": 59,
+      "time_s": 3.0,
+      "gazebo_iteration": 301,
+      "gazebo_sim_time_s": 3.0,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.002994413643069784,
+        "y": 0.007841005539161016,
+        "yaw_rad": 1.575483878279399,
+        "vx": 0.005287797863814972,
+        "vy": -0.0035074254932744666,
+        "angular_z": 0.0049112335494740315
+      },
+      "command": {
+        "step": 59,
+        "time_s": 2.95,
+        "port_thrust_n": 1.5707963267948954,
+        "port_azimuth_rad": 1.5033788980570923,
+        "starboard_thrust_n": 1.5707963267948954,
+        "starboard_azimuth_rad": 1.5033788980570923
+      },
+      "delivered": {
+        "port_thrust_n": 1.5707963267948954,
+        "port_azimuth_rad": 1.4555180281894493,
+        "starboard_thrust_n": 1.5707963267948954,
+        "starboard_azimuth_rad": 1.4555180281894493
+      }
+    },
+    {
+      "step": 60,
+      "time_s": 3.0500000000000003,
+      "gazebo_iteration": 306,
+      "gazebo_sim_time_s": 3.0500000000000003,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0031794288287656965,
+        "y": 0.008096373178385028,
+        "yaw_rad": 1.5757648161738536,
+        "vx": 0.0052782543448308605,
+        "vy": -0.0036520315024394035,
+        "angular_z": 0.0050906864645068545
+      },
+      "command": {
+        "step": 60,
+        "time_s": 3,
+        "port_thrust_n": 1.5969762655748103,
+        "port_azimuth_rad": 1.5123536477641113,
+        "starboard_thrust_n": 1.5969762655748103,
+        "starboard_azimuth_rad": 1.5123536477641113
+      },
+      "delivered": {
+        "port_thrust_n": 1.5969762655748103,
+        "port_azimuth_rad": 1.4692391066659338,
+        "starboard_thrust_n": 1.5969762655748103,
+        "starboard_azimuth_rad": 1.4692391066659338
+      }
+    },
+    {
+      "step": 61,
+      "time_s": 3.1,
+      "gazebo_iteration": 311,
+      "gazebo_sim_time_s": 3.1,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0033717596618634284,
+        "y": 0.008350835855923411,
+        "yaw_rad": 1.576056011405276,
+        "vx": 0.005264144490034603,
+        "vy": -0.0037986540955205284,
+        "angular_z": 0.0052693625996678446
+      },
+      "command": {
+        "step": 61,
+        "time_s": 3.0500000000000003,
+        "port_thrust_n": 1.6231562043547252,
+        "port_azimuth_rad": 1.5201336599409154,
+        "starboard_thrust_n": 1.6231562043547252,
+        "starboard_azimuth_rad": 1.5201336599409154
+      },
+      "delivered": {
+        "port_thrust_n": 1.6231562043547252,
+        "port_azimuth_rad": 1.4770511859811124,
+        "starboard_thrust_n": 1.6231562043547252,
+        "starboard_azimuth_rad": 1.4770511859811124
+      }
+    },
+    {
+      "step": 62,
+      "time_s": 3.1500000000000004,
+      "gazebo_iteration": 316,
+      "gazebo_sim_time_s": 3.1500000000000004,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0035714966337092023,
+        "y": 0.008604296929746926,
+        "yaw_rad": 1.5763578207769635,
+        "vx": 0.0052464672707448435,
+        "vy": -0.003947212235245773,
+        "angular_z": 0.005449312026580422
+      },
+      "command": {
+        "step": 62,
+        "time_s": 3.1,
+        "port_thrust_n": 1.64933614313464,
+        "port_azimuth_rad": 1.5268779805567743,
+        "starboard_thrust_n": 1.64933614313464,
+        "starboard_azimuth_rad": 1.5268779805567743
+      },
+      "delivered": {
+        "port_thrust_n": 1.64933614313464,
+        "port_azimuth_rad": 1.4835337809100808,
+        "starboard_thrust_n": 1.64933614313464,
+        "starboard_azimuth_rad": 1.4835337809100808
+      }
+    },
+    {
+      "step": 63,
+      "time_s": 3.2,
+      "gazebo_iteration": 321,
+      "gazebo_sim_time_s": 3.2,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.003778732418224142,
+        "y": 0.008856643694173104,
+        "yaw_rad": 1.5766702130575467,
+        "vx": 0.005226482992020697,
+        "vy": -0.004097628437636171,
+        "angular_z": 0.005631440465759623
+      },
+      "command": {
+        "step": 63,
+        "time_s": 3.1500000000000004,
+        "port_thrust_n": 1.675516081914555,
+        "port_azimuth_rad": 1.5327244830474918,
+        "starboard_thrust_n": 1.675516081914555,
+        "starboard_azimuth_rad": 1.5327244830474918
+      },
+      "delivered": {
+        "port_thrust_n": 1.675516081914555,
+        "port_azimuth_rad": 1.4892265716686162,
+        "starboard_thrust_n": 1.675516081914555,
+        "starboard_azimuth_rad": 1.4892265716686162
+      }
+    },
+    {
+      "step": 64,
+      "time_s": 3.25,
+      "gazebo_iteration": 326,
+      "gazebo_sim_time_s": 3.25,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.00399355742826535,
+        "y": 0.009107780318913052,
+        "yaw_rad": 1.576993264830604,
+        "vx": 0.00520418608360598,
+        "vy": -0.004249899682522308,
+        "angular_z": 0.005813073465325121
+      },
+      "command": {
+        "step": 64,
+        "time_s": 3.2,
+        "port_thrust_n": 1.7016960206944698,
+        "port_azimuth_rad": 1.5377926868475291,
+        "starboard_thrust_n": 1.7016960206944698,
+        "starboard_azimuth_rad": 1.5377926868475291
+      },
+      "delivered": {
+        "port_thrust_n": 1.7016960206944698,
+        "port_azimuth_rad": 1.4944625597194592,
+        "starboard_thrust_n": 1.7016960206944698,
+        "starboard_azimuth_rad": 1.4944625597194592
+      }
+    },
+    {
+      "step": 65,
+      "time_s": 3.3000000000000003,
+      "gazebo_iteration": 331,
+      "gazebo_sim_time_s": 3.3000000000000003,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.004216060932194684,
+        "y": 0.009357619226520736,
+        "yaw_rad": 1.577327050651442,
+        "vx": 0.005179825768108446,
+        "vy": -0.0044039910190606935,
+        "angular_z": 0.0059952384225859315
+      },
+      "command": {
+        "step": 65,
+        "time_s": 3.25,
+        "port_thrust_n": 1.7278759594743847,
+        "port_azimuth_rad": 1.5421862007132114,
+        "starboard_thrust_n": 1.7278759594743847,
+        "starboard_azimuth_rad": 1.5421862007132114
+      },
+      "delivered": {
+        "port_thrust_n": 1.7278759594743847,
+        "port_azimuth_rad": 1.4996985477566303,
+        "starboard_thrust_n": 1.7278759594743847,
+        "starboard_azimuth_rad": 1.4996985477566303
+      }
+    },
+    {
+      "step": 66,
+      "time_s": 3.35,
+      "gazebo_iteration": 336,
+      "gazebo_sim_time_s": 3.35,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.004446331463240836,
+        "y": 0.009606071674978895,
+        "yaw_rad": 1.5776716372290287,
+        "vx": 0.00515346269094649,
+        "vy": -0.004559881743289298,
+        "angular_z": 0.006177856446580593
+      },
+      "command": {
+        "step": 66,
+        "time_s": 3.3000000000000003,
+        "port_thrust_n": 1.7540558982542995,
+        "port_azimuth_rad": 1.5459948407856174,
+        "starboard_thrust_n": 1.7540558982542995,
+        "starboard_azimuth_rad": 1.5459948407856174
+      },
+      "delivered": {
+        "port_thrust_n": 1.7540558982542995,
+        "port_azimuth_rad": 1.504934535777595,
+        "starboard_thrust_n": 1.7540558982542995,
+        "starboard_azimuth_rad": 1.504934535777595
+      }
+    },
+    {
+      "step": 67,
+      "time_s": 3.4000000000000004,
+      "gazebo_iteration": 341,
+      "gazebo_sim_time_s": 3.4000000000000004,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.004684456837894843,
+        "y": 0.009853046440965357,
+        "yaw_rad": 1.578027088490128,
+        "vx": 0.005125044611813316,
+        "vy": -0.004717554650799081,
+        "angular_z": 0.006360843837003504
+      },
+      "command": {
+        "step": 67,
+        "time_s": 3.35,
+        "port_thrust_n": 1.7802358370342144,
+        "port_azimuth_rad": 1.549296466692489,
+        "starboard_thrust_n": 1.7802358370342144,
+        "starboard_azimuth_rad": 1.549296466692489
+      },
+      "delivered": {
+        "port_thrust_n": 1.7802358370342144,
+        "port_azimuth_rad": 1.5101705237801566,
+        "starboard_thrust_n": 1.7802358370342144,
+        "starboard_azimuth_rad": 1.5101705237801566
+      }
+    },
+    {
+      "step": 68,
+      "time_s": 3.45,
+      "gazebo_iteration": 346,
+      "gazebo_sim_time_s": 3.45,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.004930524158139198,
+        "y": 0.010098449856621734,
+        "yaw_rad": 1.578393465414617,
+        "vx": 0.00509450522998277,
+        "vy": -0.004876992463948003,
+        "angular_z": 0.006544165624047679
+      },
+      "command": {
+        "step": 68,
+        "time_s": 3.4000000000000004,
+        "port_thrust_n": 1.8064157758141293,
+        "port_azimuth_rad": 1.5521585732243988,
+        "starboard_thrust_n": 1.8064157758141293,
+        "starboard_azimuth_rad": 1.5521585732243988
+      },
+      "delivered": {
+        "port_thrust_n": 1.8064157758141293,
+        "port_azimuth_rad": 1.5154065117624114,
+        "starboard_thrust_n": 1.8064157758141293,
+        "starboard_azimuth_rad": 1.5154065117624114
+      }
+    },
+    {
+      "step": 69,
+      "time_s": 3.5,
+      "gazebo_iteration": 351,
+      "gazebo_sim_time_s": 3.5,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0051846198139662335,
+        "y": 0.010342185845480377,
+        "yaw_rad": 1.5787708259913777,
+        "vx": 0.005061778359202195,
+        "vy": -0.00503817774868426,
+        "angular_z": 0.006727786668373407
+      },
+      "command": {
+        "step": 69,
+        "time_s": 3.45,
+        "port_thrust_n": 1.8325957145940441,
+        "port_azimuth_rad": 1.554639670123642,
+        "starboard_thrust_n": 1.8325957145940441,
+        "starboard_azimuth_rad": 1.554639670123642
+      },
+      "delivered": {
+        "port_thrust_n": 1.8325957145940441,
+        "port_azimuth_rad": 1.5206424997227068,
+        "starboard_thrust_n": 1.8325957145940441,
+        "starboard_azimuth_rad": 1.5206424997227064
+      }
+    },
+    {
+      "step": 70,
+      "time_s": 3.5500000000000003,
+      "gazebo_iteration": 356,
+      "gazebo_sim_time_s": 3.5500000000000003,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.005446829486182495,
+        "y": 0.010584155957549815,
+        "yaw_rad": 1.5791592251789774,
+        "vx": 0.005026797932879068,
+        "vy": -0.0052010929148281326,
+        "angular_z": 0.006911672750092931
+      },
+      "command": {
+        "step": 70,
+        "time_s": 3.5,
+        "port_thrust_n": 1.858775653373959,
+        "port_azimuth_rad": 1.5567904781927346,
+        "starboard_thrust_n": 1.858775653373959,
+        "starboard_azimuth_rad": 1.5567904781927346
+      },
+      "delivered": {
+        "port_thrust_n": 1.858775653373959,
+        "port_azimuth_rad": 1.5258784876596114,
+        "starboard_thrust_n": 1.858775653373959,
+        "starboard_azimuth_rad": 1.5258784876596114
+      }
+    },
+    {
+      "step": 71,
+      "time_s": 3.6,
+      "gazebo_iteration": 361,
+      "gazebo_sim_time_s": 3.6,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0057172380886139785,
+        "y": 0.010824263637178705,
+        "yaw_rad": 1.5795587076734339,
+        "vx": 0.004989542979895343,
+        "vy": -0.005365719962908218,
+        "angular_z": 0.00709572276535689
+      },
+      "command": {
+        "step": 71,
+        "time_s": 3.5500000000000003,
+        "port_thrust_n": 1.8849555921538739,
+        "port_azimuth_rad": 1.5586549661744353,
+        "starboard_thrust_n": 1.8849555921538739,
+        "starboard_azimuth_rad": 1.5586549661744353
+      },
+      "delivered": {
+        "port_thrust_n": 1.8849555921538739,
+        "port_azimuth_rad": 1.5304702338640757,
+        "starboard_thrust_n": 1.8849555921538739,
+        "starboard_azimuth_rad": 1.5304702338640757
+      }
+    },
+    {
+      "step": 72,
+      "time_s": 3.6500000000000004,
+      "gazebo_iteration": 366,
+      "gazebo_sim_time_s": 3.6500000000000004,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.005995928649624808,
+        "y": 0.011062444886265106,
+        "yaw_rad": 1.579969369127652,
+        "vx": 0.004950363641311186,
+        "vy": -0.00553203209620356,
+        "angular_z": 0.007280344564017866
+      },
+      "command": {
+        "step": 72,
+        "time_s": 3.6,
+        "port_thrust_n": 1.9111355309337887,
+        "port_azimuth_rad": 1.5602712496001216,
+        "starboard_thrust_n": 1.9111355309337887,
+        "starboard_azimuth_rad": 1.5602712496001216
+      },
+      "delivered": {
+        "port_thrust_n": 1.9111355309337887,
+        "port_azimuth_rad": 1.5282434852907392,
+        "starboard_thrust_n": 1.9111355309337887,
+        "starboard_azimuth_rad": 1.5282434852907392
+      }
+    },
+    {
+      "step": 73,
+      "time_s": 3.7,
+      "gazebo_iteration": 371,
+      "gazebo_sim_time_s": 3.7,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.006282984059693602,
+        "y": 0.011298674837706878,
+        "yaw_rad": 1.5803910634739766,
+        "vx": 0.004910007883459712,
+        "vy": -0.005700012548946745,
+        "angular_z": 0.007463771986874357
+      },
+      "command": {
+        "step": 73,
+        "time_s": 3.6500000000000004,
+        "port_thrust_n": 1.9373154697137036,
+        "port_azimuth_rad": 1.5616723699815815,
+        "starboard_thrust_n": 1.9373154697137036,
+        "starboard_azimuth_rad": 1.5616723699815815
+      },
+      "delivered": {
+        "port_thrust_n": 1.9373154697137036,
+        "port_azimuth_rad": 1.5334794733217614,
+        "starboard_thrust_n": 1.9373154697137036,
+        "starboard_azimuth_rad": 1.5334794733217614
+      }
+    },
+    {
+      "step": 74,
+      "time_s": 3.75,
+      "gazebo_iteration": 376,
+      "gazebo_sim_time_s": 3.75,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.006578482110020698,
+        "y": 0.011532995373545765,
+        "yaw_rad": 1.5808240953714614,
+        "vx": 0.004869592641913366,
+        "vy": -0.0058696169611560985,
+        "angular_z": 0.007647994858958449
+      },
+      "command": {
+        "step": 74,
+        "time_s": 3.7,
+        "port_thrust_n": 1.9634954084936185,
+        "port_azimuth_rad": 1.5628869702751587,
+        "starboard_thrust_n": 1.9634954084936185,
+        "starboard_azimuth_rad": 1.5628869702751587
+      },
+      "delivered": {
+        "port_thrust_n": 1.9634954084936185,
+        "port_azimuth_rad": 1.528243485721562,
+        "starboard_thrust_n": 1.9634954084936185,
+        "starboard_azimuth_rad": 1.5282434857215617
+      }
+    },
+    {
+      "step": 75,
+      "time_s": 3.8000000000000003,
+      "gazebo_iteration": 381,
+      "gazebo_sim_time_s": 3.8000000000000003,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.006882503303629882,
+        "y": 0.011765439878370592,
+        "yaw_rad": 1.5812682682809418,
+        "vx": 0.004829732167291422,
+        "vy": -0.006040826165414648,
+        "angular_z": 0.007832572258756129
+      },
+      "command": {
+        "step": 75,
+        "time_s": 3.75,
+        "port_thrust_n": 1.9896753472735333,
+        "port_azimuth_rad": 1.5639398804266909,
+        "starboard_thrust_n": 1.9896753472735333,
+        "starboard_azimuth_rad": 1.5639398804266909
+      },
+      "delivered": {
+        "port_thrust_n": 1.9896753472735333,
+        "port_azimuth_rad": 1.5334794737624433,
+        "starboard_thrust_n": 1.9896753472735333,
+        "starboard_azimuth_rad": 1.533479473762443
+      }
+    },
+    {
+      "step": 76,
+      "time_s": 3.8500000000000005,
+      "gazebo_iteration": 386,
+      "gazebo_sim_time_s": 3.8500000000000005,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.0071951243163720854,
+        "y": 0.011996052897226453,
+        "yaw_rad": 1.5817238483852711,
+        "vx": 0.0047904509721552625,
+        "vy": -0.006213629068289289,
+        "angular_z": 0.008017165998514578
+      },
+      "command": {
+        "step": 76,
+        "time_s": 3.8000000000000003,
+        "port_thrust_n": 2.015855286053448,
+        "port_azimuth_rad": 1.5648526249674766,
+        "starboard_thrust_n": 2.015855286053448,
+        "starboard_azimuth_rad": 1.5648526249674766
+      },
+      "delivered": {
+        "port_thrust_n": 2.015855286053448,
+        "port_azimuth_rad": 1.5282434861707965,
+        "starboard_thrust_n": 2.015855286053448,
+        "starboard_azimuth_rad": 1.5282434861707965
+      }
+    },
+    {
+      "step": 77,
+      "time_s": 3.9000000000000004,
+      "gazebo_iteration": 391,
+      "gazebo_sim_time_s": 3.9000000000000004,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.007516424423888488,
+        "y": 0.012224866827275948,
+        "yaw_rad": 1.5821906326691517,
+        "vx": 0.004751734193789662,
+        "vy": -0.0063880130291785134,
+        "angular_z": 0.008201755145539464
+      },
+      "command": {
+        "step": 77,
+        "time_s": 3.85,
+        "port_thrust_n": 2.0420352248333633,
+        "port_azimuth_rad": 1.5656438630380014,
+        "starboard_thrust_n": 2.0420352248333633,
+        "starboard_azimuth_rad": 1.5656438630380014
+      },
+      "delivered": {
+        "port_thrust_n": 2.0420352248333633,
+        "port_azimuth_rad": 1.5334794742190996,
+        "starboard_thrust_n": 2.0420352248333633,
+        "starboard_azimuth_rad": 1.5334794742190991
+      }
+    },
+    {
+      "step": 78,
+      "time_s": 3.95,
+      "gazebo_iteration": 396,
+      "gazebo_sim_time_s": 3.95,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.007846479062667024,
+        "y": 0.01245192547829601,
+        "yaw_rad": 1.582668882349344,
+        "vx": 0.004713569930772495,
+        "vy": -0.006563965432613228,
+        "angular_z": 0.008386319243907914
+      },
+      "command": {
+        "step": 78,
+        "time_s": 3.9000000000000004,
+        "port_thrust_n": 2.0682151636132784,
+        "port_azimuth_rad": 1.5663297698347804,
+        "starboard_thrust_n": 2.0682151636132784,
+        "starboard_azimuth_rad": 1.5663297698347804
+      },
+      "delivered": {
+        "port_thrust_n": 2.0682151636132784,
+        "port_azimuth_rad": 1.5282434866338923,
+        "starboard_thrust_n": 2.0682151636132784,
+        "starboard_azimuth_rad": 1.5282434866338923
+      }
+    },
+    {
+      "step": 79,
+      "time_s": 4.0,
+      "gazebo_iteration": 401,
+      "gazebo_sim_time_s": 4.0,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.008185366294925145,
+        "y": 0.012677260215206038,
+        "yaw_rad": 1.583158387847623,
+        "vx": 0.00467594247402922,
+        "vy": -0.006741473794322864,
+        "angular_z": 0.00857083848501086
+      },
+      "command": {
+        "step": 79,
+        "time_s": 3.95,
+        "port_thrust_n": 2.0943951023931935,
+        "port_azimuth_rad": 1.5669243672781965,
+        "starboard_thrust_n": 2.0943951023931935,
+        "starboard_azimuth_rad": 1.5669243672781965
+      },
+      "delivered": {
+        "port_thrust_n": 2.0943951023931935,
+        "port_azimuth_rad": 1.5334794746877856,
+        "starboard_thrust_n": 2.0943951023931935,
+        "starboard_azimuth_rad": 1.5334794746877856
+      }
+    },
+    {
+      "step": 80,
+      "time_s": 4.05,
+      "gazebo_iteration": 406,
+      "gazebo_sim_time_s": 4.05,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.008533160330800992,
+        "y": 0.012900914070223776,
+        "yaw_rad": 1.583659405344932,
+        "vx": 0.004638839121749771,
+        "vy": -0.006920525653517286,
+        "angular_z": 0.008755293559021124
+      },
+      "command": {
+        "step": 80,
+        "time_s": 4,
+        "port_thrust_n": 2.1205750411731086,
+        "port_azimuth_rad": 1.5674398106611418,
+        "starboard_thrust_n": 2.1205750411731086,
+        "starboard_azimuth_rad": 1.5674398106611418
+      },
+      "delivered": {
+        "port_thrust_n": 2.1205750411731086,
+        "port_azimuth_rad": 1.5282434871074304,
+        "starboard_thrust_n": 2.1205750411731086,
+        "starboard_azimuth_rad": 1.5282434871074304
+      }
+    },
+    {
+      "step": 81,
+      "time_s": 4.1000000000000005,
+      "gazebo_iteration": 411,
+      "gazebo_sim_time_s": 4.1000000000000005,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.00888993803321609,
+        "y": 0.013122917339978526,
+        "yaw_rad": 1.5841717186535829,
+        "vx": 0.004602243410441723,
+        "vy": -0.007101108678682888,
+        "angular_z": 0.008939665796241277
+      },
+      "command": {
+        "step": 81,
+        "time_s": 4.05,
+        "port_thrust_n": 2.1467549799530237,
+        "port_azimuth_rad": 1.5678866371383897,
+        "starboard_thrust_n": 2.1467549799530237,
+        "starboard_azimuth_rad": 1.5678866371383897
+      },
+      "delivered": {
+        "port_thrust_n": 2.1467549799530237,
+        "port_azimuth_rad": 1.533479475165535,
+        "starboard_thrust_n": 2.1467549799530237,
+        "starboard_azimuth_rad": 1.5334794751655354
+      }
+    },
+    {
+      "step": 82,
+      "time_s": 4.15,
+      "gazebo_iteration": 416,
+      "gazebo_sim_time_s": 4.15,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.009255772399107697,
+        "y": 0.013343312245593134,
+        "yaw_rad": 1.5846955788857062,
+        "vx": 0.004566141930107717,
+        "vy": -0.007283210560153547,
+        "angular_z": 0.009123937013691527
+      },
+      "command": {
+        "step": 82,
+        "time_s": 4.1000000000000005,
+        "port_thrust_n": 2.1729349187329388,
+        "port_azimuth_rad": 1.5682739811365392,
+        "starboard_thrust_n": 2.1729349187329388,
+        "starboard_azimuth_rad": 1.5682739811365392
+      },
+      "delivered": {
+        "port_thrust_n": 2.1729349187329388,
+        "port_azimuth_rad": 1.5282434875888384,
+        "starboard_thrust_n": 2.1729349187329388,
+        "starboard_azimuth_rad": 1.5282434875888384
+      }
+    },
+    {
+      "step": 83,
+      "time_s": 4.2,
+      "gazebo_iteration": 421,
+      "gazebo_sim_time_s": 4.2,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.009630739106403757,
+        "y": 0.013562127987828576,
+        "yaw_rad": 1.58523076323859,
+        "vx": 0.004530517554947726,
+        "vy": -0.007466819115651694,
+        "angular_z": 0.009308089683583619
+      },
+      "command": {
+        "step": 83,
+        "time_s": 4.15,
+        "port_thrust_n": 2.199114857512854,
+        "port_azimuth_rad": 1.5686097610881358,
+        "starboard_thrust_n": 2.199114857512854,
+        "starboard_azimuth_rad": 1.5686097610881358
+      },
+      "delivered": {
+        "port_thrust_n": 2.199114857512854,
+        "port_azimuth_rad": 1.5334794756501213,
+        "starboard_thrust_n": 2.199114857512854,
+        "starboard_azimuth_rad": 1.5334794756501213
+      }
+    },
+    {
+      "step": 84,
+      "time_s": 4.25,
+      "gazebo_iteration": 426,
+      "gazebo_sim_time_s": 4.25,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.01001490995212877,
+        "y": 0.01377940595158823,
+        "yaw_rad": 1.5857775177599047,
+        "vx": 0.004495356258470423,
+        "vy": -0.007651922183139608,
+        "angular_z": 0.009492106764098836
+      },
+      "command": {
+        "step": 84,
+        "time_s": 4.2,
+        "port_thrust_n": 2.225294796292769,
+        "port_azimuth_rad": 1.568900841307354,
+        "starboard_thrust_n": 2.225294796292769,
+        "starboard_azimuth_rad": 1.568900841307354
+      },
+      "delivered": {
+        "port_thrust_n": 2.225294796292769,
+        "port_azimuth_rad": 1.5282434880761862,
+        "starboard_thrust_n": 2.225294796292769,
+        "starboard_azimuth_rad": 1.5282434880761862
+      }
+    },
+    {
+      "step": 85,
+      "time_s": 4.3,
+      "gazebo_iteration": 431,
+      "gazebo_sim_time_s": 4.3,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.010408359443694882,
+        "y": 0.013995174222267415,
+        "yaw_rad": 1.5863356130675674,
+        "vx": 0.004460640343554673,
+        "vy": -0.007838507726119659,
+        "angular_z": 0.009675971870363084
+      },
+      "command": {
+        "step": 85,
+        "time_s": 4.25,
+        "port_thrust_n": 2.251474735072684,
+        "port_azimuth_rad": 1.5691531723164487,
+        "starboard_thrust_n": 2.251474735072684,
+        "starboard_azimuth_rad": 1.5691531723164487
+      },
+      "delivered": {
+        "port_thrust_n": 2.251474735072684,
+        "port_azimuth_rad": 1.5334794761398696,
+        "starboard_thrust_n": 2.251474735072684,
+        "starboard_azimuth_rad": 1.5334794761398696
+      }
+    },
+    {
+      "step": 86,
+      "time_s": 4.3500000000000005,
+      "gazebo_iteration": 436,
+      "gazebo_sim_time_s": 4.3500000000000005,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.010811158191640193,
+        "y": 0.01420947333141646,
+        "yaw_rad": 1.5869052901866665,
+        "vx": 0.004426355257225379,
+        "vy": -0.008026563726756855,
+        "angular_z": 0.009859669103542478
+      },
+      "command": {
+        "step": 86,
+        "time_s": 4.3,
+        "port_thrust_n": 2.277654673852599,
+        "port_azimuth_rad": 1.5693719124916545,
+        "starboard_thrust_n": 2.277654673852599,
+        "starboard_azimuth_rad": 1.5693719124916545
+      },
+      "delivered": {
+        "port_thrust_n": 2.277654673852599,
+        "port_azimuth_rad": 1.5282434885680214,
+        "starboard_thrust_n": 2.277654673852599,
+        "starboard_azimuth_rad": 1.5282434885680214
+      }
+    },
+    {
+      "step": 87,
+      "time_s": 4.4,
+      "gazebo_iteration": 441,
+      "gazebo_sim_time_s": 4.4,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.011223379547510957,
+        "y": 0.014422330237196548,
+        "yaw_rad": 1.5874863132324144,
+        "vx": 0.004392482819838901,
+        "vy": -0.008216078290952656,
+        "angular_z": 0.010043183208015002
+      },
+      "command": {
+        "step": 87,
+        "time_s": 4.3500000000000005,
+        "port_thrust_n": 2.303834612632514,
+        "port_azimuth_rad": 1.569561533515328,
+        "starboard_thrust_n": 2.303834612632514,
+        "starboard_azimuth_rad": 1.569561533515328
+      },
+      "delivered": {
+        "port_thrust_n": 2.303834612632514,
+        "port_azimuth_rad": 1.5334794766335207,
+        "starboard_thrust_n": 2.303834612632514,
+        "starboard_azimuth_rad": 1.5334794766335207
+      }
+    },
+    {
+      "step": 88,
+      "time_s": 4.45,
+      "gazebo_iteration": 446,
+      "gazebo_sim_time_s": 4.45,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.01164509294891859,
+        "y": 0.014633784608187077,
+        "yaw_rad": 1.5880789182864528,
+        "vx": 0.004359008039305003,
+        "vy": -0.008407039541729089,
+        "angular_z": 0.010226499423718439
+      },
+      "command": {
+        "step": 88,
+        "time_s": 4.4,
+        "port_thrust_n": 2.3300145514124293,
+        "port_azimuth_rad": 1.5697259117900784,
+        "starboard_thrust_n": 2.3300145514124293,
+        "starboard_azimuth_rad": 1.5697259117900784
+      },
+      "delivered": {
+        "port_thrust_n": 2.3300145514124293,
+        "port_azimuth_rad": 1.5282434890632541,
+        "starboard_thrust_n": 2.3300145514124293,
+        "starboard_azimuth_rad": 1.5282434890632541
+      }
+    },
+    {
+      "step": 89,
+      "time_s": 4.5,
+      "gazebo_iteration": 451,
+      "gazebo_sim_time_s": 4.5,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.012076370606358564,
+        "y": 0.014843862270578406,
+        "yaw_rad": 1.588682863078329,
+        "vx": 0.004325912339208265,
+        "vy": -0.008599435724090316,
+        "angular_z": 0.010409603641144063
+      },
+      "command": {
+        "step": 89,
+        "time_s": 4.45,
+        "port_thrust_n": 2.3561944901923444,
+        "port_azimuth_rad": 1.5698684076836587,
+        "starboard_thrust_n": 2.3561944901923444,
+        "starboard_azimuth_rad": 1.5698684076836587
+      },
+      "delivered": {
+        "port_thrust_n": 2.3561944901923444,
+        "port_azimuth_rad": 1.53347947713013,
+        "starboard_thrust_n": 2.3561944901923444,
+        "starboard_azimuth_rad": 1.53347947713013
+      }
+    },
+    {
+      "step": 90,
+      "time_s": 4.550000000000001,
+      "gazebo_iteration": 456,
+      "gazebo_sim_time_s": 4.550000000000001,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.012517280798200412,
+        "y": 0.015052602027364225,
+        "yaw_rad": 1.5892983788619457,
+        "vx": 0.0042931803723026225,
+        "vy": -0.008793255098657924,
+        "angular_z": 0.010592482229917625
+      },
+      "command": {
+        "step": 90,
+        "time_s": 4.5,
+        "port_thrust_n": 2.3823744289722595,
+        "port_azimuth_rad": 1.5699919342246085,
+        "starboard_thrust_n": 2.3823744289722595,
+        "starboard_azimuth_rad": 1.5699919342246085
+      },
+      "delivered": {
+        "port_thrust_n": 2.3823744289722595,
+        "port_azimuth_rad": 1.5282434895610637,
+        "starboard_thrust_n": 2.3823744289722595,
+        "starboard_azimuth_rad": 1.5282434895610637
+      }
+    },
+    {
+      "step": 91,
+      "time_s": 4.6000000000000005,
+      "gazebo_iteration": 461,
+      "gazebo_sim_time_s": 4.6000000000000005,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.012967894608859065,
+        "y": 0.015260028574633532,
+        "yaw_rad": 1.5899252171375042,
+        "vx": 0.004260793247422885,
+        "vy": -0.008988486046334369,
+        "angular_z": 0.010775122207510335
+      },
+      "command": {
+        "step": 91,
+        "time_s": 4.55,
+        "port_thrust_n": 2.4085543677521746,
+        "port_azimuth_rad": 1.5700990166529907,
+        "starboard_thrust_n": 2.4085543677521746,
+        "starboard_azimuth_rad": 1.5700990166529907
+      },
+      "delivered": {
+        "port_thrust_n": 2.4085543677521746,
+        "port_azimuth_rad": 1.5334794776289864,
+        "starboard_thrust_n": 2.4085543677521746,
+        "starboard_azimuth_rad": 1.5334794776289864
+      }
+    },
+    {
+      "step": 92,
+      "time_s": 4.65,
+      "gazebo_iteration": 466,
+      "gazebo_sim_time_s": 4.65,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.013428279171260988,
+        "y": 0.015466179853647892,
+        "yaw_rad": 1.5905636044823415,
+        "vx": 0.004228735342117758,
+        "vy": -0.009185116962178785,
+        "angular_z": 0.010957511077261244
+      },
+      "command": {
+        "step": 92,
+        "time_s": 4.6000000000000005,
+        "port_thrust_n": 2.4347343065320897,
+        "port_azimuth_rad": 1.5701918440436067,
+        "starboard_thrust_n": 2.4347343065320897,
+        "starboard_azimuth_rad": 1.5701918440436067
+      },
+      "delivered": {
+        "port_thrust_n": 2.4347343065320897,
+        "port_azimuth_rad": 1.5282434900608344,
+        "starboard_thrust_n": 2.4347343065320897,
+        "starboard_azimuth_rad": 1.5282434900608344
+      }
+    },
+    {
+      "step": 93,
+      "time_s": 4.7,
+      "gazebo_iteration": 471,
+      "gazebo_sim_time_s": 4.7,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.01389850445885332,
+        "y": 0.015671079438330283,
+        "yaw_rad": 1.591213286361423,
+        "vx": 0.004196987528242347,
+        "vy": -0.009383136359886177,
+        "angular_z": 0.011139636980727494
+      },
+      "command": {
+        "step": 93,
+        "time_s": 4.65,
+        "port_thrust_n": 2.4609142453120048,
+        "port_azimuth_rad": 1.5702723140570232,
+        "starboard_thrust_n": 2.4609142453120048,
+        "starboard_azimuth_rad": 1.5702723140570232
+      },
+      "delivered": {
+        "port_thrust_n": 2.4609142453120048,
+        "port_azimuth_rad": 1.533479478129557,
+        "starboard_thrust_n": 2.4609142453120048,
+        "starboard_azimuth_rad": 1.533479478129557
+      }
+    },
+    {
+      "step": 94,
+      "time_s": 4.75,
+      "gazebo_iteration": 476,
+      "gazebo_sim_time_s": 4.75,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.014378636473018859,
+        "y": 0.015874764417987988,
+        "yaw_rad": 1.5918744848606459,
+        "vx": 0.004165533983629262,
+        "vy": -0.009582532765892549,
+        "angular_z": 0.011321488542080621
+      },
+      "command": {
+        "step": 94,
+        "time_s": 4.7,
+        "port_thrust_n": 2.48709418409192,
+        "port_azimuth_rad": 1.5703420717332466,
+        "starboard_thrust_n": 2.48709418409192,
+        "starboard_azimuth_rad": 1.5703420717332466
+      },
+      "delivered": {
+        "port_thrust_n": 2.48709418409192,
+        "port_azimuth_rad": 1.528243490562104,
+        "starboard_thrust_n": 2.48709418409192,
+        "starboard_azimuth_rad": 1.528243490562104
+      }
+    },
+    {
+      "step": 95,
+      "time_s": 4.800000000000001,
+      "gazebo_iteration": 481,
+      "gazebo_sim_time_s": 4.800000000000001,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.01486874409147749,
+        "y": 0.016077257257835695,
+        "yaw_rad": 1.5925469396397542,
+        "vx": 0.004134355416284745,
+        "vy": -0.009783294823683173,
+        "angular_z": 0.01150305502699025
+      },
+      "command": {
+        "step": 95,
+        "time_s": 4.75,
+        "port_thrust_n": 2.513274122871835,
+        "port_azimuth_rad": 1.5704025431211026,
+        "starboard_thrust_n": 2.513274122871835,
+        "starboard_azimuth_rad": 1.5704025431211026
+      },
+      "delivered": {
+        "port_thrust_n": 2.513274122871835,
+        "port_azimuth_rad": 1.5334794786314387,
+        "starboard_thrust_n": 2.513274122871835,
+        "starboard_azimuth_rad": 1.5334794786314387
+      }
+    },
+    {
+      "step": 96,
+      "time_s": 4.8500000000000005,
+      "gazebo_iteration": 486,
+      "gazebo_sim_time_s": 4.8500000000000005,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.01536889219805304,
+        "y": 0.016278594210385522,
+        "yaw_rad": 1.5932308685104233,
+        "vx": 0.004103435875027534,
+        "vy": -0.009985411188116034,
+        "angular_z": 0.011684326168472961
+      },
+      "command": {
+        "step": 96,
+        "time_s": 4.800000000000001,
+        "port_thrust_n": 2.53945406165175,
+        "port_azimuth_rad": 1.5704549644308021,
+        "starboard_thrust_n": 2.53945406165175,
+        "starboard_azimuth_rad": 1.5704549644308021
+      },
+      "delivered": {
+        "port_thrust_n": 2.53945406165175,
+        "port_azimuth_rad": 1.528243491064523,
+        "starboard_thrust_n": 2.53945406165175,
+        "starboard_azimuth_rad": 1.528243491064523
+      }
+    },
+    {
+      "step": 97,
+      "time_s": 4.9,
+      "gazebo_iteration": 491,
+      "gazebo_sim_time_s": 4.9,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.01587914859009016,
+        "y": 0.016478796650586765,
+        "yaw_rad": 1.5939260055908513,
+        "vx": 0.004072755972237692,
+        "vy": -0.01018887062957231,
+        "angular_z": 0.011865292327737673
+      },
+      "command": {
+        "step": 97,
+        "time_s": 4.8500000000000005,
+        "port_thrust_n": 2.565634000431665,
+        "port_azimuth_rad": 1.5705004073056565,
+        "starboard_thrust_n": 2.565634000431665,
+        "starboard_azimuth_rad": 1.5705004073056565
+      },
+      "delivered": {
+        "port_thrust_n": 2.565634000431665,
+        "port_azimuth_rad": 1.5334794791343307,
+        "starboard_thrust_n": 2.565634000431665,
+        "starboard_azimuth_rad": 1.5334794791343307
+      }
+    },
+    {
+      "step": 98,
+      "time_s": 4.95,
+      "gazebo_iteration": 496,
+      "gazebo_sim_time_s": 4.95,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.016399577047907024,
+        "y": 0.016677900014163277,
+        "yaw_rad": 1.5946325646655752,
+        "vx": 0.004042299693418355,
+        "vy": -0.010393661928486089,
+        "angular_z": 0.012045944348162632
+      },
+      "command": {
+        "step": 98,
+        "time_s": 4.9,
+        "port_thrust_n": 2.59181393921158,
+        "port_azimuth_rad": 1.570539800729569,
+        "starboard_thrust_n": 2.59181393921158,
+        "starboard_azimuth_rad": 1.570539800729569
+      },
+      "delivered": {
+        "port_thrust_n": 2.59181393921158,
+        "port_azimuth_rad": 1.5282434915678316,
+        "starboard_thrust_n": 2.59181393921158,
+        "starboard_azimuth_rad": 1.5282434915678316
+      }
+    },
+    {
+      "step": 99,
+      "time_s": 5.0,
+      "gazebo_iteration": 501,
+      "gazebo_sim_time_s": 5.0,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.016930244303918998,
+        "y": 0.016875924608703567,
+        "yaw_rad": 1.595350274606003,
+        "vx": 0.004012047618470665,
+        "vy": -0.010599773979350158,
+        "angular_z": 0.012226273701755568
+      },
+      "command": {
+        "step": 99,
+        "time_s": 4.95,
+        "port_thrust_n": 2.6179938779914953,
+        "port_azimuth_rad": 1.5705739500181541,
+        "starboard_thrust_n": 2.6179938779914953,
+        "starboard_azimuth_rad": 1.5705739500181541
+      },
+      "delivered": {
+        "port_thrust_n": 2.6179938779914953,
+        "port_azimuth_rad": 1.5334794796380065,
+        "starboard_thrust_n": 2.6179938779914953,
+        "starboard_azimuth_rad": 1.5334794796380067
+      }
+    },
+    {
+      "step": 100,
+      "time_s": 5.05,
+      "gazebo_iteration": 506,
+      "gazebo_sim_time_s": 5.05,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.017471213049042908,
+        "y": 0.017072905077480684,
+        "yaw_rad": 1.596079345443977,
+        "vx": 0.003981983730153777,
+        "vy": -0.010807195685440574,
+        "angular_z": 0.012406272310677946
+      },
+      "command": {
+        "step": 100,
+        "time_s": 5,
+        "port_thrust_n": 2.6441738167714104,
+        "port_azimuth_rad": 1.5706035532817209,
+        "starboard_thrust_n": 2.6441738167714104,
+        "starboard_azimuth_rad": 1.5706035532817209
+      },
+      "delivered": {
+        "port_thrust_n": 2.6441738167714104,
+        "port_azimuth_rad": 1.5282434920718317,
+        "starboard_thrust_n": 2.6441738167714104,
+        "starboard_azimuth_rad": 1.528243492071832
+      }
+    },
+    {
+      "step": 101,
+      "time_s": 5.1000000000000005,
+      "gazebo_iteration": 511,
+      "gazebo_sim_time_s": 5.1000000000000005,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.018022548966286467,
+        "y": 0.017268860687584542,
+        "yaw_rad": 1.5968195011271007,
+        "vx": 0.003952088633878014,
+        "vy": -0.011015916062690022,
+        "angular_z": 0.012585932714591522
+      },
+      "command": {
+        "step": 101,
+        "time_s": 5.050000000000001,
+        "port_thrust_n": 2.6703537555513255,
+        "port_azimuth_rad": 1.5706292156966672,
+        "starboard_thrust_n": 2.6703537555513255,
+        "starboard_azimuth_rad": 1.5706292156966672
+      },
+      "delivered": {
+        "port_thrust_n": 2.6703537555513255,
+        "port_azimuth_rad": 1.5334794801422955,
+        "starboard_thrust_n": 2.6703537555513255,
+        "starboard_azimuth_rad": 1.5334794801422955
+      }
+    },
+    {
+      "step": 102,
+      "time_s": 5.15,
+      "gazebo_iteration": 516,
+      "gazebo_sim_time_s": 5.15,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.018584313671302116,
+        "y": 0.017463825318009434,
+        "yaw_rad": 1.5975709482335385,
+        "vx": 0.003922346365058724,
+        "vy": -0.011225924134594428,
+        "angular_z": 0.01276524791972227
+      },
+      "command": {
+        "step": 102,
+        "time_s": 5.1000000000000005,
+        "port_thrust_n": 2.6965336943312406,
+        "port_azimuth_rad": 1.5706514618770386,
+        "starboard_thrust_n": 2.6965336943312406,
+        "starboard_azimuth_rad": 1.5706514618770386
+      },
+      "delivered": {
+        "port_thrust_n": 2.6965336943312406,
+        "port_azimuth_rad": 1.528243492576377,
+        "starboard_thrust_n": 2.6965336943312406,
+        "starboard_azimuth_rad": 1.5282434925763773
+      }
+    },
+    {
+      "step": 103,
+      "time_s": 5.2,
+      "gazebo_iteration": 521,
+      "gazebo_sim_time_s": 5.2,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.01915657181326844,
+        "y": 0.017657817225686344,
+        "yaw_rad": 1.598333406135186,
+        "vx": 0.0038927376074364903,
+        "vy": -0.01143720903596668,
+        "angular_z": 0.012944211548158372
+      },
+      "command": {
+        "step": 103,
+        "time_s": 5.15,
+        "port_thrust_n": 2.7227136331111557,
+        "port_azimuth_rad": 1.5706707465991565,
+        "starboard_thrust_n": 2.7227136331111557,
+        "starboard_azimuth_rad": 1.5706707465991565
+      },
+      "delivered": {
+        "port_thrust_n": 2.7227136331111557,
+        "port_azimuth_rad": 1.533479480647069,
+        "starboard_thrust_n": 2.7227136331111557,
+        "starboard_azimuth_rad": 1.5334794806470697
+      }
+    },
+    {
+      "step": 104,
+      "time_s": 5.25,
+      "gazebo_iteration": 526,
+      "gazebo_sim_time_s": 5.25,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.019739383946724604,
+        "y": 0.017850869556866433,
+        "yaw_rad": 1.5991070782771217,
+        "vx": 0.003863246499333139,
+        "vy": -0.011649759908013632,
+        "angular_z": 0.013122817651405957
+      },
+      "command": {
+        "step": 104,
+        "time_s": 5.2,
+        "port_thrust_n": 2.7488935718910708,
+        "port_azimuth_rad": 1.5706874640985633,
+        "starboard_thrust_n": 2.7488935718910708,
+        "starboard_azimuth_rad": 1.5706874640985633
+      },
+      "delivered": {
+        "port_thrust_n": 2.7488935718910708,
+        "port_azimuth_rad": 1.528243493081356,
+        "starboard_thrust_n": 2.7488935718910708,
+        "starboard_azimuth_rad": 1.5282434930813562
+      }
+    },
+    {
+      "step": 105,
+      "time_s": 5.3,
+      "gazebo_iteration": 531,
+      "gazebo_sim_time_s": 5.3,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.02033281370263666,
+        "y": 0.018042999591685427,
+        "yaw_rad": 1.5998916798254488,
+        "vx": 0.0038338538505220546,
+        "vy": -0.011863566001981336,
+        "angular_z": 0.013301060885742936
+      },
+      "command": {
+        "step": 105,
+        "time_s": 5.25,
+        "port_thrust_n": 2.775073510670986,
+        "port_azimuth_rad": 1.570701956129338,
+        "starboard_thrust_n": 2.775073510670986,
+        "starboard_azimuth_rad": 1.570701956129338
+      },
+      "delivered": {
+        "port_thrust_n": 2.775073510670986,
+        "port_azimuth_rad": 1.5334794811522323,
+        "starboard_thrust_n": 2.775073510670986,
+        "starboard_azimuth_rad": 1.5334794811522323
+      }
+    },
+    {
+      "step": 106,
+      "time_s": 5.3500000000000005,
+      "gazebo_iteration": 536,
+      "gazebo_sim_time_s": 5.3500000000000005,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.020936920588577206,
+        "y": 0.018234239778107068,
+        "yaw_rad": 1.6006874114311433,
+        "vx": 0.003804543947408608,
+        "vy": -0.012078616574390449,
+        "angular_z": 0.013478936375548815
+      },
+      "command": {
+        "step": 106,
+        "time_s": 5.300000000000001,
+        "port_thrust_n": 2.801253449450901,
+        "port_azimuth_rad": 1.5707145189505392,
+        "starboard_thrust_n": 2.801253449450901,
+        "starboard_azimuth_rad": 1.5707145189505392
+      },
+      "delivered": {
+        "port_thrust_n": 2.801253449450901,
+        "port_azimuth_rad": 1.5282434935866853,
+        "starboard_thrust_n": 2.801253449450901,
+        "starboard_azimuth_rad": 1.5282434935866853
+      }
+    },
+    {
+      "step": 107,
+      "time_s": 5.4,
+      "gazebo_iteration": 541,
+      "gazebo_sim_time_s": 5.4,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.021551767232935743,
+        "y": 0.01842460645543495,
+        "yaw_rad": 1.601493984442772,
+        "vx": 0.0037752977684842987,
+        "vy": -0.012294900990584303,
+        "angular_z": 0.013656439807517684
+      },
+      "command": {
+        "step": 107,
+        "time_s": 5.3500000000000005,
+        "port_thrust_n": 2.827433388230816,
+        "port_azimuth_rad": 1.5707254093825969,
+        "starboard_thrust_n": 2.827433388230816,
+        "starboard_azimuth_rad": 1.5707254093825969
+      },
+      "delivered": {
+        "port_thrust_n": 2.827433388230816,
+        "port_azimuth_rad": 1.5334794816577113,
+        "starboard_thrust_n": 2.827433388230816,
+        "starboard_azimuth_rad": 1.5334794816577113
+      }
+    },
+    {
+      "step": 108,
+      "time_s": 5.45,
+      "gazebo_iteration": 546,
+      "gazebo_sim_time_s": 5.45,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.022177412110442274,
+        "y": 0.018614131410306767,
+        "yaw_rad": 1.6023115970712811,
+        "vx": 0.003746099788463323,
+        "vy": -0.012512408620109789,
+        "angular_z": 0.013833567301727755
+      },
+      "command": {
+        "step": 108,
+        "time_s": 5.4,
+        "port_thrust_n": 2.853613327010731,
+        "port_azimuth_rad": 1.5707348500574665,
+        "starboard_thrust_n": 2.853613327010731,
+        "starboard_azimuth_rad": 1.5707348500574665
+      },
+      "delivered": {
+        "port_thrust_n": 2.853613327010731,
+        "port_azimuth_rad": 1.528243494092301,
+        "starboard_thrust_n": 2.853613327010731,
+        "starboard_azimuth_rad": 1.528243494092301
+      }
+    },
+    {
+      "step": 109,
+      "time_s": 5.5,
+      "gazebo_iteration": 551,
+      "gazebo_sim_time_s": 5.5,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.02281391686254682,
+        "y": 0.01880283007936175,
+        "yaw_rad": 1.6031399572507528,
+        "vx": 0.0037169311923628172,
+        "vy": -0.012731128940180586,
+        "angular_z": 0.014010315571632976
+      },
+      "command": {
+        "step": 109,
+        "time_s": 5.45,
+        "port_thrust_n": 2.879793265790646,
+        "port_azimuth_rad": 1.5707430339698696,
+        "starboard_thrust_n": 2.879793265790646,
+        "starboard_azimuth_rad": 1.5707430339698696
+      },
+      "delivered": {
+        "port_thrust_n": 2.879793265790646,
+        "port_azimuth_rad": 1.5334794821634523,
+        "starboard_thrust_n": 2.879793265790646,
+        "starboard_azimuth_rad": 1.5334794821634523
+      }
+    },
+    {
+      "step": 110,
+      "time_s": 5.550000000000001,
+      "gazebo_iteration": 556,
+      "gazebo_sim_time_s": 5.550000000000001,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.023461338945220303,
+        "y": 0.01899073362699382,
+        "yaw_rad": 1.6039792611178563,
+        "vx": 0.0036877766786363926,
+        "vy": -0.012951051431190994,
+        "angular_z": 0.014186681748640401
+      },
+      "command": {
+        "step": 110,
+        "time_s": 5.5,
+        "port_thrust_n": 2.9059732045705613,
+        "port_azimuth_rad": 1.5707501284226655,
+        "starboard_thrust_n": 2.9059732045705613,
+        "starboard_azimuth_rad": 1.5707501284226655
+      },
+      "delivered": {
+        "port_thrust_n": 2.9059732045705613,
+        "port_azimuth_rad": 1.5282434945981576,
+        "starboard_thrust_n": 2.9059732045705613,
+        "starboard_azimuth_rad": 1.5282434945981576
+      }
+    },
+    {
+      "step": 111,
+      "time_s": 5.6000000000000005,
+      "gazebo_iteration": 561,
+      "gazebo_sim_time_s": 5.6000000000000005,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.024119739028593712,
+        "y": 0.019177856627185682,
+        "yaw_rad": 1.604829213606406,
+        "vx": 0.0036586176719301455,
+        "vy": -0.013172165680104228,
+        "angular_z": 0.01436266353186719
+      },
+      "command": {
+        "step": 111,
+        "time_s": 5.550000000000001,
+        "port_thrust_n": 2.9321531433504764,
+        "port_azimuth_rad": 1.570756278447005,
+        "starboard_thrust_n": 2.9321531433504764,
+        "starboard_azimuth_rad": 1.570756278447005
+      },
+      "delivered": {
+        "port_thrust_n": 2.9321531433504764,
+        "port_azimuth_rad": 1.533479482669415,
+        "starboard_thrust_n": 2.9321531433504764,
+        "starboard_azimuth_rad": 1.533479482669415
+      }
+    },
+    {
+      "step": 112,
+      "time_s": 5.65,
+      "gazebo_iteration": 566,
+      "gazebo_sim_time_s": 5.65,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.024789173563904778,
+        "y": 0.019364229662935696,
+        "yaw_rad": 1.6056900091528044,
+        "vx": 0.003629439125259125,
+        "vy": -0.013394461276087209,
+        "angular_z": 0.01453825901792218
+      },
+      "command": {
+        "step": 112,
+        "time_s": 5.6000000000000005,
+        "port_thrust_n": 2.9583330821303915,
+        "port_azimuth_rad": 1.570761609767188,
+        "starboard_thrust_n": 2.9583330821303915,
+        "starboard_azimuth_rad": 1.570761609767188
+      },
+      "delivered": {
+        "port_thrust_n": 2.9583330821303915,
+        "port_azimuth_rad": 1.528243495104218,
+        "starboard_thrust_n": 2.9583330821303915,
+        "starboard_azimuth_rad": 1.528243495104218
+      }
+    },
+    {
+      "step": 113,
+      "time_s": 5.7,
+      "gazebo_iteration": 571,
+      "gazebo_sim_time_s": 5.7,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.025469702265552313,
+        "y": 0.019549866487083144,
+        "yaw_rad": 1.6065613501123435,
+        "vx": 0.0036002227314950825,
+        "vy": -0.013617927913834652,
+        "angular_z": 0.01471346689422906
+      },
+      "command": {
+        "step": 113,
+        "time_s": 5.65,
+        "port_thrust_n": 2.9845130209103066,
+        "port_azimuth_rad": 1.5707662313708308,
+        "starboard_thrust_n": 2.9845130209103066,
+        "starboard_azimuth_rad": 1.5707662313708308
+      },
+      "delivered": {
+        "port_thrust_n": 2.9845130209103066,
+        "port_azimuth_rad": 1.5334794831755674,
+        "starboard_thrust_n": 2.9845130209103066,
+        "starboard_azimuth_rad": 1.5334794831755674
+      }
+    },
+    {
+      "step": 114,
+      "time_s": 5.75,
+      "gazebo_iteration": 576,
+      "gazebo_sim_time_s": 5.75,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.02616138059399284,
+        "y": 0.019734797143519313,
+        "yaw_rad": 1.607443429600005,
+        "vx": 0.00357095372463677,
+        "vy": -0.013842555289312919,
+        "angular_z": 0.014888286205256182
+      },
+      "command": {
+        "step": 114,
+        "time_s": 5.7,
+        "port_thrust_n": 3.0106929596902217,
+        "port_azimuth_rad": 1.5707702377368904,
+        "starboard_thrust_n": 3.0106929596902217,
+        "starboard_azimuth_rad": 1.5707702377368904
+      },
+      "delivered": {
+        "port_thrust_n": 3.0106929596902217,
+        "port_azimuth_rad": 1.5282434956104562,
+        "starboard_thrust_n": 3.0106929596902217,
+        "starboard_azimuth_rad": 1.5282434956104562
+      }
+    },
+    {
+      "step": 115,
+      "time_s": 5.800000000000001,
+      "gazebo_iteration": 581,
+      "gazebo_sim_time_s": 5.800000000000001,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.02686426732343023,
+        "y": 0.019919034606652685,
+        "yaw_rad": 1.608335947818236,
+        "vx": 0.0035416140900883506,
+        "vy": -0.01406833320302929,
+        "angular_z": 0.015062716567098206
+      },
+      "command": {
+        "step": 115,
+        "time_s": 5.75,
+        "port_thrust_n": 3.0368728984701368,
+        "port_azimuth_rad": 1.5707737107670856,
+        "starboard_thrust_n": 3.0368728984701368,
+        "starboard_azimuth_rad": 1.5707737107670856
+      },
+      "delivered": {
+        "port_thrust_n": 3.0368728984701368,
+        "port_azimuth_rad": 1.5334794836818875,
+        "starboard_thrust_n": 3.0368728984701368,
+        "starboard_azimuth_rad": 1.5334794836818875
+      }
+    },
+    {
+      "step": 116,
+      "time_s": 5.8500000000000005,
+      "gazebo_iteration": 586,
+      "gazebo_sim_time_s": 5.8500000000000005,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.027578416937402418,
+        "y": 0.02010260842469885,
+        "yaw_rad": 1.609239096940907,
+        "vx": 0.003512189365079027,
+        "vy": -0.014295251455872616,
+        "angular_z": 0.015236757972518677
+      },
+      "command": {
+        "step": 116,
+        "time_s": 5.800000000000001,
+        "port_thrust_n": 3.063052837250052,
+        "port_azimuth_rad": 1.570776721460207,
+        "starboard_thrust_n": 3.063052837250052,
+        "starboard_azimuth_rad": 1.570776721460207
+      },
+      "delivered": {
+        "port_thrust_n": 3.063052837250052,
+        "port_azimuth_rad": 1.5282434961168527,
+        "starboard_thrust_n": 3.063052837250052,
+        "starboard_azimuth_rad": 1.5282434961168527
+      }
+    },
+    {
+      "step": 117,
+      "time_s": 5.9,
+      "gazebo_iteration": 591,
+      "gazebo_sim_time_s": 5.9,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.02830388728539087,
+        "y": 0.020285530837269878,
+        "yaw_rad": 1.6101525754437047,
+        "vx": 0.003482661847794212,
+        "vy": -0.014523299952338304,
+        "angular_z": 0.015410410931836066
+      },
+      "command": {
+        "step": 117,
+        "time_s": 5.8500000000000005,
+        "port_thrust_n": 3.089232776029967,
+        "port_azimuth_rad": 1.570779331363537,
+        "starboard_thrust_n": 3.089232776029967,
+        "starboard_azimuth_rad": 1.570779331363537
+      },
+      "delivered": {
+        "port_thrust_n": 3.089232776029967,
+        "port_azimuth_rad": 1.5334794841883566,
+        "starboard_thrust_n": 3.089232776029967,
+        "starboard_azimuth_rad": 1.533479484188356
+      }
+    },
+    {
+      "step": 118,
+      "time_s": 5.95,
+      "gazebo_iteration": 596,
+      "gazebo_sim_time_s": 5.95,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.029040731887773806,
+        "y": 0.020467830941209644,
+        "yaw_rad": 1.6110765749378788,
+        "vx": 0.003453017397001315,
+        "vy": -0.014752468596453277,
+        "angular_z": 0.015583676364820734
+      },
+      "command": {
+        "step": 118,
+        "time_s": 5.9,
+        "port_thrust_n": 3.115412714809882,
+        "port_azimuth_rad": 1.5707815938310543,
+        "starboard_thrust_n": 3.115412714809882,
+        "starboard_azimuth_rad": 1.5707815938310543
+      },
+      "delivered": {
+        "port_thrust_n": 3.115412714809882,
+        "port_azimuth_rad": 1.5282434966233924,
+        "starboard_thrust_n": 3.115412714809882,
+        "starboard_azimuth_rad": 1.528243496623392
+      }
+    },
+    {
+      "step": 119,
+      "time_s": 6.0,
+      "gazebo_iteration": 601,
+      "gazebo_sim_time_s": 6.0,
+      "iteration_delta": 5,
+      "sim_time_delta_s": 0.05,
+      "enu": {
+        "x": 0.02978900768470406,
+        "y": 0.020649520285638667,
+        "yaw_rad": 1.6120107925954519,
+        "vx": 0.0034232386400979385,
+        "vy": -0.014982747394966064,
+        "angular_z": 0.01575655571308481
+      },
+      "command": {
+        "step": 119,
+        "time_s": 5.95,
+        "port_thrust_n": 3.141592653589797,
+        "port_azimuth_rad": 1.5707835551141438,
+        "starboard_thrust_n": 3.141592653589797,
+        "starboard_azimuth_rad": 1.5707835551141438
+      },
+      "delivered": {
+        "port_thrust_n": 3.141592653589797,
+        "port_azimuth_rad": 1.5334794846949624,
+        "starboard_thrust_n": 3.141592653589797,
+        "starboard_azimuth_rad": 1.5334794846949622
+      }
+    }
+  ],
+  "delivery_basis": {
+    "thrust": "direct cmd_thrust force after corrected SDF clipping",
+    "azimuth": "measured base-to-pod relative pose from temporary SceneBroadcaster instrumentation"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "figure-2-environment-sweep-source-snapshot",
+  "retrieved_at": "2026-09-07T18:40:00Z",
+  "site": {"id": "san-francisco", "latitude_deg": 37.806, "longitude_deg": -122.465},
+  "current": {
+    "source": "NOAA CO-OPS tidal current predictions",
+    "station": "SFB1202",
+    "station_name": "Golden Gate Bridge",
+    "bin": 1,
+    "depth_m": 38.4,
+    "url": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20260907&end_date=20260908&station=SFB1202&product=currents_predictions&time_zone=gmt&units=metric&interval=MAX_SLACK&bin=1&application=BCOD&format=json",
+    "response_sha256": "e3896ce2f4803788b124aecd44ff9c014a2bfb829f36accd1fbb844034798aa2",
+    "arms": [
+      {"id": "peak-ebb", "type": "ebb", "valid_time": "2026-09-08T08:51:00Z", "speed_mps": 1.038, "direction_to_deg_true": 213},
+      {"id": "slack-water", "type": "slack", "valid_time": "2026-09-08T12:44:00Z", "speed_mps": 0.001, "direction_to_deg_true": 213},
+      {"id": "peak-flood", "type": "flood", "valid_time": "2026-09-08T16:04:00Z", "speed_mps": 1.556, "direction_to_deg_true": 41}
+    ]
+  },
+  "wind": {
+    "source": "NDBC standard meteorological observation",
+    "station": "46026",
+    "url": "https://www.ndbc.noaa.gov/data/realtime2/46026.txt",
+    "response_sha256": "ee0ce5d871d82cc7079bf6eb0c21d7dc28c4c810e88d0bad5305b61d3d3db7f8",
+    "valid_time": "2026-09-07T18:40:00Z",
+    "speed_mps": 2.0,
+    "direction_from_deg_true": 230
+  }
+}

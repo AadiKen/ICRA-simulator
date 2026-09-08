@@ -135,6 +135,27 @@ class PortableRecurrentPPOTest(unittest.TestCase):
         self.assertEqual(rows[1]["waypoints_reached"], "1")
         self.assertEqual(rows[1]["truncated"], "True")
 
+    def test_aligned_evaluation_writer_uses_fixed_schema(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "aligned.csv"
+            row = {
+                "checkpoint_timesteps": 16384,
+                "actual_model_timesteps": 16384,
+                "episodes": 10,
+                "median_return": -200.0,
+                "mean_return": -201.0,
+                "success_rate": 0.2,
+            }
+            MODULE.append_aligned_evaluation(path, row)
+            MODULE.append_aligned_evaluation(
+                path, {**row, "checkpoint_timesteps": 32768,
+                       "actual_model_timesteps": 32768})
+            with path.open(newline="") as stream:
+                rows = list(csv.DictReader(stream))
+        self.assertEqual(len(rows), 2)
+        self.assertEqual(rows[0]["checkpoint_timesteps"], "16384")
+        self.assertEqual(rows[1]["success_rate"], "0.2")
+
     def test_v7_protocol_contains_frozen_gate_and_budget(self):
         source = SCRIPT.read_text()
         self.assertIn("range(250_000, 1_500_001, 250_000)", source)

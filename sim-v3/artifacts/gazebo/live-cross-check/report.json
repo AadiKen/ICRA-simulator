@@ -25,7 +25,7 @@
         "world": "gazebo/generated/worlds/otter_constant-thrust.sdf",
         "topic": "/world/bcod_parity_constant-thrust/pose/info",
         "out": "artifacts/gazebo/live-cross-check/constant-thrust.csv",
-        "rawSamples": 151,
+        "rawSamples": 150,
         "samples": 120,
         "commandTransitions": 1,
         "appliedWrenchSamples": 120,
@@ -39,14 +39,14 @@
         "count": 120,
         "rowCountMatch": true,
         "rmse": {
-          "N": 0.0692591502737178,
-          "E": 7.083021033392601e-14,
-          "yaw": 7.59472593406655e-15
+          "N": 0.06803616316710442,
+          "E": 7.174566303012896e-14,
+          "yaw": 7.51863837938197e-15
         },
         "maxAbs": {
-          "N": 0.10493923570772345,
-          "E": 8.77197448665e-14,
-          "yaw": 1.82076576039e-14
+          "N": 0.1039160734580431,
+          "E": 8.76680719457e-14,
+          "yaw": 1.93178806285e-14
         },
         "tolerances": {
           "N": 0.5,
@@ -58,11 +58,11 @@
       "artifacts": {
         "trajectory": {
           "path": "artifacts/gazebo/live-cross-check/constant-thrust.csv",
-          "sha256": "adc24442e4fe5c5b8015c0346ae79466b53bba55a14b3fd2fd132f992c246d1f"
+          "sha256": "443129fc5b1836f5ff3b209b42a113080045474ef7e05711bc3f4932c7041f1a"
         },
         "wrenchLog": {
           "path": "artifacts/gazebo/live-cross-check/constant-thrust-wrenches.csv",
-          "sha256": "5c1278b38d896e7b27f70092957a8becfd80ed657eaf430e839927b06070b7fa"
+          "sha256": "7fa3cb595a42477e3439e754a0d6fb02a9554d5e82be1f680f57958f375ee9e9"
         }
       }
     },
@@ -74,7 +74,7 @@
         "world": "gazebo/generated/worlds/otter_turning-circle.sdf",
         "topic": "/world/bcod_parity_turning-circle/pose/info",
         "out": "artifacts/gazebo/live-cross-check/turning-circle.csv",
-        "rawSamples": 189,
+        "rawSamples": 190,
         "samples": 160,
         "commandTransitions": 1,
         "appliedWrenchSamples": 160,
@@ -88,14 +88,14 @@
         "count": 160,
         "rowCountMatch": true,
         "rmse": {
-          "N": 0.06150024380693238,
-          "E": 0.08121772772359001,
-          "yaw": 0.019191842152357568
+          "N": 0.06898077082563027,
+          "E": 0.08565507979858528,
+          "yaw": 0.020075151095712
         },
         "maxAbs": {
-          "N": 0.08348657030917472,
-          "E": 0.14702370037409684,
-          "yaw": 0.03027599735584008
+          "N": 0.09566521254730764,
+          "E": 0.15439870555409696,
+          "yaw": 0.03149393414774493
         },
         "tolerances": {
           "N": 0.8,
@@ -107,11 +107,11 @@
       "artifacts": {
         "trajectory": {
           "path": "artifacts/gazebo/live-cross-check/turning-circle.csv",
-          "sha256": "4cb5f68f439b35b30af6cca6df005343863dacadca7b802158aa74ee97ac2566"
+          "sha256": "62809c5dae8d41f769765c11ffa3ddd8114a90c895ba3c1ce977b003ae669d9d"
         },
         "wrenchLog": {
           "path": "artifacts/gazebo/live-cross-check/turning-circle-wrenches.csv",
-          "sha256": "0c6a6797c88867139a55d34a8b55180f79e0c1e7aba90dd452beb30dee74a685"
+          "sha256": "0178fbe665ca816ec8c7dca937d7ae246223999ca63fa9dd7730927d16e7934b"
         }
       }
     },
@@ -137,14 +137,14 @@
         "count": 180,
         "rowCountMatch": true,
         "rmse": {
-          "N": 0.20925830552913186,
-          "E": 0.015286582955467925,
-          "yaw": 0.01027787022895003
+          "N": 0.2106121650331438,
+          "E": 0.015420697345552422,
+          "yaw": 0.010262014365854406
         },
         "maxAbs": {
-          "N": 0.25424859678680267,
-          "E": 0.02437474359931993,
-          "yaw": 0.02287571663612964
+          "N": 0.255436536134483,
+          "E": 0.024561850971319937,
+          "yaw": 0.02277274240412963
         },
         "tolerances": {
           "N": 0.5,
@@ -156,7 +156,7 @@
       "artifacts": {
         "trajectory": {
           "path": "artifacts/gazebo/live-cross-check/yaw-turn.csv",
-          "sha256": "a3c2e026eaff3b58f96981350263e18964d0cf41ab5cd365e0b40139359b9bbb"
+          "sha256": "bb0fa187f1403fc7a3e35230ae3d7bc662f74eb5f04fbe1f95f5bca78ef11da8"
         },
         "wrenchLog": {
           "path": "artifacts/gazebo/live-cross-check/yaw-turn-wrenches.csv",
@@ -172,7 +172,7 @@
         "world": "gazebo/generated/worlds/otter_zig-zag.sdf",
         "topic": "/world/bcod_parity_zig-zag/pose/info",
         "out": "artifacts/gazebo/live-cross-check/zig-zag.csv",
-        "rawSamples": 270,
+        "rawSamples": 269,
         "samples": 240,
         "commandTransitions": 6,
         "appliedWrenchSamples": 240,
@@ -186,14 +186,14 @@
         "count": 240,
         "rowCountMatch": true,
         "rmse": {
-          "N": 0.0764824774628176,
-          "E": 0.01675649421126346,
-          "yaw": 0.028596001809212856
+          "N": 0.07055869171102988,
+          "E": 0.016531781252597473,
+          "yaw": 0.02773075758768653
         },
         "maxAbs": {
-          "N": 0.10749295866585928,
-          "E": 0.03989766163423791,
-          "yaw": 0.04208527700912363
+          "N": 0.10048361414908324,
+          "E": 0.040081255309085295,
+          "yaw": 0.040736457612207656
         },
         "tolerances": {
           "N": 1,
@@ -205,11 +205,11 @@
       "artifacts": {
         "trajectory": {
           "path": "artifacts/gazebo/live-cross-check/zig-zag.csv",
-          "sha256": "8d0f0db0989ac8cc823498faed4d492b8c04ea52bc4b2781ea2767ef257a85fc"
+          "sha256": "ab44576d0022ceca315350bf176b0d932aba7d904c26e0cb15e59f71b20a53e6"
         },
         "wrenchLog": {
           "path": "artifacts/gazebo/live-cross-check/zig-zag-wrenches.csv",
-          "sha256": "0df37e27270d2cff73c4f0028da60b2e46e3eb999951d98396519c9cf016cda6"
+          "sha256": "407af85c862df03d34e9b79ab22a5900ad5454605bca32c4700acd5751a0eecd"
         }
       }
     },
@@ -235,14 +235,14 @@
         "count": 180,
         "rowCountMatch": true,
         "rmse": {
-          "N": 0.029090070838227153,
-          "E": 7.226204293358158e-14,
-          "yaw": 1.311199102928458e-14
+          "N": 0.030688720942945055,
+          "E": 1.3477075027460345e-15,
+          "yaw": 1.4441964675627252e-15
         },
         "maxAbs": {
-          "N": 0.058551536735773846,
-          "E": 8.77080551592e-14,
-          "yaw": 1.99351646302e-14
+          "N": 0.06055722828577381,
+          "E": 1.63481339873e-15,
+          "yaw": 3.49054118942e-15
         },
         "tolerances": {
           "N": 0.8,
@@ -254,11 +254,11 @@
       "artifacts": {
         "trajectory": {
           "path": "artifacts/gazebo/live-cross-check/coast-down.csv",
-          "sha256": "b034750db39641255a9d35896d5a03536b79dfca1ca8a07324c5cb0cd3b7139b"
+          "sha256": "adfbb95b408fc4285408f9be4f3c79ea5be1fc3965ce861eff66fbc6e4f69017"
         },
         "wrenchLog": {
           "path": "artifacts/gazebo/live-cross-check/coast-down-wrenches.csv",
-          "sha256": "b27beb2d682dfe3914df2881d5d365c449087dcba6b57a7224d5b57cc3e8782f"
+          "sha256": "b3132d206eabfb4a740f4befbd8e59cd9b4d9afc484835f058c99bfc368b9484"
         }
       }
     },
@@ -289,14 +289,14 @@
         "count": 120,
         "rowCountMatch": true,
         "rmse": {
-          "N": 0.03066526295057999,
-          "E": 0.1731650077726086,
-          "yaw": 0.020674172283179575
+          "N": 0.030737254950549048,
+          "E": 0.1760714333743608,
+          "yaw": 0.0207039065636332
         },
         "maxAbs": {
-          "N": 0.052156501421984615,
-          "E": 0.20566150352090484,
-          "yaw": 0.030895906278714653
+          "N": 0.05223795200468461,
+          "E": 0.2087829475431362,
+          "yaw": 0.030940375716914652
         },
         "tolerances": {
           "N": 0.3,
@@ -308,11 +308,11 @@
       "artifacts": {
         "trajectory": {
           "path": "artifacts/gazebo/live-cross-check/current-drift.csv",
-          "sha256": "a3211d84554a74faa6525032b88a4ee7cf4ae438e854d099bfc82b55ed0d23d5"
+          "sha256": "710d76697262b4f321dee956c86a49af894d1db771d873eb3ec303935c8a6275"
         },
         "wrenchLog": {
           "path": "artifacts/gazebo/live-cross-check/current-drift-wrenches.csv",
-          "sha256": "5435bfceb834e22469b014b42e5cf6fc4816bb85bbfc4f8f4c2b710a5aa1ead3"
+          "sha256": "7e3cdb96e328d61ca4b2a6c4bb1f0c44e8e32088594355008f09f42ef475b3b5"
         }
       }
     }

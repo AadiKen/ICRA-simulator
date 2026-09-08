@@ -48,6 +48,10 @@ REWARD_COMPONENT_COLUMNS = (
     "potential_shaping", "shaped_reward", "completion_fraction", "success",
     "waypoints_reached", "termination_reason", "terminated", "truncated",
 )
+ALIGNED_EVALUATION_COLUMNS = (
+    "checkpoint_timesteps", "actual_model_timesteps", "episodes",
+    "median_return", "mean_return", "success_rate",
+)
 _SHARED_ALGORITHM_CONFIG = {
     "algorithm": "RecurrentPPO",
     "policy": "MlpLstmPolicy",
@@ -167,6 +171,73 @@ def atomic_json(path: Path, value):
     temporary = Path(str(path) + ".tmp")
     temporary.write_text(json.dumps(value, indent=2) + "\n")
     temporary.replace(path)
+
+
+def append_aligned_evaluation(path: Path, row: dict) -> None:
+    """Append one fixed-timestep policy measurement with a stable schema."""
+    if tuple(row) != ALIGNED_EVALUATION_COLUMNS:
+        raise RuntimeError("aligned evaluation row does not match its declared schema")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    exists = path.exists()
+    with path.open("a", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=ALIGNED_EVALUATION_COLUMNS)
+        if not exists:
+            writer.writeheader()
+        writer.writerow(row)
+        stream.flush()
+
+
+def aligned_evaluation_callback_class(base_callback):
+    """Build a callback without importing Stable-Baselines3 at module import time."""
+    class AlignedEvaluationCallback(base_callback):
+        def __init__(self, *, run_dir, evaluation_env, first_seed, episodes,
+                     frequency_timesteps):
+            super().__init__(verbose=0)
+            self.run_dir = Path(run_dir)
+            self.evaluation_env = evaluation_env
+            self.first_seed = int(first_seed)
+            self.episodes = int(episodes)
+            self.frequency_timesteps = int(frequency_timesteps)
+            self.next_checkpoint = 0
+            self.rows = []
+
+        def _measure(self, checkpoint_timesteps):
+            result = evaluate_recurrent(
+                self.model, self.evaluation_env, self.first_seed, self.episodes)
+            returns = [float(row["return"]) for row in result["rows"]]
+            row = {
+                "checkpoint_timesteps": int(checkpoint_timesteps),
+                "actual_model_timesteps": int(self.model.num_timesteps),
+                "episodes": self.episodes,
+                "median_return": float(result["median_return"]),
+                "mean_return": float(statistics.fmean(returns)),
+                "success_rate": float(result["success_rate"]),
+            }
+            self.rows.append(row)
+            append_aligned_evaluation(
+                self.run_dir / "metrics" / "aligned-evaluation.csv", row)
+            atomic_json(
+                self.run_dir / "metrics" / "aligned-evaluation.json",
+                {"schema_version": 1,
+                 "measurement": "deterministic recurrent policy evaluation",
+                 "first_seed": self.first_seed,
+                 "episodes_per_checkpoint": self.episodes,
+                 "frequency_timesteps": self.frequency_timesteps,
+                 "rows": self.rows},
+            )
+            print(json.dumps({"aligned_evaluation": row}), flush=True)
+
+        def _on_training_start(self):
+            self._measure(0)
+            self.next_checkpoint = self.frequency_timesteps
+
+        def _on_step(self):
+            while self.num_timesteps >= self.next_checkpoint:
+                self._measure(self.next_checkpoint)
+                self.next_checkpoint += self.frequency_timesteps
+            return True
+
+    return AlignedEvaluationCallback
 
 
 def bcod_factory(rank: int, curriculum: bool):
@@ -457,6 +528,10 @@ def main():
     parser.add_argument("--stonefish-sensor-noise", action="store_true")
     parser.add_argument("--eval-first-seed", type=int, default=10000)
     parser.add_argument("--eval-episodes", type=int, default=0)
+    parser.add_argument("--curve-eval-freq", type=int, default=16_384,
+                        help="Global timestep spacing for aligned learning-curve evaluations")
+    parser.add_argument("--curve-eval-episodes", type=int, default=10,
+                        help="Deterministic episodes per aligned checkpoint; 0 disables")
     parser.add_argument("--run-v7-protocol", action="store_true")
     args = parser.parse_args()
     if args.timesteps < 0 or args.smoke_steps < 0 or args.eval_episodes < 0:
@@ -465,6 +540,12 @@ def main():
         parser.error("--checkpoint-freq must be positive")
     if args.n_envs <= 0:
         parser.error("--n-envs must be positive")
+    if args.curve_eval_freq <= 0:
+        parser.error("--curve-eval-freq must be positive")
+    if args.curve_eval_episodes < 0:
+        parser.error("--curve-eval-episodes must be non-negative")
+    if args.timesteps and args.curve_eval_episodes and args.curve_eval_freq % args.n_envs:
+        parser.error("--curve-eval-freq must be divisible by --n-envs for exact alignment")
     if args.stonefish_physics_threads <= 0:
         parser.error("--stonefish-physics-threads must be positive")
     if args.timesteps and args.backend in {"bcod-sim", "holoocean", "stonefish"}:
@@ -506,6 +587,12 @@ def main():
             "checkpoint_frequency_timesteps": args.checkpoint_freq,
             "evaluation": {"episodes": args.eval_episodes,
                            "first_seed": args.eval_first_seed},
+            "aligned_curve_evaluation": {
+                "enabled": bool(args.curve_eval_episodes),
+                "frequency_timesteps": args.curve_eval_freq,
+                "episodes_per_checkpoint": args.curve_eval_episodes,
+                "first_seed": args.eval_first_seed,
+            },
             "algorithm_provenance": algorithm_provenance(args.backend),
             "git_revision": git_revision(),
             "command": [sys.executable, *sys.argv],
@@ -522,7 +609,8 @@ def main():
                 observation, info = env.reset()
         if args.timesteps:
             from sb3_contrib import RecurrentPPO
-            from stable_baselines3.common.callbacks import CheckpointCallback
+            from stable_baselines3.common.callbacks import (BaseCallback, CallbackList,
+                                                             CheckpointCallback)
             from stable_baselines3.common.logger import configure
             from stable_baselines3.common.vec_env import SubprocVecEnv
             env.close()
@@ -545,8 +633,22 @@ def main():
                 save_path=str(run_dir / "checkpoints"),
                 name_prefix=f"{args.backend}-recurrent-ppo",
             )
+            callbacks = [callback]
+            if args.curve_eval_episodes:
+                def curve_evaluation_env(seed):
+                    curve_args = argparse.Namespace(**vars(args))
+                    curve_args.fixed_reset_seed = seed
+                    return make_env(curve_args)
+                callbacks.append(aligned_evaluation_callback_class(BaseCallback)(
+                    run_dir=run_dir,
+                    evaluation_env=curve_evaluation_env,
+                    first_seed=args.eval_first_seed,
+                    episodes=args.curve_eval_episodes,
+                    frequency_timesteps=args.curve_eval_freq,
+                ))
             started = time.time()
-            model.learn(total_timesteps=args.timesteps, callback=callback, progress_bar=False)
+            model.learn(total_timesteps=args.timesteps,
+                        callback=CallbackList(callbacks), progress_bar=False)
             model.logger.dump(model.num_timesteps)
             model.save(run_dir / "model-final")
             evaluation = None
@@ -571,7 +673,13 @@ def main():
                 "training_metrics": {"csv": "metrics/progress.csv", "json": "metrics/progress.json",
                                      "episodes_csv_glob": "metrics/episodes-env-*.monitor.csv",
                                      "reward_components_csv_glob": "metrics/reward-components-env-*.csv",
-                                     "reward_component_columns": list(REWARD_COMPONENT_COLUMNS)},
+                                     "reward_component_columns": list(REWARD_COMPONENT_COLUMNS),
+                                     "aligned_evaluation_csv": (
+                                         "metrics/aligned-evaluation.csv"
+                                         if args.curve_eval_episodes else None),
+                                     "aligned_evaluation_json": (
+                                         "metrics/aligned-evaluation.json"
+                                         if args.curve_eval_episodes else None)},
                 "evaluation_summary": None if evaluation is None else {
                     key: value for key, value in evaluation.items() if key != "rows"
                 },

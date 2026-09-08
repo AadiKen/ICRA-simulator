@@ -49,6 +49,7 @@ export class LegacyProductionEngine implements SimulationEngine {
       physicsMode: config.vehicle.plant,
       logEvery: 1,
     });
+    if (config.vehicle.preset === "vehicle-a-otter") scenario.boatConfig.vehicleId = "vehicle-a-otter";
     if (config.vehicle.preset === "vehicle-b-rudder") {
       if (config.vehicle.plant !== "coupled6") throw new Error("Vehicle B production integration requires coupled6.");
       const production = buildVehicleBProductionConfiguration();

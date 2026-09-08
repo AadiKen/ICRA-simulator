@@ -38,9 +38,25 @@ def render_table(data,out,mdout):
     ax.set_title("Figure 2 fallback · environmental source coverage",loc="left",weight="bold",fontsize=14,pad=12)
     fig.text(.08,.015,"Each cell: pass/fail across two seasonal fixtures · median adapter retrieval/parse latency. All 48 records retain complete provenance.",fontsize=8,color=COLORS["muted"])
     savefig(fig,out);plt.close(fig)
-def render_map(data,out,data_root):
-    sites=data["methodology"]["sites"];g=grouped(data);apply_style();proj=ccrs.PlateCarree();fig,axs=plt.subplots(2,2,figsize=(10.5,7.4),subplot_kw={"projection":proj})
-    for ax,site in zip(axs.flat,sites):
+def _plot_effect_panel(ax,effects,ids,title):
+    colors={"idealized-zero":COLORS["ink"],"slack-water":"#8293a8","retrieved-wind":COLORS["expected"],"peak-ebb":"#6f42c1","peak-flood":COLORS["negative"]}
+    labels={"idealized-zero":"Zero environment","slack-water":"Slack water","retrieved-wind":"Retrieved wind","peak-ebb":"Peak ebb","peak-flood":"Peak flood"}
+    route=[[0,0],*effects["scenario"]["route_ned_m"]]
+    ax.plot([p[1] for p in route],[p[0] for p in route],"o--",color=COLORS["ink"],lw=1.1,ms=3,label="Frozen route",zorder=5)
+    by_id={arm["id"]:arm for arm in effects["arms"]}
+    for arm_id in ids:
+        arm=by_id[arm_id];samples=arm["samples"];sep=arm["final_separation_from_idealized_m"]
+        state="complete" if arm["route_completed"] else "incomplete"
+        ax.plot([s["east_m"] for s in samples],[s["north_m"] for s in samples],color=colors[arm_id],lw=1.7,label=f'{labels[arm_id]} · {sep:.2f} m · {state}')
+        ax.scatter(samples[-1]["east_m"],samples[-1]["north_m"],s=22,color=colors[arm_id],edgecolor="white",linewidth=.5,zorder=6)
+    ax.set_title(title,loc="left",weight="bold");ax.set_xlabel("East displacement (m)");ax.set_ylabel("North displacement (m)");ax.grid(color=COLORS["grid"],lw=.45,alpha=.7);ax.set_aspect("equal",adjustable="datalim")
+    ax.legend(loc="best",fontsize=7,frameon=True,framealpha=.92)
+
+def render_map(data,effects,out,data_root):
+    if effects.get("status")!="PREREGISTERED_CHECKS_PASSED":raise ValueError("Panel B requires a sweep that cleared preregistered checks")
+    sites=data["methodology"]["sites"];g=grouped(data);apply_style();proj=ccrs.PlateCarree();fig=plt.figure(figsize=(15,8.4));gs=fig.add_gridspec(2,3,width_ratios=[1,1,1.38],wspace=.16,hspace=.2)
+    map_axes=[fig.add_subplot(gs[i//2,i%2],projection=proj) for i in range(4)]
+    for ax,site in zip(map_axes,sites):
         sid=site["id"];lon,lat,z=load_gebco(Path(data_root)/"gebco_regional"/f"{sid}.txt")
         ax.set_extent([lon.min(),lon.max(),lat.min(),lat.max()],crs=proj);ax.set_facecolor(COLORS["ocean"])
         relief=LightSource(azdeg=315,altdeg=38).shade(z,cmap=plt.get_cmap("Blues_r"),vert_exag=.08,blend_mode="soft")
@@ -52,11 +68,15 @@ def render_map(data,out,data_root):
             ok=status(g[(source,sid)]);ax.add_patch(Wedge((x,y),r,i*72+3,(i+1)*72-3,transform=ax.transAxes,facecolor=COLORS["good"] if ok else COLORS["negative"],edgecolor="white",lw=.6,zorder=8))
         ax.add_patch(plt.Circle((x,y),r*.36,transform=ax.transAxes,color="white",zorder=9));ax.text(x,y,"5/5",transform=ax.transAxes,ha="center",va="center",fontsize=7,weight="bold",zorder=10)
         gl=ax.gridlines(draw_labels=True,linewidth=.35,color=COLORS["grid"],alpha=.8);gl.top_labels=False;gl.right_labels=False;gl.xlabel_style={"size":7};gl.ylabel_style={"size":7}
-        ax.set_title(sid.replace("-"," ").title(),loc="left",weight="bold")
-    fig.suptitle("Geographic grounding across four coastal operating regions",x=.06,ha="left",fontsize=15,weight="bold")
-    fig.text(.06,.925,"GEBCO 2026 shaded relief · Natural Earth coastline · five-source retrieval/provenance glyph",color=COLORS["muted"],fontsize=9)
-    fig.text(.06,.02,"Each radial glyph summarizes NDBC, CO-OPS, NWS, RTOFS, and ERA5 (clockwise): green means both seasonal fixture checks passed with complete provenance. Red dot marks the evaluation coordinate.",fontsize=8,color=COLORS["muted"])
-    fig.subplots_adjust(left=.06,right=.98,top=.89,bottom=.08,wspace=.13,hspace=.22);savefig(fig,out);plt.close(fig)
+        ax.text(.025,.965,sid.replace("-"," ").title(),transform=ax.transAxes,ha="left",va="top",weight="bold",fontsize=9,bbox={"facecolor":"white","edgecolor":"none","alpha":.82,"pad":2},zorder=12)
+    detail=gs[:,2].subgridspec(2,1,hspace=.3);current_ax=fig.add_subplot(detail[0]);detail_ax=fig.add_subplot(detail[1])
+    _plot_effect_panel(current_ax,effects,["idealized-zero","peak-ebb","peak-flood"],"B1 · Peak-current response")
+    _plot_effect_panel(detail_ax,effects,["idealized-zero","slack-water","retrieved-wind"],"B2 · Slack and wind detail")
+    fig.suptitle("Geographic coverage and controlled environmental response",x=.055,ha="left",fontsize=16,weight="bold")
+    fig.text(.055,.925,"A · GEBCO 2026 regional bathymetry and verified source coverage",weight="bold",fontsize=10)
+    fig.text(.69,.925,"B · 180 s LOS-controlled route · separation from zero-environment arm",weight="bold",fontsize=10)
+    fig.text(.055,.012,"A: glyphs summarize NDBC, CO-OPS, NWS, RTOFS, and ERA5 retrieval/provenance checks. B: peak ebb and flood prevent route completion; zero, slack, and wind complete. Wind uses explicitly uncalibrated placeholder coefficient amplitudes (CX=1, CY=0.5, CN=0.25); coupling evidence is not Otter aerodynamic validation.",fontsize=7.5,color=COLORS["muted"])
+    fig.subplots_adjust(left=.055,right=.985,top=.885,bottom=.075);savefig(fig,out);plt.close(fig)
 def main():
-    p=argparse.ArgumentParser();p.add_argument("--source",type=Path,default=REPO_ROOT/"artifacts/environment-coverage/coverage-matrix.json");p.add_argument("--data",type=Path,default=REPO_ROOT/"figures/data");p.add_argument("--out",type=Path,default=REPO_ROOT/"figures/out/fig2_geography.png");p.add_argument("--table-out",type=Path,default=REPO_ROOT/"figures/out/fig2_geography_table.png");p.add_argument("--markdown",type=Path,default=REPO_ROOT/"figures/out/fig2_geography_table.md");a=p.parse_args();data=json.loads(a.source.read_text());render_table(data,a.table_out,a.markdown);render_map(data,a.out,a.data)
+    p=argparse.ArgumentParser();p.add_argument("--source",type=Path,default=REPO_ROOT/"artifacts/environment-coverage/coverage-matrix.json");p.add_argument("--effect-source",type=Path,default=REPO_ROOT/"artifacts/environment-coverage/environment-effect-sweep.json");p.add_argument("--data",type=Path,default=REPO_ROOT/"figures/data");p.add_argument("--out",type=Path,default=REPO_ROOT/"figures/out/fig2_geography.png");p.add_argument("--table-out",type=Path,default=REPO_ROOT/"figures/out/fig2_geography_table.png");p.add_argument("--markdown",type=Path,default=REPO_ROOT/"figures/out/fig2_geography_table.md");a=p.parse_args();data=json.loads(a.source.read_text());effects=json.loads(a.effect_source.read_text());render_table(data,a.table_out,a.markdown);render_map(data,effects,a.out,a.data)
 if __name__=="__main__":main()
