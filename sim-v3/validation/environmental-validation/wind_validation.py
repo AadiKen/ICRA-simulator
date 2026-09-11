@@ -22,6 +22,12 @@ STATIONS = {
     "miami": (25.771, -80.162, "42095"),
     "boston": (42.346, -70.651, "44013"),
 }
+SITE_LABELS = {
+    "san-francisco": "San Francisco",
+    "honolulu": "Honolulu",
+    "miami": "Miami",
+    "boston": "Boston",
+}
 START = "2026-07-13T00:00:00Z"
 STOP = "2026-07-15T23:00:00Z"
 
@@ -104,20 +110,76 @@ def vector_stats(rows: list[dict]) -> dict:
     }
 
 
+def markdown_report(site: str, station: str, stats: dict | None, rejections: dict, artifact_name: str) -> str:
+    excluded = rejections["ndbc_non_hourly_excluded"]
+    failures = (
+        rejections["ndbc_qc_failed"]
+        + rejections["ndbc_invalid_vector_or_time"]
+        + rejections["no_temporal_match"]
+    )
+    if stats is None:
+        results = f"""No accuracy statistics can be reported because NDBC station {station} supplied zero
+usable wind vectors in the requested window. Its {rejections['ndbc_qc_failed']} candidate records all
+failed wind QC (the archive uses missing-value sentinels for wind direction and speed). This is a
+source-data limitation, not an ERA5 accuracy result; a wind-reporting reference station must be
+selected before this site can support the requested comparison.
+"""
+    else:
+        correlation = stats["complex_correlation"]
+        results = f"""| Metric | Value |
+|---|---:|
+| Matched hours | {stats['n']} |
+| QC/temporal failures | {failures} |
+| Wind-speed bias | {stats['speed']['bias']:+.3f} m/s |
+| Wind-speed RMSE | {stats['speed']['rmse']:.3f} m/s |
+| Eastward-component bias | {stats['u']['bias']:+.3f} m/s |
+| Eastward-component RMSE | {stats['u']['rmse']:.3f} m/s |
+| Northward-component bias | {stats['v']['bias']:+.3f} m/s |
+| Northward-component RMSE | {stats['v']['rmse']:.3f} m/s |
+| Complex-correlation magnitude | {correlation['magnitude']:.3f} |
+| Complex-correlation phase | {correlation['phase_deg']:.3f} deg |
+
+Match quality was {stats['n']}/{stats['n']}, with {failures} QC or temporal-match failures.
+The {excluded} sub-hourly records are exclusions, not failed hourly matches.
+"""
+    return f"""# ERA5 versus NDBC wind validation — {SITE_LABELS[site]}
+
+## Scope
+
+ERA5 hourly 10 m wind vectors were compared with NDBC station {station} observations from
+2026-07-13 00:00 UTC through 2026-07-15 23:00 UTC. Each QC-passing NDBC observation exactly
+on the hour was paired with the nearest ERA5 grid cell at the identical timestamp. The {excluded}
+sub-hourly station rows were excluded explicitly so that an ERA5 hour was not reused.
+
+Hourly samples are serially correlated, so the report does not claim that the matched hours are
+independent observations or provide an independent-sample confidence interval. GDOP is not
+applicable to a single-station wind instrument.
+
+## Results
+
+{results}
+
+The machine-readable report, including all matched vectors, rejection counts, source URLs,
+and source checksums, is `artifacts/environmental-validation/{artifact_name}`.
+"""
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--sites", nargs="+", choices=STATIONS, default=["san-francisco"])
     parser.add_argument("--output", type=Path, default=ROOT / "artifacts/environmental-validation/era5-ndbc-wind-20260713-15.json")
+    parser.add_argument("--markdown-output", type=Path)
     args = parser.parse_args()
-    cache = ROOT / ".cache/environmental-validation/era5-wind-sf-20260713-15.nc"
-    if not cache.exists():
-        latitude, longitude, _ = STATIONS["san-francisco"]
-        retrieve_wind(cache, year=2026, month=7, days=[13, 14, 15], times=[f"{hour:02d}:00" for hour in range(24)], area=[latitude + 0.5, longitude - 0.5, latitude - 0.5, longitude + 0.5])
     all_matches = []
-    sources = [{"id": DATASET, "version": "ERA5 hourly single levels", "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels", "checksum_sha256": sha256(cache)}]
+    sources = []
     rejections = {"ndbc_qc_failed": 0, "ndbc_invalid_vector_or_time": 0, "ndbc_non_hourly_excluded": 0, "no_temporal_match": 0}
     for site in args.sites:
         latitude, longitude, station = STATIONS[site]
+        cache_site = "sf" if site == "san-francisco" else site
+        cache = ROOT / ".cache/environmental-validation" / f"era5-wind-{cache_site}-20260713-15.nc"
+        if not cache.exists():
+            retrieve_wind(cache, year=2026, month=7, days=[13, 14, 15], times=[f"{hour:02d}:00" for hour in range(24)], area=[latitude + 0.5, longitude - 0.5, latitude - 0.5, longitude + 0.5])
+        sources.append({"id": DATASET, "site": site, "version": "ERA5 hourly single levels", "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels", "checksum_sha256": sha256(cache)})
         url = f"https://www.ndbc.noaa.gov/data/stdmet/Jul/{station}72026.txt.gz"
         payload = fetch(url)
         source_path = ROOT / ".cache/environmental-validation" / f"ndbc-{station}-2026.txt.gz"
@@ -140,13 +202,15 @@ def main() -> None:
                 rejections["no_temporal_match"] += 1
                 continue
             all_matches.append({"site": site, "station": station, "time": observed["time"], "model_time": candidate["time"], "model_grid_id": f"era5:{candidate['latitude_deg']},{candidate['longitude_deg']}", "distance_m": None, "time_delta_s": 0, "model_u": candidate["u_east_mps"], "model_v": candidate["v_north_mps"], "reference_u": observed["u_east_mps"], "reference_v": observed["v_north_mps"], "reference_speed_mps": observed["wind_speed_mps"]})
-    if not all_matches:
-        raise RuntimeError("Wind validation produced zero matched ERA5/NDBC hours")
-    by_site = {site: vector_stats([row for row in all_matches if row["site"] == site]) for site in args.sites}
+    by_site_rows = {site: [row for row in all_matches if row["site"] == site] for site in args.sites}
+    by_site = {site: vector_stats(rows) if rows else None for site, rows in by_site_rows.items()}
+    overall = vector_stats(all_matches) if all_matches else None
+    validation_status = "complete" if all(stats is not None for stats in by_site.values()) else "insufficient_reference_data"
     report = {
         "schema_version": 1,
         "artifact_kind": "era5-vs-ndbc-wind-validation",
         "generated_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
+        "validation_status": validation_status,
         "window_selection": {"start": START, "stop": STOP, "sites": args.sites},
         "sources": sources,
         "wind": {
@@ -154,14 +218,21 @@ def main() -> None:
             "matching_tolerances": {"time_s": 0, "distance_m": None, "gdop": "not applicable to station wind"},
             "statistical_limitation": "Hourly samples are serially correlated; no independent-sample confidence interval is reported.",
             "rejections": rejections,
-            "overall": vector_stats(all_matches),
+            "overall": overall,
             "by_site": by_site,
             "matches": all_matches,
         },
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n")
-    print(json.dumps({"output": str(args.output), "matches": len(all_matches), "overall": report["wind"]["overall"]}, indent=2))
+    if args.markdown_output:
+        if len(args.sites) != 1:
+            parser.error("--markdown-output requires exactly one site")
+        site = args.sites[0]
+        station = STATIONS[site][2]
+        args.markdown_output.parent.mkdir(parents=True, exist_ok=True)
+        args.markdown_output.write_text(markdown_report(site, station, by_site[site], rejections, args.output.name))
+    print(json.dumps({"output": str(args.output), "status": validation_status, "matches": len(all_matches), "overall": overall}, indent=2))
 
 
 if __name__ == "__main__":

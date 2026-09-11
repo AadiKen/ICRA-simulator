@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "era5-vs-ndbc-wind-validation",
+  "generated_at": "2026-09-11T10:22:58.209306Z",
+  "validation_status": "insufficient_reference_data",
+  "window_selection": {
+    "start": "2026-07-13T00:00:00Z",
+    "stop": "2026-07-15T23:00:00Z",
+    "sites": [
+      "honolulu"
+    ]
+  },
+  "sources": [
+    {
+      "id": "reanalysis-era5-single-levels",
+      "site": "honolulu",
+      "version": "ERA5 hourly single levels",
+      "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels",
+      "checksum_sha256": "ade84735feb47ce13fe142975b1db68be4c2267435031374a062c0460b904d3c"
+    },
+    {
+      "id": "NDBC-51202",
+      "version": "2026 historical standard meteorological",
+      "url": "https://www.ndbc.noaa.gov/data/stdmet/Jul/5120272026.txt.gz",
+      "checksum_sha256": "193dd9121cf8ae54f9a4b9ded5ee45650b2566bf0756aba765d58d6706bfcefc"
+    }
+  ],
+  "wind": {
+    "matching_method": "Each QC-passing NDBC observation exactly on the hour is matched to the nearest ERA5 grid cell at the identical hour; sub-hourly station records are explicitly excluded rather than reusing an ERA5 hour.",
+    "matching_tolerances": {
+      "time_s": 0,
+      "distance_m": null,
+      "gdop": "not applicable to station wind"
+    },
+    "statistical_limitation": "Hourly samples are serially correlated; no independent-sample confidence interval is reported.",
+    "rejections": {
+      "ndbc_qc_failed": 142,
+      "ndbc_invalid_vector_or_time": 0,
+      "ndbc_non_hourly_excluded": 0,
+      "no_temporal_match": 0
+    },
+    "overall": null,
+    "by_site": {
+      "honolulu": null
+    },
+    "matches": []
+  }
+}
