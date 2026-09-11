@@ -18,8 +18,8 @@ from era5_common import DATASET, retrieve_wind, sha256, wind_rows
 ROOT = Path(__file__).resolve().parents[2]
 STATIONS = {
     "san-francisco": (37.759, -122.833, "46026"),
-    "honolulu": (21.417, -157.678, "51202"),
-    "miami": (25.771, -80.162, "42095"),
+    "honolulu": (21.303, -157.865, "OOUH1"),
+    "miami": (25.731, -80.162, "VAKF1"),
     "boston": (42.346, -70.651, "44013"),
 }
 SITE_LABELS = {
@@ -180,7 +180,8 @@ def main() -> None:
         if not cache.exists():
             retrieve_wind(cache, year=2026, month=7, days=[13, 14, 15], times=[f"{hour:02d}:00" for hour in range(24)], area=[latitude + 0.5, longitude - 0.5, latitude - 0.5, longitude + 0.5])
         sources.append({"id": DATASET, "site": site, "version": "ERA5 hourly single levels", "url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels", "checksum_sha256": sha256(cache)})
-        url = f"https://www.ndbc.noaa.gov/data/stdmet/Jul/{station}72026.txt.gz"
+        archive_station = station.lower() if not station.isdigit() else station
+        url = f"https://www.ndbc.noaa.gov/data/stdmet/Jul/{archive_station}72026.txt.gz"
         payload = fetch(url)
         source_path = ROOT / ".cache/environmental-validation" / f"ndbc-{station}-2026.txt.gz"
         source_path.parent.mkdir(parents=True, exist_ok=True)
