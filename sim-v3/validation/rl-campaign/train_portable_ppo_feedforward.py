@@ -278,7 +278,8 @@ def bcod_factory(rank: int, curriculum: bool):
 
 def make_env(args):
     common = dict(base_seed=args.base_seed, fixed_reset_seed=args.fixed_reset_seed,
-                  final_leg_curriculum=args.final_leg_curriculum)
+                  final_leg_curriculum=args.final_leg_curriculum,
+                  condition_contract_path=getattr(args, "condition_contract_path", None))
     if args.backend == "bcod-sim":
         return CommonWaypointEnv(ROOT, disturbance_mode=args.disturbance_mode, **common)
     if args.backend == "holoocean":
@@ -287,6 +288,7 @@ def make_env(args):
             fixed_reset_seed=args.fixed_reset_seed,
             disturbance_mode=args.disturbance_mode,
             wind_mode=args.holoocean_wind_mode,
+            condition_contract_path=getattr(args, "condition_contract_path", None),
         )
     if args.backend == "stonefish":
         required = {
@@ -308,6 +310,7 @@ def make_env(args):
             physics_threads=args.stonefish_physics_threads,
             sensor_noise=args.stonefish_sensor_noise,
             base_seed=args.base_seed, fixed_reset_seed=args.fixed_reset_seed,
+            condition_contract_path=getattr(args, "condition_contract_path", None),
         )
     if args.backend == "gazebo-harmonic" and not args.runtime_command:
         common["disturbance_mode"] = "zero"

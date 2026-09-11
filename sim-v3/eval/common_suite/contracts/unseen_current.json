@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "contract_version": "1.1.0-candidate",
+  "condition_id": "unseen_current",
+  "status": "calibration-required",
+  "episode_seeds": {"generator": "contiguous-v1", "first": 42000, "count": 200},
+  "route": {"waypoints_local_m": [[0, 0], [45, 8], [90, -6], [140, 12]]},
+  "disturbance": {"current_mps": [0.65, 1.0], "direction_rad": [-3.141592653589793, 3.141592653589793], "wind_mps": [0.0, 5.0]},
+  "vehicle_parameters": {"mass_scale": 1.0, "drag_scale": 1.0, "thrust_scale": 1.0},
+  "sensing": {"degraded": false},
+  "termination": {"success_radius_m": 1.0, "time_cap_s": 150.0, "energy_cap_ns": 50000.0},
+  "hardening": {"lever": "terminal-success-radius", "source_contract_sha256": "e0095a42d46702e5543c19fdd16d8cfb8eb5b92a5fb0af62a9a11695cdce7299", "environmental_disturbance_added": false},
+  "reward": {"id": "common-waypoint-transit-v1", "post_hoc_metric_selection": false},
+  "content_sha256": "46cb55813c537145688274fb3f611a4bd3bee61ec0216d863f15164dcd18538d",
+  "hash_scope": "canonical JSON of every field except content_sha256 and hash_scope"
+}

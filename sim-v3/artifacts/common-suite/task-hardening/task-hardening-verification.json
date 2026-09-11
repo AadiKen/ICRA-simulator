@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "common-suite-task-hardening-verification",
+  "status": "BCOD_VERIFIED_PENDING_ALL_ARM_CALIBRATION",
+  "selected_lever": {
+    "type": "terminal-success-radius",
+    "previous_radius_m": 2.0,
+    "selected_radius_m": 1.0,
+    "route_changed": false,
+    "time_or_energy_budget_changed": false,
+    "environmental_disturbance_added": false
+  },
+  "candidate_sweep": [
+    {"radius_m": 1.5, "episodes": 10, "first_seed": 10000, "successes": 8, "success_rate": 0.8, "contract_sha256": "7e7d27c24c0df310541d31b883883ff6f92a12bb671d37e1f4d886fc64582371"},
+    {"radius_m": 1.0, "episodes": 10, "first_seed": 10000, "successes": 7, "success_rate": 0.7, "contract_sha256": "116cbca5d4260a2b5906de6b05f74624ddde7874d7987114db251867a21cf09b"},
+    {"radius_m": 0.75, "episodes": 10, "first_seed": 10000, "successes": 6, "success_rate": 0.6, "contract_sha256": "2caef78655d27f3a3c27cfb3cd2fed16e2781d36252bb1fa475da0f5bbc9f88d"}
+  ],
+  "selected_contract_verification": {
+    "contract_path": "eval/common_suite/contracts/nominal.json",
+    "contract_sha256": "61f9b70d8d63b8f150e3c1a2889d0ef988ac7b46126370719a3ffb6f64a8a927",
+    "checkpoint_sha256": "fd5d24ee9db33b67f1e2fd99f5b4c4e084a7c47dd18af6779b7fafc4ba7a4335",
+    "episodes": 10,
+    "first_seed": 10000,
+    "last_seed": 10009,
+    "successes": 7,
+    "success_rate": 0.7,
+    "previous_native_success_rate": 1.0,
+    "off_ceiling": true,
+    "disturbance_mode": "zero",
+    "training_performed": false,
+    "result_path": "artifacts/common-suite/task-hardening/bcod-selected-nominal/evaluation-summary.json"
+  },
+  "contract_hashes": {
+    "degraded_sensing": "5e3c1af53f854fae6285dc62e74cc0d85f0d38effe759f595e7ea6df193567d2",
+    "nominal": "61f9b70d8d63b8f150e3c1a2889d0ef988ac7b46126370719a3ffb6f64a8a927",
+    "unseen_current": "46cb55813c537145688274fb3f611a4bd3bee61ec0216d863f15164dcd18538d",
+    "unseen_place_time": "b2575fbceea521fc40899730f317e690c5f61d11e066f22aecda757227eea650",
+    "unseen_vehicle_params": "68b47fe9da730d814983e78dafc041905ec7277121e95327b6f55966a118cc0c"
+  },
+  "contracts_frozen": false,
+  "freeze_blocker": "Native nominal saturation checks remain required for Gazebo, HoloOcean, and Stonefish before the five contracts may be frozen.",
+  "multi_seed_campaign_authorized": false
+}

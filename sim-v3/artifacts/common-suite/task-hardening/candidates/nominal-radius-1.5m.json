@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "contract_version": "1.1.0-candidate",
+  "condition_id": "nominal",
+  "status": "hardening-calibration-required",
+  "episode_seeds": {
+    "generator": "contiguous-v1",
+    "first": 42000,
+    "count": 200
+  },
+  "route": {
+    "waypoints_local_m": [
+      [
+        0,
+        0
+      ],
+      [
+        45,
+        8
+      ],
+      [
+        90,
+        -6
+      ],
+      [
+        140,
+        12
+      ]
+    ]
+  },
+  "disturbance": {
+    "current_mps": [
+      0.0,
+      0.45
+    ],
+    "wind_mps": [
+      0.0,
+      5.0
+    ]
+  },
+  "vehicle_parameters": {
+    "mass_scale": 1.0,
+    "drag_scale": 1.0,
+    "thrust_scale": 1.0
+  },
+  "sensing": {
+    "degraded": false
+  },
+  "termination": {
+    "success_radius_m": 1.5,
+    "time_cap_s": 150.0,
+    "energy_cap_ns": 50000.0
+  },
+  "reward": {
+    "id": "common-waypoint-transit-v1",
+    "post_hoc_metric_selection": false
+  },
+  "content_sha256": "7e7d27c24c0df310541d31b883883ff6f92a12bb671d37e1f4d886fc64582371",
+  "hash_scope": "canonical JSON of every field except content_sha256 and hash_scope",
+  "hardening": {
+    "lever": "terminal-success-radius",
+    "source_contract_sha256": "e998e32f5ee00f6296fce04e01066fa3e9a40d3737dec66b6aae79ef212f119b",
+    "environmental_disturbance_added": false
+  }
+}
