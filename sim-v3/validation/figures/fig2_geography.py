@@ -1,47 +1,46 @@
 from __future__ import annotations
+import json,math
 from pathlib import Path
-from .common import COLORS, ROOT, load_json, svg_text, write_svg
+import matplotlib.pyplot as plt
+import numpy as np
+from .common import ROOT,require_files
+from .fig2_environmental_grounding import wms
 
-DEFAULTS=[ROOT/"artifacts/environment-coverage/coverage-matrix.json",ROOT/"artifacts/environment-coverage/live-confirmatory-pass.json",ROOT/"artifacts/environment-coverage/gebco-live-confirmatory-pass.json",ROOT/"artifacts/environment-coverage/real-vs-idealized-trajectory.json"]
-SOURCES=("ndbc","coops","nws","rtofs","era5","gebco")
+SITES=[("san-francisco","San Francisco","46026","9414290",497),("honolulu","Honolulu","51202","1612340",None),("miami","Miami","42095","8723214",None),("boston","Boston","44013","8443970",None)]
+DEFAULTS=[ROOT/"artifacts/environmental-validation/report-3dz-20260713-15.json",ROOT/"artifacts/environmental-validation/era5-ndbc-wind-20260713-15.json",ROOT/"artifacts/environmental-validation/era5-ndbc-wind-boston-20260713-15.json",ROOT/"artifacts/environmental-validation/rtofs-mask-sf.json",ROOT/"artifacts/environmental-validation/rtofs-mask-honolulu.json",ROOT/"artifacts/environmental-validation/rtofs-mask-miami.json",ROOT/"artifacts/environmental-validation/rtofs-mask-boston.json",ROOT/"artifacts/environment-coverage/enc-catzoc-remaining-sites.json"]
 
-def validate_inputs(coverage,live,gebco,pair):
-    sites=coverage.get("methodology",{}).get("sites")
-    if not isinstance(sites,list) or not sites: raise ValueError("Figure 2 requires coverage sites with coordinates")
-    if any(not isinstance(s.get("latitude_deg"),(int,float)) or not isinstance(s.get("longitude_deg"),(int,float)) for s in sites): raise ValueError("Every Figure 2 coverage site requires latitude/longitude")
-    statuses={r.get("source"):r.get("status") for r in live.get("results",[])}
-    if not all(s in statuses for s in SOURCES[:-1]): raise ValueError("Live verification artifact lacks a requested source")
-    if not gebco.get("results"): raise ValueError("GEBCO live verification results are missing")
-    if pair.get("artifact_kind")!="paired-real-vs-idealized-environment-trajectory": raise ValueError("Figure 2 requires the paired real-vs-idealized trajectory artifact")
-    if pair.get("scenario",{}).get("seed") is None or "Only environment.current_mps differs" not in pair.get("scenario",{}).get("invariant_between_runs",""): raise ValueError("Paired trajectories do not record the required controlled comparison")
+def validate_inputs(current,sf_wind,boston_wind,masks,enc):
+    if len(current.get("currents",{}).get("matches",[]))!=2595: raise ValueError("Figure 2 requires the retained current matches")
+    if any(len(report.get("wind",{}).get("matches",[]))!=72 for report in (sf_wind,boston_wind)): raise ValueError("Figure 2 requires both 72-hour wind series")
+    if set(masks)!={x[0] for x in SITES}: raise ValueError("Figure 2 requires four RTOFS masks")
+    if set(enc)!={"honolulu","miami","boston"}: raise ValueError("Figure 2 requires three remaining-site ENC results")
 
-def _wrap(text,width=145):
-    lines=[];line=""
-    for word in text.split():
-        if line and len(line)+len(word)+1>width: lines.append(line);line=word
-        else: line=f"{line} {word}".strip()
-    return lines+[line]
+def _scatter(ax,rows,title,color,source):
+    observed=[row["reference_speed_mps"] for row in rows];modeled=[math.hypot(row["model_u"],row["model_v"]) for row in rows];limit=max(observed+modeled)*1.04
+    ax.scatter(observed,modeled,s=11,alpha=.45,color=color,edgecolors="none");ax.plot([0,limit],[0,limit],"--",color="#667085",lw=1);ax.set(xlim=(0,limit),ylim=(0,limit),title=title,xlabel=f"Observed {source} speed (m/s)",ylabel="Modeled speed (m/s)");ax.grid(alpha=.2)
+
+def _current_scatter(ax,rows):
+    for zone,marker,color in (("shelf","o","#2457a7"),("nearshore","s","#667085")):
+        selected=[row for row in rows if row["zone"]==zone];high=max(row["reference_speed_mps"] for row in selected);edges=np.linspace(0,high,21);points=[]
+        for low,upper in zip(edges[:-1],edges[1:]):
+            bucket=[row for row in selected if low<=row["reference_speed_mps"]<upper+(1e-12 if upper==high else 0)]
+            if bucket: points.append((np.mean([r["reference_speed_mps"] for r in bucket]),np.mean([math.hypot(r["model_u"],r["model_v"]) for r in bucket])))
+        ax.scatter([p[0] for p in points],[p[1] for p in points],marker=marker,s=38,color=color,label=zone.title())
+    limit=.75;ax.plot([0,limit],[0,limit],"--",color="#667085",lw=1);ax.set(xlim=(0,limit),ylim=(0,limit),title="San Francisco current",xlabel="Observed HF-radar speed (m/s)",ylabel="Modeled speed (m/s)");ax.grid(alpha=.2);ax.legend(frameon=False,fontsize=8)
 
 def build(data_paths=None)->Path:
-    paths=[Path(p) for p in (data_paths or DEFAULTS)]
-    if len(paths)!=4: raise ValueError("Figure 2 requires coverage, live-source, live-GEBCO, and paired-trajectory artifacts")
-    coverage,live,gebco,pair=[load_json(p) for p in paths];validate_inputs(coverage,live,gebco,pair)
-    sites=coverage["methodology"]["sites"];status={r["source"]:r["status"] for r in live["results"]};status["gebco"]="success" if all(r.get("status")=="success" for r in gebco["results"]) else "partial"
-    live_sites={(r["site"],r["source"]):r["status"] for r in live["results"]};live_sites.update({(r["site"],"gebco"):r["status"] for r in gebco["results"]})
-    width,height=1120,650;out=[svg_text(24,34,"Geographic grounding and environmental response",size=22,weight=700),svg_text(24,58,"Coverage locations · retained live verification · controlled trajectory pair",size=13,fill=COLORS["muted"])]
-    mx,my,mw,mh=30,100,520,360;out.append(f'<rect x="{mx}" y="{my}" width="{mw}" height="{mh}" rx="8" fill="#eef4f8" stroke="{COLORS["grid"]}"/>');out.append(svg_text(mx+12,my+25,"Coverage sites (schematic lon/lat projection)",size=13,weight=700));lons=[s["longitude_deg"] for s in sites];lats=[s["latitude_deg"] for s in sites]
-    for site in sites:
-        x=mx+45+(site["longitude_deg"]-min(lons))/(max(lons)-min(lons))*(mw-90);y=my+55+(max(lats)-site["latitude_deg"])/(max(lats)-min(lats))*(mh-100)
-        out.extend([f'<circle cx="{x:.2f}" cy="{y:.2f}" r="8" fill="{COLORS["blue"]}" stroke="#fff" stroke-width="2"/>',svg_text(x+11,y+4,site["id"].replace("-"," "),size=11,weight=700),svg_text(x+11,y+20,f'{site["latitude_deg"]:.3f}, {site["longitude_deg"]:.3f}',size=9,fill=COLORS["muted"])])
-        for j,source in enumerate(SOURCES):
-            state=live_sites.get((site["id"],source));color=COLORS["identical"] if state=="success" else COLORS["divergence"] if state in ("partial","blocked") else COLORS["na"]
-            out.append(f'<circle cx="{x+14+j*12:.2f}" cy="{y+32:.2f}" r="4" fill="{color}" stroke="#fff"/>')
-    out.append(svg_text(30,490,"Per-site source order: NDBC · CO-OPS · NWS · RTOFS · ERA5 · GEBCO",size=11,weight=700))
-    out.extend([f'<circle cx="37" cy="516" r="6" fill="{COLORS["identical"]}"/>',svg_text(49,520,"live verified",size=10),f'<circle cx="147" cy="516" r="6" fill="{COLORS["divergence"]}"/>',svg_text(159,520,"attempted: blocked/partial",size=10),f'<circle cx="330" cy="516" r="6" fill="{COLORS["na"]}"/>',svg_text(342,520,"fixture coverage only",size=10)])
-    ix,iy,iw,ih=600,100,480,360;out.append(f'<rect x="{ix}" y="{iy}" width="{iw}" height="{ih}" rx="8" fill="#fbfcfe" stroke="{COLORS["grid"]}"/>');out.append(svg_text(ix+12,iy+25,f'Controlled inset · {pair["selection"]["selected_site"].replace("-"," ").title()}',size=13,weight=700));real=pair["conditions"]["real"]["samples"];ideal=pair["conditions"]["idealized"]["samples"];all_samples=real+ideal;ns=[p["north_m"] for p in all_samples];es=[p["east_m"] for p in all_samples];n0,n1,e0,e1=min(ns),max(ns),min(es),max(es);px,py,pw,ph=ix+45,iy+55,iw-75,ih-100
-    def points(samples): return " ".join(f'{px+(p["east_m"]-e0)/max(e1-e0,1e-9)*pw:.2f},{py+ph-(p["north_m"]-n0)/max(n1-n0,1e-9)*ph:.2f}' for p in samples)
-    out.extend([f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" fill="#fff" stroke="{COLORS["grid"]}"/>',f'<polyline points="{points(ideal)}" fill="none" stroke="{COLORS["muted"]}" stroke-width="3"/>',f'<polyline points="{points(real)}" fill="none" stroke="{COLORS["blue"]}" stroke-width="3"/>',svg_text(px,py+ph+22,"East displacement →",size=10,fill=COLORS["muted"]),svg_text(px-10,py-10,"North ↑",size=10,fill=COLORS["muted"]),f'<line x1="{ix+25}" y1="{iy+ih-22}" x2="{ix+48}" y2="{iy+ih-22}" stroke="{COLORS["blue"]}" stroke-width="3"/>',svg_text(ix+55,iy+ih-18,"retained live RTOFS current",size=10),f'<line x1="{ix+245}" y1="{iy+ih-22}" x2="{ix+268}" y2="{iy+ih-22}" stroke="{COLORS["muted"]}" stroke-width="3"/>',svg_text(ix+275,iy+ih-18,"idealized zero current",size=10)])
-    out.append(svg_text(600,500,f'Selection score: {pair["selection"]["selected_score_mps"]:.4f} m/s · final separation: {pair["comparison"]["final_separation_m"]:.3f} m',size=12,weight=700))
-    caption="Site selection maximizes the retained live horizontal-current magnitude relative to zero current among sites with a numeric live vector. Both production-core runs share seed 7319, scenario, action, timing, and initial state; only current differs. Map coordinates come from the coverage artifact; live-status markers come from retained confirmatory artifacts."
-    for i,line in enumerate(_wrap(caption)): out.append(svg_text(30,580+i*17,line,size=10,fill=COLORS["muted"]))
-    return write_svg("fig2_geography","\n".join(out),width,height,paths,caption)
+    paths=require_files([Path(path) for path in (data_paths or DEFAULTS)]);current,sf_wind,boston_wind=[json.loads(path.read_text()) for path in paths[:3]]
+    masks={site:json.loads(path.read_text()) for site,path in zip(("san-francisco","honolulu","miami","boston"),paths[3:7])};enc={row["site"]:row for row in json.loads(paths[7].read_text())["results"]};validate_inputs(current,sf_wind,boston_wind,masks,enc)
+    fig=plt.figure(figsize=(14,9),layout="constrained");outer=fig.add_gridspec(1,2,width_ratios=(1.1,1));coverage=outer[0].subgridspec(2,2)
+    for index,(site,label,ndbc,coops,sf_count) in enumerate(SITES):
+        ax=fig.add_subplot(coverage[index//2,index%2]);artifact=masks[site];cells=artifact.get("cells") or artifact["products"][0]["cells"];wet=[r for r in cells if r["rtofs_mask"]=="water"];land=[r for r in cells if r["rtofs_mask"]=="land"]
+        ax.scatter([r["longitude_deg"] for r in land],[r["latitude_deg"] for r in land],s=7,color="#d8c6a0",label="RTOFS land");ax.scatter([r["longitude_deg"] for r in wet],[r["latitude_deg"] for r in wet],s=7,color="#9ecae1",label="RTOFS wet")
+        center_lat=artifact.get("site_location",{}).get("latitude_deg",np.mean([r["latitude_deg"] for r in cells]));center_lon=artifact.get("site_location",{}).get("longitude_deg",np.mean([r["longitude_deg"] for r in cells]))
+        image,extent=wms(center_lat,center_lon);ax.imshow(image,extent=extent,origin="upper",alpha=.62)
+        ax.scatter(center_lon,center_lat,marker="^",s=55,color="#2457a7",edgecolor="white",label=f"NDBC {ndbc}");ax.scatter(center_lon+.025,center_lat-.025,marker="s",s=42,color="#2f855a",edgecolor="white",label=f"CO-OPS {coops}")
+        count=sf_count if site=="san-francisco" else enc[site]["obstacle_count"];fraction=1 if site=="san-francisco" else enc[site]["catzoc_coverage_fraction"]
+        ax.text(.02,.98,f"{count:,} obstacles\nCATZOC {fraction:.0%}",transform=ax.transAxes,va="top",fontsize=8,bbox={"facecolor":"white","alpha":.85,"edgecolor":"#667085"});ax.set_title(label,fontweight="bold");ax.tick_params(labelsize=7)
+        if index==0: ax.legend(fontsize=6,loc="lower left")
+    accuracy=outer[1].subgridspec(3,1);_current_scatter(fig.add_subplot(accuracy[0]),current["currents"]["matches"]);_scatter(fig.add_subplot(accuracy[1]),sf_wind["wind"]["matches"],"San Francisco wind","#2f855a","NDBC");_scatter(fig.add_subplot(accuracy[2]),boston_wind["wind"]["matches"],"Boston wind","#d97706","NDBC")
+    fig.suptitle("Environmental coverage and accuracy",fontsize=17,fontweight="bold")
+    output=ROOT/"artifacts/figures/fig2_geography.png";output.parent.mkdir(parents=True,exist_ok=True);fig.savefig(output,dpi=220);plt.close(fig);return output

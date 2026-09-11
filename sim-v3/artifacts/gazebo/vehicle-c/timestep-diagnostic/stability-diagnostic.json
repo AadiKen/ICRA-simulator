@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vehicle-c-straight-ahead-timestep-and-thrust-stability-diagnostic",
+  "criterion": "onset is first |heading| > 5 deg or |east| > 0.1 m",
+  "high_thrust_timestep_check": {
+    "thrust_fraction": 0.7,
+    "results": {
+      "0.05": {
+        "bcod_sim": {
+          "onset_s": 2.3000000000000003,
+          "final_north_m": 13.297481857809544,
+          "final_east_m": -5.484084507055741,
+          "final_heading_deg": 113.67054822528875
+        },
+        "gazebo_harmonic": {
+          "onset_s": 1.95,
+          "final_north_m": 5.070152467691249,
+          "final_east_m": 0.6585253101195956,
+          "final_heading_deg": 166.5131898630892
+        }
+      },
+      "0.01": {
+        "bcod_sim": {
+          "onset_s": 2.33,
+          "final_north_m": 13.40950150410572,
+          "final_east_m": -5.488216517649562,
+          "final_heading_deg": 115.61363381471814
+        },
+        "gazebo_harmonic": {
+          "onset_s": 1.93,
+          "final_north_m": 5.171540650419557,
+          "final_east_m": -1.7925063353044641,
+          "final_heading_deg": -142.07874126518655
+        }
+      }
+    },
+    "classification": "physical/open-loop instability rather than 0.05 s numerical stiffness; onset is essentially unchanged at 0.01 s"
+  },
+  "thrust_sweep_dt_s": 0.01,
+  "sweep": [
+    {
+      "fraction": 0.01,
+      "thrust_n_each": 13.40506075016061,
+      "onset_s": null,
+      "final_north_m": 0.9196540312223078,
+      "final_east_m": 0.030077951201747055,
+      "final_heading_deg": 0.25008899717699806
+    },
+    {
+      "fraction": 0.02,
+      "thrust_n_each": 26.81012150032122,
+      "onset_s": null,
+      "final_north_m": 1.7762261997941096,
+      "final_east_m": 0.04189376846625237,
+      "final_heading_deg": 0.6563120257439264
+    },
+    {
+      "fraction": 0.03,
+      "thrust_n_each": 40.21518225048183,
+      "onset_s": null,
+      "final_north_m": 2.583955592770508,
+      "final_east_m": 0.06305237206288439,
+      "final_heading_deg": 1.374557340325136
+    },
+    {
+      "fraction": 0.04,
+      "thrust_n_each": 53.62024300064244,
+      "onset_s": null,
+      "final_north_m": 3.3474593383689353,
+      "final_east_m": 0.09569836562877754,
+      "final_heading_deg": 2.5377776334300837
+    },
+    {
+      "fraction": 0.05,
+      "thrust_n_each": 67.02530375080305,
+      "onset_s": 5.38,
+      "final_north_m": 4.0711132744854694,
+      "final_east_m": 0.14146307886039722,
+      "final_heading_deg": 4.220994700212966
+    },
+    {
+      "fraction": 0.1,
+      "thrust_n_each": 134.0506075016061,
+      "onset_s": 4.13,
+      "final_north_m": 7.234691292853313,
+      "final_east_m": 0.5525474649148236,
+      "final_heading_deg": 18.30039149343678
+    },
+    {
+      "fraction": 0.2,
+      "thrust_n_each": 268.1012150032122,
+      "onset_s": 3.54,
+      "final_north_m": 12.235741790262182,
+      "final_east_m": 1.449148058800347,
+      "final_heading_deg": 43.9108617731986
+    },
+    {
+      "fraction": 0.3,
+      "thrust_n_each": 402.1518225048183,
+      "onset_s": 3.84,
+      "final_north_m": 16.49041043480065,
+      "final_east_m": 1.2644430039399595,
+      "final_heading_deg": 42.45133416432247
+    },
+    {
+      "fraction": 0.4,
+      "thrust_n_each": 536.2024300064244,
+      "onset_s": 3.58,
+      "final_north_m": 16.670597068927236,
+      "final_east_m": -3.0896081598129967,
+      "final_heading_deg": -143.34189235311155
+    },
+    {
+      "fraction": 0.5,
+      "thrust_n_each": 670.2530375080305,
+      "onset_s": 2.9,
+      "final_north_m": 15.262164192266937,
+      "final_east_m": -4.115548273641252,
+      "final_heading_deg": 172.68666522527676
+    },
+    {
+      "fraction": 0.6,
+      "thrust_n_each": 804.3036450096366,
+      "onset_s": 2.5500000000000003,
+      "final_north_m": 14.046311752326801,
+      "final_east_m": -4.68608703406062,
+      "final_heading_deg": 146.83559506177969
+    }
+  ],
+  "retained_campaign": {
+    "thrust_fraction": 0.03,
+    "thrust_n_each": 40.21518225048183,
+    "reason": "Conservative six-second point below the observed 4-5% stability boundary and about 13 times the broken 3.14 N peak."
+  }
+}

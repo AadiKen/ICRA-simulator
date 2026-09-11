@@ -25,6 +25,12 @@ confidence interval. GDOP is not applicable to a single-station wind instrument.
 | Complex-correlation magnitude | 0.774 |
 | Complex-correlation phase | 0.237 deg |
 
+### Baseline comparison
+
+ERA5's 1.492 m/s speed RMSE compares with 4.830 m/s for a zero-wind baseline
+(`N=72`) and 1.338 m/s for one-hour observed persistence (`N=71`). Persistence
+uses the preceding hourly NDBC speed; the first hour has no predecessor.
+
 The machine-readable report, including all matched vectors, rejection counts, source URLs,
 and source checksums, is `artifacts/environmental-validation/era5-ndbc-wind-20260713-15.json`.
 

@@ -26,6 +26,12 @@ applicable to a single-station wind instrument.
 | Complex-correlation magnitude | 0.842 |
 | Complex-correlation phase | -7.645 deg |
 
+### Baseline comparison
+
+ERA5's 1.376 m/s speed RMSE compares with 5.612 m/s for a zero-wind baseline
+(`N=72`) and 1.078 m/s for one-hour observed persistence (`N=71`). Persistence
+uses the preceding hourly NDBC speed; the first hour has no predecessor.
+
 Match quality was 72/72, with 0 QC or temporal-match failures.
 The 355 sub-hourly records are exclusions, not failed hourly matches.
 
