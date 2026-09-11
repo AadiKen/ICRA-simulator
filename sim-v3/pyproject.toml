@@ -19,6 +19,7 @@ hydrodynamics = ["capytaine>=2.3,<3", "joblib==1.5.2"]
 ros = []
 training = ["stable-baselines3>=2.6,<3", "sb3-contrib>=2.6,<3"]
 figures = ["cartopy>=0.24,<1", "matplotlib>=3.10,<4", "netCDF4>=1.7,<2"]
+environmental-validation = ["cdsapi>=0.7,<1", "xarray>=2025.1", "netCDF4>=1.7,<2"]
 
 [tool.uv]
 package = false
