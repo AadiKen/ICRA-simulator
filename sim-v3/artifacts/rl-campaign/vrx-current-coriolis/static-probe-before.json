@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-current-coriolis-static-probe",
+  "state_body_ned": {
+    "nu": [
+      1.5,
+      0.3,
+      0.2
+    ],
+    "current": [
+      1.2,
+      -0.4,
+      0
+    ],
+    "nu_relative": [
+      0.30000000000000004,
+      0.7,
+      0.2
+    ]
+  },
+  "conventions": {
+    "node": "-C_RB(nu)*nu_r - C_A(nu_r)*nu_r",
+    "dart": "-C_RB(nu)*nu - C_A(nu)*nu",
+    "existing_plugin": "added-mass Munk yaw difference only"
+  },
+  "wrench_body_n_nm": {
+    "node": {
+      "rigid": [
+        3.138,
+        -15.689999999999998,
+        50.20799999999999
+      ],
+      "added_mass": [
+        5.4915,
+        -0.15690000000000004,
+        -7.688100000000001
+      ],
+      "total": [
+        8.6295,
+        -15.846899999999998,
+        42.51989999999999
+      ]
+    },
+    "vrx_before": {
+      "dart_rigid": [
+        3.138,
+        -15.689999999999998,
+        0
+      ],
+      "dart_added_mass": [
+        2.3535,
+        -0.7845000000000001,
+        -16.474500000000003
+      ],
+      "existing_plugin": [
+        0,
+        0,
+        8.786399999999997
+      ],
+      "total": [
+        5.4915,
+        -16.4745,
+        -7.688100000000006
+      ]
+    },
+    "node_minus_vrx_before": [
+      3.138,
+      0.627600000000001,
+      50.208
+    ]
+  },
+  "confirmation": {
+    "predicted_rigid_yaw_correction_nm": 50.208,
+    "observed_total_yaw_residual_nm": 50.208,
+    "hypothesis_confirmed": true
+  }
+}

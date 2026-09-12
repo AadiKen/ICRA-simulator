@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "native-actuator-envelope-calibration",
+  "backend": "bcod-sim",
+  "protocol": {
+    "calm_water": true,
+    "command_levels": [
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "straight_duration_s": 100.0,
+    "steady_window_s": 10.0,
+    "steady_slope_tolerance_mps2": 0.002,
+    "route_turn_angles_deg": [
+      -27.362096359358965,
+      37.080374726341574
+    ],
+    "turn_controller": {
+      "kind": "fixed differential pulse then equal-thrust coast",
+      "base_command": 0.35,
+      "differential_authority": 0.3,
+      "settle_rate_degrees_s": 2.0
+    }
+  },
+  "contract": {
+    "path": "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/common-suite/zero-current-nominal-diagnostic.json",
+    "content_sha256": "353c127a44c49e9cb35b16cdff00c01740efa8698fd1039ca23691c3f59fe214",
+    "file_sha256": "cb1973b1807bf1075cca03f62a7b6e0599b44a09288458720f01ed09277b5b10"
+  },
+  "speed_curve": [
+    {
+      "command_fraction": 0.25,
+      "duration_s": 100.0,
+      "time_to_speed_s": {
+        "0.5": 1.3,
+        "1.0": 2.7,
+        "1.5": null
+      },
+      "steady_state_speed_mps": 0.745303797690556,
+      "tail_speed_range_mps": 0.26106911948851996,
+      "tail_speed_slope_mps2": -0.008089259738338517,
+      "steady_confirmed": false,
+      "delivered_force_mean_n": [
+        17.499999999999996,
+        17.499999999999996
+      ],
+      "delivered_force_range_n": [
+        [
+          17.49999999999999,
+          17.49999999999999
+        ],
+        [
+          17.49999999999999,
+          17.49999999999999
+        ]
+      ]
+    },
+    {
+      "command_fraction": 0.5,
+      "duration_s": 100.0,
+      "time_to_speed_s": {
+        "0.5": 0.8,
+        "1.0": 1.4000000000000001,
+        "1.5": 2.5
+      },
+      "steady_state_speed_mps": 0.9691800029622353,
+      "tail_speed_range_mps": 0.159848896273997,
+      "tail_speed_slope_mps2": 0.008094942702958243,
+      "steady_confirmed": false,
+      "delivered_force_mean_n": [
+        34.99999999999999,
+        34.99999999999999
+      ],
+      "delivered_force_range_n": [
+        [
+          34.99999999999998,
+          34.99999999999998
+        ],
+        [
+          34.99999999999998,
+          34.99999999999998
+        ]
+      ]
+    },
+    {
+      "command_fraction": 0.75,
+      "duration_s": 100.0,
+      "time_to_speed_s": {
+        "0.5": 0.6000000000000001,
+        "1.0": 1.0,
+        "1.5": 1.4000000000000001
+      },
+      "steady_state_speed_mps": 1.191370976513337,
+      "tail_speed_range_mps": 0.2535652619998918,
+      "tail_speed_slope_mps2": -0.009283226320938713,
+      "steady_confirmed": false,
+      "delivered_force_mean_n": [
+        52.49999999999999,
+        52.49999999999999
+      ],
+      "delivered_force_range_n": [
+        [
+          52.49999999999998,
+          52.49999999999998
+        ],
+        [
+          52.49999999999998,
+          52.49999999999998
+        ]
+      ]
+    },
+    {
+      "command_fraction": 1.0,
+      "duration_s": 100.0,
+      "time_to_speed_s": {
+        "0.5": 0.5,
+        "1.0": 0.8,
+        "1.5": 1.1
+      },
+      "steady_state_speed_mps": 1.3237738032089297,
+      "tail_speed_range_mps": 0.1647618306357781,
+      "tail_speed_slope_mps2": 0.0005997855470320424,
+      "steady_confirmed": true,
+      "delivered_force_mean_n": [
+        69.99999999999999,
+        69.99999999999999
+      ],
+      "delivered_force_range_n": [
+        [
+          69.99999999999996,
+          69.99999999999996
+        ],
+        [
+          69.99999999999996,
+          69.99999999999996
+        ]
+      ]
+    }
+  ],
+  "turning_probes": [
+    {
+      "target_heading_change_deg": 30.0,
+      "base_command_fraction": 0.35,
+      "reach_time_s": 0.6000000000000001,
+      "settle_time_s": null,
+      "settled": false,
+      "overshoot_deg": 1315.4635238389415,
+      "distance_cost_m": 1.9430769735706728,
+      "start_speed_mps": 1.0438911435037068,
+      "end_speed_mps": 0.8311101777189314,
+      "duration_s": 30.0
+    },
+    {
+      "target_heading_change_deg": 90.0,
+      "base_command_fraction": 0.35,
+      "reach_time_s": 1.6,
+      "settle_time_s": null,
+      "settled": false,
+      "overshoot_deg": 1274.4634741301263,
+      "distance_cost_m": 1.2999211037403027,
+      "start_speed_mps": 1.0382456381429213,
+      "end_speed_mps": 0.8338473922140366,
+      "duration_s": 30.0
+    },
+    {
+      "target_heading_change_deg": -27.362096359358965,
+      "base_command_fraction": 0.35,
+      "reach_time_s": null,
+      "settle_time_s": null,
+      "settled": false,
+      "overshoot_deg": 0.0,
+      "distance_cost_m": 6.903665182923705,
+      "start_speed_mps": 1.0105437644514597,
+      "end_speed_mps": 1.2236504193615878,
+      "duration_s": 30.0
+    },
+    {
+      "target_heading_change_deg": 37.080374726341574,
+      "base_command_fraction": 0.35,
+      "reach_time_s": 0.8,
+      "settle_time_s": null,
+      "settled": false,
+      "overshoot_deg": 1305.5044121339467,
+      "distance_cost_m": 1.8432144663090753,
+      "start_speed_mps": 1.0028532742844933,
+      "end_speed_mps": 0.9032737838903964,
+      "duration_s": 30.0
+    }
+  ]
+}

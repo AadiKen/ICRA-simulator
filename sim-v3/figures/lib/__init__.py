@@ -1,1 +1,0 @@
-"""Shared publication-figure helpers."""

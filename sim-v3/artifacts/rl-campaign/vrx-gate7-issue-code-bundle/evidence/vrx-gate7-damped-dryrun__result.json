@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-gate-7-single-episode-unconstrained-dryrun",
+  "status": "COMPLETE",
+  "seed": 20000,
+  "execution": {
+    "requested_samples": 2400,
+    "disturbance_on_samples": 2400,
+    "disturbance_off_samples": 2400,
+    "paired_samples_scored": 2400,
+    "last_scored_time_s": 119.95,
+    "runtime_failure": null
+  },
+  "generation": {
+    "path": "prepare-vrx-episode.ts -> renderSurveyorVrxModel()",
+    "model_checks": {
+      "generated_added_mass_and_expected_damping": true,
+      "planar_lock_absent": true
+    },
+    "fluid_added_mass": {
+      "xx": 2.615,
+      "yy": 39.225,
+      "rr": 1.431297586666667
+    },
+    "simple_hydrodynamics_added_mass": {
+      "xDotU": 0,
+      "yDotV": 0,
+      "nDotR": 0
+    },
+    "simple_hydrodynamics_out_of_plane_damping": {
+      "zW": 365,
+      "kP": 40,
+      "mQ": 85
+    }
+  },
+  "gate_7_tolerance": {
+    "kinematic_abs": 0.0001,
+    "environment_vector_relative": 0.3,
+    "environment_direction_deg": 15,
+    "component_sign_floor_m": 0.5
+  },
+  "kinematic_partial": {
+    "samples": 2400,
+    "per_state_max_abs": {
+      "N": 95.68307249853206,
+      "E": 123.50365071150372,
+      "yaw": 7.742705215784161,
+      "u": 242884.63692855413,
+      "v": 144980.00977479448,
+      "r": 33.95334600825006
+    },
+    "first_divergence_step": {
+      "N": 0,
+      "E": 0,
+      "yaw": 0,
+      "u": 0,
+      "v": 0,
+      "r": 0
+    },
+    "yaw_divergence_separate": true,
+    "velocity_warmup_excluded": {
+      "u": {
+        "max_abs": 4.561591141451159,
+        "mean_abs": 1.6680807399285293
+      },
+      "v": {
+        "max_abs": 3.981160921195082,
+        "mean_abs": 1.3131286854015476
+      },
+      "r": {
+        "max_abs": 14.547159253414112,
+        "mean_abs": 2.638243031455999
+      }
+    },
+    "warmup_samples_excluded": 10
+  },
+  "calm_kinematic": {
+    "gate_metric": {
+      "samples": 2400,
+      "per_state_max_abs": {
+        "N": 12.074210518074324,
+        "E": 10.099627238967514,
+        "yaw": 7.6311821310317915,
+        "u": 245731.95535737803,
+        "v": 140099.86777474146,
+        "r": 34.090965632002714
+      },
+      "first_divergence_step": {
+        "N": 1,
+        "E": 1,
+        "yaw": 1,
+        "u": 0,
+        "v": 0,
+        "r": 0
+      },
+      "yaw_divergence_separate": true
+    },
+    "warmup_excluded": {
+      "N": {
+        "max_abs": 12.074210518074324,
+        "mean_abs": 9.378333546660496
+      },
+      "E": {
+        "max_abs": 10.099627238967514,
+        "mean_abs": 4.195102450946749
+      },
+      "yaw_wrapped": {
+        "max_abs": 1.5660701108474264,
+        "mean_abs": 0.4948207586755944
+      },
+      "u": {
+        "max_abs": 2.9077884785987997,
+        "mean_abs": 0.5246133317118913
+      },
+      "v": {
+        "max_abs": 2.0900200984540227,
+        "mean_abs": 0.48471547272082277
+      },
+      "r": {
+        "max_abs": 12.79084223215257,
+        "mean_abs": 0.8083564522090522
+      }
+    },
+    "checkpoint_candidate_minus_reference": [
+      {
+        "checkpoint_s": 30,
+        "error": {
+          "N": -10.456132867415363,
+          "E": -2.950739166160929,
+          "yaw_wrapped": 0.5161819882161903,
+          "u": -0.06280891872093519,
+          "v": 0.20234974453979693,
+          "r": -0.16521251668639936
+        }
+      },
+      {
+        "checkpoint_s": 60,
+        "error": {
+          "N": -10.136954824643908,
+          "E": -4.726516743483444,
+          "yaw_wrapped": 0.45152635526740603,
+          "u": -1.533172206226961,
+          "v": 2.0578145072204777,
+          "r": 0.06173656584985321
+        }
+      },
+      {
+        "checkpoint_s": 119.95,
+        "error": {
+          "N": -11.462029694155717,
+          "E": -10.099627238967514,
+          "yaw_wrapped": -0.1892610593901421,
+          "u": 0.1512516940568568,
+          "v": 0.696629462880898,
+          "r": -0.0769726591392515
+        }
+      }
+    ],
+    "pass": false
+  },
+  "calm_cross_simulator_conformance": {
+    "metric": "Each simulator's displacement from its own initial position, evaluated with Gate 7's 30% vector and 15 degree direction bounds.",
+    "checkpoints": [
+      {
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_displacement_ne_m": [
+          8.585727161171235,
+          9.886371750475519
+        ],
+        "vrx_displacement_ne_m": [
+          -1.8704552086292097,
+          6.935695363888954
+        ],
+        "node_magnitude_m": 13.094084820050382,
+        "vrx_magnitude_m": 7.183486122222194,
+        "relative_vector_divergence": 0.8297288949559057,
+        "direction_difference_deg": 56.065145514090325,
+        "pass": false
+      },
+      {
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_displacement_ne_m": [
+          6.7407328872777725,
+          8.877303466642843
+        ],
+        "vrx_displacement_ne_m": [
+          -3.3962714397512173,
+          4.150849502733763
+        ],
+        "node_magnitude_m": 11.146479116586418,
+        "vrx_magnitude_m": 5.36322769298628,
+        "relative_vector_divergence": 1.0034318110458034,
+        "direction_difference_deg": 76.5006207953176,
+        "pass": false
+      },
+      {
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_displacement_ne_m": [
+          5.557475682699078,
+          11.516448448795927
+        ],
+        "vrx_displacement_ne_m": [
+          -5.904603513841721,
+          1.416883989402777
+        ],
+        "node_magnitude_m": 12.787264009066432,
+        "vrx_magnitude_m": 6.072223883808792,
+        "relative_vector_divergence": 1.1946883139535918,
+        "direction_difference_deg": 102.2667875500562,
+        "pass": false
+      }
+    ],
+    "tolerance": {
+      "relative_vector": 0.3,
+      "direction_deg": 15
+    },
+    "note": "The 1e-4 kinematic_abs value is hard-coded in finalize-vrx-gate7.ts and is not defined by the frozen task contract as a cross-simulator acceptance threshold."
+  },
+  "environment_response": {
+    "available": [
+      {
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          -15.95966770456107,
+          44.560051100203054
+        ],
+        "vrx_environment_displacement_ne_m": [
+          -34.28193215636202,
+          18.238377724017482
+        ],
+        "node_magnitude_m": 47.3319041164912,
+        "vrx_magnitude_m": 38.83155024432253,
+        "magnitude_divergence": 0.1795903636424171,
+        "relative_vector_divergence": 0.6775724569423217,
+        "direction_difference_deg": 42.280976573156074,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          -24.54645863179576,
+          102.0739689731472
+        ],
+        "vrx_environment_displacement_ne_m": [
+          -68.50864504865422,
+          47.79354233352751
+        ],
+        "node_magnitude_m": 104.9839214989299,
+        "vrx_magnitude_m": 83.5323717799823,
+        "magnitude_divergence": 0.2043317625467654,
+        "relative_vector_divergence": 0.6653410722030338,
+        "direction_difference_deg": 41.57771604702159,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          -47.0352280332354,
+          215.54266281592209
+        ],
+        "vrx_environment_displacement_ne_m": [
+          -131.25627083761174,
+          102.13863934338588
+        ],
+        "node_magnitude_m": 220.6149409489682,
+        "vrx_magnitude_m": 166.31449209589266,
+        "magnitude_divergence": 0.24613223664500639,
+        "relative_vector_divergence": 0.6402894196954309,
+        "direction_difference_deg": 39.80132382720471,
+        "component_sign_consistent": true,
+        "pass": false
+      }
+    ],
+    "unavailable": [],
+    "prior_gate_7_comparison": {
+      "campaign_maximum_relative_vector_divergence": 5.74690862561023,
+      "campaign_maximum_direction_difference_deg": 77.6830711959181,
+      "seed_20000_at_30_s": {
+        "relative_vector_divergence": 0.7553254839370167,
+        "direction_difference_deg": 36.553325595791584
+      },
+      "seed_20000_at_30_s_change": {
+        "relative_vector_divergence": -0.077753026994695,
+        "direction_difference_deg": 5.72765097736449
+      }
+    }
+  },
+  "conclusion": {
+    "single_seed_result": "FAIL",
+    "reason": "The episode completed, but at least one environmental checkpoint fails tolerance."
+  },
+  "comparison_note": "The protocol's 40-70% band is a classical-policy success-rate target, not the Gate 7 per-checkpoint conformance tolerance; one deterministic seed cannot be classified against that band."
+}

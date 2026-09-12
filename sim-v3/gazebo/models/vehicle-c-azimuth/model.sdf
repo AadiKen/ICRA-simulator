@@ -1,12 +1,194 @@
 <?xml version="1.0"?>
-<sdf version="1.9"><model name="vehicle-c-azimuth"><pose>0 0 0.02 0 0 0</pose>
-  <link name="base_link"><inertial><mass>309.5</mass><inertia><ixx>196.6</ixx><iyy>240</iyy><izz>240</izz><ixy>0</ixy><ixz>0</ixz><iyz>0</iyz></inertia><fluid_added_mass><xx>9.958991485466719</xx><yy>590.5509112680145</yy><zz>620.6460827895884</zz><pp>240.82007040992568</pp><qq>170.71350660502264</qq><rr>517.9371726415533</rr></fluid_added_mass></inertial><collision name="buoyant_hull"><pose>0 0 0.032323232 0 0 0</pose><geometry><box><size>3.5 1.98 0.045238095</size></box></geometry></collision><visual name="port_hull"><pose>0 -0.65 0.09 0 0 0</pose><geometry><box><size>3.5 0.55 0.25</size></box></geometry></visual><visual name="starboard_hull"><pose>0 0.65 0.09 0 0 0</pose><geometry><box><size>3.5 0.55 0.25</size></box></geometry></visual></link>
-  <link name="port_pod"><pose>-1.5 -0.81 -0.18 0 0 0</pose><inertial><mass>1</mass><inertia><ixx>.002</ixx><iyy>.002</iyy><izz>.002</izz></inertia></inertial></link><joint name="port_azimuth_joint" type="revolute"><parent>base_link</parent><child>port_pod</child><axis><xyz>0 0 1</xyz><limit><lower>-3.141592654</lower><upper>3.141592654</upper><effort>1000</effort><velocity>.523598776</velocity></limit></axis></joint>
-  <link name="port_propeller"><pose relative_to="port_pod">0 0 0 0 0 0</pose><inertial><mass>1</mass><inertia><ixx>.002</ixx><iyy>.002</iyy><izz>.002</izz></inertia></inertial></link><joint name="port_propeller_joint" type="revolute"><parent>port_pod</parent><child>port_propeller</child><axis><xyz>1 0 0</xyz></axis></joint>
-  <link name="starboard_pod"><pose>-1.5 0.81 -0.18 0 0 0</pose><inertial><mass>1</mass><inertia><ixx>.002</ixx><iyy>.002</iyy><izz>.002</izz></inertia></inertial></link><joint name="starboard_azimuth_joint" type="revolute"><parent>base_link</parent><child>starboard_pod</child><axis><xyz>0 0 1</xyz><limit><lower>-3.141592654</lower><upper>3.141592654</upper><effort>1000</effort><velocity>.523598776</velocity></limit></axis></joint>
-  <link name="starboard_propeller"><pose relative_to="starboard_pod">0 0 0 0 0 0</pose><inertial><mass>1</mass><inertia><ixx>.002</ixx><iyy>.002</iyy><izz>.002</izz></inertia></inertial></link><joint name="starboard_propeller_joint" type="revolute"><parent>starboard_pod</parent><child>starboard_propeller</child><axis><xyz>1 0 0</xyz></axis></joint>
-  <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController"><joint_name>port_azimuth_joint</joint_name><p_gain>50</p_gain><d_gain>5</d_gain><cmd_max>1000</cmd_max><cmd_min>-1000</cmd_min><topic>/model/vehicle-c-azimuth/joint/port_azimuth_joint/0/cmd_pos</topic></plugin><plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController"><joint_name>starboard_azimuth_joint</joint_name><p_gain>50</p_gain><d_gain>5</d_gain><cmd_max>1000</cmd_max><cmd_min>-1000</cmd_min><topic>/model/vehicle-c-azimuth/joint/starboard_azimuth_joint/0/cmd_pos</topic></plugin>
-  <!-- Per-pod thrust limits mirror VEHICLE_C_MAX_FORWARD_THRUST_N and VEHICLE_C_MAX_REVERSE_THRUST_N in backends/node/src/vehicle-c-production.ts; the asymmetric signs preserve its documented 2:1 forward/reverse rating. -->
-  <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><namespace>vehicle-c-azimuth</namespace><joint_name>port_propeller_joint</joint_name><use_angvel_cmd>false</use_angvel_cmd><thrust_coefficient>.004422</thrust_coefficient><fluid_density>1000</fluid_density><propeller_diameter>.2</propeller_diameter><velocity_control>true</velocity_control><min_thrust_cmd>-670.2530375080305</min_thrust_cmd><max_thrust_cmd>1340.506075016061</max_thrust_cmd></plugin><plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster"><namespace>vehicle-c-azimuth</namespace><joint_name>starboard_propeller_joint</joint_name><use_angvel_cmd>false</use_angvel_cmd><thrust_coefficient>.004422</thrust_coefficient><fluid_density>1000</fluid_density><propeller_diameter>.2</propeller_diameter><velocity_control>true</velocity_control><min_thrust_cmd>-670.2530375080305</min_thrust_cmd><max_thrust_cmd>1340.506075016061</max_thrust_cmd></plugin>
-  <plugin filename="gz-sim-hydrodynamics-system" name="gz::sim::systems::Hydrodynamics"><link_name>base_link</link_name><xU>-65.71908036060898</xU><yV>-135.80573028103962</yV><zW>-666.9212886899945</zW><kP>-10.395444192140156</kP><mQ>-289.3629136636191</mQ><nR>-360.0418660717822</nR><xUabsU>-40</xUabsU><yVabsV>-180</yVabsV><zWabsW>-230</zWabsW><kPabsP>-.006614752497696677</kPabsP><mQabsQ>-360</mQabsQ><nRabsR>-420</nRabsR></plugin><plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher"><odom_publish_frequency>20</odom_publish_frequency><odom_topic>/model/vehicle-c-azimuth/odometry</odom_topic><dimensions>3</dimensions></plugin>
-</model></sdf>
+<sdf version="1.9">
+  <model name="vehicle-c-azimuth">
+    <pose>0 0 0.02 0 0 0</pose>
+    <link name="base_link">
+      <inertial>
+        <mass>309.5</mass>
+        <inertia>
+          <ixx>196.6</ixx>
+          <iyy>240</iyy>
+          <izz>240</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+        <fluid_added_mass>
+          <xx>9.958991485466719</xx>
+          <yy>590.5509112680145</yy>
+          <zz>620.6460827895884</zz>
+          <pp>240.82007040992568</pp>
+          <qq>170.71350660502264</qq>
+          <rr>517.9371726415533</rr>
+        </fluid_added_mass>
+      </inertial>
+      <collision name="buoyant_hull">
+        <pose>0 0 0.032323232 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>3.5 1.98 0.045238095</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="port_hull">
+        <pose>0 -0.65 0.09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>3.5 0.55 0.25</size>
+          </box>
+        </geometry>
+      </visual>
+      <visual name="starboard_hull">
+        <pose>0 0.65 0.09 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>3.5 0.55 0.25</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <link name="port_pod">
+      <pose>-1.5 0.81 -0.18 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>.002</ixx>
+          <iyy>.002</iyy>
+          <izz>.002</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name="port_azimuth_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>port_pod</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.141592654</lower>
+          <upper>3.141592654</upper>
+          <effort>1000</effort>
+          <velocity>.523598776</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <link name="port_propeller">
+      <pose relative_to="port_pod">0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>.002</ixx>
+          <iyy>.002</iyy>
+          <izz>.002</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name="port_propeller_joint" type="revolute">
+      <parent>port_pod</parent>
+      <child>port_propeller</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+      </axis>
+    </joint>
+    <link name="starboard_pod">
+      <pose>-1.5 -0.81 -0.18 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>.002</ixx>
+          <iyy>.002</iyy>
+          <izz>.002</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name="starboard_azimuth_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>starboard_pod</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.141592654</lower>
+          <upper>3.141592654</upper>
+          <effort>1000</effort>
+          <velocity>.523598776</velocity>
+        </limit>
+      </axis>
+    </joint>
+    <link name="starboard_propeller">
+      <pose relative_to="starboard_pod">0 0 0 0 0 0</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>.002</ixx>
+          <iyy>.002</iyy>
+          <izz>.002</izz>
+        </inertia>
+      </inertial>
+    </link>
+    <joint name="starboard_propeller_joint" type="revolute">
+      <parent>starboard_pod</parent>
+      <child>starboard_propeller</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+      </axis>
+    </joint>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>port_azimuth_joint</joint_name>
+      <p_gain>50</p_gain>
+      <d_gain>5</d_gain>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
+      <topic>/model/vehicle-c-azimuth/joint/port_azimuth_joint/0/cmd_pos</topic>
+    </plugin>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>starboard_azimuth_joint</joint_name>
+      <p_gain>50</p_gain>
+      <d_gain>5</d_gain>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
+      <topic>/model/vehicle-c-azimuth/joint/starboard_azimuth_joint/0/cmd_pos</topic>
+    </plugin>
+    <!-- Per-pod thrust limits mirror VEHICLE_C_MAX_FORWARD_THRUST_N and VEHICLE_C_MAX_REVERSE_THRUST_N in backends/node/src/vehicle-c-production.ts; the asymmetric signs preserve its documented 2:1 forward/reverse rating. -->
+    <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+      <namespace>vehicle-c-azimuth</namespace>
+      <joint_name>port_propeller_joint</joint_name>
+      <use_angvel_cmd>false</use_angvel_cmd>
+      <thrust_coefficient>.004422</thrust_coefficient>
+      <fluid_density>1000</fluid_density>
+      <propeller_diameter>.2</propeller_diameter>
+      <velocity_control>true</velocity_control>
+      <min_thrust_cmd>-670.2530375080305</min_thrust_cmd>
+      <max_thrust_cmd>1340.506075016061</max_thrust_cmd>
+    </plugin>
+    <plugin filename="gz-sim-thruster-system" name="gz::sim::systems::Thruster">
+      <namespace>vehicle-c-azimuth</namespace>
+      <joint_name>starboard_propeller_joint</joint_name>
+      <use_angvel_cmd>false</use_angvel_cmd>
+      <thrust_coefficient>.004422</thrust_coefficient>
+      <fluid_density>1000</fluid_density>
+      <propeller_diameter>.2</propeller_diameter>
+      <velocity_control>true</velocity_control>
+      <min_thrust_cmd>-670.2530375080305</min_thrust_cmd>
+      <max_thrust_cmd>1340.506075016061</max_thrust_cmd>
+    </plugin>
+    <plugin filename="gz-sim-hydrodynamics-system" name="gz::sim::systems::Hydrodynamics">
+      <link_name>base_link</link_name>
+      <xU>-65.71908036060898</xU>
+      <yV>-135.80573028103962</yV>
+      <zW>-666.9212886899945</zW>
+      <kP>-10.395444192140156</kP>
+      <mQ>-289.3629136636191</mQ>
+      <nR>-360.0418660717822</nR>
+      <xUabsU>-40</xUabsU>
+      <yVabsV>-180</yVabsV>
+      <zWabsW>-230</zWabsW>
+      <kPabsP>-.006614752497696677</kPabsP>
+      <mQabsQ>-360</mQabsQ>
+      <nRabsR>-420</nRabsR>
+    </plugin>
+    <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+      <odom_publish_frequency>100</odom_publish_frequency>
+      <odom_topic>/model/vehicle-c-azimuth/odometry</odom_topic>
+      <dimensions>3</dimensions>
+    </plugin>
+  </model>
+</sdf>

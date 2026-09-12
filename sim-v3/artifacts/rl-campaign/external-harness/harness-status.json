@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "artifact_kind": "external-simulator-harness",
-  "generated_at": "2026-09-06T17:40:29.526Z",
+  "generated_at": "2026-09-10T19:17:52.109Z",
   "gazebo": {
     "runtime": "Gazebo Harmonic",
     "sdf_valid": true,
@@ -13,7 +13,7 @@
   "vrx": {
     "runtime": "VRX",
     "exporter_launch_valid": true,
-    "stdout": "Arguments (pass arguments as '<name>:=<value>'):\n\n    'output':\n        no description given\n        (default: '/tmp/vrx-trace-samples.jsonl')\n",
+    "stdout": "Arguments (pass arguments as '<name>:=<value>'):\n\n    'output':\n        no description given\n        (default: '/tmp/vrx-trace-samples.jsonl')\n\n    'seed':\n        no description given\n        (default: '0')\n\n    'initial_n_m':\n        no description given\n        (default: '10000')\n\n    'initial_e_m':\n        no description given\n        (default: '10000')\n",
     "stderr": "WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested\n",
     "trace": null,
     "reason": "Episode world launch and command-trace driver remain required before a trace can be compared."

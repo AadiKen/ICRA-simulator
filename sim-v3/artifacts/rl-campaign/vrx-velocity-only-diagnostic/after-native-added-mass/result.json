@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "FAILED_SINGLE_STEP_GATE",
+  "test": "native SimpleHydrodynamics added mass plus corrected skew-symmetric Cmat",
+  "matched_initial_velocity_node_body_mps": [-0.627268, 0.391366, 0],
+  "timestep_s": 0.05,
+  "node": {
+    "velocity_after_one_step_mps": [-0.6208311682034294, 0.38640554135104854, 0],
+    "finite_difference_acceleration_mps2": [0.12873663593141238, -0.09920917297902898]
+  },
+  "vrx": {
+    "velocity_after_one_step_node_frame_mps": [-0.604839, 0.396048, 0],
+    "finite_difference_acceleration_node_frame_mps2": [0.44858000000000064, 0.09364000000000039]
+  },
+  "parameter_flow": {
+    "sdf_values": {"xDotU": 2.615, "yDotV": 39.224999999999994, "nDotR": 1.431297586666667},
+    "simple_hydrodynamics_operation": "kAmassVec = -Ma * measured_stateDot; AddWorldWrench(kAmassVec + kCmat + kDvec)",
+    "actual_dart_mass_matrix_augmented": false
+  },
+  "conclusion": "The native coefficients are read but do not enter DART's M in a=(M_RB+M_A)^-1 F. They form a one-step-delayed acceleration-dependent external wrench. The velocity check diverges immediately and alternates in sway, so the current-only regression and full Gate 7 rerun are intentionally blocked."
+}

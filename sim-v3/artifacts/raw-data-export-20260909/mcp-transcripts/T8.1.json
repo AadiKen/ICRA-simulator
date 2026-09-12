@@ -1,0 +1,44 @@
+{
+  "id": "T8.1",
+  "prompt": "List the vehicle presets available in this simulator and tell me which ones use the coupled6 plant.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "list_vehicle_presets",
+      "input": {},
+      "output": [
+        {
+          "id": "vehicle-a-otter",
+          "name": "Otter differential-thrust USV",
+          "plant": "planar3",
+          "validation_status": "validated",
+          "validation_claim": "Planar maneuvering validated at pinned tolerances."
+        },
+        {
+          "id": "vehicle-b-rudder",
+          "name": "USV propeller/rudder monohull",
+          "plant": "coupled6",
+          "validation_status": "model-structure-trajectory-scored-fail",
+          "validation_claim": "The MMG simulator has been scored against six measured MARIN single-screw KVLCC2 trajectories using measured rudder and samplewise propeller RPM. The current literature-coefficient parameterization fails the precommitted trajectory/IMO tolerances. No evidence validates Vehicle B USV-scale coefficients."
+        },
+        {
+          "id": "vehicle-c-azimuth",
+          "name": "Dual-azimuth overactuated USV",
+          "plant": "coupled6",
+          "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+          "validation_claim": "Control allocation and composability demonstrated; behavioral dynamics not independently validated."
+        },
+        {
+          "id": "searobotics-surveyor-m1.8",
+          "name": "SeaRobotics SR-Surveyor M1.8 (two-body common-task approximation)",
+          "plant": "planar3",
+          "validation_status": "model-structure-only",
+          "validation_claim": "Node common-task resolution uses the versioned two-body model; geometry, actuator and damping assumptions remain unvalidated."
+        }
+      ]
+    }
+  ],
+  "final_answer_text": "## Available Vehicle Presets\n\n| ID | Name | Plant | Validation Status |\n|---|---|---|---|\n| `vehicle-a-otter` | Otter differential-thrust USV | planar3 | validated |\n| `vehicle-b-rudder` | USV propeller/rudder monohull | **coupled6** | model-structure-trajectory-scored-fail |\n| `vehicle-c-azimuth` | Dual-azimuth overactuated USV | **coupled6** | allocation-demonstrated-dynamics-unvalidated |\n| `searobotics-surveyor-m1.8` | SeaRobotics SR-Surveyor M1.8 (two-body common-task approx.) | planar3 | model-structure-only |\n\n### Presets using the `coupled6` plant:\n1. **`vehicle-b-rudder`** — USV propeller/rudder monohull. Note: its MMG-based literature-coefficient parameterization has been scored against six MARIN KVLCC2 trajectories and **fails** the precommitted tolerances at USV scale — treat with caution.\n2. **`vehicle-c-azimuth`** — Dual-azimuth overactuated USV. Control allocation is demonstrated, but the underlying behavioral dynamics are **not independently validated**.\n\nBoth `coupled6` vehicles currently lack validated dynamics — worth keeping in mind if you plan to use them for anything beyond exploratory or allocation-focused work.",
+  "success": true,
+  "detail": "expected coupled6 identification: vehicle-b-rudder, vehicle-c-azimuth"
+}

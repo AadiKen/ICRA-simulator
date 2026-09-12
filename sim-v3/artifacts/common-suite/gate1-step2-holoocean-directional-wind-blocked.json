@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "common-suite-gate1-step-failure",
+  "step": 2,
+  "name": "holoocean-directional-wind",
+  "status": "BLOCKED_CONFIRMED_ENGINE_INTERFACE_LIMITATION",
+  "passed": false,
+  "exact_failure": "The packaged HoloOcean 2.3.0 SurfaceVessel interface has no public external-force command. Its control input is two fixed longitudinal thruster forces, which span surge and yaw but cannot produce an independent lateral aerodynamic force.",
+  "current_path": {
+    "status": "PASS",
+    "mechanism": "Environment.set_ocean_currents('vehicle_a', vector_nwu)"
+  },
+  "wind_path": {
+    "status": "FAIL",
+    "requested": "arbitrary horizontal wind direction from a 0-5 m/s magnitude draw",
+    "representable": "longitudinal relative-wind force only",
+    "unrepresentable_component": "lateral aerodynamic force",
+    "existing_mapping": "longitudinal force is divided equally between the two native fixed thrusters",
+    "source": "packages/python-client/bcod_sim/holoocean_vehicle_a_env.py:370-394,563-576"
+  },
+  "why_current_is_not_a_template": "Ocean current is a native environment vector accepted by set_ocean_currents. Wind is a force on the vessel and the packaged API exposes neither an arbitrary body-force input nor a lateral actuator channel.",
+  "lower_level_api_investigation": {
+    "direct_additive_force_or_torque_command_found": false,
+    "standard_command_api": "No AddForce/ApplyForce rigid-body command is exposed by the documented command set.",
+    "custom_world_command": "CustomCommand can only invoke a command name implemented by the loaded Unreal world; it does not itself provide a force primitive.",
+    "custom_dynamics": "SurfaceVessel control scheme 2 accepts a six-axis global acceleration vector, but disables native gravity, buoyancy, damping, and all other forces except collisions.",
+    "assessment": "Custom Dynamics would replace the validated native SurfaceVessel plant rather than add wind to it. Using it requires rebuilding the complete vehicle dynamics and is outside a directional-wind wiring fix.",
+    "official_sources": [
+      "https://byu-holoocean.github.io/holoocean-docs/v2.3.0/holoocean/commands.html",
+      "https://byu-holoocean.github.io/holoocean-docs/develop/agents/agents/surface-vessel-agent.html",
+      "https://byu-holoocean.github.io/holoocean-docs/develop/examples/examples/custom-dynamics.html"
+    ]
+  },
+  "prohibited_workaround": "Do not convert lateral wind into differential thrust or yaw; that changes the requested force direction and is not literal contract enforcement.",
+  "arms": {
+    "bcod-sim": {"disturbance": "PASS", "time_cap": "PASS", "energy_cap": "PASS"},
+    "gazebo": {"disturbance": "NOT_STARTED_STEP_3", "time_cap": "PASS", "energy_cap": "PASS"},
+    "holoocean": {"disturbance": "FAIL_DIRECTIONAL_WIND_ENGINE_LIMITATION", "time_cap": "PASS", "energy_cap": "PASS"},
+    "stonefish": {"disturbance": "NOT_STARTED_STEP_4", "time_cap": "PASS", "energy_cap": "PASS"}
+  },
+  "calibration_episodes_run": 0,
+  "contracts_frozen": false,
+  "later_steps_started": [],
+  "scoping_decision_required": "Either extend and rebuild the HoloOcean Unreal package with an additive rigid-body force command, or document directional wind as a genuine HoloOcean capability gap."
+}

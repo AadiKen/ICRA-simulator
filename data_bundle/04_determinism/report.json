@@ -1,0 +1,763 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "determinism-sweep",
+  "negative_control_passed": true,
+  "summary": {
+    "cell_count": 55,
+    "bit_identical": 32,
+    "expected_float_divergence": 1,
+    "bit_identical_or_expected": 33,
+    "unexplained_failures": 0,
+    "negative_control_detected": 1,
+    "not_applicable": 21
+  },
+  "checkpoint_schema_audit": {
+    "usv_bench_36": {
+      "retained_runs": 126,
+      "mid_episode_checkpoint_restore_used": false,
+      "regeneration_required": false,
+      "reason": "The benchmark runner never calls saveCheckpoint/loadCheckpoint; replay.json is a terminal summary, not a restoration payload."
+    },
+    "other_retained_artifacts": [
+      {
+        "path": "artifacts/resume-metrics/latest.json",
+        "mid_episode_checkpoint_restore_used": true,
+        "plant": "planar3",
+        "regeneration_required": false,
+        "reason": "Its retained checkpoint stress generator defaults to Vehicle A planar3; no coupled6 plant runtime state is involved."
+      }
+    ]
+  },
+  "reproducibility": {
+    "producer": "determinism-sweep",
+    "git_sha": "f8b6e4dd796fd8b929b17825e61e21b8bcb19950",
+    "git_dirty": true,
+    "seed": 7319,
+    "hardware": {
+      "hostname": "wirelessprv-10-193-72-203.near.illinois.edu",
+      "cpu_model": "Apple M1 Max",
+      "logical_cpus": 10,
+      "memory_bytes": 68719476736
+    },
+    "os": {
+      "platform": "darwin",
+      "type": "Darwin",
+      "release": "25.5.0",
+      "arch": "arm64"
+    },
+    "runtime_versions": {
+      "node": "v24.13.0",
+      "v8": "13.6.233.17-node.37",
+      "typescript": "n/a"
+    },
+    "lockfile_sha256": "7ca84324a458607fbf6d74fdc47a729ca2938c84a93ba25c57af2ee78ccfa7ba",
+    "config_sha256": "5ab973c613b56b07301867c445e27fbcafe96d0e8e59c201f68e7ed67fefb221",
+    "config": {
+      "schema_version": 1,
+      "experiment": {
+        "name": "determinism-vehicle-a-otter-planar3",
+        "seed": 7319,
+        "timestep_s": 0.05,
+        "duration_s": 2
+      },
+      "backend": {
+        "type": "node",
+        "parallel_environments": 1
+      },
+      "vehicle": {
+        "preset": "vehicle-a-otter",
+        "plant": "planar3",
+        "hydrodynamic_reference_speed_mps": 0
+      },
+      "environment": {
+        "current_mps": [
+          0.2,
+          -0.1,
+          0
+        ],
+        "wind_mps": [
+          2,
+          0.5,
+          0
+        ]
+      },
+      "sensors": [
+        {
+          "plugin": "gps",
+          "enabled": true,
+          "oracle": false
+        },
+        {
+          "plugin": "imu",
+          "enabled": true,
+          "oracle": false
+        },
+        {
+          "plugin": "camera",
+          "enabled": true,
+          "oracle": false
+        },
+        {
+          "plugin": "lidar",
+          "enabled": true,
+          "oracle": false
+        },
+        {
+          "plugin": "radar",
+          "enabled": true,
+          "oracle": false
+        },
+        {
+          "plugin": "anemometer",
+          "enabled": true,
+          "oracle": false
+        },
+        {
+          "plugin": "barometer",
+          "enabled": true,
+          "oracle": false
+        },
+        {
+          "plugin": "water-quality",
+          "enabled": true,
+          "oracle": false
+        },
+        {
+          "plugin": "platform-telemetry",
+          "enabled": true,
+          "oracle": false
+        },
+        {
+          "plugin": "magnetometer",
+          "enabled": true,
+          "oracle": false
+        },
+        {
+          "plugin": "ins-gps-fusion",
+          "enabled": true,
+          "oracle": false
+        }
+      ],
+      "mission": {
+        "type": "waypoint-navigation",
+        "waypoints": [
+          {
+            "north_m": 30,
+            "east_m": 8
+          }
+        ]
+      },
+      "metrics": [
+        "completion"
+      ],
+      "integrator": "rk4",
+      "outputs": {
+        "directory": "runs/determinism-vehicle-a-otter-planar3",
+        "state_hz": 10,
+        "sensor_artifacts": {
+          "mode": "summary",
+          "raw_plugins": [],
+          "max_bytes_per_run": 1000000000
+        }
+      },
+      "resolution": {
+        "checksum_sha256": "c9fb7fde87cc70083c0de2f8ada84a9e7afa78b333a37ca68c5750d9651835a7",
+        "hydrodynamic_reference_speed_mps": 0,
+        "warnings": [],
+        "ground_truth_exposed": false
+      }
+    },
+    "timestamp": "2026-09-04T22:58:48.559Z"
+  },
+  "cells": [
+    {
+      "axis": "negative-control-unseeded-random",
+      "vehicle": "vehicle-a-otter",
+      "plant": "planar3",
+      "reference_sha256": "069dbe3fbbb597c3ba8b31257ef8d3d12bc28516f9f92961e57b74b1abde096f",
+      "candidate_sha256": "bfedf0d6786139da95409e46f17d61559a89600273c1acd46b1199bad446954e",
+      "status": "negative-control-detected",
+      "bit_identical": false,
+      "first_divergence_step": 5,
+      "first_divergence_path": "row.truth.position_ned_m.0",
+      "divergence_magnitude": 1.4446207201122423,
+      "notes": "Mandatory injected unseeded random perturbation; harness must detect step 5."
+    },
+    {
+      "axis": "process-restart",
+      "vehicle": "vehicle-a-otter",
+      "plant": "planar3",
+      "reference_sha256": "9c740fa1bb9cfcc10c45d2e2a96c825816766460f8c4fc22e8c368ccf110ec48",
+      "candidate_sha256": "9c740fa1bb9cfcc10c45d2e2a96c825816766460f8c4fc22e8c368ccf110ec48",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Checkpoint serialized, engine disposed, new engine restored, then continued."
+    },
+    {
+      "axis": "checkpoint-multiple-full-sensors",
+      "vehicle": "vehicle-a-otter",
+      "plant": "planar3",
+      "reference_sha256": "9c740fa1bb9cfcc10c45d2e2a96c825816766460f8c4fc22e8c368ccf110ec48",
+      "candidate_sha256": "9c740fa1bb9cfcc10c45d2e2a96c825816766460f8c4fc22e8c368ccf110ec48",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Full 11-plugin typed sensor stack; checkpoints include mid-episode."
+    },
+    {
+      "axis": "batch-8-slot-5",
+      "vehicle": "vehicle-a-otter",
+      "plant": "planar3",
+      "reference_sha256": "9c740fa1bb9cfcc10c45d2e2a96c825816766460f8c4fc22e8c368ccf110ec48",
+      "candidate_sha256": "9c740fa1bb9cfcc10c45d2e2a96c825816766460f8c4fc22e8c368ccf110ec48",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Full production physics and sensors in vector slot 5. A prior sweep-only divergence was caused by reusing a mutable action object: the planar actuator path adds appliedWrench, so one slot contaminated later slots. Fresh per-slot/per-step actions remove this harness aliasing; this is not a simulator batch-position property."
+    },
+    {
+      "axis": "batch-64-slot-37",
+      "vehicle": "vehicle-a-otter",
+      "plant": "planar3",
+      "reference_sha256": "9c740fa1bb9cfcc10c45d2e2a96c825816766460f8c4fc22e8c368ccf110ec48",
+      "candidate_sha256": "9c740fa1bb9cfcc10c45d2e2a96c825816766460f8c4fc22e8c368ccf110ec48",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Full production physics and sensors in vector slot 37. A prior sweep-only divergence was caused by reusing a mutable action object: the planar actuator path adds appliedWrench, so one slot contaminated later slots. Fresh per-slot/per-step actions remove this harness aliasing; this is not a simulator batch-position property."
+    },
+    {
+      "axis": "worker-crash-recovery",
+      "vehicle": "vehicle-a-otter",
+      "plant": "planar3",
+      "reference_sha256": "9c740fa1bb9cfcc10c45d2e2a96c825816766460f8c4fc22e8c368ccf110ec48",
+      "candidate_sha256": "9c740fa1bb9cfcc10c45d2e2a96c825816766460f8c4fc22e8c368ccf110ec48",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Recovery contract uses serialized checkpoint after disposal; worker transport is covered by worker runner tests."
+    },
+    {
+      "axis": "sensors-on-vs-off",
+      "vehicle": "vehicle-a-otter",
+      "plant": "planar3",
+      "reference_sha256": "dedb194f03fd1f2d7ddc745fa2faa6a47f4633909ff51b4758cacb116971f778",
+      "candidate_sha256": "dedb194f03fd1f2d7ddc745fa2faa6a47f4633909ff51b4758cacb116971f778",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Compares physical state only; sensor energy is intentionally excluded."
+    },
+    {
+      "axis": "episode-short",
+      "vehicle": "vehicle-a-otter",
+      "plant": "planar3",
+      "reference_sha256": "2bd3455fd29c18bcc05d7c12ac2a9fb5bdbeaf6f63daef8f69b1785dbf312a83",
+      "candidate_sha256": "2bd3455fd29c18bcc05d7c12ac2a9fb5bdbeaf6f63daef8f69b1785dbf312a83",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Eight-step short-run prefix under the identical full-duration configuration."
+    },
+    {
+      "axis": "episode-full-usv-bench-36",
+      "vehicle": "vehicle-a-otter",
+      "plant": "planar3",
+      "reference_sha256": "9c740fa1bb9cfcc10c45d2e2a96c825816766460f8c4fc22e8c368ccf110ec48",
+      "candidate_sha256": "9c740fa1bb9cfcc10c45d2e2a96c825816766460f8c4fc22e8c368ccf110ec48",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Current USV-Bench-36 episode length: 40 steps at 20 Hz."
+    },
+    {
+      "axis": "backend-node-vs-tensor",
+      "vehicle": "vehicle-a-otter",
+      "plant": "planar3",
+      "reference_sha256": "ebf6cb72dd5d9a1bd515f4e5b85d8dd9876a8a1d837090b959206e2dfaa1b109",
+      "candidate_sha256": "a44be7ca7f2ce55e7a683b6e9ea75565fe2b0e7db949ce30518f206fc6c33db8",
+      "status": "expected-float-divergence",
+      "bit_identical": false,
+      "first_divergence_step": 16,
+      "first_divergence_path": "reduced_backend_state",
+      "divergence_magnitude": 1.1102230246251565e-16,
+      "notes": "Shared supported Vehicle A planar3 reduced physics contract; production sensor stack is unavailable in tensor backend. The observed float64 difference is machine-epsilon-level (<= Number.EPSILON), consistent with expected non-associativity across independently implemented numeric paths; it is not treated as a defect."
+    },
+    {
+      "axis": "process-restart",
+      "vehicle": "vehicle-a-otter",
+      "plant": "coupled6",
+      "reference_sha256": "46b32ef30fbc4db14e582eab594d1468b62600c9c87a28156815d165a22b038a",
+      "candidate_sha256": "46b32ef30fbc4db14e582eab594d1468b62600c9c87a28156815d165a22b038a",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Checkpoint serialized, engine disposed, new engine restored, then continued."
+    },
+    {
+      "axis": "checkpoint-multiple-full-sensors",
+      "vehicle": "vehicle-a-otter",
+      "plant": "coupled6",
+      "reference_sha256": "46b32ef30fbc4db14e582eab594d1468b62600c9c87a28156815d165a22b038a",
+      "candidate_sha256": "46b32ef30fbc4db14e582eab594d1468b62600c9c87a28156815d165a22b038a",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Full 11-plugin typed sensor stack; checkpoints include mid-episode."
+    },
+    {
+      "axis": "batch-8-slot-5",
+      "vehicle": "vehicle-a-otter",
+      "plant": "coupled6",
+      "reference_sha256": "46b32ef30fbc4db14e582eab594d1468b62600c9c87a28156815d165a22b038a",
+      "candidate_sha256": "46b32ef30fbc4db14e582eab594d1468b62600c9c87a28156815d165a22b038a",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Full production physics and sensors in vector slot 5. A prior sweep-only divergence was caused by reusing a mutable action object: the planar actuator path adds appliedWrench, so one slot contaminated later slots. Fresh per-slot/per-step actions remove this harness aliasing; this is not a simulator batch-position property."
+    },
+    {
+      "axis": "batch-64-slot-37",
+      "vehicle": "vehicle-a-otter",
+      "plant": "coupled6",
+      "reference_sha256": "46b32ef30fbc4db14e582eab594d1468b62600c9c87a28156815d165a22b038a",
+      "candidate_sha256": "46b32ef30fbc4db14e582eab594d1468b62600c9c87a28156815d165a22b038a",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Full production physics and sensors in vector slot 37. A prior sweep-only divergence was caused by reusing a mutable action object: the planar actuator path adds appliedWrench, so one slot contaminated later slots. Fresh per-slot/per-step actions remove this harness aliasing; this is not a simulator batch-position property."
+    },
+    {
+      "axis": "worker-crash-recovery",
+      "vehicle": "vehicle-a-otter",
+      "plant": "coupled6",
+      "reference_sha256": "46b32ef30fbc4db14e582eab594d1468b62600c9c87a28156815d165a22b038a",
+      "candidate_sha256": "46b32ef30fbc4db14e582eab594d1468b62600c9c87a28156815d165a22b038a",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Recovery contract uses serialized checkpoint after disposal; worker transport is covered by worker runner tests."
+    },
+    {
+      "axis": "sensors-on-vs-off",
+      "vehicle": "vehicle-a-otter",
+      "plant": "coupled6",
+      "reference_sha256": "442b26a63991b4db0808ad8bc813942a229bfc47369373b189fecc56beb73911",
+      "candidate_sha256": "442b26a63991b4db0808ad8bc813942a229bfc47369373b189fecc56beb73911",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Compares physical state only; sensor energy is intentionally excluded."
+    },
+    {
+      "axis": "episode-short",
+      "vehicle": "vehicle-a-otter",
+      "plant": "coupled6",
+      "reference_sha256": "a74364083568013c4234e3b2a04484724662e28bd4c909290736127f064c268b",
+      "candidate_sha256": "a74364083568013c4234e3b2a04484724662e28bd4c909290736127f064c268b",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Eight-step short-run prefix under the identical full-duration configuration."
+    },
+    {
+      "axis": "episode-full-usv-bench-36",
+      "vehicle": "vehicle-a-otter",
+      "plant": "coupled6",
+      "reference_sha256": "46b32ef30fbc4db14e582eab594d1468b62600c9c87a28156815d165a22b038a",
+      "candidate_sha256": "46b32ef30fbc4db14e582eab594d1468b62600c9c87a28156815d165a22b038a",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Current USV-Bench-36 episode length: 40 steps at 20 Hz."
+    },
+    {
+      "axis": "backend-node-vs-tensor",
+      "vehicle": "vehicle-a-otter",
+      "plant": "coupled6",
+      "status": "not-applicable",
+      "notes": "Tensor backend currently supports only Vehicle A planar3."
+    },
+    {
+      "axis": "process-restart",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-b-rudder production integration requires coupled6."
+    },
+    {
+      "axis": "checkpoint-multiple-full-sensors",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-b-rudder production integration requires coupled6."
+    },
+    {
+      "axis": "batch-8-slot-5",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-b-rudder production integration requires coupled6."
+    },
+    {
+      "axis": "batch-64-slot-37",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-b-rudder production integration requires coupled6."
+    },
+    {
+      "axis": "backend-node-vs-tensor",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-b-rudder production integration requires coupled6."
+    },
+    {
+      "axis": "worker-crash-recovery",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-b-rudder production integration requires coupled6."
+    },
+    {
+      "axis": "sensors-on-vs-off",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-b-rudder production integration requires coupled6."
+    },
+    {
+      "axis": "episode-short",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-b-rudder production integration requires coupled6."
+    },
+    {
+      "axis": "episode-full-usv-bench-36",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-b-rudder production integration requires coupled6."
+    },
+    {
+      "axis": "process-restart",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "coupled6",
+      "reference_sha256": "c18b59043eb7f2a593cf08ca236a1fb99c7cc3572f0205457e125c7dfb8bb7b3",
+      "candidate_sha256": "c18b59043eb7f2a593cf08ca236a1fb99c7cc3572f0205457e125c7dfb8bb7b3",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Checkpoint serialized, engine disposed, new engine restored, then continued."
+    },
+    {
+      "axis": "checkpoint-multiple-full-sensors",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "coupled6",
+      "reference_sha256": "c18b59043eb7f2a593cf08ca236a1fb99c7cc3572f0205457e125c7dfb8bb7b3",
+      "candidate_sha256": "c18b59043eb7f2a593cf08ca236a1fb99c7cc3572f0205457e125c7dfb8bb7b3",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Full 11-plugin typed sensor stack; checkpoints include mid-episode."
+    },
+    {
+      "axis": "batch-8-slot-5",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "coupled6",
+      "reference_sha256": "c18b59043eb7f2a593cf08ca236a1fb99c7cc3572f0205457e125c7dfb8bb7b3",
+      "candidate_sha256": "c18b59043eb7f2a593cf08ca236a1fb99c7cc3572f0205457e125c7dfb8bb7b3",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Full production physics and sensors in vector slot 5. A prior sweep-only divergence was caused by reusing a mutable action object: the planar actuator path adds appliedWrench, so one slot contaminated later slots. Fresh per-slot/per-step actions remove this harness aliasing; this is not a simulator batch-position property."
+    },
+    {
+      "axis": "batch-64-slot-37",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "coupled6",
+      "reference_sha256": "c18b59043eb7f2a593cf08ca236a1fb99c7cc3572f0205457e125c7dfb8bb7b3",
+      "candidate_sha256": "c18b59043eb7f2a593cf08ca236a1fb99c7cc3572f0205457e125c7dfb8bb7b3",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Full production physics and sensors in vector slot 37. A prior sweep-only divergence was caused by reusing a mutable action object: the planar actuator path adds appliedWrench, so one slot contaminated later slots. Fresh per-slot/per-step actions remove this harness aliasing; this is not a simulator batch-position property."
+    },
+    {
+      "axis": "worker-crash-recovery",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "coupled6",
+      "reference_sha256": "c18b59043eb7f2a593cf08ca236a1fb99c7cc3572f0205457e125c7dfb8bb7b3",
+      "candidate_sha256": "c18b59043eb7f2a593cf08ca236a1fb99c7cc3572f0205457e125c7dfb8bb7b3",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Recovery contract uses serialized checkpoint after disposal; worker transport is covered by worker runner tests."
+    },
+    {
+      "axis": "sensors-on-vs-off",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "coupled6",
+      "reference_sha256": "80fb500d2faf013adf9193b9368ce92a8a9cf1c59156312428614a5f1b21a683",
+      "candidate_sha256": "80fb500d2faf013adf9193b9368ce92a8a9cf1c59156312428614a5f1b21a683",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Compares physical state only; sensor energy is intentionally excluded."
+    },
+    {
+      "axis": "episode-short",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "coupled6",
+      "reference_sha256": "7d70d93b0b31dd3b5bd5548d302978468df873447131c221276e49e8a649d5f9",
+      "candidate_sha256": "7d70d93b0b31dd3b5bd5548d302978468df873447131c221276e49e8a649d5f9",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Eight-step short-run prefix under the identical full-duration configuration."
+    },
+    {
+      "axis": "episode-full-usv-bench-36",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "coupled6",
+      "reference_sha256": "c18b59043eb7f2a593cf08ca236a1fb99c7cc3572f0205457e125c7dfb8bb7b3",
+      "candidate_sha256": "c18b59043eb7f2a593cf08ca236a1fb99c7cc3572f0205457e125c7dfb8bb7b3",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Current USV-Bench-36 episode length: 40 steps at 20 Hz."
+    },
+    {
+      "axis": "backend-node-vs-tensor",
+      "vehicle": "vehicle-b-rudder",
+      "plant": "coupled6",
+      "status": "not-applicable",
+      "notes": "Tensor backend currently supports only Vehicle A planar3."
+    },
+    {
+      "axis": "process-restart",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-c-azimuth production integration requires coupled6."
+    },
+    {
+      "axis": "checkpoint-multiple-full-sensors",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-c-azimuth production integration requires coupled6."
+    },
+    {
+      "axis": "batch-8-slot-5",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-c-azimuth production integration requires coupled6."
+    },
+    {
+      "axis": "batch-64-slot-37",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-c-azimuth production integration requires coupled6."
+    },
+    {
+      "axis": "backend-node-vs-tensor",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-c-azimuth production integration requires coupled6."
+    },
+    {
+      "axis": "worker-crash-recovery",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-c-azimuth production integration requires coupled6."
+    },
+    {
+      "axis": "sensors-on-vs-off",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-c-azimuth production integration requires coupled6."
+    },
+    {
+      "axis": "episode-short",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-c-azimuth production integration requires coupled6."
+    },
+    {
+      "axis": "episode-full-usv-bench-36",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "planar3",
+      "status": "not-applicable",
+      "notes": "vehicle-c-azimuth production integration requires coupled6."
+    },
+    {
+      "axis": "process-restart",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "coupled6",
+      "reference_sha256": "16d6c5100eaa49f9efb12705d4073d60aab118d8230ec976b07ba0e40868b19c",
+      "candidate_sha256": "16d6c5100eaa49f9efb12705d4073d60aab118d8230ec976b07ba0e40868b19c",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Checkpoint serialized, engine disposed, new engine restored, then continued."
+    },
+    {
+      "axis": "checkpoint-multiple-full-sensors",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "coupled6",
+      "reference_sha256": "16d6c5100eaa49f9efb12705d4073d60aab118d8230ec976b07ba0e40868b19c",
+      "candidate_sha256": "16d6c5100eaa49f9efb12705d4073d60aab118d8230ec976b07ba0e40868b19c",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Full 11-plugin typed sensor stack; checkpoints include mid-episode."
+    },
+    {
+      "axis": "batch-8-slot-5",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "coupled6",
+      "reference_sha256": "16d6c5100eaa49f9efb12705d4073d60aab118d8230ec976b07ba0e40868b19c",
+      "candidate_sha256": "16d6c5100eaa49f9efb12705d4073d60aab118d8230ec976b07ba0e40868b19c",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Full production physics and sensors in vector slot 5. A prior sweep-only divergence was caused by reusing a mutable action object: the planar actuator path adds appliedWrench, so one slot contaminated later slots. Fresh per-slot/per-step actions remove this harness aliasing; this is not a simulator batch-position property."
+    },
+    {
+      "axis": "batch-64-slot-37",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "coupled6",
+      "reference_sha256": "16d6c5100eaa49f9efb12705d4073d60aab118d8230ec976b07ba0e40868b19c",
+      "candidate_sha256": "16d6c5100eaa49f9efb12705d4073d60aab118d8230ec976b07ba0e40868b19c",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Full production physics and sensors in vector slot 37. A prior sweep-only divergence was caused by reusing a mutable action object: the planar actuator path adds appliedWrench, so one slot contaminated later slots. Fresh per-slot/per-step actions remove this harness aliasing; this is not a simulator batch-position property."
+    },
+    {
+      "axis": "worker-crash-recovery",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "coupled6",
+      "reference_sha256": "16d6c5100eaa49f9efb12705d4073d60aab118d8230ec976b07ba0e40868b19c",
+      "candidate_sha256": "16d6c5100eaa49f9efb12705d4073d60aab118d8230ec976b07ba0e40868b19c",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Recovery contract uses serialized checkpoint after disposal; worker transport is covered by worker runner tests."
+    },
+    {
+      "axis": "sensors-on-vs-off",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "coupled6",
+      "reference_sha256": "67cc4aff605f195e415fbc7758316cf1a627aa66d42b2b70cd1538e28b255d90",
+      "candidate_sha256": "67cc4aff605f195e415fbc7758316cf1a627aa66d42b2b70cd1538e28b255d90",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Compares physical state only; sensor energy is intentionally excluded."
+    },
+    {
+      "axis": "episode-short",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "coupled6",
+      "reference_sha256": "7748d88819c528c55f517d07e261bf3f690dae929a5b8fbf0a7c8cbec2850f6e",
+      "candidate_sha256": "7748d88819c528c55f517d07e261bf3f690dae929a5b8fbf0a7c8cbec2850f6e",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Eight-step short-run prefix under the identical full-duration configuration."
+    },
+    {
+      "axis": "episode-full-usv-bench-36",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "coupled6",
+      "reference_sha256": "16d6c5100eaa49f9efb12705d4073d60aab118d8230ec976b07ba0e40868b19c",
+      "candidate_sha256": "16d6c5100eaa49f9efb12705d4073d60aab118d8230ec976b07ba0e40868b19c",
+      "status": "passed",
+      "bit_identical": true,
+      "first_divergence_step": null,
+      "first_divergence_path": null,
+      "divergence_magnitude": 0,
+      "notes": "Current USV-Bench-36 episode length: 40 steps at 20 Hz."
+    },
+    {
+      "axis": "backend-node-vs-tensor",
+      "vehicle": "vehicle-c-azimuth",
+      "plant": "coupled6",
+      "status": "not-applicable",
+      "notes": "Tensor backend currently supports only Vehicle A planar3."
+    }
+  ]
+}

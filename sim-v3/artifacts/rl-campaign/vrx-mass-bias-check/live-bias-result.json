@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "INVALID_MIXED_TIME_DISCRETIZATION",
+  "interval_s": [
+    1.9,
+    1.95
+  ],
+  "state_body_ned": {
+    "velocity_mps": [
+      -0.642708,
+      0.346002
+    ],
+    "yaw_rate_rad_s": 0.346345
+  },
+  "body_velocity_derivative_interval_average": [
+    0.40881999999999863,
+    -0.014059999999999073,
+    0.20343999999999918
+  ],
+  "effective_mass_diagonal": [
+    54.915,
+    91.525,
+    19.322517420000004
+  ],
+  "start_of_interval_damping_force_n_nm": [
+    11.291572318752,
+    -13.411079040239997,
+    -4.2102183083
+  ],
+  "invalid_implied_bias_n_nm": [
+    -11.158777981247926,
+    -12.124237540240081,
+    -8.141191252224786
+  ],
+  "start_of_interval_node_theoretical_bias_n_nm": [
+    -10.967995637702249,
+    -12.2240077346079,
+    -8.14126785755976
+  ],
+  "invalid_implied_minus_node_n_nm": [
+    -0.1907823435456777,
+    0.09977019436781909,
+    7.66053349732232e-05
+  ],
+  "difference_l2_n_nm": 0.21529514662748608,
+  "attempted_force_balance": "M*nu_dot_interval = F_damping(nu_start) - C(nu_start)*nu_start",
+  "valid": false,
+  "limitation": "The equation mixes an interval-average acceleration with forces evaluated only at the interval start. It is not an instantaneous force balance and cannot recover DART's live solver bias vector.",
+  "conclusion": "The previous live-bias match is withdrawn. These numbers neither clear nor implicate DART's bias computation; a direct instantaneous solver value or a correctly time-integrated force balance is required."
+}

@@ -181,10 +181,20 @@ export class LegacyProductionEngine implements SimulationEngine {
     if (initial?.body_velocity_mps && this.#sim.state.boat.rigidBody) {
       const [u, v, w] = initial.body_velocity_mps;
       Object.assign(this.#sim.state.boat.rigidBody.velocity, { u, v, w });
+      // planar3 rebuilds rigidBody velocity from the legacy presentation state
+      // at the beginning of each step. Keep both representations synchronized
+      // so a requested initial velocity is not silently erased before physics.
+      const yaw = initial.attitude_rad?.[2] ?? 0;
+      const north = Math.cos(yaw) * u - Math.sin(yaw) * v;
+      const east = Math.sin(yaw) * u + Math.cos(yaw) * v;
+      this.#sim.state.boat.velocity = new vec3(east, -w, north);
     }
     if (initial?.angular_rate_body_rad_s && this.#sim.state.boat.rigidBody) {
       const [p, q, r] = initial.angular_rate_body_rad_s;
       Object.assign(this.#sim.state.boat.rigidBody.angularRate, { p, q, r });
+      // Keep the legacy presentation state synchronized for the same reason as
+      // body velocity above: planar3 reconstructs core angular rate from it.
+      this.#sim.state.boat.angularVel = new vec3(q, r, p);
     }
     this.#config = config;
     this.#rng = new SeededRandom(config.experiment.seed);

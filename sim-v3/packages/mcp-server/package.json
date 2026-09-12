@@ -1,0 +1,13 @@
+{
+  "name": "@bcod/mcp-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": { "bcod-sim-mcp": "src/index.ts" },
+  "dependencies": {
+    "@bcod/experiment-schema": "0.1.0",
+    "@bcod/sensor-sdk": "0.1.0",
+    "@bcod/vehicle-sdk": "0.1.0",
+    "@modelcontextprotocol/sdk": "^1.30.0"
+  }
+}

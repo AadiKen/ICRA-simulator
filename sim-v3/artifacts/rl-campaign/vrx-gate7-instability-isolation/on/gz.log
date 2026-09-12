@@ -1,0 +1,36 @@
+
+ODE INTERNAL ERROR 1: assertion "aabbBound >= dMinIntExact && aabbBound < dMaxIntExact" failed in collide() [collision_space.cpp:460]
+Stack trace (most recent call last):
+#31   Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x7fffff03d1c9, in 
+#30   Object "gz sim -s /episode/world.sdf", at 0x555555555186, in 
+#29   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7fffff4a3152, in ruby_run_node
+#28   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7fffff49ee2b, in 
+#27   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7fffff641b49, in rb_vm_exec
+#26   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7fffff63e62b, in 
+#25   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7fffff63a13e, in 
+#24   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7fffff63792f, in 
+#23   Object "/usr/lib/x86_64-linux-gnu/ruby/3.2.0/fiddle.so", at 0x7ffffa497b13, in 
+#22   Object "/lib/x86_64-linux-gnu/libruby-3.2.so.3.2", at 0x7fffff60037b, in rb_nogvl
+#21   Object "/usr/lib/x86_64-linux-gnu/ruby/3.2.0/fiddle.so", at 0x7ffffa49743b, in 
+#20   Object "/lib/x86_64-linux-gnu/libffi.so.8", at 0x7ffffa48b0bd, in ffi_call
+#19   Object "/lib/x86_64-linux-gnu/libffi.so.8", at 0x7ffffa4883ee, in 
+#18   Object "/lib/x86_64-linux-gnu/libffi.so.8", at 0x7ffffa48bb15, in 
+#17   Object "/usr/lib/x86_64-linux-gnu/libgz-sim8-gz.so.8.10.0", at 0x7ffff99253df, in runServer
+#16   Object "/lib/x86_64-linux-gnu/libgz-sim8.so.8", at 0x7ffff95f905c, in 
+#15   Object "/lib/x86_64-linux-gnu/libgz-sim8.so.8", at 0x7ffff9606cee, in gz::sim::v8::SimulationRunner::Run(unsigned long)
+#14   Object "/lib/x86_64-linux-gnu/libgz-sim8.so.8", at 0x7ffff960636e, in gz::sim::v8::SimulationRunner::Step(gz::sim::v8::UpdateInfo const&)
+#13   Object "/lib/x86_64-linux-gnu/libgz-sim8.so.8", at 0x7ffff9602c9c, in gz::sim::v8::SimulationRunner::UpdateSystems()
+#12   Object "/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins/libgz-sim-physics-system.so", at 0x7fffedaee22f, in gz::sim::v8::systems::Physics::Update(gz::sim::v8::UpdateInfo const&, gz::sim::v8::EntityComponentManager&)
+#11   Object "/usr/lib/x86_64-linux-gnu/gz-sim-8/plugins/libgz-sim-physics-system.so", at 0x7fffedaf4a05, in gz::sim::v8::systems::PhysicsPrivate::Step(std::chrono::duration<long, std::ratio<1l, 1000000000l> > const&)
+#10   Object "/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics-dartsim-plugin.so", at 0x7fffdc6aa7c5, in gz::physics::dartsim::SimulationFeatures::WorldForwardStep(gz::physics::Identity const&, gz::physics::SpecifyData<gz::physics::RequireData<gz::physics::WorldPoses>, gz::physics::ExpectData<gz::physics::ChangedWorldPoses, gz::physics::Contacts, gz::physics::JointPositions> >&, gz::physics::CompositeData&, gz::physics::ExpectData<gz::physics::ApplyExternalForceTorques, gz::physics::ApplyGeneralizedForces, gz::physics::VelocityControlCommands, gz::physics::ServoControlCommands, std::chrono::duration<long, std::ratio<1l, 1000000000l> > > const&)
+#9    Object "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13", at 0x7fffd7ec486c, in dart::simulation::World::step(bool)
+#8    Object "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13", at 0x7fffd7eb0b05, in dart::constraint::ConstraintSolver::solve()
+#7    Object "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart.so.6.13", at 0x7fffd7eae8a0, in dart::constraint::ConstraintSolver::updateConstraints()
+#6    Object "/opt/ros/jazzy/opt/gz_physics_vendor/lib/gz-physics-7/engine-plugins/libgz-physics-dartsim-plugin.so", at 0x7fffdc689cbb, in dart::collision::GzOdeCollisionDetector::collide(dart::collision::CollisionGroup*, dart::collision::CollisionOption const&, dart::collision::CollisionResult*)
+#5    Object "/opt/ros/jazzy/opt/gz_dartsim_vendor/lib/libdart-collision-ode.so.6.13", at 0x7fffdc4b548c, in dart::collision::OdeCollisionDetector::collide(dart::collision::CollisionGroup*, dart::collision::CollisionOption const&, dart::collision::CollisionResult*)
+#4    Object "/lib/x86_64-linux-gnu/libode.so.8", at 0x7fffdc2e2259, in dxHashSpace::collide(void*, void (*)(void*, dxGeom*, dxGeom*))
+#3    Object "/lib/x86_64-linux-gnu/libode.so.8", at 0x7fffdc2e1037, in dDebug
+#2    Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x7fffff03b8fe, in abort
+#1    Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x7fffff05827d, in gsignal
+#0    Object "/lib/x86_64-linux-gnu/libc.so.6", at 0x7fffff0b1b2c, in pthread_kill
+Aborted (Signal sent by tkill() 22 0)

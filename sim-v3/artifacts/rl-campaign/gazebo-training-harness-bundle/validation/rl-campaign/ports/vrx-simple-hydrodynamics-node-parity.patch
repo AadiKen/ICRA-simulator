@@ -1,0 +1,26 @@
+diff --git a/vrx_gz/src/SimpleHydrodynamics.cc b/vrx_gz/src/SimpleHydrodynamics.cc
+index 0482c8e..a2f7150 100644
+--- a/vrx_gz/src/SimpleHydrodynamics.cc
++++ b/vrx_gz/src/SimpleHydrodynamics.cc
+@@ -251,9 +251,10 @@ void SimpleHydrodynamics::PreUpdate(
+ 
+   // Coriolis - added mass components.
+   Cmat(0, 5) = this->dataPtr->paramYdotV * localLinearVel.Y();
+-  Cmat(1, 5) = this->dataPtr->paramXdotU * localLinearVel.X();
+-  Cmat(5, 0) = this->dataPtr->paramYdotV * localLinearVel.Y();
++  Cmat(1, 5) = -this->dataPtr->paramXdotU * localLinearVel.X();
++  Cmat(5, 0) = -this->dataPtr->paramYdotV * localLinearVel.Y();
+   Cmat(5, 1) = this->dataPtr->paramXdotU * localLinearVel.X();
++  const Eigen::VectorXd kCmat = Cmat * state;
+ 
+   // Drag.
+   Dmat(0, 0) = this->dataPtr->paramXu +
+@@ -272,7 +273,7 @@ void SimpleHydrodynamics::PreUpdate(
+   const Eigen::VectorXd kDvec = -1.0 * Dmat * state;
+ 
+   // Sum all forces - in body frame.
+-  const Eigen::VectorXd kForceSum = kAmassVec + kDvec;
++  const Eigen::VectorXd kForceSum = kAmassVec + kCmat + kDvec;
+ 
+   // Transform the force and torque to the world frame.
+   math::Vector3d forceWorld = (*comPose).Rot().RotateVector(

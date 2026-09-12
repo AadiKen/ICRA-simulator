@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-out-of-plane-damping-diagnostic",
+  "production_change": false,
+  "seed": 20000,
+  "environment_scale": 1,
+  "action_scale": 0,
+  "observation_period_s": 0.05,
+  "max_step_size_s": 0.05,
+  "damping": {
+    "zW": 365,
+    "kP": 40,
+    "mQ": 85
+  },
+  "requested_observations": 1200
+}

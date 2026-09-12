@@ -58,3 +58,21 @@ export function stepSemiImplicitEuler(core, state, env, command, dt, t = 0) {
     state.quaternion = yawToQuaternion(state.eulerAngles.yaw + d[2] * dt);
     return state;
 }
+
+// Diagnostic match for DART 6 World::step ordering: advance generalized
+// velocities first, then integrate configuration with the updated velocity.
+// This is intentionally separate from the legacy semiImplicitEuler path so
+// the isolation experiment cannot change production behavior.
+export function stepDartSemiImplicitEuler(core, state, env, command, dt, t = 0) {
+    const d = derivativeAt(core, state, env, command, t);
+    state.velocity.u += d[3] * dt;
+    state.velocity.v += d[4] * dt;
+    state.angularRate.r += d[5] * dt;
+    const yaw = state.eulerAngles.yaw;
+    const cos = Math.cos(yaw);
+    const sin = Math.sin(yaw);
+    state.position.N += (state.velocity.u * cos - state.velocity.v * sin) * dt;
+    state.position.E += (state.velocity.u * sin + state.velocity.v * cos) * dt;
+    state.quaternion = yawToQuaternion(yaw + state.angularRate.r * dt);
+    return state;
+}

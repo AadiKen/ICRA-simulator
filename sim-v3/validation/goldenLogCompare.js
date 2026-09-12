@@ -41,6 +41,11 @@ export function replayDefaultOpenLoop(params = createOtterParameters()) {
     return replayManeuver("constant-thrust", params);
 }
 
+export function replayManeuverWithoutAddedMass(name = "constant-thrust", options = {}) {
+    const params = createOtterParametersForReplay({disableAddedMass: true});
+    return replayManeuver(name, params, {...options, disableAddedMass: true});
+}
+
 export function createOtterParametersForReplay(options = {}) {
     return options.disableAddedMass
         ? createOtterParameters({addedMass: {XuDot: 0, YvDot: 0, NrDot: 0, YrDot: 0, NvDot: 0}})
@@ -93,6 +98,13 @@ export function maneuverByName(name) {
             env: {waterV: {x: 0, y: 0, z: 0.3}, hullWaterSamples: []},
             dt: 0.05,
             steps: 1200
+        };
+    }
+    if (name === "impulse-hold") {
+        return {
+            commandAt: (t) => ({appliedWrench: [t < 1 ? 60 : 0, 0, 0]}),
+            dt: 0.05,
+            steps: 40
         };
     }
     return {

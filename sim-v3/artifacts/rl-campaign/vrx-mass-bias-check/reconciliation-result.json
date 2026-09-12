@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "status": "RECONCILED_BACK_CALCULATION_SAMPLING_BUG",
+  "states_used": {
+    "back_calculation_damping": {
+      "nu": [
+        -0.642708,
+        0.346002,
+        0.346345
+      ],
+      "source": "artifacts/rl-campaign/vrx-mass-bias-check/velocity-telemetry.csv t=1.9 s VRX start state"
+    },
+    "back_calculation_node_bias": {
+      "nu": [
+        -0.642708,
+        0.346002,
+        0.346345
+      ],
+      "source": "same VRX start state passed to the theoretical Node formula"
+    },
+    "standing_residual_node_acceleration": {
+      "nu": null,
+      "start_nu": [
+        -0.642708,
+        0.346002,
+        0.346345
+      ],
+      "end_nu": [
+        -0.6259856957892657,
+        0.34898150398009603,
+        0.3567495470780152
+      ],
+      "source": "finite difference of Node's independently evolved start and end velocities over 0.05 s; an interval-average acceleration has no single evaluation nu"
+    }
+  },
+  "same_nu": false,
+  "matched_initial_state": {
+    "vrx": [
+      -0.642708,
+      0.346002,
+      0.346345
+    ],
+    "node": [
+      -0.642708,
+      0.346002,
+      0.346345
+    ],
+    "difference": [
+      0,
+      0,
+      0
+    ]
+  },
+  "accelerations": {
+    "vrx_interval_finite_difference": [
+      0.40881999999999863,
+      -0.014059999999999073,
+      0.20343999999999918
+    ],
+    "node_interval_finite_difference": [
+      0.3344460842146857,
+      0.05959007960192109,
+      0.20809094156030383
+    ],
+    "linear_finite_difference_vrx_minus_node": [
+      0.07437391578531294,
+      -0.07365007960192016
+    ],
+    "linear_finite_difference_l2": 0.10467002233022595,
+    "node_post_step_instantaneous_derivative": [
+      0.3350951464937021,
+      0.05917527048440929
+    ]
+  },
+  "interval_states": {
+    "vrx": {
+      "start": [
+        -0.642708,
+        0.346002,
+        0.346345
+      ],
+      "end": [
+        -0.622267,
+        0.345299,
+        0.356517
+      ]
+    },
+    "node": {
+      "start": [
+        -0.642708,
+        0.346002,
+        0.346345
+      ],
+      "end": [
+        -0.6259856957892657,
+        0.34898150398009603,
+        0.3567495470780152
+      ]
+    }
+  },
+  "explanation": "The standing 0.105 m/s^2 residual is a valid like-for-like comparison of VRX and Node finite differences over their separately evolved 0.05 s intervals. The live-bias back-calculation was not an instantaneous force balance: it multiplied the VRX interval-average acceleration by M, but evaluated damping and Node's theoretical bias only at the interval-start nu. Therefore its apparent bias agreement cannot be reconciled algebraically with the acceleration residual and is invalid evidence about DART's live bias vector.",
+  "conclusion": "Withdraw the prior live-bias match. The finite-difference acceleration residual remains, while DART's instantaneous bias output is still unresolved. Do not advance to a constraint/integration hypothesis on the basis of the invalid back-calculation."
+}

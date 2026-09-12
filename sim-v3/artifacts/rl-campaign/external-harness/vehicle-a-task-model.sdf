@@ -27,6 +27,7 @@
       <sensor name="task_imu" type="imu">
         <always_on>true</always_on><update_rate>50</update_rate>
         <topic>imu</topic>
+        <imu><orientation_reference_frame><localization>ENU</localization></orientation_reference_frame></imu>
       </sensor>
       <sensor name="task_gps" type="navsat">
         <always_on>true</always_on><update_rate>2</update_rate>
@@ -58,9 +59,15 @@
       <water_density>1025</water_density>
       <xU>-80</xU>
       <yV>-450</yV>
+      <zW>0</zW>
+      <kP>0</kP>
+      <mQ>0</mQ>
       <nR>-5520</nR>
       <xUabsU>-48.708</xUabsU>
       <yVabsV>-509.22</yVabsV>
+      <zWabsW>0</zWabsW>
+      <kPabsP>0</kPabsP>
+      <mQabsQ>0</mQabsQ>
       <nRabsR>-2428.68</nRabsR>
       
     </plugin>

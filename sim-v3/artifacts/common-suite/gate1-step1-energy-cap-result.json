@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "common-suite-gate1-step-result",
+  "step": 1,
+  "name": "shared-energy-cap",
+  "passed": true,
+  "energy_cap_ns": 50000.0,
+  "accounting_rule": "sum over control steps of dt_s * (abs(port_policy_thrust_n) + abs(starboard_policy_thrust_n))",
+  "implementation": "eval/common_suite/native_energy_cap.py:EnergyCapWrapper",
+  "force_separation_precheck": {
+    "passed": true,
+    "bcod-sim": "policy actuator thrust remains separate in vehicle_diagnostics.effectors; environmental force is applied by the plant",
+    "gazebo": "actuator-jsonl bridge returns applied_thrust_newtons before any environmental plugin force",
+    "holoocean": "_thruster_state_n is retained separately before wind_surge_force_n is added for the engine call",
+    "stonefish": "native diagnostics report port_thrust and starboard_thrust independently of environmental force"
+  },
+  "arms": {
+    "bcod-sim": {"disturbance": "PASS", "time_cap": "PASS", "energy_cap": "PASS"},
+    "gazebo": {"disturbance": "FAIL_MISSING_CURRENT_AND_WIND", "time_cap": "PASS", "energy_cap": "PASS"},
+    "holoocean": {"disturbance": "FAIL_DIRECTIONAL_WIND", "time_cap": "PASS", "energy_cap": "PASS"},
+    "stonefish": {"disturbance": "FAIL_MISSING_CURRENT_AND_WIND", "time_cap": "PASS", "energy_cap": "PASS"}
+  },
+  "tests": {
+    "native_wrapper_tests_passed": 21,
+    "common_suite_tests_passed": 13
+  },
+  "calibration_episodes_run": 0,
+  "contracts_frozen": false
+}

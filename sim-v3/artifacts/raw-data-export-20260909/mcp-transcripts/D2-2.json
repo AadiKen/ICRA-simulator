@@ -1,0 +1,117 @@
+{
+  "task_id": "D2",
+  "category": "D",
+  "repeat_index": 2,
+  "prompt": "Build and run a 30-second node waypoint scenario for vehicle-c-azimuth on coupled6 to 20 m north, read the metrics, and summarize the result including its evidentiary status.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "list_vehicle_presets",
+      "input": {},
+      "output": [
+        {
+          "id": "vehicle-a-otter",
+          "name": "Otter differential-thrust USV",
+          "plant": "planar3",
+          "validation_status": "validated",
+          "validation_claim": "Planar maneuvering validated at pinned tolerances."
+        },
+        {
+          "id": "vehicle-b-rudder",
+          "name": "USV propeller/rudder monohull",
+          "plant": "coupled6",
+          "validation_status": "model-structure-trajectory-scored-fail",
+          "validation_claim": "The MMG simulator has been scored against six measured MARIN single-screw KVLCC2 trajectories using measured rudder and samplewise propeller RPM. The current literature-coefficient parameterization fails the precommitted trajectory/IMO tolerances. No evidence validates Vehicle B USV-scale coefficients."
+        },
+        {
+          "id": "vehicle-c-azimuth",
+          "name": "Dual-azimuth overactuated USV",
+          "plant": "coupled6",
+          "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+          "validation_claim": "Control allocation and composability demonstrated; behavioral dynamics not independently validated."
+        },
+        {
+          "id": "searobotics-surveyor-m1.8",
+          "name": "SeaRobotics SR-Surveyor M1.8 (two-body common-task approximation)",
+          "plant": "planar3",
+          "validation_status": "model-structure-only",
+          "validation_claim": "Node common-task resolution uses the versioned two-body model; geometry, actuator and damping assumptions remain unvalidated."
+        }
+      ]
+    },
+    {
+      "tool": "construct_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "vehicle-c-azimuth-30s-waypoint-north20",
+          "seed": 1,
+          "timestep_s": 0.1,
+          "duration_s": 30
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-c-azimuth",
+          "plant": "coupled6"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 20,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "scenario_id": "scenario-873541e3b10c332d",
+        "checksum_sha256": "873541e3b10c332d0f2f7e9fc84eab3b312bd04734d6a868eeeda517022adbbd",
+        "warnings": []
+      }
+    },
+    {
+      "tool": "run_scenario",
+      "input": {
+        "scenario_id": "scenario-873541e3b10c332d"
+      },
+      "output": {
+        "run_id": "run-4881a951-a17b-438f-b5a2-1181d68c0b4a",
+        "success": true,
+        "completion_time_s": 14.400000000001455,
+        "metrics": {
+          "total_energy": 81.05846377703959,
+          "total_sensor_cost": 77.03999999999972,
+          "movement_cost": 4.018463777039873,
+          "steps": 144,
+          "elapsed_s": 14.400000000001455,
+          "propulsion_energy": 4.018463777039873
+        }
+      }
+    },
+    {
+      "tool": "get_run_metrics",
+      "input": {
+        "run_id": "run-4881a951-a17b-438f-b5a2-1181d68c0b4a"
+      },
+      "output": {
+        "run_id": "run-4881a951-a17b-438f-b5a2-1181d68c0b4a",
+        "success": true,
+        "completion_time_s": 14.400000000001455,
+        "metrics": {
+          "total_energy": 81.05846377703959,
+          "total_sensor_cost": 77.03999999999972,
+          "movement_cost": 4.018463777039873,
+          "steps": 144,
+          "elapsed_s": 14.400000000001455,
+          "propulsion_energy": 4.018463777039873
+        }
+      }
+    }
+  ],
+  "final_answer_text": "## Summary\n\n**Scenario:** `scenario-873541e3b10c332d` — 30 s node-backend waypoint run, vehicle-c-azimuth (Dual-azimuth overactuated USV) on the `coupled6` plant, single waypoint at 20 m north / 0 m east.\n\n**Run result:** `run-4881a951-a17b-438f-b5a2-1181d68c0b4a` — success\n\n| Metric | Value |\n|---|---|\n| Completion time | 14.4 s (144 steps @ 0.1 s) — mission completed well before the 30 s budget, so the sim terminated early rather than running the full duration |\n| Propulsion energy | 4.018 J (units per sim convention) |\n| Total sensor cost | 77.04 |\n| Total energy (propulsion + sensor) | 81.058 |\n\nNote: sensor cost is nonzero even though no sensors were explicitly configured in this scenario — that figure reflects whatever default/oracle sensor accounting the backend applies; flagging this since it dominates total_energy over propulsion.\n\n**Evidentiary status (important caveat):** vehicle-c-azimuth's validation status is **\"allocation-demonstrated-dynamics-unvalidated\"** — the preset's control-allocation/composability behavior has been demonstrated, but its underlying behavioral dynamics on the `coupled6` plant have **not** been independently validated. This means the trajectory-tracking and energy numbers above should be treated as a functional/allocation demonstration, not as validated physical performance data. Do not use this run's propulsion or motion metrics as evidence of real-world dynamic accuracy without further independent validation of the vehicle model.",
+  "outcome": "correct",
+  "detail": "metric and validation limitation were preserved"
+}

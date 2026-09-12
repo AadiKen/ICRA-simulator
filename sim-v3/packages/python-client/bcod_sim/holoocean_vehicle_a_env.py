@@ -25,6 +25,7 @@ try:
         passed_waypoint_plane,
     )
     from .common_task_env import Mulberry32
+    from .native_task_contract import load_native_task_contract
 except ImportError:  # Direct validation-script import from this directory.
     from holoocean_termination import HoloOceanTerminationMonitor
     from common_task import (
@@ -35,6 +36,7 @@ except ImportError:  # Direct validation-script import from this directory.
         passed_waypoint_plane,
     )
     from common_task_env import Mulberry32
+    from native_task_contract import load_native_task_contract
 
 
 class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
@@ -98,15 +100,11 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
         settle_physics_steps: int = 0,
         shaping_enabled: bool = True,
         max_thrust_n: float | None = None,
+        condition_contract_path: str | Path | None = None,
     ) -> None:
         self.root = Path(repository)
-        document = json.loads(
-            (self.root / "artifacts/rl-campaign/surveyor/task-contract-frozen.json").read_text()
-        )
-        if document.get("content_sha256") != self.EXPECTED_CONTRACT_SHA256:
-            raise ValueError("HoloOcean adapter requires the frozen 15-field contract")
-        self.contract = next(
-            task for task in document["tasks"] if task["task_id"] == "common-waypoint-transit-v1"
+        self.contract, self.contract_binding = load_native_task_contract(
+            self.root, condition_contract_path
         )
         if sum(component["size"] for component in self.contract["observation"]["components"]) != 15:
             raise ValueError("unexpected observation size in frozen contract")
@@ -538,6 +536,7 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
             "reward_mapping": "shared common_task.compute_reward; shaping gamma=1.0 and k from frozen contract",
             "gps_freshness": "wrapper receipt time; HoloOcean payload has no timestamp or sequence",
             "disturbance_mode": self.disturbance_mode,
+            "contract_binding": self.contract_binding,
             "current_applied": self.disturbance_mode == "seeded",
             "applied_current_ned_mps": [
                 applied_current_nwu[0], -applied_current_nwu[1], applied_current_nwu[2]
@@ -564,10 +563,12 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
         self._last_wind_force_n = self._wind_surge_force_n()
         requested_thruster_force = normalized * self.max_thrust_n
         thruster_force = self._thruster_state_n.copy()
+        propulsion_samples = []
         colliding = False
         if np.all(np.isfinite(requested_thruster_force)):
             for _ in range(self.physics_steps_per_action):
                 propulsion_force = self._advance_thruster_state(requested_thruster_force)
+                propulsion_samples.append(propulsion_force.copy())
                 thruster_force = np.clip(
                     propulsion_force + self._last_wind_force_n / 2.0,
                     -self.HOLOOCEAN_NATIVE_MAX_THRUST_N,
@@ -653,6 +654,10 @@ class HoloOceanVehicleAEnv(gym.Env[np.ndarray, np.ndarray]):
             "applied_thruster_force_n": thruster_force.tolist(),
             "actuator_target_force_n": requested_thruster_force.tolist(),
             "actuator_lagged_force_n": self._thruster_state_n.tolist(),
+            "policy_propulsion_thrust_n": (
+                np.mean(propulsion_samples, axis=0).tolist()
+                if propulsion_samples else self._thruster_state_n.tolist()
+            ),
             "actuator_time_constant_s": self.MOTOR_TIME_CONSTANT_S,
             "wind_lateral_force_supported": False,
             "termination_reason": termination_reason,

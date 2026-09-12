@@ -12,6 +12,17 @@ set -euo pipefail
 root="${BCOD_REPOSITORY_ROOT:?Set BCOD_REPOSITORY_ROOT}/sim-v3"; cd "$root"; mkdir -p artifacts/e2-throughput/raw
 prefix="artifacts/e2-throughput/raw/e2-gazebo-full-${SLURM_JOB_ID}"; hostname > "$prefix-hostname.txt"; lscpu > "$prefix-lscpu.txt"; free -b > "$prefix-memory.txt"; nvidia-smi -q > "$prefix-nvidia-smi.txt"; scontrol show job "$SLURM_JOB_ID" -dd > "$prefix-scontrol.txt"
 export BCOD_GAZEBO_NATIVE=1; export PATH="${CODENIMBUS_NODE24_BIN:-$HOME/.local/node-v24.20.0-linux-x64/bin}:$PATH"
-command -v gz >/dev/null || { apt-get update -qq; DEBIAN_FRONTEND=noninteractive apt-get install -y -qq gz-harmonic; }
-.venv/bin/python validation/e2-throughput/run_external_full.py --backend gazebo-harmonic --counts 1 2 4 8 16 32 --output artifacts/e2-throughput/gazebo-full.json
+if command -v gz >/dev/null; then
+  .venv/bin/python validation/e2-throughput/run_external_full.py --backend gazebo-harmonic --counts 1 2 4 8 16 32 --output artifacts/e2-throughput/gazebo-full.json
+else
+  image="$HOME/.cache/enroot/gz-harmonic-noble.sqsh"
+  [[ -s "$image" ]] || { echo "missing Gazebo Harmonic enroot image: $image" >&2; exit 1; }
+  enroot_base="${SLURM_TMPDIR:-/tmp}/${USER}-e2-enroot-${SLURM_JOB_ID}"
+  mkdir -p "$enroot_base"/{runtime,temp,data}
+  export ENROOT_RUNTIME_PATH="$enroot_base/runtime" ENROOT_TEMP_PATH="$enroot_base/temp" ENROOT_DATA_PATH="$enroot_base/data"
+  container="e2-gazebo-${SLURM_JOB_ID}"
+  node_bin="${CODENIMBUS_NODE24_BIN:-$HOME/.local/node-v24.20.0-linux-x64/bin}"
+  enroot create -n "$container" "$image"
+  enroot start --root -m "$root:$root" -m "$HOME:$HOME" "$container" sh -lc "cd '$root'; export BCOD_GAZEBO_NATIVE=1 PATH='$node_bin':\$PATH; .venv/bin/python validation/e2-throughput/run_external_full.py --backend gazebo-harmonic --counts 1 2 4 8 16 32 --output artifacts/e2-throughput/gazebo-full.json"
+fi
 scontrol show job "$SLURM_JOB_ID" -dd > "$prefix-scontrol-final.txt"

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "cross-simulator-actuator-envelope-calibration-status",
+  "status": "BLOCKED_MISSING_NATIVE_RUNTIMES_AND_CAPTURES",
+  "caps_changed": false,
+  "host_checks": {
+    "bcod-sim": "source and local runtime available; no spec-compliant four-level native capture exists",
+    "gazebo": "gz executable available; no spec-compliant four-level native capture exists",
+    "holoocean": "Python module unavailable on this host; legacy 501.1328125 N single-level calibration is not reusable as matrix data",
+    "stonefish": "native executable unavailable on this host"
+  },
+  "stop_condition": "The protocol requires all four arms under one measurement method. No recommendation or cap change may be finalized from a partial matrix.",
+  "legacy_evidence": {
+    "holoocean_calibration": "artifacts/rl-campaign/holoocean-vehicle-a-thrust-calibration.json",
+    "vehicle_a_60_n_validation": "artifacts/gazebo/vehicle-a/open-loop-trajectory-comparison.json",
+    "note": "These establish that the old 1 m/s criterion was not a verified shared envelope, but they are not substituted for the required matrix."
+  }
+}

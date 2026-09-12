@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "common-suite-native-current-representability",
+  "arm": "gazebo",
+  "passed": true,
+  "seed": 42000,
+  "probe_duration_s": 2.0,
+  "zero_policy_thrust": true,
+  "candidate_max_current_ned_mps": [0.45, 0.0, 0.0],
+  "mechanism": "episode-local libVrxCurrentRelativeVelocity.so system plugin with NED-to-ENU conversion",
+  "calm_displacement_m": 0.0000038134,
+  "current_displacement_m": 0.2895883,
+  "current_final_body_velocity_mps": [0.2034322704, -0.0149046249],
+  "requested_equals_reported_applied": true,
+  "binary_compatibility": {
+    "gazebo_version": "8.15.0",
+    "architecture": "amd64",
+    "dependencies_resolved": true
+  },
+  "calibration_episodes_run": 0,
+  "contracts_frozen": false
+}

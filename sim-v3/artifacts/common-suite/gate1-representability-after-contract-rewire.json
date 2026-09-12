@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "common-suite-native-representability-check",
+  "stage": "after-stale-contract-rewire",
+  "passed": false,
+  "candidate_contract": {
+    "path": "eval/common_suite/contracts/nominal.json",
+    "content_sha256": "e998e32f5ee00f6296fce04e01066fa3e9a40d3737dec66b6aae79ef212f119b"
+  },
+  "verified_common_values": {
+    "route_relative_m": [[45.0, 8.0], [90.0, -6.0], [140.0, 12.0]],
+    "current_mps_range": [0.0, 0.45],
+    "wind_mps_range": [0.0, 5.0],
+    "time_cap_s": 150.0,
+    "episode_physics_steps": 3000,
+    "energy_cap_ns": 50000.0
+  },
+  "arms": {
+    "bcod-sim": {
+      "contract_binding": "PASS",
+      "route": "PASS",
+      "current": "PASS",
+      "wind": "PASS",
+      "time_cap": "PASS",
+      "energy_cap": "FAIL_MISSING_IMPLEMENTATION"
+    },
+    "gazebo": {
+      "contract_binding": "PASS",
+      "route": "PASS",
+      "current": "FAIL_MISSING_IMPLEMENTATION_APPLIES_ZERO",
+      "wind": "FAIL_MISSING_IMPLEMENTATION_APPLIES_ZERO",
+      "time_cap": "PASS",
+      "energy_cap": "FAIL_MISSING_IMPLEMENTATION"
+    },
+    "holoocean": {
+      "contract_binding": "PASS",
+      "route": "PASS",
+      "current": "PASS",
+      "wind": "FAIL_MISSING_IMPLEMENTATION_LONGITUDINAL_ONLY",
+      "time_cap": "PASS",
+      "energy_cap": "FAIL_MISSING_IMPLEMENTATION"
+    },
+    "stonefish": {
+      "contract_binding": "PASS",
+      "route": "PASS",
+      "current": "FAIL_MISSING_IMPLEMENTATION_APPLIES_ZERO",
+      "wind": "FAIL_MISSING_IMPLEMENTATION_APPLIES_ZERO",
+      "time_cap": "PASS",
+      "energy_cap": "FAIL_MISSING_IMPLEMENTATION"
+    }
+  },
+  "resolved_by_this_change": [
+    "all four arms consume the candidate nominal route and disturbance ranges",
+    "all four arms derive a 3000-step / 150-second episode from the candidate contract",
+    "BCOD current and wind use the candidate ranges",
+    "HoloOcean native current uses the candidate range"
+  ],
+  "remaining_stop_reasons": [
+    "Gazebo applies zero current and wind",
+    "Stonefish applies zero current and wind",
+    "HoloOcean cannot apply the lateral component of directional wind",
+    "no native arm yet enforces the 50000 Ns propulsion cap"
+  ],
+  "energy_architecture_finding": {
+    "single_accounting_implementation_possible": true,
+    "recommended_layer": "a shared Gymnasium evaluation wrapper above every native environment",
+    "required_per_arm_input": "each native environment must expose policy-propulsion thrust separately from environmental force in step info",
+    "reason": "BCOD/Gazebo share CommonWaypointEnv, but HoloOcean and Stonefish have independent task loops; centralizing the accumulator avoids four cap implementations while retaining arm-specific force conversion at the boundary"
+  },
+  "episodes_run": 0,
+  "contracts_frozen": false,
+  "next_action": "Implement and independently verify the shared energy-cap wrapper, then address Gazebo, Stonefish, and HoloOcean disturbance injection one runtime at a time."
+}

@@ -1,0 +1,98 @@
+{
+  "task_id": "D3",
+  "category": "D",
+  "repeat_index": 3,
+  "prompt": "Build and run vehicle-a-otter using coupled6 for 30 seconds toward 20 m north. Read the metrics and state whether its validation evidence applies to this plant.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "list_vehicle_presets",
+      "input": {},
+      "output": [
+        {
+          "id": "vehicle-a-otter",
+          "name": "Otter differential-thrust USV",
+          "plant": "planar3",
+          "validation_status": "validated",
+          "validation_claim": "Planar maneuvering validated at pinned tolerances."
+        },
+        {
+          "id": "vehicle-b-rudder",
+          "name": "USV propeller/rudder monohull",
+          "plant": "coupled6",
+          "validation_status": "model-structure-trajectory-scored-fail",
+          "validation_claim": "The MMG simulator has been scored against six measured MARIN single-screw KVLCC2 trajectories using measured rudder and samplewise propeller RPM. The current literature-coefficient parameterization fails the precommitted trajectory/IMO tolerances. No evidence validates Vehicle B USV-scale coefficients."
+        },
+        {
+          "id": "vehicle-c-azimuth",
+          "name": "Dual-azimuth overactuated USV",
+          "plant": "coupled6",
+          "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+          "validation_claim": "Control allocation and composability demonstrated; behavioral dynamics not independently validated."
+        },
+        {
+          "id": "searobotics-surveyor-m1.8",
+          "name": "SeaRobotics SR-Surveyor M1.8 (two-body common-task approximation)",
+          "plant": "planar3",
+          "validation_status": "model-structure-only",
+          "validation_claim": "Node common-task resolution uses the versioned two-body model; geometry, actuator and damping assumptions remain unvalidated."
+        }
+      ]
+    },
+    {
+      "tool": "construct_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "otter-coupled6-20m-north",
+          "seed": 1,
+          "timestep_s": 0.1,
+          "duration_s": 30
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-a-otter",
+          "plant": "coupled6"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 20,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "scenario_id": "scenario-0d6d1723e62e8c8a",
+        "checksum_sha256": "0d6d1723e62e8c8a093585bc454a9130097cec1a5343569dd083150fe9c158e0",
+        "warnings": []
+      }
+    },
+    {
+      "tool": "run_scenario",
+      "input": {
+        "scenario_id": "scenario-0d6d1723e62e8c8a"
+      },
+      "output": {
+        "run_id": "run-825f0134-d687-44ab-8924-55edf1e32c70",
+        "success": true,
+        "completion_time_s": 6.900000000001455,
+        "metrics": {
+          "total_energy": 40.055479811996825,
+          "total_sensor_cost": 36.91499999999997,
+          "movement_cost": 3.1404798119968578,
+          "steps": 69,
+          "elapsed_s": 6.900000000001455,
+          "propulsion_energy": 3.1404798119968578
+        }
+      }
+    }
+  ],
+  "final_answer_text": "## Run Results — `run-825f0134-d687-44ab-8924-55edf1e32c70`\n\n**Scenario:** `vehicle-a-otter` forced onto the `coupled6` plant, single waypoint at (north=20 m, east=0 m), 30 s requested duration.\n\n| Metric | Value |\n|---|---|\n| Success | true |\n| Completion time | 6.90 s (mission completed early, well inside the 30 s budget) |\n| Steps | 69 |\n| Propulsion energy | 3.14 |\n| Total sensor cost | 36.91 |\n| Total energy (propulsion + sensor) | 40.06 |\n\n## Does the validation evidence apply to this plant configuration?\n\n**No — this run's dynamics are not covered by `vehicle-a-otter`'s validation evidence.**\n\n- The preset's stated validation claim is: *\"Planar maneuvering validated at pinned tolerances.\"*\n- That claim is tied to the vehicle's native **`planar3`** plant (3-DOF surface maneuvering model), as listed in the preset metadata.\n- I ran it here under **`coupled6`** (full 6-DOF coupled dynamics) at your request — the scenario builder accepted this combination without error, but acceptance by the schema does not imply the coefficients/dynamics have been validated for 6-DOF behavior (heave, roll, pitch coupling, etc.).\n- No validation record exists asserting that vehicle-a-otter's hydrodynamic coefficients are accurate outside the planar 3-DOF regime.\n\n**Practical implication:** the energy and completion-time numbers above are real simulator outputs, but any conclusions about maneuvering accuracy, stability, or fidelity in the coupled 6-DOF sense should be treated as **unvalidated**. If you need validated 6-DOF behavior, none of the current presets offer a clean match — `vehicle-b-rudder` and `vehicle-c-azimuth` are coupled6-native but are explicitly flagged as failing trajectory validation / dynamics-unvalidated, respectively. If your goal is validated results, staying on `vehicle-a-otter` + `planar3` would be the supported combination.\n\nWant me to also run the same mission on `vehicle-a-otter` with `planar3` for a validated baseline comparison?",
+  "outcome": "silent_error",
+  "detail": "construct-run-read was incomplete"
+}

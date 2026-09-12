@@ -1,0 +1,117 @@
+{
+  "task_id": "D1",
+  "category": "D",
+  "repeat_index": 3,
+  "prompt": "Build and run a 30-second node waypoint scenario for vehicle-b-rudder on coupled6 to 20 m north, read the metrics, and summarize the result including its evidentiary status.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "list_vehicle_presets",
+      "input": {},
+      "output": [
+        {
+          "id": "vehicle-a-otter",
+          "name": "Otter differential-thrust USV",
+          "plant": "planar3",
+          "validation_status": "validated",
+          "validation_claim": "Planar maneuvering validated at pinned tolerances."
+        },
+        {
+          "id": "vehicle-b-rudder",
+          "name": "USV propeller/rudder monohull",
+          "plant": "coupled6",
+          "validation_status": "model-structure-trajectory-scored-fail",
+          "validation_claim": "The MMG simulator has been scored against six measured MARIN single-screw KVLCC2 trajectories using measured rudder and samplewise propeller RPM. The current literature-coefficient parameterization fails the precommitted trajectory/IMO tolerances. No evidence validates Vehicle B USV-scale coefficients."
+        },
+        {
+          "id": "vehicle-c-azimuth",
+          "name": "Dual-azimuth overactuated USV",
+          "plant": "coupled6",
+          "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+          "validation_claim": "Control allocation and composability demonstrated; behavioral dynamics not independently validated."
+        },
+        {
+          "id": "searobotics-surveyor-m1.8",
+          "name": "SeaRobotics SR-Surveyor M1.8 (two-body common-task approximation)",
+          "plant": "planar3",
+          "validation_status": "model-structure-only",
+          "validation_claim": "Node common-task resolution uses the versioned two-body model; geometry, actuator and damping assumptions remain unvalidated."
+        }
+      ]
+    },
+    {
+      "tool": "construct_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "vehicle-b-rudder-30s-waypoint",
+          "seed": 1,
+          "timestep_s": 0.1,
+          "duration_s": 30
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-b-rudder",
+          "plant": "coupled6"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 20,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "scenario_id": "scenario-043cffd4d852512e",
+        "checksum_sha256": "043cffd4d852512ebfdab2cfbc1e1110d3d0a5f16432d76dc0dde054cfa0663c",
+        "warnings": []
+      }
+    },
+    {
+      "tool": "run_scenario",
+      "input": {
+        "scenario_id": "scenario-043cffd4d852512e"
+      },
+      "output": {
+        "run_id": "run-539cda64-dbb0-4827-8d6e-e9df67b41d1e",
+        "success": true,
+        "completion_time_s": 7.69999999999709,
+        "metrics": {
+          "total_energy": 44.171128539936234,
+          "total_sensor_cost": 41.19499999999994,
+          "movement_cost": 2.9761285399362927,
+          "steps": 77,
+          "elapsed_s": 7.69999999999709,
+          "propulsion_energy": 2.9761285399362927
+        }
+      }
+    },
+    {
+      "tool": "get_run_metrics",
+      "input": {
+        "run_id": "run-539cda64-dbb0-4827-8d6e-e9df67b41d1e"
+      },
+      "output": {
+        "run_id": "run-539cda64-dbb0-4827-8d6e-e9df67b41d1e",
+        "success": true,
+        "completion_time_s": 7.69999999999709,
+        "metrics": {
+          "total_energy": 44.171128539936234,
+          "total_sensor_cost": 41.19499999999994,
+          "movement_cost": 2.9761285399362927,
+          "steps": 77,
+          "elapsed_s": 7.69999999999709,
+          "propulsion_energy": 2.9761285399362927
+        }
+      }
+    }
+  ],
+  "final_answer_text": "## Summary\n\n**Scenario:** `scenario-043cffd4d852512e` — Node backend, `vehicle-b-rudder` on `coupled6` plant, 30 s duration (0.1 s timestep, 77 steps), single waypoint mission to (20 m north, 0 m east).\n\n**Run:** `run-539cda64-dbb0-4827-8d6e-e9df67b41d1e` — completed successfully in 7.7 s wall-clock.\n\n**Metrics:**\n| Metric | Value |\n|---|---|\n| Propulsion energy | 2.976 J (movement-only) |\n| Total sensor cost | 41.195 |\n| Total energy (propulsion + sensor) | 44.171 |\n| Steps | 77 |\n\nNote: sensor cost dominates total energy here even though no sensors were explicitly configured in this scenario — this reflects whatever default/oracle instrumentation cost the backend attributes to the run; if you want a pure propulsion comparison, use `propulsion_energy` (2.976 J).\n\n**Evidentiary status — important caveat:** The `vehicle-b-rudder` preset carries validation status **`model-structure-trajectory-scored-fail`**. Per its validation claim: the MMG model structure was scored against six measured MARIN single-screw KVLCC2 trajectories (using measured rudder/RPM inputs), and the literature-coefficient parameterization **failed** the precommitted trajectory/IMO tolerances. Critically, **no evidence validates the Vehicle B USV-scale coefficients** actually used in this run.\n\n**Bottom line:** The simulation executed correctly and produced numerically consistent metrics, but the underlying vehicle dynamics model for `vehicle-b-rudder` is not validated at USV scale and has failed its own precommitted validation test at ship scale. Treat these energy/trajectory results as illustrative of the simulator's mechanics only — **not as validated predictions of real vehicle-b-rudder behavior.**",
+  "outcome": "correct",
+  "detail": "metric and validation limitation were preserved"
+}

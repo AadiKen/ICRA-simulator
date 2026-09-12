@@ -1,0 +1,626 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-gate-7-single-episode-unconstrained-dryrun",
+  "status": "COMPLETE",
+  "seed": 20000,
+  "execution": {
+    "requested_samples": 2400,
+    "disturbance_on_samples": 2400,
+    "disturbance_off_samples": 2400,
+    "paired_samples_scored": 2400,
+    "last_scored_time_s": 119.95,
+    "runtime_failure": null
+  },
+  "generation": {
+    "path": "prepare-vrx-episode.ts -> renderSurveyorVrxModel()",
+    "model_checks": {
+      "generated_added_mass_and_expected_damping": true,
+      "planar_lock_absent": true
+    },
+    "fluid_added_mass": {
+      "xx": 2.615,
+      "yy": 39.225,
+      "rr": 1.431297586666667
+    },
+    "simple_hydrodynamics_added_mass": {
+      "xDotU": 0,
+      "yDotV": 0,
+      "nDotR": 0
+    },
+    "simple_hydrodynamics_out_of_plane_damping": {
+      "zW": 365,
+      "kP": 40,
+      "mQ": 85
+    }
+  },
+  "telemetry_plausibility": {
+    "derived_bounds": {
+      "surge_force_bound_n": 140,
+      "surge_damping_equation": "18*u^2 + 6*u = 140",
+      "horizontal_speed_bound_mps": 2.627175769040035,
+      "yaw_moment_bound_nm": 46.2,
+      "yaw_damping_equation": "12*r^2 + 8*r = 46.2",
+      "yaw_rate_bound_rad_s": 1.6569206984704241
+    },
+    "raw_odometry_twist": {
+      "off": {
+        "samples": 2400,
+        "violation_count": 150,
+        "groups": [
+          {
+            "start_index": 0,
+            "end_index": 9,
+            "start_time_s": 0,
+            "end_time_s": 0.45,
+            "samples": 10
+          },
+          {
+            "start_index": 146,
+            "end_index": 155,
+            "start_time_s": 7.300000000000001,
+            "end_time_s": 7.75,
+            "samples": 10
+          },
+          {
+            "start_index": 269,
+            "end_index": 278,
+            "start_time_s": 13.450000000000001,
+            "end_time_s": 13.9,
+            "samples": 10
+          },
+          {
+            "start_index": 470,
+            "end_index": 479,
+            "start_time_s": 23.5,
+            "end_time_s": 23.950000000000003,
+            "samples": 10
+          },
+          {
+            "start_index": 633,
+            "end_index": 642,
+            "start_time_s": 31.650000000000002,
+            "end_time_s": 32.1,
+            "samples": 10
+          },
+          {
+            "start_index": 851,
+            "end_index": 860,
+            "start_time_s": 42.550000000000004,
+            "end_time_s": 43,
+            "samples": 10
+          },
+          {
+            "start_index": 1127,
+            "end_index": 1136,
+            "start_time_s": 56.35,
+            "end_time_s": 56.800000000000004,
+            "samples": 10
+          },
+          {
+            "start_index": 1366,
+            "end_index": 1375,
+            "start_time_s": 68.3,
+            "end_time_s": 68.75,
+            "samples": 10
+          },
+          {
+            "start_index": 1597,
+            "end_index": 1606,
+            "start_time_s": 79.85000000000001,
+            "end_time_s": 80.30000000000001,
+            "samples": 10
+          },
+          {
+            "start_index": 1743,
+            "end_index": 1752,
+            "start_time_s": 87.15,
+            "end_time_s": 87.60000000000001,
+            "samples": 10
+          },
+          {
+            "start_index": 1946,
+            "end_index": 1955,
+            "start_time_s": 97.30000000000001,
+            "end_time_s": 97.75,
+            "samples": 10
+          },
+          {
+            "start_index": 2056,
+            "end_index": 2065,
+            "start_time_s": 102.80000000000001,
+            "end_time_s": 103.25,
+            "samples": 10
+          },
+          {
+            "start_index": 2179,
+            "end_index": 2188,
+            "start_time_s": 108.95,
+            "end_time_s": 109.4,
+            "samples": 10
+          },
+          {
+            "start_index": 2274,
+            "end_index": 2283,
+            "start_time_s": 113.7,
+            "end_time_s": 114.15,
+            "samples": 10
+          },
+          {
+            "start_index": 2381,
+            "end_index": 2390,
+            "start_time_s": 119.05000000000001,
+            "end_time_s": 119.5,
+            "samples": 10
+          }
+        ],
+        "max_horizontal_speed_mps": 282864.2228774471,
+        "max_abs_yaw_rate_rad_s": 34.08823524622497
+      },
+      "on": {
+        "samples": 2400,
+        "violation_count": 161,
+        "groups": [
+          {
+            "start_index": 0,
+            "end_index": 9,
+            "start_time_s": 0,
+            "end_time_s": 0.45,
+            "samples": 10
+          },
+          {
+            "start_index": 98,
+            "end_index": 107,
+            "start_time_s": 4.9,
+            "end_time_s": 5.3500000000000005,
+            "samples": 10
+          },
+          {
+            "start_index": 243,
+            "end_index": 252,
+            "start_time_s": 12.15,
+            "end_time_s": 12.600000000000001,
+            "samples": 10
+          },
+          {
+            "start_index": 467,
+            "end_index": 476,
+            "start_time_s": 23.35,
+            "end_time_s": 23.8,
+            "samples": 10
+          },
+          {
+            "start_index": 632,
+            "end_index": 641,
+            "start_time_s": 31.6,
+            "end_time_s": 32.050000000000004,
+            "samples": 10
+          },
+          {
+            "start_index": 849,
+            "end_index": 858,
+            "start_time_s": 42.45,
+            "end_time_s": 42.900000000000006,
+            "samples": 10
+          },
+          {
+            "start_index": 1140,
+            "end_index": 1149,
+            "start_time_s": 57,
+            "end_time_s": 57.45,
+            "samples": 10
+          },
+          {
+            "start_index": 1314,
+            "end_index": 1336,
+            "start_time_s": 65.7,
+            "end_time_s": 66.8,
+            "samples": 23
+          },
+          {
+            "start_index": 1352,
+            "end_index": 1361,
+            "start_time_s": 67.60000000000001,
+            "end_time_s": 68.05,
+            "samples": 10
+          },
+          {
+            "start_index": 1605,
+            "end_index": 1614,
+            "start_time_s": 80.25,
+            "end_time_s": 80.7,
+            "samples": 10
+          },
+          {
+            "start_index": 1775,
+            "end_index": 1784,
+            "start_time_s": 88.75,
+            "end_time_s": 89.2,
+            "samples": 10
+          },
+          {
+            "start_index": 1923,
+            "end_index": 1932,
+            "start_time_s": 96.15,
+            "end_time_s": 96.60000000000001,
+            "samples": 10
+          },
+          {
+            "start_index": 2031,
+            "end_index": 2038,
+            "start_time_s": 101.55000000000001,
+            "end_time_s": 101.9,
+            "samples": 8
+          },
+          {
+            "start_index": 2053,
+            "end_index": 2062,
+            "start_time_s": 102.65,
+            "end_time_s": 103.10000000000001,
+            "samples": 10
+          },
+          {
+            "start_index": 2357,
+            "end_index": 2366,
+            "start_time_s": 117.85000000000001,
+            "end_time_s": 118.30000000000001,
+            "samples": 10
+          }
+        ],
+        "max_horizontal_speed_mps": 282864.23022422154,
+        "max_abs_yaw_rate_rad_s": 33.88848354230004
+      }
+    },
+    "cleaned_pose_derived_twist": {
+      "off": {
+        "samples": 2400,
+        "violation_count": 0,
+        "groups": [],
+        "max_horizontal_speed_mps": 1.5211630216660048,
+        "max_abs_yaw_rate_rad_s": 1.4205631460066215
+      },
+      "on": {
+        "samples": 2400,
+        "violation_count": 33,
+        "groups": [
+          {
+            "start_index": 1310,
+            "end_index": 1332,
+            "start_time_s": 65.5,
+            "end_time_s": 66.60000000000001,
+            "samples": 23
+          },
+          {
+            "start_index": 2026,
+            "end_index": 2035,
+            "start_time_s": 101.30000000000001,
+            "end_time_s": 101.75,
+            "samples": 10
+          }
+        ],
+        "max_horizontal_speed_mps": 2.9389365498566233,
+        "max_abs_yaw_rate_rad_s": 1.5678727711045148
+      }
+    },
+    "identified_mechanism": "Gazebo OdometryPublisher's ten-sample twist estimator differentiates the spawn teleport and wrapped yaw angles. The initial origin-to-reset discontinuity contaminates samples 0-9; each +/-pi yaw crossing contributes approximately 2*pi/(10*0.05)=12.566 rad/s for ten samples. Quaternion pose and IMU rates remain physical.",
+    "correction": "Planar u/v/r are reconstructed from consecutive position and quaternion-derived yaw samples, using a wrapped angular difference. No fixed sample exclusion is used."
+  },
+  "gate_7_tolerance": {
+    "kinematic_abs": 0.0001,
+    "environment_vector_relative": 0.3,
+    "environment_direction_deg": 15,
+    "component_sign_floor_m": 0.5
+  },
+  "kinematic_partial": {
+    "samples": 2400,
+    "per_state_max_abs": {
+      "N": 95.68307249853206,
+      "E": 123.50365071150372,
+      "yaw": 7.742705215784161,
+      "u": 4.839989624906423,
+      "v": 3.6082461409034288,
+      "r": 3.9034890975645267
+    },
+    "first_divergence_step": {
+      "N": 0,
+      "E": 0,
+      "yaw": 0,
+      "u": 0,
+      "v": 0,
+      "r": 0
+    },
+    "yaw_divergence_separate": true,
+    "velocity_all_samples": {
+      "u": {
+        "max_abs": 4.839989624906423,
+        "mean_abs": 1.673818368494658
+      },
+      "v": {
+        "max_abs": 3.6082461409034288,
+        "mean_abs": 1.2082622606529754
+      },
+      "r": {
+        "max_abs": 3.9034890975645267,
+        "mean_abs": 2.1334349395397414
+      }
+    },
+    "excluded_samples": 0
+  },
+  "calm_kinematic": {
+    "gate_metric": {
+      "samples": 2400,
+      "per_state_max_abs": {
+        "N": 12.074210518074324,
+        "E": 10.099627238967514,
+        "yaw": 7.6311821310317915,
+        "u": 0.8415194590222826,
+        "v": 0.45060526871069473,
+        "r": 0.6818153770867779
+      },
+      "first_divergence_step": {
+        "N": 1,
+        "E": 1,
+        "yaw": 1,
+        "u": 0,
+        "v": 0,
+        "r": 0
+      },
+      "yaw_divergence_separate": true
+    },
+    "all_samples": {
+      "N": {
+        "max_abs": 12.074210518074324,
+        "mean_abs": 9.339269595752263
+      },
+      "E": {
+        "max_abs": 10.099627238967514,
+        "mean_abs": 4.177634281540514
+      },
+      "yaw_wrapped": {
+        "max_abs": 1.5660701108474264,
+        "mean_abs": 0.4927657087306554
+      },
+      "u": {
+        "max_abs": 0.8415194590222826,
+        "mean_abs": 0.11627760682120412
+      },
+      "v": {
+        "max_abs": 0.45060526871069473,
+        "mean_abs": 0.07399999109956948
+      },
+      "r": {
+        "max_abs": 0.6818153770867779,
+        "mean_abs": 0.06862834976493039
+      }
+    },
+    "checkpoint_candidate_minus_reference": [
+      {
+        "checkpoint_s": 30,
+        "error": {
+          "N": -10.456132867415363,
+          "E": -2.950739166160929,
+          "yaw_wrapped": 0.5161819882161903,
+          "u": -0.10290471010423041,
+          "v": 0.043644185595577145,
+          "r": 0.004011505585256092
+        }
+      },
+      {
+        "checkpoint_s": 60,
+        "error": {
+          "N": -10.136954824643908,
+          "E": -4.726516743483444,
+          "yaw_wrapped": 0.45152635526740603,
+          "u": 0.048596652476000424,
+          "v": -0.08063498292258886,
+          "r": 0.14240552287676733
+        }
+      },
+      {
+        "checkpoint_s": 119.95,
+        "error": {
+          "N": -11.462029694155717,
+          "E": -10.099627238967514,
+          "yaw_wrapped": -0.1892610593901421,
+          "u": 0.08495158108731687,
+          "v": 0.015273446303626259,
+          "r": -0.00037407385039750496
+        }
+      }
+    ],
+    "pass": false
+  },
+  "calm_cross_simulator_conformance": {
+    "metric": "Each simulator's displacement from its own initial position, evaluated with Gate 7's 30% vector and 15 degree direction bounds.",
+    "checkpoints": [
+      {
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_displacement_ne_m": [
+          8.585727161171235,
+          9.886371750475519
+        ],
+        "vrx_displacement_ne_m": [
+          -1.8704552086292097,
+          6.935695363888954
+        ],
+        "node_magnitude_m": 13.094084820050382,
+        "vrx_magnitude_m": 7.183486122222194,
+        "relative_vector_divergence": 0.8297288949559057,
+        "direction_difference_deg": 56.065145514090325,
+        "pass": false
+      },
+      {
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_displacement_ne_m": [
+          6.7407328872777725,
+          8.877303466642843
+        ],
+        "vrx_displacement_ne_m": [
+          -3.3962714397512173,
+          4.150849502733763
+        ],
+        "node_magnitude_m": 11.146479116586418,
+        "vrx_magnitude_m": 5.36322769298628,
+        "relative_vector_divergence": 1.0034318110458034,
+        "direction_difference_deg": 76.5006207953176,
+        "pass": false
+      },
+      {
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_displacement_ne_m": [
+          5.557475682699078,
+          11.516448448795927
+        ],
+        "vrx_displacement_ne_m": [
+          -5.904603513841721,
+          1.416883989402777
+        ],
+        "node_magnitude_m": 12.787264009066432,
+        "vrx_magnitude_m": 6.072223883808792,
+        "relative_vector_divergence": 1.1946883139535918,
+        "direction_difference_deg": 102.2667875500562,
+        "pass": false
+      }
+    ],
+    "tolerance": {
+      "relative_vector": 0.3,
+      "direction_deg": 15
+    },
+    "note": "Superseded for calm looping trajectories: displacement from the initial point is phase-sensitive and is retained only for historical comparison."
+  },
+  "calm_path_conformance": {
+    "metric_choice": "Nearest distance from every VRX sample to the full Node path; this measures loop geometry without treating phase around the loop as radial divergence. Synchronous along/cross-track errors are retained separately.",
+    "purpose": "Calm absolute trajectory",
+    "samples": 2400,
+    "node_path_length_m": 77.6625144037909,
+    "nearest_node_path_error_m": {
+      "mean": 4.875568406711891,
+      "rms": 5.337477186169305,
+      "max": 8.167318279218769
+    },
+    "synchronous_position_error_m": {
+      "mean": 10.368176814345452,
+      "rms": 10.947969984858066,
+      "max": 15.276799241850433
+    },
+    "synchronous_along_track_error_m": {
+      "rms": 7.767678223187125,
+      "max_abs": 15.273622127541453
+    },
+    "synchronous_cross_track_error_m": {
+      "rms": 7.71499979328434,
+      "max_abs": 15.141915745445914
+    }
+  },
+  "environment_response": {
+    "available": [
+      {
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          -15.95966770456107,
+          44.560051100203054
+        ],
+        "vrx_environment_displacement_ne_m": [
+          -34.28193215636202,
+          18.238377724017482
+        ],
+        "node_magnitude_m": 47.3319041164912,
+        "vrx_magnitude_m": 38.83155024432253,
+        "magnitude_divergence": 0.1795903636424171,
+        "relative_vector_divergence": 0.6775724569423217,
+        "direction_difference_deg": 42.280976573156074,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "checkpoint_s": 60,
+        "sample_index": 1200,
+        "node_environment_displacement_ne_m": [
+          -24.54645863179576,
+          102.0739689731472
+        ],
+        "vrx_environment_displacement_ne_m": [
+          -68.50864504865422,
+          47.79354233352751
+        ],
+        "node_magnitude_m": 104.9839214989299,
+        "vrx_magnitude_m": 83.5323717799823,
+        "magnitude_divergence": 0.2043317625467654,
+        "relative_vector_divergence": 0.6653410722030338,
+        "direction_difference_deg": 41.57771604702159,
+        "component_sign_consistent": true,
+        "pass": false
+      },
+      {
+        "checkpoint_s": 119.95,
+        "sample_index": 2399,
+        "node_environment_displacement_ne_m": [
+          -47.0352280332354,
+          215.54266281592209
+        ],
+        "vrx_environment_displacement_ne_m": [
+          -131.25627083761174,
+          102.13863934338588
+        ],
+        "node_magnitude_m": 220.6149409489682,
+        "vrx_magnitude_m": 166.31449209589266,
+        "magnitude_divergence": 0.24613223664500639,
+        "relative_vector_divergence": 0.6402894196954309,
+        "direction_difference_deg": 39.80132382720471,
+        "component_sign_consistent": true,
+        "pass": false
+      }
+    ],
+    "unavailable": [],
+    "path_conformance": {
+      "metric_choice": "Nearest distance from every VRX sample to the full Node path; this measures loop geometry without treating phase around the loop as radial divergence. Synchronous along/cross-track errors are retained separately.",
+      "purpose": "Environmental response trajectory (disturbed minus calm within each simulator)",
+      "samples": 2400,
+      "node_path_length_m": 234.43116208927455,
+      "nearest_node_path_error_m": {
+        "mean": 50.508773777550026,
+        "rms": 59.19661255424701,
+        "max": 103.39200000906058
+      },
+      "synchronous_position_error_m": {
+        "mean": 69.97804332884512,
+        "rms": 81.89116151343842,
+        "max": 141.2574125163566
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 58.960389855168614,
+        "max_abs": 133.7519612635594
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 56.831635223232695,
+        "max_abs": 133.59573140927512
+      }
+    },
+    "tolerance_review": {
+      "existing_tolerance_applicable_to_path_metric": false,
+      "existing_definition": "At each checkpoint, relative difference between environmental displacement vectors <= 30%, direction difference <= 15 degrees, with component-sign consistency.",
+      "review_question": "Define a path-metric acceptance bound before assigning pass/fail. It must specify the normalization/reference scale for nearest-path, synchronous along-track, and synchronous cross-track errors (for example, reference path length or another preregistered physical scale). No equivalent percentage or angle threshold is inferred here.",
+      "decision": "UNASSIGNED_PENDING_REVIEW"
+    },
+    "prior_gate_7_comparison": {
+      "campaign_maximum_relative_vector_divergence": 5.74690862561023,
+      "campaign_maximum_direction_difference_deg": 77.6830711959181,
+      "seed_20000_at_30_s": {
+        "relative_vector_divergence": 0.7553254839370167,
+        "direction_difference_deg": 36.553325595791584
+      },
+      "seed_20000_at_30_s_change": {
+        "relative_vector_divergence": -0.077753026994695,
+        "direction_difference_deg": 5.72765097736449
+      }
+    }
+  },
+  "conclusion": {
+    "single_seed_result": "FAIL",
+    "reason": "The episode completed, but at least one environmental checkpoint fails tolerance."
+  },
+  "comparison_note": "The calm path metric is authoritative for this looping trajectory. Disturbed checkpoint divergence decreases across this run (67.76% to 66.53% to 64.03%; direction 42.28 to 41.58 to 39.80 deg) and must not be described as growing unbounded."
+}

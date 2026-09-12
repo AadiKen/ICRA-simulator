@@ -1,0 +1,29 @@
+{
+  "gate": "Gate 1 current-only representability",
+  "arm": "stonefish",
+  "status": "pass",
+  "checked_at": "2026-09-11",
+  "native_runtime": {
+    "engine": "Stonefish 1.6",
+    "host": "codenimbus-000-3.csl.illinois.edu",
+    "mechanism": "sf::Uniform water velocity field registered with Ocean::AddVelocityField and enabled with Ocean::EnableCurrents",
+    "coordinate_frame": "NED world frame"
+  },
+  "probe": {
+    "seed": 42000,
+    "duration_s": 2.0,
+    "commanded_thrusters": [0.0, 0.0],
+    "reported_thruster_thrust_n": [0.0, 0.0],
+    "calm": {
+      "requested_current_ned_mps": [0.0, 0.0, 0.0],
+      "displacement_ned_m": [-0.002420877741229446, 0.00032261690203888983],
+      "horizontal_displacement_m": 0.002442278049814026
+    },
+    "candidate_max_current": {
+      "requested_current_ned_mps": [0.45, 0.0, 0.0],
+      "displacement_ned_m": [0.6632037010158496, 0.0003126490237255763],
+      "horizontal_displacement_m": 0.6632037747115325
+    }
+  },
+  "conclusion": "The native hull responds to the requested current independently of actuator thrust; Stonefish current representability passes."
+}

@@ -12,8 +12,8 @@ import numpy as np
 
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / "packages/python-client/bcod_sim"))
-from holoocean_vehicle_a_env import HoloOceanVehicleAEnv
+sys.path.insert(0, str(ROOT / "packages/python-client"))
+from bcod_sim.holoocean_vehicle_a_env import HoloOceanVehicleAEnv
 
 
 SEED = 7319

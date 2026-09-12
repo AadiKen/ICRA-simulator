@@ -38,6 +38,9 @@ protected:
             sf::Scalar initial_north = 0.0;
             sf::Scalar initial_east = 0.0;
             sf::Scalar initial_yaw = 0.0;
+            sf::Scalar current_north = 0.0;
+            sf::Scalar current_east = 0.0;
+            sf::Scalar current_down = 0.0;
             if (!(command >> seed)) {
                 ReplyError("RESET requires an unsigned seed");
                 return;
@@ -50,11 +53,13 @@ protected:
                 return;
             }
             if (command >> initial_north >> initial_east >> initial_yaw) {}
+            if (command >> current_north >> current_east >> current_down) {}
             if (getState() == sf::SimulationState::RUNNING) StopSimulation();
             sf::Sensor::SetRandomSeed(seed);
             manager_->SetGpsHeight(gps_z);
             manager_->SetScenarioMode(scenario);
             manager_->SetInitialPose(initial_north, initial_east, initial_yaw);
+            manager_->SetOceanCurrent(current_north, current_east, current_down);
             manager_->RestartScenario();
             StartSimulation();
             Reply("reset", 0);

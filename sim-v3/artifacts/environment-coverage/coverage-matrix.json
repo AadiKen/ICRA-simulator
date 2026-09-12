@@ -4,6 +4,7 @@
   "generated_at": "2026-08-24T12:00:00.000Z",
   "methodology": {
     "coverage": "deterministic injected transports/catalogs exercising production adapters; not a live-provider availability benchmark",
+    "bathymetry_cascade": "Exercises cascade selection with injected catalog records. eHydro, lidar, CUDEM, and Estuarine DEM do not have live acquisition adapters here and remain future work.",
     "latency": "wall-clock adapter retrieval/parse/cascade latency on local injected fixtures",
     "timestamps": [
       "2026-01-15T12:00:00.000Z",
@@ -44,15 +45,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 3.97,
+      "retrieval_latency_ms": 2.051,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NDBC-standard-meteorological",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.400Z",
+        "retrieval_date": "2026-09-09T20:30:42.364Z",
         "native_grid_cell": "ndbc-san-francisco"
       },
-      "artifact_checksum_sha256": "eef269504ad04151102f05b6683adafa645ea5cc7636928f7075d8bc1208f50f",
+      "artifact_checksum_sha256": "02745fa4eee7340d852171591f4a13b66ad316532b5636e59d08e89037b653eb",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -69,15 +70,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.153,
+      "retrieval_latency_ms": 0.185,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NDBC-standard-meteorological",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.410Z",
+        "retrieval_date": "2026-09-09T20:30:42.375Z",
         "native_grid_cell": "ndbc-san-francisco"
       },
-      "artifact_checksum_sha256": "429f2002374612e0b051b5e25c74d8f9d13bae8057f7e855fc5e6a332524796d",
+      "artifact_checksum_sha256": "a021de3a31511a1d52fac25b4a06b558cabd745728f23781d2c528b0aa60c0f3",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -94,15 +95,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.101,
+      "retrieval_latency_ms": 0.056,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NDBC-standard-meteorological",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.410Z",
+        "retrieval_date": "2026-09-09T20:30:42.375Z",
         "native_grid_cell": "ndbc-honolulu"
       },
-      "artifact_checksum_sha256": "1a3be403d3a592986fe241f6cb63a73ce20d2db47c256cbc4f26f65b4da0ea95",
+      "artifact_checksum_sha256": "bc19b8fb97b856fe062e7fc758080c0402d70553022279e64136f1cf210d10e2",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -119,15 +120,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.091,
+      "retrieval_latency_ms": 0.065,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NDBC-standard-meteorological",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.411Z",
+        "retrieval_date": "2026-09-09T20:30:42.375Z",
         "native_grid_cell": "ndbc-honolulu"
       },
-      "artifact_checksum_sha256": "d35e850040bcbedef6e734eef8c366a503f08f94b315c4cfb0f6cfe4a0eb6fea",
+      "artifact_checksum_sha256": "08a817c99ef4cdda0f6a9fa7cef058bf621721e7173a795ed2af8f43dbe6382b",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -144,15 +145,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.075,
+      "retrieval_latency_ms": 0.067,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NDBC-standard-meteorological",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.411Z",
+        "retrieval_date": "2026-09-09T20:30:42.376Z",
         "native_grid_cell": "ndbc-miami"
       },
-      "artifact_checksum_sha256": "4c5de3a99b53bb5ffb56ad5dc6904018553f221ec78ae5a59bbcf2d114d6be30",
+      "artifact_checksum_sha256": "b45cd2c24166921b0f0b8874b74130f407a2177a8d1c3e7ab87747f6624af551",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -169,15 +170,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.053,
+      "retrieval_latency_ms": 0.045,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NDBC-standard-meteorological",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.411Z",
+        "retrieval_date": "2026-09-09T20:30:42.376Z",
         "native_grid_cell": "ndbc-miami"
       },
-      "artifact_checksum_sha256": "9ed0f2f26442a4875d1e9123b3e933603e663870ed56cd55f7a87a695155efc1",
+      "artifact_checksum_sha256": "c82da459245f2566c281f86c24d0698a3ee2ab499dfb0537891f811d9bf193c9",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -194,15 +195,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.037,
+      "retrieval_latency_ms": 0.114,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NDBC-standard-meteorological",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.411Z",
+        "retrieval_date": "2026-09-09T20:30:42.376Z",
         "native_grid_cell": "ndbc-boston"
       },
-      "artifact_checksum_sha256": "9db211b42824f202ba59c487ba2ea46e0e638ee31ba8655e43d29d78c02d5100",
+      "artifact_checksum_sha256": "c09fc65d2155f1a3a0b3d4e2795d3389e0dcab01a33a1d12e608259f38d2cda9",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -219,15 +220,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.233,
+      "retrieval_latency_ms": 0.064,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NDBC-standard-meteorological",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.411Z",
+        "retrieval_date": "2026-09-09T20:30:42.376Z",
         "native_grid_cell": "ndbc-boston"
       },
-      "artifact_checksum_sha256": "acfa521478d8296ac1f0ced1d9ee0ce9a53e025f98271e7122377ea4969e4c95",
+      "artifact_checksum_sha256": "5b27b6ff44e5defda518b978f146ed663230dfaee686a2bc3131f37ffd0f1a3e",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -244,15 +245,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.218,
+      "retrieval_latency_ms": 0.167,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "CO-OPS-water-level",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.412Z",
+        "retrieval_date": "2026-09-09T20:30:42.376Z",
         "native_grid_cell": "coops-san-francisco"
       },
-      "artifact_checksum_sha256": "1e72ce9819202a41748b5c382e3ecbbbaa9576fd05667125398768ac158a23fc",
+      "artifact_checksum_sha256": "3604cb887edddd499810c1cc942e2f79551f8a470582ebb63d1fecbd509aa24d",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -269,15 +270,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.044,
+      "retrieval_latency_ms": 0.026,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "CO-OPS-water-level",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.412Z",
+        "retrieval_date": "2026-09-09T20:30:42.376Z",
         "native_grid_cell": "coops-san-francisco"
       },
-      "artifact_checksum_sha256": "cd3207e755ec7716afa3331cb262bc88e47cd8e60845b2781def28b176341613",
+      "artifact_checksum_sha256": "1b8522919621c529a1f4c53c5ca0ad7570bf72043d6bc16809865fdcec0119e5",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -294,15 +295,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.034,
+      "retrieval_latency_ms": 0.019,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "CO-OPS-water-level",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.412Z",
+        "retrieval_date": "2026-09-09T20:30:42.376Z",
         "native_grid_cell": "coops-honolulu"
       },
-      "artifact_checksum_sha256": "e85c632618c515b79d77ee274532128669c7c53afaefa064c275cbfc9397984b",
+      "artifact_checksum_sha256": "46af73e522d78681aece234025c833a54a973d3c54e50f4b5e17d70860d5089c",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -319,15 +320,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.028,
+      "retrieval_latency_ms": 0.041,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "CO-OPS-water-level",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.412Z",
+        "retrieval_date": "2026-09-09T20:30:42.376Z",
         "native_grid_cell": "coops-honolulu"
       },
-      "artifact_checksum_sha256": "5eb619d3d3cc5bbb3f5b3171fb22e6e650c40a7fc8e7a9a7f757e67aeaef0c2b",
+      "artifact_checksum_sha256": "e4d3f3c737cc169acb13e3aebfbf585a18a8f0191671792b999b07b10fd31812",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -344,15 +345,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.016,
+      "retrieval_latency_ms": 0.318,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "CO-OPS-water-level",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.412Z",
+        "retrieval_date": "2026-09-09T20:30:42.377Z",
         "native_grid_cell": "coops-miami"
       },
-      "artifact_checksum_sha256": "11da6c02de3587c62ab7deb624dc1c0e318e6543c920eae892ceb60dce8ac988",
+      "artifact_checksum_sha256": "6f7f59fbf46cf9d99a0d1c2af533f99bc6f6a4c444de1e2de41b07c902dc133e",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -369,15 +370,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.015,
+      "retrieval_latency_ms": 0.199,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "CO-OPS-water-level",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.412Z",
+        "retrieval_date": "2026-09-09T20:30:42.377Z",
         "native_grid_cell": "coops-miami"
       },
-      "artifact_checksum_sha256": "6c0ee675fba4cfb959efeeddf73dd78e2721d22452ceb1e4e215c286cd064821",
+      "artifact_checksum_sha256": "478413f4dc5c02b5b5893871bc15a904f6c9fa553a58a41ccb722b5f085062af",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -394,15 +395,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.014,
+      "retrieval_latency_ms": 0.052,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "CO-OPS-water-level",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.412Z",
+        "retrieval_date": "2026-09-09T20:30:42.378Z",
         "native_grid_cell": "coops-boston"
       },
-      "artifact_checksum_sha256": "c712cd2be405ec4b7bf9118e44a261b203024401ade099fb9ef171a6bbbab7ea",
+      "artifact_checksum_sha256": "6fa9c2fe880824b469f89b37d64c12c7c3845151a0440ab18e1705921e715d4c",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -419,15 +420,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.016,
+      "retrieval_latency_ms": 0.019,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "CO-OPS-water-level",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.412Z",
+        "retrieval_date": "2026-09-09T20:30:42.378Z",
         "native_grid_cell": "coops-boston"
       },
-      "artifact_checksum_sha256": "6065dd14f6f9149d32fe016987af6414855a5e236fa937c6591ba26549233ce4",
+      "artifact_checksum_sha256": "25d195b84cee1ec6872b9226a2db648f82a33f1db7505a1e0da7559c48c75964",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -444,15 +445,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.175,
+      "retrieval_latency_ms": 0.272,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NWS-forecast-grid-data",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.412Z",
+        "retrieval_date": "2026-09-09T20:30:42.378Z",
         "native_grid_cell": "GRID-san-francisco/12,34"
       },
-      "artifact_checksum_sha256": "cea3acc91dcabba405b2669b6184598450a47a73320a1d4b77be6f2e42685da3",
+      "artifact_checksum_sha256": "466cc19ed4bb4264ac069c9aa80e0433df7b650b6a7eaedf18c4fef6c5ae2b67",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -469,15 +470,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.032,
+      "retrieval_latency_ms": 0.039,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NWS-forecast-grid-data",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.413Z",
+        "retrieval_date": "2026-09-09T20:30:42.378Z",
         "native_grid_cell": "GRID-san-francisco/12,34"
       },
-      "artifact_checksum_sha256": "e52c360555428d0b5af6cfe57a483d002b07a5981010a5be5edfe159d09095f9",
+      "artifact_checksum_sha256": "3b872f9eaa8d3834992de2be5d4c2c27ab835485f9b8d9d0ff972abd6584e41e",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -494,15 +495,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.021,
+      "retrieval_latency_ms": 0.027,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NWS-forecast-grid-data",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.413Z",
+        "retrieval_date": "2026-09-09T20:30:42.378Z",
         "native_grid_cell": "GRID-honolulu/12,34"
       },
-      "artifact_checksum_sha256": "80dc3668a9d468cc559c404397d5ea1936be58d6664bad7fac26de4485c73d1b",
+      "artifact_checksum_sha256": "d39e816d920e7f3abcf6eff715463f5b0a7d395d36ff13a035f2f0e286c27d95",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -524,10 +525,10 @@
       "provenance": {
         "dataset_id": "NWS-forecast-grid-data",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.413Z",
+        "retrieval_date": "2026-09-09T20:30:42.378Z",
         "native_grid_cell": "GRID-honolulu/12,34"
       },
-      "artifact_checksum_sha256": "7b5ea3ba19c21a1670589c9e831c235b19286fff97bf65f7f24af69d655e1da0",
+      "artifact_checksum_sha256": "d55812f8e53c8982edafa9ec1dd273fb56f645da5ad7e959c53487d86a604eeb",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -544,15 +545,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.016,
+      "retrieval_latency_ms": 0.017,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NWS-forecast-grid-data",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.413Z",
+        "retrieval_date": "2026-09-09T20:30:42.378Z",
         "native_grid_cell": "GRID-miami/12,34"
       },
-      "artifact_checksum_sha256": "0397230648c9dae950522fdee524d4c76c7a926c1087813bc029e8db71f2c98a",
+      "artifact_checksum_sha256": "641b9034c16f2e18693e5c5eab9d3b0dc312cf193e4e3be84c37de9816be94ca",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -574,10 +575,10 @@
       "provenance": {
         "dataset_id": "NWS-forecast-grid-data",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.413Z",
+        "retrieval_date": "2026-09-09T20:30:42.378Z",
         "native_grid_cell": "GRID-miami/12,34"
       },
-      "artifact_checksum_sha256": "fd13839057b8e52b8916269c12ae7474dbe512abda266226efd0317a3170c572",
+      "artifact_checksum_sha256": "3a01ac4ee4b0930a64bc08dd2dd4d6f46852621e70c5a4f10a5db4a97770d445",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -594,15 +595,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.016,
+      "retrieval_latency_ms": 0.023,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "NWS-forecast-grid-data",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.413Z",
+        "retrieval_date": "2026-09-09T20:30:42.378Z",
         "native_grid_cell": "GRID-boston/12,34"
       },
-      "artifact_checksum_sha256": "cf6ad5d0694acedbd6207eba32b7de77c40ba951c044a7ddb78a033ba5d5bbfc",
+      "artifact_checksum_sha256": "c92fc79a0ddbd2f0e807b75cb421383a5aa625faf796143c1890f867683572e9",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -624,10 +625,10 @@
       "provenance": {
         "dataset_id": "NWS-forecast-grid-data",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.413Z",
+        "retrieval_date": "2026-09-09T20:30:42.378Z",
         "native_grid_cell": "GRID-boston/12,34"
       },
-      "artifact_checksum_sha256": "250b46a4824b864cca52f7ac3876a5d489534131084e43d8e10614655d73de92",
+      "artifact_checksum_sha256": "14ec6037e318d5186fa8ecb8565472bd33bf87b8fa69b4747771d11ef99306de",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises production adapter parsing/composition boundary; does not measure public-provider network availability."
@@ -644,15 +645,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 24.298,
+      "retrieval_latency_ms": 24.467,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "RTOFS-global-2D",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.490Z",
+        "retrieval_date": "2026-09-09T20:30:42.465Z",
         "native_grid_cell": "rtofs:Y1,X1@37.806000,-122.464996"
       },
-      "artifact_checksum_sha256": "f12cb9cfe8174418f4a86e80b274f72a5695c60c7e42d8ae4a1e2dea6da2a0d0",
+      "artifact_checksum_sha256": "6fc4a8e6498d6ab431055a55d31db589c097b35b401a252acf9dad37e73d6756",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
@@ -669,15 +670,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 1.449,
+      "retrieval_latency_ms": 1.444,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "RTOFS-global-2D",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.493Z",
+        "retrieval_date": "2026-09-09T20:30:42.467Z",
         "native_grid_cell": "rtofs:Y1,X1@37.806000,-122.464996"
       },
-      "artifact_checksum_sha256": "f6afd48caa9c6a54857a92120f4c56dc737b0366b401edfaa3f3a9763a9e40cf",
+      "artifact_checksum_sha256": "7cd583df92d92a17cdfe259a49e4531025169d1c0c2c5428c8d0a06732b39a92",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
@@ -694,15 +695,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 1.088,
+      "retrieval_latency_ms": 2.712,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "RTOFS-global-2D",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.494Z",
+        "retrieval_date": "2026-09-09T20:30:42.471Z",
         "native_grid_cell": "rtofs:Y1,X1@21.289000,-157.865005"
       },
-      "artifact_checksum_sha256": "ecf8ce29335a15607050794c8c2bd3a952a41c11e840eca78e0bfbd1a2ecb7e2",
+      "artifact_checksum_sha256": "aadf3bb400fd0403f6a0dcbcfc457d1a73c9420cf88de82f3dab575ffb34f7f7",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
@@ -719,15 +720,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 1.058,
+      "retrieval_latency_ms": 1.332,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "RTOFS-global-2D",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.496Z",
+        "retrieval_date": "2026-09-09T20:30:42.475Z",
         "native_grid_cell": "rtofs:Y1,X1@21.289000,-157.865005"
       },
-      "artifact_checksum_sha256": "a64c232e5501dc2938b1197e911d382668b71e6dcce47d0c2fe7e1c2e6b8cdfc",
+      "artifact_checksum_sha256": "b0a2c91a3c447f0137b7bcf0c2163f28782df98226f9ad9613b20665b874ba6f",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
@@ -744,15 +745,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 2.464,
+      "retrieval_latency_ms": 1.426,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "RTOFS-global-2D",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.499Z",
+        "retrieval_date": "2026-09-09T20:30:42.479Z",
         "native_grid_cell": "rtofs:Y1,X1@25.731001,-80.162003"
       },
-      "artifact_checksum_sha256": "bb258f4f5227ce736187710b1c59b86ccf0864f1f4efbc833a735998aacec420",
+      "artifact_checksum_sha256": "fb83a8e74a271aed7d72839c82c6e588ffb8c6929363d76e4e766e882a597b63",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
@@ -769,15 +770,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 1.014,
+      "retrieval_latency_ms": 1.19,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "RTOFS-global-2D",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.501Z",
+        "retrieval_date": "2026-09-09T20:30:42.481Z",
         "native_grid_cell": "rtofs:Y1,X1@25.731001,-80.162003"
       },
-      "artifact_checksum_sha256": "da869811a9b27e24a911b02d32a61ab11e1a550e73737c8d3e98dde78251ce06",
+      "artifact_checksum_sha256": "afebd620366dd1be21ad980e23d84744eea52e82bfc15ff1e03dc986baab3225",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
@@ -794,15 +795,15 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 2.779,
+      "retrieval_latency_ms": 3.168,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "RTOFS-global-2D",
         "timestamp": "2026-01-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.505Z",
+        "retrieval_date": "2026-09-09T20:30:42.485Z",
         "native_grid_cell": "rtofs:Y1,X1@42.354000,-70.988998"
       },
-      "artifact_checksum_sha256": "499efaf46293a36c65d9377bd4a19d510ee314aecf767c4dacd5e09245eae76b",
+      "artifact_checksum_sha256": "690a5ac9e93142fa27e9dc88aef54649139d423ffeda21f8ea969731baf449f2",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
@@ -819,15 +820,15 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 1.088,
+      "retrieval_latency_ms": 1.074,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "RTOFS-global-2D",
         "timestamp": "2026-07-15T12:00:00.000Z",
-        "retrieval_date": "2026-09-07T08:12:03.507Z",
+        "retrieval_date": "2026-09-09T20:30:42.488Z",
         "native_grid_cell": "rtofs:Y1,X1@42.354000,-70.988998"
       },
-      "artifact_checksum_sha256": "35dc65bf0735d28e1e977abc7967213ba2e50d9f0af673891912a5a1662a43d1",
+      "artifact_checksum_sha256": "1366a8998807d41c999b66d89250bd0b31541fca96898ac062488fabfee851a8",
       "methodology": "measured-deterministic-injected-transport",
       "notes": [
         "Exercises the production NetCDF4/HDF5 binary decoder against a real-schema fixture."
@@ -844,7 +845,7 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.393,
+      "retrieval_latency_ms": 0.401,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "reanalysis-era5-single-levels",
@@ -919,7 +920,7 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.028,
+      "retrieval_latency_ms": 0.026,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "reanalysis-era5-single-levels",
@@ -1044,7 +1045,7 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 1.309,
+      "retrieval_latency_ms": 0.556,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "ehydro-san-francisco",
@@ -1069,7 +1070,7 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.097,
+      "retrieval_latency_ms": 0.089,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "lidar-san-francisco",
@@ -1094,7 +1095,7 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.083,
+      "retrieval_latency_ms": 0.082,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "estuarine_dem-honolulu",
@@ -1119,7 +1120,7 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.067,
+      "retrieval_latency_ms": 0.063,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "cudem-honolulu",
@@ -1144,7 +1145,7 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.104,
+      "retrieval_latency_ms": 0.094,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "GEBCO_2026",
@@ -1195,7 +1196,7 @@
       },
       "timestamp": "2026-01-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.051,
+      "retrieval_latency_ms": 0.048,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "lidar-boston",
@@ -1220,7 +1221,7 @@
       },
       "timestamp": "2026-07-15T12:00:00.000Z",
       "success": true,
-      "retrieval_latency_ms": 0.044,
+      "retrieval_latency_ms": 0.045,
       "provenance_complete": true,
       "provenance": {
         "dataset_id": "estuarine_dem-boston",
@@ -1235,76 +1236,86 @@
       ]
     }
   ],
-  "bathymetry_overlap_agreement": [
+  "bathymetry_fixture_differences": [
     {
       "reference_source": "ehydro",
       "candidate_source": "lidar",
       "n": 2,
-      "bias_m": 0.3999999999999986,
-      "rmse_m": 0.3999999999999986
+      "mean_fixture_difference_m": 0.3999999999999986,
+      "rms_fixture_difference_m": 0.3999999999999986,
+      "evidence_class": "synthetic fixture diagnostic; not measured bathymetry agreement"
     },
     {
       "reference_source": "ehydro",
       "candidate_source": "estuarine_dem",
       "n": 2,
-      "bias_m": 0.8000000000000007,
-      "rmse_m": 0.8000000000000007
+      "mean_fixture_difference_m": 0.8000000000000007,
+      "rms_fixture_difference_m": 0.8000000000000007,
+      "evidence_class": "synthetic fixture diagnostic; not measured bathymetry agreement"
     },
     {
       "reference_source": "ehydro",
       "candidate_source": "cudem",
       "n": 2,
-      "bias_m": 1.1999999999999993,
-      "rmse_m": 1.1999999999999993
+      "mean_fixture_difference_m": 1.1999999999999993,
+      "rms_fixture_difference_m": 1.1999999999999993,
+      "evidence_class": "synthetic fixture diagnostic; not measured bathymetry agreement"
     },
     {
       "reference_source": "ehydro",
       "candidate_source": "gebco",
       "n": 2,
-      "bias_m": 1.6000000000000014,
-      "rmse_m": 1.6000000000000014
+      "mean_fixture_difference_m": 1.6000000000000014,
+      "rms_fixture_difference_m": 1.6000000000000014,
+      "evidence_class": "synthetic fixture diagnostic; not measured bathymetry agreement"
     },
     {
       "reference_source": "lidar",
       "candidate_source": "estuarine_dem",
       "n": 2,
-      "bias_m": 0.3999999999999986,
-      "rmse_m": 0.3999999999999986
+      "mean_fixture_difference_m": 0.3999999999999986,
+      "rms_fixture_difference_m": 0.3999999999999986,
+      "evidence_class": "synthetic fixture diagnostic; not measured bathymetry agreement"
     },
     {
       "reference_source": "lidar",
       "candidate_source": "cudem",
       "n": 2,
-      "bias_m": 0.8000000000000007,
-      "rmse_m": 0.8000000000000007
+      "mean_fixture_difference_m": 0.8000000000000007,
+      "rms_fixture_difference_m": 0.8000000000000007,
+      "evidence_class": "synthetic fixture diagnostic; not measured bathymetry agreement"
     },
     {
       "reference_source": "lidar",
       "candidate_source": "gebco",
       "n": 2,
-      "bias_m": 1.1999999999999993,
-      "rmse_m": 1.1999999999999993
+      "mean_fixture_difference_m": 1.1999999999999993,
+      "rms_fixture_difference_m": 1.1999999999999993,
+      "evidence_class": "synthetic fixture diagnostic; not measured bathymetry agreement"
     },
     {
       "reference_source": "estuarine_dem",
       "candidate_source": "cudem",
       "n": 2,
-      "bias_m": 0.3999999999999986,
-      "rmse_m": 0.3999999999999986
+      "mean_fixture_difference_m": 0.3999999999999986,
+      "rms_fixture_difference_m": 0.3999999999999986,
+      "evidence_class": "synthetic fixture diagnostic; not measured bathymetry agreement"
     },
     {
       "reference_source": "estuarine_dem",
       "candidate_source": "gebco",
       "n": 2,
-      "bias_m": 0.7999999999999989,
-      "rmse_m": 0.7999999999999989
+      "mean_fixture_difference_m": 0.7999999999999989,
+      "rms_fixture_difference_m": 0.7999999999999989,
+      "evidence_class": "synthetic fixture diagnostic; not measured bathymetry agreement"
     },
     {
       "reference_source": "cudem",
       "candidate_source": "gebco",
       "n": 1,
-      "bias_m": 0.3999999999999986,
-      "rmse_m": 0.3999999999999986
+      "mean_fixture_difference_m": 0.3999999999999986,
+      "rms_fixture_difference_m": 0.3999999999999986,
+      "evidence_class": "synthetic fixture diagnostic; not measured bathymetry agreement"
     }
   ],
   "failure_injection": [
@@ -1577,6 +1588,15 @@
       "bad_data_reached_simulator": false,
       "error": "malformed payload rejected",
       "artifact_checksum_sha256": "9e594d95d07ffe3e4f565969c622a11a3be80d9e28126244603e5acbcba70a63"
+    },
+    {
+      "source": "ndbc",
+      "fault": "sentinel_only_payload",
+      "pass": true,
+      "visible_failure": true,
+      "bad_data_reached_simulator": false,
+      "error": "well-formed poisoned values converted to explicit no-data",
+      "artifact_checksum_sha256": "56118c5d76cf60c1a100d7aba79229180c0820fd1b51cecbeb4d39e2478d13d1"
     }
   ],
   "credential_leak_scan": {
@@ -1588,8 +1608,8 @@
   "summary": {
     "coverage_cells": 48,
     "coverage_passed": 48,
-    "failure_cells": 30,
-    "failure_injection_passed": 30,
+    "failure_cells": 31,
+    "failure_injection_passed": 31,
     "credential_scan_passed": true
   }
 }

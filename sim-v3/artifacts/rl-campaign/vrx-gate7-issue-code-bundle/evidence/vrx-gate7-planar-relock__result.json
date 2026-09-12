@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-gate-7-planar-relock-diagnostic",
+  "status": "COMPLETE",
+  "production_change": false,
+  "seed": 20000,
+  "configuration": {
+    "open_loop": true,
+    "environment": "calm",
+    "planar_constraint": "joint chain planar_x -> planar_y -> planar_yaw",
+    "corrected_added_mass": {
+      "xx": 2.615,
+      "yy": 39.224999999999994,
+      "rr": 1.431297586666667
+    },
+    "accepted_out_of_plane_damping": {
+      "zW": 365,
+      "kP": 40,
+      "mQ": 85
+    }
+  },
+  "command_identity": {
+    "max_applied_force_difference_n": 7.105427357601002e-15
+  },
+  "tolerance": {
+    "relative_vector": 0.3,
+    "direction_deg": 15
+  },
+  "checkpoints": [
+    {
+      "checkpoint_s": 30,
+      "sample_index": 600,
+      "node_displacement_ne_m": [
+        8.585727161171235,
+        9.886371750475519
+      ],
+      "vrx_displacement_ne_m": [
+        -2.300373319994833,
+        0.30920768046053126
+      ],
+      "node_magnitude_m": 13.094084820050382,
+      "vrx_magnitude_m": 2.3210615676883353,
+      "relative_vector_divergence": 1.1073156197991942,
+      "direction_difference_deg": 123.3167760730921,
+      "pass": false
+    },
+    {
+      "checkpoint_s": 60,
+      "sample_index": 1200,
+      "node_displacement_ne_m": [
+        6.7407328872777725,
+        8.877303466642843
+      ],
+      "vrx_displacement_ne_m": [
+        -4.1801706854221266,
+        0.5618830953790166
+      ],
+      "node_magnitude_m": 11.146479116586418,
+      "vrx_magnitude_m": 4.217764760170391,
+      "relative_vector_divergence": 1.2314505510893914,
+      "direction_difference_deg": 119.5546059422126,
+      "pass": false
+    },
+    {
+      "checkpoint_s": 119.95,
+      "sample_index": 2399,
+      "node_displacement_ne_m": [
+        5.557475682699078,
+        11.516448448795927
+      ],
+      "vrx_displacement_ne_m": [
+        -4.489403256924561,
+        0.6034489948469854
+      ],
+      "node_magnitude_m": 12.787264009066432,
+      "vrx_magnitude_m": 4.529778393328607,
+      "relative_vector_divergence": 1.160023019270145,
+      "direction_difference_deg": 108.1048939256414,
+      "pass": false
+    }
+  ],
+  "classification": "PLANAR_RELOCK_STILL_LARGE_DIVERGENCE",
+  "conclusion": "Out-of-plane coupling does not explain the dominant divergence; the unresolved planar yaw-rate-correlated residual remains the leading suspect."
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "environmental-zero-and-persistence-baselines",
+  "generated_at": "2026-09-11T10:40:38.432658Z",
+  "definition": "Speed RMSE against zero speed, and against observed speed at the preceding native model interval at the same spatial location.",
+  "currents": {
+    "overall": {
+      "zero_baseline": {
+        "n": 2595,
+        "speed_rmse_mps": 0.19088274779591605
+      },
+      "persistence_baseline": {
+        "n": 2370,
+        "interval_hours": 6,
+        "speed_rmse_mps": 0.10017541242992105
+      }
+    },
+    "nearshore": {
+      "zero_baseline": {
+        "n": 523,
+        "speed_rmse_mps": 0.24087039376353775
+      },
+      "persistence_baseline": {
+        "n": 475,
+        "interval_hours": 6,
+        "speed_rmse_mps": 0.13903854856214717
+      }
+    },
+    "shelf": {
+      "zero_baseline": {
+        "n": 2072,
+        "speed_rmse_mps": 0.17603568307016715
+      },
+      "persistence_baseline": {
+        "n": 1895,
+        "interval_hours": 6,
+        "speed_rmse_mps": 0.08777715960199181
+      }
+    }
+  },
+  "wind": {
+    "san-francisco": {
+      "zero_baseline": {
+        "n": 72,
+        "speed_rmse_mps": 4.8298263138773665
+      },
+      "persistence_baseline": {
+        "n": 71,
+        "interval_hours": 1,
+        "speed_rmse_mps": 1.3381193445585078
+      }
+    },
+    "boston": {
+      "zero_baseline": {
+        "n": 72,
+        "speed_rmse_mps": 5.611558013006133
+      },
+      "persistence_baseline": {
+        "n": 71,
+        "interval_hours": 1,
+        "speed_rmse_mps": 1.0779479723001084
+      }
+    }
+  }
+}

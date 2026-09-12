@@ -1,0 +1,117 @@
+{
+  "task_id": "A4",
+  "category": "A",
+  "repeat_index": 3,
+  "prompt": "Construct and run a 60-second vehicle-a-otter planar3 node scenario, seed 7, timestep 0.1 seconds, with one waypoint at 30 m north and 0 m east. Read back its metrics and report completion and propulsion energy.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "list_vehicle_presets",
+      "input": {},
+      "output": [
+        {
+          "id": "vehicle-a-otter",
+          "name": "Otter differential-thrust USV",
+          "plant": "planar3",
+          "validation_status": "validated",
+          "validation_claim": "Planar maneuvering validated at pinned tolerances."
+        },
+        {
+          "id": "vehicle-b-rudder",
+          "name": "USV propeller/rudder monohull",
+          "plant": "coupled6",
+          "validation_status": "model-structure-trajectory-scored-fail",
+          "validation_claim": "The MMG simulator has been scored against six measured MARIN single-screw KVLCC2 trajectories using measured rudder and samplewise propeller RPM. The current literature-coefficient parameterization fails the precommitted trajectory/IMO tolerances. No evidence validates Vehicle B USV-scale coefficients."
+        },
+        {
+          "id": "vehicle-c-azimuth",
+          "name": "Dual-azimuth overactuated USV",
+          "plant": "coupled6",
+          "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+          "validation_claim": "Control allocation and composability demonstrated; behavioral dynamics not independently validated."
+        },
+        {
+          "id": "searobotics-surveyor-m1.8",
+          "name": "SeaRobotics SR-Surveyor M1.8 (two-body common-task approximation)",
+          "plant": "planar3",
+          "validation_status": "model-structure-only",
+          "validation_claim": "Node common-task resolution uses the versioned two-body model; geometry, actuator and damping assumptions remain unvalidated."
+        }
+      ]
+    },
+    {
+      "tool": "construct_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "otter-60s-waypoint-north30",
+          "seed": 7,
+          "timestep_s": 0.1,
+          "duration_s": 60
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-a-otter",
+          "plant": "planar3"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 30,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "scenario_id": "scenario-6ddc0579872780e6",
+        "checksum_sha256": "6ddc0579872780e60b24af2858699c5ed189b757034b9412e18159fc836515ae",
+        "warnings": []
+      }
+    },
+    {
+      "tool": "run_scenario",
+      "input": {
+        "scenario_id": "scenario-6ddc0579872780e6"
+      },
+      "output": {
+        "run_id": "run-db17b682-c302-4e8f-8fc0-58501f13257e",
+        "success": true,
+        "completion_time_s": 10.099999999998545,
+        "metrics": {
+          "total_energy": 59.37783987815985,
+          "total_sensor_cost": 54.03499999999986,
+          "movement_cost": 5.342839878159982,
+          "steps": 101,
+          "elapsed_s": 10.099999999998545,
+          "propulsion_energy": 5.342839878159982
+        }
+      }
+    },
+    {
+      "tool": "get_run_metrics",
+      "input": {
+        "run_id": "run-db17b682-c302-4e8f-8fc0-58501f13257e"
+      },
+      "output": {
+        "run_id": "run-db17b682-c302-4e8f-8fc0-58501f13257e",
+        "success": true,
+        "completion_time_s": 10.099999999998545,
+        "metrics": {
+          "total_energy": 59.37783987815985,
+          "total_sensor_cost": 54.03499999999986,
+          "movement_cost": 5.342839878159982,
+          "steps": 101,
+          "elapsed_s": 10.099999999998545,
+          "propulsion_energy": 5.342839878159982
+        }
+      }
+    }
+  ],
+  "final_answer_text": "**Run complete.**\n\n- **Scenario:** `scenario-6ddc0579872780e6` — vehicle-a-otter (planar3), node backend, seed 7, timestep 0.1 s, duration 60 s, single waypoint at (30 m N, 0 m E)\n- **Run:** `run-db17b682-c302-4e8f-8fc0-58501f13257e` — **success: true**\n- **Completion time:** ~10.1 s (vehicle reached the waypoint well before the 60 s duration cap; 101 steps executed at 0.1 s each)\n- **Propulsion energy:** **5.343 J** (movement_cost matches propulsion_energy)\n\nNote: total_energy (59.38) includes sensor cost (54.03) on top of the propulsion-only figure — the propulsion energy you asked about is the 5.343 J value.",
+  "outcome": "correct",
+  "detail": "run/read matched ground truth"
+}

@@ -26,6 +26,7 @@ from common_task import (  # noqa: E402
     passed_waypoint_plane,
 )
 from bcod_sim.common_task_env import Mulberry32  # noqa: E402
+from bcod_sim.native_task_contract import load_native_task_contract  # noqa: E402
 
 
 def draw_reset_randomization(contract: dict[str, Any], seed: int) -> dict[str, Any]:
@@ -65,13 +66,20 @@ def draw_reset_randomization(contract: dict[str, Any], seed: int) -> dict[str, A
 class StonefishCommonTask:
     """No-Gym task wrapper used by validation and future training adapters."""
 
-    def __init__(self, bridge: StonefishBridge, contract_path: Path) -> None:
-        document = json.loads(contract_path.read_text())
-        if document.get("content_sha256") != CONTRACT_SHA256:
-            raise ValueError("Stonefish task requires the frozen contract")
-        self.contract = next(
-            task for task in document["tasks"]
-            if task["task_id"] == "common-waypoint-transit-v1"
+    def __init__(
+        self,
+        bridge: StonefishBridge,
+        repository: Path,
+        condition_contract_path: str | Path | None = None,
+        disturbance_mode: str = "zero",
+    ) -> None:
+        repository = Path(repository)
+        # Preserve direct Gate-D callers that historically passed the legacy
+        # contract filename instead of the repository root.
+        if repository.is_file():
+            repository = repository.parents[3]
+        self.contract, self.contract_binding = load_native_task_contract(
+            repository, condition_contract_path
         )
         shaping = self.contract["reward"]["potential_shaping"]
         self.shaping_k = float(shaping["k"])
@@ -79,8 +87,14 @@ class StonefishCommonTask:
         if self.shaping_gamma != 1.0:
             raise ValueError("Stonefish reward port requires shaping gamma exactly 1.0")
         self.bridge = bridge
-        self.mapper = StonefishContractMapper(bridge, goal_north_m=0, goal_east_m=0)
+        if disturbance_mode not in {"zero", "seeded"}:
+            raise ValueError("disturbance_mode must be 'zero' or 'seeded'")
+        self.disturbance_mode = disturbance_mode
         self.timeout_steps = int(self.contract["timing"]["episode_length_steps"])
+        self.mapper = StonefishContractMapper(
+            bridge, goal_north_m=0, goal_east_m=0,
+            episode_physics_steps=self.timeout_steps,
+        )
         self.control_interval_s = float(self.contract["timing"]["control_interval_s"])
         terminal = self.contract["learnability"]["absolute_success_rate_threshold"]["terminal_definition"]
         self.final_radius_m = float(terminal["radius_m"])
@@ -103,6 +117,10 @@ class StonefishCommonTask:
         angle = randomization["angle_rad"]
         north, east = randomization["start_ned_m"]
         yaw = randomization["heading_ned_rad"]
+        applied_current = (
+            tuple(randomization["current_ned_mps"])
+            if self.disturbance_mode == "seeded" else (0.0, 0.0, 0.0)
+        )
         ca, sa = math.cos(angle), math.sin(angle)
         self.start = np.asarray([north, east], dtype=np.float64)
         self.route = [
@@ -116,6 +134,7 @@ class StonefishCommonTask:
             initial_north_m=north,
             initial_east_m=east,
             initial_yaw_rad=yaw,
+            current_ned_mps=applied_current,
         )
         self.position = np.asarray(sample.raw_response["observation"]["gps"][2:4])
         self.velocity[:] = 0.0
@@ -133,11 +152,12 @@ class StonefishCommonTask:
             "route_ned_m": self.route,
             "sampled_current_ned_mps": randomization["current_ned_mps"],
             "sampled_wind_ned_mps": randomization["wind_ned_mps"],
-            "disturbance_mode": "zero",
-            "current_ned_mps": [0.0, 0.0],
+            "disturbance_mode": self.disturbance_mode,
+            "current_ned_mps": list(applied_current[:2]),
             "wind_ned_mps": [0.0, 0.0],
-            "applied_current_ned_mps": [0.0, 0.0, 0.0],
+            "applied_current_ned_mps": list(applied_current),
             "applied_wind_ned_mps": [0.0, 0.0, 0.0],
+            "contract_binding": self.contract_binding,
         }
 
     def _distance(self, index: int) -> float:
@@ -199,6 +219,7 @@ class StonefishCommonTask:
         truncated = reason == "timeout"
         yaw = float(sample.observation[6])
         forward = np.asarray([math.cos(yaw), math.sin(yaw)])
+        diagnostics = raw.get("diagnostics", {})
         return np.asarray(sample.observation), scored.reward, terminated, truncated, {
             "success": success,
             "completion_fraction": completion_fraction,
@@ -214,4 +235,8 @@ class StonefishCommonTask:
             "mean_cross_track_m": self.cross_track_sum / self.control_steps,
             "control_steps": self.control_steps,
             "physics_steps": self.mapper.physics_steps,
+            "policy_propulsion_thrust_n": [
+                float(diagnostics.get("port_thrust", math.nan)),
+                float(diagnostics.get("starboard_thrust", math.nan)),
+            ],
         }

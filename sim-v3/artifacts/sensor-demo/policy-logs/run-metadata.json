@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "variant": "sensor",
+  "seed": 7319,
+  "total_timesteps": 50000,
+  "backend_factory": "sensordemo.local_backend:create_training_env",
+  "output": "artifacts/sensor-demo/policy",
+  "observation_contract_sha256": "604f55d45568017da5d0393a5a901d7955e56d96a9bc2cd289a31f60a0f66313",
+  "checkpoint_every": 10000,
+  "evaluate_every": 10000,
+  "evaluation_episodes": 5,
+  "ppo": {
+    "n_steps": 512,
+    "batch_size": 512,
+    "n_epochs": 10,
+    "learning_rate": 0.0003,
+    "gamma": 0.99,
+    "gae_lambda": 0.95,
+    "clip_range": 0.2,
+    "network": [
+      128,
+      128
+    ]
+  }
+}

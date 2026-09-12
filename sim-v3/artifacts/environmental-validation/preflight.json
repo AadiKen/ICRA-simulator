@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-09T01:09:30.426738Z",
+  "hf_radar": {
+    "metadata_url": "https://coastwatch.pfeg.noaa.gov/erddap/info/ucsdHfrW6/index.json",
+    "dataset_id": "4d8a7377-bfe7-4142-a34d-1d8968eeedef",
+    "product_version": "v1r0",
+    "source_url": "https://dods.ndbc.noaa.gov/thredds/dodsC/hfradar_uswc_6km",
+    "time_coverage_start": "2026-06-07T02:00:00Z",
+    "time_coverage_end": "2026-09-08T22:00:00Z",
+    "required_variables": {
+      "water_u": true,
+      "water_v": true,
+      "DOPx": true,
+      "DOPy": true,
+      "hdop": true,
+      "number_of_sites": true,
+      "number_of_radials": true
+    }
+  },
+  "rtofs": {
+    "nomads_url": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/rtofs/prod/",
+    "available_run_dates": [
+      "20260907",
+      "20260908"
+    ],
+    "oldest_run": "20260907",
+    "newest_run": "20260908",
+    "observed_retention_days": 2
+  },
+  "feasible_overlap": {
+    "start": "2026-09-07T00:00:00Z",
+    "end": "2026-09-08T22:00:00Z",
+    "complete_window_available": false
+  },
+  "coops": {
+    "station": "9414290",
+    "query_url": null,
+    "ranked_windows": [],
+    "forward_query_url": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&application=bcod-sim&begin_date=20260909&end_date=20260916&datum=MLLW&station=9414290&time_zone=gmt&units=metric&interval=h&format=json"
+  },
+  "recommended_window": null,
+  "recommended_forward_collection_window": {
+    "start": "2026-09-09T01:00:00Z",
+    "stop": "2026-09-12T00:00:00Z",
+    "predicted_tidal_range_m": 2.077
+  }
+}

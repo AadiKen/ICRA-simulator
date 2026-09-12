@@ -1,8 +1,15 @@
 {
   "schema_version": 1,
-  "contract_content_sha256": "cc2c35cafee9eceb31cbb7e76522426cbabbcc78ef4176ba03a69bbdf420a1fb",
+  "vrx_configuration": "vrx:surveyor-patched",
+  "purpose": "gate-7-conformance-diagnostics-only",
+  "policy_training_allowed": false,
+  "baseline_comparison_allowed": false,
+  "contract_content_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
   "seed": 20009,
   "environment_scale": 0,
+  "wind_scale": 0,
+  "current_scale": 0,
+  "action_scale": 1,
   "physics_dt_s": 0.05,
   "control_dt_s": 0.1,
   "physics_samples": 2400,
@@ -11,32 +18,32 @@
   "reset": {
     "seed": 20009,
     "initial_state": [
-      9999.385874245316,
-      9999.385756005067,
-      -0.1070560162092958,
+      9999.441171803046,
+      9999.461031808518,
+      -0.06856136114096974,
       0,
       0,
       0
     ],
     "route_ned_m": [
       [
-        10018.928260621025,
-        9995.131918356255
+        10026.507593694598,
+        9997.476367109582
       ],
       [
-        10036.77542863942,
-        10006.598329901428
+        10048.295908637465,
+        10016.287685004045
       ],
       [
-        10049.305299596796,
-        9993.636758476965
+        10067.60339270666,
+        10001.265975534068
       ]
     ],
     "disturbance": {
-      "wind_speed_m_s": 1.5459838788956404,
-      "wind_direction_deg": 69.54799097031355,
-      "current_speed_m_s": 0.19312974368222058,
-      "current_direction_deg": 68.98900578729808
+      "wind_speed_m_s": 2.7864127592954193,
+      "wind_direction_deg": 261.27638784237206,
+      "current_speed_m_s": 0.6651543655818558,
+      "current_direction_deg": 63.171888291835785
     }
   },
   "action_trace": [

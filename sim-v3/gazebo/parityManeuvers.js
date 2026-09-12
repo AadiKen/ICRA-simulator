@@ -46,6 +46,14 @@ export const parityManeuvers = {
         command: {type: "constant", surgeForce: 0, differentialForce: 0},
         env: {waterV: {x: 0.3, y: 0, z: 0}},
         tolerances: {N: 0.3, E: 0.5, yaw: 0.15}
+    },
+    "impulse-hold": {
+        description: "One-second hard surge impulse followed by one second of unforced coast, stressing transient inertia.",
+        dt: 0.05,
+        steps: 40,
+        command: {type: "coastDown", surgeForce: 60, differentialForce: 0, thrustDurationSec: 1},
+        env: {waterV: {x: 0, y: 0, z: 0}},
+        tolerances: {N: 0.15, E: 0.1, yaw: 0.05}
     }
 };
 

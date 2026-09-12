@@ -29,6 +29,8 @@ class StonefishGymEnv(gym.Env[np.ndarray, np.ndarray]):
         sensor_noise: bool = False,
         base_seed: int = 0,
         fixed_reset_seed: int | None = None,
+        condition_contract_path: str | Path | None = None,
+        disturbance_mode: str = "zero",
     ) -> None:
         self.repository = Path(repository)
         self.base_seed = int(base_seed)
@@ -38,10 +40,19 @@ class StonefishGymEnv(gym.Env[np.ndarray, np.ndarray]):
             executable, data_dir, library_dirs=library_dirs,
             physics_threads=physics_threads, sensor_noise=sensor_noise,
         )
-        self.task = StonefishCommonTask(
-            self.bridge,
-            self.repository / "artifacts/rl-campaign/surveyor/task-contract-frozen.json",
+        task_source = (
+            self.repository / "artifacts/rl-campaign/surveyor/task-contract-frozen.json"
+            if condition_contract_path is None else self.repository
         )
+        task_kwargs = (
+            {} if condition_contract_path is None
+            else {"condition_contract_path": condition_contract_path}
+        )
+        self.task = StonefishCommonTask(
+            self.bridge, task_source, disturbance_mode=disturbance_mode, **task_kwargs
+        )
+        self.contract = self.task.contract
+        self.control_interval_s = self.task.control_interval_s
         self.action_space = gym.spaces.Box(-1.0, 1.0, (2,), dtype=np.float32)
         self.observation_space = gym.spaces.Box(
             -np.inf, np.inf, (15,), dtype=np.float32)

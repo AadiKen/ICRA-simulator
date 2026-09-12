@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-node-static-thrust-step",
+  "configuration": {
+    "environment": "zero current, zero wind",
+    "initial_velocity_m_s": [
+      0,
+      0,
+      0
+    ],
+    "command_normalized_each": 0.25,
+    "target_force_n_each": 17.5,
+    "actuator_time_constant_s": 0.35,
+    "sample_period_s": 0.05
+  },
+  "measurement": {
+    "node": "FrozenActuatorBank state using the same first-order law as Node production effectors",
+    "vrx": "Thruster /ang_vel feedback inverted with configured rho, thrust coefficient, and diameter",
+    "gazebo_force_path": "Force-command mode applies desiredThrust directly; velocity_control changes only joint angular-velocity control"
+  },
+  "alignment": {
+    "vrx_feedback_lag_samples": 1,
+    "pairs": 79,
+    "max_abs_error_n": 3.552713678800501e-15,
+    "mean_abs_error_n": 1.236704128696377e-15
+  },
+  "all_alignments": [
+    {
+      "vrx_feedback_lag_samples": 0,
+      "pairs": 80,
+      "max_abs_error_n": 2.329636754371822,
+      "mean_abs_error_n": 0.21874761996932662
+    },
+    {
+      "vrx_feedback_lag_samples": 1,
+      "pairs": 79,
+      "max_abs_error_n": 3.552713678800501e-15,
+      "mean_abs_error_n": 1.236704128696377e-15
+    },
+    {
+      "vrx_feedback_lag_samples": 2,
+      "pairs": 78,
+      "max_abs_error_n": 2.0195106168106745,
+      "mean_abs_error_n": 0.19448902056438996
+    }
+  ],
+  "checkpoints": [
+    {
+      "time_s": 0,
+      "analytic_node_n": 2.329636754371822,
+      "node_n": 2.329636754371822,
+      "vrx_n": 2.329636754371822
+    },
+    {
+      "time_s": 0.05,
+      "analytic_node_n": 4.3491473711824975,
+      "node_n": 4.349147371182497,
+      "vrx_n": 4.349147371182497
+    },
+    {
+      "time_s": 0.1,
+      "analytic_node_n": 6.099816493206528,
+      "node_n": 6.099816493206529,
+      "vrx_n": 6.099816493206528
+    },
+    {
+      "time_s": 0.2,
+      "analytic_node_n": 8.933020957753321,
+      "node_n": 8.933020957753323,
+      "vrx_n": 8.933020957753323
+    },
+    {
+      "time_s": 0.35,
+      "analytic_node_n": 11.919135246830518,
+      "node_n": 11.919135246830521,
+      "vrx_n": 11.919135246830521
+    },
+    {
+      "time_s": 0.5,
+      "analytic_node_n": 13.864406724986987,
+      "node_n": 13.864406724986988,
+      "vrx_n": 13.86440672498699
+    },
+    {
+      "time_s": 0.7,
+      "analytic_node_n": 15.446914593350613,
+      "node_n": 15.446914593350614,
+      "vrx_n": 15.446914593350616
+    },
+    {
+      "time_s": 1,
+      "analytic_node_n": 16.62872630356238,
+      "node_n": 16.62872630356238,
+      "vrx_n": 16.62872630356238
+    },
+    {
+      "time_s": 2,
+      "analytic_node_n": 17.449960469514608,
+      "node_n": 17.449960469514608,
+      "vrx_n": 17.449960469514608
+    },
+    {
+      "time_s": 3.95,
+      "analytic_node_n": 17.499809597546115,
+      "node_n": 17.499809597546115,
+      "vrx_n": null
+    }
+  ],
+  "conclusion": "MATCH"
+}

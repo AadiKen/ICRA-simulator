@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "artifact_kind": "portable-15-field-feedforward-ppo-preregistration",
-  "status": "PREREGISTERED_NOT_AUTHORIZED",
+  "status": "PREREGISTERED_EXECUTION_AUTHORIZED",
   "task_contract_content_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36",
   "task_id": "common-waypoint-transit-v1",
   "algorithm": "PPO",
@@ -31,5 +31,5 @@
     "curriculum": "final_leg_curriculum=True",
     "only_intended_change": "RecurrentPPO/MlpLstmPolicy to PPO/MlpPolicy"
   },
-  "execution_authorized": false
+  "execution_authorized": true
 }

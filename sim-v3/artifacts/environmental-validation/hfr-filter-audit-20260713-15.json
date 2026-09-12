@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "window": [
+    "2026-07-13T00:00:00Z",
+    "2026-07-15T23:00:00Z"
+  ],
+  "thresholds": {
+    "max_dop_x": 1.5,
+    "max_dop_y": 1.5,
+    "min_sites": 2,
+    "min_radials": 3
+  },
+  "products": {
+    "ucsdHfrW6": {
+      "total_grid_cell_hours": 40824,
+      "radar_invalid_vector_or_time": 24001,
+      "radar_dop_missing": 0,
+      "radar_dop_exceeded": 0,
+      "radar_sites_missing": 0,
+      "radar_sites_below_minimum": 0,
+      "radar_radials_missing": 0,
+      "radar_radials_below_minimum": 0,
+      "qc_passing_cell_hours": 16823,
+      "radar_qc_failed": 0,
+      "filter_order": "finite vector -> DOP present -> DOPx/y <= 1.5 -> site count present/>=2 -> radial count present/>=3"
+    },
+    "ucsdHfrW500": {
+      "total_grid_cell_hours": 1167696,
+      "radar_invalid_vector_or_time": 1143658,
+      "radar_dop_missing": 0,
+      "radar_dop_exceeded": 0,
+      "radar_sites_missing": 0,
+      "radar_sites_below_minimum": 0,
+      "radar_radials_missing": 0,
+      "radar_radials_below_minimum": 0,
+      "qc_passing_cell_hours": 24038,
+      "radar_qc_failed": 0,
+      "filter_order": "finite vector -> DOP present -> DOPx/y <= 1.5 -> site count present/>=2 -> radial count present/>=3"
+    }
+  }
+}

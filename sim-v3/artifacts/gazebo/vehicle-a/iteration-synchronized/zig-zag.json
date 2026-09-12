@@ -1,0 +1,4577 @@
+{
+  "schema_version": 2,
+  "scenario": "zig-zag",
+  "synchronization": {
+    "source": "/world/bcod_parity_zig-zag/stats",
+    "initial_iteration": 1,
+    "initial_sim_time_s": 0.05,
+    "target_policy": "absolute initial_iteration + (sample_index+1)",
+    "blind_retries": false,
+    "step_requests_per_target": 1,
+    "asserted_iteration_delta": 1,
+    "asserted_sim_time_delta_s": 0.05,
+    "iteration_delta_reason": "Vehicle A's Gazebo worlds use max_step_size=0.05 s, so one physics iteration equals the 0.05 s sample interval; Vehicle C uses a 0.01 s physics step and therefore requires five iterations."
+  },
+  "rows": [
+    {
+      "step": 0,
+      "time_s": 0.05,
+      "gazebo_iteration": 2,
+      "gazebo_sim_time_s": 0.05,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.0031082251082226904,
+      "east_m": -0.0004739811912193739,
+      "heading_rad": 0.002369908817100086,
+      "command": {
+        "time_s": 0,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 1,
+      "time_s": 0.10000000000000002,
+      "gazebo_iteration": 3,
+      "gazebo_sim_time_s": 0.10000000000000002,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.009072960435595995,
+      "east_m": -0.0012442052835619243,
+      "heading_rad": 0.006637518064904313,
+      "command": {
+        "time_s": 0.05,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 2,
+      "time_s": 0.15000000000000002,
+      "gazebo_iteration": 4,
+      "gazebo_sim_time_s": 0.15000000000000002,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.017660506837614658,
+      "east_m": -0.0021300386982813415,
+      "heading_rad": 0.012229652557268489,
+      "command": {
+        "time_s": 0.1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 3,
+      "time_s": 0.2,
+      "gazebo_iteration": 5,
+      "gazebo_sim_time_s": 0.2,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.028651714468911575,
+      "east_m": -0.0029852837440505365,
+      "heading_rad": 0.018644641647675986,
+      "command": {
+        "time_s": 0.15,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 4,
+      "time_s": 0.25000000000000006,
+      "gazebo_iteration": 6,
+      "gazebo_sim_time_s": 0.25000000000000006,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.04184027041100681,
+      "east_m": -0.003710863729254272,
+      "heading_rad": 0.02553005809248043,
+      "command": {
+        "time_s": 0.2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 5,
+      "time_s": 0.30000000000000004,
+      "gazebo_iteration": 7,
+      "gazebo_sim_time_s": 0.30000000000000004,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.057032118850516636,
+      "east_m": -0.004247182339422137,
+      "heading_rad": 0.03267128901836558,
+      "command": {
+        "time_s": 0.25,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 6,
+      "time_s": 0.35000000000000003,
+      "gazebo_iteration": 8,
+      "gazebo_sim_time_s": 0.35000000000000003,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.07404515468037234,
+      "east_m": -0.004560640474910264,
+      "heading_rad": 0.03994791060937586,
+      "command": {
+        "time_s": 0.3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 7,
+      "time_s": 0.4,
+      "gazebo_iteration": 9,
+      "gazebo_sim_time_s": 0.4,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.09270885583432803,
+      "east_m": -0.004632780457461756,
+      "heading_rad": 0.04729479725122521,
+      "command": {
+        "time_s": 0.35,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 8,
+      "time_s": 0.45,
+      "gazebo_iteration": 10,
+      "gazebo_sim_time_s": 0.45,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.11286386395337261,
+      "east_m": -0.004453614979860219,
+      "heading_rad": 0.05467694095771192,
+      "command": {
+        "time_s": 0.4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 9,
+      "time_s": 0.5,
+      "gazebo_iteration": 11,
+      "gazebo_sim_time_s": 0.5,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.13436160501977523,
+      "east_m": -0.004018050313834898,
+      "heading_rad": 0.06207529012248592,
+      "command": {
+        "time_s": 0.45,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 10,
+      "time_s": 0.55,
+      "gazebo_iteration": 12,
+      "gazebo_sim_time_s": 0.55,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.15706401164166556,
+      "east_m": -0.0033241095677346874,
+      "heading_rad": 0.06947933096556347,
+      "command": {
+        "time_s": 0.5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 11,
+      "time_s": 0.6,
+      "gazebo_iteration": 13,
+      "gazebo_sim_time_s": 0.6,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.180843341841909,
+      "east_m": -0.002372081768329824,
+      "heading_rad": 0.07688335427907478,
+      "command": {
+        "time_s": 0.55,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 12,
+      "time_s": 0.65,
+      "gazebo_iteration": 14,
+      "gazebo_sim_time_s": 0.65,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.2055820354989441,
+      "east_m": -0.0011641100798715281,
+      "heading_rad": 0.08428462822264414,
+      "command": {
+        "time_s": 0.6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 13,
+      "time_s": 0.7,
+      "gazebo_iteration": 15,
+      "gazebo_sim_time_s": 0.7,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.23117255249566057,
+      "east_m": 0.00029602836933654967,
+      "heading_rad": 0.09168252184595138,
+      "command": {
+        "time_s": 0.65,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 14,
+      "time_s": 0.75,
+      "gazebo_iteration": 16,
+      "gazebo_sim_time_s": 0.75,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.2575171907351725,
+      "east_m": 0.002003079882074367,
+      "heading_rad": 0.0990780794624686,
+      "command": {
+        "time_s": 0.7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 15,
+      "time_s": 0.8,
+      "gazebo_iteration": 17,
+      "gazebo_sim_time_s": 0.8,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.2845279263235401,
+      "east_m": 0.003950485111001522,
+      "heading_rad": 0.10647378325892332,
+      "command": {
+        "time_s": 0.75,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 16,
+      "time_s": 0.85,
+      "gazebo_iteration": 18,
+      "gazebo_sim_time_s": 0.85,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.3121262980310341,
+      "east_m": 0.006130604864387331,
+      "heading_rad": 0.11387336633534197,
+      "command": {
+        "time_s": 0.8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 17,
+      "time_s": 0.9,
+      "gazebo_iteration": 19,
+      "gazebo_sim_time_s": 0.9,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.3402432915499103,
+      "east_m": 0.00853500380273569,
+      "heading_rad": 0.12128160839267578,
+      "command": {
+        "time_s": 0.85,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 18,
+      "time_s": 0.95,
+      "gazebo_iteration": 20,
+      "gazebo_sim_time_s": 0.95,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.36881914244123465,
+      "east_m": 0.011154765904257445,
+      "heading_rad": 0.1287040857322177,
+      "command": {
+        "time_s": 0.9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 19,
+      "time_s": 1.0,
+      "gazebo_iteration": 21,
+      "gazebo_sim_time_s": 1.0,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.3978030188197546,
+      "east_m": 0.013980817831849611,
+      "heading_rad": 0.1361468650450759,
+      "command": {
+        "time_s": 0.95,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 20,
+      "time_s": 1.05,
+      "gazebo_iteration": 22,
+      "gazebo_sim_time_s": 1.05,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.42715262610664595,
+      "east_m": 0.017004266300002693,
+      "heading_rad": 0.14361613613092783,
+      "command": {
+        "time_s": 1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 21,
+      "time_s": 1.0999999999999999,
+      "gazebo_iteration": 23,
+      "gazebo_sim_time_s": 1.0999999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.45683380821397057,
+      "east_m": 0.020216777551748465,
+      "heading_rad": 0.15111778609326199,
+      "command": {
+        "time_s": 1.05,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 22,
+      "time_s": 1.15,
+      "gazebo_iteration": 24,
+      "gazebo_sim_time_s": 1.15,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.48682016521242777,
+      "east_m": 0.023611009229207468,
+      "heading_rad": 0.15865693502970202,
+      "command": {
+        "time_s": 1.1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 23,
+      "time_s": 1.2,
+      "gazebo_iteration": 25,
+      "gazebo_sim_time_s": 1.2,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.5170926260008957,
+      "east_m": 0.02718105874625319,
+      "heading_rad": 0.16623747338587913,
+      "command": {
+        "time_s": 1.15,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 24,
+      "time_s": 1.25,
+      "gazebo_iteration": 26,
+      "gazebo_sim_time_s": 1.25,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.547638896070442,
+      "east_m": 0.03092286603036542,
+      "heading_rad": 0.17386164723403996,
+      "command": {
+        "time_s": 1.2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 25,
+      "time_s": 1.3,
+      "gazebo_iteration": 27,
+      "gazebo_sim_time_s": 1.3,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.578452764895661,
+      "east_m": 0.034834534457413205,
+      "heading_rad": 0.18152972372465292,
+      "command": {
+        "time_s": 1.25,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 26,
+      "time_s": 1.3499999999999999,
+      "gazebo_iteration": 28,
+      "gazebo_sim_time_s": 1.3499999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.609533332913262,
+      "east_m": 0.038916587139142825,
+      "heading_rad": 0.18923974989349637,
+      "command": {
+        "time_s": 1.3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 27,
+      "time_s": 1.4,
+      "gazebo_iteration": 29,
+      "gazebo_sim_time_s": 1.4,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.6408842244510036,
+      "east_m": 0.04317219715806936,
+      "heading_rad": 0.19698741472727677,
+      "command": {
+        "time_s": 1.35,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 28,
+      "time_s": 1.45,
+      "gazebo_iteration": 30,
+      "gazebo_sim_time_s": 1.45,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.6725127922622559,
+      "east_m": 0.0476073927337113,
+      "heading_rad": 0.20476603790000047,
+      "command": {
+        "time_s": 1.4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 29,
+      "time_s": 1.5,
+      "gazebo_iteration": 31,
+      "gazebo_sim_time_s": 1.5,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.7044292681389719,
+      "east_m": 0.05223118146642586,
+      "heading_rad": 0.21256671636261348,
+      "command": {
+        "time_s": 1.45,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 30,
+      "time_s": 1.55,
+      "gazebo_iteration": 32,
+      "gazebo_sim_time_s": 1.55,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.7366458319336022,
+      "east_m": 0.057055527107893224,
+      "heading_rad": 0.2203786422628191,
+      "command": {
+        "time_s": 1.5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 31,
+      "time_s": 1.5999999999999999,
+      "gazebo_iteration": 33,
+      "gazebo_sim_time_s": 1.5999999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.769175634631146,
+      "east_m": 0.06209516466729322,
+      "heading_rad": 0.2281895713618891,
+      "command": {
+        "time_s": 1.55,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 32,
+      "time_s": 1.6500000000000001,
+      "gazebo_iteration": 34,
+      "gazebo_sim_time_s": 1.6500000000000001,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.8020318476306483,
+      "east_m": 0.06736730231354111,
+      "heading_rad": 0.2359863996211955,
+      "command": {
+        "time_s": 1.6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 33,
+      "time_s": 1.7,
+      "gazebo_iteration": 35,
+      "gazebo_sim_time_s": 1.7,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.8352267868267845,
+      "east_m": 0.07289126773053954,
+      "heading_rad": 0.24375581236085875,
+      "command": {
+        "time_s": 1.65,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 34,
+      "time_s": 1.75,
+      "gazebo_iteration": 36,
+      "gazebo_sim_time_s": 1.75,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.8687711160131798,
+      "east_m": 0.0786881098033256,
+      "heading_rad": 0.2514849878235892,
+      "command": {
+        "time_s": 1.7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 35,
+      "time_s": 1.8,
+      "gazebo_iteration": 37,
+      "gazebo_sim_time_s": 1.8,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.9026731263683648,
+      "east_m": 0.08478012402377005,
+      "heading_rad": 0.25916233600086835,
+      "command": {
+        "time_s": 1.75,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 36,
+      "time_s": 1.8499999999999999,
+      "gazebo_iteration": 38,
+      "gazebo_sim_time_s": 1.8499999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.9369381201785365,
+      "east_m": 0.09119028403310107,
+      "heading_rad": 0.26677822945620777,
+      "command": {
+        "time_s": 1.8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 37,
+      "time_s": 1.9000000000000001,
+      "gazebo_iteration": 39,
+      "gazebo_sim_time_s": 1.9000000000000001,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 0.9715679475469046,
+      "east_m": 0.0979416167727983,
+      "heading_rad": 0.2743256610428359,
+      "command": {
+        "time_s": 1.85,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 38,
+      "time_s": 1.95,
+      "gazebo_iteration": 40,
+      "gazebo_sim_time_s": 1.95,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.0065607192492099,
+      "east_m": 0.10505659242872437,
+      "heading_rad": 0.2818007679998493,
+      "command": {
+        "time_s": 1.9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 39,
+      "time_s": 1.9999999999999998,
+      "gazebo_iteration": 41,
+      "gazebo_sim_time_s": 1.9999999999999998,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.0419106722199936,
+      "east_m": 0.11255657792033028,
+      "heading_rad": 0.2892031868635343,
+      "command": {
+        "time_s": 1.95,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 40,
+      "time_s": 2.0500000000000003,
+      "gazebo_iteration": 42,
+      "gazebo_sim_time_s": 2.0500000000000003,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.077325210388543,
+      "east_m": 0.12147036974787946,
+      "heading_rad": 0.2917957191806877,
+      "command": {
+        "time_s": 2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 41,
+      "time_s": 2.1,
+      "gazebo_iteration": 43,
+      "gazebo_sim_time_s": 2.1,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.1129174134930224,
+      "east_m": 0.1313040852203024,
+      "heading_rad": 0.29139266460081736,
+      "command": {
+        "time_s": 2.05,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 42,
+      "time_s": 2.1500000000000004,
+      "gazebo_iteration": 44,
+      "gazebo_sim_time_s": 2.1500000000000004,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.148726939324162,
+      "east_m": 0.1418531879096707,
+      "heading_rad": 0.2885848425437445,
+      "command": {
+        "time_s": 2.1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 43,
+      "time_s": 2.2,
+      "gazebo_iteration": 45,
+      "gazebo_sim_time_s": 2.2,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.1847895504247183,
+      "east_m": 0.1529342811984243,
+      "heading_rad": 0.2839259777254306,
+      "command": {
+        "time_s": 2.15,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 44,
+      "time_s": 2.25,
+      "gazebo_iteration": 46,
+      "gazebo_sim_time_s": 2.25,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.2211404629186549,
+      "east_m": 0.16436424150895987,
+      "heading_rad": 0.2780361272534344,
+      "command": {
+        "time_s": 2.2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 45,
+      "time_s": 2.3000000000000003,
+      "gazebo_iteration": 47,
+      "gazebo_sim_time_s": 2.3000000000000003,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.257802019380846,
+      "east_m": 0.17599596983993274,
+      "heading_rad": 0.2714275956512968,
+      "command": {
+        "time_s": 2.25,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 46,
+      "time_s": 2.35,
+      "gazebo_iteration": 48,
+      "gazebo_sim_time_s": 2.35,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.2947808787036035,
+      "east_m": 0.18772653544277734,
+      "heading_rad": 0.26444605223103634,
+      "command": {
+        "time_s": 2.3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 47,
+      "time_s": 2.4000000000000004,
+      "gazebo_iteration": 49,
+      "gazebo_sim_time_s": 2.4000000000000004,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.3320713490225065,
+      "east_m": 0.19948701260914162,
+      "heading_rad": 0.25729712004173866,
+      "command": {
+        "time_s": 2.35,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 48,
+      "time_s": 2.45,
+      "gazebo_iteration": 50,
+      "gazebo_sim_time_s": 2.45,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.3696598497502734,
+      "east_m": 0.21122900487555935,
+      "heading_rad": 0.2500946579896757,
+      "command": {
+        "time_s": 2.4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 49,
+      "time_s": 2.5,
+      "gazebo_iteration": 51,
+      "gazebo_sim_time_s": 2.5,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.4075283106945191,
+      "east_m": 0.22291480608319278,
+      "heading_rad": 0.24289875399240168,
+      "command": {
+        "time_s": 2.45,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 50,
+      "time_s": 2.5500000000000003,
+      "gazebo_iteration": 52,
+      "gazebo_sim_time_s": 2.5500000000000003,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.445656278294956,
+      "east_m": 0.2345117467083105,
+      "heading_rad": 0.23573897196682791,
+      "command": {
+        "time_s": 2.5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 51,
+      "time_s": 2.6,
+      "gazebo_iteration": 53,
+      "gazebo_sim_time_s": 2.6,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.4840220134999496,
+      "east_m": 0.24598932046009386,
+      "heading_rad": 0.2286272130800575,
+      "command": {
+        "time_s": 2.55,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 52,
+      "time_s": 2.6500000000000004,
+      "gazebo_iteration": 54,
+      "gazebo_sim_time_s": 2.6500000000000004,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.5226029126475058,
+      "east_m": 0.25731782196987296,
+      "heading_rad": 0.22156466990954327,
+      "command": {
+        "time_s": 2.6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 53,
+      "time_s": 2.7,
+      "gazebo_iteration": 55,
+      "gazebo_sim_time_s": 2.7,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.5613755950876949,
+      "east_m": 0.2684677988280206,
+      "heading_rad": 0.21454572947797382,
+      "command": {
+        "time_s": 2.65,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 54,
+      "time_s": 2.75,
+      "gazebo_iteration": 56,
+      "gazebo_sim_time_s": 2.75,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.600315949905025,
+      "east_m": 0.2794100175801265,
+      "heading_rad": 0.20756039383116986,
+      "command": {
+        "time_s": 2.7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 55,
+      "time_s": 2.8000000000000003,
+      "gazebo_iteration": 57,
+      "gazebo_sim_time_s": 2.8000000000000003,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.6393992702566795,
+      "east_m": 0.2901157615554865,
+      "heading_rad": 0.20059602055979786,
+      "command": {
+        "time_s": 2.75,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 56,
+      "time_s": 2.85,
+      "gazebo_iteration": 58,
+      "gazebo_sim_time_s": 2.85,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.6786004263069012,
+      "east_m": 0.3005572644829308,
+      "heading_rad": 0.1936387503887198,
+      "command": {
+        "time_s": 2.8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 57,
+      "time_s": 2.9000000000000004,
+      "gazebo_iteration": 59,
+      "gazebo_sim_time_s": 2.9000000000000004,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.7178939772503066,
+      "east_m": 0.31070811861675773,
+      "heading_rad": 0.18667474395684258,
+      "command": {
+        "time_s": 2.85,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 58,
+      "time_s": 2.95,
+      "gazebo_iteration": 60,
+      "gazebo_sim_time_s": 2.95,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.757254214627562,
+      "east_m": 0.32054361760490885,
+      "heading_rad": 0.17969123283238453,
+      "command": {
+        "time_s": 2.9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 59,
+      "time_s": 3.0,
+      "gazebo_iteration": 61,
+      "gazebo_sim_time_s": 3.0,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.7966552331277987,
+      "east_m": 0.3300410959322786,
+      "heading_rad": 0.17267735941656115,
+      "command": {
+        "time_s": 2.95,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 60,
+      "time_s": 3.0500000000000003,
+      "gazebo_iteration": 62,
+      "gazebo_sim_time_s": 3.0500000000000003,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.8360711148605025,
+      "east_m": 0.33918031481683786,
+      "heading_rad": 0.16562478981833273,
+      "command": {
+        "time_s": 3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 61,
+      "time_s": 3.1,
+      "gazebo_iteration": 63,
+      "gazebo_sim_time_s": 3.1,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.8754762065958053,
+      "east_m": 0.3479438586953282,
+      "heading_rad": 0.15852809462423312,
+      "command": {
+        "time_s": 3.05,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 62,
+      "time_s": 3.1500000000000004,
+      "gazebo_iteration": 64,
+      "gazebo_sim_time_s": 3.1500000000000004,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.914845398570961,
+      "east_m": 0.35631746430005673,
+      "heading_rad": 0.15138489269049504,
+      "command": {
+        "time_s": 3.1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 63,
+      "time_s": 3.2,
+      "gazebo_iteration": 65,
+      "gazebo_sim_time_s": 3.2,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.9541543601465423,
+      "east_m": 0.3642902527718712,
+      "heading_rad": 0.14419575314347766,
+      "command": {
+        "time_s": 3.15,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 64,
+      "time_s": 3.25,
+      "gazebo_iteration": 66,
+      "gazebo_sim_time_s": 3.25,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 1.9933797842063457,
+      "east_m": 0.37185490178595904,
+      "heading_rad": 0.13696386387727033,
+      "command": {
+        "time_s": 3.2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 65,
+      "time_s": 3.3000000000000003,
+      "gazebo_iteration": 67,
+      "gazebo_sim_time_s": 3.3000000000000003,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.0324997079402882,
+      "east_m": 0.3790077920616191,
+      "heading_rad": 0.12969450032479934,
+      "command": {
+        "time_s": 3.25,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 66,
+      "time_s": 3.35,
+      "gazebo_iteration": 68,
+      "gazebo_sim_time_s": 3.35,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.071493886421602,
+      "east_m": 0.3857491033321073,
+      "heading_rad": 0.12239435136193832,
+      "command": {
+        "time_s": 3.3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 67,
+      "time_s": 3.4000000000000004,
+      "gazebo_iteration": 69,
+      "gazebo_sim_time_s": 3.4000000000000004,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.110344115041708,
+      "east_m": 0.39208280685231195,
+      "heading_rad": 0.1150707660255792,
+      "command": {
+        "time_s": 3.35,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 68,
+      "time_s": 3.45,
+      "gazebo_iteration": 70,
+      "gazebo_sim_time_s": 3.45,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.1490344434680377,
+      "east_m": 0.3980165452985579,
+      "heading_rad": 0.10773097784692774,
+      "command": {
+        "time_s": 3.4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 69,
+      "time_s": 3.5,
+      "gazebo_iteration": 71,
+      "gazebo_sim_time_s": 3.5,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.1875513562200375,
+      "east_m": 0.403561445479775,
+      "heading_rad": 0.10038135937854209,
+      "command": {
+        "time_s": 3.45,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 70,
+      "time_s": 3.5500000000000003,
+      "gazebo_iteration": 72,
+      "gazebo_sim_time_s": 3.5500000000000003,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.225884050259633,
+      "east_m": 0.40873189830230305,
+      "heading_rad": 0.09302676682559707,
+      "command": {
+        "time_s": 3.5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 71,
+      "time_s": 3.6,
+      "gazebo_iteration": 73,
+      "gazebo_sim_time_s": 3.6,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.2640248312879376,
+      "east_m": 0.4135452789529409,
+      "heading_rad": 0.08567004064143414,
+      "command": {
+        "time_s": 3.55,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 72,
+      "time_s": 3.6500000000000004,
+      "gazebo_iteration": 74,
+      "gazebo_sim_time_s": 3.6500000000000004,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.3019694885252986,
+      "east_m": 0.41802155490815557,
+      "heading_rad": 0.07831171305338236,
+      "command": {
+        "time_s": 3.6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 73,
+      "time_s": 3.7,
+      "gazebo_iteration": 75,
+      "gazebo_sim_time_s": 3.7,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.339717484689936,
+      "east_m": 0.42218277818534367,
+      "heading_rad": 0.07094994063999471,
+      "command": {
+        "time_s": 3.65,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 74,
+      "time_s": 3.75,
+      "gazebo_iteration": 76,
+      "gazebo_sim_time_s": 3.75,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.377271956899175,
+      "east_m": 0.426052515451194,
+      "heading_rad": 0.06358065565400883,
+      "command": {
+        "time_s": 3.7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 75,
+      "time_s": 3.8000000000000003,
+      "gazebo_iteration": 77,
+      "gazebo_sim_time_s": 3.8000000000000003,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.4146396921177855,
+      "east_m": 0.4296552552393472,
+      "heading_rad": 0.05619792858724893,
+      "command": {
+        "time_s": 3.75,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 76,
+      "time_s": 3.85,
+      "gazebo_iteration": 78,
+      "gazebo_sim_time_s": 3.85,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.45183121995689,
+      "east_m": 0.43301576653118845,
+      "heading_rad": 0.04879453517214416,
+      "command": {
+        "time_s": 3.8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 77,
+      "time_s": 3.9000000000000004,
+      "gazebo_iteration": 79,
+      "gazebo_sim_time_s": 3.9000000000000004,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.488860968860157,
+      "east_m": 0.4361583670642655,
+      "heading_rad": 0.04136269357835131,
+      "command": {
+        "time_s": 3.85,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 78,
+      "time_s": 3.95,
+      "gazebo_iteration": 80,
+      "gazebo_sim_time_s": 3.95,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.525747277608722,
+      "east_m": 0.43910613262329856,
+      "heading_rad": 0.03389489169138971,
+      "command": {
+        "time_s": 3.9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 79,
+      "time_s": 4.0,
+      "gazebo_iteration": 81,
+      "gazebo_sim_time_s": 4.0,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.562512118769697,
+      "east_m": 0.44188015200957687,
+      "heading_rad": 0.02638470714793173,
+      "command": {
+        "time_s": 3.95,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 80,
+      "time_s": 4.05,
+      "gazebo_iteration": 82,
+      "gazebo_sim_time_s": 4.05,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.5992348091896007,
+      "east_m": 0.44368699815242607,
+      "heading_rad": 0.023567060578403524,
+      "command": {
+        "time_s": 4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 81,
+      "time_s": 4.1000000000000005,
+      "gazebo_iteration": 83,
+      "gazebo_sim_time_s": 4.1000000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.6359291273981715,
+      "east_m": 0.4450339748463592,
+      "heading_rad": 0.02362481773151948,
+      "command": {
+        "time_s": 4.05,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 82,
+      "time_s": 4.15,
+      "gazebo_iteration": 84,
+      "gazebo_sim_time_s": 4.15,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.672622495138968,
+      "east_m": 0.4461132715262087,
+      "heading_rad": 0.025994135416749442,
+      "command": {
+        "time_s": 4.1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 83,
+      "time_s": 4.2,
+      "gazebo_iteration": 85,
+      "gazebo_sim_time_s": 4.2,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.7093434529456193,
+      "east_m": 0.4470813317685672,
+      "heading_rad": 0.030178817259407964,
+      "command": {
+        "time_s": 4.15,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 84,
+      "time_s": 4.25,
+      "gazebo_iteration": 86,
+      "gazebo_sim_time_s": 4.25,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.7461183107093543,
+      "east_m": 0.44809039301698217,
+      "heading_rad": 0.03560346469018283,
+      "command": {
+        "time_s": 4.2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 85,
+      "time_s": 4.3,
+      "gazebo_iteration": 87,
+      "gazebo_sim_time_s": 4.3,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.782970406117978,
+      "east_m": 0.4492509984349835,
+      "heading_rad": 0.04178779391467092,
+      "command": {
+        "time_s": 4.25,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 86,
+      "time_s": 4.3500000000000005,
+      "gazebo_iteration": 88,
+      "gazebo_sim_time_s": 4.3500000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.8199205159884837,
+      "east_m": 0.45062237145816575,
+      "heading_rad": 0.04841232286421859,
+      "command": {
+        "time_s": 4.3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 87,
+      "time_s": 4.4,
+      "gazebo_iteration": 89,
+      "gazebo_sim_time_s": 4.4,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.856987518011868,
+      "east_m": 0.45222303267779,
+      "heading_rad": 0.055295190739061084,
+      "command": {
+        "time_s": 4.35,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 88,
+      "time_s": 4.45,
+      "gazebo_iteration": 90,
+      "gazebo_sim_time_s": 4.45,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.8941887290178125,
+      "east_m": 0.454046082857615,
+      "heading_rad": 0.062342795364477954,
+      "command": {
+        "time_s": 4.4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 89,
+      "time_s": 4.5,
+      "gazebo_iteration": 91,
+      "gazebo_sim_time_s": 4.5,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.9315398884092954,
+      "east_m": 0.45607124739693794,
+      "heading_rad": 0.0695092288630128,
+      "command": {
+        "time_s": 4.45,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 90,
+      "time_s": 4.55,
+      "gazebo_iteration": 92,
+      "gazebo_sim_time_s": 4.55,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 2.9690549441758876,
+      "east_m": 0.45827266389358207,
+      "heading_rad": 0.07677095048932703,
+      "command": {
+        "time_s": 4.5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 91,
+      "time_s": 4.6000000000000005,
+      "gazebo_iteration": 93,
+      "gazebo_sim_time_s": 4.6000000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.00674579198192,
+      "east_m": 0.46062360572713723,
+      "heading_rad": 0.08411291897964168,
+      "command": {
+        "time_s": 4.55,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 92,
+      "time_s": 4.65,
+      "gazebo_iteration": 94,
+      "gazebo_sim_time_s": 4.65,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.044622056875352,
+      "east_m": 0.4630993175562006,
+      "heading_rad": 0.09152167112084042,
+      "command": {
+        "time_s": 4.6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 93,
+      "time_s": 4.7,
+      "gazebo_iteration": 95,
+      "gazebo_sim_time_s": 4.7,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.082690934344541,
+      "east_m": 0.4656787225825533,
+      "heading_rad": 0.09898228822830024,
+      "command": {
+        "time_s": 4.65,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 94,
+      "time_s": 4.75,
+      "gazebo_iteration": 96,
+      "gazebo_sim_time_s": 4.75,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.1209570645757734,
+      "east_m": 0.468345459315854,
+      "heading_rad": 0.10647748559176629,
+      "command": {
+        "time_s": 4.7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 95,
+      "time_s": 4.8,
+      "gazebo_iteration": 97,
+      "gazebo_sim_time_s": 4.8,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.159422428091515,
+      "east_m": 0.4710885062076811,
+      "heading_rad": 0.11398786908361512,
+      "command": {
+        "time_s": 4.75,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 96,
+      "time_s": 4.8500000000000005,
+      "gazebo_iteration": 98,
+      "gazebo_sim_time_s": 4.8500000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.198086292936955,
+      "east_m": 0.47390250259604544,
+      "heading_rad": 0.12149284020564699,
+      "command": {
+        "time_s": 4.8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 97,
+      "time_s": 4.9,
+      "gazebo_iteration": 99,
+      "gazebo_sim_time_s": 4.9,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.236945252156531,
+      "east_m": 0.47678779278941613,
+      "heading_rad": 0.1289718316943429,
+      "command": {
+        "time_s": 4.85,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 98,
+      "time_s": 4.95,
+      "gazebo_iteration": 100,
+      "gazebo_sim_time_s": 4.95,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.275993344315556,
+      "east_m": 0.4797502255504291,
+      "heading_rad": 0.13640564118516862,
+      "command": {
+        "time_s": 4.9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 99,
+      "time_s": 5.0,
+      "gazebo_iteration": 101,
+      "gazebo_sim_time_s": 5.0,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.3152221968572793,
+      "east_m": 0.48280078433368945,
+      "heading_rad": 0.14377769104917593,
+      "command": {
+        "time_s": 4.95,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 100,
+      "time_s": 5.05,
+      "gazebo_iteration": 102,
+      "gazebo_sim_time_s": 5.05,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.3546211347044874,
+      "east_m": 0.4859551261271426,
+      "heading_rad": 0.15107510776723654,
+      "command": {
+        "time_s": 5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 101,
+      "time_s": 5.1000000000000005,
+      "gazebo_iteration": 103,
+      "gazebo_sim_time_s": 5.1000000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.3941772568808903,
+      "east_m": 0.4892330518147907,
+      "heading_rad": 0.15828956186138488,
+      "command": {
+        "time_s": 5.05,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 102,
+      "time_s": 5.15,
+      "gazebo_iteration": 104,
+      "gazebo_sim_time_s": 5.15,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.4338755370624106,
+      "east_m": 0.4926578810837737,
+      "heading_rad": 0.16541782066036295,
+      "command": {
+        "time_s": 5.1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 103,
+      "time_s": 5.2,
+      "gazebo_iteration": 105,
+      "gazebo_sim_time_s": 5.2,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.4736989905751847,
+      "east_m": 0.4962557201073432,
+      "heading_rad": 0.17246196256701385,
+      "command": {
+        "time_s": 5.15,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 104,
+      "time_s": 5.25,
+      "gazebo_iteration": 106,
+      "gazebo_sim_time_s": 5.25,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.513628885816215,
+      "east_m": 0.5000546700098629,
+      "heading_rad": 0.1794292210789197,
+      "command": {
+        "time_s": 5.2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 105,
+      "time_s": 5.3,
+      "gazebo_iteration": 107,
+      "gazebo_sim_time_s": 5.3,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.5536449365906178,
+      "east_m": 0.5040840517974288,
+      "heading_rad": 0.18633147617687704,
+      "command": {
+        "time_s": 5.25,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 106,
+      "time_s": 5.3500000000000005,
+      "gazebo_iteration": 108,
+      "gazebo_sim_time_s": 5.3500000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.5937254423390925,
+      "east_m": 0.508373681934897,
+      "heading_rad": 0.19318445744624224,
+      "command": {
+        "time_s": 5.3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 107,
+      "time_s": 5.4,
+      "gazebo_iteration": 109,
+      "gazebo_sim_time_s": 5.4,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.633847413258455,
+      "east_m": 0.5129531703359487,
+      "heading_rad": 0.20000673696863025,
+      "command": {
+        "time_s": 5.35,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 108,
+      "time_s": 5.45,
+      "gazebo_iteration": 110,
+      "gazebo_sim_time_s": 5.45,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.6739867498688525,
+      "east_m": 0.5178512020931763,
+      "heading_rad": 0.20681857731179187,
+      "command": {
+        "time_s": 5.4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 109,
+      "time_s": 5.5,
+      "gazebo_iteration": 111,
+      "gazebo_sim_time_s": 5.5,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.714118507052965,
+      "east_m": 0.5230948138939774,
+      "heading_rad": 0.2136406922300642,
+      "command": {
+        "time_s": 5.45,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 110,
+      "time_s": 5.55,
+      "gazebo_iteration": 112,
+      "gazebo_sim_time_s": 5.55,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.7542172063370662,
+      "east_m": 0.5287087222260268,
+      "heading_rad": 0.2204929913163942,
+      "command": {
+        "time_s": 5.5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 111,
+      "time_s": 5.6000000000000005,
+      "gazebo_iteration": 113,
+      "gazebo_sim_time_s": 5.6000000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.794257138723896,
+      "east_m": 0.5347147490333645,
+      "heading_rad": 0.22739339939178094,
+      "command": {
+        "time_s": 5.55,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 112,
+      "time_s": 5.65,
+      "gazebo_iteration": 114,
+      "gazebo_sim_time_s": 5.65,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.8342126402090897,
+      "east_m": 0.541131341512968,
+      "heading_rad": 0.23435684179813143,
+      "command": {
+        "time_s": 5.6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 113,
+      "time_s": 5.7,
+      "gazebo_iteration": 115,
+      "gazebo_sim_time_s": 5.7,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.874058370174989,
+      "east_m": 0.5479731596040904,
+      "heading_rad": 0.2413944628248241,
+      "command": {
+        "time_s": 5.65,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 114,
+      "time_s": 5.75,
+      "gazebo_iteration": 116,
+      "gazebo_sim_time_s": 5.75,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.9137696226888776,
+      "east_m": 0.5552507312328507,
+      "heading_rad": 0.2485131137835277,
+      "command": {
+        "time_s": 5.7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 115,
+      "time_s": 5.8,
+      "gazebo_iteration": 117,
+      "gazebo_sim_time_s": 5.8,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.953322658234297,
+      "east_m": 0.5629702084323205,
+      "heading_rad": 0.25571512778655614,
+      "command": {
+        "time_s": 5.75,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 116,
+      "time_s": 5.8500000000000005,
+      "gazebo_iteration": 118,
+      "gazebo_sim_time_s": 5.8500000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 3.9926950148920644,
+      "east_m": 0.5711332474225095,
+      "heading_rad": 0.2629983900303703,
+      "command": {
+        "time_s": 5.8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 117,
+      "time_s": 5.9,
+      "gazebo_iteration": 119,
+      "gazebo_sim_time_s": 5.9,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.0318657785083065,
+      "east_m": 0.5797369930316656,
+      "heading_rad": 0.2703567013033285,
+      "command": {
+        "time_s": 5.85,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 118,
+      "time_s": 5.95,
+      "gazebo_iteration": 120,
+      "gazebo_sim_time_s": 5.95,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.07081583259579,
+      "east_m": 0.5887741284442992,
+      "heading_rad": 0.27778040918753355,
+      "command": {
+        "time_s": 5.9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 119,
+      "time_s": 6.0,
+      "gazebo_iteration": 121,
+      "gazebo_sim_time_s": 6.0,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.109528117065852,
+      "east_m": 0.5982329813417244,
+      "heading_rad": 0.2852572529292723,
+      "command": {
+        "time_s": 5.95,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 120,
+      "time_s": 6.05,
+      "gazebo_iteration": 122,
+      "gazebo_sim_time_s": 6.05,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.147706268631772,
+      "east_m": 0.6089517435672464,
+      "heading_rad": 0.2880331853395808,
+      "command": {
+        "time_s": 6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 121,
+      "time_s": 6.1000000000000005,
+      "gazebo_iteration": 123,
+      "gazebo_sim_time_s": 6.1000000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.185485050348418,
+      "east_m": 0.6203794372780712,
+      "heading_rad": 0.2879116930766663,
+      "command": {
+        "time_s": 6.05,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 122,
+      "time_s": 6.15,
+      "gazebo_iteration": 124,
+      "gazebo_sim_time_s": 6.15,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.22292633587669,
+      "east_m": 0.6322728962184693,
+      "heading_rad": 0.28546867391595376,
+      "command": {
+        "time_s": 6.1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 123,
+      "time_s": 6.2,
+      "gazebo_iteration": 125,
+      "gazebo_sim_time_s": 6.2,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.260087831554929,
+      "east_m": 0.6444280715574524,
+      "heading_rad": 0.28120713991655233,
+      "command": {
+        "time_s": 6.15,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 124,
+      "time_s": 6.25,
+      "gazebo_iteration": 126,
+      "gazebo_sim_time_s": 6.25,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.297028357403925,
+      "east_m": 0.6566496987645742,
+      "heading_rad": 0.27569892766982806,
+      "command": {
+        "time_s": 6.2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 125,
+      "time_s": 6.3,
+      "gazebo_iteration": 127,
+      "gazebo_sim_time_s": 6.3,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.333795807821215,
+      "east_m": 0.6687844841640752,
+      "heading_rad": 0.26942251318056987,
+      "command": {
+        "time_s": 6.25,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 126,
+      "time_s": 6.3500000000000005,
+      "gazebo_iteration": 128,
+      "gazebo_sim_time_s": 6.3500000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.370424346119643,
+      "east_m": 0.6807289265492937,
+      "heading_rad": 0.2627038484669104,
+      "command": {
+        "time_s": 6.3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 127,
+      "time_s": 6.4,
+      "gazebo_iteration": 129,
+      "gazebo_sim_time_s": 6.4,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.406937630753618,
+      "east_m": 0.6924197201549223,
+      "heading_rad": 0.25573777554556965,
+      "command": {
+        "time_s": 6.35,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 128,
+      "time_s": 6.45,
+      "gazebo_iteration": 130,
+      "gazebo_sim_time_s": 6.45,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.4433532067492765,
+      "east_m": 0.7038204385295184,
+      "heading_rad": 0.24863269577103145,
+      "command": {
+        "time_s": 6.4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 129,
+      "time_s": 6.5,
+      "gazebo_iteration": 131,
+      "gazebo_sim_time_s": 6.5,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.47968584310572,
+      "east_m": 0.7149112570131294,
+      "heading_rad": 0.24144726378088757,
+      "command": {
+        "time_s": 6.45,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 130,
+      "time_s": 6.55,
+      "gazebo_iteration": 132,
+      "gazebo_sim_time_s": 6.55,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.515949582975866,
+      "east_m": 0.7256825567838762,
+      "heading_rad": 0.23421336829595862,
+      "command": {
+        "time_s": 6.5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 131,
+      "time_s": 6.6000000000000005,
+      "gazebo_iteration": 133,
+      "gazebo_sim_time_s": 6.6000000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.552158823821531,
+      "east_m": 0.7361312952036915,
+      "heading_rad": 0.22694883447846645,
+      "command": {
+        "time_s": 6.55,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 132,
+      "time_s": 6.65,
+      "gazebo_iteration": 134,
+      "gazebo_sim_time_s": 6.65,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.58832874675891,
+      "east_m": 0.7462589811876829,
+      "heading_rad": 0.219664010737147,
+      "command": {
+        "time_s": 6.6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 133,
+      "time_s": 6.7,
+      "gazebo_iteration": 135,
+      "gazebo_sim_time_s": 6.7,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.6244753726732055,
+      "east_m": 0.7560704829373788,
+      "heading_rad": 0.21236508462458992,
+      "command": {
+        "time_s": 6.65,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 134,
+      "time_s": 6.75,
+      "gazebo_iteration": 136,
+      "gazebo_sim_time_s": 6.75,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.660615481023257,
+      "east_m": 0.7655732406286914,
+      "heading_rad": 0.20505575539116516,
+      "command": {
+        "time_s": 6.7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 135,
+      "time_s": 6.8,
+      "gazebo_iteration": 137,
+      "gazebo_sim_time_s": 6.8,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.696766524957121,
+      "east_m": 0.7747766722572599,
+      "heading_rad": 0.19773811809562616,
+      "command": {
+        "time_s": 6.75,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 136,
+      "time_s": 6.8500000000000005,
+      "gazebo_iteration": 138,
+      "gazebo_sim_time_s": 6.8500000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.732946542848747,
+      "east_m": 0.7836916676199281,
+      "heading_rad": 0.19041318711160304,
+      "command": {
+        "time_s": 6.8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 137,
+      "time_s": 6.9,
+      "gazebo_iteration": 139,
+      "gazebo_sim_time_s": 6.9,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.7691739975511585,
+      "east_m": 0.7923301146163253,
+      "heading_rad": 0.18308126657206936,
+      "command": {
+        "time_s": 6.85,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 138,
+      "time_s": 6.95,
+      "gazebo_iteration": 140,
+      "gazebo_sim_time_s": 6.95,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.805467512919755,
+      "east_m": 0.8007044350100823,
+      "heading_rad": 0.17574226284050964,
+      "command": {
+        "time_s": 6.9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 139,
+      "time_s": 7.0,
+      "gazebo_iteration": 141,
+      "gazebo_sim_time_s": 7.0,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.841845558128117,
+      "east_m": 0.808827131302162,
+      "heading_rad": 0.1683959748773194,
+      "command": {
+        "time_s": 6.95,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 140,
+      "time_s": 7.05,
+      "gazebo_iteration": 142,
+      "gazebo_sim_time_s": 7.05,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.878326156034413,
+      "east_m": 0.8167103523170214,
+      "heading_rad": 0.16104236689944454,
+      "command": {
+        "time_s": 7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 141,
+      "time_s": 7.1000000000000005,
+      "gazebo_iteration": 143,
+      "gazebo_sim_time_s": 7.1000000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.914926639407527,
+      "east_m": 0.8243654771010196,
+      "heading_rad": 0.15368181087097274,
+      "command": {
+        "time_s": 7.05,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 142,
+      "time_s": 7.15,
+      "gazebo_iteration": 144,
+      "gazebo_sim_time_s": 7.15,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.951663417090363,
+      "east_m": 0.8318027172561742,
+      "heading_rad": 0.14631527720281,
+      "command": {
+        "time_s": 7.1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 143,
+      "time_s": 7.2,
+      "gazebo_iteration": 145,
+      "gazebo_sim_time_s": 7.2,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 4.988551713055402,
+      "east_m": 0.8390307564684939,
+      "heading_rad": 0.13894445089016183,
+      "command": {
+        "time_s": 7.15,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 144,
+      "time_s": 7.25,
+      "gazebo_iteration": 146,
+      "gazebo_sim_time_s": 7.25,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.025605295186092,
+      "east_m": 0.8460564613227919,
+      "heading_rad": 0.1315717600738502,
+      "command": {
+        "time_s": 7.2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 145,
+      "time_s": 7.3,
+      "gazebo_iteration": 147,
+      "gazebo_sim_time_s": 7.3,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.062836244848921,
+      "east_m": 0.8528846834274714,
+      "heading_rad": 0.1242003201049815,
+      "command": {
+        "time_s": 7.25,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 146,
+      "time_s": 7.3500000000000005,
+      "gazebo_iteration": 148,
+      "gazebo_sim_time_s": 7.3500000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.100254790188457,
+      "east_m": 0.8595181379307029,
+      "heading_rad": 0.11683380598129345,
+      "command": {
+        "time_s": 7.3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 147,
+      "time_s": 7.4,
+      "gazebo_iteration": 149,
+      "gazebo_sim_time_s": 7.4,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.13786917424706,
+      "east_m": 0.8659573273411508,
+      "heading_rad": 0.10947626272329325,
+      "command": {
+        "time_s": 7.35,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 148,
+      "time_s": 7.45,
+      "gazebo_iteration": 150,
+      "gazebo_sim_time_s": 7.45,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.175685522036647,
+      "east_m": 0.8722005042931928,
+      "heading_rad": 0.10213185665062219,
+      "command": {
+        "time_s": 7.4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 149,
+      "time_s": 7.5,
+      "gazebo_iteration": 151,
+      "gazebo_sim_time_s": 7.5,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.213707718814051,
+      "east_m": 0.8782437043474577,
+      "heading_rad": 0.09480457655700557,
+      "command": {
+        "time_s": 7.45,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 150,
+      "time_s": 7.55,
+      "gazebo_iteration": 152,
+      "gazebo_sim_time_s": 7.55,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.251937352408477,
+      "east_m": 0.8840808814521216,
+      "heading_rad": 0.08749791318969047,
+      "command": {
+        "time_s": 7.5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 151,
+      "time_s": 7.6000000000000005,
+      "gazebo_iteration": 153,
+      "gazebo_sim_time_s": 7.6000000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.290373747785744,
+      "east_m": 0.8897041353428868,
+      "heading_rad": 0.08021455967565361,
+      "command": {
+        "time_s": 7.55,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 152,
+      "time_s": 7.65,
+      "gazebo_iteration": 154,
+      "gazebo_sim_time_s": 7.65,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.329014053973969,
+      "east_m": 0.8951039779231363,
+      "heading_rad": 0.07295616836307439,
+      "command": {
+        "time_s": 7.6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 153,
+      "time_s": 7.7,
+      "gazebo_iteration": 155,
+      "gazebo_sim_time_s": 7.7,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.367853311763841,
+      "east_m": 0.9002695927588508,
+      "heading_rad": 0.0657231779298766,
+      "command": {
+        "time_s": 7.65,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 154,
+      "time_s": 7.75,
+      "gazebo_iteration": 156,
+      "gazebo_sim_time_s": 7.75,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.406884477751718,
+      "east_m": 0.9051890902317493,
+      "heading_rad": 0.05851471117526841,
+      "command": {
+        "time_s": 7.7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 155,
+      "time_s": 7.8,
+      "gazebo_iteration": 157,
+      "gazebo_sim_time_s": 7.8,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.44609845685099,
+      "east_m": 0.9098497946333873,
+      "heading_rad": 0.051328549374042964,
+      "command": {
+        "time_s": 7.75,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 156,
+      "time_s": 7.8500000000000005,
+      "gazebo_iteration": 158,
+      "gazebo_sim_time_s": 7.8500000000000005,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.485484213522988,
+      "east_m": 0.9142385808247471,
+      "heading_rad": 0.0441611995696265,
+      "command": {
+        "time_s": 7.8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 157,
+      "time_s": 7.9,
+      "gazebo_iteration": 159,
+      "gazebo_sim_time_s": 7.9,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.525028967316638,
+      "east_m": 0.9183422315424633,
+      "heading_rad": 0.03700806637647647,
+      "command": {
+        "time_s": 7.85,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 158,
+      "time_s": 7.95,
+      "gazebo_iteration": 160,
+      "gazebo_sim_time_s": 7.95,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.564718401180105,
+      "east_m": 0.9221477676536504,
+      "heading_rad": 0.029863718360419345,
+      "command": {
+        "time_s": 7.9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 159,
+      "time_s": 8.0,
+      "gazebo_iteration": 161,
+      "gazebo_sim_time_s": 8.0,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.604536808320662,
+      "east_m": 0.9256427323823512,
+      "heading_rad": 0.022722219277596434,
+      "command": {
+        "time_s": 7.95,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 160,
+      "time_s": 8.049999999999999,
+      "gazebo_iteration": 162,
+      "gazebo_sim_time_s": 8.049999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.644495261867124,
+      "east_m": 0.9277654093562369,
+      "heading_rad": 0.020317136842573635,
+      "command": {
+        "time_s": 8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 161,
+      "time_s": 8.1,
+      "gazebo_iteration": 163,
+      "gazebo_sim_time_s": 8.1,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.684546545706089,
+      "east_m": 0.9290669203547182,
+      "heading_rad": 0.020834266827345127,
+      "command": {
+        "time_s": 8.05,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 162,
+      "time_s": 8.149999999999999,
+      "gazebo_iteration": 164,
+      "gazebo_sim_time_s": 8.149999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.724664066754207,
+      "east_m": 0.9297890391167808,
+      "heading_rad": 0.023686790055785334,
+      "command": {
+        "time_s": 8.1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 163,
+      "time_s": 8.2,
+      "gazebo_iteration": 165,
+      "gazebo_sim_time_s": 8.2,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.764826033616157,
+      "east_m": 0.9301445679289404,
+      "heading_rad": 0.028329444688009797,
+      "command": {
+        "time_s": 8.15,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 164,
+      "time_s": 8.25,
+      "gazebo_iteration": 166,
+      "gazebo_sim_time_s": 8.25,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.805011700952365,
+      "east_m": 0.9303378339651962,
+      "heading_rad": 0.0341581931066306,
+      "command": {
+        "time_s": 8.2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 165,
+      "time_s": 8.299999999999999,
+      "gazebo_iteration": 167,
+      "gazebo_sim_time_s": 8.299999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.845200212700389,
+      "east_m": 0.9305275382108946,
+      "heading_rad": 0.04068065403923126,
+      "command": {
+        "time_s": 8.25,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 166,
+      "time_s": 8.35,
+      "gazebo_iteration": 168,
+      "gazebo_sim_time_s": 8.35,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.88537050381206,
+      "east_m": 0.9308192874144909,
+      "heading_rad": 0.04757127495714686,
+      "command": {
+        "time_s": 8.3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 167,
+      "time_s": 8.399999999999999,
+      "gazebo_iteration": 169,
+      "gazebo_sim_time_s": 8.399999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.9255016814887,
+      "east_m": 0.9312773002837458,
+      "heading_rad": 0.05464249767373963,
+      "command": {
+        "time_s": 8.35,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 168,
+      "time_s": 8.45,
+      "gazebo_iteration": 170,
+      "gazebo_sim_time_s": 8.45,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 5.965573431707631,
+      "east_m": 0.9319393657250863,
+      "heading_rad": 0.061795295261017236,
+      "command": {
+        "time_s": 8.4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 169,
+      "time_s": 8.5,
+      "gazebo_iteration": 171,
+      "gazebo_sim_time_s": 8.5,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.005566329315375,
+      "east_m": 0.9328278795935315,
+      "heading_rad": 0.06898049127083361,
+      "command": {
+        "time_s": 8.45,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 170,
+      "time_s": 8.549999999999999,
+      "gazebo_iteration": 172,
+      "gazebo_sim_time_s": 8.549999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.045462048926992,
+      "east_m": 0.9339564519934109,
+      "heading_rad": 0.07617513891801675,
+      "command": {
+        "time_s": 8.5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 171,
+      "time_s": 8.6,
+      "gazebo_iteration": 173,
+      "gazebo_sim_time_s": 8.6,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.085243515289579,
+      "east_m": 0.9353335212428487,
+      "heading_rad": 0.08336959300258107,
+      "command": {
+        "time_s": 8.55,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 172,
+      "time_s": 8.649999999999999,
+      "gazebo_iteration": 174,
+      "gazebo_sim_time_s": 8.649999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.124895057481049,
+      "east_m": 0.9369642821792378,
+      "heading_rad": 0.09056078589314853,
+      "command": {
+        "time_s": 8.6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 173,
+      "time_s": 8.7,
+      "gazebo_iteration": 175,
+      "gazebo_sim_time_s": 8.7,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.164402603597999,
+      "east_m": 0.9388517264728573,
+      "heading_rad": 0.09774881677641822,
+      "command": {
+        "time_s": 8.65,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 174,
+      "time_s": 8.75,
+      "gazebo_iteration": 176,
+      "gazebo_sim_time_s": 8.75,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.203753885693793,
+      "east_m": 0.9409972084064879,
+      "heading_rad": 0.1049352489351274,
+      "command": {
+        "time_s": 8.7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 175,
+      "time_s": 8.799999999999999,
+      "gazebo_iteration": 177,
+      "gazebo_sim_time_s": 8.799999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.242938595030446,
+      "east_m": 0.9434007505278159,
+      "heading_rad": 0.11212227055699465,
+      "command": {
+        "time_s": 8.75,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 176,
+      "time_s": 8.85,
+      "gazebo_iteration": 178,
+      "gazebo_sim_time_s": 8.85,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.281948473982272,
+      "east_m": 0.9460612282927713,
+      "heading_rad": 0.11931228141796213,
+      "command": {
+        "time_s": 8.8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 177,
+      "time_s": 8.899999999999999,
+      "gazebo_iteration": 179,
+      "gazebo_sim_time_s": 8.899999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.320777396975893,
+      "east_m": 0.94897653750329,
+      "heading_rad": 0.1265076827727185,
+      "command": {
+        "time_s": 8.85,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 178,
+      "time_s": 8.95,
+      "gazebo_iteration": 180,
+      "gazebo_sim_time_s": 8.95,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.359421492262464,
+      "east_m": 0.9521437970542089,
+      "heading_rad": 0.13371076493004927,
+      "command": {
+        "time_s": 8.9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 179,
+      "time_s": 9.0,
+      "gazebo_iteration": 181,
+      "gazebo_sim_time_s": 9.0,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.397879281459237,
+      "east_m": 0.9555595735923655,
+      "heading_rad": 0.14092364837935722,
+      "command": {
+        "time_s": 8.95,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 180,
+      "time_s": 9.049999999999999,
+      "gazebo_iteration": 182,
+      "gazebo_sim_time_s": 9.049999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.436151751912449,
+      "east_m": 0.9592200779269641,
+      "heading_rad": 0.14814825748768046,
+      "command": {
+        "time_s": 9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 181,
+      "time_s": 9.1,
+      "gazebo_iteration": 183,
+      "gazebo_sim_time_s": 9.1,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.474242307684383,
+      "east_m": 0.9631213073136808,
+      "heading_rad": 0.15538630561913447,
+      "command": {
+        "time_s": 9.05,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 182,
+      "time_s": 9.149999999999999,
+      "gazebo_iteration": 184,
+      "gazebo_sim_time_s": 9.149999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.512156640601344,
+      "east_m": 0.9672591685841303,
+      "heading_rad": 0.1626392669543899,
+      "command": {
+        "time_s": 9.1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 183,
+      "time_s": 9.2,
+      "gazebo_iteration": 185,
+      "gazebo_sim_time_s": 9.2,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.54990261476232,
+      "east_m": 0.9716296484458232,
+      "heading_rad": 0.1699083198172422,
+      "command": {
+        "time_s": 9.15,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 184,
+      "time_s": 9.25,
+      "gazebo_iteration": 186,
+      "gazebo_sim_time_s": 9.25,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.58749020356199,
+      "east_m": 0.9762290578449295,
+      "heading_rad": 0.1771942687583432,
+      "command": {
+        "time_s": 9.2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 185,
+      "time_s": 9.299999999999999,
+      "gazebo_iteration": 187,
+      "gazebo_sim_time_s": 9.299999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.62493141738252,
+      "east_m": 0.9810542999625654,
+      "heading_rad": 0.1844974703459743,
+      "command": {
+        "time_s": 9.25,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 186,
+      "time_s": 9.35,
+      "gazebo_iteration": 188,
+      "gazebo_sim_time_s": 9.35,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.6622401275208745,
+      "east_m": 0.986103075986967,
+      "heading_rad": 0.19181778318018639,
+      "command": {
+        "time_s": 9.3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 187,
+      "time_s": 9.399999999999999,
+      "gazebo_iteration": 189,
+      "gazebo_sim_time_s": 9.399999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.699431764531217,
+      "east_m": 0.9913739920088098,
+      "heading_rad": 0.19915453968088537,
+      "command": {
+        "time_s": 9.35,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 188,
+      "time_s": 9.45,
+      "gazebo_iteration": 190,
+      "gazebo_sim_time_s": 9.45,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.736522963897818,
+      "east_m": 0.9968666176126051,
+      "heading_rad": 0.20650652040637385,
+      "command": {
+        "time_s": 9.4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 189,
+      "time_s": 9.5,
+      "gazebo_iteration": 191,
+      "gazebo_sim_time_s": 9.5,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.7735312439433235,
+      "east_m": 1.0025815792477617,
+      "heading_rad": 0.21387192175199976,
+      "command": {
+        "time_s": 9.45,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 190,
+      "time_s": 9.549999999999999,
+      "gazebo_iteration": 192,
+      "gazebo_sim_time_s": 9.549999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.810474724447459,
+      "east_m": 1.0085207103697753,
+      "heading_rad": 0.22124833659955123,
+      "command": {
+        "time_s": 9.5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 191,
+      "time_s": 9.6,
+      "gazebo_iteration": 193,
+      "gazebo_sim_time_s": 9.6,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.847371824121735,
+      "east_m": 1.014687187972108,
+      "heading_rad": 0.22863278318426383,
+      "command": {
+        "time_s": 9.55,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 192,
+      "time_s": 9.649999999999999,
+      "gazebo_iteration": 194,
+      "gazebo_sim_time_s": 9.649999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.884240890108006,
+      "east_m": 1.0210855614745329,
+      "heading_rad": 0.23602179938900525,
+      "command": {
+        "time_s": 9.6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 193,
+      "time_s": 9.7,
+      "gazebo_iteration": 195,
+      "gazebo_sim_time_s": 9.7,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.9210997866014665,
+      "east_m": 1.0277216533020856,
+      "heading_rad": 0.24341158367710358,
+      "command": {
+        "time_s": 9.65,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 194,
+      "time_s": 9.75,
+      "gazebo_iteration": 196,
+      "gazebo_sim_time_s": 9.75,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.957965510261147,
+      "east_m": 1.034602403741494,
+      "heading_rad": 0.2507981472765446,
+      "command": {
+        "time_s": 9.7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 195,
+      "time_s": 9.799999999999999,
+      "gazebo_iteration": 197,
+      "gazebo_sim_time_s": 9.799999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 6.994853864336597,
+      "east_m": 1.0417357466468387,
+      "heading_rad": 0.25817746195552993,
+      "command": {
+        "time_s": 9.75,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 196,
+      "time_s": 9.85,
+      "gazebo_iteration": 198,
+      "gazebo_sim_time_s": 9.85,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.031779165405919,
+      "east_m": 1.0491305258430745,
+      "heading_rad": 0.26554561952474104,
+      "command": {
+        "time_s": 9.8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 197,
+      "time_s": 9.899999999999999,
+      "gazebo_iteration": 199,
+      "gazebo_sim_time_s": 9.899999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.068753952862134,
+      "east_m": 1.0567963825591067,
+      "heading_rad": 0.27289902452044124,
+      "command": {
+        "time_s": 9.85,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 198,
+      "time_s": 9.95,
+      "gazebo_iteration": 200,
+      "gazebo_sim_time_s": 9.95,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.105788722648305,
+      "east_m": 1.0647435492841122,
+      "heading_rad": 0.28023461226045776,
+      "command": {
+        "time_s": 9.9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 199,
+      "time_s": 10.0,
+      "gazebo_iteration": 201,
+      "gazebo_sim_time_s": 10.0,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.142891739906368,
+      "east_m": 1.072982565004084,
+      "heading_rad": 0.28755005272386436,
+      "command": {
+        "time_s": 9.95,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": 15.12
+        }
+      }
+    },
+    {
+      "step": 200,
+      "time_s": 10.049999999999999,
+      "gazebo_iteration": 202,
+      "gazebo_sim_time_s": 10.049999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.179805498263657,
+      "east_m": 1.0824786872192627,
+      "heading_rad": 0.29010387142868793,
+      "command": {
+        "time_s": 10,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 201,
+      "time_s": 10.1,
+      "gazebo_iteration": 203,
+      "gazebo_sim_time_s": 10.1,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.216666427724765,
+      "east_m": 1.0927328279621726,
+      "heading_rad": 0.28970215573051505,
+      "command": {
+        "time_s": 10.05,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 202,
+      "time_s": 10.149999999999999,
+      "gazebo_iteration": 204,
+      "gazebo_sim_time_s": 10.149999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.253534241817176,
+      "east_m": 1.1035415676775653,
+      "heading_rad": 0.2869229165954308,
+      "command": {
+        "time_s": 10.1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 203,
+      "time_s": 10.2,
+      "gazebo_iteration": 205,
+      "gazebo_sim_time_s": 10.2,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.290462781499279,
+      "east_m": 1.1147266086359515,
+      "heading_rad": 0.2823055274912014,
+      "command": {
+        "time_s": 10.15,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 204,
+      "time_s": 10.25,
+      "gazebo_iteration": 206,
+      "gazebo_sim_time_s": 10.25,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.327503402169748,
+      "east_m": 1.1261129747733523,
+      "heading_rad": 0.276456523288811,
+      "command": {
+        "time_s": 10.2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 205,
+      "time_s": 10.299999999999999,
+      "gazebo_iteration": 207,
+      "gazebo_sim_time_s": 10.299999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.364692779022649,
+      "east_m": 1.137564539347821,
+      "heading_rad": 0.2698759592671698,
+      "command": {
+        "time_s": 10.25,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 206,
+      "time_s": 10.35,
+      "gazebo_iteration": 208,
+      "gazebo_sim_time_s": 10.35,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.40205057128503,
+      "east_m": 1.1489918985676637,
+      "heading_rad": 0.2628988713092941,
+      "command": {
+        "time_s": 10.3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 207,
+      "time_s": 10.399999999999999,
+      "gazebo_iteration": 209,
+      "gazebo_sim_time_s": 10.399999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.439583260695236,
+      "east_m": 1.1603418023979588,
+      "heading_rad": 0.2557225722146086,
+      "command": {
+        "time_s": 10.35,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 208,
+      "time_s": 10.45,
+      "gazebo_iteration": 210,
+      "gazebo_sim_time_s": 10.45,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.47728890076481,
+      "east_m": 1.1715831527518075,
+      "heading_rad": 0.2484557104194447,
+      "command": {
+        "time_s": 10.4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 209,
+      "time_s": 10.5,
+      "gazebo_iteration": 211,
+      "gazebo_sim_time_s": 10.5,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.51516057530672,
+      "east_m": 1.1826965529867361,
+      "heading_rad": 0.24115675174321846,
+      "command": {
+        "time_s": 10.45,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 210,
+      "time_s": 10.549999999999999,
+      "gazebo_iteration": 212,
+      "gazebo_sim_time_s": 10.549999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.553188516646929,
+      "east_m": 1.193668058760224,
+      "heading_rad": 0.23385730049780662,
+      "command": {
+        "time_s": 10.5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 211,
+      "time_s": 10.6,
+      "gazebo_iteration": 213,
+      "gazebo_sim_time_s": 10.6,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.591361342397737,
+      "east_m": 1.204485859075165,
+      "heading_rad": 0.22657465900543047,
+      "command": {
+        "time_s": 10.55,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 212,
+      "time_s": 10.649999999999999,
+      "gazebo_iteration": 214,
+      "gazebo_sim_time_s": 10.649999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.629666748234528,
+      "east_m": 1.2151386431896882,
+      "heading_rad": 0.21931821554276976,
+      "command": {
+        "time_s": 10.6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 213,
+      "time_s": 10.7,
+      "gazebo_iteration": 215,
+      "gazebo_sim_time_s": 10.7,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.668091852823946,
+      "east_m": 1.2256148323665814,
+      "heading_rad": 0.21209262173615318,
+      "command": {
+        "time_s": 10.65,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 214,
+      "time_s": 10.75,
+      "gazebo_iteration": 216,
+      "gazebo_sim_time_s": 10.75,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.706623349825523,
+      "east_m": 1.235902240307002,
+      "heading_rad": 0.2048993849771943,
+      "command": {
+        "time_s": 10.7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 215,
+      "time_s": 10.799999999999999,
+      "gazebo_iteration": 217,
+      "gazebo_sim_time_s": 10.799999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.745247605080641,
+      "east_m": 1.2459879869611754,
+      "heading_rad": 0.1977377093884085,
+      "command": {
+        "time_s": 10.75,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 216,
+      "time_s": 10.85,
+      "gazebo_iteration": 218,
+      "gazebo_sim_time_s": 10.85,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.783950777635976,
+      "east_m": 1.2558586027090115,
+      "heading_rad": 0.19060500759958154,
+      "command": {
+        "time_s": 10.8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 217,
+      "time_s": 10.899999999999999,
+      "gazebo_iteration": 219,
+      "gazebo_sim_time_s": 10.899999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.822718959992521,
+      "east_m": 1.2655002566435303,
+      "heading_rad": 0.1834972974686444,
+      "command": {
+        "time_s": 10.85,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 218,
+      "time_s": 10.95,
+      "gazebo_iteration": 220,
+      "gazebo_sim_time_s": 10.95,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.8615382912791425,
+      "east_m": 1.2748990155893465,
+      "heading_rad": 0.17640957962982173,
+      "command": {
+        "time_s": 10.9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 219,
+      "time_s": 11.0,
+      "gazebo_iteration": 221,
+      "gazebo_sim_time_s": 11.0,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.900395023816275,
+      "east_m": 1.2840410665986255,
+      "heading_rad": 0.1693362171396624,
+      "command": {
+        "time_s": 10.95,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 220,
+      "time_s": 11.049999999999999,
+      "gazebo_iteration": 222,
+      "gazebo_sim_time_s": 11.049999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.93927557487708,
+      "east_m": 1.2929129077319192,
+      "heading_rad": 0.16227130063121442,
+      "command": {
+        "time_s": 11,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 221,
+      "time_s": 11.1,
+      "gazebo_iteration": 223,
+      "gazebo_sim_time_s": 11.1,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 7.978166608253467,
+      "east_m": 1.3015015592951071,
+      "heading_rad": 0.15520897823876287,
+      "command": {
+        "time_s": 11.05,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 222,
+      "time_s": 11.149999999999999,
+      "gazebo_iteration": 224,
+      "gazebo_sim_time_s": 11.149999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.01705515312477,
+      "east_m": 1.309794824866647,
+      "heading_rad": 0.14814374248762263,
+      "command": {
+        "time_s": 11.1,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 223,
+      "time_s": 11.2,
+      "gazebo_iteration": 225,
+      "gazebo_sim_time_s": 11.2,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.055928728859685,
+      "east_m": 1.317781570957655,
+      "heading_rad": 0.14107067461751455,
+      "command": {
+        "time_s": 11.15,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 224,
+      "time_s": 11.25,
+      "gazebo_iteration": 226,
+      "gazebo_sim_time_s": 11.25,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.094775449916643,
+      "east_m": 1.3254519660545683,
+      "heading_rad": 0.133985641345981,
+      "command": {
+        "time_s": 11.2,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 225,
+      "time_s": 11.299999999999999,
+      "gazebo_iteration": 227,
+      "gazebo_sim_time_s": 11.299999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.133584123316949,
+      "east_m": 1.3327976511008184,
+      "heading_rad": 0.12688542874524256,
+      "command": {
+        "time_s": 11.25,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 226,
+      "time_s": 11.35,
+      "gazebo_iteration": 228,
+      "gazebo_sim_time_s": 11.35,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.17234436943412,
+      "east_m": 1.3398118633194227,
+      "heading_rad": 0.11976779720806997,
+      "command": {
+        "time_s": 11.3,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 227,
+      "time_s": 11.399999999999999,
+      "gazebo_iteration": 229,
+      "gazebo_sim_time_s": 11.399999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.211046768715901,
+      "east_m": 1.3464895488489212,
+      "heading_rad": 0.11263145449444889,
+      "command": {
+        "time_s": 11.35,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 228,
+      "time_s": 11.45,
+      "gazebo_iteration": 230,
+      "gazebo_sim_time_s": 11.45,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.24968299738503,
+      "east_m": 1.3528274702935938,
+      "heading_rad": 0.10547596074984411,
+      "command": {
+        "time_s": 11.4,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 229,
+      "time_s": 11.5,
+      "gazebo_iteration": 231,
+      "gazebo_sim_time_s": 11.5,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.288245917916182,
+      "east_m": 1.3588242833037711,
+      "heading_rad": 0.09830158757211827,
+      "command": {
+        "time_s": 11.45,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 230,
+      "time_s": 11.549999999999999,
+      "gazebo_iteration": 232,
+      "gazebo_sim_time_s": 11.549999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.326729638359392,
+      "east_m": 1.3644805558260076,
+      "heading_rad": 0.09110914998627595,
+      "command": {
+        "time_s": 11.5,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 231,
+      "time_s": 11.6,
+      "gazebo_iteration": 233,
+      "gazebo_sim_time_s": 11.6,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.365129591449032,
+      "east_m": 1.369798726918088,
+      "heading_rad": 0.08389982357260316,
+      "command": {
+        "time_s": 11.55,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 232,
+      "time_s": 11.649999999999999,
+      "gazebo_iteration": 234,
+      "gazebo_sim_time_s": 11.649999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.403442659778175,
+      "east_m": 1.3747830187209669,
+      "heading_rad": 0.07667495731871975,
+      "command": {
+        "time_s": 11.6,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 233,
+      "time_s": 11.7,
+      "gazebo_iteration": 235,
+      "gazebo_sim_time_s": 11.7,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.441667308591233,
+      "east_m": 1.3794393125523947,
+      "heading_rad": 0.069435896119179,
+      "command": {
+        "time_s": 11.65,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 234,
+      "time_s": 11.75,
+      "gazebo_iteration": 236,
+      "gazebo_sim_time_s": 11.75,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.479803657116186,
+      "east_m": 1.3837749910328214,
+      "heading_rad": 0.06218382948547796,
+      "command": {
+        "time_s": 11.7,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 235,
+      "time_s": 11.799999999999999,
+      "gazebo_iteration": 237,
+      "gazebo_sim_time_s": 11.799999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.517853463705247,
+      "east_m": 1.3877987457559138,
+      "heading_rad": 0.054919681499758566,
+      "command": {
+        "time_s": 11.75,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 236,
+      "time_s": 11.85,
+      "gazebo_iteration": 238,
+      "gazebo_sim_time_s": 11.85,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.555820074191107,
+      "east_m": 1.391520350622967,
+      "heading_rad": 0.04764405269280614,
+      "command": {
+        "time_s": 11.8,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 237,
+      "time_s": 11.899999999999999,
+      "gazebo_iteration": 239,
+      "gazebo_sim_time_s": 11.899999999999999,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.593708402810268,
+      "east_m": 1.3949503977016287,
+      "heading_rad": 0.04035721887262156,
+      "command": {
+        "time_s": 11.85,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 238,
+      "time_s": 11.95,
+      "gazebo_iteration": 240,
+      "gazebo_sim_time_s": 11.95,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.631524954896854,
+      "east_m": 1.3980999924251114,
+      "heading_rad": 0.03305918411376352,
+      "command": {
+        "time_s": 11.9,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    },
+    {
+      "step": 239,
+      "time_s": 12.0,
+      "gazebo_iteration": 241,
+      "gazebo_sim_time_s": 12.0,
+      "iteration_delta": 1,
+      "sim_time_delta_s": 0.05,
+      "north_m": 8.669277825618652,
+      "east_m": 1.40098041880666,
+      "heading_rad": 0.025749776174544436,
+      "command": {
+        "time_s": 11.95,
+        "body_wrench_n_nm": {
+          "surge_n": 60,
+          "sway_n": 0,
+          "yaw_nm": -15.12
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "common-suite-gate1-current-only-saturation-precheck",
+  "status": "FAILED_BEFORE_EPISODE_EXECUTION",
+  "passed": false,
+  "proposed_nominal_change": {
+    "current_mps_range": [0.0, 0.45],
+    "wind": "removed"
+  },
+  "representability": {
+    "bcod-sim": {
+      "current": "PASS",
+      "requested_mps_range": [0.0, 0.45]
+    },
+    "gazebo": {
+      "current": "FAIL_MISSING_IMPLEMENTATION",
+      "requested_mps_range": [0.0, 0.45],
+      "applied_mps": [0.0, 0.0, 0.0],
+      "direction": "UNDER_APPLIED_TO_ZERO",
+      "source": "validation/rl-campaign/ports/gazebo_gym_runtime.py:320"
+    },
+    "holoocean": {
+      "current": "PASS",
+      "requested_mps_range": [0.0, 0.45],
+      "mechanism": "set_ocean_currents"
+    },
+    "stonefish": {
+      "current": "FAIL_MISSING_IMPLEMENTATION",
+      "requested_mps_range": [0.0, 0.45],
+      "applied_mps": [0.0, 0.0, 0.0],
+      "direction": "UNDER_APPLIED_TO_ZERO",
+      "source": "stonefish/python/stonefish_task.py:144-150"
+    }
+  },
+  "episodes_run": 0,
+  "nominal_success_rate_by_arm": {},
+  "saturation_classification": "NOT_COMPUTABLE",
+  "contracts_revised": false,
+  "contracts_frozen": false,
+  "paper_claim_updated": false,
+  "required_before_retry": [
+    "implement and independently verify Gazebo current injection",
+    "implement and independently verify Stonefish current injection"
+  ],
+  "integrity_note": "A current-only saturation run before those fixes would silently measure still water in Gazebo and Stonefish and is prohibited by Gate 1."
+}

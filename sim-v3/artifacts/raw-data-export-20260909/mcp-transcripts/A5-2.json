@@ -1,0 +1,188 @@
+{
+  "task_id": "A5",
+  "category": "A",
+  "repeat_index": 2,
+  "prompt": "Construct and run identical 60-second node waypoint missions (seed 7, timestep 0.1 seconds, one waypoint 30 m north and 0 m east) for vehicle-a-otter on planar3 and vehicle-c-azimuth on coupled6. Read both results and report which used less propulsion energy.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "list_vehicle_presets",
+      "input": {},
+      "output": [
+        {
+          "id": "vehicle-a-otter",
+          "name": "Otter differential-thrust USV",
+          "plant": "planar3",
+          "validation_status": "validated",
+          "validation_claim": "Planar maneuvering validated at pinned tolerances."
+        },
+        {
+          "id": "vehicle-b-rudder",
+          "name": "USV propeller/rudder monohull",
+          "plant": "coupled6",
+          "validation_status": "model-structure-trajectory-scored-fail",
+          "validation_claim": "The MMG simulator has been scored against six measured MARIN single-screw KVLCC2 trajectories using measured rudder and samplewise propeller RPM. The current literature-coefficient parameterization fails the precommitted trajectory/IMO tolerances. No evidence validates Vehicle B USV-scale coefficients."
+        },
+        {
+          "id": "vehicle-c-azimuth",
+          "name": "Dual-azimuth overactuated USV",
+          "plant": "coupled6",
+          "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+          "validation_claim": "Control allocation and composability demonstrated; behavioral dynamics not independently validated."
+        },
+        {
+          "id": "searobotics-surveyor-m1.8",
+          "name": "SeaRobotics SR-Surveyor M1.8 (two-body common-task approximation)",
+          "plant": "planar3",
+          "validation_status": "model-structure-only",
+          "validation_claim": "Node common-task resolution uses the versioned two-body model; geometry, actuator and damping assumptions remain unvalidated."
+        }
+      ]
+    },
+    {
+      "tool": "construct_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "otter-planar3-waypoint-30N",
+          "seed": 7,
+          "timestep_s": 0.1,
+          "duration_s": 60
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-a-otter",
+          "plant": "planar3"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 30,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "scenario_id": "scenario-84d5de5c4deb0264",
+        "checksum_sha256": "84d5de5c4deb02644ae2b0d3bff289e088b24abc375abc3a72e3f2f9aa4d4c62",
+        "warnings": []
+      }
+    },
+    {
+      "tool": "construct_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "azimuth-coupled6-waypoint-30N",
+          "seed": 7,
+          "timestep_s": 0.1,
+          "duration_s": 60
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-c-azimuth",
+          "plant": "coupled6"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 30,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "scenario_id": "scenario-daca89f7f702c13f",
+        "checksum_sha256": "daca89f7f702c13f02e8f502bc68fd7bb9970fd5d9a5bef56f91f2b53d521bae",
+        "warnings": []
+      }
+    },
+    {
+      "tool": "run_scenario",
+      "input": {
+        "scenario_id": "scenario-84d5de5c4deb0264"
+      },
+      "output": {
+        "run_id": "run-5fce7323-8d48-41a1-98f2-00ed06d59080",
+        "success": true,
+        "completion_time_s": 10.099999999998545,
+        "metrics": {
+          "total_energy": 59.37783987815985,
+          "total_sensor_cost": 54.03499999999986,
+          "movement_cost": 5.342839878159982,
+          "steps": 101,
+          "elapsed_s": 10.099999999998545,
+          "propulsion_energy": 5.342839878159982
+        }
+      }
+    },
+    {
+      "tool": "run_scenario",
+      "input": {
+        "scenario_id": "scenario-daca89f7f702c13f"
+      },
+      "output": {
+        "run_id": "run-b8589a2e-c6e0-43ee-90b3-42e4494d5fa2",
+        "success": true,
+        "completion_time_s": 36.80000000000291,
+        "metrics": {
+          "total_energy": 205.45784705479454,
+          "total_sensor_cost": 196.87999999999897,
+          "movement_cost": 8.577847054795566,
+          "steps": 368,
+          "elapsed_s": 36.80000000000291,
+          "propulsion_energy": 8.577847054795566
+        }
+      }
+    },
+    {
+      "tool": "get_run_metrics",
+      "input": {
+        "run_id": "run-5fce7323-8d48-41a1-98f2-00ed06d59080"
+      },
+      "output": {
+        "run_id": "run-5fce7323-8d48-41a1-98f2-00ed06d59080",
+        "success": true,
+        "completion_time_s": 10.099999999998545,
+        "metrics": {
+          "total_energy": 59.37783987815985,
+          "total_sensor_cost": 54.03499999999986,
+          "movement_cost": 5.342839878159982,
+          "steps": 101,
+          "elapsed_s": 10.099999999998545,
+          "propulsion_energy": 5.342839878159982
+        }
+      }
+    },
+    {
+      "tool": "get_run_metrics",
+      "input": {
+        "run_id": "run-b8589a2e-c6e0-43ee-90b3-42e4494d5fa2"
+      },
+      "output": {
+        "run_id": "run-b8589a2e-c6e0-43ee-90b3-42e4494d5fa2",
+        "success": true,
+        "completion_time_s": 36.80000000000291,
+        "metrics": {
+          "total_energy": 205.45784705479454,
+          "total_sensor_cost": 196.87999999999897,
+          "movement_cost": 8.577847054795566,
+          "steps": 368,
+          "elapsed_s": 36.80000000000291,
+          "propulsion_energy": 8.577847054795566
+        }
+      }
+    }
+  ],
+  "final_answer_text": "Both runs completed and metrics confirmed (persisted metrics match run outputs exactly).\n\n## Results\n\n| Vehicle | Plant | Completion time (waypoint reached) | Steps | Propulsion energy |\n|---|---|---|---|---|\n| vehicle-a-otter | planar3 | 10.1 s | 101 | **5.34 J** |\n| vehicle-c-azimuth | coupled6 | 36.8 s | 368 | **8.58 J** |\n\n**vehicle-a-otter (planar3) used less propulsion energy** (5.34 vs. 8.58 — about 36% less).\n\nNotes/caveats:\n- Neither run consumed the full 60 s duration — both missions terminated early once the single waypoint (30 m north) was reached (at 10.1 s for the Otter, 36.8 s for the azimuth vehicle), so the energy comparison reflects the actual transit to the waypoint, not a full 60 s of station-keeping/thrust.\n- The azimuth vehicle also took much longer to reach the waypoint (3.6x the time), consistent with its higher energy use.\n- Validation caveat: vehicle-a-otter/planar3 is \"validated\" for planar maneuvering. vehicle-c-azimuth/coupled6 is flagged as \"allocation-demonstrated-dynamics-unvalidated\" — its behavioral dynamics have not been independently validated, so treat its energy/time figures with corresponding caution when drawing conclusions.",
+  "outcome": "correct",
+  "detail": "comparison matched ground truth"
+}

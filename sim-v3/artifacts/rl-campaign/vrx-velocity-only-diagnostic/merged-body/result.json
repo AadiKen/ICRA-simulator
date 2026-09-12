@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "ARTICULATION_AND_CG_OFFSET_HYPOTHESES_REJECTED",
+  "diagnostic_scope": "Velocity-only first-step coast comparison with propeller child links rigidly merged into base_link",
+  "mass_matrix_introspection": {
+    "gazebo_sim_version": "8.10.0",
+    "gz_physics_version": "7.6.0",
+    "dart_version": "6.13.2",
+    "system_level_generalized_mass_matrix_api_found": false,
+    "available_readback": "Per-link gz::physics::AddedMass only",
+    "decision": "Proceed with the merged-body counterfactual"
+  },
+  "topology": {
+    "propeller_child_links": 0,
+    "propeller_joints": 0,
+    "thruster_plugins": 0,
+    "aggregate_mass_kg": 52.3,
+    "aggregate_center_of_mass_m": [0, 0, 0],
+    "aggregate_inertia_kg_m2": [5.375132500000001, 13.347308666666668, 17.891219833333338],
+    "fluid_added_mass_planar": [2.615, 39.224999999999994, 1.431297586666667]
+  },
+  "test_conditions": {
+    "surface_plugins_enabled": false,
+    "current_mps": [0, 0, 0],
+    "wind_mps": [0, 0, 0],
+    "thrust_after_release": [0, 0],
+    "external_force_after_release": [0, 0, 0],
+    "timestep_s": 0.05,
+    "comparison_interval_s": [1.9, 1.95],
+    "matched_initial_state_node_body": {
+      "velocity_mps": [-0.642708, 0.346002],
+      "yaw_rate_rad_s": 0.346345
+    }
+  },
+  "first_step_acceleration_node_frame": {
+    "node": [0.3344460842146857, 0.05959007960192109, 0.20809094156030383],
+    "vrx_articulated": [0.40882000000000085, -0.014060000000000184, 0.2034400000000003],
+    "vrx_merged_body": [0.40882000000000085, -0.014060000000000184, 0.2034400000000003]
+  },
+  "difference_merged_minus_articulated": [0, 0, 0],
+  "difference_merged_minus_node": [0.07437391578531515, -0.07365007960192128, -0.00465094156030352],
+  "relative_error_merged_vs_node_where_defined": {
+    "surge": 0.222376983372442,
+    "sway": 1.235945275576642,
+    "yaw": 0.022350533682143
+  },
+  "rotor_mass_fraction": {
+    "rotor_mass_kg": 0.6,
+    "total_mass_kg": 52.3,
+    "fraction": 0.01147227533460803,
+    "percent": 1.147227533460803
+  },
+  "cg_offset_counterfactual": {
+    "articulated_base_link_com_x_m": 0.007543520309477757,
+    "merged_body_com_x_m": 0,
+    "node_reference_com_x_m": 0,
+    "residual_closed": false,
+    "interpretation": "The merged-body run already is the requested comX=0 test. Its response remained identical to articulated VRX, so the 7.54 mm base-link CG offset does not cause the first-step residual."
+  },
+  "telemetry_comparison": "All samples used for the first-step comparison and subsequent shared timestamps are numerically identical. The CSVs differ only at t=0.1 where articulated yaw rate is 3.74596e-16 versus 0, and because the articulated capture includes one additional t=5.3 sample.",
+  "conclusion": "Rigidly merging the propeller child links and moving the aggregate CG exactly to the origin produces zero change in the measured response. Articulated-body coupling and CG-offset coupling are therefore both ruled out as causes of the Node/VRX first-step residual. Surface dynamics are also excluded from this isolated result because the Surface plugins were disabled in both runs. The next remaining diagnostic target is the planar-constraint reduction itself.",
+  "production_change_authorized": false
+}

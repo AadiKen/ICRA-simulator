@@ -1,0 +1,454 @@
+{
+  "task_id": "D4",
+  "category": "D",
+  "repeat_index": 1,
+  "prompt": "Construct two otherwise identical 30-second vehicle-a-otter planar3 waypoint scenarios with seeds 11 and 12. Run and read both. Before comparing their metrics, verify whether their configuration checksums are interchangeable and explain the evidentiary implication.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "list_vehicle_presets",
+      "input": {},
+      "output": [
+        {
+          "id": "vehicle-a-otter",
+          "name": "Otter differential-thrust USV",
+          "plant": "planar3",
+          "validation_status": "validated",
+          "validation_claim": "Planar maneuvering validated at pinned tolerances."
+        },
+        {
+          "id": "vehicle-b-rudder",
+          "name": "USV propeller/rudder monohull",
+          "plant": "coupled6",
+          "validation_status": "model-structure-trajectory-scored-fail",
+          "validation_claim": "The MMG simulator has been scored against six measured MARIN single-screw KVLCC2 trajectories using measured rudder and samplewise propeller RPM. The current literature-coefficient parameterization fails the precommitted trajectory/IMO tolerances. No evidence validates Vehicle B USV-scale coefficients."
+        },
+        {
+          "id": "vehicle-c-azimuth",
+          "name": "Dual-azimuth overactuated USV",
+          "plant": "coupled6",
+          "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+          "validation_claim": "Control allocation and composability demonstrated; behavioral dynamics not independently validated."
+        },
+        {
+          "id": "searobotics-surveyor-m1.8",
+          "name": "SeaRobotics SR-Surveyor M1.8 (two-body common-task approximation)",
+          "plant": "planar3",
+          "validation_status": "model-structure-only",
+          "validation_claim": "Node common-task resolution uses the versioned two-body model; geometry, actuator and damping assumptions remain unvalidated."
+        }
+      ]
+    },
+    {
+      "tool": "list_sensor_plugins",
+      "input": {},
+      "output": [
+        {
+          "id": "gps",
+          "version": "1.0.0",
+          "domain": "ABSOLUTE_POSITIONING",
+          "outputSchema": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "outputPayloadClass": "compact",
+          "legacyAliases": [
+            "gps"
+          ]
+        },
+        {
+          "id": "imu",
+          "version": "1.1.0",
+          "domain": "RELATIVE_POSITIONING",
+          "outputSchema": {
+            "type": "object"
+          },
+          "outputPayloadClass": "compact",
+          "legacyAliases": [
+            "imu"
+          ]
+        },
+        {
+          "id": "camera",
+          "version": "1.0.0",
+          "domain": "LIGHT",
+          "outputSchema": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "outputPayloadClass": "camera",
+          "legacyAliases": [
+            "dayCam",
+            "nightCam"
+          ]
+        },
+        {
+          "id": "lidar",
+          "version": "1.0.0",
+          "domain": "LIGHT",
+          "outputSchema": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "outputPayloadClass": "lidar",
+          "legacyAliases": [
+            "lidar"
+          ]
+        },
+        {
+          "id": "fan-rangefinder",
+          "version": "1.0.0",
+          "domain": "LIGHT",
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "bearings_rad": {
+                "type": "array"
+              },
+              "ranges_m": {
+                "type": "array"
+              },
+              "hit_mask": {
+                "type": "array"
+              },
+              "max_range_m": {
+                "type": "number"
+              }
+            }
+          },
+          "outputPayloadClass": "lidar",
+          "legacyAliases": []
+        },
+        {
+          "id": "radar",
+          "version": "1.0.0",
+          "domain": "RF",
+          "outputSchema": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "outputPayloadClass": "compact",
+          "legacyAliases": []
+        },
+        {
+          "id": "single-beam-depth-sounder",
+          "version": "3.0.0",
+          "domain": "ACOUSTIC",
+          "outputSchema": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "depth_m": {
+                "type": "number"
+              },
+              "range_m": {
+                "type": "number"
+              },
+              "sound_speed_mps": {
+                "type": "number"
+              },
+              "transmission_loss_db": {
+                "type": "number"
+              },
+              "snr_db": {
+                "type": "number"
+              }
+            }
+          },
+          "outputPayloadClass": "compact",
+          "legacyAliases": []
+        },
+        {
+          "id": "survey-sonar-38khz",
+          "version": "3.0.0",
+          "domain": "ACOUSTIC",
+          "outputSchema": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "properties": {
+              "depth_m": {
+                "type": "number"
+              },
+              "range_m": {
+                "type": "number"
+              },
+              "sound_speed_mps": {
+                "type": "number"
+              },
+              "transmission_loss_db": {
+                "type": "number"
+              },
+              "snr_db": {
+                "type": "number"
+              }
+            }
+          },
+          "outputPayloadClass": "compact",
+          "legacyAliases": []
+        },
+        {
+          "id": "anemometer",
+          "version": "1.0.0",
+          "domain": "IN_SITU_AIR",
+          "outputSchema": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "outputPayloadClass": "compact",
+          "legacyAliases": []
+        },
+        {
+          "id": "barometer",
+          "version": "1.0.0",
+          "domain": "IN_SITU_AIR",
+          "outputSchema": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "outputPayloadClass": "compact",
+          "legacyAliases": []
+        },
+        {
+          "id": "hygrometer",
+          "version": "1.0.0",
+          "domain": "IN_SITU_AIR",
+          "outputSchema": {
+            "type": "object",
+            "properties": {
+              "relative_humidity_fraction": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              }
+            }
+          },
+          "outputPayloadClass": "compact",
+          "legacyAliases": []
+        },
+        {
+          "id": "water-quality",
+          "version": "1.0.0",
+          "domain": "IN_SITU_WATER",
+          "outputSchema": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "outputPayloadClass": "compact",
+          "legacyAliases": [
+            "exo2"
+          ]
+        },
+        {
+          "id": "platform-telemetry",
+          "version": "1.0.0",
+          "domain": "PLATFORM_INTERNAL",
+          "outputSchema": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "outputPayloadClass": "compact",
+          "legacyAliases": []
+        },
+        {
+          "id": "magnetometer",
+          "version": "1.0.0",
+          "domain": "FIELD_SENSING",
+          "outputSchema": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "outputPayloadClass": "compact",
+          "legacyAliases": []
+        },
+        {
+          "id": "ins-gps-fusion",
+          "version": "1.0.0",
+          "domain": "DERIVED",
+          "outputSchema": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "outputPayloadClass": "compact",
+          "legacyAliases": []
+        }
+      ]
+    },
+    {
+      "tool": "construct_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "otter-planar3-seed11",
+          "seed": 11,
+          "timestep_s": 0.1,
+          "duration_s": 30
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-a-otter",
+          "plant": "planar3"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 0,
+              "east_m": 0
+            },
+            {
+              "north_m": 100,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "scenario_id": "scenario-651111a274c7659a",
+        "checksum_sha256": "651111a274c7659a1024ecc133ed10415e3a472606b83a7e4405f5a588b69b7b",
+        "warnings": []
+      }
+    },
+    {
+      "tool": "construct_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "otter-planar3-seed12",
+          "seed": 12,
+          "timestep_s": 0.1,
+          "duration_s": 30
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-a-otter",
+          "plant": "planar3"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 0,
+              "east_m": 0
+            },
+            {
+              "north_m": 100,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "scenario_id": "scenario-84df60beded138fd",
+        "checksum_sha256": "84df60beded138fdcca309f13e6bfc8a41480242c145fbea5df37a0c4e2998cf",
+        "warnings": []
+      }
+    },
+    {
+      "tool": "run_scenario",
+      "input": {
+        "scenario_id": "scenario-651111a274c7659a"
+      },
+      "output": {
+        "run_id": "run-2fdcdeeb-6888-414b-a638-7b770455d8a1",
+        "success": true,
+        "completion_time_s": 11.80000000000291,
+        "metrics": {
+          "total_energy": 67.70612587501935,
+          "total_sensor_cost": 63.129999999999804,
+          "movement_cost": 4.576125875019548,
+          "steps": 118,
+          "elapsed_s": 11.80000000000291,
+          "propulsion_energy": 4.576125875019548
+        }
+      }
+    },
+    {
+      "tool": "run_scenario",
+      "input": {
+        "scenario_id": "scenario-84df60beded138fd"
+      },
+      "output": {
+        "run_id": "run-397455a5-e875-4158-8440-0a074865bd69",
+        "success": true,
+        "completion_time_s": 11.80000000000291,
+        "metrics": {
+          "total_energy": 67.70612587501935,
+          "total_sensor_cost": 63.129999999999804,
+          "movement_cost": 4.576125875019548,
+          "steps": 118,
+          "elapsed_s": 11.80000000000291,
+          "propulsion_energy": 4.576125875019548
+        }
+      }
+    },
+    {
+      "tool": "get_run_metrics",
+      "input": {
+        "run_id": "run-2fdcdeeb-6888-414b-a638-7b770455d8a1"
+      },
+      "output": {
+        "run_id": "run-2fdcdeeb-6888-414b-a638-7b770455d8a1",
+        "success": true,
+        "completion_time_s": 11.80000000000291,
+        "metrics": {
+          "total_energy": 67.70612587501935,
+          "total_sensor_cost": 63.129999999999804,
+          "movement_cost": 4.576125875019548,
+          "steps": 118,
+          "elapsed_s": 11.80000000000291,
+          "propulsion_energy": 4.576125875019548
+        }
+      }
+    },
+    {
+      "tool": "get_run_metrics",
+      "input": {
+        "run_id": "run-397455a5-e875-4158-8440-0a074865bd69"
+      },
+      "output": {
+        "run_id": "run-397455a5-e875-4158-8440-0a074865bd69",
+        "success": true,
+        "completion_time_s": 11.80000000000291,
+        "metrics": {
+          "total_energy": 67.70612587501935,
+          "total_sensor_cost": 63.129999999999804,
+          "movement_cost": 4.576125875019548,
+          "steps": 118,
+          "elapsed_s": 11.80000000000291,
+          "propulsion_energy": 4.576125875019548
+        }
+      }
+    }
+  ],
+  "final_answer_text": "## Checksum verification (done before comparing metrics)\n\n| Scenario | scenario_id | checksum_sha256 |\n|---|---|---|\n| seed 11 | scenario-651111a274c7659a | `651111a274c7659a1024ecc133ed10415e3a472606b83a7e4405f5a588b69b7b` |\n| seed 12 | scenario-84df60beded138fd | `84df60beded138fdcca309f13e6bfc8a41480242c145fbea5df37a0c4e2998cf` |\n\n**The checksums are not interchangeable — they are distinct.** That's the expected and correct result here, for two reasons:\n\n1. The two configs differ in `experiment.seed` (11 vs 12), which is itself hashed into the config, so the checksums *must* differ even if nothing else changed.\n2. I also gave the two scenarios different `experiment.name` fields (`otter-planar3-seed11` / `-seed12`) for bookkeeping, which likewise feeds the checksum. This means the checksum difference by itself doesn't prove \"only the seed changed\" — it just proves the two configs are not identical. I did not change anything else, so the only functionally relevant difference is the seed.\n\n**Evidentiary implication:** Because the checksums differ and are traceable to a documented, intentional field change (seed, plus a cosmetic name change), any metric differences observed between the two runs can be validly attributed to seed sensitivity rather than to an accidental configuration drift or duplicate/corrupted scenario. Conversely, had the two checksums come out *identical* despite different requested seeds, that would be red-flag evidence of a construction bug (e.g., seed not actually entering the hashed config) — the checksum acts as a config-provenance guarantee, not a results guarantee.\n\n## Metric comparison (seed 11 vs seed 12)\n\nBoth runs completed successfully (118 steps, 11.8 s elapsed) with **identical** metrics:\n\n| Metric | Seed 11 | Seed 12 |\n|---|---|---|\n| total_energy | 67.70612587501935 | 67.70612587501935 |\n| total_sensor_cost | 63.12999999999980 | 63.12999999999980 |\n| movement_cost / propulsion_energy | 4.576125875019548 | 4.576125875019548 |\n\n**Interpretation:** Despite the configs being provably distinct (different checksums), the outcome metrics are bit-for-bit identical. This indicates the seed had no detectable effect on this particular scenario — consistent with there being no stochastic process actually exercised in this run (e.g., no sensor noise model, no randomized environment/disturbance, no probabilistic mission logic engaged for this vehicle/plant/mission combination as configured). The checksum divergence confirms this isn't an artifact of accidentally running the same scenario twice; it's genuine evidence that, for this deterministic planar3 Otter waypoint setup, `seed` is not currently a load-bearing input to the result. If seed-driven variability was the goal, a stochastic element (e.g., sensor noise, environmental randomness) would need to be enabled for it to manifest.",
+  "outcome": "correct",
+  "detail": "different checksums were disclosed"
+}

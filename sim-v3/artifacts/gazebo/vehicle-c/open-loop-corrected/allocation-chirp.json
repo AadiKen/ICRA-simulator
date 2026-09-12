@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "synchronization": {
     "source": "/world/vehicle_c_check/stats",
     "initial_iteration": 1,
@@ -18,26 +18,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": -5.516537938449598e-10,
-        "y": -3.00998926463665e-07,
-        "yaw_rad": 1.5707963262497262,
-        "vx": -7.520628105452233e-06,
-        "vy": 1.3775572219009002e-08,
-        "angular_z": 39.26990814793603
+        "x": -8.945075686701637e-09,
+        "y": 4.8857676485381245e-05,
+        "yaw_rad": 1.570796262672214,
+        "vx": 0.0009771603492368945,
+        "vy": 1.786100487772115e-07,
+        "angular_z": 31.41592520544874
       },
       "command": {
         "step": 0,
         "time_s": 0,
-        "port_thrust_n": 0.02617993877991494,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 5.353529523113361,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.02617993877991494,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 5.353529523113361,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.02617993877991494,
-        "port_azimuth_rad": -0.00045990596891602265,
-        "starboard_thrust_n": 0.02617993877991494,
-        "starboard_azimuth_rad": -0.000459905968957934
+        "port_thrust_n": 5.353529523113361,
+        "port_azimuth_rad": -0.004706536186618395,
+        "starboard_thrust_n": 5.353529523113361,
+        "starboard_azimuth_rad": -0.004706536186673183
       }
     },
     {
@@ -48,26 +52,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": -1.2356645347163768e-09,
-        "y": -7.857784933122662e-07,
-        "yaw_rad": 1.5707963197728323,
-        "vx": -8.708528546630174e-06,
-        "vy": 1.3668501103871243e-08,
-        "angular_z": 17.453292430276235
+        "x": -1.0518516200275319e-07,
+        "y": 0.00022181119877195162,
+        "yaw_rad": 1.5707961556374663,
+        "vx": 0.002218142546876495,
+        "vy": 1.0510028413894842e-06,
+        "angular_z": 15.707961393959929
       },
       "command": {
         "step": 1,
         "time_s": 0.05,
-        "port_thrust_n": 0.05235987755982988,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 9.994385952360462,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.05235987755982988,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 9.994385952360462,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.05235987755982988,
-        "port_azimuth_rad": 0.004776081781347208,
-        "starboard_thrust_n": 0.05235987755982988,
-        "starboard_azimuth_rad": 0.004776081781304963
+        "port_thrust_n": 9.994385952360462,
+        "port_azimuth_rad": 0.0005294516447887439,
+        "starboard_thrust_n": 9.994385952360462,
+        "starboard_azimuth_rad": 0.0005294516447341128
       }
     },
     {
@@ -78,26 +86,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": -1.8040975137440722e-09,
-        "y": -1.0260555110382957e-06,
-        "yaw_rad": 1.57079637458669,
-        "vx": -7.163608011960259e-06,
-        "vy": 1.2328087375064977e-08,
-        "angular_z": 4.5343641135249876e-07
+        "x": -3.310750118663934e-07,
+        "y": 0.0005833037507692921,
+        "yaw_rad": 1.570795724406328,
+        "vx": 0.005344581919916776,
+        "vy": 3.2196713505993426e-06,
+        "angular_z": -5.9162109904368425e-06
       },
       "command": {
         "step": 2,
         "time_s": 0.1,
-        "port_thrust_n": 0.07853981633974483,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 14.017441826788316,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.07853981633974483,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 14.017441826788316,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.07853981633974483,
-        "port_azimuth_rad": -0.0004599060503795818,
-        "starboard_thrust_n": 0.07853981633974483,
-        "starboard_azimuth_rad": -0.0004599060504217153
+        "port_thrust_n": 14.017441826788316,
+        "port_azimuth_rad": -0.004706536160207916,
+        "starboard_thrust_n": 14.017441826788316,
+        "starboard_azimuth_rad": -0.004706536160262927
       }
     },
     {
@@ -108,26 +120,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": -7.788043552313308e-10,
-        "y": -5.999561246650685e-07,
-        "yaw_rad": 1.5707963230696638,
-        "vx": 2.0944117617647534e-06,
-        "vy": -5.027728607652382e-09,
-        "angular_z": -3.9412242552480774e-08
+        "x": -7.549998485601109e-07,
+        "y": 0.001188394344786185,
+        "yaw_rad": 1.570795079893092,
+        "vx": 0.009666154108807121,
+        "vy": 6.498405108345325e-06,
+        "angular_z": -1.1965692532321314e-05
       },
       "command": {
         "step": 3,
         "time_s": 0.15000000000000002,
-        "port_thrust_n": 0.10471975511965977,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 17.504940053789966,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.10471975511965977,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 17.504940053789966,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.10471975511965977,
-        "port_azimuth_rad": 0.004776081754401893,
-        "starboard_thrust_n": 0.10471975511965977,
-        "starboard_azimuth_rad": 0.0047760817543600256
+        "port_thrust_n": 17.504940053789966,
+        "port_azimuth_rad": 0.0005294516714075412,
+        "starboard_thrust_n": 17.504940053789966,
+        "starboard_azimuth_rad": 0.0005294516713526421
       }
     },
     {
@@ -138,26 +154,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 6.704670305594904e-10,
-        "y": 9.081446828540433e-07,
-        "yaw_rad": 1.5707963844821833,
-        "vx": 1.983681212788695e-05,
-        "vy": -2.5601221125375653e-08,
-        "angular_z": -3.9610438287828713e-08
+        "x": -1.3806440182570474e-06,
+        "y": 0.0020839779112971873,
+        "yaw_rad": 1.5707940072982052,
+        "vx": 0.015007431848539842,
+        "vy": 1.050606343962349e-05,
+        "angular_z": -1.9388334868157415e-05
       },
       "command": {
         "step": 4,
         "time_s": 0.2,
-        "port_thrust_n": 0.1308996938995747,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 20.528175192195636,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.1308996938995747,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 20.528175192195636,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.1308996938995747,
-        "port_azimuth_rad": -0.00045990607730978574,
-        "starboard_thrust_n": 0.1308996938995747,
-        "starboard_azimuth_rad": -0.00045990607735191914
+        "port_thrust_n": 20.528175192195636,
+        "port_azimuth_rad": -0.004706536133360832,
+        "starboard_thrust_n": 20.528175192195636,
+        "starboard_azimuth_rad": -0.0047065361334152405
       }
     },
     {
@@ -168,26 +188,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 4.382192208329539e-09,
-        "y": 3.907828205112179e-06,
-        "yaw_rad": 1.5707963418075783,
-        "vx": 4.596117784779994e-05,
-        "vy": -5.300041050669646e-08,
-        "angular_z": -4.330576380838749e-08
+        "x": -2.2699439993769632e-06,
+        "y": 0.003309865841892574,
+        "yaw_rad": 1.570792630096604,
+        "vx": 0.021216011637798328,
+        "vy": 1.518620307143034e-05,
+        "angular_z": -2.8075583790651737e-05
       },
       "command": {
         "step": 5,
         "time_s": 0.25,
-        "port_thrust_n": 0.15707963267948966,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 23.148950919427694,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.15707963267948966,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 23.148950919427694,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.15707963267948966,
-        "port_azimuth_rad": 0.0047760817274880435,
-        "starboard_thrust_n": 0.15707963267948966,
-        "starboard_azimuth_rad": 0.0047760817274460216
+        "port_thrust_n": 23.148950919427694,
+        "port_azimuth_rad": 0.0005294516984957644,
+        "starboard_thrust_n": 23.148950919427694,
+        "starboard_azimuth_rad": 0.0005294516984407545
       }
     },
     {
@@ -198,26 +222,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 9.110502235674242e-09,
-        "y": 8.802772803908487e-06,
-        "yaw_rad": 1.5707964141933937,
-        "vx": 8.036278005027157e-05,
-        "vy": -8.646511503195492e-08,
-        "angular_z": -5.3150003094869325e-08
+        "x": -3.4122984703798414e-06,
+        "y": 0.0048997231027967285,
+        "yaw_rad": 1.5707907586765895,
+        "vx": 0.02815969452987922,
+        "vy": 2.0406599884711395e-05,
+        "angular_z": -3.778092778778248e-05
       },
       "command": {
         "step": 6,
         "time_s": 0.30000000000000004,
-        "port_thrust_n": 0.1832595714594046,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 25.420843477566876,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.1832595714594046,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 25.420843477566876,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.1832595714594046,
-        "port_azimuth_rad": -0.00045990610420703,
-        "starboard_thrust_n": 0.1832595714594046,
-        "starboard_azimuth_rad": -0.00045990610424916323
+        "port_thrust_n": 25.420843477566876,
+        "port_azimuth_rad": -0.004706536106025429,
+        "starboard_thrust_n": 25.420843477566876,
+        "starboard_azimuth_rad": -0.004706536106080217
       }
     },
     {
@@ -228,26 +256,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.67426838473568e-08,
-        "y": 1.599095597733661e-05,
-        "yaw_rad": 1.5707963846979291,
-        "vx": 0.00012293527647984015,
-        "vy": -1.2647988338421425e-07,
-        "angular_z": -6.93058264484914e-08
+        "x": -4.86421550773014e-06,
+        "y": 0.00688187679306768,
+        "yaw_rad": 1.5707885248456797,
+        "vx": 0.03572377706547207,
+        "vy": 2.6125507567656624e-05,
+        "angular_z": -4.841784442375106e-05
       },
       "command": {
         "step": 7,
         "time_s": 0.35000000000000003,
-        "port_thrust_n": 0.20943951023931956,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 27.390296926824636,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.20943951023931956,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 27.390296926824636,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.20943951023931956,
-        "port_azimuth_rad": 0.004776081700609802,
-        "starboard_thrust_n": 0.20943951023931956,
-        "starboard_azimuth_rad": 0.004776081700567779
+        "port_thrust_n": 27.390296926824636,
+        "port_azimuth_rad": 0.0005294517260799645,
+        "starboard_thrust_n": 27.390296926824636,
+        "starboard_azimuth_rad": 0.000529451726025334
       }
     },
     {
@@ -258,26 +290,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 2.5964433118557543e-08,
-        "y": 2.5864771338777784e-05,
-        "yaw_rad": 1.5707964723239511,
-        "vx": 0.00017357119285255692,
-        "vy": -1.7235613185660734e-07,
-        "angular_z": -9.381300239750846e-08
+        "x": -6.6038638439194905e-06,
+        "y": 0.00928001840514903,
+        "yaw_rad": 1.5707857567566752,
+        "vx": 0.04380871276373529,
+        "vy": 3.224509417489722e-05,
+        "angular_z": -5.9798630236096464e-05
       },
       "command": {
         "step": 8,
         "time_s": 0.4,
-        "port_thrust_n": 0.2356194490192345,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 29.097572596572952,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.2356194490192345,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 29.097572596572952,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.2356194490192345,
-        "port_azimuth_rad": -0.00045990613106569904,
-        "starboard_thrust_n": 0.2356194490192345,
-        "starboard_azimuth_rad": -0.000459906131107832
+        "port_thrust_n": 29.097572596572952,
+        "port_azimuth_rad": -0.004706536078192803,
+        "starboard_thrust_n": 29.097572596572952,
+        "starboard_azimuth_rad": -0.0047065360782473685
       }
     },
     {
@@ -288,26 +324,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 3.871590572794294e-08,
-        "y": 3.8811216873952314e-05,
-        "yaw_rad": 1.5707964601658475,
-        "vx": 0.00023216246620221185,
-        "vy": -2.246146238715821e-07,
-        "angular_z": -1.2638133131465332e-07
+        "x": -8.683222602286306e-06,
+        "y": 0.01211380904706362,
+        "yaw_rad": 1.570782591345785,
+        "vx": 0.052328087763288754,
+        "vy": 3.8735662083306434e-05,
+        "angular_z": -7.18569786037983e-05
       },
       "command": {
         "step": 9,
         "time_s": 0.45,
-        "port_thrust_n": 0.26179938779914946,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 30.57757214345896,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.26179938779914946,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 30.57757214345896,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.26179938779914946,
-        "port_azimuth_rad": 0.0047760816737704576,
-        "starboard_thrust_n": 0.26179938779914946,
-        "starboard_azimuth_rad": 0.004776081673728215
+        "port_thrust_n": 30.57757214345896,
+        "port_azimuth_rad": 0.0005294517541578445,
+        "starboard_thrust_n": 30.57757214345896,
+        "starboard_azimuth_rad": 0.0005294517541032148
       }
     },
     {
@@ -318,26 +358,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 5.3616802336081894e-08,
-        "y": 5.5211983673341726e-05,
-        "yaw_rad": 1.570796567058912,
-        "vx": 0.00029860082812483536,
-        "vy": -2.8258871764749845e-07,
-        "angular_z": -1.6869312040091673e-07
+        "x": -1.1071616368472998e-05,
+        "y": 0.01539940608497995,
+        "yaw_rad": 1.570778869001323,
+        "vx": 0.061206872014686255,
+        "vy": 4.552558035646579e-05,
+        "angular_z": -8.445123020313384e-05
       },
       "command": {
         "step": 10,
         "time_s": 0.5,
-        "port_thrust_n": 0.2879793265790644,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 31.86055104229472,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.2879793265790644,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 31.86055104229472,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.2879793265790644,
-        "port_azimuth_rad": -0.00045990615788474743,
-        "starboard_thrust_n": 0.2879793265790644,
-        "starboard_azimuth_rad": -0.0004599061579268799
+        "port_thrust_n": 31.86055104229472,
+        "port_azimuth_rad": -0.004706536049875214,
+        "starboard_thrust_n": 31.86055104229472,
+        "starboard_azimuth_rad": -0.004706536049930223
       }
     },
     {
@@ -348,26 +392,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 7.266165361748476e-08,
-        "y": 7.544362580791156e-05,
-        "yaw_rad": 1.570796576099523,
-        "vx": 0.00037277823493245407,
-        "vy": -3.468120400251802e-07,
-        "angular_z": -2.2016497446896156e-07
+        "x": -1.3817246845205097e-05,
+        "y": 0.019149916307523836,
+        "yaw_rad": 1.570774729467106,
+        "vx": 0.07037990460088227,
+        "vy": 5.259430808344037e-05,
+        "angular_z": -9.753132512615457e-05
       },
       "command": {
         "step": 11,
         "time_s": 0.55,
-        "port_thrust_n": 0.3141592653589793,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 32.97273709554126,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.3141592653589793,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 32.97273709554126,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.3141592653589793,
-        "port_azimuth_rad": 0.004776081646972206,
-        "starboard_thrust_n": 0.3141592653589793,
-        "starboard_azimuth_rad": 0.004776081646930452
+        "port_thrust_n": 32.97273709554126,
+        "port_azimuth_rad": 0.0005294517827077585,
+        "starboard_thrust_n": 32.97273709554126,
+        "starboard_azimuth_rad": 0.000529451782652973
       }
     },
     {
@@ -378,26 +426,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 9.44051920747156e-08,
-        "y": 9.98776188790199e-05,
-        "yaw_rad": 1.5707967059434336,
-        "vx": 0.0004545871632224073,
-        "vy": -4.166274756839899e-07,
-        "angular_z": -2.8223262807036664e-07
+        "x": -1.688245554692603e-05,
+        "y": 0.023375791257298783,
+        "yaw_rad": 1.5707700213048938,
+        "vx": 0.07979058463055862,
+        "vy": 5.9889877609987126e-05,
+        "angular_z": -0.00011099084916522313
       },
       "command": {
         "step": 12,
         "time_s": 0.6000000000000001,
-        "port_thrust_n": 0.34033920413889424,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 33.93686660551107,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.34033920413889424,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 33.93686660551107,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.34033920413889424,
-        "port_azimuth_rad": -0.00045990618466196123,
-        "starboard_thrust_n": 0.34033920413889424,
-        "starboard_azimuth_rad": -0.0004599061847040929
+        "port_thrust_n": 33.93686660551107,
+        "port_azimuth_rad": -0.004706536021100007,
+        "starboard_thrust_n": 33.93686660551107,
+        "starboard_azimuth_rad": -0.0047065360211546335
       }
     },
     {
@@ -408,26 +460,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.2089697676949295e-07,
-        "y": 0.00012888050993626636,
-        "yaw_rad": 1.5707967396587117,
-        "vx": 0.0005439209449645822,
-        "vy": -4.925744014707839e-07,
-        "angular_z": -3.5410181734726837e-07
+        "x": -2.0312293988619457e-05,
+        "y": 0.0280851667234228,
+        "yaw_rad": 1.570764885429439,
+        "vx": 0.08938973704566883,
+        "vy": 6.739853911629307e-05,
+        "angular_z": -0.00012479236287945078
       },
       "command": {
         "step": 13,
         "time_s": 0.65,
-        "port_thrust_n": 0.36651914291880916,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 34.77264917020087,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.36651914291880916,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 34.77264917020087,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.36651914291880916,
-        "port_azimuth_rad": 0.004776081620215555,
-        "starboard_thrust_n": 0.36651914291880916,
-        "starboard_azimuth_rad": 0.0047760816201734245
+        "port_thrust_n": 34.77264917020087,
+        "port_azimuth_rad": 0.0005294518116996032,
+        "starboard_thrust_n": 34.77264917020087,
+        "starboard_azimuth_rad": 0.0005294518116449765
       }
     },
     {
@@ -438,26 +494,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.5062724744927873e-07,
-        "y": 0.00016281394596472717,
-        "yaw_rad": 1.5707968957191774,
-        "vx": 0.0006406739872517133,
-        "vy": -5.740008643177956e-07,
-        "angular_z": -4.3702551633858504e-07
+        "x": -2.4063575828677644e-05,
+        "y": 0.033284159950132154,
+        "yaw_rad": 1.5707591756244657,
+        "vx": 0.09913463210267279,
+        "vy": 7.5082971284342e-05,
+        "angular_z": -0.0001388562071896331
       },
       "command": {
         "step": 14,
         "time_s": 0.7000000000000001,
-        "port_thrust_n": 0.3926990816987241,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 35.497170604526985,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.3926990816987241,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 35.497170604526985,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.3926990816987241,
-        "port_azimuth_rad": -0.00045990621139755435,
-        "starboard_thrust_n": 0.3926990816987241,
-        "starboard_azimuth_rad": -0.0004599062114396848
+        "port_thrust_n": 35.497170604526985,
+        "port_azimuth_rad": -0.004706535991900088,
+        "starboard_thrust_n": 35.497170604526985,
+        "starboard_azimuth_rad": -0.004706535991955092
       }
     },
     {
@@ -468,26 +528,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.8570087101547062e-07,
-        "y": 0.00020203480443734613,
-        "yaw_rad": 1.570796957136865,
-        "vx": 0.0007447420277755894,
-        "vy": -6.614492349845686e-07,
-        "angular_z": -5.300497107843359e-07
+        "x": -2.8178724670140302e-05,
+        "y": 0.03897712421870552,
+        "yaw_rad": 1.570753032857069,
+        "vx": 0.10898813571762582,
+        "vy": 8.293437839776698e-05,
+        "angular_z": -0.00015315460705259002
       },
       "command": {
         "step": 15,
         "time_s": 0.75,
-        "port_thrust_n": 0.418879020478639,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 36.1252422238396,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.418879020478639,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 36.1252422238396,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.418879020478639,
-        "port_azimuth_rad": 0.004776081593501105,
-        "starboard_thrust_n": 0.418879020478639,
-        "starboard_azimuth_rad": 0.004776081593458863
+        "port_thrust_n": 36.1252422238396,
+        "port_azimuth_rad": 0.0005294518410978209,
+        "starboard_thrust_n": 36.1252422238396,
+        "starboard_azimuth_rad": 0.0005294518410428175
       }
     },
     {
@@ -498,26 +562,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 2.2454380450221394e-07,
-        "y": 0.0002468951933947555,
-        "yaw_rad": 1.5707971422098754,
-        "vx": 0.0008560222903896885,
-        "vy": -7.542708754677119e-07,
-        "angular_z": -6.342869753962987e-07
+        "x": -3.261016495830496e-05,
+        "y": 0.04516687280252038,
+        "yaw_rad": 1.5707463140145248,
+        "vx": 0.11891797480670971,
+        "vy": 9.092628261981263e-05,
+        "angular_z": -0.00016762812707571723
       },
       "command": {
         "step": 16,
         "time_s": 0.8,
-        "port_thrust_n": 0.44505895925855393,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 36.66970363008201,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.44505895925855393,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 36.66970363008201,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.44505895925855393,
-        "port_azimuth_rad": -0.0004599062380923847,
-        "starboard_thrust_n": 0.44505895925855393,
-        "starboard_azimuth_rad": -0.0004599062381345134
+        "port_thrust_n": 36.66970363008201,
+        "port_azimuth_rad": -0.004706535962313218,
+        "starboard_thrust_n": 36.66970363008201,
+        "starboard_azimuth_rad": -0.004706535962367841
       }
     },
     {
@@ -528,26 +596,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 2.6931631006364085e-07,
-        "y": 0.00029774256473247116,
-        "yaw_rad": 1.5707972338680942,
-        "vx": 0.0009744136744400221,
-        "vy": -8.530099219684791e-07,
-        "angular_z": -7.486591304346178e-07
+        "x": -3.7398124420145895e-05,
+        "y": 0.05185487018632201,
+        "yaw_rad": 1.5707391593849718,
+        "vx": 0.12889610059526616,
+        "vy": 9.905344483200724e-05,
+        "angular_z": -0.0001822563265852353
       },
       "command": {
         "step": 17,
         "time_s": 0.8500000000000001,
-        "port_thrust_n": 0.47123889803846886,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 37.14168519042047,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.47123889803846886,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 37.14168519042047,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.47123889803846886,
-        "port_azimuth_rad": 0.004776081566826379,
-        "starboard_thrust_n": 0.47123889803846886,
-        "starboard_azimuth_rad": 0.004776081566784297
+        "port_thrust_n": 37.14168519042047,
+        "port_azimuth_rad": 0.0005294518708646504,
+        "starboard_thrust_n": 37.14168519042047,
+        "starboard_azimuth_rad": 0.0005294518708099188
       }
     },
     {
@@ -558,26 +630,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 3.1838012825001216e-07,
-        "y": 0.0003549196885757199,
-        "yaw_rad": 1.5707974502477287,
-        "vx": 0.0010998168569181944,
-        "vy": -9.570201705216395e-07,
-        "angular_z": -8.741685233570801e-07
+        "x": -4.249152819369159e-05,
+        "y": 0.05904140139320651,
+        "yaw_rad": 1.5707314274589659,
+        "vx": 0.13889813800892725,
+        "vy": 0.00010729736620844253,
+        "angular_z": -0.0001969950416914862
       },
       "command": {
         "step": 18,
         "time_s": 0.9,
-        "port_thrust_n": 0.4974188368183838,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 37.55083557416748,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.4974188368183838,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 37.55083557416748,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.4974188368183838,
-        "port_azimuth_rad": -0.00045990626474656755,
-        "starboard_thrust_n": 0.4974188368183838,
-        "starboard_azimuth_rad": -0.00045990626478831513
+        "port_thrust_n": 37.55083557416748,
+        "port_azimuth_rad": -0.0047065359323765835,
+        "starboard_thrust_n": 37.55083557416748,
+        "starboard_azimuth_rad": -0.00470653593243158
       }
     },
     {
@@ -588,26 +664,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 3.739508966591754e-07,
-        "y": 0.0004187647523711867,
-        "yaw_rad": 1.57079757417131,
-        "vx": 0.001232134427371203,
-        "vy": -1.0668469242851922e-06,
-        "angular_z": -1.0096389797371534e-06
+        "x": -4.792876225420758e-05,
+        "y": 0.06672571597144386,
+        "yaw_rad": 1.5707232573964653,
+        "vx": 0.14890290841188564,
+        "vy": 0.00011565531433395039,
+        "angular_z": -0.0002118294090890412
       },
       "command": {
         "step": 19,
         "time_s": 0.9500000000000001,
-        "port_thrust_n": 0.5235987755982987,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 37.90551899951207,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.5235987755982987,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 37.90551899951207,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.5235987755982987,
-        "port_azimuth_rad": 0.004776081540191769,
-        "starboard_thrust_n": 0.5235987755982987,
-        "starboard_azimuth_rad": 0.0047760815401497545
+        "port_thrust_n": 37.90551899951207,
+        "port_azimuth_rad": 0.0005294519009622589,
+        "starboard_thrust_n": 37.90551899951207,
+        "starboard_azimuth_rad": 0.000529451900907532
       }
     },
     {
@@ -618,26 +698,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 4.3432612337507727e-07,
-        "y": 0.0004896113128869264,
-        "yaw_rad": 1.5707978236335949,
-        "vx": 0.0013712709463177327,
-        "vy": -1.1818459557832003e-06,
-        "angular_z": -1.155985486229514e-06
+        "x": -5.36559461762263e-05,
+        "y": 0.07490615662677969,
+        "yaw_rad": 1.5707145082516916,
+        "vx": 0.15889201677418852,
+        "vy": 0.00012411462133961313,
+        "angular_z": -0.00022672672565806658
       },
       "command": {
         "step": 20,
         "time_s": 1,
-        "port_thrust_n": 0.5497787143782137,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 38.212986222350985,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.5497787143782137,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 38.212986222350985,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.5497787143782137,
-        "port_azimuth_rad": -0.00045990629136187137,
-        "starboard_thrust_n": 0.5497787143782137,
-        "starboard_azimuth_rad": -0.000459906291404152
+        "port_thrust_n": 38.212986222350985,
+        "port_azimuth_rad": -0.00470653590212782,
+        "starboard_thrust_n": 38.212986222350985,
+        "starboard_azimuth_rad": -0.0047065359021827465
       }
     },
     {
@@ -648,26 +732,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 5.017767406338365e-07,
-        "y": 0.0005677883847174408,
-        "yaw_rad": 1.5707979813249715,
-        "vx": 0.0015171330358711168,
-        "vy": -1.3025634262609435e-06,
-        "angular_z": -1.3119539382424694e-06
+        "x": -5.9709911445072336e-05,
+        "y": 0.0835802680347416,
+        "yaw_rad": 1.57070531781564,
+        "vx": 0.16884949373687513,
+        "vy": 0.00013267427969815388,
+        "angular_z": -0.00024167630688505786
       },
       "command": {
         "step": 21,
         "time_s": 1.05,
-        "port_thrust_n": 0.5759586531581287,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 38.479522762727605,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.5759586531581287,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 38.479522762727605,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.5759586531581287,
-        "port_azimuth_rad": 0.004776081513595451,
-        "starboard_thrust_n": 0.5759586531581287,
-        "starboard_azimuth_rad": 0.004776081513553218
+        "port_thrust_n": 38.479522762727605,
+        "port_azimuth_rad": 0.0005294519313526985,
+        "starboard_thrust_n": 38.479522762727605,
+        "starboard_azimuth_rad": 0.0005294519312979773
       }
     },
     {
@@ -678,26 +766,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 5.745359616780471e-07,
-        "y": 0.0006536203735259391,
-        "yaw_rad": 1.5707982651248134,
-        "vx": 0.0016696294028078287,
-        "vy": -1.4283568306684408e-06,
-        "angular_z": -1.4783896864398354e-06
+        "x": -6.603451101043911e-05,
+        "y": 0.09274489518416028,
+        "yaw_rad": 1.5706955449983397,
+        "vx": 0.17876148587386181,
+        "vy": 0.0001413258474547599,
+        "angular_z": -0.00025665409855486825
       },
       "command": {
         "step": 22,
         "time_s": 1.1,
-        "port_thrust_n": 0.6021385919380436,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 38.71057739905597,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.6021385919380436,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 38.71057739905597,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.6021385919380436,
-        "port_azimuth_rad": -0.00045990631794036766,
-        "starboard_thrust_n": 0.6021385919380436,
-        "starboard_azimuth_rad": -0.0004599063179824879
+        "port_thrust_n": 38.71057739905597,
+        "port_azimuth_rad": -0.004706535871604009,
+        "starboard_thrust_n": 38.71057739905597,
+        "starboard_azimuth_rad": -0.004706535871658616
       }
     },
     {
@@ -708,26 +800,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 6.549298999805046e-07,
-        "y": 0.0007474271577767892,
-        "yaw_rad": 1.5707984575667036,
-        "vx": 0.0018286708937113871,
-        "vy": -1.5597730231034881e-06,
-        "angular_z": -1.6539764132949778e-06
+        "x": -7.266525239501504e-05,
+        "y": 0.10239626601139921,
+        "yaw_rad": 1.5706853261268343,
+        "vx": 0.1886159870191689,
+        "vy": 0.00015006946540785835,
+        "angular_z": -0.0002716525663687303
       },
       "command": {
         "step": 23,
         "time_s": 1.1500000000000001,
-        "port_thrust_n": 0.6283185307179586,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 38.910873556923846,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.6283185307179586,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 38.910873556923846,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.6283185307179586,
-        "port_azimuth_rad": 0.0047760814870346615,
-        "starboard_thrust_n": 0.6283185307179586,
-        "starboard_azimuth_rad": 0.004776081486992321
+        "port_thrust_n": 38.910873556923846,
+        "port_azimuth_rad": 0.0005294519620019375,
+        "starboard_thrust_n": 38.910873556923846,
+        "starboard_azimuth_rad": 0.0005294519619470666
       }
     },
     {
@@ -738,26 +834,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 7.411273882698611e-07,
-        "y": 0.0008495240068613951,
-        "yaw_rad": 1.5707987764455755,
-        "vx": 0.00199417049036349,
-        "vy": -1.6961710718133064e-06,
-        "angular_z": -1.8395045788649907e-06
+        "x": -7.954413887517481e-05,
+        "y": 0.11253006720991518,
+        "yaw_rad": 1.5706745195021123,
+        "vx": 0.1984026056240417,
+        "vy": 0.00015889972288056037,
+        "angular_z": -0.0002866541448065126
       },
       "command": {
         "step": 24,
         "time_s": 1.2000000000000002,
-        "port_thrust_n": 0.6544984694978736,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 39.08450586958438,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.6544984694978736,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 39.08450586958438,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.6544984694978736,
-        "port_azimuth_rad": -0.0004599063444836859,
-        "starboard_thrust_n": 0.6544984694978736,
-        "starboard_azimuth_rad": -0.0004599063445258019
+        "port_thrust_n": 39.08450586958438,
+        "port_azimuth_rad": -0.004706535840838427,
+        "starboard_thrust_n": 39.08450586958438,
+        "starboard_azimuth_rad": -0.004706535840893183
       }
     },
     {
@@ -768,26 +868,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 8.355095942924928e-07,
-        "y": 0.0009602216598272054,
-        "yaw_rad": 1.5707990041132693,
-        "vx": 0.002166043336317738,
-        "vy": -1.8380984339645147e-06,
-        "angular_z": -2.033608358854112e-06
+        "x": -8.670553703454904e-05,
+        "y": 0.12314150738355686,
+        "yaw_rad": 1.5706632599940986,
+        "vx": 0.20811236281293705,
+        "vy": 0.00016781748773800833,
+        "angular_z": -0.0003016536622139737
       },
       "command": {
         "step": 25,
         "time_s": 1.25,
-        "port_thrust_n": 0.6806784082777886,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 39.235023884112316,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.6806784082777886,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 39.235023884112316,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.6806784082777886,
-        "port_azimuth_rad": 0.004776081460507877,
-        "starboard_thrust_n": 0.6806784082777886,
-        "starboard_azimuth_rad": 0.004776081460466032
+        "port_thrust_n": 39.235023884112316,
+        "port_azimuth_rad": 0.000529451992875387,
+        "starboard_thrust_n": 39.235023884112316,
+        "starboard_azimuth_rad": 0.0005294519928203025
       }
     },
     {
@@ -798,26 +902,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 9.361808772891925e-07,
-        "y": 0.0010798262318599838,
-        "yaw_rad": 1.5707993583150697,
-        "vx": 0.002344206710416748,
-        "vy": -1.9849156581532402e-06,
-        "angular_z": -2.2370338488784624e-06
+        "x": -9.408992158704008e-05,
+        "y": 0.13422537608709317,
+        "yaw_rad": 1.5706514050029712,
+        "vx": 0.2177375173535169,
+        "vy": 0.00017681949500805748,
+        "angular_z": -0.0003166384213907882
       },
       "command": {
         "step": 26,
         "time_s": 1.3,
-        "port_thrust_n": 0.7068583470577036,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 39.36550462442086,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.7068583470577036,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 39.36550462442086,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.7068583470577036,
-        "port_azimuth_rad": -0.00045990637099384084,
-        "starboard_thrust_n": 0.7068583470577036,
-        "starboard_azimuth_rad": -0.0004599063710361739
+        "port_thrust_n": 39.36550462442086,
+        "port_azimuth_rad": -0.004706535809863955,
+        "starboard_thrust_n": 39.36550462442086,
+        "starboard_azimuth_rad": -0.004706535809919035
       }
     },
     {
@@ -828,26 +936,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.0455773322520126e-06,
-        "y": 0.0012086392935574698,
-        "yaw_rad": 1.5707996211959683,
-        "vx": 0.0025285800315590365,
-        "vy": -2.1371707555133472e-06,
-        "angular_z": -2.4483764777377918e-06
+        "x": -0.00010173066197293667,
+        "y": 0.14577609247125747,
+        "yaw_rad": 1.570639088016898,
+        "vx": 0.22727141356268277,
+        "vy": 0.00018590703544748904,
+        "angular_z": -0.00033160501738879527
       },
       "command": {
         "step": 27,
         "time_s": 1.35,
-        "port_thrust_n": 0.7330382858376185,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 39.47861549453737,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.7330382858376185,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 39.47861549453737,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.7330382858376185,
-        "port_azimuth_rad": 0.00477608143401318,
-        "starboard_thrust_n": 0.7330382858376185,
-        "starboard_azimuth_rad": 0.004776081433970961
+        "port_thrust_n": 39.47861549453737,
+        "port_azimuth_rad": 0.0005294520239426892,
+        "starboard_thrust_n": 39.47861549453737,
+        "starboard_azimuth_rad": 0.0005294520238879937
       }
     },
     {
@@ -858,26 +970,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.1617387562215216e-06,
-        "y": 0.0013469577689397346,
-        "yaw_rad": 1.570800010489537,
-        "vx": 0.0027190848157930014,
-        "vy": -2.2942256940894207e-06,
-        "angular_z": -2.6683477626706207e-06
+        "x": -0.00010956695046001184,
+        "y": 0.15778775182818267,
+        "yaw_rad": 1.5706261653652807,
+        "vx": 0.2367083493035192,
+        "vy": 0.00019507833657204346,
+        "angular_z": -0.0003465444005323018
       },
       "command": {
         "step": 28,
         "time_s": 1.4000000000000001,
-        "port_thrust_n": 0.7592182246175335,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 39.57666880806289,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.7592182246175335,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 39.57666880806289,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.7592182246175335,
-        "port_azimuth_rad": -0.00045990639747374483,
-        "starboard_thrust_n": 0.7592182246175335,
-        "starboard_azimuth_rad": -0.00045990639751618327
+        "port_thrust_n": 39.57666880806289,
+        "port_azimuth_rad": -0.004706535778711053,
+        "starboard_thrust_n": 39.57666880806289,
+        "starboard_azimuth_rad": -0.004706535778765899
       }
     },
     {
@@ -888,26 +1004,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.2871560542076014e-06,
-        "y": 0.001495074018475879,
-        "yaw_rad": 1.5708003081085242,
-        "vx": 0.002915644664097607,
-        "vy": -2.4566290129123516e-06,
-        "angular_z": -2.895512514499796e-06
+        "x": -0.00011763127119185594,
+        "y": 0.17025416341021865,
+        "yaw_rad": 1.5706127692739786,
+        "vx": 0.2460434611121174,
+        "vy": 0.00020433489570485905,
+        "angular_z": -0.0003614544818869584
       },
       "command": {
         "step": 29,
         "time_s": 1.4500000000000002,
-        "port_thrust_n": 0.7853981633974485,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 39.66166905855544,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.7853981633974485,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 39.66166905855544,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.7853981633974485,
-        "port_azimuth_rad": 0.004776081407547635,
-        "starboard_thrust_n": 0.7853981633974485,
-        "starboard_azimuth_rad": 0.004776081407505957
+        "port_thrust_n": 39.66166905855544,
+        "port_azimuth_rad": 0.0005294520551748276,
+        "starboard_thrust_n": 39.66166905855544,
+        "starboard_azimuth_rad": 0.0005294520551200327
       }
     },
     {
@@ -918,26 +1038,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.419804385117166e-06,
-        "y": 0.0016532757314107742,
-        "yaw_rad": 1.5708007318151158,
-        "vx": 0.0031181852073519033,
-        "vy": -2.6237440569543504e-06,
-        "angular_z": -3.1305554100473635e-06
+        "x": -0.00012586172171130894,
+        "y": 0.18316888763967856,
+        "yaw_rad": 1.5705987549157558,
+        "vx": 0.2552726243149449,
+        "vy": 0.0002136759539990712,
+        "angular_z": -0.0003763289395355152
       },
       "command": {
         "step": 30,
         "time_s": 1.5,
-        "port_thrust_n": 0.8115781021773635,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 39.73535389718066,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.8115781021773635,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 39.73535389718066,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.8115781021773635,
-        "port_azimuth_rad": -0.00045990642392577854,
-        "starboard_thrust_n": 0.8115781021773635,
-        "starboard_azimuth_rad": -0.00045990642396798826
+        "port_thrust_n": 39.73535389718066,
+        "port_azimuth_rad": -0.004706535747406349,
+        "starboard_thrust_n": 39.73535389718066,
+        "starboard_azimuth_rad": -0.0047065357474611385
       }
     },
     {
@@ -948,26 +1072,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.562229363809805e-06,
-        "y": 0.0018218460153436261,
-        "yaw_rad": 1.5708010632641771,
-        "vx": 0.003326634081435261,
-        "vy": -2.7961198799459986e-06,
-        "angular_z": -3.3720177871778146e-06
+        "x": -0.00013428998704855812,
+        "y": 0.1965252658200262,
+        "yaw_rad": 1.5705842533999947,
+        "vx": 0.2643923659397124,
+        "vy": 0.0002231030646666301,
+        "angular_z": -0.00039116665980417004
       },
       "command": {
         "step": 31,
         "time_s": 1.55,
-        "port_thrust_n": 0.8377580409572785,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 39.79922965533152,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.8377580409572785,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 39.79922965533152,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.8377580409572785,
-        "port_azimuth_rad": 0.004776081381108838,
-        "starboard_thrust_n": 0.8377580409572785,
-        "starboard_azimuth_rad": 0.00477608138106652
+        "port_thrust_n": 39.79922965533152,
+        "port_azimuth_rad": 0.0005294520865455136,
+        "starboard_thrust_n": 39.79922965533152,
+        "starboard_azimuth_rad": 0.000529452086490621
       }
     },
     {
@@ -978,26 +1106,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.7123414541540758e-06,
-        "y": 0.0020010632852331236,
-        "yaw_rad": 1.570801520288579,
-        "vx": 0.0035409208636322425,
-        "vy": -2.973121172183925e-06,
-        "angular_z": -3.6205638386569033e-06
+        "x": -0.00014285321253341174,
+        "y": 0.2103164503386253,
+        "yaw_rad": 1.5705691187135917,
+        "vx": 0.2733997888099275,
+        "vy": 0.00023261613426553434,
+        "angular_z": -0.00040596335569905806
       },
       "command": {
         "step": 32,
         "time_s": 1.6,
-        "port_thrust_n": 0.8639379797371934,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 39.85460213840229,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.8639379797371934,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 39.85460213840229,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.8639379797371934,
-        "port_azimuth_rad": -0.00045990645035225386,
-        "starboard_thrust_n": 0.8639379797371934,
-        "starboard_azimuth_rad": -0.0004599064503944564
+        "port_thrust_n": 39.85460213840229,
+        "port_azimuth_rad": -0.004706535715975473,
+        "starboard_thrust_n": 39.85460213840229,
+        "starboard_azimuth_rad": -0.004706535716030515
       }
     },
     {
@@ -1008,26 +1140,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.8727409030124744e-06,
-        "y": 0.0021912013618840638,
-        "yaw_rad": 1.570801884259524,
-        "vx": 0.0037609770385170133,
-        "vy": -3.1552974961963807e-06,
-        "angular_z": -3.8747172643583766e-06
+        "x": -0.00015158234994224512,
+        "y": 0.22453542827198994,
+        "yaw_rad": 1.570553481009131,
+        "vx": 0.2822925051994389,
+        "vy": 0.00024221667006061638,
+        "angular_z": -0.00042071863116457736
       },
       "command": {
         "step": 33,
         "time_s": 1.6500000000000001,
-        "port_thrust_n": 0.8901179185171084,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 39.90260332023063,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.8901179185171084,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 39.90260332023063,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.8901179185171084,
-        "port_azimuth_rad": 0.004776081354694259,
-        "starboard_thrust_n": 0.8901179185171084,
-        "starboard_azimuth_rad": 0.004776081354652549
+        "port_thrust_n": 39.90260332023063,
+        "port_azimuth_rad": 0.0005294521180308498,
+        "starboard_thrust_n": 39.90260332023063,
+        "starboard_azimuth_rad": 0.0005294521179760828
       }
     },
     {
@@ -1038,26 +1174,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 2.0412734458033353e-06,
-        "y": 0.002392529359554133,
-        "yaw_rad": 1.5708023731237863,
-        "vx": 0.003986735928682705,
-        "vy": -3.3420148626399006e-06,
-        "angular_z": -4.135127090980673e-06
+        "x": -0.00016041370013668993,
+        "y": 0.23917504629318073,
+        "yaw_rad": 1.5705371930952599,
+        "vx": 0.2910685788338077,
+        "vy": 0.00025190499342994714,
+        "angular_z": -0.0004354297118398484
       },
       "command": {
         "step": 34,
         "time_s": 1.7000000000000002,
-        "port_thrust_n": 0.9162978572970234,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 39.94421448391952,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.9162978572970234,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 39.94421448391952,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.9162978572970234,
-        "port_azimuth_rad": -0.0004599064767556143,
-        "starboard_thrust_n": 0.9162978572970234,
-        "starboard_azimuth_rad": -0.00045990647679780854
+        "port_thrust_n": 39.94421448391952,
+        "port_azimuth_rad": -0.004706535684441878,
+        "starboard_thrust_n": 39.94421448391952,
+        "starboard_azimuth_rad": -0.004706535684496413
       }
     },
     {
@@ -1068,26 +1208,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 2.220593909520606e-06,
-        "y": 0.002605311795256887,
-        "yaw_rad": 1.5708027679431311,
-        "vx": 0.004218132654214593,
-        "vy": -3.5338233410013025e-06,
-        "angular_z": -4.4003041826344744e-06
+        "x": -0.00016937753164593318,
+        "y": 0.2542280296413072,
+        "yaw_rad": 1.570520384332549,
+        "vx": 0.29972647404446934,
+        "vy": 0.0002616824999989401,
+        "angular_z": -0.00045009672472384624
       },
       "command": {
         "step": 35,
         "time_s": 1.75,
-        "port_thrust_n": 0.9424777960769384,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 39.980286282104295,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.9424777960769384,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 39.980286282104295,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.9424777960769384,
-        "port_azimuth_rad": 0.004776081328301346,
-        "starboard_thrust_n": 0.9424777960769384,
-        "starboard_azimuth_rad": 0.004776081328259313
+        "port_thrust_n": 39.980286282104295,
+        "port_azimuth_rad": 0.0005294521496078939,
+        "starboard_thrust_n": 39.980286282104295,
+        "starboard_azimuth_rad": 0.0005294521495535218
       }
     },
     {
@@ -1098,26 +1242,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 2.408483294215921e-06,
-        "y": 0.0028298084764643173,
-        "yaw_rad": 1.5708032868220654,
-        "vx": 0.004455104060062996,
-        "vy": -3.730090241406256e-06,
-        "angular_z": -4.670886950852449e-06
+        "x": -0.00017840938208214696,
+        "y": 0.26968700298867926,
+        "yaw_rad": 1.5705029063818583,
+        "vx": 0.3082650111590831,
+        "vy": 0.00027154974819703455,
+        "angular_z": -0.00046471801475734143
       },
       "command": {
         "step": 36,
         "time_s": 1.8,
-        "port_thrust_n": 0.9686577348568534,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.011556126754925,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.9686577348568534,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 40.011556126754925,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.9686577348568534,
-        "port_azimuth_rad": -0.000459906503138685,
-        "starboard_thrust_n": 0.9686577348568534,
-        "starboard_azimuth_rad": -0.0004599065031807136
+        "port_thrust_n": 40.011556126754925,
+        "port_azimuth_rad": -0.004706535652825936,
+        "starboard_thrust_n": 40.011556126754925,
+        "starboard_azimuth_rad": -0.004706535652880678
       }
     },
     {
@@ -1128,26 +1276,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 2.607650983440561e-06,
-        "y": 0.0030662746227013175,
-        "yaw_rad": 1.5708037104872947,
-        "vx": 0.0046975886713543896,
-        "vy": -3.931366140596324e-06,
-        "angular_z": -4.945377553178231e-06
+        "x": -0.00018753887457626469,
+        "y": 0.2855445058523381,
+        "yaw_rad": 1.57048488797579,
+        "vx": 0.3166833272553709,
+        "vy": 0.0002815079828750209,
+        "angular_z": -0.0004792940844363565
       },
       "command": {
         "step": 37,
         "time_s": 1.85,
-        "port_thrust_n": 0.9948376736367683,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.03866326401118,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 0.9948376736367683,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 40.03866326401118,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 0.9948376736367683,
-        "port_azimuth_rad": 0.004776081301927332,
-        "starboard_thrust_n": 0.9948376736367683,
-        "starboard_azimuth_rad": 0.004776081301885196
+        "port_thrust_n": 40.03866326401118,
+        "port_azimuth_rad": 0.0005294521812571294,
+        "starboard_thrust_n": 40.03866326401118,
+        "starboard_azimuth_rad": 0.0005294521812025532
       }
     },
     {
@@ -1158,26 +1310,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 2.815813263237178e-06,
-        "y": 0.0033149607544343566,
-        "yaw_rad": 1.5708042572450445,
-        "vx": 0.004945526619247645,
-        "vy": -4.137019629841294e-06,
-        "angular_z": -5.224407492785938e-06
+        "x": -0.00019670084466273554,
+        "y": 0.3017930103397825,
+        "yaw_rad": 1.570466179670917,
+        "vx": 0.324980841583118,
+        "vy": 0.0002915578758586634,
+        "angular_z": -0.0004938241018041124
       },
       "command": {
         "step": 38,
         "time_s": 1.9000000000000001,
-        "port_thrust_n": 1.0210176124166832,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.06216184222412,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 1.0210176124166832,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 40.06216184222412,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 1.0210176124166832,
-        "port_azimuth_rad": -0.000459906529503794,
-        "starboard_thrust_n": 1.0210176124166832,
-        "starboard_azimuth_rad": -0.000459906529545813
+        "port_thrust_n": 40.06216184222412,
+        "port_azimuth_rad": -0.0047065356211477664,
+        "starboard_thrust_n": 40.06216184222412,
+        "starboard_azimuth_rad": -0.004706535621202599
       }
     },
     {
@@ -1188,26 +1344,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 3.035734079637006e-06,
-        "y": 0.00357611282802776,
-        "yaw_rad": 1.5708047074616789,
-        "vx": 0.005198859593868959,
-        "vy": -4.3476017944714645e-06,
-        "angular_z": -5.5064736935499945e-06
+        "x": -0.00020592429878416748,
+        "y": 0.318424933791923,
+        "yaw_rad": 1.5704469097314186,
+        "vx": 0.3331572250214408,
+        "vy": 0.0003017005014102264,
+        "angular_z": -0.0005083088337822503
       },
       "command": {
         "step": 39,
         "time_s": 1.9500000000000002,
-        "port_thrust_n": 1.047197551196598,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.08253224035247,
         "port_azimuth_rad": 0,
-        "starboard_thrust_n": 1.047197551196598,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 40.08253224035247,
         "starboard_azimuth_rad": 0
       },
       "delivered": {
-        "port_thrust_n": 1.047197551196598,
-        "port_azimuth_rad": 0.004776081275570113,
-        "starboard_thrust_n": 1.047197551196598,
-        "starboard_azimuth_rad": 0.004776081275527879
+        "port_thrust_n": 40.08253224035247,
+        "port_azimuth_rad": 0.0005294522129604539,
+        "starboard_thrust_n": 40.08253224035247,
+        "starboard_azimuth_rad": 0.0005294522129058974
       }
     },
     {
@@ -1218,26 +1378,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 3.274882823321371e-06,
-        "y": 0.0038499720760880388,
-        "yaw_rad": 1.5708052963081303,
-        "vx": 0.005457529987548023,
-        "vy": -4.660797823788057e-06,
-        "angular_z": -5.628499732429465e-06
+        "x": -0.00021459737089619716,
+        "y": 0.3354326537038642,
+        "yaw_rad": 1.570428033191584,
+        "vx": 0.3412123694791305,
+        "vy": 0.0003063920445768742,
+        "angular_z": -0.0005119294412271588
       },
       "command": {
         "step": 40,
         "time_s": 2,
-        "port_thrust_n": 1.073377489976513,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.10019088829905,
         "port_azimuth_rad": 0.02617993877991494,
-        "starboard_thrust_n": 1.073377489976513,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.10019088829905,
         "starboard_azimuth_rad": 0.02617993877991494
       },
       "delivered": {
-        "port_thrust_n": 1.073377489976513,
-        "port_azimuth_rad": 0.010012069418378641,
-        "starboard_thrust_n": 1.073377489976513,
-        "starboard_azimuth_rad": 0.010012069418336522
+        "port_thrust_n": 40.10019088829905,
+        "port_azimuth_rad": 0.005765440384809012,
+        "starboard_thrust_n": 40.10019088829905,
+        "starboard_azimuth_rad": 0.005765440384754243
       }
     },
     {
@@ -1248,26 +1412,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 3.5652729159334613e-06,
-        "y": 0.004136774714769355,
-        "yaw_rad": 1.5708059678929718,
-        "vx": 0.00572147689429048,
-        "vy": -5.369325600766569e-06,
-        "angular_z": -3.974941144541394e-06
+        "x": -0.00022158199796178753,
+        "y": 0.3528085095722061,
+        "yaw_rad": 1.5704116018998213,
+        "vx": 0.3491462783347981,
+        "vy": 0.00029357650504191203,
+        "angular_z": -0.0004859631622469481
       },
       "command": {
         "step": 41,
         "time_s": 2.0500000000000003,
-        "port_thrust_n": 1.0995574287564278,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.115498779943415,
         "port_azimuth_rad": 0.05235987755982988,
-        "starboard_thrust_n": 1.0995574287564278,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.115498779943415,
         "starboard_azimuth_rad": 0.05235987755982988
       },
       "delivered": {
-        "port_thrust_n": 1.0995574287564278,
-        "port_azimuth_rad": 0.01524805769211236,
-        "starboard_thrust_n": 1.0995574287564278,
-        "starboard_azimuth_rad": 0.015248057692070511
+        "port_thrust_n": 40.115498779943415,
+        "port_azimuth_rad": 0.011001428687587505,
+        "starboard_thrust_n": 40.115498779943415,
+        "starboard_azimuth_rad": 0.011001428687533123
       }
     },
     {
@@ -1278,26 +1446,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 3.946134936703078e-06,
-        "y": 0.004436751483890658,
-        "yaw_rad": 1.5708069509141938,
-        "vx": 0.005990632495680405,
-        "vy": -6.791202302704949e-06,
-        "angular_z": -6.202522664758778e-07
+        "x": -0.00022513457974945674,
+        "y": 0.37054477492760174,
+        "yaw_rad": 1.5704009811465558,
+        "vx": 0.35695862277118345,
+        "vy": 0.0002511610020685152,
+        "angular_z": -0.0004071175786122618
       },
       "command": {
         "step": 42,
         "time_s": 2.1,
-        "port_thrust_n": 1.1257373675363427,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.12876885290168,
         "port_azimuth_rad": 0.07853981633974483,
-        "starboard_thrust_n": 1.1257373675363427,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.12876885290168,
         "starboard_azimuth_rad": 0.07853981633974483
       },
       "delivered": {
-        "port_thrust_n": 1.1257373675363427,
-        "port_azimuth_rad": 0.03553589688361608,
-        "starboard_thrust_n": 1.1257373675363427,
-        "starboard_azimuth_rad": 0.03553589688362673
+        "port_thrust_n": 40.12876885290168,
+        "port_azimuth_rad": 0.031523283996865416,
+        "starboard_thrust_n": 40.12876885290168,
+        "starboard_azimuth_rad": 0.0315232839960711
       }
     },
     {
@@ -1308,26 +1480,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 4.526241750940762e-06,
-        "y": 0.004750122746153513,
-        "yaw_rad": 1.5708083382173592,
-        "vx": 0.006264874626552332,
-        "vy": -9.695030620192669e-06,
-        "angular_z": 5.889813699154333e-06
+        "x": -0.0002210342990471748,
+        "y": 0.3886334889332193,
+        "yaw_rad": 1.5704038902341941,
+        "vx": 0.3646469946322187,
+        "vy": 0.00014671630483086844,
+        "angular_z": -0.00022062971415757077
       },
       "command": {
         "step": 43,
         "time_s": 2.15,
-        "port_thrust_n": 1.1519173063162575,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.140272385877275,
         "port_azimuth_rad": 0.10471975511965977,
-        "starboard_thrust_n": 1.1519173063162575,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.140272385877275,
         "starboard_azimuth_rad": 0.10471975511965977
       },
       "delivered": {
-        "port_thrust_n": 1.1519173063162575,
-        "port_azimuth_rad": 0.05665310672089338,
-        "starboard_thrust_n": 1.1519173063162575,
-        "starboard_azimuth_rad": 0.05665310672089084
+        "port_thrust_n": 40.140272385877275,
+        "port_azimuth_rad": 0.05770322325594565,
+        "starboard_thrust_n": 40.140272385877275,
+        "starboard_azimuth_rad": 0.0577032232551515
       }
     },
     {
@@ -1338,26 +1514,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 5.447336857938831e-06,
-        "y": 0.005077094833960658,
-        "yaw_rad": 1.5708102626671046,
-        "vx": 0.006543995129892397,
-        "vy": -1.5107098446143425e-05,
-        "angular_z": 1.4595602941811718e-05
+        "x": -0.00020430812328955673,
+        "y": 0.4070663207270685,
+        "yaw_rad": 1.5704296669925242,
+        "vx": 0.37220577821498047,
+        "vy": -5.488299736465537e-05,
+        "angular_z": 0.00013069142338827716
       },
       "command": {
         "step": 44,
         "time_s": 2.2,
-        "port_thrust_n": 1.1780972450961724,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.150244544382865,
         "port_azimuth_rad": 0.1308996938995747,
-        "starboard_thrust_n": 1.1780972450961724,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.150244544382865,
         "starboard_azimuth_rad": 0.1308996938995747
       },
       "delivered": {
-        "port_thrust_n": 1.1780972450961724,
-        "port_azimuth_rad": 0.08283304597817336,
-        "starboard_thrust_n": 1.1780972450961724,
-        "starboard_azimuth_rad": 0.08283304597817041
+        "port_thrust_n": 40.150244544382865,
+        "port_azimuth_rad": 0.08388316245094316,
+        "starboard_thrust_n": 40.150244544382865,
+        "starboard_azimuth_rad": 0.08388316245014883
       }
     },
     {
@@ -1368,26 +1548,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 6.863563083675186e-06,
-        "y": 0.005417858427522812,
-        "yaw_rad": 1.570813102786211,
-        "vx": 0.006827732220648039,
-        "vy": -2.348297730684287e-05,
-        "angular_z": 2.827955333119273e-05
+        "x": -0.00016966984862569132,
+        "y": 0.4258345227463316,
+        "yaw_rad": 1.5704885450978707,
+        "vx": 0.3796273554560231,
+        "vy": -0.0003680283454684542,
+        "angular_z": 0.0006698052913026606
       },
       "command": {
         "step": 45,
         "time_s": 2.25,
-        "port_thrust_n": 1.2042771838760873,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.158889188204164,
         "port_azimuth_rad": 0.15707963267948966,
-        "starboard_thrust_n": 1.2042771838760873,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.158889188204164,
         "starboard_azimuth_rad": 0.15707963267948966
       },
       "delivered": {
-        "port_thrust_n": 1.2042771838760873,
-        "port_azimuth_rad": 0.10901298517727297,
-        "starboard_thrust_n": 1.2042771838760873,
-        "starboard_azimuth_rad": 0.10901298517727093
+        "port_thrust_n": 40.158889188204164,
+        "port_azimuth_rad": 0.11006310164597487,
+        "starboard_thrust_n": 40.158889188204164,
+        "starboard_azimuth_rad": 0.11006310164518081
       }
     },
     {
@@ -1398,26 +1582,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 8.955025833489822e-06,
-        "y": 0.005772583812438,
-        "yaw_rad": 1.570817119272157,
-        "vx": 0.007115758003181033,
-        "vy": -3.520878716994158e-05,
-        "angular_z": 4.816411078452201e-05
+        "x": -0.00011203199715834456,
+        "y": 0.44492898146268267,
+        "yaw_rad": 1.5705906935108587,
+        "vx": 0.3869039951286283,
+        "vy": -0.0007980931450751455,
+        "angular_z": 0.0014030387436323607
       },
       "command": {
         "step": 46,
         "time_s": 2.3000000000000003,
-        "port_thrust_n": 1.2304571226560022,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.166383038884064,
         "port_azimuth_rad": 0.1832595714594046,
-        "starboard_thrust_n": 1.2304571226560022,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.166383038884064,
         "starboard_azimuth_rad": 0.1832595714594046
       },
       "delivered": {
-        "port_thrust_n": 1.2304571226560022,
-        "port_azimuth_rad": 0.13519292437641525,
-        "starboard_thrust_n": 1.2304571226560022,
-        "starboard_azimuth_rad": 0.135192924376413
+        "port_thrust_n": 40.166383038884064,
+        "port_azimuth_rad": 0.1362430408410384,
+        "starboard_thrust_n": 40.166383038884064,
+        "starboard_azimuth_rad": 0.13624304084024394
       }
     },
     {
@@ -1428,26 +1616,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.1907026987670528e-05,
-        "y": 0.006141422882043066,
-        "yaw_rad": 1.5708226340791214,
-        "vx": 0.007407715634562687,
-        "vy": -5.0598957413003335e-05,
-        "angular_z": 7.36560726823094e-05
+        "x": -2.6517731322003173e-05,
+        "y": 0.46434023440388666,
+        "yaw_rad": 1.570746218180919,
+        "vx": 0.39402849200816975,
+        "vy": -0.0013454519513191577,
+        "angular_z": 0.0023272818231487437
       },
       "command": {
         "step": 47,
         "time_s": 2.35,
-        "port_thrust_n": 1.256637061435917,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.17287929242249,
         "port_azimuth_rad": 0.20943951023931956,
-        "starboard_thrust_n": 1.256637061435917,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.17287929242249,
         "starboard_azimuth_rad": 0.20943951023931956
       },
       "delivered": {
-        "port_thrust_n": 1.256637061435917,
-        "port_azimuth_rad": 0.1613728635755991,
-        "starboard_thrust_n": 1.256637061435917,
-        "starboard_azimuth_rad": 0.16137286357559638
+        "port_thrust_n": 40.17287929242249,
+        "port_azimuth_rad": 0.16242298003613012,
+        "starboard_thrust_n": 40.17287929242249,
+        "starboard_azimuth_rad": 0.16242298003533556
       }
     },
     {
@@ -1458,26 +1650,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 1.5910203547438468e-05,
-        "y": 0.006524508662038735,
-        "yaw_rad": 1.5708299762593996,
-        "vx": 0.007703262167924829,
-        "vy": -6.976225729404031e-05,
-        "angular_z": 0.00010538521084328583
+        "x": 9.152820651562747e-05,
+        "y": 0.4840584867526981,
+        "yaw_rad": 1.570965163013773,
+        "vx": 0.40099380857226763,
+        "vy": -0.0020104276681149513,
+        "angular_z": 0.003439395215993795
       },
       "command": {
         "step": 48,
         "time_s": 2.4000000000000004,
-        "port_thrust_n": 1.282817000215832,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.17851075104613,
         "port_azimuth_rad": 0.2356194490192345,
-        "starboard_thrust_n": 1.282817000215832,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.17851075104613,
         "starboard_azimuth_rad": 0.2356194490192345
       },
       "delivered": {
-        "port_thrust_n": 1.282817000215832,
-        "port_azimuth_rad": 0.1875528027748234,
-        "starboard_thrust_n": 1.282817000215832,
-        "starboard_azimuth_rad": 0.1875528027748209
+        "port_thrust_n": 40.17851075104613,
+        "port_azimuth_rad": 0.18860291923124692,
+        "starboard_thrust_n": 40.17851075104613,
+        "starboard_azimuth_rad": 0.1886029192304526
       }
     },
     {
@@ -1488,26 +1684,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 2.1160308061975195e-05,
-        "y": 0.006921954843999375,
-        "yaw_rad": 1.570839481644597,
-        "vx": 0.008002043212054282,
-        "vy": -9.28070726365173e-05,
-        "angular_z": 0.00014344420709554715
+        "x": 0.0002465295655153162,
+        "y": 0.5040736275230849,
+        "yaw_rad": 1.5712575100585637,
+        "vx": 0.4077930553569936,
+        "vy": -0.002793287506168069,
+        "angular_z": 0.0047362031851492
       },
       "command": {
         "step": 49,
         "time_s": 2.45,
-        "port_thrust_n": 1.3089969389957468,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.18339253807032,
         "port_azimuth_rad": 0.26179938779914946,
-        "starboard_thrust_n": 1.3089969389957468,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.18339253807032,
         "starboard_azimuth_rad": 0.26179938779914946
       },
       "delivered": {
-        "port_thrust_n": 1.3089969389957468,
-        "port_azimuth_rad": 0.2137327419740879,
-        "starboard_thrust_n": 1.3089969389957468,
-        "starboard_azimuth_rad": 0.21373274197408543
+        "port_thrust_n": 40.18339253807032,
+        "port_azimuth_rad": 0.2147828584263867,
+        "starboard_thrust_n": 40.18339253807032,
+        "starboard_azimuth_rad": 0.2147828584255924
       }
     },
     {
@@ -1518,26 +1718,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 2.7857980557077122e-05,
-        "y": 0.007333855349074995,
-        "yaw_rad": 1.5708514925084314,
-        "vx": 0.008303693121857789,
-        "vy": -0.00011983774725135832,
-        "angular_z": 0.00018791726589283662
+        "x": 0.00044266970707059795,
+        "y": 0.5243752453112414,
+        "yaw_rad": 1.5716331788893174,
+        "vx": 0.41441947243411226,
+        "vy": -0.0036942385869369195,
+        "angular_z": 0.006214486152583387
       },
       "command": {
         "step": 50,
         "time_s": 2.5,
-        "port_thrust_n": 1.3351768777756616,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.18762445135288,
         "port_azimuth_rad": 0.2879793265790644,
-        "starboard_thrust_n": 1.3351768777756616,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.18762445135288,
         "starboard_azimuth_rad": 0.2879793265790644
       },
       "delivered": {
-        "port_thrust_n": 1.3351768777756616,
-        "port_azimuth_rad": 0.2399126811733921,
-        "starboard_thrust_n": 1.3351768777756616,
-        "starboard_azimuth_rad": 0.23991268117338935
+        "port_thrust_n": 40.18762445135288,
+        "port_azimuth_rad": 0.24096279762154546,
+        "starboard_thrust_n": 40.18762445135288,
+        "starboard_azimuth_rad": 0.24096279762075126
       }
     },
     {
@@ -1548,26 +1752,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 3.620851229386479e-05,
-        "y": 0.007760283922113429,
-        "yaw_rad": 1.5708663572109463,
-        "vx": 0.008607835339383798,
-        "vy": -0.00015095442162502045,
-        "angular_z": 0.00023887994513606785
+        "x": 0.0006838838119292657,
+        "y": 0.5449526436171225,
+        "yaw_rad": 1.5721020251578257,
+        "vx": 0.4208664119809754,
+        "vy": -0.0047134232644425325,
+        "angular_z": 0.0078709731474279
       },
       "command": {
         "step": 51,
         "time_s": 2.5500000000000003,
-        "port_thrust_n": 1.3613568165555765,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.19129300345119,
         "port_azimuth_rad": 0.3141592653589793,
-        "starboard_thrust_n": 1.3613568165555765,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.19129300345119,
         "starboard_azimuth_rad": 0.3141592653589793
       },
       "delivered": {
-        "port_thrust_n": 1.3613568165555765,
-        "port_azimuth_rad": 0.26609262037273534,
-        "starboard_thrust_n": 1.3613568165555765,
-        "starboard_azimuth_rad": 0.2660926203727324
+        "port_thrust_n": 40.19129300345119,
+        "port_azimuth_rad": 0.2671427368167218,
+        "starboard_thrust_n": 40.19129300345119,
+        "starboard_azimuth_rad": 0.2671427368159276
       }
     },
     {
@@ -1578,26 +1786,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 4.6421601703458985e-05,
-        "y": 0.008201293756593902,
-        "yaw_rad": 1.57088442982399,
-        "vx": 0.008914082748658505,
-        "vy": -0.00018625287497125786,
-        "angular_z": 0.0002963989961615422
+        "x": 0.0009738522097754714,
+        "y": 0.5657948557312866,
+        "yaw_rad": 1.5726738382968106,
+        "vx": 0.42712732192554165,
+        "vy": -0.005850914203750024,
+        "angular_z": 0.009702334175056058
       },
       "command": {
         "step": 52,
         "time_s": 2.6,
-        "port_thrust_n": 1.3875367553354914,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.1944731901893,
         "port_azimuth_rad": 0.34033920413889424,
-        "starboard_thrust_n": 1.3875367553354914,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.1944731901893,
         "starboard_azimuth_rad": 0.34033920413889424
       },
       "delivered": {
-        "port_thrust_n": 1.3875367553354914,
-        "port_azimuth_rad": 0.2922725595721169,
-        "starboard_thrust_n": 1.3875367553354914,
-        "starboard_azimuth_rad": 0.2922725595721144
+        "port_thrust_n": 40.1944731901893,
+        "port_azimuth_rad": 0.29332267601191286,
+        "starboard_thrust_n": 40.1944731901893,
+        "starboard_azimuth_rad": 0.2933226760111185
       }
     },
     {
@@ -1608,26 +1820,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 5.871110285987962e-05,
-        "y": 0.00865691715043437,
-        "yaw_rad": 1.5709060697378594,
-        "vx": 0.009222038043893377,
-        "vy": -0.00022582437078773888,
-        "angular_z": 0.0003605322129768202
+        "x": 0.0013159948660613346,
+        "y": 0.5868906591815929,
+        "yaw_rad": 1.5733583383536023,
+        "vx": 0.43319573065891664,
+        "vy": -0.007106709250296155,
+        "angular_z": 0.011705172558491557
       },
       "command": {
         "step": 53,
         "time_s": 2.6500000000000004,
-        "port_thrust_n": 1.4137166941154062,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.19723002378964,
         "port_azimuth_rad": 0.36651914291880916,
-        "starboard_thrust_n": 1.4137166941154062,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.19723002378964,
         "starboard_azimuth_rad": 0.36651914291880916
       },
       "delivered": {
-        "port_thrust_n": 1.4137166941154062,
-        "port_azimuth_rad": 0.3184524987715372,
-        "starboard_thrust_n": 1.4137166941154062,
-        "starboard_azimuth_rad": 0.3184524987715345
+        "port_thrust_n": 40.19723002378964,
+        "port_azimuth_rad": 0.31950261520711554,
+        "starboard_thrust_n": 40.19723002378964,
+        "starboard_azimuth_rad": 0.31950261520632145
       }
     },
     {
@@ -1638,26 +1854,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 7.329476686913272e-05,
-        "y": 0.009127165192672806,
-        "yaw_rad": 1.5709316412491163,
-        "vx": 0.009531294110749702,
-        "vy": -0.0002697555060584697,
-        "angular_z": 0.0004313282909405084
+        "x": 0.0017134670594976425,
+        "y": 0.6082285897347364,
+        "yaw_rad": 1.5741651719354104,
+        "vx": 0.4390652328168724,
+        "vy": -0.008480726120501023,
+        "angular_z": 0.013876017303252691
       },
       "command": {
         "step": 54,
         "time_s": 2.7,
-        "port_thrust_n": 1.439896632895321,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.19961986191107,
         "port_azimuth_rad": 0.3926990816987241,
-        "starboard_thrust_n": 1.439896632895321,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.19961986191107,
         "starboard_azimuth_rad": 0.3926990816987241
       },
       "delivered": {
-        "port_thrust_n": 1.439896632895321,
-        "port_azimuth_rad": 0.3446324379709944,
-        "starboard_thrust_n": 1.439896632895321,
-        "starboard_azimuth_rad": 0.3446324379709917
+        "port_thrust_n": 40.19961986191107,
+        "port_azimuth_rad": 0.34568255440232903,
+        "starboard_thrust_n": 40.19961986191107,
+        "starboard_azimuth_rad": 0.3456825544015345
       }
     },
     {
@@ -1668,26 +1888,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 9.039397656729688e-05,
-        "y": 0.00961202748099737,
-        "yaw_rad": 1.5709615131295893,
-        "vx": 0.009841434420426402,
-        "vy": -0.0003181280642429171,
-        "angular_z": 0.000508826695334748
+        "x": 0.002169156282103451,
+        "y": 0.6297969549486386,
+        "yaw_rad": 1.5751039072478328,
+        "vx": 0.4447294761399749,
+        "vy": -0.009972796941159219,
+        "angular_z": 0.016211315512472232
       },
       "command": {
         "step": 55,
         "time_s": 2.75,
-        "port_thrust_n": 1.466076571675236,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.20169155976251,
         "port_azimuth_rad": 0.418879020478639,
-        "starboard_thrust_n": 1.466076571675236,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.20169155976251,
         "starboard_azimuth_rad": 0.418879020478639
       },
       "delivered": {
-        "port_thrust_n": 1.466076571675236,
-        "port_azimuth_rad": 0.37081237717048915,
-        "starboard_thrust_n": 1.466076571675236,
-        "starboard_azimuth_rad": 0.3708123771704863
+        "port_thrust_n": 40.20169155976251,
+        "port_azimuth_rad": 0.37186249359754986,
+        "starboard_thrust_n": 40.20169155976251,
+        "starboard_azimuth_rad": 0.37186249359675566
       }
     },
     {
@@ -1698,26 +1922,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0001102334749342696,
-        "y": 0.010111471870036177,
-        "yaw_rad": 1.5709960581766813,
-        "vx": 0.010152033436275864,
-        "vy": -0.00037101887219260924,
-        "angular_z": 0.0005930575395476886
+        "x": 0.0026856803920639705,
+        "y": 0.6515838472733018,
+        "yaw_rad": 1.5761840282085258,
+        "vx": 0.45018214942915674,
+        "vy": -0.011582662662869784,
+        "angular_z": 0.01870742489909904
       },
       "command": {
         "step": 56,
         "time_s": 2.8000000000000003,
-        "port_thrust_n": 1.4922565104551508,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.203487468844884,
         "port_azimuth_rad": 0.44505895925855393,
-        "starboard_thrust_n": 1.4922565104551508,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.203487468844884,
         "starboard_azimuth_rad": 0.44505895925855393
       },
       "delivered": {
-        "port_thrust_n": 1.4922565104551508,
-        "port_azimuth_rad": 0.39699231637002025,
-        "starboard_thrust_n": 1.4922565104551508,
-        "starboard_azimuth_rad": 0.3969923163700175
+        "port_thrust_n": 40.203487468844884,
+        "port_azimuth_rad": 0.3980424327927769,
+        "starboard_thrust_n": 40.203487468844884,
+        "starboard_azimuth_rad": 0.3980424327919823
       }
     },
     {
@@ -1728,26 +1956,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0001330410876426649,
-        "y": 0.010625444250257318,
-        "yaw_rad": 1.57103565274515,
-        "vx": 0.010462657032640453,
-        "vy": -0.00042849966113587206,
-        "angular_z": 0.0006840414734228999
+        "x": 0.0032653870478408513,
+        "y": 0.6735771566998312,
+        "yaw_rad": 1.577414927618033,
+        "vx": 0.4554169716199968,
+        "vy": -0.013309967371151721,
+        "angular_z": 0.021360606423351275
       },
       "command": {
         "step": 57,
         "time_s": 2.85,
-        "port_thrust_n": 1.5184364492350657,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.20504430273836,
         "port_azimuth_rad": 0.47123889803846886,
-        "starboard_thrust_n": 1.5184364492350657,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.20504430273836,
         "starboard_azimuth_rad": 0.47123889803846886
       },
       "delivered": {
-        "port_thrust_n": 1.5184364492350657,
-        "port_azimuth_rad": 0.42317225556958693,
-        "starboard_thrust_n": 1.5184364492350657,
-        "starboard_azimuth_rad": 0.4231722555695841
+        "port_thrust_n": 40.20504430273836,
+        "port_azimuth_rad": 0.4242223719880079,
+        "starboard_thrust_n": 40.20504430273836,
+        "starboard_azimuth_rad": 0.4242223719872133
       }
     },
     {
@@ -1758,26 +1990,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.00015904744017310155,
-        "y": 0.011153868357273843,
-        "yaw_rad": 1.5710806762606102,
-        "vx": 0.010772862925601537,
-        "vy": -0.0004906369318714048,
-        "angular_z": 0.000781789581489479
+        "x": 0.003910354450000183,
+        "y": 0.6957645829598749,
+        "yaw_rad": 1.5788058993697545,
+        "vx": 0.46042768200446416,
+        "vy": -0.015154252517834952,
+        "angular_z": 0.024167017071157204
       },
       "command": {
         "step": 58,
         "time_s": 2.9000000000000004,
-        "port_thrust_n": 1.5446163880149806,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.20639388763419,
         "port_azimuth_rad": 0.4974188368183838,
-        "starboard_thrust_n": 1.5446163880149806,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.20639388763419,
         "starboard_azimuth_rad": 0.4974188368183838
       },
       "delivered": {
-        "port_thrust_n": 1.5446163880149806,
-        "port_azimuth_rad": 0.44935219476918936,
-        "starboard_thrust_n": 1.5446163880149806,
-        "starboard_azimuth_rad": 0.44935219476918686
+        "port_thrust_n": 40.20639388763419,
+        "port_azimuth_rad": 0.4504023111832412,
+        "starboard_thrust_n": 40.20639388763419,
+        "starboard_azimuth_rad": 0.4504023111824467
       }
     },
     {
@@ -1788,26 +2024,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.00018848566993773827,
-        "y": 0.01169664561129685,
-        "yaw_rad": 1.5711315107150523,
-        "vx": 0.011082201115330674,
-        "vy": -0.000557491824311357,
-        "angular_z": 0.0008863032922989961
+        "x": 0.004622393415049286,
+        "y": 0.718133647280678,
+        "yaw_rad": 1.5803661296809488,
+        "vx": 0.4652080316335521,
+        "vy": -0.017114951094756924,
+        "angular_z": 0.027122702838210035
       },
       "command": {
         "step": 59,
         "time_s": 2.95,
-        "port_thrust_n": 1.5707963267948954,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.20756381295423,
         "port_azimuth_rad": 0.5235987755982987,
-        "starboard_thrust_n": 1.5707963267948954,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.20756381295423,
         "starboard_azimuth_rad": 0.5235987755982987
       },
       "delivered": {
-        "port_thrust_n": 1.5707963267948954,
-        "port_azimuth_rad": 0.47553213396882776,
-        "starboard_thrust_n": 1.5707963267948954,
-        "starboard_azimuth_rad": 0.47553213396882466
+        "port_thrust_n": 40.20756381295423,
+        "port_azimuth_rad": 0.4765822503784749,
+        "starboard_thrust_n": 40.20756381295423,
+        "starboard_azimuth_rad": 0.47658225037768037
       }
     },
     {
@@ -1818,26 +2058,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.00022159113386334197,
-        "y": 0.01225365498643251,
-        "yaw_rad": 1.571188540144769,
-        "vx": 0.011390214339731614,
-        "vy": -0.0006291199915145074,
-        "angular_z": 0.0009975742976042368
+        "x": 0.005403050803177381,
+        "y": 0.7406717037042474,
+        "yaw_rad": 1.58210468732666,
+        "vx": 0.4697517759380211,
+        "vy": -0.01919138177167188,
+        "angular_z": 0.030223591891549655
       },
       "command": {
         "step": 60,
         "time_s": 3,
-        "port_thrust_n": 1.5969762655748103,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.208577995358525,
         "port_azimuth_rad": 0.5497787143782137,
-        "starboard_thrust_n": 1.5969762655748103,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.208577995358525,
         "starboard_azimuth_rad": 0.5497787143782137
       },
       "delivered": {
-        "port_thrust_n": 1.5969762655748103,
-        "port_azimuth_rad": 0.5017120731685003,
-        "starboard_thrust_n": 1.5969762655748103,
-        "starboard_azimuth_rad": 0.5017120731684972
+        "port_thrust_n": 40.208577995358525,
+        "port_azimuth_rad": 0.5027621895737086,
+        "starboard_thrust_n": 40.208577995358525,
+        "starboard_azimuth_rad": 0.5027621895729139
       }
     },
     {
@@ -1848,26 +2092,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0002586011118933768,
-        "y": 0.012824752909475778,
-        "yaw_rad": 1.5712521500911218,
-        "vx": 0.011696438539059342,
-        "vy": -0.0007055714783501386,
-        "angular_z": 0.0011155844820170651
+        "x": 0.0062536143191486504,
+        "y": 0.7633659499827278,
+        "yaw_rad": 1.5840305128584957,
+        "vx": 0.47405266860743084,
+        "vy": -0.02138274302055152,
+        "angular_z": 0.03346548797348294
       },
       "command": {
         "step": 61,
         "time_s": 3.0500000000000003,
-        "port_thrust_n": 1.6231562043547252,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.209457167671125,
         "port_azimuth_rad": 0.5759586531581287,
-        "starboard_thrust_n": 1.6231562043547252,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.209457167671125,
         "starboard_azimuth_rad": 0.5759586531581287
       },
       "delivered": {
-        "port_thrust_n": 1.6231562043547252,
-        "port_azimuth_rad": 0.5278920123682072,
-        "starboard_thrust_n": 1.6231562043547252,
-        "starboard_azimuth_rad": 0.5278920123682046
+        "port_thrust_n": 40.209457167671125,
+        "port_azimuth_rad": 0.5289421287689385,
+        "starboard_thrust_n": 40.209457167671125,
+        "starboard_azimuth_rad": 0.5289421287681441
       }
     },
     {
@@ -1878,26 +2126,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0002997545068755284,
-        "y": 0.01340977318781453,
-        "yaw_rad": 1.571322727044674,
-        "vx": 0.01200040333119946,
-        "vy": -0.0007868906049331058,
-        "angular_z": 0.0012403058643662387
+        "x": 0.007175118702666919,
+        "y": 0.7862034380659452,
+        "yaw_rad": 1.5861524067905641,
+        "vx": 0.4781044567697844,
+        "vy": -0.023688107249074334,
+        "angular_z": 0.0368440640918695
       },
       "command": {
         "step": 62,
         "time_s": 3.1,
-        "port_thrust_n": 1.64933614313464,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.21021930271899,
         "port_azimuth_rad": 0.6021385919380436,
-        "starboard_thrust_n": 1.64933614313464,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.21021930271899,
         "starboard_azimuth_rad": 0.6021385919380436
       },
       "delivered": {
-        "port_thrust_n": 1.64933614313464,
-        "port_azimuth_rad": 0.5540719515679478,
-        "starboard_thrust_n": 1.64933614313464,
-        "starboard_azimuth_rad": 0.5540719515679451
+        "port_thrust_n": 40.21021930271899,
+        "port_azimuth_rad": 0.5551220679641656,
+        "starboard_thrust_n": 40.21021930271899,
+        "starboard_azimuth_rad": 0.555122067963371
       }
     },
     {
@@ -1908,26 +2160,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.000345291541306698,
-        "y": 0.01400852696602285,
-        "yaw_rad": 1.5714006578732707,
-        "vx": 0.012301632497286982,
-        "vy": -0.0008731158549704776,
-        "angular_z": 0.0013717005487104243
+        "x": 0.00816835332128492,
+        "y": 0.8091710842011387,
+        "yaw_rad": 1.5884790167354446,
+        "vx": 0.4819008775153417,
+        "vy": -0.026106414967027612,
+        "angular_z": 0.04035485643989953
       },
       "command": {
         "step": 63,
         "time_s": 3.1500000000000004,
-        "port_thrust_n": 1.675516081914555,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.21087998074861,
         "port_azimuth_rad": 0.6283185307179586,
-        "starboard_thrust_n": 1.675516081914555,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.21087998074861,
         "starboard_azimuth_rad": 0.6283185307179586
       },
       "delivered": {
-        "port_thrust_n": 1.675516081914555,
-        "port_azimuth_rad": 0.5802518907677222,
-        "starboard_thrust_n": 1.675516081914555,
-        "starboard_azimuth_rad": 0.5802518907677195
+        "port_thrust_n": 40.21087998074861,
+        "port_azimuth_rad": 0.5813020071593876,
+        "starboard_thrust_n": 40.21087998074861,
+        "starboard_azimuth_rad": 0.581302007158593
       }
     },
     {
@@ -1938,26 +2194,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.00039545345141177394,
-        "y": 0.014620802710691222,
-        "yaw_rad": 1.5714863292347125,
-        "vx": 0.012599644477339708,
-        "vy": -0.0009642797691599286,
-        "angular_z": 0.0015097206876926999
+        "x": 0.009233871175331906,
+        "y": 0.8322556786691133,
+        "yaw_rad": 1.5910188234741471,
+        "vx": 0.4854356558085967,
+        "vy": -0.02863646901054792,
+        "angular_z": 0.04399325866484066
       },
       "command": {
         "step": 64,
         "time_s": 3.2,
-        "port_thrust_n": 1.7016960206944698,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.211452707931336,
         "port_azimuth_rad": 0.6544984694978736,
-        "starboard_thrust_n": 1.7016960206944698,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.211452707931336,
         "starboard_azimuth_rad": 0.6544984694978736
       },
       "delivered": {
-        "port_thrust_n": 1.7016960206944698,
-        "port_azimuth_rad": 0.6064318299675302,
-        "starboard_thrust_n": 1.7016960206944698,
-        "starboard_azimuth_rad": 0.6064318299675272
+        "port_thrust_n": 40.211452707931336,
+        "port_azimuth_rad": 0.6074819463546031,
+        "starboard_thrust_n": 40.211452707931336,
+        "starboard_azimuth_rad": 0.6074819463538087
       }
     },
     {
@@ -1968,26 +2228,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.00045048217903540037,
-        "y": 0.015246366223013993,
-        "yaw_rad": 1.5715801269747516,
-        "vx": 0.012893952875575774,
-        "vy": -0.0010604088437797695,
-        "angular_z": 0.001654308456331896
+        "x": 0.010371999320344286,
+        "y": 0.8554438951853701,
+        "yaw_rad": 1.5937801259455677,
+        "vx": 0.4887025038319848,
+        "vy": -0.031276928850555816,
+        "angular_z": 0.04775451647992247
       },
       "command": {
         "step": 65,
         "time_s": 3.25,
-        "port_thrust_n": 1.7278759594743847,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.21194919246863,
         "port_azimuth_rad": 0.6806784082777886,
-        "starboard_thrust_n": 1.7278759594743847,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.21194919246863,
         "starboard_azimuth_rad": 0.6806784082777886
       },
       "delivered": {
-        "port_thrust_n": 1.7278759594743847,
-        "port_azimuth_rad": 0.6326117691673702,
-        "starboard_thrust_n": 1.7278759594743847,
-        "starboard_azimuth_rad": 0.6326117691673674
+        "port_thrust_n": 40.21194919246863,
+        "port_azimuth_rad": 0.6336618855498121,
+        "starboard_thrust_n": 40.21194919246863,
+        "starboard_azimuth_rad": 0.6336618855490175
       }
     },
     {
@@ -1998,26 +2262,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0005106200618274717,
-        "y": 0.015884960678630936,
-        "yaw_rad": 1.5716824355111831,
-        "vx": 0.013184066975078198,
-        "vy": -0.0011615234346101417,
-        "angular_z": 0.001805396035876081
+        "x": 0.011582850708067683,
+        "y": 0.8787222999991317,
+        "yaw_rad": 1.5967710251432052,
+        "vx": 0.49169512180355246,
+        "vy": -0.03402630501337286,
+        "angular_z": 0.05163372261283389
       },
       "command": {
         "step": 66,
         "time_s": 3.3000000000000003,
-        "port_thrust_n": 1.7540558982542995,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.212379583941576,
         "port_azimuth_rad": 0.7068583470577036,
-        "starboard_thrust_n": 1.7540558982542995,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.212379583941576,
         "starboard_azimuth_rad": 0.7068583470577036
       },
       "delivered": {
-        "port_thrust_n": 1.7540558982542995,
-        "port_azimuth_rad": 0.6587917083672437,
-        "starboard_thrust_n": 1.7540558982542995,
-        "starboard_azimuth_rad": 0.6587917083672404
+        "port_thrust_n": 40.212379583941576,
+        "port_azimuth_rad": 0.6598418247450125,
+        "starboard_thrust_n": 40.212379583941576,
+        "starboard_azimuth_rad": 0.659841824744218
       }
     },
     {
@@ -2028,26 +2296,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0005761095222031926,
-        "y": 0.016536306694199532,
-        "yaw_rad": 1.57179363720873,
-        "vx": 0.013469492261455973,
-        "vy": -0.0012676376663291586,
-        "angular_z": 0.0019629056459150277
+        "x": 0.01286633744221902,
+        "y": 0.9020773607275473,
+        "yaw_rad": 1.5999994069098766,
+        "vx": 0.49440720030864016,
+        "vy": -0.036882953643306036,
+        "angular_z": 0.05562581215818081
       },
       "command": {
         "step": 67,
         "time_s": 3.35,
-        "port_thrust_n": 1.7802358370342144,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.21275268079771,
         "port_azimuth_rad": 0.7330382858376185,
-        "starboard_thrust_n": 1.7802358370342144,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.21275268079771,
         "starboard_azimuth_rad": 0.7330382858376185
       },
       "delivered": {
-        "port_thrust_n": 1.7802358370342144,
-        "port_azimuth_rad": 0.684971647567149,
-        "starboard_thrust_n": 1.7802358370342144,
-        "starboard_azimuth_rad": 0.6849716475671461
+        "port_thrust_n": 40.21275268079771,
+        "port_azimuth_rad": 0.6860217639402035,
+        "starboard_thrust_n": 40.21275268079771,
+        "starboard_azimuth_rad": 0.686021763939409
       }
     },
     {
@@ -2058,26 +2330,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0006471927555571351,
-        "y": 0.01720010242015376,
-        "yaw_rad": 1.5719141117424806,
-        "vx": 0.013749730955033882,
-        "vy": -0.0013787593475917698,
-        "angular_z": 0.0021267495930820286
+        "x": 0.014222185439818982,
+        "y": 0.9254954549666559,
+        "yaw_rad": 1.6034729236250993,
+        "vx": 0.49683242418254503,
+        "vy": -0.039845071238904316,
+        "angular_z": 0.059725558384714675
       },
       "command": {
         "step": 68,
         "time_s": 3.4000000000000004,
-        "port_thrust_n": 1.8064157758141293,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.21307611021677,
         "port_azimuth_rad": 0.7592182246175335,
-        "starboard_thrust_n": 1.8064157758141293,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.21307611021677,
         "starboard_azimuth_rad": 0.7592182246175335
       },
       "delivered": {
-        "port_thrust_n": 1.8064157758141293,
-        "port_azimuth_rad": 0.7111515867670861,
-        "starboard_thrust_n": 1.8064157758141293,
-        "starboard_azimuth_rad": 0.7111515867670832
+        "port_thrust_n": 40.21307611021677,
+        "port_azimuth_rad": 0.7122017031353854,
+        "starboard_thrust_n": 40.21307611021677,
+        "starboard_azimuth_rad": 0.7122017031345906
       }
     },
     {
@@ -2088,26 +2364,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0007241114182081406,
-        "y": 0.01787602365909891,
-        "yaw_rad": 1.572044235410259,
-        "vx": 0.014024282551642831,
-        "vy": -0.0014948898916348197,
-        "angular_z": 0.0022968299318120457
+        "x": 0.015649950482996715,
+        "y": 0.9489628787248602,
+        "yaw_rad": 1.6071989747847706,
+        "vx": 0.4989644779770951,
+        "vy": -0.04291068959660639,
+        "angular_z": 0.06392756896636961
       },
       "command": {
         "step": 69,
         "time_s": 3.45,
-        "port_thrust_n": 1.8325957145940441,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.213356484032275,
         "port_azimuth_rad": 0.7853981633974485,
-        "starboard_thrust_n": 1.8325957145940441,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.213356484032275,
         "starboard_azimuth_rad": 0.7853981633974485
       },
       "delivered": {
-        "port_thrust_n": 1.8325957145940441,
-        "port_azimuth_rad": 0.7373315259670546,
-        "starboard_thrust_n": 1.8325957145940441,
-        "starboard_azimuth_rad": 0.7373315259670521
+        "port_thrust_n": 40.213356484032275,
+        "port_azimuth_rad": 0.7383816423305556,
+        "starboard_thrust_n": 40.213356484032275,
+        "starboard_azimuth_rad": 0.7383816423297607
       }
     },
     {
@@ -2118,26 +2398,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0008071063155480274,
-        "y": 0.018563724009292116,
-        "yaw_rad": 1.5721843805121563,
-        "vx": 0.014292644371275458,
-        "vy": -0.0016160242428509008,
-        "angular_z": 0.002473038836861357
+        "x": 0.017149035639701764,
+        "y": 0.9724658547286575,
+        "yaw_rad": 1.6111846864788884,
+        "vx": 0.5007970530391903,
+        "vy": -0.046077670997561215,
+        "angular_z": 0.06822628272431214
       },
       "command": {
         "step": 70,
         "time_s": 3.5,
-        "port_thrust_n": 1.858775653373959,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.213599533896605,
         "port_azimuth_rad": 0.8115781021773635,
-        "starboard_thrust_n": 1.858775653373959,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.213599533896605,
         "starboard_azimuth_rad": 0.8115781021773635
       },
       "delivered": {
-        "port_thrust_n": 1.858775653373959,
-        "port_azimuth_rad": 0.7635114651670551,
-        "starboard_thrust_n": 1.858775653373959,
-        "starboard_azimuth_rad": 0.7635114651670528
+        "port_thrust_n": 40.213599533896605,
+        "port_azimuth_rad": 0.7645615815257151,
+        "starboard_thrust_n": 40.213599533896605,
+        "starboard_azimuth_rad": 0.7645615815249202
       }
     },
     {
@@ -2148,26 +2432,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0008964170908606698,
-        "y": 0.01926283503261584,
-        "yaw_rad": 1.5723349146642895,
-        "vx": 0.014554312113934867,
-        "vy": -0.0017421508095992366,
-        "angular_z": 0.0026552588334342393
+        "x": 0.018718710024710664,
+        "y": 0.9959905406541048,
+        "yaw_rad": 1.6154368897805205,
+        "vx": 0.5023238562234285,
+        "vy": -0.049343703675477246,
+        "angular_z": 0.07261596691601828
       },
       "command": {
         "step": 71,
         "time_s": 3.5500000000000003,
-        "port_thrust_n": 1.8849555921538739,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.21381022845253,
         "port_azimuth_rad": 0.8377580409572785,
-        "starboard_thrust_n": 1.8849555921538739,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.21381022845253,
         "starboard_azimuth_rad": 0.8377580409572785
       },
       "delivered": {
-        "port_thrust_n": 1.8849555921538739,
-        "port_azimuth_rad": 0.789691404367087,
-        "starboard_thrust_n": 1.8849555921538739,
-        "starboard_azimuth_rad": 0.7896914043670842
+        "port_thrust_n": 40.21381022845253,
+        "port_azimuth_rad": 0.7907415207208618,
+        "starboard_thrust_n": 40.21381022845253,
+        "starboard_azimuth_rad": 0.7907415207200672
       }
     },
     {
@@ -2178,26 +2466,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.000992281915271619,
-        "y": 0.019972966446473037,
-        "yaw_rad": 1.5724962001195442,
-        "vx": 0.014808780422833127,
-        "vy": -0.0018732514029801753,
-        "angular_z": 0.002843362466114596
+        "x": 0.02035812886467091,
+        "y": 1.0195230373409259,
+        "yaw_rad": 1.6199620980681226,
+        "vx": 0.5035386202541938,
+        "vy": -0.05270629760540184,
+        "angular_z": 0.07709071505759688
       },
       "command": {
         "step": 72,
         "time_s": 3.6,
-        "port_thrust_n": 1.9111355309337887,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.21399287490666,
         "port_azimuth_rad": 0.8639379797371934,
-        "starboard_thrust_n": 1.9111355309337887,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.21399287490666,
         "starboard_azimuth_rad": 0.8639379797371934
       },
       "delivered": {
-        "port_thrust_n": 1.9111355309337887,
-        "port_azimuth_rad": 0.81587134356715,
-        "starboard_thrust_n": 1.9111355309337887,
-        "starboard_azimuth_rad": 0.8158713435671473
+        "port_thrust_n": 40.21399287490666,
+        "port_azimuth_rad": 0.8169214599159965,
+        "starboard_thrust_n": 40.21399287490666,
+        "starboard_azimuth_rad": 0.8169214599152018
       }
     },
     {
@@ -2208,26 +2500,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.001094937179279944,
-        "y": 0.020693706339025304,
-        "yaw_rad": 1.5726685930816173,
-        "vx": 0.015055543454359693,
-        "vy": -0.0020093011818903108,
-        "angular_z": 0.0030372125014754537
+        "x": 0.02206635482267606,
+        "y": 1.0430493970491974,
+        "yaw_rad": 1.6247664833137472,
+        "vx": 0.5044351157447747,
+        "vy": -0.05616278065529168,
+        "angular_z": 0.08164444537519203
       },
       "command": {
         "step": 73,
         "time_s": 3.6500000000000004,
-        "port_thrust_n": 1.9373154697137036,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.21415120708121,
         "port_azimuth_rad": 0.8901179185171084,
-        "starboard_thrust_n": 1.9373154697137036,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.21415120708121,
         "starboard_azimuth_rad": 0.8901179185171084
       },
       "delivered": {
-        "port_thrust_n": 1.9373154697137036,
-        "port_azimuth_rad": 0.8420512827672434,
-        "starboard_thrust_n": 1.9373154697137036,
-        "starboard_azimuth_rad": 0.842051282767241
+        "port_thrust_n": 40.21415120708121,
+        "port_azimuth_rad": 0.8431013991111179,
+        "starboard_thrust_n": 40.21415120708121,
+        "starboard_azimuth_rad": 0.8431013991103231
       }
     },
     {
@@ -2238,26 +2534,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.00120461718631419,
-        "y": 0.021424621407193672,
-        "yaw_rad": 1.572852443013637,
-        "vx": 0.015294095454327106,
-        "vy": -0.0021502686045206053,
-        "angular_z": 0.0032366620045279396
+        "x": 0.023842380529013437,
+        "y": 1.0665556318211313,
+        "yaw_rad": 1.6298558513818242,
+        "vx": 0.5050071648723641,
+        "vy": -0.05971029514407909,
+        "angular_z": 0.08627089993032704
       },
       "command": {
         "step": 74,
         "time_s": 3.7,
-        "port_thrust_n": 1.9634954084936185,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.21428846174415,
         "port_azimuth_rad": 0.9162978572970234,
-        "starboard_thrust_n": 1.9634954084936185,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.21428846174415,
         "starboard_azimuth_rad": 0.9162978572970234
       },
       "delivered": {
-        "port_thrust_n": 1.9634954084936185,
-        "port_azimuth_rad": 0.868231221967368,
-        "starboard_thrust_n": 1.9634954084936185,
-        "starboard_azimuth_rad": 0.8682312219673651
+        "port_thrust_n": 40.21428846174415,
+        "port_azimuth_rad": 0.8692813383062258,
+        "starboard_thrust_n": 40.21428846174415,
+        "starboard_azimuth_rad": 0.869281338305431
       }
     },
     {
@@ -2268,26 +2568,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0013215538487432565,
-        "y": 0.022165257216843502,
-        "yaw_rad": 1.5730480919426444,
-        "vx": 0.01552393134009361,
-        "vy": -0.0022961153863977936,
-        "angular_z": 0.0034415544268112364
+        "x": 0.025685152255284015,
+        "y": 1.0900277220125176,
+        "yaw_rad": 1.6352356163970632,
+        "vx": 0.5052486566981826,
+        "vy": -0.06334579485160366,
+        "angular_z": 0.09096364441345048
       },
       "command": {
         "step": 75,
         "time_s": 3.75,
-        "port_thrust_n": 1.9896753472735333,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.21440744477809,
         "port_azimuth_rad": 0.9424777960769384,
-        "starboard_thrust_n": 1.9896753472735333,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.21440744477809,
         "starboard_azimuth_rad": 0.9424777960769384
       },
       "delivered": {
-        "port_thrust_n": 1.9896753472735333,
-        "port_azimuth_rad": 0.8944111611675225,
-        "starboard_thrust_n": 1.9896753472735333,
-        "starboard_azimuth_rad": 0.8944111611675203
+        "port_thrust_n": 40.21440744477809,
+        "port_azimuth_rad": 0.8954612775013191,
+        "starboard_thrust_n": 40.21440744477809,
+        "starboard_azimuth_rad": 0.8954612775005243
       }
     },
     {
@@ -2298,26 +2602,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.001445976386760598,
-        "y": 0.022915138484578546,
-        "yaw_rad": 1.5732558737612539,
-        "vx": 0.015744547288112223,
-        "vy": -0.0024467964650949333,
-        "angular_z": 0.003651723707095549
+        "x": 0.027593594659086992,
+        "y": 1.1134516250598365,
+        "yaw_rad": 1.6409107742557254,
+        "vx": 0.5051535641113408,
+        "vy": -0.06706604252721533,
+        "angular_z": 0.09571606863724061
       },
       "command": {
         "step": 76,
         "time_s": 3.8000000000000003,
-        "port_thrust_n": 2.015855286053448,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.214510588540655,
         "port_azimuth_rad": 0.9686577348568534,
-        "starboard_thrust_n": 2.015855286053448,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.214510588540655,
         "starboard_azimuth_rad": 0.9686577348568534
       },
       "delivered": {
-        "port_thrust_n": 2.015855286053448,
-        "port_azimuth_rad": 0.9205911003677079,
-        "starboard_thrust_n": 2.015855286053448,
-        "starboard_azimuth_rad": 0.9205911003677056
+        "port_thrust_n": 40.214510588540655,
+        "port_azimuth_rad": 0.9216412166963984,
+        "starboard_thrust_n": 40.214510588540655,
+        "starboard_azimuth_rad": 0.921641216695604
       }
     },
     {
@@ -2328,26 +2636,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0015781110305464997,
-        "y": 0.023673769380574822,
-        "yaw_rad": 1.573476113527898,
-        "vx": 0.015955441326441274,
-        "vy": -0.002602259971734243,
-        "angular_z": 0.0038669943821511253
+        "x": 0.029566636515929744,
+        "y": 1.1368132845498187,
+        "yaw_rad": 1.6468858753720026,
+        "vx": 0.5047159623636673,
+        "vy": -0.07086760794501765,
+        "angular_z": 0.10052138790710918
       },
       "command": {
         "step": 77,
         "time_s": 3.85,
-        "port_thrust_n": 2.0420352248333633,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.21460000158892,
         "port_azimuth_rad": 0.9948376736367683,
-        "starboard_thrust_n": 2.0420352248333633,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.21460000158892,
         "starboard_azimuth_rad": 0.9948376736367683
       },
       "delivered": {
-        "port_thrust_n": 2.0420352248333633,
-        "port_azimuth_rad": 0.9467710395679239,
-        "starboard_thrust_n": 2.0420352248333633,
-        "starboard_azimuth_rad": 0.9467710395679212
+        "port_thrust_n": 40.21460000158892,
+        "port_azimuth_rad": 0.9478211558914637,
+        "starboard_thrust_n": 40.21460000158892,
+        "starboard_azimuth_rad": 0.9478211558906688
       }
     },
     {
@@ -2358,26 +2670,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0017181807260982858,
-        "y": 0.024440633851891776,
-        "yaw_rad": 1.5737091267670351,
-        "vx": 0.016156113931734196,
-        "vy": -0.002762447209402216,
-        "angular_z": 0.004087181711163863
+        "x": 0.03160323734402085,
+        "y": 1.1600986396582469,
+        "yaw_rad": 1.6531649967706334,
+        "vx": 0.5039300491503531,
+        "vy": -0.0747468665545375,
+        "angular_z": 0.1053726451289626
       },
       "command": {
         "step": 78,
         "time_s": 3.9000000000000004,
-        "port_thrust_n": 2.0682151636132784,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.214677511784416,
         "port_azimuth_rad": 1.0210176124166832,
-        "starboard_thrust_n": 2.0682151636132784,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.214677511784416,
         "starboard_azimuth_rad": 1.0210176124166832
       },
       "delivered": {
-        "port_thrust_n": 2.0682151636132784,
-        "port_azimuth_rad": 0.9729509787681698,
-        "starboard_thrust_n": 2.0682151636132784,
-        "starboard_azimuth_rad": 0.9729509787681675
+        "port_thrust_n": 40.214677511784416,
+        "port_azimuth_rad": 0.9740010950865132,
+        "starboard_thrust_n": 40.214677511784416,
+        "starboard_azimuth_rad": 0.9740010950857184
       }
     },
     {
@@ -2388,26 +2704,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0018664048451022986,
-        "y": 0.02521519596570667,
-        "yaw_rad": 1.5739552187707668,
-        "vx": 0.01634606863020963,
-        "vy": -0.00292729263859361,
-        "angular_z": 0.00431209180878369
+        "x": 0.03370241481620159,
+        "y": 1.1832936350239986,
+        "yaw_rad": 1.6597517136578668,
+        "vx": 0.5027901661781919,
+        "vy": -0.07869999877604231,
+        "angular_z": 0.11026271380662364
       },
       "command": {
         "step": 79,
         "time_s": 3.95,
-        "port_thrust_n": 2.0943951023931935,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 1.5707963267948966,
+        "port_thrust_n": 40.214744703659896,
         "port_azimuth_rad": 1.047197551196598,
-        "starboard_thrust_n": 2.0943951023931935,
+        "starboard_commanded_thrust_n": 40.21518225048183,
+        "starboard_commanded_azimuth_rad": 1.5707963267948966,
+        "starboard_thrust_n": 40.214744703659896,
         "starboard_azimuth_rad": 1.047197551196598
       },
       "delivered": {
-        "port_thrust_n": 2.0943951023931935,
-        "port_azimuth_rad": 0.9991309179684461,
-        "starboard_thrust_n": 2.0943951023931935,
-        "starboard_azimuth_rad": 0.9991309179684436
+        "port_thrust_n": 40.214744703659896,
+        "port_azimuth_rad": 1.0001810342815485,
+        "starboard_thrust_n": 40.214744703659896,
+        "starboard_azimuth_rad": 1.000181034280754
       }
     },
     {
@@ -2418,26 +2738,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0020229902571499815,
-        "y": 0.02599693767063063,
-        "yaw_rad": 1.5742145649506558,
-        "vx": 0.01652521675997811,
-        "vy": -0.0030966381693236715,
-        "angular_z": 0.004540418318213089
+        "x": 0.03585013390076481,
+        "y": 1.2063620410037612,
+        "yaw_rad": 1.666607950261046,
+        "vx": 0.5010537510004418,
+        "vy": -0.08256696982784553,
+        "angular_z": 0.11481808799361118
       },
       "command": {
         "step": 80,
         "time_s": 4,
-        "port_thrust_n": 2.1205750411731086,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21480295081179,
         "port_azimuth_rad": 1.0210176124166832,
-        "starboard_thrust_n": 2.1205750411731086,
-        "starboard_azimuth_rad": 1.073377489976513
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 29.50774390458507,
+        "starboard_azimuth_rad": 1.0210176124166832
       },
       "delivered": {
-        "port_thrust_n": 2.1205750411731086,
-        "port_azimuth_rad": 0.9938949299777997,
-        "starboard_thrust_n": 2.1205750411731086,
-        "starboard_azimuth_rad": 1.0253108571687495
+        "port_thrust_n": 40.21480295081179,
+        "port_azimuth_rad": 0.994945046285618,
+        "starboard_thrust_n": 29.50774390458507,
+        "starboard_azimuth_rad": 0.9949450462846684
       }
     },
     {
@@ -2448,26 +2772,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.002188077514282939,
-        "y": 0.026785570369114015,
-        "yaw_rad": 1.5744874914501559,
-        "vx": 0.016696162438972713,
-        "vy": -0.003269705965223561,
-        "angular_z": 0.004772352637999425
+        "x": 0.038023984828450826,
+        "y": 1.2292646009560093,
+        "yaw_rad": 1.6736704198533314,
+        "vx": 0.49845453096207526,
+        "vy": -0.08608216402497938,
+        "angular_z": 0.11845114855883784
       },
       "command": {
         "step": 81,
         "time_s": 4.05,
-        "port_thrust_n": 2.1467549799530237,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21485344398049,
         "port_azimuth_rad": 0.9948376736367682,
-        "starboard_thrust_n": 2.1467549799530237,
-        "starboard_azimuth_rad": 1.0995574287564278
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 20.226081539259567,
+        "starboard_azimuth_rad": 0.9948376736367682
       },
       "delivered": {
-        "port_thrust_n": 2.1467549799530237,
-        "port_azimuth_rad": 0.9886589419766886,
-        "starboard_thrust_n": 2.1467549799530237,
-        "starboard_azimuth_rad": 1.0514907963690863
+        "port_thrust_n": 40.21485344398049,
+        "port_azimuth_rad": 0.9897090582792004,
+        "starboard_thrust_n": 20.226081539259567,
+        "starboard_azimuth_rad": 0.9897090582778997
       }
     },
     {
@@ -2478,26 +2806,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.002361774543729725,
-        "y": 0.027580912638197876,
-        "yaw_rad": 1.5747743088969657,
-        "vx": 0.016862485577920625,
-        "vy": -0.003445522852113139,
-        "angular_z": 0.005009148511628475
+        "x": 0.040205018382609,
+        "y": 1.251970404043669,
+        "yaw_rad": 1.6808826501486063,
+        "vx": 0.4950588751330246,
+        "vy": -0.08915949380452992,
+        "angular_z": 0.12101168731442533
       },
       "command": {
         "step": 82,
         "time_s": 4.1000000000000005,
-        "port_thrust_n": 2.1729349187329388,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.214897215392526,
         "port_azimuth_rad": 0.9686577348568532,
-        "starboard_thrust_n": 2.1729349187329388,
-        "starboard_azimuth_rad": 1.1257373675363427
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 12.180013561815894,
+        "starboard_azimuth_rad": 0.9686577348568532
       },
       "delivered": {
-        "port_thrust_n": 2.1729349187329388,
-        "port_azimuth_rad": 0.9834229538446709,
-        "starboard_thrust_n": 2.1729349187329388,
-        "starboard_azimuth_rad": 1.0776707355694533
+        "port_thrust_n": 40.214897215392526,
+        "port_azimuth_rad": 0.9844730701418511,
+        "starboard_thrust_n": 12.180013561815894,
+        "starboard_azimuth_rad": 0.9844730701399962
       }
     },
     {
@@ -2508,26 +2840,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0025441863587259625,
-        "y": 0.028382773741553857,
-        "yaw_rad": 1.575075264298858,
-        "vx": 0.01702520103034563,
-        "vy": -0.003623743504228749,
-        "angular_z": 0.005250076108043403
+        "x": 0.042377988315349786,
+        "y": 1.2744536691588009,
+        "yaw_rad": 1.6881955723338593,
+        "vx": 0.4910163667012536,
+        "vy": -0.09184473283426467,
+        "angular_z": 0.12263868924038772
       },
       "command": {
         "step": 83,
         "time_s": 4.15,
-        "port_thrust_n": 2.199114857512854,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21493515986226,
         "port_azimuth_rad": 0.9424777960769383,
-        "starboard_thrust_n": 2.199114857512854,
-        "starboard_azimuth_rad": 1.1519173063162575
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": 5.20505505228233,
+        "starboard_azimuth_rad": 0.9424777960769383
       },
       "delivered": {
-        "port_thrust_n": 2.199114857512854,
-        "port_azimuth_rad": 0.978186965581733,
-        "starboard_thrust_n": 2.199114857512854,
-        "starboard_azimuth_rad": 1.1038506747698495
+        "port_thrust_n": 40.21493515986226,
+        "port_azimuth_rad": 0.9792370818735545,
+        "starboard_thrust_n": 5.20505505228233,
+        "starboard_azimuth_rad": 0.9792370818709117
       }
     },
     {
@@ -2538,26 +2874,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0027354110107728896,
-        "y": 0.029190969403035248,
-        "yaw_rad": 1.5753904886979044,
-        "vx": 0.017184240314539086,
-        "vy": -0.0038042748192505514,
-        "angular_z": 0.00549348864149535
+        "x": 0.0445305574431625,
+        "y": 1.2966936777427511,
+        "yaw_rad": 1.6955660559741257,
+        "vx": 0.48644047799377166,
+        "vy": -0.09418171060777072,
+        "angular_z": 0.1234582503571359
       },
       "command": {
         "step": 84,
         "time_s": 4.2,
-        "port_thrust_n": 2.225294796292769,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21496805308449,
         "port_azimuth_rad": 0.9162978572970233,
-        "starboard_thrust_n": 2.225294796292769,
-        "starboard_azimuth_rad": 1.1780972450961724
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -0.8413823313067823,
+        "starboard_azimuth_rad": 0.9162978572970233
       },
       "delivered": {
-        "port_thrust_n": 2.225294796292769,
-        "port_azimuth_rad": 0.963987981733313,
-        "starboard_thrust_n": 2.225294796292769,
-        "starboard_azimuth_rad": 1.1300306139702763
+        "port_thrust_n": 40.21496805308449,
+        "port_azimuth_rad": 0.9549448266039842,
+        "starboard_thrust_n": -0.8413823313067823,
+        "starboard_azimuth_rad": 0.9581395520620191
       }
     },
     {
@@ -2568,26 +2908,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0029355092029532187,
-        "y": 0.030005423775799,
-        "yaw_rad": 1.5757203648524882,
-        "vx": 0.017340815062910984,
-        "vy": -0.00398668484438021,
-        "angular_z": 0.0057406515134470594
+        "x": 0.04665200013788978,
+        "y": 1.3186762028092958,
+        "yaw_rad": 1.7029534126065224,
+        "vx": 0.4814616993609924,
+        "vy": -0.09620088199713642,
+        "angular_z": 0.12355603965535518
       },
       "command": {
         "step": 85,
         "time_s": 4.25,
-        "port_thrust_n": 2.251474735072684,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.214996567491895,
         "port_azimuth_rad": 0.8901179185171083,
-        "starboard_thrust_n": 2.251474735072684,
-        "starboard_azimuth_rad": 1.2042771838760873
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -6.0829052713634955,
+        "starboard_azimuth_rad": 0.8901179185171083
       },
       "delivered": {
-        "port_thrust_n": 2.251474735072684,
-        "port_azimuth_rad": 0.937808042418262,
-        "starboard_thrust_n": 2.251474735072684,
-        "starboard_azimuth_rad": 1.1562105531707332
+        "port_thrust_n": 40.214996567491895,
+        "port_azimuth_rad": 0.9333742150510844,
+        "starboard_thrust_n": -6.0829052713634955,
+        "starboard_azimuth_rad": 0.9357615800127494
       }
     },
     {
@@ -2598,26 +2942,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0031445224593428392,
-        "y": 0.030826104562387397,
-        "yaw_rad": 1.5760649892065315,
-        "vx": 0.017496546487140628,
-        "vy": -0.004170422050939009,
-        "angular_z": 0.005991263424249675
+        "x": 0.04873409959551788,
+        "y": 1.3403896869590486,
+        "yaw_rad": 1.7103217046297847,
+        "vx": 0.47618342398666025,
+        "vy": -0.09793089656651423,
+        "angular_z": 0.12300746825014722
       },
       "command": {
         "step": 86,
         "time_s": 4.3,
-        "port_thrust_n": 2.277654673852599,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.215021286001495,
         "port_azimuth_rad": 0.8639379797371933,
-        "starboard_thrust_n": 2.277654673852599,
-        "starboard_azimuth_rad": 1.2304571226560022
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -10.626665669132255,
+        "starboard_azimuth_rad": 0.8639379797371933
       },
       "delivered": {
-        "port_thrust_n": 2.277654673852599,
-        "port_azimuth_rad": 0.9116281032236057,
-        "starboard_thrust_n": 2.277654673852599,
-        "starboard_azimuth_rad": 1.1823904923712205
+        "port_thrust_n": 40.215021286001495,
+        "port_azimuth_rad": 0.9125754322238903,
+        "starboard_thrust_n": -10.626665669132255,
+        "starboard_azimuth_rad": 0.9115876200645939
       }
     },
     {
@@ -2628,26 +2976,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0033624592639331925,
-        "y": 0.03165305434232993,
-        "yaw_rad": 1.5764246015881012,
-        "vx": 0.017652699993624277,
-        "vy": -0.004354978244798239,
-        "angular_z": 0.006244027788458876
+        "x": 0.050770911864360835,
+        "y": 1.361824580892875,
+        "yaw_rad": 1.717639628748361,
+        "vx": 0.4706574119676241,
+        "vy": -0.09940601987369004,
+        "angular_z": 0.12189986428432978
       },
       "command": {
         "step": 87,
         "time_s": 4.3500000000000005,
-        "port_thrust_n": 2.303834612632514,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21504271393118,
         "port_azimuth_rad": 0.8377580409572783,
-        "starboard_thrust_n": 2.303834612632514,
-        "starboard_azimuth_rad": 1.256637061435917
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -14.565551139718087,
+        "starboard_azimuth_rad": 0.8377580409572783
       },
       "delivered": {
-        "port_thrust_n": 2.303834612632514,
-        "port_azimuth_rad": 0.8854481640289131,
-        "starboard_thrust_n": 2.303834612632514,
-        "starboard_azimuth_rad": 1.2085704315717387
+        "port_thrust_n": 40.21504271393118,
+        "port_azimuth_rad": 0.8863954929625386,
+        "starboard_thrust_n": -14.565551139718087,
+        "starboard_azimuth_rad": 0.8854076808461999
       }
     },
     {
@@ -2658,26 +3010,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.00358931978667399,
-        "y": 0.03248630317597658,
-        "yaw_rad": 1.576799366161034,
-        "vx": 0.017809934801451384,
-        "vy": -0.004539952285597386,
-        "angular_z": 0.0064995952889531795
+        "x": 0.05275819112186427,
+        "y": 1.382973589181729,
+        "yaw_rad": 1.7248794105682026,
+        "vx": 0.4649309532485734,
+        "vy": -0.10065578737146277,
+        "angular_z": 0.1203092488034582
       },
       "command": {
         "step": 88,
         "time_s": 4.4,
-        "port_thrust_n": 2.3300145514124293,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21506128932987,
         "port_azimuth_rad": 0.8115781021773634,
-        "starboard_thrust_n": 2.3300145514124293,
-        "starboard_azimuth_rad": 1.282817000215832
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -17.980083903816038,
+        "starboard_azimuth_rad": 0.8115781021773634
       },
       "delivered": {
-        "port_thrust_n": 2.3300145514124293,
-        "port_azimuth_rad": 0.8592682248341854,
-        "starboard_thrust_n": 2.3300145514124293,
-        "starboard_azimuth_rad": 1.2347503707722867
+        "port_thrust_n": 40.21506128932987,
+        "port_azimuth_rad": 0.860215553763017,
+        "starboard_thrust_n": -17.980083903816038,
+        "starboard_azimuth_rad": 0.8592277416507454
       }
     },
     {
@@ -2688,26 +3044,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.003825095379826529,
-        "y": 0.03332586845617057,
-        "yaw_rad": 1.5771894302818275,
-        "vx": 0.017967957674188042,
-        "vy": -0.004725180398426046,
-        "angular_z": 0.006757147252625906
+        "x": 0.05469306741270806,
+        "y": 1.4038314849183675,
+        "yaw_rad": 1.732016207609004,
+        "vx": 0.4590524482780909,
+        "vy": -0.10170419444221138,
+        "angular_z": 0.11829610091051743
       },
       "command": {
         "step": 89,
         "time_s": 4.45,
-        "port_thrust_n": 2.3561944901923444,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21507739193247,
         "port_azimuth_rad": 0.7853981633974484,
-        "starboard_thrust_n": 2.3561944901923444,
-        "starboard_azimuth_rad": 1.3089969389957468
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -20.940066894985453,
+        "starboard_azimuth_rad": 0.7853981633974484
       },
       "delivered": {
-        "port_thrust_n": 2.3561944901923444,
-        "port_azimuth_rad": 0.8330882856394216,
-        "starboard_thrust_n": 2.3561944901923444,
-        "starboard_azimuth_rad": 1.2609303099728653
+        "port_thrust_n": 40.21507739193247,
+        "port_azimuth_rad": 0.8340356145634404,
+        "starboard_thrust_n": -20.940066894985453,
+        "starboard_azimuth_rad": 0.8330478024551854
       }
     },
     {
@@ -2718,26 +3078,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.004069768447294271,
-        "y": 0.03417175479302804,
-        "yaw_rad": 1.5775949239863374,
-        "vx": 0.01812647079793261,
-        "vy": -0.004910491937366039,
-        "angular_z": 0.007016405731130491
+        "x": 0.05657395902284685,
+        "y": 1.4243945489376162,
+        "yaw_rad": 1.7390282334524163,
+        "vx": 0.4530617808118539,
+        "vy": -0.1025729716560306,
+        "angular_z": 0.11591590502444238
       },
       "command": {
         "step": 90,
         "time_s": 4.5,
-        "port_thrust_n": 2.3823744289722595,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21509135092279,
         "port_azimuth_rad": 0.7592182246175334,
-        "starboard_thrust_n": 2.3823744289722595,
-        "starboard_azimuth_rad": 1.3351768777756616
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -23.506010733666656,
+        "starboard_azimuth_rad": 0.7592182246175334
       },
       "delivered": {
-        "port_thrust_n": 2.3823744289722595,
-        "port_azimuth_rad": 0.8069083464446218,
-        "starboard_thrust_n": 2.3823744289722595,
-        "starboard_azimuth_rad": 1.2871102491734747
+        "port_thrust_n": 40.21509135092279,
+        "port_azimuth_rad": 0.8078556753638051,
+        "starboard_thrust_n": -23.506010733666656,
+        "starboard_azimuth_rad": 0.8068678632595374
       }
     },
     {
@@ -2748,26 +3112,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.004323312324429567,
-        "y": 0.035023953911217376,
-        "yaw_rad": 1.5780159594972203,
-        "vx": 0.018285172197699304,
-        "vy": -0.005095713160088971,
-        "angular_z": 0.007277086954638053
+        "x": 0.0584003369045179,
+        "y": 1.444660419855024,
+        "yaw_rad": 1.7458963991090977,
+        "vx": 0.4469906345656505,
+        "vy": -0.1032821531206809,
+        "angular_z": 0.11322120820513815
       },
       "command": {
         "step": 91,
         "time_s": 4.55,
-        "port_thrust_n": 2.4085543677521746,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.215103451663005,
         "port_azimuth_rad": 0.7330382858376184,
-        "starboard_thrust_n": 2.4085543677521746,
-        "starboard_azimuth_rad": 1.3613568165555765
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -25.730370739419538,
+        "starboard_azimuth_rad": 0.7330382858376184
       },
       "delivered": {
-        "port_thrust_n": 2.4085543677521746,
-        "port_azimuth_rad": 0.7807284072497849,
-        "starboard_thrust_n": 2.4085543677521746,
-        "starboard_azimuth_rad": 1.3132901883741146
+        "port_thrust_n": 40.215103451663005,
+        "port_azimuth_rad": 0.781675736164109,
+        "starboard_thrust_n": -25.730370739419538,
+        "starboard_azimuth_rad": 0.7806879240638154
       }
     },
     {
@@ -2778,26 +3146,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.004585691168544757,
-        "y": 0.03588244455967069,
-        "yaw_rad": 1.5784526307532758,
-        "vx": 0.018443756087946444,
-        "vy": -0.00528066737889775,
-        "angular_z": 0.007538901596957265
+        "x": 0.06017252340997619,
+        "y": 1.4646279511425708,
+        "yaw_rad": 1.7526039988993056,
+        "vx": 0.4408674494674508,
+        "vy": -0.10384919836506575,
+        "angular_z": 0.11025785914663348
       },
       "command": {
         "step": 92,
         "time_s": 4.6000000000000005,
-        "port_thrust_n": 2.4347343065320897,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.215113941527264,
         "port_azimuth_rad": 0.7068583470577035,
-        "starboard_thrust_n": 2.4347343065320897,
-        "starboard_azimuth_rad": 1.3875367553354914
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -27.658619269494896,
+        "starboard_azimuth_rad": 0.7068583470577035
       },
       "delivered": {
-        "port_thrust_n": 2.4347343065320897,
-        "port_azimuth_rad": 0.7545484680549115,
-        "starboard_thrust_n": 2.4347343065320897,
-        "starboard_azimuth_rad": 1.3394701275747858
+        "port_thrust_n": 40.215113941527264,
+        "port_azimuth_rad": 0.75549579696435,
+        "starboard_thrust_n": -27.658619269494896,
+        "starboard_azimuth_rad": 0.7545079848680306
       }
     },
     {
@@ -2808,26 +3180,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.004856859860337501,
-        "y": 0.03674719243365561,
-        "yaw_rad": 1.5789050129617945,
-        "vx": 0.018601913228464696,
-        "vy": -0.005465175115667569,
-        "angular_z": 0.0078015550662260446
+        "x": 0.06189152108021016,
+        "y": 1.4842970763461074,
+        "yaw_rad": 1.7591364353020198,
+        "vx": 0.4347176074479366,
+        "vy": -0.10428934131466268,
+        "angular_z": 0.10706586118211014
       },
       "command": {
         "step": 93,
         "time_s": 4.65,
-        "port_thrust_n": 2.4609142453120048,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.215123034958765,
         "port_azimuth_rad": 0.6806784082777885,
-        "starboard_thrust_n": 2.4609142453120048,
-        "starboard_azimuth_rad": 1.4137166941154062
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -29.330175305442996,
+        "starboard_azimuth_rad": 0.6806784082777885
       },
       "delivered": {
-        "port_thrust_n": 2.4609142453120048,
-        "port_azimuth_rad": 0.7283685288600007,
-        "starboard_thrust_n": 2.4609142453120048,
-        "starboard_azimuth_rad": 1.3656500667754883
+        "port_thrust_n": 40.215123034958765,
+        "port_azimuth_rad": 0.729315857764526,
+        "starboard_thrust_n": -29.330175305442996,
+        "starboard_azimuth_rad": 0.7283280456721926
       }
     },
     {
@@ -2838,26 +3214,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.005136763916421161,
-        "y": 0.03761815010913202,
-        "yaw_rad": 1.5793731621749314,
-        "vx": 0.01875933128514587,
-        "vy": -0.005649054260586125,
-        "angular_z": 0.008064747821779695
+        "x": 0.06355886765652434,
+        "y": 1.5036686831122792,
+        "yaw_rad": 1.765480978006419,
+        "vx": 0.42856363352897836,
+        "vy": -0.10461589139777612,
+        "angular_z": 0.10368012261332424
       },
       "command": {
         "step": 94,
         "time_s": 4.7,
-        "port_thrust_n": 2.48709418409192,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.215130917853564,
         "port_azimuth_rad": 0.6544984694978735,
-        "starboard_thrust_n": 2.48709418409192,
-        "starboard_azimuth_rad": 1.439896632895321
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -30.779210291200425,
+        "starboard_azimuth_rad": 0.6544984694978735
       },
       "delivered": {
-        "port_thrust_n": 2.48709418409192,
-        "port_azimuth_rad": 0.7021885896650516,
-        "starboard_thrust_n": 2.48709418409192,
-        "starboard_azimuth_rad": 1.3918300059762212
+        "port_thrust_n": 40.215130917853564,
+        "port_azimuth_rad": 0.7031359185646358,
+        "starboard_thrust_n": -30.779210291200425,
+        "starboard_azimuth_rad": 0.702148106476309
       }
     },
     {
@@ -2868,26 +3248,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.005425339413131467,
-        "y": 0.038495256989315614,
-        "yaw_rad": 1.5798571148911447,
-        "vx": 0.018915695195146756,
-        "vy": -0.005832120234589981,
-        "angular_z": 0.008328175649335318
+        "x": 0.06517651388242308,
+        "y": 1.522744496347648,
+        "yaw_rad": 1.7716265529893878,
+        "vx": 0.4224254035703542,
+        "vy": -0.10484049339314383,
+        "angular_z": 0.10013111561645256
       },
       "command": {
         "step": 95,
         "time_s": 4.75,
-        "port_thrust_n": 2.513274122871835,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21513775136085,
         "port_azimuth_rad": 0.6283185307179585,
-        "starboard_thrust_n": 2.513274122871835,
-        "starboard_azimuth_rad": 1.466076571675236
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -32.035346696318356,
+        "starboard_azimuth_rad": 0.6283185307179585
       },
       "delivered": {
-        "port_thrust_n": 2.513274122871835,
-        "port_azimuth_rad": 0.676008650470065,
-        "starboard_thrust_n": 2.513274122871835,
-        "starboard_azimuth_rad": 1.4180099451769863
+        "port_thrust_n": 40.21513775136085,
+        "port_azimuth_rad": 0.6769559793646786,
+        "starboard_thrust_n": -32.035346696318356,
+        "starboard_azimuth_rad": 0.6759681672803869
       }
     },
     {
@@ -2898,26 +3282,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.005722512921760516,
-        "y": 0.03937843926336744,
-        "yaw_rad": 1.5803568876826157,
-        "vx": 0.01907068753595002,
-        "vy": -0.006014186155391473,
-        "angular_z": 0.008591529972734241
+        "x": 0.06674672103763289,
+        "y": 1.541526970567422,
+        "yaw_rad": 1.7775635579388438,
+        "vx": 0.4163203523331833,
+        "vy": -0.1049733517070541,
+        "angular_z": 0.09644545379919682
       },
       "command": {
         "step": 96,
         "time_s": 4.800000000000001,
-        "port_thrust_n": 2.53945406165175,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.215143675177295,
         "port_azimuth_rad": 0.6021385919380435,
-        "starboard_thrust_n": 2.53945406165175,
-        "starboard_azimuth_rad": 1.4922565104551508
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -33.124263584986736,
+        "starboard_azimuth_rad": 0.6021385919380435
       },
       "delivered": {
-        "port_thrust_n": 2.53945406165175,
-        "port_azimuth_rad": 0.6498287112750393,
-        "starboard_thrust_n": 2.53945406165175,
-        "starboard_azimuth_rad": 1.444189884377782
+        "port_thrust_n": 40.215143675177295,
+        "port_azimuth_rad": 0.6507760401646507,
+        "starboard_thrust_n": -33.124263584986736,
+        "starboard_azimuth_rad": 0.6497882280844309
       }
     },
     {
@@ -2928,26 +3316,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.006028201455348568,
-        "y": 0.040267609877126666,
-        "yaw_rad": 1.5808724768495528,
-        "vx": 0.019223988897813495,
-        "vy": -0.006195063006987564,
-        "angular_z": 0.00885449819404353
+        "x": 0.06827197549323837,
+        "y": 1.5600191912920516,
+        "yaw_rad": 1.783283700775653,
+        "vx": 0.4102636773071704,
+        "vy": -0.10502342397490542,
+        "angular_z": 0.09264639770556812
       },
       "command": {
         "step": 97,
         "time_s": 4.8500000000000005,
-        "port_thrust_n": 2.565634000431665,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21514881040285,
         "port_azimuth_rad": 0.5759586531581286,
-        "starboard_thrust_n": 2.565634000431665,
-        "starboard_azimuth_rad": 1.5184364492350657
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -34.068221570438084,
+        "starboard_azimuth_rad": 0.5759586531581286
       },
       "delivered": {
-        "port_thrust_n": 2.565634000431665,
-        "port_azimuth_rad": 0.6236487720799754,
-        "starboard_thrust_n": 2.565634000431665,
-        "starboard_azimuth_rad": 1.4703698235786107
+        "port_thrust_n": 40.21514881040285,
+        "port_azimuth_rad": 0.6245961009645531,
+        "starboard_thrust_n": -34.068221570438084,
+        "starboard_azimuth_rad": 0.6236082888884467
       }
     },
     {
@@ -2958,26 +3350,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.006342312427143038,
-        "y": 0.041162668515802206,
-        "yaw_rad": 1.5814038581022105,
-        "vx": 0.019375278259093135,
-        "vy": -0.006374559812538911,
-        "angular_z": 0.009116763991759591
+        "x": 0.06975491789572416,
+        "y": 1.5782247852045712,
+        "yaw_rad": 1.7887798584099504,
+        "vx": 0.4042685351274741,
+        "vy": -0.10499858820120636,
+        "angular_z": 0.08875429674675188
       },
       "command": {
         "step": 98,
         "time_s": 4.9,
-        "port_thrust_n": 2.59181393921158,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.2151532620164,
         "port_azimuth_rad": 0.5497787143782136,
-        "starboard_thrust_n": 2.59181393921158,
-        "starboard_azimuth_rad": 1.5446163880149806
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -34.88651788631856,
+        "starboard_azimuth_rad": 0.5497787143782136
       },
       "delivered": {
-        "port_thrust_n": 2.59181393921158,
-        "port_azimuth_rad": 0.597468832884872,
-        "starboard_thrust_n": 2.59181393921158,
-        "starboard_azimuth_rad": 1.4965497627794708
+        "port_thrust_n": 40.2151532620164,
+        "port_azimuth_rad": 0.5984161617643847,
+        "starboard_thrust_n": -34.88651788631856,
+        "starboard_azimuth_rad": 0.5974283496924382
       }
     },
     {
@@ -2988,26 +3384,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.0066647436208127,
-        "y": 0.042063501598537285,
-        "yaw_rad": 1.5819509862713925,
-        "vx": 0.019524233363914963,
-        "vy": -0.00655248381050456,
-        "angular_z": 0.009378007660608671
+        "x": 0.07119828487807561,
+        "y": 1.5961478386793146,
+        "yaw_rad": 1.794045953207847,
+        "vx": 0.3983462284618264,
+        "vy": -0.10490578706774971,
+        "angular_z": 0.08478697500381244
       },
       "command": {
         "step": 99,
         "time_s": 4.95,
-        "port_thrust_n": 2.6179938779914953,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.215157121021804,
         "port_azimuth_rad": 0.5235987755982986,
-        "starboard_thrust_n": 2.6179938779914953,
-        "starboard_azimuth_rad": 1.5707963267948954
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -35.59588087800233,
+        "starboard_azimuth_rad": 0.5235987755982986
       },
       "delivered": {
-        "port_thrust_n": 2.6179938779914953,
-        "port_azimuth_rad": 0.5712888936897289,
-        "starboard_thrust_n": 2.6179938779914953,
-        "starboard_azimuth_rad": 1.5227297019803623
+        "port_thrust_n": 40.215157121021804,
+        "port_azimuth_rad": 0.5722362225641443,
+        "starboard_thrust_n": -35.59588087800233,
+        "starboard_azimuth_rad": 0.571248410496409
       }
     },
     {
@@ -3018,26 +3418,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.00699538317248348,
-        "y": 0.04296998228476,
-        "yaw_rad": 1.5825137950481483,
-        "vx": 0.019670531101664404,
-        "vy": -0.006728640633914885,
-        "angular_z": 0.009637906441955195
+        "x": 0.07260486145857789,
+        "y": 1.6137928242245672,
+        "yaw_rad": 1.7990768451100783,
+        "vx": 0.3925063820472604,
+        "vy": -0.10475115254314318,
+        "angular_z": 0.08076006877899577
       },
       "command": {
         "step": 100,
         "time_s": 5,
-        "port_thrust_n": 2.6441738167714104,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.2151604663083,
         "port_azimuth_rad": 0.49741883681838367,
-        "starboard_thrust_n": 2.6441738167714104,
-        "starboard_azimuth_rad": 1.5969762655748103
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -36.21081197839367,
+        "starboard_azimuth_rad": 0.49741883681838367
       },
       "delivered": {
-        "port_thrust_n": 2.6441738167714104,
-        "port_azimuth_rad": 0.5451089544945461,
-        "starboard_thrust_n": 2.6441738167714104,
-        "starboard_azimuth_rad": 1.5489096411812866
+        "port_thrust_n": 40.2151604663083,
+        "port_azimuth_rad": 0.5460562833638303,
+        "starboard_thrust_n": -36.21081197839367,
+        "starboard_azimuth_rad": 0.5450684713003612
       }
     },
     {
@@ -3048,26 +3452,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.007334109564640276,
-        "y": 0.043881970492231984,
-        "yaw_rad": 1.583092196753304,
-        "vx": 0.01981384788775748,
-        "vy": -0.006902834492661618,
-        "angular_z": 0.009896134866993521
+        "x": 0.0739774425237085,
+        "y": 1.6311645343403813,
+        "yaw_rad": 1.803868237221378,
+        "vx": 0.3867571071382157,
+        "vy": -0.10454011355489842,
+        "angular_z": 0.07668732032661232
       },
       "command": {
         "step": 101,
         "time_s": 5.050000000000001,
-        "port_thrust_n": 2.6703537555513255,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21516336626323,
         "port_azimuth_rad": 0.47123889803846875,
-        "starboard_thrust_n": 2.6703537555513255,
-        "starboard_azimuth_rad": 1.6231562043547252
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -36.74388215919198,
+        "starboard_azimuth_rad": 0.47123889803846875
       },
       "delivered": {
-        "port_thrust_n": 2.6703537555513255,
-        "port_azimuth_rad": 0.518929015299323,
-        "starboard_thrust_n": 2.6703537555513255,
-        "starboard_azimuth_rad": 1.5750895803822438
+        "port_thrust_n": 40.21516336626323,
+        "port_azimuth_rad": 0.5198763441634441,
+        "starboard_thrust_n": -36.74388215919198,
+        "starboard_azimuth_rad": 0.518888532104297
       }
     },
     {
@@ -3078,26 +3486,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.007680791631917255,
-        "y": 0.04479931292670633,
-        "yaw_rad": 1.5836860821374055,
-        "vx": 0.019953860045150602,
-        "vy": -0.007074868358680887,
-        "angular_z": 0.010152365090415155
+        "x": 0.0753188020019265,
+        "y": 1.6482680222723805,
+        "yaw_rad": 1.8084165917469077,
+        "vx": 0.38110515418947366,
+        "vy": -0.1042774887541648,
+        "angular_z": 0.07258082074495471
       },
       "command": {
         "step": 102,
         "time_s": 5.1000000000000005,
-        "port_thrust_n": 2.6965336943312406,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.215165880170076,
         "port_azimuth_rad": 0.4450589592585538,
-        "starboard_thrust_n": 2.6965336943312406,
-        "starboard_azimuth_rad": 1.64933614313464
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -37.20598891794187,
+        "starboard_azimuth_rad": 0.4450589592585538
       },
       "delivered": {
-        "port_thrust_n": 2.6965336943312406,
-        "port_azimuth_rad": 0.492749076104059,
-        "starboard_thrust_n": 2.6965336943312406,
-        "starboard_azimuth_rad": 1.601269519583233
+        "port_thrust_n": 40.215165880170076,
+        "port_azimuth_rad": 0.49369640496298434,
+        "starboard_thrust_n": -37.20598891794187,
+        "starboard_azimuth_rad": 0.4927085929082194
       }
     },
     {
@@ -3108,26 +3520,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.008035288578776948,
-        "y": 0.04572184312310514,
-        "yaw_rad": 1.5842953202115817,
-        "vx": 0.02009024418604254,
-        "vy": -0.007244544153902158,
-        "angular_z": 0.010406267244825504
+        "x": 0.07663166852201171,
+        "y": 1.665108549137771,
+        "yaw_rad": 1.8127190594322085,
+        "vx": 0.37555605372142115,
+        "vy": -0.1039675667333169,
+        "angular_z": 0.06845124483124136
       },
       "command": {
         "step": 103,
         "time_s": 5.15,
-        "port_thrust_n": 2.7227136331111557,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21516805942036,
         "port_azimuth_rad": 0.4188790204786389,
-        "starboard_thrust_n": 2.7227136331111557,
-        "starboard_azimuth_rad": 1.675516081914555
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -37.60657905442734,
+        "starboard_azimuth_rad": 0.4188790204786389
       },
       "delivered": {
-        "port_thrust_n": 2.7227136331111557,
-        "port_azimuth_rad": 0.46656913690875457,
-        "starboard_thrust_n": 2.7227136331111557,
-        "starboard_azimuth_rad": 1.627449458784256
+        "port_thrust_n": 40.21516805942036,
+        "port_azimuth_rad": 0.4675164657624515,
+        "starboard_thrust_n": -37.60657905442734,
+        "starboard_azimuth_rad": 0.4665286537121291
       }
     },
     {
@@ -3138,26 +3554,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.00839745000905634,
-        "y": 0.04664938149812663,
-        "yaw_rad": 1.5849197581097811,
-        "vx": 0.020222677593222722,
-        "vy": -0.007411662940832011,
-        "angular_z": 0.010657509793903747
+        "x": 0.0779187065150256,
+        "y": 1.681691536906248,
+        "yaw_rad": 1.8167734154912931,
+        "vx": 0.37011424562432066,
+        "vy": -0.10361417551992122,
+        "angular_z": 0.06430804861281894
       },
       "command": {
         "step": 104,
         "time_s": 5.2,
-        "port_thrust_n": 2.7488935718910708,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21516994856427,
         "port_azimuth_rad": 0.392699081698724,
-        "starboard_thrust_n": 2.7488935718910708,
-        "starboard_azimuth_rad": 1.7016960206944698
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -37.95384179060451,
+        "starboard_azimuth_rad": 0.392699081698724
       },
       "delivered": {
-        "port_thrust_n": 2.7488935718910708,
-        "port_azimuth_rad": 0.4403891977134091,
-        "starboard_thrust_n": 2.7488935718910708,
-        "starboard_azimuth_rad": 1.6536293979853125
+        "port_thrust_n": 40.21516994856427,
+        "port_azimuth_rad": 0.441336526561845,
+        "starboard_thrust_n": -37.95384179060451,
+        "starboard_azimuth_rad": 0.440348714516027
       }
     },
     {
@@ -3168,26 +3588,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.008767115967336111,
-        "y": 0.04758173541419053,
-        "yaw_rad": 1.5855592209827225,
-        "vx": 0.020350838600514874,
-        "vy": -0.007576025115638582,
-        "angular_z": 0.010905759896602956
+        "x": 0.07918250186416875,
+        "y": 1.6980225267346285,
+        "yaw_rad": 1.8205780040788,
+        "vx": 0.36478319748931465,
+        "vy": -0.10322074240873687,
+        "angular_z": 0.06015962191701263
       },
       "command": {
         "step": 105,
         "time_s": 5.25,
-        "port_thrust_n": 2.775073510670986,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21517158622137,
         "port_azimuth_rad": 0.36651914291880905,
-        "starboard_thrust_n": 2.775073510670986,
-        "starboard_azimuth_rad": 1.7278759594743847
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -38.254876182003265,
+        "starboard_azimuth_rad": 0.36651914291880905
       },
       "delivered": {
-        "port_thrust_n": 2.775073510670986,
-        "port_azimuth_rad": 0.4142092585180221,
-        "starboard_thrust_n": 2.775073510670986,
-        "starboard_azimuth_rad": 1.6798093371864016
+        "port_thrust_n": 40.21517158622137,
+        "port_azimuth_rad": 0.415156587361165,
+        "starboard_thrust_n": -38.254876182003265,
+        "starboard_azimuth_rad": 0.41416877531991414
       }
     },
     {
@@ -3198,26 +3622,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.00914411699206726,
-        "y": 0.04851869925463028,
-        "yaw_rad": 1.586213511923891,
-        "vx": 0.02047440697176739,
-        "vy": -0.007737430603598732,
-        "angular_z": 0.011150683766688287
+        "x": 0.0804255513342851,
+        "y": 1.7141071421756477,
+        "yaw_rad": 1.8241316895993884,
+        "vx": 0.3595655124545488,
+        "vy": -0.1027903456594986,
+        "angular_z": 0.05601343844082031
       },
       "command": {
         "step": 106,
         "time_s": 5.300000000000001,
-        "port_thrust_n": 2.801253449450901,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21517300587012,
         "port_azimuth_rad": 0.3403392041388941,
-        "starboard_thrust_n": 2.801253449450901,
-        "starboard_azimuth_rad": 1.7540558982542995
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -38.515836242971595,
+        "starboard_azimuth_rad": 0.3403392041388941
       },
       "delivered": {
-        "port_thrust_n": 2.801253449450901,
-        "port_azimuth_rad": 0.3880293193225934,
-        "starboard_thrust_n": 2.801253449450901,
-        "starboard_azimuth_rad": 1.7059892763875255
+        "port_thrust_n": 40.21517300587012,
+        "port_azimuth_rad": 0.38897664816041216,
+        "starboard_thrust_n": -38.515836242971595,
+        "starboard_azimuth_rad": 0.38798883612379154
       }
     },
     {
@@ -3228,26 +3656,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.009528274180367646,
-        "y": 0.04946005451003901,
-        "yaw_rad": 1.5868824119278038,
-        "vx": 0.02059306427784207,
-        "vy": -0.007895679056766762,
-        "angular_z": 0.011391947002843104
+        "x": 0.08165025512407237,
+        "y": 1.7299510568070713,
+        "yaw_rad": 1.8274338139734474,
+        "vx": 0.3544630271826797,
+        "vy": -0.10232575919846713,
+        "angular_z": 0.05187618075370069
       },
       "command": {
         "step": 107,
         "time_s": 5.3500000000000005,
-        "port_thrust_n": 2.827433388230816,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21517423653225,
         "port_azimuth_rad": 0.3141592653589792,
-        "starboard_thrust_n": 2.827433388230816,
-        "starboard_azimuth_rad": 1.7802358370342144
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -38.7420567525425,
+        "starboard_azimuth_rad": 0.3141592653589792
       },
       "delivered": {
-        "port_thrust_n": 2.827433388230816,
-        "port_azimuth_rad": 0.3618493801271231,
-        "starboard_thrust_n": 2.827433388230816,
-        "starboard_azimuth_rad": 1.7321692155886828
+        "port_thrust_n": 40.21517423653225,
+        "port_azimuth_rad": 0.362796708959587,
+        "starboard_thrust_n": -38.7420567525425,
+        "starboard_azimuth_rad": 0.3618088969276583
       }
     },
     {
@@ -3258,26 +3690,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.009919399264379524,
-        "y": 0.05040556987567589,
-        "yaw_rad": 1.5875656798806879,
-        "vx": 0.020706494271055944,
-        "vy": -0.008050570053719449,
-        "angular_z": 0.011629214986915128
+        "x": 0.0828589119809414,
+        "y": 1.7455599658554894,
+        "yaw_rad": 1.8304841590901169,
+        "vx": 0.34947690063781894,
+        "vy": -0.10182949125754712,
+        "angular_z": 0.04775384845535234
       },
       "command": {
         "step": 108,
         "time_s": 5.4,
-        "port_thrust_n": 2.853613327010731,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.215175303366046,
         "port_azimuth_rad": 0.2879793265790643,
-        "starboard_thrust_n": 2.853613327010731,
-        "starboard_azimuth_rad": 1.8064157758141293
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -38.938162312759744,
+        "starboard_azimuth_rad": 0.2879793265790643
       },
       "delivered": {
-        "port_thrust_n": 2.853613327010731,
-        "port_azimuth_rad": 0.33566944093161016,
-        "starboard_thrust_n": 2.853613327010731,
-        "starboard_azimuth_rad": 1.7583491547898742
+        "port_thrust_n": 40.215175303366046,
+        "port_azimuth_rad": 0.3366167697586898,
+        "starboard_thrust_n": -38.938162312759744,
+        "starboard_azimuth_rad": 0.33562895773151485
       }
     },
     {
@@ -3288,26 +3724,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.010317294699058127,
-        "y": 0.051355001359838205,
-        "yaw_rad": 1.5882630525836834,
-        "vx": 0.020814383256538237,
-        "vy": -0.00820190330122865,
-        "angular_z": 0.011862153252573532
+        "x": 0.08405371640253233,
+        "y": 1.76093956141862,
+        "yaw_rad": 1.8332829137766093,
+        "vx": 0.3446076943312633,
+        "vy": -0.1013038177846531,
+        "angular_z": 0.043651851600362085
       },
       "command": {
         "step": 109,
         "time_s": 5.45,
-        "port_thrust_n": 2.879793265790646,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21517622818069,
         "port_azimuth_rad": 0.26179938779914935,
-        "starboard_thrust_n": 2.879793265790646,
-        "starboard_azimuth_rad": 1.8325957145940441
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -39.1081618889302,
+        "starboard_azimuth_rad": 0.26179938779914935
       },
       "delivered": {
-        "port_thrust_n": 2.879793265790646,
-        "port_azimuth_rad": 0.3094895017360545,
-        "starboard_thrust_n": 2.879793265790646,
-        "starboard_azimuth_rad": 1.7845290939911007
+        "port_thrust_n": 40.21517622818069,
+        "port_azimuth_rad": 0.3104368305577214,
+        "starboard_thrust_n": -39.1081618889302,
+        "starboard_azimuth_rad": 0.3094490185353618
       }
     },
     {
@@ -3318,26 +3758,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.010721753761240597,
-        "y": 0.05230809240310281,
-        "yaw_rad": 1.5889742448085782,
-        "vx": 0.020916420459964044,
-        "vy": -0.008349478837708845,
-        "angular_z": 0.01209042783993395
+        "x": 0.08523675752162822,
+        "y": 1.7760955109197434,
+        "yaw_rad": 1.8358306446985782,
+        "vx": 0.33985544469944357,
+        "vy": -0.10075081134529403,
+        "angular_z": 0.039575091333825606
       },
       "command": {
         "step": 110,
         "time_s": 5.5,
-        "port_thrust_n": 2.9059732045705613,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.215177029882064,
         "port_azimuth_rad": 0.2356194490192344,
-        "starboard_thrust_n": 2.9059732045705613,
-        "starboard_azimuth_rad": 1.858775653373959
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -39.25553076447927,
+        "starboard_azimuth_rad": 0.2356194490192344
       },
       "delivered": {
-        "port_thrust_n": 2.9059732045705613,
-        "port_azimuth_rad": 0.2833095625404568,
-        "starboard_thrust_n": 2.9059732045705613,
-        "starboard_azimuth_rad": 1.8107090331923614
+        "port_thrust_n": 40.215177029882064,
+        "port_azimuth_rad": 0.2842568913566824,
+        "starboard_thrust_n": -39.25553076447927,
+        "starboard_azimuth_rad": 0.2832690793391981
       }
     },
     {
@@ -3348,26 +3792,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.011132560659824504,
-        "y": 0.053264574008339914,
-        "yaw_rad": 1.5896989493860323,
-        "vx": 0.021012298391139217,
-        "vy": -0.00849309723828351,
-        "angular_z": 0.012313705673408806
+        "x": 0.08641001933395795,
+        "y": 1.7910334384573274,
+        "yaw_rad": 1.8381282706811986,
+        "vx": 0.3352197282593324,
+        "vy": -0.1001723661369868,
+        "angular_z": 0.035528029424844045
       },
       "command": {
         "step": 111,
         "time_s": 5.550000000000001,
-        "port_thrust_n": 2.9321531433504764,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21517772485927,
         "port_azimuth_rad": 0.20943951023931945,
-        "starboard_thrust_n": 2.9321531433504764,
-        "starboard_azimuth_rad": 1.8849555921538739
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -39.383281585803786,
+        "starboard_azimuth_rad": 0.20943951023931945
       },
       "delivered": {
-        "port_thrust_n": 2.9321531433504764,
-        "port_azimuth_rad": 0.2571296233448157,
-        "starboard_thrust_n": 2.9321531433504764,
-        "starboard_azimuth_rad": 1.8368889723936577
+        "port_thrust_n": 40.21517772485927,
+        "port_azimuth_rad": 0.2580769521555737,
+        "starboard_thrust_n": -39.383281585803786,
+        "starboard_azimuth_rad": 0.2570891401430229
       }
     },
     {
@@ -3378,26 +3826,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.011549490656865457,
-        "y": 0.05422416488139981,
-        "yaw_rad": 1.590436837326167,
-        "vx": 0.02110171320291735,
-        "vy": -0.008632559821310046,
-        "angular_z": 0.012531654925541206
+        "x": 0.08757538198237799,
+        "y": 1.8057589087414823,
+        "yaw_rad": 1.8401770400059096,
+        "vx": 0.33069972015995247,
+        "vy": -0.09957021965301972,
+        "angular_z": 0.0315147480253467
       },
       "command": {
         "step": 112,
         "time_s": 5.6000000000000005,
-        "port_thrust_n": 2.9583330821303915,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21517832731965,
         "port_azimuth_rad": 0.1832595714594045,
-        "starboard_thrust_n": 2.9583330821303915,
-        "starboard_azimuth_rad": 1.9111355309337887
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -39.49402594948495,
+        "starboard_azimuth_rad": 0.1832595714594045
       },
       "delivered": {
-        "port_thrust_n": 2.9583330821303915,
-        "port_azimuth_rad": 0.2309496841491316,
-        "starboard_thrust_n": 2.9583330821303915,
-        "starboard_azimuth_rad": 1.8630689115949888
+        "port_thrust_n": 40.21517832731965,
+        "port_azimuth_rad": 0.23189701295439785,
+        "starboard_thrust_n": -39.49402594948495,
+        "starboard_azimuth_rad": 0.23090920094683642
       }
     },
     {
@@ -3408,26 +3860,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.011972310199384417,
-        "y": 0.05518657158237175,
-        "yaw_rad": 1.5911875579713457,
-        "vx": 0.02118436504493838,
-        "vy": -0.008767668856199421,
-        "angular_z": 0.01274394539516067
+        "x": 0.08873462378849944,
+        "y": 1.8202774133226431,
+        "yaw_rad": 1.8419785228418535,
+        "vx": 0.32629424661206,
+        "vy": -0.09894597109570354,
+        "angular_z": 0.027539107559976732
       },
       "command": {
         "step": 113,
         "time_s": 5.65,
-        "port_thrust_n": 2.9845130209103066,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21517884957924,
         "port_azimuth_rad": 0.1588636724158469,
-        "starboard_thrust_n": 2.9845130209103066,
-        "starboard_azimuth_rad": 1.9373154697137036
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -39.59002779088205,
+        "starboard_azimuth_rad": 0.1588636724158469
       },
       "delivered": {
-        "port_thrust_n": 2.9845130209103066,
-        "port_azimuth_rad": 0.20639151211713966,
-        "starboard_thrust_n": 2.9845130209103066,
-        "starboard_azimuth_rad": 1.8892488507963554
+        "port_thrust_n": 40.21517884957924,
+        "port_azimuth_rad": 0.2062337633803187,
+        "starboard_thrust_n": -39.59002779088205,
+        "starboard_azimuth_rad": 0.20625913145318925
       }
     },
     {
@@ -3438,26 +3894,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.012400782285106717,
-        "y": 0.056151486143423274,
-        "yaw_rad": 1.5919507577538747,
-        "vx": 0.021259928439102918,
-        "vy": -0.008898279583679522,
-        "angular_z": 0.012950413827316454
+        "x": 0.08988935325307984,
+        "y": 1.834594375772331,
+        "yaw_rad": 1.8435345165215762,
+        "vx": 0.322002197528208,
+        "vy": -0.09830045194169326,
+        "angular_z": 0.023604108286664323
       },
       "command": {
         "step": 114,
         "time_s": 5.7,
-        "port_thrust_n": 3.0106929596902217,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21517930231453,
         "port_azimuth_rad": 0.1377154066904502,
-        "starboard_thrust_n": 3.0106929596902217,
-        "starboard_azimuth_rad": 1.9634954084936185
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -39.67324966552451,
+        "starboard_azimuth_rad": 0.1377154066904502
       },
       "delivered": {
-        "port_thrust_n": 3.0106929596902217,
-        "port_azimuth_rad": 0.18608767107612795,
-        "starboard_thrust_n": 3.0106929596902217,
-        "starboard_azimuth_rad": 1.915428789997758
+        "port_thrust_n": 40.21517930231453,
+        "port_azimuth_rad": 0.1862019051993764,
+        "starboard_thrust_n": -39.67324966552451,
+        "starboard_azimuth_rad": 0.1859843728635633
       }
     },
     {
@@ -3468,26 +3928,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.012834683308450293,
-        "y": 0.05711857977965211,
-        "yaw_rad": 1.5927261172488556,
-        "vx": 0.021327975818375346,
-        "vy": -0.00902446616767958,
-        "angular_z": 0.013151389477785292
+        "x": 0.09104112996576942,
+        "y": 1.8487151100770205,
+        "yaw_rad": 1.8448471544485288,
+        "vx": 0.31782192071385995,
+        "vy": -0.09763480390352616,
+        "angular_z": 0.019712973382996195
       },
       "command": {
         "step": 115,
         "time_s": 5.75,
-        "port_thrust_n": 3.0368728984701368,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21517969478075,
         "port_azimuth_rad": 0.11938244251505958,
-        "starboard_thrust_n": 3.0368728984701368,
-        "starboard_azimuth_rad": 1.9896753472735333
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -39.74539286942784,
+        "starboard_azimuth_rad": 0.11938244251505958
       },
       "delivered": {
-        "port_thrust_n": 3.0368728984701368,
-        "port_azimuth_rad": 0.16169588522035894,
-        "starboard_thrust_n": 3.0368728984701368,
-        "starboard_azimuth_rad": 1.9416087291991968
+        "port_thrust_n": 40.21517969478075,
+        "port_azimuth_rad": 0.1617381708595097,
+        "starboard_thrust_n": -39.74539286942784,
+        "starboard_azimuth_rad": 0.16159053888281638
       }
     },
     {
@@ -3498,26 +3962,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.013273794418039622,
-        "y": 0.05808750987979147,
-        "yaw_rad": 1.593513248323651,
-        "vx": 0.021388087000180255,
-        "vy": -0.009146383173026,
-        "angular_z": 0.013346613524314484
+        "x": 0.09219145477508324,
+        "y": 1.8626448164218663,
+        "yaw_rad": 1.845919216399468,
+        "vx": 0.31375096460173413,
+        "vy": -0.09695104073179368,
+        "angular_z": 0.015872508103398356
       },
       "command": {
         "step": 116,
         "time_s": 5.800000000000001,
-        "port_thrust_n": 3.063052837250052,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21518003500105,
         "port_azimuth_rad": 0.10349000103450164,
-        "starboard_thrust_n": 3.063052837250052,
-        "starboard_azimuth_rad": 2.015855286053448
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -39.80793221850881,
+        "starboard_azimuth_rad": 0.10349000103450164
       },
       "delivered": {
-        "port_thrust_n": 3.063052837250052,
-        "port_azimuth_rad": 0.15184948928553307,
-        "starboard_thrust_n": 3.063052837250052,
-        "starboard_azimuth_rad": 1.967788668400672
+        "port_thrust_n": 40.21518003500105,
+        "port_azimuth_rad": 0.15190652330124402,
+        "starboard_thrust_n": -39.80793221850881,
+        "starboard_azimuth_rad": 0.1517492900979161
       }
     },
     {
@@ -3528,26 +3996,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.013717925106466966,
-        "y": 0.0590579153077627,
-        "yaw_rad": 1.594311899261434,
-        "vx": 0.021439862555499654,
-        "vy": -0.009264334187509743,
-        "angular_z": 0.013536730330621725
+        "x": 0.09334173771142934,
+        "y": 1.876388584102035,
+        "yaw_rad": 1.846753435497651,
+        "vx": 0.3097869515106067,
+        "vy": -0.09625068795238498,
+        "angular_z": 0.012086260252462965
       },
       "command": {
         "step": 117,
         "time_s": 5.8500000000000005,
-        "port_thrust_n": 3.089232776029967,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.215180329930504,
         "port_azimuth_rad": 0.0897131947419329,
-        "starboard_thrust_n": 3.089232776029967,
-        "starboard_azimuth_rad": 2.0420352248333633
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -39.862146198091864,
+        "starboard_azimuth_rad": 0.0897131947419329
       },
       "delivered": {
-        "port_thrust_n": 3.089232776029967,
-        "port_azimuth_rad": 0.13708257293899156,
-        "starboard_thrust_n": 3.089232776029967,
-        "starboard_azimuth_rad": 1.9939686076021839
+        "port_thrust_n": 40.215180329930504,
+        "port_azimuth_rad": 0.13713051808023521,
+        "starboard_thrust_n": -39.862146198091864,
+        "starboard_azimuth_rad": 0.13698844504189453
       }
     },
     {
@@ -3558,26 +4030,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.014166907880489866,
-        "y": 0.06002942135661113,
-        "yaw_rad": 1.595121803087261,
-        "vx": 0.0214829025404629,
-        "vy": -0.009378804420860285,
-        "angular_z": 0.013722846799137498
+        "x": 0.0944932996288981,
+        "y": 1.8899513861455526,
+        "yaw_rad": 1.8473530491329964,
+        "vx": 0.3059275474048407,
+        "vy": -0.09553486064102028,
+        "angular_z": 0.008356644355812726
       },
       "command": {
         "step": 118,
         "time_s": 5.9,
-        "port_thrust_n": 3.115412714809882,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21518058559833,
         "port_azimuth_rad": 0.07777038583776583,
-        "starboard_thrust_n": 3.115412714809882,
-        "starboard_azimuth_rad": 2.0682151636132784
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -39.909143098849924,
+        "starboard_azimuth_rad": 0.07777038583776583
       },
       "delivered": {
-        "port_thrust_n": 3.115412714809882,
-        "port_azimuth_rad": 0.12583860612274467,
-        "starboard_thrust_n": 3.115412714809882,
-        "starboard_azimuth_rad": 2.0201485468037315
+        "port_thrust_n": 40.21518058559833,
+        "port_azimuth_rad": 0.12588426178028791,
+        "starboard_thrust_n": -39.909143098849924,
+        "starboard_azimuth_rad": 0.1257495416504245
       }
     },
     {
@@ -3588,26 +4064,30 @@
       "iteration_delta": 5,
       "sim_time_delta_s": 0.05,
       "enu": {
-        "x": 0.014620580524530524,
-        "y": 0.061001649642141303,
-        "yaw_rad": 1.5959426969994819,
-        "vx": 0.02151698033466582,
-        "vy": -0.009490050751515608,
-        "angular_z": 0.013904893237919033
+        "x": 0.09564737898556021,
+        "y": 1.903338074612696,
+        "yaw_rad": 1.8477213232202052,
+        "vx": 0.30217028821638836,
+        "vy": -0.0948046045158627,
+        "angular_z": 0.0046867488429898334
       },
       "command": {
         "step": 119,
         "time_s": 5.95,
-        "port_thrust_n": 3.141592653589797,
+        "port_commanded_thrust_n": 40.21518225048183,
+        "port_commanded_azimuth_rad": 0,
+        "port_thrust_n": 40.21518080723112,
         "port_azimuth_rad": 0.06741742873780371,
-        "starboard_thrust_n": 3.141592653589797,
-        "starboard_azimuth_rad": 2.0943951023931935
+        "starboard_commanded_thrust_n": -40.21518225048183,
+        "starboard_commanded_azimuth_rad": 0,
+        "starboard_thrust_n": -39.949883673473835,
+        "starboard_azimuth_rad": 0.06741742873780371
       },
       "delivered": {
-        "port_thrust_n": 3.141592653589797,
-        "port_azimuth_rad": 0.11570121777004101,
-        "starboard_thrust_n": 3.141592653589797,
-        "starboard_azimuth_rad": 2.0463284860053172
+        "port_thrust_n": 40.21518080723112,
+        "port_azimuth_rad": 0.11574269393460969,
+        "starboard_thrust_n": -39.949883673473835,
+        "starboard_azimuth_rad": 0.1156176895847293
       }
     }
   ],

@@ -29,18 +29,19 @@
       "container_tag": "leadcat/vrx:surveyor-patched-v3.0.1",
       "local_image_id": "sha256:b4cd190383f61f222bc3b9babee6ec142e56f20018e32acef743ef9b9ae1a45e",
       "base_configuration": "vrx:stock",
-      "policy_training_allowed": false,
+      "policy_training_allowed": true,
       "baseline_comparison_allowed": false,
       "gate7_diagnostics_allowed": true,
       "custom_plugins": [
         "/opt/leadcat/vrx-surveyor-patched/lib/libVrxCurrentRelativeVelocity.so",
         "/opt/leadcat/vrx-surveyor-patched/lib/libVrxSurveyorRelativeWind.so"
       ],
-      "rule": "Conformance diagnostics only. Results from this configuration are ineligible for policy training and headline baseline figures or tables."
+      "rule": "Surveyor policy training is authorized after Gate 7 Path-Based Conformance Protocol v2 adoption. Results remain ineligible for stock-VRX headline baseline figures or tables."
     }
   },
   "default_for_policy_training": "vrx:stock",
   "default_for_baseline_comparison": "vrx:stock",
   "surveyor_policy_baseline": "vrx:surveyor-stock-physics",
+  "surveyor_policy_training": "vrx:surveyor-patched",
   "default_for_gate7_diagnostics": "vrx:surveyor-patched"
 }

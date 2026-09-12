@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-gate-7-single-episode-unconstrained-dryrun",
+  "status": "INCOMPLETE_RUNTIME_ABORTED",
+  "seed": 20000,
+  "execution": {
+    "requested_samples": 2400,
+    "disturbance_on_samples": 740,
+    "disturbance_off_samples": 2400,
+    "paired_samples_scored": 740,
+    "last_scored_time_s": 36.95,
+    "runtime_failure": {
+      "simulator": "VRX disturbance-on",
+      "time_s": 36.95,
+      "error": "ODE INTERNAL ERROR 1: assertion \"aabbBound >= dMinIntExact && aabbBound < dMaxIntExact\" failed in collide() [collision_space.cpp:460]"
+    }
+  },
+  "generation": {
+    "path": "prepare-vrx-episode.ts -> renderSurveyorVrxModel()",
+    "model_checks": {
+      "generated_added_mass_and_zeroed_simple_hydrodynamics": true,
+      "planar_lock_absent": true
+    },
+    "fluid_added_mass": {
+      "xx": 2.615,
+      "yy": 39.225,
+      "rr": 1.431297586666667
+    },
+    "simple_hydrodynamics_added_mass": {
+      "xDotU": 0,
+      "yDotV": 0,
+      "nDotR": 0
+    }
+  },
+  "gate_7_tolerance": {
+    "kinematic_abs": 0.0001,
+    "environment_vector_relative": 0.3,
+    "environment_direction_deg": 15,
+    "component_sign_floor_m": 0.5
+  },
+  "kinematic_partial": {
+    "samples": 740,
+    "per_state_max_abs": {
+      "N": 16408066260875.941,
+      "E": 57646141605751.38,
+      "yaw": 6.938735440259725,
+      "u": 120121976607582.72,
+      "v": 3925264166573.2446,
+      "r": 33.95334600825006
+    },
+    "first_divergence_step": {
+      "N": 0,
+      "E": 0,
+      "yaw": 0,
+      "u": 0,
+      "v": 0,
+      "r": 0
+    },
+    "yaw_divergence_separate": true,
+    "velocity_warmup_excluded": {
+      "u": {
+        "max_abs": 120121976607582.72,
+        "mean_abs": 164550654911.8191
+      },
+      "v": {
+        "max_abs": 3925264166573.2446,
+        "mean_abs": 5377075175.630375
+      },
+      "r": {
+        "max_abs": 9.404281259321484,
+        "mean_abs": 2.2297961526520775
+      }
+    },
+    "warmup_samples_excluded": 10
+  },
+  "environment_response": {
+    "available": [
+      {
+        "checkpoint_s": 30,
+        "sample_index": 600,
+        "node_environment_displacement_ne_m": [
+          -15.95966770456107,
+          44.560051100203054
+        ],
+        "vrx_environment_displacement_ne_m": [
+          -39.998558305473125,
+          16.61364432276241
+        ],
+        "node_magnitude_m": 47.3319041164912,
+        "vrx_magnitude_m": 43.31163636021605,
+        "magnitude_divergence": 0.08493779896073157,
+        "relative_vector_divergence": 0.7788161799348154,
+        "direction_difference_deg": 47.73860960308135,
+        "component_sign_consistent": true,
+        "pass": false
+      }
+    ],
+    "unavailable": [
+      {
+        "checkpoint_s": 60,
+        "sample_index": 1200
+      },
+      {
+        "checkpoint_s": 119.95,
+        "sample_index": 2399
+      }
+    ],
+    "prior_gate_7_comparison": {
+      "campaign_maximum_relative_vector_divergence": 5.74690862561023,
+      "campaign_maximum_direction_difference_deg": 77.6830711959181,
+      "seed_20000_at_30_s": {
+        "relative_vector_divergence": 0.7553254839370167,
+        "direction_difference_deg": 36.553325595791584
+      },
+      "seed_20000_at_30_s_change": {
+        "relative_vector_divergence": 0.02349069599779874,
+        "direction_difference_deg": 11.185284007289766
+      }
+    }
+  },
+  "conclusion": {
+    "full_gate_7_result": "NOT_SCORED",
+    "reason": "The disturbance-on unconstrained episode aborted before the 60 s and terminal checkpoints.",
+    "next_isolation": "Runtime stability is the first blocker. The stack terminates in DART's GzOde collision detector, so inspect unconstrained roll/pitch growth and Surface/collision state before any full batch."
+  },
+  "comparison_note": "The protocol's 40-70% band is a classical-policy success-rate target, not the Gate 7 per-checkpoint conformance tolerance; one deterministic seed cannot be classified against that band."
+}

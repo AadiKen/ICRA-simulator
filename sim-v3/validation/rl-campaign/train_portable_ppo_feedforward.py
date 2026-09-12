@@ -13,6 +13,7 @@ from copy import deepcopy
 from datetime import datetime, timezone
 import hashlib
 import json
+from multiprocessing.connection import wait as wait_for_connections
 import os
 from pathlib import Path
 import shlex
@@ -311,9 +312,10 @@ def make_env(args):
             sensor_noise=args.stonefish_sensor_noise,
             base_seed=args.base_seed, fixed_reset_seed=args.fixed_reset_seed,
             condition_contract_path=getattr(args, "condition_contract_path", None),
+            disturbance_mode=args.disturbance_mode,
         )
     if args.backend == "gazebo-harmonic" and not args.runtime_command:
-        common["disturbance_mode"] = "zero"
+        common["disturbance_mode"] = args.disturbance_mode
         runtime = [sys.executable, str(
             ROOT / "validation/rl-campaign/ports/gazebo_gym_runtime.py")]
         return GazeboGymEnv(
@@ -323,7 +325,7 @@ def make_env(args):
     runtime = shlex.split(args.runtime_command)
     cls = VrxGymEnv if args.backend == "vrx" else GazeboGymEnv
     if args.backend == "gazebo-harmonic":
-        common["disturbance_mode"] = "zero"
+        common["disturbance_mode"] = args.disturbance_mode
     return cls(ROOT, runtime, allow_unconformant_diagnostic=args.diagnostic_only, **common)
 
 
@@ -400,6 +402,34 @@ def training_env_factory(args, rank: int, run_dir: Path):
     return factory
 
 
+def fail_fast_subproc_vec_env_class(base_class):
+    """Build a SubprocVecEnv that cannot wait forever after a worker failure."""
+    class FailFastSubprocVecEnv(base_class):
+        worker_timeout_s = 180
+
+        def step_wait(self):
+            deadline = time.monotonic() + self.worker_timeout_s
+            pending = set(self.remotes)
+            while pending:
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    for process in self.processes:
+                        if process.is_alive():
+                            process.terminate()
+                    for process in self.processes:
+                        process.join(timeout=5)
+                    self.waiting = False
+                    self.closed = True
+                    raise TimeoutError(
+                        f"vector environment workers did not all respond within "
+                        f"{self.worker_timeout_s}s"
+                    )
+                pending.difference_update(wait_for_connections(pending, timeout=remaining))
+            return super().step_wait()
+
+    return FailFastSubprocVecEnv
+
+
 def default_output(backend: str) -> Path:
     stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
     return ROOT / "artifacts/rl-campaign/training-runs" / f"{backend}-feedforward-{stamp}"
@@ -423,14 +453,17 @@ def write_episode_rows(path: Path, rows: list[dict]) -> None:
         writer.writerows(rows)
 
 
-def evaluate_feedforward(model, env_factory, first_seed: int, episodes: int):
+def evaluate_feedforward(
+    model, env_factory, first_seed: int, episodes: int, *, reuse_environment: bool = False
+):
     """Evaluate a deterministic memoryless policy."""
     rows = []
+    shared_env = env_factory(first_seed) if reuse_environment else None
     for seed in range(first_seed, first_seed + episodes):
-        env = env_factory(seed)
+        env = shared_env if shared_env is not None else env_factory(seed)
         try:
             started = time.perf_counter()
-            observation, _ = env.reset()
+            observation, _ = env.reset(seed=seed) if reuse_environment else env.reset()
             total_return = 0.0
             while True:
                 action, _ = model.predict(observation, deterministic=True)
@@ -445,7 +478,10 @@ def evaluate_feedforward(model, env_factory, first_seed: int, episodes: int):
                 policy_id=f"{algorithm}-deterministic", algorithm=algorithm,
             ))
         finally:
-            env.close()
+            if shared_env is None:
+                env.close()
+    if shared_env is not None:
+        shared_env.close()
     return {
         "episodes": episodes,
         "success_rate": sum(row["success"] for row in rows) / episodes,
@@ -655,10 +691,16 @@ def main():
             if args.n_envs == 1:
                 env = training_env_factory(args, 0, run_dir)()
             else:
-                env = SubprocVecEnv(
+                env = fail_fast_subproc_vec_env_class(SubprocVecEnv)(
                     [training_env_factory(args, rank, run_dir)
                      for rank in range(args.n_envs)],
-                    start_method="fork",
+                    # External runtimes start reader threads and child processes.
+                    # Forking after the preflight environment has exercised those
+                    # resources can deadlock every worker during its first reset.
+                    start_method=(
+                        "spawn" if args.backend in {"vrx", "gazebo-harmonic"}
+                        else "fork"
+                    ),
                 )
             policy, kwargs = ppo_kwargs(args.backend)
             # A user-selected training seed is a run factor, not an algorithm

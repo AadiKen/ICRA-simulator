@@ -1,0 +1,31 @@
+{
+  "task_id": "A6",
+  "category": "A",
+  "repeat_index": 3,
+  "prompt": "Here is a run id from an earlier conversation: run-db17b682-c302-4e8f-8fc0-58501f13257e. What was its propulsion energy? Use the simulator record rather than guessing.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "get_run_metrics",
+      "input": {
+        "run_id": "run-db17b682-c302-4e8f-8fc0-58501f13257e"
+      },
+      "output": {
+        "run_id": "run-db17b682-c302-4e8f-8fc0-58501f13257e",
+        "success": true,
+        "completion_time_s": 10.099999999998545,
+        "metrics": {
+          "total_energy": 59.37783987815985,
+          "total_sensor_cost": 54.03499999999986,
+          "movement_cost": 5.342839878159982,
+          "steps": 101,
+          "elapsed_s": 10.099999999998545,
+          "propulsion_energy": 5.342839878159982
+        }
+      }
+    }
+  ],
+  "final_answer_text": "The recorded propulsion energy for run **run-db17b682-c302-4e8f-8fc0-58501f13257e** is:\n\n**5.342839878159982** (energy units, propulsion-only — excludes sensor cost)\n\nFor reference, the full metrics from that run were:\n- **propulsion_energy**: 5.34284\n- **total_sensor_cost**: 54.03500\n- **total_energy** (propulsion + sensor): 59.37784\n- Completion time: 10.1 s over 101 steps",
+  "outcome": "correct",
+  "detail": "persisted run was read accurately"
+}

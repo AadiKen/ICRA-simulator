@@ -1,0 +1,77 @@
+{
+  "task_id": "A3",
+  "category": "A",
+  "repeat_index": 2,
+  "prompt": "Build a 60-second waypoint scenario for vehicle-a-otter, planar3 plant, node backend, seed 7, with a single waypoint at 30 m north, 0 m east, and confirm whether it is valid.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "list_vehicle_presets",
+      "input": {},
+      "output": [
+        {
+          "id": "vehicle-a-otter",
+          "name": "Otter differential-thrust USV",
+          "plant": "planar3",
+          "validation_status": "validated",
+          "validation_claim": "Planar maneuvering validated at pinned tolerances."
+        },
+        {
+          "id": "vehicle-b-rudder",
+          "name": "USV propeller/rudder monohull",
+          "plant": "coupled6",
+          "validation_status": "model-structure-trajectory-scored-fail",
+          "validation_claim": "The MMG simulator has been scored against six measured MARIN single-screw KVLCC2 trajectories using measured rudder and samplewise propeller RPM. The current literature-coefficient parameterization fails the precommitted trajectory/IMO tolerances. No evidence validates Vehicle B USV-scale coefficients."
+        },
+        {
+          "id": "vehicle-c-azimuth",
+          "name": "Dual-azimuth overactuated USV",
+          "plant": "coupled6",
+          "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+          "validation_claim": "Control allocation and composability demonstrated; behavioral dynamics not independently validated."
+        },
+        {
+          "id": "searobotics-surveyor-m1.8",
+          "name": "SeaRobotics SR-Surveyor M1.8 (two-body common-task approximation)",
+          "plant": "planar3",
+          "validation_status": "model-structure-only",
+          "validation_claim": "Node common-task resolution uses the versioned two-body model; geometry, actuator and damping assumptions remain unvalidated."
+        }
+      ]
+    },
+    {
+      "tool": "validate_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "otter-single-waypoint-60s",
+          "seed": 7,
+          "timestep_s": 0.1,
+          "duration_s": 60
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-a-otter",
+          "plant": "planar3"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 30,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "valid": true
+      }
+    }
+  ],
+  "final_answer_text": "The scenario is **valid**. Here's the configuration:\n\n```json\n{\n  \"schema_version\": 1,\n  \"experiment\": {\n    \"name\": \"otter-single-waypoint-60s\",\n    \"seed\": 7,\n    \"timestep_s\": 0.1,\n    \"duration_s\": 60\n  },\n  \"backend\": { \"type\": \"node\" },\n  \"vehicle\": {\n    \"preset\": \"vehicle-a-otter\",\n    \"plant\": \"planar3\"\n  },\n  \"mission\": {\n    \"type\": \"waypoint\",\n    \"waypoints\": [{ \"north_m\": 30, \"east_m\": 0 }]\n  }\n}\n```\n\nNotes / defaults I filled in since you didn't specify them:\n- **timestep_s: 0.1** — a reasonable default for a 60 s planar run; let me know if you want a different step size.\n- No `initial_state`, `environment`, `sensors`, `outputs`, `metrics`, or `integrator` were specified, so those fields were omitted and will fall back to the simulator's defaults.\n- `vehicle-a-otter` has validation status **\"validated\"** (planar maneuvering validated at pinned tolerances), so this is a well-supported configuration choice.\n\nThis has only been **validated**, not yet retained or run. Want me to call `construct_scenario` to retain it (so it gets a `scenario_id`) and then run it, or would you like to adjust anything first (timestep, initial state, sensors, outputs)?",
+  "outcome": "correct",
+  "detail": "matching scenario was validated"
+}

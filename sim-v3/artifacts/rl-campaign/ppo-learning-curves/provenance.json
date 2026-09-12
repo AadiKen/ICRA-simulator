@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "preliminary-cross-simulator-ppo-learning-curves",
+  "metric": "rollout/ep_rew_mean",
+  "metric_description": "Stable-Baselines3 mean episodic reward reported during PPO training",
+  "seed": 7319,
+  "single_seed_per_arm": true,
+  "cluster": "CodeNimbus",
+  "included_runs": [
+    {
+      "simulator": "bcod-sim",
+      "jobs": [19603],
+      "run_directories": ["feedforward-1m-bcod-seed7319"],
+      "final_actual_timesteps": 1015808,
+      "status": "completed"
+    },
+    {
+      "simulator": "stonefish",
+      "jobs": [19604, 19605],
+      "run_directories": ["feedforward-1m-stonefish-seed7319-part1", "feedforward-1m-stonefish-seed7319-part2"],
+      "final_actual_timesteps": 1015808,
+      "status": "completed"
+    },
+    {
+      "simulator": "holoocean",
+      "jobs": [19610, 19611, 19612, 19613],
+      "run_directories": ["feedforward-1m-holoocean-seed7319-retry-part1", "feedforward-1m-holoocean-seed7319-retry-part2", "feedforward-1m-holoocean-seed7319-retry-part3", "feedforward-1m-holoocean-seed7319-retry-part4"],
+      "final_actual_timesteps": 1007616,
+      "status": "completed",
+      "note": "The original job 19606 failed from file-descriptor exhaustion; its data and dependent jobs 19607-19609 are excluded. The successful retry chain is used."
+    }
+  ],
+  "excluded_simulators": ["gazebo-harmonic", "vrx"],
+  "source_sha256": {
+    "bcod.csv": "c33fbaab4411fdaea5b1c63501123abe8e052071bc6f0ece604023f8fdd5a3ad",
+    "stone1.csv": "815d4f4b869dba5a12d3c3ad649df0e8fdc1334b3b992dd2f2d92c9c7deeff38",
+    "stone2.csv": "56c66ce35ebfecaa50c7c1986d5026eafcafbf6836015547bf63dea0d78d6e9f",
+    "holo1.csv": "5977a9e2313d2b58493a6a4f7002d276703c5cb03a92cfa430dcc2fde7e82e8a",
+    "holo2.csv": "6d9878a0471f6babecce9269296f9c645297d16484c65a737b1f727de154bb0b",
+    "holo3.csv": "52b98d9c036f47febc950fad97090595bc337e467984d521b407001e199dfe12",
+    "holo4.csv": "27ba19137af89cca2b1a47102f262ce3653d6fcb07e7bf85ee663e4e1fa2a77d"
+  }
+}

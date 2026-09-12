@@ -1,0 +1,65 @@
+{
+  "summary": {
+    "wall_time_s": 2097.679738998413,
+    "timesteps": 30000,
+    "evaluation": 3,
+    "variant": "sensor",
+    "episodes": 5,
+    "mean_return": -39.10740113930298,
+    "median_return": -1.5122133493840024,
+    "return_std": 63.51088132017387,
+    "success_rate": 0.0,
+    "collision_rate": 0.2,
+    "outside_rate": 0.2,
+    "mean_final_goal_distance_m": 595.6064325250029,
+    "mean_minimum_true_cpa_m": 39.2120110572772,
+    "mean_length_steps": 301.2
+  },
+  "episodes": [
+    {
+      "return": -27.504381436064804,
+      "success": false,
+      "collision": false,
+      "outside": false,
+      "distance": 527.2516970238781,
+      "cpa": 14.718599647565412,
+      "length": 360
+    },
+    {
+      "return": -1.5122133493840024,
+      "success": false,
+      "collision": false,
+      "outside": true,
+      "distance": 1064.5024219037423,
+      "cpa": 111.631655695196,
+      "length": 292
+    },
+    {
+      "return": -0.7478743283159014,
+      "success": false,
+      "collision": false,
+      "outside": false,
+      "distance": 608.0756785278757,
+      "cpa": 40.02009130569442,
+      "length": 360
+    },
+    {
+      "return": -164.48130583574005,
+      "success": false,
+      "collision": true,
+      "outside": false,
+      "distance": 138.53162521151793,
+      "cpa": 1.979890557632551,
+      "length": 134
+    },
+    {
+      "return": -1.2912307470101234,
+      "success": false,
+      "collision": false,
+      "outside": false,
+      "distance": 639.6707399580006,
+      "cpa": 27.709818080297623,
+      "length": 360
+    }
+  ]
+}

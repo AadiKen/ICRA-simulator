@@ -11,6 +11,8 @@
 #include <entities/solids/Polyhedron.h>
 #include <entities/statics/Obstacle.h>
 #include <entities/statics/Plane.h>
+#include <entities/forcefields/Ocean.h>
+#include <entities/forcefields/Uniform.h>
 #include <sensors/Contact.h>
 #include <sensors/Sample.h>
 #include <sensors/scalar/Compass.h>
@@ -30,6 +32,9 @@ VehicleAManager::VehicleAManager(const std::string& data_path,
       initial_north_(0.0),
       initial_east_(0.0),
       initial_yaw_(0.0),
+      ocean_current_north_(0.0),
+      ocean_current_east_(0.0),
+      ocean_current_down_(0.0),
       port_(nullptr),
       starboard_(nullptr),
       gps_(nullptr),
@@ -44,6 +49,12 @@ void VehicleAManager::BuildScenario() {
     SetMaterialsInteraction("VehicleAFiberglass", "VehicleAFiberglass", 0.5,
                             0.2);
     EnableOcean(0.0);
+    if (ocean_current_north_ != 0.0 || ocean_current_east_ != 0.0 ||
+        ocean_current_down_ != 0.0) {
+        getOcean()->AddVelocityField(new sf::Uniform(sf::Vector3(
+            ocean_current_north_, ocean_current_east_, ocean_current_down_)));
+        getOcean()->EnableCurrents();
+    }
 
     sf::PhysicsSettings hull_physics;
     hull_physics.mode = sf::PhysicsMode::FLOATING;
@@ -150,6 +161,13 @@ void VehicleAManager::SetInitialPose(sf::Scalar north, sf::Scalar east,
     initial_north_ = north;
     initial_east_ = east;
     initial_yaw_ = yaw;
+}
+
+void VehicleAManager::SetOceanCurrent(sf::Scalar north, sf::Scalar east,
+                                      sf::Scalar down) {
+    ocean_current_north_ = north;
+    ocean_current_east_ = east;
+    ocean_current_down_ = down;
 }
 
 std::string VehicleAManager::SampleArray(const sf::ScalarSensor* sensor) {

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "figure": "environment-validation",
+  "git_sha": "2b27f0859e170a12560c27eb5da6707625436846",
+  "contract_hash": null,
+  "resolved_metrics": {
+    "shelf_speed_rmse_mps": 0.10462501406947747,
+    "nearshore_speed_rmse_mps": 0.1977611752643127,
+    "observations_ge_0_75_mps": 0
+  },
+  "coverage_cells": {
+    "sf": {
+      "wet": 217,
+      "masked": 21
+    },
+    "honolulu": {
+      "wet": 142,
+      "masked": 26
+    },
+    "miami": {
+      "wet": 89,
+      "masked": 80
+    },
+    "boston": {
+      "wet": 42,
+      "masked": 150
+    }
+  },
+  "sources": [
+    {
+      "path": "artifacts/environmental-validation/report-3dz-20260713-15.json",
+      "sha256": "6dc463213b1cac766758030e09ba6933c53e11b58ffee89c6551d08cd0a5464a"
+    },
+    {
+      "path": "artifacts/environment-coverage/historical-archive-fidelity.json",
+      "sha256": "cb83bce8c915471a9f249e309d6a1c651dab0dc302c3dc415f7bc878804905ff"
+    },
+    {
+      "path": "artifacts/environmental-validation/rtofs-mask-sf.json",
+      "sha256": "4aaeeb279ce4803f259ee4f611015f3cf8320d033f311998a32684c66e6d2452"
+    },
+    {
+      "path": "artifacts/environmental-validation/rtofs-mask-honolulu.json",
+      "sha256": "0d00d8c1ea71c9adf8b91c90b6cbd935393da545e95c07b7e39a3fdbd279a81b"
+    },
+    {
+      "path": "artifacts/environmental-validation/rtofs-mask-miami.json",
+      "sha256": "ecec094aaae049d2ff051a953a77a033ca7a56a3bb30a5e4b9ac53877ed7633f"
+    },
+    {
+      "path": "artifacts/environmental-validation/rtofs-mask-boston.json",
+      "sha256": "ba4e18e90700f225ed6eec72757e2e17cd7d904db16ca6f1beef66cafba73388"
+    }
+  ]
+}

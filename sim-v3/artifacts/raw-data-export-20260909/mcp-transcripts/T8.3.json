@@ -1,0 +1,73 @@
+{
+  "id": "T8.3",
+  "prompt": "Try building a searobotics-surveyor-m1.8 scenario with the coupled6 plant and a waypoint mission to 20 m north. If it's invalid, fix the problem and get a valid scenario.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "validate_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "surveyor-test",
+          "seed": 1,
+          "timestep_s": 0.1,
+          "duration_s": 60
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "searobotics-surveyor-m1.8",
+          "plant": "coupled6"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 20,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "valid": false,
+        "error": "SeaRobotics Surveyor integration preset currently requires planar3."
+      }
+    },
+    {
+      "tool": "validate_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "surveyor-test",
+          "seed": 1,
+          "timestep_s": 0.1,
+          "duration_s": 60
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "searobotics-surveyor-m1.8",
+          "plant": "planar3"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 20,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "valid": true
+      }
+    }
+  ],
+  "final_answer_text": "The initial scenario request was invalid — the `searobotics-surveyor-m1.8` preset currently requires the **planar3** plant, not **coupled6**. I fixed it by switching the vehicle plant to `planar3`, keeping everything else the same, and it now validates successfully.\n\n**Working scenario:**\n```json\n{\n  \"schema_version\": 1,\n  \"experiment\": { \"name\": \"surveyor-test\", \"seed\": 1, \"timestep_s\": 0.1, \"duration_s\": 60 },\n  \"backend\": { \"type\": \"node\" },\n  \"vehicle\": { \"preset\": \"searobotics-surveyor-m1.8\", \"plant\": \"planar3\" },\n  \"mission\": { \"type\": \"waypoint\", \"waypoints\": [{ \"north_m\": 20, \"east_m\": 0 }] }\n}\n```\n\nWould you like me to construct/retain this scenario and run it?",
+  "success": true,
+  "detail": "invalid coupled6 attempt followed by successful planar3 retry required"
+}

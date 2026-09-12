@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "figure": "fig3_sensing",
+  "statistics_source": "raw 8x6 policy camera and production lidar/radar payloads; no display transform applied",
+  "conditions": {
+    "clear": {
+      "camera": {
+        "transmission_at_80_m": 0.9960079893439915,
+        "mean_intensity_0_255": 82.20833333333333,
+        "min_intensity_0_255": 23,
+        "max_intensity_0_255": 156,
+        "illumination_lux": 10000
+      },
+      "lidar": {
+        "detected_count": 3,
+        "ray_count": 16,
+        "max_range_m": 100,
+        "range_noise_std_m": 0.02,
+        "transmission_at_80_m": 0.9960079893439915
+      },
+      "radar": {
+        "detected_count": 10,
+        "beam_count": 12,
+        "clutter_db": 3.8944271909999157,
+        "center_beam_transmission_loss_db": 108.26157346517189
+      }
+    },
+    "fog": {
+      "camera": {
+        "transmission_at_80_m": 0.36125116372311517,
+        "mean_intensity_0_255": 0.6875,
+        "min_intensity_0_255": 0,
+        "max_intensity_0_255": 6,
+        "illumination_lux": 2500
+      },
+      "lidar": {
+        "detected_count": 0,
+        "ray_count": 16,
+        "max_range_m": 30.11942119122021,
+        "range_noise_std_m": 0.026000000000000002,
+        "transmission_at_80_m": 0.475062268355156
+      },
+      "radar": {
+        "detected_count": 10,
+        "beam_count": 12,
+        "clutter_db": 3.8944271909999157,
+        "center_beam_transmission_loss_db": 108.26157346517189
+      }
+    },
+    "rain": {
+      "camera": {
+        "transmission_at_80_m": 0.9116188231638958,
+        "mean_intensity_0_255": 6.395833333333333,
+        "min_intensity_0_255": 2,
+        "max_intensity_0_255": 16,
+        "illumination_lux": 3500
+      },
+      "lidar": {
+        "detected_count": 0,
+        "ray_count": 16,
+        "max_range_m": 36.787944117144235,
+        "range_noise_std_m": 0.16,
+        "transmission_at_80_m": 0.8014494859316323
+      },
+      "radar": {
+        "detected_count": 0,
+        "beam_count": 12,
+        "clutter_db": 12.012570843487289,
+        "center_beam_transmission_loss_db": 111.52014946517188
+      }
+    }
+  }
+}

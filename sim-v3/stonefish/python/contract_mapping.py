@@ -57,11 +57,16 @@ class StonefishContractMapper:
         *,
         goal_north_m: float,
         goal_east_m: float,
+        episode_physics_steps: int | None = None,
     ) -> None:
         self.bridge = bridge
         self.goal_north_m = float(goal_north_m)
         self.goal_east_m = float(goal_east_m)
         self.physics_steps = 0
+        self.episode_physics_steps = int(
+            self.EPISODE_PHYSICS_STEPS
+            if episode_physics_steps is None else episode_physics_steps
+        )
         self.previous_action = (0.0, 0.0, 0.0, 0.0)
 
     def reset(
@@ -72,6 +77,7 @@ class StonefishContractMapper:
         initial_north_m: float = 0.0,
         initial_east_m: float = 0.0,
         initial_yaw_rad: float = 0.0,
+        current_ned_mps: tuple[float, float, float] = (0.0, 0.0, 0.0),
     ) -> ContractSample:
         self.physics_steps = 0
         self.previous_action = (0.0, 0.0, 0.0, 0.0)
@@ -81,6 +87,7 @@ class StonefishContractMapper:
             initial_north_m=initial_north_m,
             initial_east_m=initial_east_m,
             initial_yaw_rad=initial_yaw_rad,
+            current_ned_mps=current_ned_mps,
         )
         return self._sample(raw)
 
@@ -103,7 +110,7 @@ class StonefishContractMapper:
             ),
         )
         self.physics_steps = min(
-            self.EPISODE_PHYSICS_STEPS,
+            self.episode_physics_steps,
             self.physics_steps + self.CONTRACT_STEPS_PER_CONTROL,
         )
         self.previous_action = applied
@@ -128,8 +135,8 @@ class StonefishContractMapper:
             relative_east = 0.0
 
         remaining = (
-            self.EPISODE_PHYSICS_STEPS - self.physics_steps
-        ) / self.EPISODE_PHYSICS_STEPS
+            self.episode_physics_steps - self.physics_steps
+        ) / self.episode_physics_steps
         observation = (
             float(imu[6]),
             float(imu[7]),

@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "common-suite-gate-1-failure",
+  "gate": 1,
+  "name": "condition-contracts-frozen",
+  "status": "FAILED_BEFORE_EPISODE_EXECUTION",
+  "passed": false,
+  "failure": "The candidate nominal condition cannot be applied literally and equally by all four native runtimes.",
+  "requested_nominal_condition": {
+    "contract": "eval/common_suite/contracts/nominal.json",
+    "contract_sha256": "e998e32f5ee00f6296fce04e01066fa3e9a40d3737dec66b6aae79ef212f119b",
+    "current_mps_range": [0.0, 0.45],
+    "wind_mps_range": [0.0, 5.0],
+    "time_cap_s": 150.0,
+    "energy_cap_ns": 50000.0,
+    "route_waypoints_local_m": [[0, 0], [45, 8], [90, -6], [140, 12]]
+  },
+  "exact_mismatches": [
+    {
+      "arm": "gazebo",
+      "requested": "seeded current and wind drawn from the candidate nominal ranges",
+      "applied": {"current_mps": [0, 0, 0], "wind_mps": [0, 0, 0]},
+      "runtime_output": "No Gazebo wind/current plugin is loaded; the running world is still water.",
+      "source": "validation/rl-campaign/ports/gazebo_gym_runtime.py:320"
+    },
+    {
+      "arm": "stonefish",
+      "requested": "seeded current and wind drawn from the candidate nominal ranges",
+      "applied": {"current_ned_mps": [0.0, 0.0, 0.0], "wind_ned_mps": [0.0, 0.0, 0.0]},
+      "runtime_output": "disturbance_mode is hard-coded to zero after sampled disturbances are recorded",
+      "source": "stonefish/python/stonefish_task.py:134-140"
+    },
+    {
+      "arm": "all-native-task-ports",
+      "requested": {"time_cap_s": 150.0, "energy_cap_ns": 50000.0},
+      "applied_contract": {"time_cap_s": 120.0, "episode_length_steps": 2400, "physics_timestep_s": 0.05},
+      "difference": {"time_cap_s": -30.0, "energy_cap_enforced": false},
+      "source": "artifacts/rl-campaign/surveyor/task-contract-frozen.json"
+    }
+  ],
+  "episodes_run": 0,
+  "nominal_success_rate_by_arm": {},
+  "saturation_classification": "NOT_COMPUTABLE",
+  "contracts_frozen": false,
+  "downstream_gates_attempted": [],
+  "required_decision": "Resolved by the companion handoff: preserve the candidate nominal contract and extend the native runtimes. Complete per-runtime triage is recorded in gate1-native-representability-triage.md; no fix code has started."
+}

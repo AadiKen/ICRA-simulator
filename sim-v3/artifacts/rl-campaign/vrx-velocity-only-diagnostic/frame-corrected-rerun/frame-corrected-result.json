@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "FRAME_ACCOUNTING_CORRECTED_NO_DIAGNOSTIC_BUG",
+  "diagnostic": "velocity-only first-step coast, corrected body-acceleration read",
+  "run_directory": "artifacts/rl-campaign/vrx-velocity-only-diagnostic/frame-corrected-rerun",
+  "comparison_interval_s": [
+    1.9,
+    1.95
+  ],
+  "old_vrx_differentiated_body_velocity_mps2": [
+    0.40881999999999863,
+    -0.014059999999999073
+  ],
+  "omega_cross_v_correction_mps2": [
+    -0.11983606269000002,
+    -0.22259870226
+  ],
+  "vrx_corrected_from_world_derivative_mps2": [
+    0.2889839373099986,
+    -0.23665870225999908
+  ],
+  "vrx_direct_body_imu_mps2": [
+    0.28343949039059013,
+    -0.24208805111032913
+  ],
+  "omega_cross_velocity_mps2": [
+    -0.11983606269,
+    -0.22259870226
+  ],
+  "vrx_body_velocity_derivative_from_imu_mps2": [
+    0.40327555308059015,
+    -0.01948934885032913
+  ],
+  "imu_timestamp_s": 1.9,
+  "node_body_acceleration_mps2": [
+    0.3344460842146857,
+    0.05959007960192109
+  ],
+  "body_velocity_derivative_minus_node_mps2": [
+    0.06882946886590446,
+    -0.07907942845225022
+  ],
+  "body_velocity_derivative_vs_node_l2_mps2": 0.10483821721441601,
+  "corrected_velocity_vs_imu_l2_mps2": 0.00776007220202998,
+  "conclusion": "The IMU and differentiated velocity agree after applying the omega-cross-v transport identity, but they represent different acceleration definitions. The marine mass matrix multiplies the body-velocity derivative, so the original differentiated value was the correct quantity for the dynamics comparison."
+}

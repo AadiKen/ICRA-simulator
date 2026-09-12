@@ -1,0 +1,28 @@
+{
+  "site": "san-francisco",
+  "window_start": "2026-09-06T00:00:00Z",
+  "window_days": 3,
+  "bounds": {"lat_min": 37.2, "lat_max": 38.3, "lon_min": -123.3, "lon_max": -121.7},
+  "radar": {
+    "dataset_id": "ucsdHfrW6",
+    "endpoint": "https://coastwatch.pfeg.noaa.gov/erddap/griddap",
+    "version": "v1r0",
+    "max_dop_x": 1.5,
+    "max_dop_y": 1.5,
+    "min_sites": 2,
+    "min_radials": 3
+  },
+  "rtofs": {
+    "version": "2.3",
+    "files": [
+      {
+        "path": "data/rtofs_glo_2ds_f000_prog.nc",
+        "url": "https://nomads.ncep.noaa.gov/pub/data/nccf/com/rtofs/prod/rtofs.20260908/rtofs_glo_2ds_f000_prog.nc"
+      }
+    ],
+    "nearshore_mask_distance_m": 15000
+  },
+  "matching": {"distance_tolerance_m": 12000, "time_tolerance_s": 5400},
+  "speed_bins_mps": [0.25, 0.75],
+  "independence_source": "https://www.emc.ncep.noaa.gov/users/verification/ocean_lake/rtofs/prod/main.php"
+}

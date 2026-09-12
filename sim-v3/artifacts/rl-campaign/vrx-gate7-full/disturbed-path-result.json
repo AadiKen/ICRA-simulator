@@ -1,0 +1,602 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-gate-7-disturbed-path-batch",
+  "metric_choice": "Nearest distance from every VRX environmental-response sample to the full Node environmental-response path; response paths are environment-on minus calm within each simulator. Synchronous along/cross-track errors are retained separately.",
+  "telemetry": "All four inputs per seed are corrected TraceV2 artifacts produced by assembleVrxExporterTrace: quaternion-derived yaw, pose-derived u/v/r with wrapped yaw differences, and no fixed startup exclusion.",
+  "episodes": [
+    {
+      "seed": 20000,
+      "disturbance": {
+        "wind_speed_m_s": 4.881453979725303,
+        "wind_direction_deg": 126.23610064387321,
+        "current_speed_m_s": 1.2616384647017125,
+        "current_direction_deg": 139.67806479893625
+      },
+      "node_path_length_m": 234.43116208927455,
+      "nearest_node_path_error_m": {
+        "mean": 6.69239521904674,
+        "rms": 7.252949111229206,
+        "max": 11.567261391520736
+      },
+      "nearest_mean_over_path_length": 0.02854737893803634,
+      "synchronous_position_error_m": {
+        "mean": 7.648572314769464,
+        "rms": 8.1116137887455,
+        "max": 11.69341945356308
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 3.4194175182742153,
+        "max_abs": 9.466798924087293
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 7.3556687047124,
+        "max_abs": 11.678539490519585
+      }
+    },
+    {
+      "seed": 20001,
+      "disturbance": {
+        "wind_speed_m_s": 8.17393572727914,
+        "wind_direction_deg": 205.1510741841048,
+        "current_speed_m_s": 0.8012104847935676,
+        "current_direction_deg": 336.61415873095393
+      },
+      "node_path_length_m": 137.5596435021852,
+      "nearest_node_path_error_m": {
+        "mean": 3.9727749915191666,
+        "rms": 6.26694626141838,
+        "max": 18.739192722483335
+      },
+      "nearest_mean_over_path_length": 0.02888038155940741,
+      "synchronous_position_error_m": {
+        "mean": 11.485625377564581,
+        "rms": 14.638799162932626,
+        "max": 28.283893181798017
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 12.004310032996765,
+        "max_abs": 25.455994420792553
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 8.37800582265076,
+        "max_abs": 27.857901021550493
+      }
+    },
+    {
+      "seed": 20002,
+      "disturbance": {
+        "wind_speed_m_s": 10.409278716348584,
+        "wind_direction_deg": 29.94459819048643,
+        "current_speed_m_s": 1.2731777189550109,
+        "current_direction_deg": 14.86579922027886
+      },
+      "node_path_length_m": 271.78268972461626,
+      "nearest_node_path_error_m": {
+        "mean": 12.521738849041997,
+        "rms": 17.821116235555998,
+        "max": 38.365077020614784
+      },
+      "nearest_mean_over_path_length": 0.046072613608061815,
+      "synchronous_position_error_m": {
+        "mean": 16.990598579934666,
+        "rms": 22.17942298779891,
+        "max": 40.811926070750246
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 13.767813542810536,
+        "max_abs": 36.929041164907325
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 17.388907795549013,
+        "max_abs": 37.444131604673885
+      }
+    },
+    {
+      "seed": 20003,
+      "disturbance": {
+        "wind_speed_m_s": 10.711292104983032,
+        "wind_direction_deg": 180.06136173382401,
+        "current_speed_m_s": 1.0793851013444546,
+        "current_direction_deg": 189.59065181203187
+      },
+      "node_path_length_m": 235.5986102866991,
+      "nearest_node_path_error_m": {
+        "mean": 2.434042887729863,
+        "rms": 3.8139369214928784,
+        "max": 13.685442174551623
+      },
+      "nearest_mean_over_path_length": 0.010331312586130645,
+      "synchronous_position_error_m": {
+        "mean": 4.392239434327533,
+        "rms": 6.057121754216224,
+        "max": 17.288383696133334
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 4.550562521645272,
+        "max_abs": 14.381248929901663
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 3.997637387507382,
+        "max_abs": 15.670723162922593
+      }
+    },
+    {
+      "seed": 20004,
+      "disturbance": {
+        "wind_speed_m_s": 0.21467954341618464,
+        "wind_direction_deg": 213.00507470034063,
+        "current_speed_m_s": 0.9160634659264408,
+        "current_direction_deg": 153.5739982780069
+      },
+      "node_path_length_m": 149.46441475330138,
+      "nearest_node_path_error_m": {
+        "mean": 6.612451517503848,
+        "rms": 7.935076432237803,
+        "max": 16.784883356203082
+      },
+      "nearest_mean_over_path_length": 0.04424097554202474,
+      "synchronous_position_error_m": {
+        "mean": 9.674785557828438,
+        "rms": 10.980323333961126,
+        "max": 21.812344095623732
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 8.034163826934037,
+        "max_abs": 21.685415058497956
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 7.484631729104387,
+        "max_abs": 20.76864656847343
+      }
+    },
+    {
+      "seed": 20005,
+      "disturbance": {
+        "wind_speed_m_s": 6.208495699680844,
+        "wind_direction_deg": 126.65526302531362,
+        "current_speed_m_s": 1.1659268131132086,
+        "current_direction_deg": 112.91792680509388
+      },
+      "node_path_length_m": 240.76452468545014,
+      "nearest_node_path_error_m": {
+        "mean": 46.549878495336436,
+        "rms": 56.26263503580557,
+        "max": 93.66138798643887
+      },
+      "nearest_mean_over_path_length": 0.1933419325631636,
+      "synchronous_position_error_m": {
+        "mean": 59.90240793425276,
+        "rms": 69.32168574257896,
+        "max": 98.86642440530687
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 44.99601566288251,
+        "max_abs": 89.32850496845879
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 52.73380973017705,
+        "max_abs": 98.24598209679776
+      }
+    },
+    {
+      "seed": 20006,
+      "disturbance": {
+        "wind_speed_m_s": 4.50640347850489,
+        "wind_direction_deg": 215.97123325802386,
+        "current_speed_m_s": 0.6624107288749227,
+        "current_direction_deg": 63.71169559657574
+      },
+      "node_path_length_m": 121.22110659817349,
+      "nearest_node_path_error_m": {
+        "mean": 4.92540100692776,
+        "rms": 5.627718342497393,
+        "max": 9.551069458258116
+      },
+      "nearest_mean_over_path_length": 0.040631546313585405,
+      "synchronous_position_error_m": {
+        "mean": 11.5924871789729,
+        "rms": 12.950581274009172,
+        "max": 20.48441737565743
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 8.389863295825847,
+        "max_abs": 19.062200574924155
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 9.865482715613636,
+        "max_abs": 20.375867950811628
+      }
+    },
+    {
+      "seed": 20007,
+      "disturbance": {
+        "wind_speed_m_s": 9.191101662817426,
+        "wind_direction_deg": 338.4483968373388,
+        "current_speed_m_s": 0.2804648463220763,
+        "current_direction_deg": 56.80862828157842
+      },
+      "node_path_length_m": 129.98214107917858,
+      "nearest_node_path_error_m": {
+        "mean": 11.530841365991268,
+        "rms": 12.805882612715896,
+        "max": 19.90810539162271
+      },
+      "nearest_mean_over_path_length": 0.08871096652398779,
+      "synchronous_position_error_m": {
+        "mean": 13.924453013763276,
+        "rms": 15.023154572739529,
+        "max": 21.13198849982553
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 8.237157488982819,
+        "max_abs": 21.128101859022255
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 12.563614520436362,
+        "max_abs": 20.66277443371386
+      }
+    },
+    {
+      "seed": 20008,
+      "disturbance": {
+        "wind_speed_m_s": 2.7345635030591344,
+        "wind_direction_deg": 169.20373580418527,
+        "current_speed_m_s": 0.776446877588731,
+        "current_direction_deg": 68.76850867643952
+      },
+      "node_path_length_m": 139.63511713489592,
+      "nearest_node_path_error_m": {
+        "mean": 9.342675299137685,
+        "rms": 10.677933348197909,
+        "max": 21.813406506169283
+      },
+      "nearest_mean_over_path_length": 0.06690777714686269,
+      "synchronous_position_error_m": {
+        "mean": 12.388934579635293,
+        "rms": 13.751771337948577,
+        "max": 22.07623279060689
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 10.434961581157056,
+        "max_abs": 21.441501508952484
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 8.956717687356246,
+        "max_abs": 21.992961841672916
+      }
+    },
+    {
+      "seed": 20009,
+      "disturbance": {
+        "wind_speed_m_s": 2.7864127592954193,
+        "wind_direction_deg": 261.27638784237206,
+        "current_speed_m_s": 0.6651543655818558,
+        "current_direction_deg": 63.171888291835785
+      },
+      "node_path_length_m": 120.32876982069044,
+      "nearest_node_path_error_m": {
+        "mean": 2.9030808865639224,
+        "rms": 4.595257566341724,
+        "max": 16.612163702094747
+      },
+      "nearest_mean_over_path_length": 0.02412624088894109,
+      "synchronous_position_error_m": {
+        "mean": 6.878715893766903,
+        "rms": 8.380853293944435,
+        "max": 16.848016769212403
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 6.31763869969087,
+        "max_abs": 16.6703449915073
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 5.506917758128186,
+        "max_abs": 15.578171860957418
+      }
+    },
+    {
+      "seed": 20010,
+      "disturbance": {
+        "wind_speed_m_s": 6.426058440861322,
+        "wind_direction_deg": 317.46443459764123,
+        "current_speed_m_s": 0.962439075581339,
+        "current_direction_deg": 253.65124479867518
+      },
+      "node_path_length_m": 200.49731491073044,
+      "nearest_node_path_error_m": {
+        "mean": 2.9784923220044885,
+        "rms": 3.988681334941828,
+        "max": 9.314999187835772
+      },
+      "nearest_mean_over_path_length": 0.014855522246423272,
+      "synchronous_position_error_m": {
+        "mean": 6.965360509880334,
+        "rms": 8.262610169918917,
+        "max": 16.743990406087793
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 7.002996759785584,
+        "max_abs": 15.760596199993392
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 4.385061368154386,
+        "max_abs": 12.01828571201961
+      }
+    },
+    {
+      "seed": 20011,
+      "disturbance": {
+        "wind_speed_m_s": 0.09880460071374998,
+        "wind_direction_deg": 147.69184693694115,
+        "current_speed_m_s": 0.8140171144004592,
+        "current_direction_deg": 350.23936771787703
+      },
+      "node_path_length_m": 146.7707255520586,
+      "nearest_node_path_error_m": {
+        "mean": 7.539901484099882,
+        "rms": 9.161167637359911,
+        "max": 22.24234239394427
+      },
+      "nearest_mean_over_path_length": 0.05137197118662148,
+      "synchronous_position_error_m": {
+        "mean": 10.92298839934333,
+        "rms": 12.595437349154233,
+        "max": 23.867534107935963
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 7.92827624933671,
+        "max_abs": 23.287099556418653
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 9.787107730615443,
+        "max_abs": 22.976139053508167
+      }
+    },
+    {
+      "seed": 20012,
+      "disturbance": {
+        "wind_speed_m_s": 4.078988707598047,
+        "wind_direction_deg": 335.90656500309706,
+        "current_speed_m_s": 0.8975466728404226,
+        "current_direction_deg": 181.89298468641937
+      },
+      "node_path_length_m": 137.9700271311652,
+      "nearest_node_path_error_m": {
+        "mean": 5.724792714517279,
+        "rms": 7.1776547863271105,
+        "max": 20.601676014271092
+      },
+      "nearest_mean_over_path_length": 0.041493017241163825,
+      "synchronous_position_error_m": {
+        "mean": 8.843566331253342,
+        "rms": 9.907784021578067,
+        "max": 24.081028897279214
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 6.983355441496719,
+        "max_abs": 23.331647967315142
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 7.028295027668928,
+        "max_abs": 23.909640048266617
+      }
+    },
+    {
+      "seed": 20013,
+      "disturbance": {
+        "wind_speed_m_s": 8.926343346064467,
+        "wind_direction_deg": 343.0483694560826,
+        "current_speed_m_s": 0.2813325647603126,
+        "current_direction_deg": 316.3707100600004
+      },
+      "node_path_length_m": 128.72834373688,
+      "nearest_node_path_error_m": {
+        "mean": 4.450933096133448,
+        "rms": 6.2439899434989234,
+        "max": 16.537056644763265
+      },
+      "nearest_mean_over_path_length": 0.03457616999431866,
+      "synchronous_position_error_m": {
+        "mean": 7.815562762979142,
+        "rms": 8.766654339131215,
+        "max": 17.711788307991146
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 6.1362220042478555,
+        "max_abs": 17.70174661160397
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 6.261070820266493,
+        "max_abs": 17.49934971034128
+      }
+    },
+    {
+      "seed": 20014,
+      "disturbance": {
+        "wind_speed_m_s": 0.3451036122938933,
+        "wind_direction_deg": 80.22789817303419,
+        "current_speed_m_s": 0.14800295606536365,
+        "current_direction_deg": 355.50504634156823
+      },
+      "node_path_length_m": 71.8642710863852,
+      "nearest_node_path_error_m": {
+        "mean": 3.7263565824122,
+        "rms": 6.70321041903033,
+        "max": 17.449729414358195
+      },
+      "nearest_mean_over_path_length": 0.05185270129481859,
+      "synchronous_position_error_m": {
+        "mean": 6.5991704829144595,
+        "rms": 10.643689762086645,
+        "max": 27.425074877007845
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 7.055272788317889,
+        "max_abs": 26.098521462441028
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 7.969395060728836,
+        "max_abs": 27.401674101056734
+      }
+    },
+    {
+      "seed": 20015,
+      "disturbance": {
+        "wind_speed_m_s": 10.771981732062558,
+        "wind_direction_deg": 19.974286062642932,
+        "current_speed_m_s": 0.6373262347402862,
+        "current_direction_deg": 351.8024692777544
+      },
+      "node_path_length_m": 184.15954810480008,
+      "nearest_node_path_error_m": {
+        "mean": 1.9083864785808884,
+        "rms": 2.385805268261062,
+        "max": 5.392866461044493
+      },
+      "nearest_mean_over_path_length": 0.010362680068561413,
+      "synchronous_position_error_m": {
+        "mean": 3.2062964956345166,
+        "rms": 3.7678614899905,
+        "max": 7.743104053338606
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 2.5335574875839932,
+        "max_abs": 7.724453489781715
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 2.7888826911256994,
+        "max_abs": 6.598234741177835
+      }
+    },
+    {
+      "seed": 20016,
+      "disturbance": {
+        "wind_speed_m_s": 1.4889920823335017,
+        "wind_direction_deg": 145.8405260089785,
+        "current_speed_m_s": 0.9186892135190236,
+        "current_direction_deg": 238.444929337129
+      },
+      "node_path_length_m": 152.5374252797324,
+      "nearest_node_path_error_m": {
+        "mean": 4.578655848169642,
+        "rms": 6.170538441820436,
+        "max": 12.99221328106842
+      },
+      "nearest_mean_over_path_length": 0.030016606349379672,
+      "synchronous_position_error_m": {
+        "mean": 6.53895737922922,
+        "rms": 8.081484594651522,
+        "max": 17.094938206333907
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 5.226271089650647,
+        "max_abs": 16.672178194371128
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 6.1641287909218585,
+        "max_abs": 17.091175711384775
+      }
+    },
+    {
+      "seed": 20017,
+      "disturbance": {
+        "wind_speed_m_s": 7.3369292874427,
+        "wind_direction_deg": 122.41849939338863,
+        "current_speed_m_s": 0.5202078156923061,
+        "current_direction_deg": 323.51989704184234
+      },
+      "node_path_length_m": 102.63437763260367,
+      "nearest_node_path_error_m": {
+        "mean": 3.832405642861058,
+        "rms": 6.504009322458647,
+        "max": 20.375026093715295
+      },
+      "nearest_mean_over_path_length": 0.037340370071515146,
+      "synchronous_position_error_m": {
+        "mean": 10.952312968105275,
+        "rms": 15.408028792655909,
+        "max": 29.967512358744724
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 10.402681618861205,
+        "max_abs": 29.075624476825233
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 11.366246804109123,
+        "max_abs": 29.961873458206835
+      }
+    },
+    {
+      "seed": 20018,
+      "disturbance": {
+        "wind_speed_m_s": 4.9783119189707765,
+        "wind_direction_deg": 83.77940165810287,
+        "current_speed_m_s": 0.7928992594219112,
+        "current_direction_deg": 74.40721384249628
+      },
+      "node_path_length_m": 167.2434370472692,
+      "nearest_node_path_error_m": {
+        "mean": 5.7205046044664,
+        "rms": 7.61664375290043,
+        "max": 19.422139958459574
+      },
+      "nearest_mean_over_path_length": 0.03420465822434379,
+      "synchronous_position_error_m": {
+        "mean": 16.01661493007418,
+        "rms": 17.324707529453637,
+        "max": 26.866405794581286
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 14.062853679579334,
+        "max_abs": 26.74684919246304
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 10.11838116340007,
+        "max_abs": 26.4126994421678
+      }
+    },
+    {
+      "seed": 20019,
+      "disturbance": {
+        "wind_speed_m_s": 8.463624342742435,
+        "wind_direction_deg": 247.51220245845616,
+        "current_speed_m_s": 0.7179148275794126,
+        "current_direction_deg": 275.8039746712893
+      },
+      "node_path_length_m": 171.01400217200975,
+      "nearest_node_path_error_m": {
+        "mean": 11.094713224351459,
+        "rms": 12.220384020192332,
+        "max": 19.294946574479305
+      },
+      "nearest_mean_over_path_length": 0.06487605157145053,
+      "synchronous_position_error_m": {
+        "mean": 15.16116908713651,
+        "rms": 16.238293757242012,
+        "max": 21.480051287457904
+      },
+      "synchronous_along_track_error_m": {
+        "rms": 9.498984733781885,
+        "max_abs": 19.10315486583903
+      },
+      "synchronous_cross_track_error_m": {
+        "rms": 13.170097690369031,
+        "max_abs": 20.613267035764608
+      }
+    }
+  ],
+  "aggregate": {
+    "mean_nearest_error_m": 7.952021125819772,
+    "mean_nearest_rms_m": 10.061576839714188,
+    "maximum_nearest_error_m": 93.66138798643887,
+    "mean_node_path_length_m": 162.20938261640498,
+    "mean_nearest_over_path_length": 0.04713704369593989,
+    "worst_seed_by_normalized_mean": {
+      "seed": 20005,
+      "value": 0.1933419325631636
+    },
+    "mean_synchronous_position_rmse_m": 14.619593952736883,
+    "mean_along_track_rmse_m": 9.84911880119209,
+    "mean_cross_track_rmse_m": 10.663503049929766
+  }
+}

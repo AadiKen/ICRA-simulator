@@ -74,17 +74,24 @@ class StonefishBridge:
         initial_north_m: float = 0.0,
         initial_east_m: float = 0.0,
         initial_yaw_rad: float = 0.0,
+        current_ned_mps: tuple[float, float, float] = (0.0, 0.0, 0.0),
     ) -> dict[str, Any]:
         if not 0 <= seed <= 0xFFFFFFFF:
             raise ValueError("seed must fit in uint32")
         if scenario not in {"normal", "grounding", "object_collision"}:
             raise ValueError("unknown scenario")
-        pose = (initial_north_m, initial_east_m, initial_yaw_rad)
-        if not all(math.isfinite(float(value)) for value in pose):
-            raise ValueError("initial pose must be finite")
+        pose_and_current = (
+            initial_north_m, initial_east_m, initial_yaw_rad, *current_ned_mps
+        )
+        if len(current_ned_mps) != 3 or not all(
+            math.isfinite(float(value)) for value in pose_and_current
+        ):
+            raise ValueError("initial pose and current must be finite 3-vectors")
         return self._request(
             f"RESET {seed} {gps_z_ned:.17g} {scenario} "
-            f"{initial_north_m:.17g} {initial_east_m:.17g} {initial_yaw_rad:.17g}"
+            f"{initial_north_m:.17g} {initial_east_m:.17g} {initial_yaw_rad:.17g} "
+            f"{current_ned_mps[0]:.17g} {current_ned_mps[1]:.17g} "
+            f"{current_ned_mps[2]:.17g}"
         )
 
     def step(

@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "created_at": "2026-09-10T13:14:26.825202+00:00",
+  "backend": "gazebo-harmonic",
+  "requested_timesteps": 16384,
+  "timestep_request_semantics": "additional",
+  "resumed_from": "/mnt/shared/gpfs/home/aadik3/ICRA-simulator/sim-v3/artifacts/rl-campaign/training-runs/feedforward-1m-gazebo-seed7319-part60/model-final.zip",
+  "seed": 7319,
+  "device": "cuda",
+  "parallel_environments": 4,
+  "disturbance_mode": "zero",
+  "action_fairness_condition": "topology-native normalized actuators",
+  "checkpoint_frequency_timesteps": 4096,
+  "evaluation": {
+    "episodes": 0,
+    "first_seed": 10000
+  },
+  "aligned_curve_evaluation": {
+    "enabled": false,
+    "frequency_timesteps": 16384,
+    "episodes_per_checkpoint": 0,
+    "first_seed": 10000
+  },
+  "algorithm_provenance": {
+    "config": {
+      "algorithm": "PPO",
+      "policy": "MlpPolicy",
+      "seed": 7319,
+      "n_steps": 512,
+      "batch_size": 512,
+      "n_epochs": 10,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_range": 0.2,
+      "policy_kwargs": {
+        "net_arch": [
+          128,
+          128
+        ]
+      },
+      "ent_coef": 0.005
+    },
+    "canonical_sha256": "71c087c9bf30ee2ad10599ba32aad08b36facce12c435f6565da691dd49fd16a",
+    "ent_coef_source": "artifacts/rl-campaign/surveyor/15-field-rerun-preregistration.json",
+    "execution_protocol": "artifacts/rl-campaign/surveyor/portable-feedforward-training-protocol.json",
+    "contract_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36"
+  },
+  "git_revision": "959652f36bb07ed0a961b638d2a39a204c3b638e",
+  "command": [
+    "/mnt/shared/gpfs/home/aadik3/ICRA-simulator/sim-v3/.venv/bin/python",
+    "validation/rl-campaign/train_portable_ppo_feedforward.py",
+    "--backend",
+    "gazebo-harmonic",
+    "--timesteps",
+    "16384",
+    "--base-seed",
+    "7319",
+    "--device",
+    "cuda",
+    "--n-envs",
+    "4",
+    "--checkpoint-freq",
+    "4096",
+    "--output",
+    "/mnt/shared/gpfs/home/aadik3/ICRA-simulator/sim-v3/artifacts/rl-campaign/training-runs/feedforward-1m-gazebo-seed7319-part61",
+    "--eval-episodes",
+    "0",
+    "--curve-eval-episodes",
+    "0",
+    "--resume-from",
+    "/mnt/shared/gpfs/home/aadik3/ICRA-simulator/sim-v3/artifacts/rl-campaign/training-runs/feedforward-1m-gazebo-seed7319-part60/model-final.zip"
+  ],
+  "finished_at": "2026-09-10T13:31:32.178267+00:00",
+  "actual_timesteps": 999424,
+  "initial_timesteps": 983040,
+  "additional_timesteps_completed": 16384,
+  "wall_clock_s": 1017.6992018222809,
+  "model": "model-final.zip",
+  "training_metrics": {
+    "csv": "metrics/progress.csv",
+    "json": "metrics/progress.json",
+    "episodes_csv_glob": "metrics/episodes-env-*.monitor.csv",
+    "reward_components_csv_glob": "metrics/reward-components-env-*.csv",
+    "reward_component_columns": [
+      "episode_index",
+      "episode_seed",
+      "control_step",
+      "physics_steps",
+      "progress",
+      "cross_track",
+      "action_delta",
+      "terminal",
+      "base_reward",
+      "potential_shaping",
+      "shaped_reward",
+      "completion_fraction",
+      "success",
+      "waypoints_reached",
+      "termination_reason",
+      "terminated",
+      "truncated"
+    ],
+    "aligned_evaluation_csv": null,
+    "aligned_evaluation_json": null
+  },
+  "evaluation_summary": null
+}

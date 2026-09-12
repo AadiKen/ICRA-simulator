@@ -1,0 +1,85 @@
+{
+  "task_id": "B3a",
+  "category": "B",
+  "repeat_index": 1,
+  "prompt": "Build a planar3 vehicle-a-otter scenario with a regular wave of amplitude 0.5 m, period 5 s, direction 0 radians. Attempt exactly that request; if it is invalid, report the failure and do not silently change it.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "list_vehicle_presets",
+      "input": {},
+      "output": [
+        {
+          "id": "vehicle-a-otter",
+          "name": "Otter differential-thrust USV",
+          "plant": "planar3",
+          "validation_status": "validated",
+          "validation_claim": "Planar maneuvering validated at pinned tolerances."
+        },
+        {
+          "id": "vehicle-b-rudder",
+          "name": "USV propeller/rudder monohull",
+          "plant": "coupled6",
+          "validation_status": "model-structure-trajectory-scored-fail",
+          "validation_claim": "The MMG simulator has been scored against six measured MARIN single-screw KVLCC2 trajectories using measured rudder and samplewise propeller RPM. The current literature-coefficient parameterization fails the precommitted trajectory/IMO tolerances. No evidence validates Vehicle B USV-scale coefficients."
+        },
+        {
+          "id": "vehicle-c-azimuth",
+          "name": "Dual-azimuth overactuated USV",
+          "plant": "coupled6",
+          "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+          "validation_claim": "Control allocation and composability demonstrated; behavioral dynamics not independently validated."
+        },
+        {
+          "id": "searobotics-surveyor-m1.8",
+          "name": "SeaRobotics SR-Surveyor M1.8 (two-body common-task approximation)",
+          "plant": "planar3",
+          "validation_status": "model-structure-only",
+          "validation_claim": "Node common-task resolution uses the versioned two-body model; geometry, actuator and damping assumptions remain unvalidated."
+        }
+      ]
+    },
+    {
+      "tool": "validate_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "otter-regular-wave-test",
+          "seed": 0,
+          "timestep_s": 0.1,
+          "duration_s": 60
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-a-otter",
+          "plant": "planar3"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 100,
+              "east_m": 0
+            }
+          ]
+        },
+        "environment": {
+          "regular_wave": {
+            "amplitude_m": 0.5,
+            "period_s": 5,
+            "direction_rad": 0
+          }
+        }
+      },
+      "output": {
+        "valid": false,
+        "error": "Physical regular-wave forcing requires the coupled6 plant."
+      }
+    }
+  ],
+  "final_answer_text": "The exact scenario you requested is **invalid**. Here's the failure, unmodified:\n\n**Request attempted:** planar3 plant + vehicle-a-otter preset + regular wave (amplitude 0.5 m, period 5 s, direction 0 rad)\n\n**Validation error:** `\"Physical regular-wave forcing requires the coupled6 plant.\"`\n\nSo the simulator rejects combining a `regular_wave` environment forcing with the `planar3` plant — regardless of which vehicle preset is used. Since `vehicle-a-otter`'s native/only listed plant is `planar3`, this specific vehicle+wave combination cannot be validated as-is.\n\nI have not changed the plant, vehicle, or wave parameters to force a pass. Options if you'd like to proceed, none of which I've applied:\n\n1. Drop the regular wave environment and keep `vehicle-a-otter` on `planar3`.\n2. Keep the regular wave and switch to a `coupled6`-plant vehicle instead (e.g. `vehicle-b-rudder` or `vehicle-c-azimuth` — note both currently carry unfavorable validation statuses per the preset list, or `searobotics-surveyor-m1.8`, which is also planar3 and would have the same conflict).\n3. Some other resolution you specify.\n\nLet me know how you'd like to proceed.",
+  "outcome": "detected_failure",
+  "detail": "real validator failure was reported"
+}

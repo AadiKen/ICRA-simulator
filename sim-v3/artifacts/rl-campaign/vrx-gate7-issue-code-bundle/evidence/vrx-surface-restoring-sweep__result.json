@@ -1,0 +1,1043 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-surface-static-restoring-sweep",
+  "measurement_only": true,
+  "implementation": {
+    "source": "osrf/vrx@fda35961463c2ed8c44d6c646fe8ce773a3eaff1/vrx_gz/src/Surface.cc",
+    "method": "source-exact evaluation of Surface::PreUpdate buoyancy force and application-point moment at fixed poses; zero waves and velocity"
+  },
+  "parameters": {
+    "mass_kg": 52.3,
+    "density_kg_m3": 1025,
+    "gravity_m_s2": 9.81,
+    "hull_length_m": 1.83,
+    "hull_radius_m": 0.17,
+    "points_body_m": [
+      [
+        0.4575,
+        -0.33,
+        0
+      ],
+      [
+        -0.4575,
+        -0.33,
+        0
+      ],
+      [
+        0.4575,
+        0.33,
+        0
+      ],
+      [
+        -0.4575,
+        0.33,
+        0
+      ]
+    ],
+    "equilibrium_link_z_m": -0.07169200413211677,
+    "equilibrium_surface_immersion_m": 0.07169200413211677
+  },
+  "roll": [
+    {
+      "value": 0,
+      "buoyancy_n": 513.0630000000002,
+      "net_heave_force_n": 2.2737367544323206e-13,
+      "restoring_moment_n_m": 0,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.07169200413211677,
+          "immersion_m": 0.07169200413211677,
+          "force_n": 128.26575000000005,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.07169200413211677,
+          "immersion_m": 0.07169200413211677,
+          "force_n": 128.26575000000005,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.07169200413211677,
+          "immersion_m": 0.07169200413211677,
+          "force_n": 128.26575000000005,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.07169200413211677,
+          "immersion_m": 0.07169200413211677,
+          "force_n": 128.26575000000005,
+          "state": "partial"
+        }
+      ]
+    },
+    {
+      "value": 5,
+      "buoyancy_n": 535.0080582644022,
+      "net_heave_force_n": 21.945058264402178,
+      "restoring_moment_n_m": -95.45709879623348,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.10045339923884396,
+          "immersion_m": 0.10045339923884396,
+          "force_n": 206.34423381306596,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.10045339923884396,
+          "immersion_m": 0.10045339923884396,
+          "force_n": 206.34423381306596,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.042930609025389574,
+          "immersion_m": 0.042930609025389574,
+          "force_n": 61.15979531913513,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.042930609025389574,
+          "immersion_m": 0.042930609025389574,
+          "force_n": 61.15979531913513,
+          "state": "partial"
+        }
+      ]
+    },
+    {
+      "value": 10,
+      "buoyancy_n": 605.683993157633,
+      "net_heave_force_n": 92.62099315763305,
+      "restoring_moment_n_m": -180.99638249273806,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.12899590276220377,
+          "immersion_m": 0.12899590276220377,
+          "force_n": 290.6547433183305,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.12899590276220377,
+          "immersion_m": 0.12899590276220377,
+          "force_n": 290.6547433183305,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.014388105502029756,
+          "immersion_m": 0.014388105502029756,
+          "force_n": 12.187253260486017,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.014388105502029756,
+          "immersion_m": 0.014388105502029756,
+          "force_n": 12.187253260486017,
+          "state": "partial"
+        }
+      ]
+    },
+    {
+      "value": 20,
+      "buoyancy_n": 835.3369308217871,
+      "net_heave_force_n": 322.2739308217871,
+      "restoring_moment_n_m": -259.0367834218501,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.18455865142958744,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.18455865142958744,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.04117464316535392,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.04117464316535392,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        }
+      ]
+    },
+    {
+      "value": 30,
+      "buoyancy_n": 835.3369308217871,
+      "net_heave_force_n": 322.2739308217871,
+      "restoring_moment_n_m": -238.72959092762733,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.23669200413211675,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.23669200413211675,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.09330799586788321,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.09330799586788321,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        }
+      ]
+    },
+    {
+      "value": 45,
+      "buoyancy_n": 835.3369308217871,
+      "net_heave_force_n": 322.2739308217871,
+      "restoring_moment_n_m": -194.9218947586824,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.3050372419236774,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.3050372419236774,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.1616532336594439,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.1616532336594439,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        }
+      ]
+    },
+    {
+      "value": 60,
+      "buoyancy_n": 835.3369308217871,
+      "net_heave_force_n": 322.2739308217871,
+      "restoring_moment_n_m": -137.8305935855949,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.35748038738098153,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.35748038738098153,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.21409637911674798,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.21409637911674798,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        }
+      ]
+    }
+  ],
+  "pitch": [
+    {
+      "value": 0,
+      "buoyancy_n": 513.0630000000002,
+      "net_heave_force_n": 2.2737367544323206e-13,
+      "restoring_moment_n_m": 0,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.07169200413211677,
+          "immersion_m": 0.07169200413211677,
+          "force_n": 128.26575000000005,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.07169200413211677,
+          "immersion_m": 0.07169200413211677,
+          "force_n": 128.26575000000005,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.07169200413211677,
+          "immersion_m": 0.07169200413211677,
+          "force_n": 128.26575000000005,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.07169200413211677,
+          "immersion_m": 0.07169200413211677,
+          "force_n": 128.26575000000005,
+          "state": "partial"
+        }
+      ]
+    },
+    {
+      "value": 5,
+      "buoyancy_n": 555.9599054228896,
+      "net_heave_force_n": 42.89690542288963,
+      "restoring_moment_n_m": -181.48573677987096,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.11156575643917038,
+          "immersion_m": 0.11156575643917038,
+          "force_n": 238.54133308293814,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.031818251825063155,
+          "immersion_m": 0.031818251825063155,
+          "force_n": 39.4386196285067,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.11156575643917038,
+          "immersion_m": 0.11156575643917038,
+          "force_n": 238.54133308293814,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.031818251825063155,
+          "immersion_m": 0.031818251825063155,
+          "force_n": 39.4386196285067,
+          "state": "partial"
+        }
+      ]
+    },
+    {
+      "value": 10,
+      "buoyancy_n": 717.5595758407442,
+      "net_heave_force_n": 204.49657584074419,
+      "restoring_moment_n_m": -323.29614184277324,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.1511360454147374,
+          "immersion_m": 0.1511360454147374,
+          "force_n": 358.7797879203721,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.007752037150503863,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.1511360454147374,
+          "immersion_m": 0.1511360454147374,
+          "force_n": 358.7797879203721,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.007752037150503863,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        }
+      ]
+    },
+    {
+      "value": 20,
+      "buoyancy_n": 835.3369308217871,
+      "net_heave_force_n": 322.2739308217871,
+      "restoring_moment_n_m": -359.1191770166559,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.2281662197036102,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.08478221143937667,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.2281662197036102,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.08478221143937667,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        }
+      ]
+    },
+    {
+      "value": 30,
+      "buoyancy_n": 835.3369308217871,
+      "net_heave_force_n": 322.2739308217871,
+      "restoring_moment_n_m": -330.96602378602876,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.30044200413211675,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.15705799586788322,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.30044200413211675,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.15705799586788322,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        }
+      ]
+    },
+    {
+      "value": 45,
+      "buoyancy_n": 835.3369308217871,
+      "net_heave_force_n": 322.2739308217871,
+      "restoring_moment_n_m": -270.23262682453696,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.39519335652496224,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.25180934826072876,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.39519335652496224,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.25180934826072876,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        }
+      ]
+    },
+    {
+      "value": 60,
+      "buoyancy_n": 835.3369308217871,
+      "net_heave_force_n": 322.2739308217871,
+      "restoring_moment_n_m": -191.08332292548386,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.46789862636349744,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.32451461809926396,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.46789862636349744,
+          "immersion_m": 0.17,
+          "force_n": 417.66846541089353,
+          "state": "saturated"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": -0.32451461809926396,
+          "immersion_m": 0,
+          "force_n": 0,
+          "state": "dry"
+        }
+      ]
+    }
+  ],
+  "heave": [
+    {
+      "value": -0.05,
+      "buoyancy_n": 1074.4443922121034,
+      "net_heave_force_n": 561.3813922121034,
+      "restoring_moment_n_m": 0,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.12169200413211677,
+          "immersion_m": 0.12169200413211677,
+          "force_n": 268.61109805302584,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.12169200413211677,
+          "immersion_m": 0.12169200413211677,
+          "force_n": 268.61109805302584,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.12169200413211677,
+          "immersion_m": 0.12169200413211677,
+          "force_n": 268.61109805302584,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.12169200413211677,
+          "immersion_m": 0.12169200413211677,
+          "force_n": 268.61109805302584,
+          "state": "partial"
+        }
+      ]
+    },
+    {
+      "value": -0.02,
+      "buoyancy_n": 726.6730376649755,
+      "net_heave_force_n": 213.6100376649755,
+      "restoring_moment_n_m": 0,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.09169200413211677,
+          "immersion_m": 0.09169200413211677,
+          "force_n": 181.66825941624387,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.09169200413211677,
+          "immersion_m": 0.09169200413211677,
+          "force_n": 181.66825941624387,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.09169200413211677,
+          "immersion_m": 0.09169200413211677,
+          "force_n": 181.66825941624387,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.09169200413211677,
+          "immersion_m": 0.09169200413211677,
+          "force_n": 181.66825941624387,
+          "state": "partial"
+        }
+      ]
+    },
+    {
+      "value": 0,
+      "buoyancy_n": 513.0630000000002,
+      "net_heave_force_n": 2.2737367544323206e-13,
+      "restoring_moment_n_m": 0,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.07169200413211677,
+          "immersion_m": 0.07169200413211677,
+          "force_n": 128.26575000000005,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.07169200413211677,
+          "immersion_m": 0.07169200413211677,
+          "force_n": 128.26575000000005,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.07169200413211677,
+          "immersion_m": 0.07169200413211677,
+          "force_n": 128.26575000000005,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.07169200413211677,
+          "immersion_m": 0.07169200413211677,
+          "force_n": 128.26575000000005,
+          "state": "partial"
+        }
+      ]
+    },
+    {
+      "value": 0.02,
+      "buoyancy_n": 320.48872642841263,
+      "net_heave_force_n": -192.57427357158736,
+      "restoring_moment_n_m": 0,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.05169200413211676,
+          "immersion_m": 0.05169200413211676,
+          "force_n": 80.12218160710316,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.05169200413211676,
+          "immersion_m": 0.05169200413211676,
+          "force_n": 80.12218160710316,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.05169200413211676,
+          "immersion_m": 0.05169200413211676,
+          "force_n": 80.12218160710316,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.05169200413211676,
+          "immersion_m": 0.05169200413211676,
+          "force_n": 80.12218160710316,
+          "state": "partial"
+        }
+      ]
+    },
+    {
+      "value": 0.05,
+      "buoyancy_n": 89.64161155347874,
+      "net_heave_force_n": -423.42138844652123,
+      "restoring_moment_n_m": 0,
+      "point_states": [
+        {
+          "point_body_m": [
+            0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.021692004132116763,
+          "immersion_m": 0.021692004132116763,
+          "force_n": 22.410402888369685,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            -0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.021692004132116763,
+          "immersion_m": 0.021692004132116763,
+          "force_n": 22.410402888369685,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.021692004132116763,
+          "immersion_m": 0.021692004132116763,
+          "force_n": 22.410402888369685,
+          "state": "partial"
+        },
+        {
+          "point_body_m": [
+            -0.4575,
+            0.33,
+            0
+          ],
+          "unclamped_immersion_m": 0.021692004132116763,
+          "immersion_m": 0.021692004132116763,
+          "force_n": 22.410402888369685,
+          "state": "partial"
+        }
+      ]
+    }
+  ],
+  "findings": {
+    "small_angle_roll_restoring": true,
+    "small_angle_pitch_restoring": true,
+    "first_roll_point_saturation_or_drying_deg": 20,
+    "first_pitch_point_saturation_or_drying_deg": 10,
+    "roll_moment_reverses_through_60_deg": false,
+    "pitch_moment_reverses_through_60_deg": false,
+    "nonlinear_behavior": "Both moments remain restoring through 60 degrees, but point immersion saturates early and restoring magnitude peaks then declines. Large angles also create a substantial upward net force."
+  }
+}

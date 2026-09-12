@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "FAILED_SINGLE_STEP_PARITY_GATE",
+  "implementation": "Gazebo Physics / DART solved spatial inertia via SDF fluid_added_mass; SimpleHydrodynamics explicit added-mass coefficients zero",
+  "loaded_added_mass_eigenvalues": [2.615, 39.225, 1.4313],
+  "expected_added_mass_planar": [2.615, 39.224999999999994, 1.431297586666667],
+  "matrix_readback_passed": true,
+  "surface_plugins_enabled": false,
+  "current_mps": [0, 0, 0],
+  "external_force_after_release": [0, 0, 0],
+  "timestep_s": 0.05,
+  "matched_initial_state_node_body": {
+    "velocity_mps": [-0.642708, 0.346002],
+    "yaw_rate_rad_s": 0.346345
+  },
+  "first_step_acceleration": {
+    "node": [0.3344460842146857, 0.05959007960192109, 0.20809094156030383],
+    "vrx_in_node_frame": [0.40882000000000085, -0.014060000000000184, 0.2034400000000003]
+  },
+  "difference_vrx_minus_node": [0.07437391578531515, -0.07365007960192128, -0.00465094156030352],
+  "relative_error_where_defined": {
+    "surge": 0.222376983372442,
+    "sway": 1.235945275576642,
+    "yaw": 0.022350533682143
+  },
+  "sequence_decision": "Velocity-only prerequisite did not pass. Current-only force regression and full 20+20 Gate 7 rerun were not executed."
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "holoocean-vehicle-a-gate-d-throughput",
+  "status": "COMPLETE_NO_TRAINING",
+  "runtime": {
+    "hostname": "codenimbus-002-1.csl.illinois.edu",
+    "gpu": "NVIDIA L40, GPU-d26d6883-a6f8-f9c0-91f0-d068b816a2d1\nNVIDIA L40, GPU-ae855e14-7f04-51de-b610-2144e131da7c",
+    "python": "3.12.3",
+    "slurm_job_id": "19495",
+    "holoocean": "2.3.0",
+    "world": "Ocean/OpenWater",
+    "viewport": false
+  },
+  "method": {
+    "aggregate_control_steps_per_configuration": 4096,
+    "physics_steps_per_control_step": 2,
+    "action": [
+      0.0,
+      0.0
+    ],
+    "timing": "synchronized steady-state wrapper step loop; engine startup reported separately",
+    "training": false,
+    "buoyancy_determinism_state": "unfixed packaged binary; random unauthored SurfacePoints remain"
+  },
+  "results": [
+    {
+      "parallel_environments": 1,
+      "aggregate_control_steps": 4096,
+      "aggregate_physics_steps": 8192,
+      "steady_state_wall_s": 7.975377909839153,
+      "control_steps_per_s": 513.5806787220454,
+      "physics_steps_per_s": 1027.1613574440908,
+      "end_to_end_wall_s_including_startup": 19.48032968491316,
+      "startup_s_range": [
+        10.782441437244415,
+        10.782441437244415
+      ],
+      "unexpected_terminations": []
+    },
+    {
+      "parallel_environments": 2,
+      "aggregate_control_steps": 4096,
+      "aggregate_physics_steps": 8192,
+      "steady_state_wall_s": 4.666406683623791,
+      "control_steps_per_s": 877.7631864737451,
+      "physics_steps_per_s": 1755.5263729474902,
+      "end_to_end_wall_s_including_startup": 17.124638941138983,
+      "startup_s_range": [
+        11.575718190521002,
+        11.642290733754635
+      ],
+      "unexpected_terminations": []
+    },
+    {
+      "parallel_environments": 4,
+      "aggregate_control_steps": 4096,
+      "aggregate_physics_steps": 8192,
+      "steady_state_wall_s": 2.907605577260256,
+      "control_steps_per_s": 1408.719267851842,
+      "physics_steps_per_s": 2817.438535703684,
+      "end_to_end_wall_s_including_startup": 18.860306285321712,
+      "startup_s_range": [
+        13.420399036258459,
+        14.723238214850426
+      ],
+      "unexpected_terminations": []
+    },
+    {
+      "parallel_environments": 8,
+      "aggregate_control_steps": 4096,
+      "aggregate_physics_steps": 8192,
+      "steady_state_wall_s": 3.072392977774143,
+      "control_steps_per_s": 1333.162791879387,
+      "physics_steps_per_s": 2666.325583758774,
+      "end_to_end_wall_s_including_startup": 24.944804422557354,
+      "startup_s_range": [
+        18.70053757354617,
+        20.12729388475418
+      ],
+      "unexpected_terminations": []
+    }
+  ]
+}

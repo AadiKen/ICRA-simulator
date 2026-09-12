@@ -16,8 +16,9 @@ class FakeBridge:
 
 
 class FakeTask:
-    def __init__(self, bridge, contract):
+    def __init__(self, bridge, contract, **kwargs):
         self.bridge = bridge
+        self.kwargs = kwargs
         self.actions = []
 
     def reset(self, seed):
@@ -39,6 +40,7 @@ class StonefishGymEnvTest(unittest.TestCase):
         observation, info = env.reset()
         self.assertEqual(observation.shape, (15,))
         self.assertEqual(info["seed"], 20)
+        self.assertEqual(env.task.kwargs["disturbance_mode"], "zero")
         _, reward, terminated, truncated, _ = env.step(np.asarray([.2, -.3]))
         self.assertTrue(np.allclose(env.task.actions[0], [.2, -.3, 0.0, 0.0]))
         self.assertEqual(reward, 2.5)
@@ -46,6 +48,16 @@ class StonefishGymEnvTest(unittest.TestCase):
         self.assertFalse(truncated)
         env.close()
         self.assertTrue(env.bridge.closed)
+
+    @patch.object(module, "StonefishCommonTask", FakeTask)
+    @patch.object(module, "StonefishBridge", FakeBridge)
+    def test_forwards_seeded_disturbance_mode(self):
+        env = module.StonefishGymEnv(
+            Path("."), executable="bridge", data_dir="data",
+            disturbance_mode="seeded",
+        )
+        self.assertEqual(env.task.kwargs["disturbance_mode"], "seeded")
+        env.close()
 
 
 if __name__ == "__main__":

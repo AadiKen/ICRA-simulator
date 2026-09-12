@@ -1,0 +1,28 @@
+{
+  "audit": "HoloOcean final-policy training disturbance configuration",
+  "status": "complete",
+  "checked_at": "2026-09-11",
+  "result": {
+    "holoocean": {
+      "disturbance_mode": "zero",
+      "wind_mode": "off",
+      "interpretation": "The final HoloOcean PPO policy was trained in calm conditions with neither current nor wind disturbance."
+    },
+    "cross_arm_comparison": {
+      "bcod_sim": "zero",
+      "gazebo": "zero",
+      "holoocean": "zero",
+      "stonefish": "zero",
+      "interpretation": "The final four-policy training curriculum was symmetric and calm. Current-only evaluation therefore measures zero-shot robustness, not robustness learned from a disturbance curriculum."
+    }
+  },
+  "evidence": [
+    "validation/rl-campaign/train_portable_ppo_feedforward.py:150-164",
+    "validation/rl-campaign/train_portable_ppo_feedforward.py:280-293",
+    "validation/rl-campaign/train_portable_ppo_feedforward.py:575-577",
+    "validation/rl-campaign/train_portable_ppo_feedforward.py:612-616",
+    "packages/python-client/bcod_sim/holoocean_vehicle_a_env.py:506-550",
+    "artifacts/common-suite/native-three-policy-20260909/holoocean/run-manifest.json"
+  ],
+  "manifest_note": "The HoloOcean run manifest records disturbance_mode=zero. wind_mode is reconstructed from the trainer default and its comparison-mode guard because wind_mode was not serialized into that manifest."
+}

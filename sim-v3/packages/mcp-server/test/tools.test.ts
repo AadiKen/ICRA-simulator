@@ -1,0 +1,10 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import {VEHICLES} from "../../vehicle-sdk/src/index.ts";
+import {ScenarioStore} from "../src/scenario-store.ts";
+import {constructScenario,getRunMetrics,listVehiclePresets,runScenario,validateScenario} from "../src/tools.ts";
+const good={schema_version:1 as const,experiment:{name:"mcp-test",seed:42,timestep_s:.05,duration_s:1},backend:{type:"node" as const},vehicle:{preset:"vehicle-a-otter",plant:"planar3" as const},mission:{type:"waypoint",waypoints:[{north_m:1,east_m:0}]},metrics:["completion","propulsion_energy"]};
+test("lists every registered vehicle",()=>assert.deepEqual(listVehiclePresets().map(x=>x.id).sort(),Object.keys(VEHICLES).sort()));
+test("validates good and bad scenarios",()=>{assert.deepEqual(validateScenario(good),{valid:true});const bad=structuredClone(good);bad.experiment.duration_s=-1;const result=validateScenario(bad);assert.equal(result.valid,false);assert.ok("error" in result&&result.error.length>0);});
+test("constructs deterministically, runs, and reads persisted metrics",async()=>{const store=new ScenarioStore(),a=constructScenario(good,store),b=constructScenario(good,store);assert.ok("scenario_id" in a&&"scenario_id" in b);assert.equal(a.checksum_sha256,b.checksum_sha256);const run=await runScenario({scenario_id:a.scenario_id},store);assert.ok("run_id" in run);assert.equal(run.success,true);assert.equal(run.metrics.propulsion_energy,run.metrics.movement_cost);assert.ok(Object.values(run.metrics).every(v=>typeof v==="number"));const read=await getRunMetrics({run_id:run.run_id},store);assert.ok("metrics" in read);assert.deepEqual(read.metrics,run.metrics);});
+test("unknown scenario is a normal error result",async()=>{const result=await runScenario({scenario_id:"missing"},new ScenarioStore());assert.match((result as {error:string}).error,/Unknown scenario_id/);});

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-current-single-step-force-vector-diagnostic",
+  "status": "COMPLETE",
+  "seed": 20000,
+  "conditions": {
+    "vehicle_initial_velocity_mps": [0, 0, 0],
+    "action": [0, 0],
+    "wind_scale": 0,
+    "current_scale": 1,
+    "sample_time_s": 0.05
+  },
+  "coordinate_convention": "body x forward, body y starboard",
+  "current_body_node_mps": [-1.06208, 0.680964],
+  "node_expected_force_body_n": [-26.6767306752, 40.08007015776],
+  "vrx_logged_force_body_n": [-26.6768, 40.0801],
+  "comparison": {
+    "node_magnitude_n": 48.1462354018268,
+    "vrx_magnitude_n": 48.14629865576377,
+    "relative_magnitude_error": 0.0000013137878059188564,
+    "direction_error_deg": 0.000049000954808832976
+  },
+  "decision": {
+    "frame_or_sign_bug_supported": false,
+    "current_force_formula_mismatch_supported": false,
+    "downstream_plant_response_mismatch_supported": true,
+    "interpretation": "The current plugin applies the Node damping force with effectively exact magnitude and direction before trajectory integration. The later Gate 7 divergence therefore arises in the simulator plant response, not current-vector serialization or toward/from convention."
+  },
+  "evidence": {
+    "vrx_force_log": "artifacts/rl-campaign/vrx-force-vector-diagnostic/seed-20000/current-force.csv",
+    "vrx_raw_trace": "artifacts/rl-campaign/vrx-force-vector-diagnostic/seed-20000/raw.jsonl"
+  }
+}

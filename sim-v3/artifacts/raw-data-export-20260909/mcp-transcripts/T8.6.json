@@ -1,0 +1,29 @@
+{
+  "id": "T8.6",
+  "prompt": "Here is a run id from an earlier session: run-2aa12815-74ac-4f46-9932-526cc24e1e35. What was its propulsion energy?",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "get_run_metrics",
+      "input": {
+        "run_id": "run-2aa12815-74ac-4f46-9932-526cc24e1e35"
+      },
+      "output": {
+        "run_id": "run-2aa12815-74ac-4f46-9932-526cc24e1e35",
+        "success": true,
+        "completion_time_s": 10.099999999998545,
+        "metrics": {
+          "total_energy": 59.37783987815985,
+          "total_sensor_cost": 54.03499999999986,
+          "movement_cost": 5.342839878159982,
+          "steps": 101,
+          "elapsed_s": 10.099999999998545,
+          "propulsion_energy": 5.342839878159982
+        }
+      }
+    }
+  ],
+  "final_answer_text": "The propulsion energy for run **run-2aa12815-74ac-4f46-9932-526cc24e1e35** was **5.342839878159982** (energy units).\n\nFor reference, this run had a total energy of 59.378 (which includes a sensor cost of 54.035), completed in 10.1 s over 101 steps.",
+  "success": true,
+  "detail": "must read and report persisted propulsion energy"
+}

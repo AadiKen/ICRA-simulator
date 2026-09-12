@@ -1,0 +1,4781 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "enc-direct-live-confirmatory-pass",
+  "generated_at": "2026-08-31T02:54:51.702Z",
+  "methodology": "Live NOAA ENC Direct harbour-band catalogue lookup, dynamically resolved layer ids, one San Francisco Bay envelope query per required point layer, and the exact specified live coded-value domain request. No adapter or S-57 semantic interpretation was performed. Amendment 1 Phase 0b appended from live metadata-area queries over the same bbox; Phase 0 feature results retained. Amendment 1 Phase 0b appended from live metadata-area queries over the same bbox; Phase 0 feature results retained. Amendment 2 adds deterministic obstacle-weighted CATZOC assignment.",
+  "dataset": {
+    "id": "NOAA-ENC-Direct-enc_harbour",
+    "service": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer",
+    "spatial_reference": "EPSG:4326",
+    "bbox": {
+      "xmin": -122.52,
+      "ymin": 37.7,
+      "xmax": -122.32,
+      "ymax": 37.88
+    }
+  },
+  "results": [
+    {
+      "layer_suffix": ".Obstruction_point",
+      "resolved_name": "Harbor.Obstruction_point",
+      "resolved_layer_id": 33,
+      "feature_count": 227,
+      "population_rates": {
+        "SOUACC": {
+          "populated": 0,
+          "total": 227,
+          "rate": 0
+        },
+        "VERACC": {
+          "populated": 0,
+          "total": 227,
+          "rate": 0
+        },
+        "WATLEV": {
+          "populated": 227,
+          "total": 227,
+          "rate": 1
+        },
+        "VALSOU": {
+          "populated": 35,
+          "total": 227,
+          "rate": 0.15418502202643172
+        },
+        "CATOBS": {
+          "populated": 183,
+          "total": 227,
+          "rate": 0.8061674008810573
+        },
+        "NATCON": {
+          "populated": 1,
+          "total": 227,
+          "rate": 0.004405286343612335
+        },
+        "NATSUR": {
+          "populated": 0,
+          "total": 227,
+          "rate": 0
+        },
+        "SORDAT": {
+          "populated": 227,
+          "total": 227,
+          "rate": 1
+        },
+        "SORIND": {
+          "populated": 227,
+          "total": 227,
+          "rate": 1
+        }
+      },
+      "sample_features": [
+        {
+          "type": "Feature",
+          "id": 303824,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.3723857,
+              37.71671700000002
+            ]
+          },
+          "properties": {
+            "OBJECTID": 303824,
+            "OBJL": 86,
+            "CATOBS": "snag/stump",
+            "CONDTN": 2,
+            "EXPSOU": null,
+            "HEIGHT": null,
+            "NATCON": null,
+            "NATQUA": null,
+            "OBJNAM": null,
+            "PRODCT": null,
+            "QUASOU": "2",
+            "SOUACC": null,
+            "TECSOU": null,
+            "VALSOU": null,
+            "VERACC": null,
+            "VERDAT": null,
+            "VERLEN": null,
+            "WATLEV": 3,
+            "NATSUR": null,
+            "INFORM": null,
+            "SCAMIN": null,
+            "SORDAT": "20130826",
+            "SORIND": "US,US,graph,GC-11192, DD-27705(CEF)",
+            "DSNM": "US5OAKDH.000"
+          }
+        },
+        {
+          "type": "Feature",
+          "id": 303826,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.36870800000003,
+              37.71625019999999
+            ]
+          },
+          "properties": {
+            "OBJECTID": 303826,
+            "OBJL": 86,
+            "CATOBS": "snag/stump",
+            "CONDTN": 2,
+            "EXPSOU": null,
+            "HEIGHT": null,
+            "NATCON": null,
+            "NATQUA": null,
+            "OBJNAM": null,
+            "PRODCT": null,
+            "QUASOU": "2",
+            "SOUACC": null,
+            "TECSOU": null,
+            "VALSOU": null,
+            "VERACC": null,
+            "VERDAT": null,
+            "VERLEN": null,
+            "WATLEV": 3,
+            "NATSUR": null,
+            "INFORM": null,
+            "SCAMIN": null,
+            "SORDAT": "20130826",
+            "SORIND": "US,US,graph,GC-11192, DD-27705(CEF)",
+            "DSNM": "US5OAKDH.000"
+          }
+        },
+        {
+          "type": "Feature",
+          "id": 303828,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.3780797,
+              37.71983610000001
+            ]
+          },
+          "properties": {
+            "OBJECTID": 303828,
+            "OBJL": 86,
+            "CATOBS": "snag/stump",
+            "CONDTN": 2,
+            "EXPSOU": null,
+            "HEIGHT": null,
+            "NATCON": null,
+            "NATQUA": null,
+            "OBJNAM": null,
+            "PRODCT": null,
+            "QUASOU": "2",
+            "SOUACC": null,
+            "TECSOU": null,
+            "VALSOU": null,
+            "VERACC": null,
+            "VERDAT": null,
+            "VERLEN": null,
+            "WATLEV": 3,
+            "NATSUR": null,
+            "INFORM": null,
+            "SCAMIN": null,
+            "SORDAT": "20130826",
+            "SORIND": "US,US,graph,GC-11192, DD-27705(CEF)",
+            "DSNM": "US5OAKDH.000"
+          }
+        }
+      ],
+      "request": {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/33/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 56.072,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 114823,
+        "checksum_sha256": "10549ea2e2d844bd8403478cdc753c932bdc503ca56ca7f52a118352ca4c8076"
+      }
+    },
+    {
+      "layer_suffix": ".Buoy_Lateral_point",
+      "resolved_name": "Harbor.Buoy_Lateral_point",
+      "resolved_layer_id": 6,
+      "feature_count": 28,
+      "population_rates": {
+        "SOUACC": {
+          "populated": 0,
+          "total": 28,
+          "rate": 0
+        },
+        "VERACC": {
+          "populated": 0,
+          "total": 28,
+          "rate": 0
+        },
+        "WATLEV": {
+          "populated": 0,
+          "total": 28,
+          "rate": 0
+        },
+        "VALSOU": {
+          "populated": 0,
+          "total": 28,
+          "rate": 0,
+          "applicability": "not-applicable",
+          "note": "VALSOU is a sounding depth and is not meaningful for floating or protruding objects."
+        },
+        "CATOBS": {
+          "populated": 0,
+          "total": 28,
+          "rate": 0
+        },
+        "NATCON": {
+          "populated": 0,
+          "total": 28,
+          "rate": 0
+        },
+        "NATSUR": {
+          "populated": 0,
+          "total": 28,
+          "rate": 0
+        },
+        "SORDAT": {
+          "populated": 28,
+          "total": 28,
+          "rate": 1
+        },
+        "SORIND": {
+          "populated": 28,
+          "total": 28,
+          "rate": 1
+        }
+      },
+      "sample_features": [
+        {
+          "type": "Feature",
+          "id": 114543,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.36054080000002,
+              37.79951829999999
+            ]
+          },
+          "properties": {
+            "OBJECTID": 114543,
+            "OBJL": 17,
+            "BOYSHP": "pillar",
+            "CATLAM": 2,
+            "COLOUR": "3",
+            "COLPAT": null,
+            "CONRAD": null,
+            "MARSYS": null,
+            "NATCON": null,
+            "OBJNAM": "Oakland Harbor Bar Channel Lighted Buoy 2",
+            "VERACC": null,
+            "VERLEN": null,
+            "INFORM": null,
+            "PICREP": null,
+            "SCAMIN": 29999,
+            "SORDAT": "20070424",
+            "SORIND": "US,US,reprt,11thCGD,LNM 17/07",
+            "DSNM": "US5OAKEH.000"
+          }
+        },
+        {
+          "type": "Feature",
+          "id": 114544,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.38154029999998,
+              37.796400800000015
+            ]
+          },
+          "properties": {
+            "OBJECTID": 114544,
+            "OBJL": 17,
+            "BOYSHP": "can",
+            "CATLAM": 3,
+            "COLOUR": "4,3,4",
+            "COLPAT": "1",
+            "CONRAD": null,
+            "MARSYS": null,
+            "NATCON": null,
+            "OBJNAM": "Pier B North Buoy",
+            "VERACC": null,
+            "VERLEN": null,
+            "INFORM": null,
+            "PICREP": null,
+            "SCAMIN": 29999,
+            "SORDAT": "20040719",
+            "SORIND": "US,US,reprt,11thCGD,ATONIS",
+            "DSNM": "US5OAKEH.000"
+          }
+        },
+        {
+          "type": "Feature",
+          "id": 114545,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.36583330000002,
+              37.77555560000002
+            ]
+          },
+          "properties": {
+            "OBJECTID": 114545,
+            "OBJL": 17,
+            "BOYSHP": "pillar",
+            "CATLAM": 3,
+            "COLOUR": "4,3,4",
+            "COLPAT": "1",
+            "CONRAD": null,
+            "MARSYS": null,
+            "NATCON": null,
+            "OBJNAM": "San Francisco Bay Preferred Channel Lighted Buoy \"SC\"",
+            "VERACC": null,
+            "VERLEN": null,
+            "INFORM": null,
+            "PICREP": null,
+            "SCAMIN": 29999,
+            "SORDAT": "20131126",
+            "SORIND": "US,US,reprt,11thCGD,LNM 48/13",
+            "DSNM": "US5OAKEH.000"
+          }
+        }
+      ],
+      "request": {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/6/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 51.678,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 12815,
+        "checksum_sha256": "ea51a942ca7dd4d3ba62b36784125b60963402b467950d1f12e10f2617c6204a"
+      }
+    },
+    {
+      "layer_suffix": ".Wreck_point",
+      "resolved_name": "Harbor.Wreck_point",
+      "resolved_layer_id": 36,
+      "feature_count": 33,
+      "population_rates": {
+        "SOUACC": {
+          "populated": 0,
+          "total": 33,
+          "rate": 0
+        },
+        "VERACC": {
+          "populated": 0,
+          "total": 33,
+          "rate": 0
+        },
+        "WATLEV": {
+          "populated": 33,
+          "total": 33,
+          "rate": 1
+        },
+        "VALSOU": {
+          "populated": 16,
+          "total": 33,
+          "rate": 0.48484848484848486
+        },
+        "CATOBS": {
+          "populated": 0,
+          "total": 33,
+          "rate": 0
+        },
+        "NATCON": {
+          "populated": 0,
+          "total": 33,
+          "rate": 0
+        },
+        "NATSUR": {
+          "populated": 0,
+          "total": 33,
+          "rate": 0
+        },
+        "SORDAT": {
+          "populated": 33,
+          "total": 33,
+          "rate": 1
+        },
+        "SORIND": {
+          "populated": 33,
+          "total": 33,
+          "rate": 1
+        }
+      },
+      "sample_features": [
+        {
+          "type": "Feature",
+          "id": 65749,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.50059010000001,
+              37.799195999999995
+            ]
+          },
+          "properties": {
+            "OBJECTID": 65749,
+            "OBJL": 159,
+            "CATWRK": "non-dangerous wreck (test)",
+            "CONRAD": null,
+            "CONVIS": null,
+            "EXPSOU": null,
+            "HEIGHT": null,
+            "OBJNAM": null,
+            "QUASOU": "2",
+            "SOUACC": null,
+            "TECSOU": null,
+            "VALSOU": null,
+            "VERACC": null,
+            "VERDAT": null,
+            "VERLEN": null,
+            "WATLEV": 3,
+            "INFORM": null,
+            "SCAMIN": 59999,
+            "SORDAT": "201306",
+            "SORIND": "US,US,graph,Chart 18649",
+            "DSNM": "US5OAKEF.000"
+          }
+        },
+        {
+          "type": "Feature",
+          "id": 65750,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.512339,
+              37.78525139999999
+            ]
+          },
+          "properties": {
+            "OBJECTID": 65750,
+            "OBJL": 159,
+            "CATWRK": "dangerous wreck",
+            "CONRAD": null,
+            "CONVIS": null,
+            "EXPSOU": null,
+            "HEIGHT": null,
+            "OBJNAM": null,
+            "QUASOU": "2",
+            "SOUACC": null,
+            "TECSOU": null,
+            "VALSOU": null,
+            "VERACC": null,
+            "VERDAT": null,
+            "VERLEN": null,
+            "WATLEV": 3,
+            "INFORM": null,
+            "SCAMIN": null,
+            "SORDAT": "201306",
+            "SORIND": "US,US,graph,Chart 18649",
+            "DSNM": "US5OAKEF.000"
+          }
+        },
+        {
+          "type": "Feature",
+          "id": 65751,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.38312710000002,
+              37.79080440000001
+            ]
+          },
+          "properties": {
+            "OBJECTID": 65751,
+            "OBJL": 159,
+            "CATWRK": "non-dangerous wreck (test)",
+            "CONRAD": null,
+            "CONVIS": null,
+            "EXPSOU": 1,
+            "HEIGHT": null,
+            "OBJNAM": null,
+            "QUASOU": "6",
+            "SOUACC": null,
+            "TECSOU": null,
+            "VALSOU": 21.6,
+            "VERACC": null,
+            "VERDAT": null,
+            "VERLEN": null,
+            "WATLEV": 3,
+            "INFORM": null,
+            "SCAMIN": 29999,
+            "SORDAT": "20031031",
+            "SORIND": "US,US,graph,BP-181920,FE-477",
+            "DSNM": "US5OAKEH.000"
+          }
+        }
+      ],
+      "request": {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/36/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 52,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 15653,
+        "checksum_sha256": "9baf91364ca39eaa756f4f52ac033dd013cc3511130ac31c180d944aa02ae1b2"
+      }
+    },
+    {
+      "layer_suffix": ".Pile_point",
+      "resolved_name": "Harbor.Pile_point",
+      "resolved_layer_id": 58,
+      "feature_count": 49,
+      "population_rates": {
+        "SOUACC": {
+          "populated": 0,
+          "total": 49,
+          "rate": 0
+        },
+        "VERACC": {
+          "populated": 0,
+          "total": 49,
+          "rate": 0
+        },
+        "WATLEV": {
+          "populated": 0,
+          "total": 49,
+          "rate": 0
+        },
+        "VALSOU": {
+          "populated": 0,
+          "total": 49,
+          "rate": 0,
+          "applicability": "not-applicable",
+          "note": "VALSOU is a sounding depth and is not meaningful for floating or protruding objects."
+        },
+        "CATOBS": {
+          "populated": 0,
+          "total": 49,
+          "rate": 0
+        },
+        "NATCON": {
+          "populated": 0,
+          "total": 49,
+          "rate": 0
+        },
+        "NATSUR": {
+          "populated": 0,
+          "total": 49,
+          "rate": 0
+        },
+        "SORDAT": {
+          "populated": 49,
+          "total": 49,
+          "rate": 1
+        },
+        "SORIND": {
+          "populated": 49,
+          "total": 49,
+          "rate": 1
+        }
+      },
+      "sample_features": [
+        {
+          "type": "Feature",
+          "id": 331293,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.38110699999999,
+              37.75689940000001
+            ]
+          },
+          "properties": {
+            "OBJECTID": 331293,
+            "OBJL": 90,
+            "CATPLE": "post",
+            "COLOUR": null,
+            "COLPAT": null,
+            "CONDTN": null,
+            "CONVIS": null,
+            "HEIGHT": null,
+            "OBJNAM": null,
+            "VERACC": null,
+            "VERDAT": null,
+            "VERLEN": null,
+            "INFORM": null,
+            "SCAMIN": 44999,
+            "SORDAT": "20130826",
+            "SORIND": "US,US,graph,GC-11192",
+            "DSNM": "US5OAKEH.000"
+          }
+        },
+        {
+          "type": "Feature",
+          "id": 331294,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.38764939999999,
+              37.74708959999998
+            ]
+          },
+          "properties": {
+            "OBJECTID": 331294,
+            "OBJL": 90,
+            "CATPLE": "post",
+            "COLOUR": null,
+            "COLPAT": null,
+            "CONDTN": null,
+            "CONVIS": null,
+            "HEIGHT": null,
+            "OBJNAM": null,
+            "VERACC": null,
+            "VERDAT": null,
+            "VERLEN": null,
+            "INFORM": null,
+            "SCAMIN": 44999,
+            "SORDAT": "20220804",
+            "SORIND": "US,US,graph,GC-11896",
+            "DSNM": "US5OAKEH.000"
+          }
+        },
+        {
+          "type": "Feature",
+          "id": 331310,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.50299539999997,
+              37.87190140000001
+            ]
+          },
+          "properties": {
+            "OBJECTID": 331310,
+            "OBJL": 90,
+            "CATPLE": "post",
+            "COLOUR": null,
+            "COLPAT": null,
+            "CONDTN": null,
+            "CONVIS": null,
+            "HEIGHT": null,
+            "OBJNAM": null,
+            "VERACC": null,
+            "VERDAT": null,
+            "VERLEN": null,
+            "INFORM": null,
+            "SCAMIN": 89999,
+            "SORDAT": "201210",
+            "SORIND": "US,US,graph,Chart 18653",
+            "DSNM": "US5OAKFF.000"
+          }
+        }
+      ],
+      "request": {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/58/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 45.639,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 19724,
+        "checksum_sha256": "d0a0132b7de6140e70be544e1a9c770090fdb7ea93eefe2686752ecad5301169"
+      }
+    },
+    {
+      "layer_suffix": ".Underwater_Awash_Rock_point",
+      "resolved_name": "Harbor.Underwater_Awash_Rock_point",
+      "resolved_layer_id": 34,
+      "feature_count": 160,
+      "population_rates": {
+        "SOUACC": {
+          "populated": 0,
+          "total": 160,
+          "rate": 0
+        },
+        "VERACC": {
+          "populated": 0,
+          "total": 160,
+          "rate": 0
+        },
+        "WATLEV": {
+          "populated": 160,
+          "total": 160,
+          "rate": 1
+        },
+        "VALSOU": {
+          "populated": 29,
+          "total": 160,
+          "rate": 0.18125
+        },
+        "CATOBS": {
+          "populated": 0,
+          "total": 160,
+          "rate": 0
+        },
+        "NATCON": {
+          "populated": 0,
+          "total": 160,
+          "rate": 0
+        },
+        "NATSUR": {
+          "populated": 40,
+          "total": 160,
+          "rate": 0.25
+        },
+        "SORDAT": {
+          "populated": 160,
+          "total": 160,
+          "rate": 1
+        },
+        "SORIND": {
+          "populated": 160,
+          "total": 160,
+          "rate": 1
+        }
+      },
+      "sample_features": [
+        {
+          "type": "Feature",
+          "id": 724244,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.39135420000002,
+              37.70049519999998
+            ]
+          },
+          "properties": {
+            "OBJECTID": 724244,
+            "OBJL": 153,
+            "EXPSOU": 2,
+            "NATSUR": null,
+            "NATQUA": null,
+            "OBJNAM": null,
+            "QUASOU": "6",
+            "SOUACC": null,
+            "TECSOU": null,
+            "VALSOU": -0.6,
+            "VERDAT": null,
+            "WATLEV": 4,
+            "INFORM": null,
+            "SCAMIN": null,
+            "SORDAT": "200302",
+            "SORIND": "US,US,graph,Chart 18651",
+            "DSNM": "US5OAKDH.000"
+          }
+        },
+        {
+          "type": "Feature",
+          "id": 724245,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.38184719999998,
+              37.70802520000001
+            ]
+          },
+          "properties": {
+            "OBJECTID": 724245,
+            "OBJL": 153,
+            "EXPSOU": 2,
+            "NATSUR": null,
+            "NATQUA": null,
+            "OBJNAM": null,
+            "QUASOU": null,
+            "SOUACC": null,
+            "TECSOU": null,
+            "VALSOU": 0,
+            "VERDAT": null,
+            "WATLEV": 5,
+            "INFORM": null,
+            "SCAMIN": null,
+            "SORDAT": "200909",
+            "SORIND": "US,US,graph,GC-10575,DD-6886(CEF)",
+            "DSNM": "US5OAKDH.000"
+          }
+        },
+        {
+          "type": "Feature",
+          "id": 724246,
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              -122.37066900000002,
+              37.718338800000026
+            ]
+          },
+          "properties": {
+            "OBJECTID": 724246,
+            "OBJL": 153,
+            "EXPSOU": null,
+            "NATSUR": null,
+            "NATQUA": null,
+            "OBJNAM": null,
+            "QUASOU": "2",
+            "SOUACC": null,
+            "TECSOU": null,
+            "VALSOU": null,
+            "VERDAT": null,
+            "WATLEV": 4,
+            "INFORM": null,
+            "SCAMIN": 21999,
+            "SORDAT": "20030218",
+            "SORIND": "US,US,graph,GC-10575,DD-6886(CEF)",
+            "DSNM": "US5OAKDH.000"
+          }
+        }
+      ],
+      "request": {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/34/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 67.599,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 63618,
+        "checksum_sha256": "b74c0af018415cac15130f6bda1c3d0eeed64250cda33b7f5c0f7d5832ddd476"
+      }
+    }
+  ],
+  "domains": {
+    "status": "failed-empty-domain-response",
+    "source": "queryDomains-with-layer-id-array",
+    "request": {
+      "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/queryDomains?layers=%5B6%2C33%2C34%2C36%2C58%2C218%2C220%2C223%5D&f=pjson",
+      "status": 200,
+      "ok": true,
+      "latency_ms": 48.626,
+      "content_type": "text/plain;charset=UTF-8",
+      "bytes": 23,
+      "checksum_sha256": "192cd32e904af6462c639343b5b30db5c8138d8fbe1e13b6b7b41f4375ea96cd"
+    },
+    "response": {
+      "domains": []
+    },
+    "blocking_note": "HTTP 200 contained no domain tables. Raw numeric WATLEV, CONDTN, EXPSOU, and CATZOC cannot be decoded without an explicitly approved request shape; no S-57 values were hardcoded."
+  },
+  "summary": {
+    "layers_requested": 5,
+    "layers_resolved": 5,
+    "features_returned": 497,
+    "all_feature_requests_succeeded": true,
+    "domain_request_succeeded": false,
+    "human_review_required": true,
+    "phase_0_gate": "passed-amendment-1",
+    "phase_0b_gate": "passed-tier-1-approved-domain-decoding-blocked"
+  },
+  "credential_leak_scan": {
+    "pass": true,
+    "findings": []
+  },
+  "phase0b": {
+    "status": "passed-tier-1-approved",
+    "bbox": {
+      "xmin": -122.52,
+      "ymin": 37.7,
+      "xmax": -122.32,
+      "ymax": 37.88
+    },
+    "results": [
+      {
+        "layer_suffix": ".Quality_of_Data_area",
+        "resolved_name": "Harbor.Quality_of_Data_area",
+        "resolved_layer_id": 223,
+        "polygon_count": 168,
+        "population_rates": {
+          "CATZOC": {
+            "populated": 168,
+            "total": 168,
+            "rate": 1
+          },
+          "POSACC": {
+            "populated": 0,
+            "total": 168,
+            "rate": 0
+          },
+          "SOUACC": {
+            "populated": 0,
+            "total": 168,
+            "rate": 0
+          },
+          "VERACC": {
+            "populated": 0,
+            "total": 168,
+            "rate": 0
+          },
+          "CSCALE": {
+            "populated": 0,
+            "total": 168,
+            "rate": 0
+          }
+        },
+        "catzoc_value_counts": {
+          "1": 65,
+          "2": 17,
+          "3": 84,
+          "6": 2
+        },
+        "sample_polygons": [
+          {
+            "properties": {
+              "OBJECTID": 336389,
+              "OBJL": 308,
+              "CATQUA": null,
+              "CATZOC": 6,
+              "DRVAL1": null,
+              "DRVAL2": null,
+              "POSACC": null,
+              "SOUACC": null,
+              "SUREND": null,
+              "SURSTA": null,
+              "TECSOU": null,
+              "VERDAT": null,
+              "INFORM": null,
+              "SORDAT": "20250409",
+              "SORIND": "US,US,reprt,L-149-2025",
+              "DSNM": "US5OAKDG.000",
+              "SHAPE.AREA": 0.005625,
+              "SHAPE.LEN": 0.3
+            },
+            "geometry": {
+              "type": "Polygon",
+              "vertex_count": 20,
+              "bbox": [
+                -122.47500000000002,
+                37.64999999999998,
+                -122.39999999999998,
+                37.72500000000002
+              ]
+            }
+          },
+          {
+            "properties": {
+              "OBJECTID": 336391,
+              "OBJL": 308,
+              "CATQUA": null,
+              "CATZOC": 3,
+              "DRVAL1": null,
+              "DRVAL2": null,
+              "POSACC": null,
+              "SOUACC": null,
+              "SUREND": "1979",
+              "SURSTA": "1970",
+              "TECSOU": null,
+              "VERDAT": null,
+              "INFORM": null,
+              "SORDAT": "20150515",
+              "SORIND": "US,US,reprt,L-925/2015",
+              "DSNM": "US5OAKDH.000",
+              "SHAPE.AREA": 0.00000159202674,
+              "SHAPE.LEN": 0.00766318183282302
+            },
+            "geometry": {
+              "type": "Polygon",
+              "vertex_count": 9,
+              "bbox": [
+                -122.3615787,
+                37.724164599999995,
+                -122.3581393,
+                37.72500000000002
+              ]
+            }
+          },
+          {
+            "properties": {
+              "OBJECTID": 336392,
+              "OBJL": 308,
+              "CATQUA": null,
+              "CATZOC": 3,
+              "DRVAL1": null,
+              "DRVAL2": null,
+              "POSACC": null,
+              "SOUACC": null,
+              "SUREND": "1979",
+              "SURSTA": "1970",
+              "TECSOU": null,
+              "VERDAT": null,
+              "INFORM": null,
+              "SORDAT": "20150515",
+              "SORIND": "US,US,reprt,L-925/2015",
+              "DSNM": "US5OAKDH.000",
+              "SHAPE.AREA": 0.00001657324914,
+              "SHAPE.LEN": 0.0286741023316226
+            },
+            "geometry": {
+              "type": "Polygon",
+              "vertex_count": 114,
+              "bbox": [
+                -122.36463320000001,
+                37.71949169999999,
+                -122.35817550000002,
+                37.72500000000002
+              ]
+            }
+          }
+        ],
+        "requests": [
+          {
+            "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/223/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+            "status": 200,
+            "ok": true,
+            "latency_ms": 616.202,
+            "content_type": "application/geo+json;charset=UTF-8",
+            "bytes": 2092272,
+            "checksum_sha256": "111d139b382282f6262f8fed26061ca338795dec4b347fbbb31bea659b9405f0"
+          }
+        ]
+      },
+      {
+        "layer_suffix": ".Accuracy_of_Data_area",
+        "resolved_name": "Harbor.Accuracy_of_Data_area",
+        "resolved_layer_id": 218,
+        "polygon_count": 0,
+        "population_rates": {
+          "CATZOC": {
+            "populated": 0,
+            "total": 0,
+            "rate": 0
+          },
+          "POSACC": {
+            "populated": 0,
+            "total": 0,
+            "rate": 0
+          },
+          "SOUACC": {
+            "populated": 0,
+            "total": 0,
+            "rate": 0
+          },
+          "VERACC": {
+            "populated": 0,
+            "total": 0,
+            "rate": 0
+          },
+          "CSCALE": {
+            "populated": 0,
+            "total": 0,
+            "rate": 0
+          }
+        },
+        "catzoc_value_counts": {},
+        "sample_polygons": [],
+        "requests": [
+          {
+            "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/218/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+            "status": 200,
+            "ok": true,
+            "latency_ms": 39.752,
+            "content_type": "application/geo+json;charset=UTF-8",
+            "bytes": 42,
+            "checksum_sha256": "ed778c73ea51338d6576fb5992b189f2b94d9f3d5e199f46c1af520d6b0b3e6c"
+          }
+        ]
+      },
+      {
+        "layer_suffix": ".Compilation_Scale_of_Data_area",
+        "resolved_name": "Harbor.Compilation_Scale_of_Data_area",
+        "resolved_layer_id": 220,
+        "polygon_count": 0,
+        "population_rates": {
+          "CATZOC": {
+            "populated": 0,
+            "total": 0,
+            "rate": 0
+          },
+          "POSACC": {
+            "populated": 0,
+            "total": 0,
+            "rate": 0
+          },
+          "SOUACC": {
+            "populated": 0,
+            "total": 0,
+            "rate": 0
+          },
+          "VERACC": {
+            "populated": 0,
+            "total": 0,
+            "rate": 0
+          },
+          "CSCALE": {
+            "populated": 0,
+            "total": 0,
+            "rate": 0
+          }
+        },
+        "catzoc_value_counts": {},
+        "sample_polygons": [],
+        "requests": [
+          {
+            "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/220/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+            "status": 200,
+            "ok": true,
+            "latency_ms": 112.891,
+            "content_type": "application/geo+json;charset=UTF-8",
+            "bytes": 42,
+            "checksum_sha256": "ed778c73ea51338d6576fb5992b189f2b94d9f3d5e199f46c1af520d6b0b3e6c"
+          }
+        ]
+      }
+    ],
+    "quality_coverage": {
+      "obstacle_count": 497,
+      "covered_obstacle_count": 497,
+      "coverage_fraction": 1
+    },
+    "obstacleWeightedZoc": {
+      "resolution_rule": [
+        "finest scale band",
+        "numerically worst CATZOC within band",
+        "ascending polygon id"
+      ],
+      "counts": {
+        "1": {
+          "count": 184,
+          "percentage": 0.3702213279678068
+        },
+        "2": {
+          "count": 22,
+          "percentage": 0.04426559356136821
+        },
+        "3": {
+          "count": 291,
+          "percentage": 0.5855130784708249
+        }
+      },
+      "obstacles_with_multiple_candidates": 0,
+      "assignments": [
+        {
+          "obstacle_ref": "US5OAKDH.000:303824",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336395,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKDH.000:303826",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336395,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKDH.000:303828",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336395,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKDH.000:303829",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336395,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKDH.000:303832",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336395,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303840",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336426,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303841",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303842",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336439,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303843",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336458,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303844",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336458,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303845",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336426,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303846",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336436,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303847",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336436,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303848",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336458,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303849",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336456,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303850",
+          "source_class": 86,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336445,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303851",
+          "source_class": 86,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336444,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303852",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336456,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303853",
+          "source_class": 86,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336445,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303854",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336450,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303855",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336438,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303856",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336438,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303857",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336434,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303858",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336434,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303859",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336434,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303860",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336457,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303861",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336457,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303862",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336457,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303863",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336438,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303864",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336438,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303865",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336438,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303866",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336456,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303867",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336456,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303868",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336424,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303869",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336424,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303870",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336424,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303871",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336429,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303872",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336466,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303873",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336466,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303874",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336466,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303875",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336466,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303876",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336466,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303877",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336429,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303878",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336429,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303879",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336429,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303880",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336429,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303881",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303882",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303883",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303884",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303885",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303886",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303887",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303888",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303889",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303890",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336450,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303891",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336450,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303892",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336450,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303893",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303894",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303895",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303896",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303897",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303898",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336425,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303899",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336450,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303900",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336450,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303901",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336450,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303902",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336450,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303903",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336451,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303904",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336451,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303905",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336451,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303906",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336451,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303907",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336451,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303908",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336451,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303909",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336452,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303910",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336446,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303911",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336446,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303912",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336446,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303913",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336446,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303914",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336446,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303915",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336446,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303916",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336453,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303917",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336428,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303918",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336428,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303919",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336428,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303920",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336428,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303921",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336428,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303922",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336428,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303923",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336465,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303924",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336457,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303925",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336465,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303926",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336465,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303927",
+          "source_class": 86,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336445,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303928",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336436,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303929",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336436,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303930",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336465,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303931",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336436,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303932",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336465,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303933",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336465,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303934",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336439,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303935",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336465,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303936",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336433,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303937",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336465,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303938",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336457,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303939",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336438,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303940",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336438,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303941",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336457,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303942",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336434,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:303943",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336465,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304082",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304083",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304084",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304085",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304086",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304087",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304088",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304089",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304090",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304091",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304092",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336505,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304093",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336505,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304094",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336505,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304095",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336505,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304096",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304097",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304098",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304099",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:304100",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304101",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336526,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304102",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336529,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304103",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336529,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304104",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336533,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304105",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336533,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304106",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304107",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304108",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304109",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304110",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336528,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304111",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304112",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304113",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304114",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304115",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304116",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304117",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304118",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304119",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304120",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304121",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304122",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304123",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304124",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304125",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304126",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304127",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304128",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304129",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304130",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304131",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304132",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304133",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304134",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304135",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304136",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304137",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304138",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304139",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304140",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304141",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304142",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304143",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304144",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304145",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304146",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336537,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304147",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304148",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:304149",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336535,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304150",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304151",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336562,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304152",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304153",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336549,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304154",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336553,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304155",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336553,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304156",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304157",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304158",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304159",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336549,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304160",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304161",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336553,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304162",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304163",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304164",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336549,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304165",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304166",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304167",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304168",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336559,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304169",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336559,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304170",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304171",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336559,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304172",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304173",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336574,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304174",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336549,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304175",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336553,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304176",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304177",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304178",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304179",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336553,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304180",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304181",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304182",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304183",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336549,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:304184",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFI.000:304191",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336580,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFI.000:304193",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336585,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFI.000:304196",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336580,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFI.000:304202",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336585,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFI.000:304203",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336586,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFI.000:304204",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336585,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFI.000:304206",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336580,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFI.000:304221",
+          "source_class": 86,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336585,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFI.000:304235",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336580,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKGF.000:304245",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336598,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKGF.000:304246",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336598,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKGF.000:304250",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336598,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKGF.000:304254",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336598,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKGF.000:304256",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336598,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKGF.000:304258",
+          "source_class": 86,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336598,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:114543",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336426,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:114544",
+          "source_class": 17,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336431,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:114545",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336465,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:114546",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336458,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:114547",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336465,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:114548",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336463,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:114549",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336465,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:114550",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336433,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:114551",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336468,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:114555",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:114557",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336540,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:114558",
+          "source_class": 17,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336536,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:114559",
+          "source_class": 17,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:114560",
+          "source_class": 17,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336536,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:114561",
+          "source_class": 17,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336536,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:114562",
+          "source_class": 17,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336536,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:114563",
+          "source_class": 17,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:114564",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336524,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:114565",
+          "source_class": 17,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336575,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:114566",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:114567",
+          "source_class": 17,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336558,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:114568",
+          "source_class": 17,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336575,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:114569",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336551,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:114570",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336551,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:114571",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336576,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:114572",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336571,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:114573",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKGG.000:114592",
+          "source_class": 17,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336617,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:65749",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:65750",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:65751",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336439,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:65752",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336457,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:65753",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336434,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:65754",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336434,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:65755",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336429,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:65756",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336456,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:65757",
+          "source_class": 159,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336445,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:65758",
+          "source_class": 159,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336444,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:65759",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336439,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:65760",
+          "source_class": 159,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336444,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEI.000:65764",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336481,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEI.000:65771",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336469,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:65797",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:65799",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:65800",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:65801",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:65803",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:65804",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:65805",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336524,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:65806",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336540,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:65807",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:65808",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336534,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:65809",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336518,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:65810",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336529,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:65811",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:65812",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336569,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:65813",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:65814",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:65815",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336554,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKGF.000:65816",
+          "source_class": 159,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336598,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKGG.000:65820",
+          "source_class": 159,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336617,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:331293",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336438,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:331294",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336424,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:331310",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:331311",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:331312",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:331313",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:331314",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:331315",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:331316",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:331317",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:331318",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336505,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:331319",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:331320",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:331321",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336508,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331322",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331323",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331324",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331325",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331326",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331327",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331328",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331329",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331330",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336537,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331331",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331332",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331333",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331334",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331335",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331336",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331337",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331338",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331339",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336537,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331340",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331341",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331342",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331343",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331344",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331345",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331346",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:331347",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336545,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:331348",
+          "source_class": 90,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336555,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:331349",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:331350",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:331351",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:331352",
+          "source_class": 90,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336559,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:331353",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKGF.000:331369",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336598,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKGF.000:331378",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336598,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKGF.000:331393",
+          "source_class": 90,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336598,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKDH.000:724244",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336395,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKDH.000:724245",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336395,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKDH.000:724246",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336395,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKDH.000:724248",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336395,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKDH.000:724249",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336395,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724250",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724251",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336421,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724252",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724253",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724254",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724255",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724256",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724257",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724258",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724259",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724260",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724261",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724262",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724263",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724264",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724265",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724266",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724267",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724268",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724269",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724270",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724271",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724272",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724273",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724274",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724275",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724276",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724277",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724278",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724279",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724280",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724281",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724282",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336421,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724283",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336421,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724284",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336421,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724285",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336421,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724286",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336421,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724287",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724288",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724289",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724290",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724291",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724292",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724293",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEF.000:724294",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336420,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:724295",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336457,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKEH.000:724296",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336434,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724348",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336505,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724351",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724352",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724353",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724354",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336505,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724355",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724356",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724357",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724358",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724359",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724360",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724361",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724362",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724363",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724371",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336513,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724372",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336505,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724373",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724374",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724375",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724376",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336510,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724377",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724378",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724379",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724380",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724381",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724382",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724383",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724398",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724399",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724400",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724401",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724402",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336510,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724403",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336510,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724404",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336510,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724405",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336510,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724406",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336510,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724413",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336505,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724414",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724415",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336510,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724416",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336510,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724417",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336510,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724418",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336510,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724419",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724420",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724422",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724425",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724426",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724429",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724433",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724434",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724435",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724436",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFF.000:724439",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336504,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724444",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336514,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724445",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724446",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724447",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724448",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724449",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724450",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724451",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724452",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724453",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724454",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724455",
+          "source_class": 153,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336531,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724456",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724457",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724458",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336525,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724459",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336525,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724460",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336536,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724461",
+          "source_class": 153,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336531,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724462",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724463",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724464",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724465",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724466",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724467",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336524,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724468",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336544,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724469",
+          "source_class": 153,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336531,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724470",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336535,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724471",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336535,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724472",
+          "source_class": 153,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336531,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724473",
+          "source_class": 153,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336532,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724474",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336517,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724475",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336517,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724476",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336523,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724477",
+          "source_class": 153,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336532,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724478",
+          "source_class": 153,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336532,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724479",
+          "source_class": 153,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336532,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724480",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724481",
+          "source_class": 153,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336531,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724482",
+          "source_class": 153,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336531,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724483",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724484",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724485",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336525,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724486",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336525,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724487",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFG.000:724488",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336527,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:724489",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336570,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:724490",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:724491",
+          "source_class": 153,
+          "catzoc_code": 1,
+          "zoc_polygon_id": 336560,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:724492",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336570,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:724493",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:724494",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:724495",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336567,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:724496",
+          "source_class": 153,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336557,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFH.000:724497",
+          "source_class": 153,
+          "catzoc_code": 2,
+          "zoc_polygon_id": 336557,
+          "candidate_count": 1
+        },
+        {
+          "obstacle_ref": "US5OAKFI.000:724501",
+          "source_class": 153,
+          "catzoc_code": 3,
+          "zoc_polygon_id": 336586,
+          "candidate_count": 1
+        }
+      ]
+    },
+    "gebco_15_arcsecond_cells": {
+      "cell_count_in_bbox": 2156,
+      "cells_with_at_least_one_obstacle": 211,
+      "occupied_fraction": 0.09786641929499072
+    },
+    "field_encodings": {
+      "WATLEV": {
+        "representation": "raw-numeric",
+        "non_null_values": 420,
+        "types": [
+          "number"
+        ]
+      },
+      "CATOBS": {
+        "representation": "predecoded-string",
+        "non_null_values": 183,
+        "types": [
+          "string"
+        ]
+      },
+      "CATWRK": {
+        "representation": "predecoded-string",
+        "non_null_values": 33,
+        "types": [
+          "string"
+        ]
+      },
+      "CONDTN": {
+        "representation": "raw-numeric",
+        "non_null_values": 121,
+        "types": [
+          "number"
+        ]
+      },
+      "QUASOU": {
+        "representation": "predecoded-string",
+        "non_null_values": 404,
+        "types": [
+          "string"
+        ]
+      },
+      "TECSOU": {
+        "representation": "predecoded-string",
+        "non_null_values": 4,
+        "types": [
+          "string"
+        ]
+      },
+      "EXPSOU": {
+        "representation": "raw-numeric",
+        "non_null_values": 82,
+        "types": [
+          "number"
+        ]
+      },
+      "VERDAT": {
+        "representation": "absent",
+        "non_null_values": 0,
+        "types": []
+      },
+      "CATZOC": {
+        "representation": "raw-numeric",
+        "non_null_values": 168,
+        "types": [
+          "number"
+        ]
+      }
+    },
+    "requests": [
+      {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/layers?f=pjson",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 301.038,
+        "content_type": "text/plain;charset=UTF-8",
+        "bytes": 1111189,
+        "checksum_sha256": "978842fc9583b3b6920d3e73a0fd41a9a12db1902ad0bab047988f137e0e1a3d"
+      },
+      {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/223/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 616.202,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 2092272,
+        "checksum_sha256": "111d139b382282f6262f8fed26061ca338795dec4b347fbbb31bea659b9405f0"
+      },
+      {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/218/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 39.752,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 42,
+        "checksum_sha256": "ed778c73ea51338d6576fb5992b189f2b94d9f3d5e199f46c1af520d6b0b3e6c"
+      },
+      {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/220/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 112.891,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 42,
+        "checksum_sha256": "ed778c73ea51338d6576fb5992b189f2b94d9f3d5e199f46c1af520d6b0b3e6c"
+      },
+      {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/queryDomains?layers=%5B6%2C33%2C34%2C36%2C58%2C218%2C220%2C223%5D&f=pjson",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 48.626,
+        "content_type": "text/plain;charset=UTF-8",
+        "bytes": 23,
+        "checksum_sha256": "192cd32e904af6462c639343b5b30db5c8138d8fbe1e13b6b7b41f4375ea96cd"
+      },
+      {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/33/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 155.264,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 114823,
+        "checksum_sha256": "10549ea2e2d844bd8403478cdc753c932bdc503ca56ca7f52a118352ca4c8076"
+      },
+      {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/6/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 48.478,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 12815,
+        "checksum_sha256": "ea51a942ca7dd4d3ba62b36784125b60963402b467950d1f12e10f2617c6204a"
+      },
+      {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/36/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 46.473,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 15653,
+        "checksum_sha256": "9baf91364ca39eaa756f4f52ac033dd013cc3511130ac31c180d944aa02ae1b2"
+      },
+      {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/58/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 119.277,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 19724,
+        "checksum_sha256": "d0a0132b7de6140e70be544e1a9c770090fdb7ea93eefe2686752ecad5301169"
+      },
+      {
+        "url": "https://encdirect.noaa.gov/arcgis/rest/services/encdirect/enc_harbour/MapServer/34/query?geometry=-122.52%2C37.70%2C-122.32%2C37.88&geometryType=esriGeometryEnvelope&inSR=4326&outSR=4326&spatialRel=esriSpatialRelIntersects&outFields=*&returnGeometry=true&f=geojson&resultOffset=0&resultRecordCount=1000",
+        "status": 200,
+        "ok": true,
+        "latency_ms": 69.62,
+        "content_type": "application/geo+json;charset=UTF-8",
+        "bytes": 63618,
+        "checksum_sha256": "b74c0af018415cac15130f6bda1c3d0eeed64250cda33b7f5c0f7d5832ddd476"
+      }
+    ],
+    "contingency_tier_selected": "tier-1",
+    "human_review_required": false
+  }
+}

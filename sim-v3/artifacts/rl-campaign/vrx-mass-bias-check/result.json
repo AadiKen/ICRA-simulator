@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "MATRIX_AND_BIAS_MATCH",
+  "state_body_ned": {
+    "velocity_mps": [
+      -0.627268,
+      0.391366
+    ],
+    "yaw_rate_rad_s": 0.346345
+  },
+  "matrix": {
+    "node_planar_3x3": [
+      [
+        54.915,
+        0,
+        0
+      ],
+      [
+        0,
+        91.52499999999999,
+        0
+      ],
+      [
+        0,
+        0,
+        19.322517420000004
+      ]
+    ],
+    "dart_effective_planar_3x3": [
+      [
+        54.915,
+        0,
+        0
+      ],
+      [
+        0,
+        91.525,
+        0
+      ],
+      [
+        0,
+        0,
+        19.322519833333338
+      ]
+    ],
+    "dart_minus_node_3x3": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1.4210854715202004e-14,
+        0
+      ],
+      [
+        0,
+        0,
+        0.0000024133333340614627
+      ]
+    ],
+    "max_abs_diff": 0.0000024133333340614627,
+    "dart_readback_source": "WorldFluidAddedMassMatrix link-origin coefficients plus WorldInertial-equivalent rigid mass/inertia"
+  },
+  "bias_force_n_nm": {
+    "node_rigid_body_coriolis": [
+      -7.089142475220999,
+      -11.362234384558,
+      1.7763568394002505e-15
+    ],
+    "node_added_mass_coriolis": [
+      -5.3168568564157495,
+      -0.5681117192279002,
+      -8.98743898570168
+    ],
+    "node_total": [
+      -12.40599933163675,
+      -11.9303461037859,
+      -8.987438985701678
+    ],
+    "dart_combined_spatial_tensor_reconstruction": [
+      -12.40599933163675,
+      -11.9303461037859,
+      -8.987438985701678
+    ],
+    "dart_minus_node": [
+      0,
+      0,
+      0
+    ],
+    "max_abs_diff": 0
+  },
+  "dart_access_note": "Gazebo's public gz-physics7 system boundary exposes added-mass readback but not DART Skeleton::getCoriolisForces. The DART value is reconstructed with the exact combined spatial tensor installed by gz-physics7_7.6.0 AddedMassFeatures::SetLinkAddedMass and DART's spatial bias formulation; it is not a direct live solver-vector readback.",
+  "conclusion": "The static effective matrix and its velocity-dependent spatial-inertia bias both match Node. The remaining coast residual is not explained by matrix loading or the ideal combined-matrix Coriolis term."
+}

@@ -2,9 +2,9 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import {capture} from "./captureGazeboLog.js";
-import {replayManeuver} from "../validation/goldenLogCompare.js";
+import {replayManeuverWithoutAddedMass} from "../validation/goldenLogCompare.js";
 
-const maneuvers = ["constant-thrust", "turning-circle", "yaw-turn", "zig-zag", "coast-down", "current-drift"];
+const maneuvers = ["constant-thrust", "turning-circle", "yaw-turn", "zig-zag", "coast-down", "current-drift", "impulse-hold"];
 const outputRoot = path.resolve(process.argv[2] || "artifacts/gazebo/live-cross-check");
 
 function sha(file) {
@@ -81,7 +81,7 @@ async function main() {
             rawOut: null
         });
         const gazeboRows = loadCsv(csv);
-        const comparison = compare(replayManeuver(maneuver, undefined, {env: manifest.env}).slice(0, gazeboRows.length), gazeboRows, manifest.tolerances);
+        const comparison = compare(replayManeuverWithoutAddedMass(maneuver, {env: manifest.env}).slice(0, gazeboRows.length), gazeboRows, manifest.tolerances);
         results.push({
             maneuver,
             passed: comparison.passed,
@@ -98,7 +98,7 @@ async function main() {
         artifact_kind: "gazebo-harmonic-live-cross-check",
         status: results.every((result) => result.passed) ? "passed-planar-implementation-cross-check" : "failed",
         gazebo_version: "8.14.0",
-        evidence_scope: "Planar maneuver implementation cross-check using a stabilized primitive-buoyancy fixture.",
+        evidence_scope: "Otter reference planar maneuver implementation cross-check using a stabilized primitive-buoyancy, rigid-mass-only fixture.",
         is_coupled6_hydrostatics_validation: false,
         supersedes: {
             artifact: "artifacts/external-runtime/2026-08-02-cross-checks.json",
@@ -107,6 +107,8 @@ async function main() {
             reason: "The retained failed campaign exposed invalid uniform-fluid buoyancy and non-isolated Gazebo Transport processes; this campaign executes the repaired fixture."
         },
         limitations: [
+            "This is an Otter reference cross-check and is not validation of the paper's SR-Surveyor M1.8 Vehicle A.",
+            "Both engines intentionally disable added mass because native DART added mass resets this stabilized Otter fixture; the comparison is rigid-mass-only.",
             "The fixture reflects the vertical CG below the primitive buoyancy center for stability.",
             "Gazebo primitive buoyancy does not reproduce the Otter metacentric hydrostatics.",
             "Gazebo is an implementation cross-check, not an independent hydrodynamic oracle."

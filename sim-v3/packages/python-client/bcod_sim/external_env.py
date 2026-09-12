@@ -92,8 +92,9 @@ class JsonLineSimulatorBridge:
 def _assert_training_eligible(repository: Path, simulator: str) -> None:
     """Refuse external PPO use until conformance and action fairness are approved."""
     if simulator == "vrx":
-        result = repository / "artifacts/rl-campaign/vrx-gate7-full/gate-7-result.json"
-        if not result.exists() or not json.loads(result.read_text()).get("overall_gate_7_pass", False):
+        result = repository / "artifacts/rl-campaign/vrx-gate7-full/gate-7-path-conformance-result.json"
+        document = json.loads(result.read_text()) if result.exists() else {}
+        if document.get("status") != "ADOPTED_POST_HOC_30_SEED_VALIDATED" or not document.get("result", {}).get("pass", False):
             raise ExternalRuntimeError("VRX Gate 7 has not passed; closed-loop PPO is blocked")
     else:
         result = repository / "artifacts/rl-campaign/gazebo-still-water-protocol.json"

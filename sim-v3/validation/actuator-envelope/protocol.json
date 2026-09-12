@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "cross-simulator-actuator-envelope-protocol",
+  "arms": ["bcod-sim", "gazebo", "holoocean", "stonefish"],
+  "command_levels": [0.25, 0.5, 0.75, 1.0],
+  "disturbance": {"current_mps": 0.0, "wind_mps": 0.0, "waves": "off"},
+  "control_interval_s": 0.1,
+  "steady_state": {
+    "minimum_run_s": 40.0,
+    "window_s": 10.0,
+    "maximum_absolute_speed_slope_mps2": 0.005
+  },
+  "speed_thresholds_mps": [0.5, 1.0, 1.5],
+  "turning": {
+    "heading_step_deg": 90.0,
+    "settling_band_deg": 2.0,
+    "settling_hold_s": 2.0,
+    "waypoint_turn_geometry_source": "eval/common_suite/contracts/nominal.json"
+  },
+  "cap_mutation_allowed": false
+}

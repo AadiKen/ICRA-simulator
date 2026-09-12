@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "diagnostic": "zero-current zero-thrust velocity-only first-step comparison",
+  "timestep_s": 0.05,
+  "frame": "body forward-starboard-yaw (VRX FLU lateral velocity sign converted before comparison)",
+  "initial_velocity_body_mps": [-0.681711, 0.269088, 0],
+  "initial_speed_mps": 0.732896541924577,
+  "initialization": {
+    "vrx": "physical 1.5 s body-force pulse followed by release; comparison begins at t=2.15 s",
+    "node": "resolved experiment initial_state.body_velocity_mps, after fixing planar reset-state synchronization"
+  },
+  "mass_and_damping": {
+    "node": {
+      "rigid_body_planar_M": [[52.3, 0, 0], [0, 52.3, 0], [0, 0, 17.891219833333338]],
+      "added_mass_planar_M": [[2.615, 0, 0], [0, 39.224999999999994, 0], [0, 0, 1.431297586666667]],
+      "total_planar_M": [[54.915, 0, 0], [0, 91.52499999999999, 0], [0, 0, 19.322517420000004]],
+      "linear_damping": [6, 18, 8],
+      "quadratic_damping": [18, 60, 12],
+      "added_mass_coriolis_active": true
+    },
+    "vrx": {
+      "assembled_rigid_body_planar_M": [[52.3, 0, 0], [0, 52.3, 0], [0, 0, 17.891219833333338]],
+      "simple_hydrodynamics_added_mass_planar_M": [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+      "effective_planar_M": [[52.3, 0, 0], [0, 52.3, 0], [0, 0, 17.891219833333338]],
+      "linear_damping": [6, 18, 8],
+      "quadratic_damping": [18, 60, 12],
+      "simple_hydrodynamics_coriolis_computed_but_not_applied": true
+    }
+  },
+  "initial_damping_wrench_N_Nm": [12.455403975378, -9.188085104639999, 0],
+  "damping_only_predicted_acceleration_mps2": {
+    "node": [0.22681241874493308, -0.1003888020173723, 0],
+    "vrx": [0.23815303968217974, -0.1756804035304015, 0]
+  },
+  "measured": [
+    {"step": 1, "node_velocity": [-0.674009647068882, 0.26799343173364404], "node_acceleration": [0.1540270586223591, -0.021891365327119106], "vrx_velocity": [-0.669681, 0.260207], "vrx_acceleration": [0.2405999999999997, -0.17761999999999944]},
+    {"step": 2, "node_velocity": [-0.6662311764615758, 0.26735527368669865], "node_acceleration": [0.15556941214612374, -0.012763160938907836], "vrx_velocity": [-0.658003, 0.251752], "vrx_acceleration": [0.23355999999999932, -0.16910000000000092]},
+    {"step": 3, "node_velocity": [-0.6583009333229329, 0.26709515624218355], "node_acceleration": [0.15860486277285757, -0.005202348890301911], "vrx_velocity": [-0.646664, 0.243697], "vrx_acceleration": [0.22677999999999976, -0.16109999999999958]},
+    {"step": 4, "node_velocity": [-0.650224761437152, 0.26719887855148955], "node_acceleration": [0.16152343771561828, 0.0020744461861199603], "vrx_velocity": [-0.635649, 0.236013], "vrx_acceleration": [0.22029999999999994, -0.15367999999999993]},
+    {"step": 5, "node_velocity": [-0.641906813050251, 0.26756268180992754], "node_acceleration": [0.1663589677380206, 0.007276065168759782], "vrx_velocity": [-0.624943, 0.228677], "vrx_acceleration": [0.21411999999999987, -0.14672000000000018]}
+  ],
+  "finding": "The damping coefficients match, but the effective mass matrices and Coriolis implementations do not. VRX omits Node's 5% surge, 75% sway, and 8% yaw added mass; the pinned SimpleHydrodynamics implementation constructs Cmat but excludes it from kForceSum. The velocity-only divergence is therefore structural, not a current-vector frame/sign error."
+}

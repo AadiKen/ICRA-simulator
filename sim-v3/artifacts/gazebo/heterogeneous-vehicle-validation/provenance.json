@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "heterogeneous-vehicle-validation-figure-data",
+  "sources": [
+    {
+      "vehicle": "vehicle-a-otter-reference",
+      "path": "artifacts/gazebo/vehicle-a/open-loop-trajectory-comparison-iteration-synchronized.json",
+      "scenario_count": 7,
+      "representative_scenario": "turning-circle",
+      "maximum_position_error_m": 0.255390340181213,
+      "maximum_heading_error_deg": 1.7372235750513019,
+      "maximum_relative_position_error": 0.058751867597377855,
+      "claim_limit": "Otter rigid-mass-only implementation reference; not SR-Surveyor M1.8 validation."
+    },
+    {
+      "vehicle": "vehicle-c",
+      "path": "artifacts/gazebo/vehicle-c/open-loop-trajectory-comparison-thrust-corrected.json",
+      "scenario_count": 4,
+      "representative_scenarios": {
+        "figure_panel": "allocation-chirp",
+        "maximum_position_error": "straight-ahead",
+        "maximum_heading_error": "pure-lateral",
+        "maximum_relative_position_error": "straight-ahead"
+      },
+      "maximum_position_error_m": 0.28418136417005196,
+      "maximum_heading_error_deg": 2.913507719042764,
+      "maximum_relative_position_error": 0.10938821649857478,
+      "relative_position_error_policy": "Exclude scenarios whose maximum bcod-sim/Gazebo endpoint path length is below 0.1 m; rotation-in-place is excluded because its translation is intentionally near zero.",
+      "status": "schedule-corrected-stability-bounded-yaw-convention-normalized",
+      "stability_diagnostic": "artifacts/gazebo/vehicle-c/timestep-diagnostic/stability-diagnostic.json"
+    }
+  ],
+  "shared_axes": {
+    "trajectory_spatial_scale_across_rows": false,
+    "position_error_range_across_rows": false,
+    "heading_error_range_across_rows": false,
+    "reason": "Per-row axes preserve readability because the vehicles have different path scales and rotation-in-place has near-zero translational path length."
+  },
+  "excluded": ["vrx", "real-world field trials"]
+}

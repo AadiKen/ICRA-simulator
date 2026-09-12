@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "MEASUREMENT_FRAME_BUG_CONFIRMED",
+  "diagnostic": "velocity-only first-step coast, corrected body-acceleration read",
+  "run_directory": "sim-v3/artifacts/rl-campaign/vrx-velocity-only-diagnostic/merged-body",
+  "comparison_interval_s": [
+    1.9,
+    1.95
+  ],
+  "old_vrx_differentiated_body_velocity_mps2": [
+    0.40881999999999863,
+    -0.014059999999999073
+  ],
+  "omega_cross_v_correction_mps2": [
+    -0.11983606269000002,
+    -0.22259870226
+  ],
+  "vrx_corrected_from_world_derivative_mps2": [
+    0.2889839373099986,
+    -0.23665870225999908
+  ],
+  "vrx_direct_body_imu_mps2": [
+    0.2746929891131596,
+    -0.2412624037170624
+  ],
+  "imu_timestamp_s": 1.9500000000000002,
+  "node_body_acceleration_mps2": [
+    0.3344460842146857,
+    0.05959007960192109
+  ],
+  "direct_imu_minus_node_mps2": [
+    -0.0597530951015261,
+    -0.3008524833189835
+  ],
+  "direct_imu_vs_node_l2_mps2": 0.30672895053028704,
+  "corrected_velocity_vs_imu_l2_mps2": 0.015014168890434903,
+  "conclusion": "The former VRX acceleration differentiated rotating body-frame velocity components without the omega-cross-v transport term. Direct body-frame IMU acceleration is the comparison measurement; no simulator physics change is warranted by this diagnostic."
+}

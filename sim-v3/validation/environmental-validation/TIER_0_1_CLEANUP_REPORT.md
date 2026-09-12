@@ -41,9 +41,9 @@ and obstacle-weighted quality-polygon assignment as the retained San Francisco p
 
 ## Figures
 
-- `artifacts/figures/fig1_vessels.png` plots all six Vehicle A `planar3` maneuvers
+- `figures/out/publication/fig1_vessels.png` plots all six Vehicle A `planar3` maneuvers
   and all four Vehicle C `coupled6` maneuvers from full trajectory samples.
-- `artifacts/figures/fig2_geography.png` combines four-site bathymetry, NDBC and
+- `figures/out/publication/fig2_geography.png` combines four-site bathymetry, NDBC and
   CO-OPS markers, RTOFS wet masks, ENC/CATZOC badges, San Francisco current
   accuracy, and separate San Francisco/Boston wind accuracy panels.
 - Honolulu and Miami remain coverage-only in the wind panels because their designated

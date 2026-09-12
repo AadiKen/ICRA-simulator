@@ -1,0 +1,148 @@
+{
+  "id": "T8.5",
+  "prompt": "Construct and run identical 60-second waypoint missions (seed 7, waypoint 30 m north and 0 m east) for vehicle-a-otter with planar3 and vehicle-c-azimuth with coupled6, and tell me which one used less propulsion energy.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "list_vehicle_presets",
+      "input": {},
+      "output": [
+        {
+          "id": "vehicle-a-otter",
+          "name": "Otter differential-thrust USV",
+          "plant": "planar3",
+          "validation_status": "validated",
+          "validation_claim": "Planar maneuvering validated at pinned tolerances."
+        },
+        {
+          "id": "vehicle-b-rudder",
+          "name": "USV propeller/rudder monohull",
+          "plant": "coupled6",
+          "validation_status": "model-structure-trajectory-scored-fail",
+          "validation_claim": "The MMG simulator has been scored against six measured MARIN single-screw KVLCC2 trajectories using measured rudder and samplewise propeller RPM. The current literature-coefficient parameterization fails the precommitted trajectory/IMO tolerances. No evidence validates Vehicle B USV-scale coefficients."
+        },
+        {
+          "id": "vehicle-c-azimuth",
+          "name": "Dual-azimuth overactuated USV",
+          "plant": "coupled6",
+          "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+          "validation_claim": "Control allocation and composability demonstrated; behavioral dynamics not independently validated."
+        },
+        {
+          "id": "searobotics-surveyor-m1.8",
+          "name": "SeaRobotics SR-Surveyor M1.8 (two-body common-task approximation)",
+          "plant": "planar3",
+          "validation_status": "model-structure-only",
+          "validation_claim": "Node common-task resolution uses the versioned two-body model; geometry, actuator and damping assumptions remain unvalidated."
+        }
+      ]
+    },
+    {
+      "tool": "construct_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "otter-planar3-waypoint30N",
+          "seed": 7,
+          "timestep_s": 0.1,
+          "duration_s": 60
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-a-otter",
+          "plant": "planar3"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 30,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "scenario_id": "scenario-609710947b853c5a",
+        "checksum_sha256": "609710947b853c5abd82cfe06b126d6846e52cc97b8198e3f71b2fc18cc3d111",
+        "warnings": []
+      }
+    },
+    {
+      "tool": "construct_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "azimuth-coupled6-waypoint30N",
+          "seed": 7,
+          "timestep_s": 0.1,
+          "duration_s": 60
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-c-azimuth",
+          "plant": "coupled6"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 30,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "scenario_id": "scenario-f408208aded7715b",
+        "checksum_sha256": "f408208aded7715b3225ebc68bbb99a4050efe09c920675a39843651697da582",
+        "warnings": []
+      }
+    },
+    {
+      "tool": "run_scenario",
+      "input": {
+        "scenario_id": "scenario-609710947b853c5a"
+      },
+      "output": {
+        "run_id": "run-a3fc1d0f-02c3-49cb-8be5-ae081cb8d7eb",
+        "success": true,
+        "completion_time_s": 10.099999999998545,
+        "metrics": {
+          "total_energy": 59.37783987815985,
+          "total_sensor_cost": 54.03499999999986,
+          "movement_cost": 5.342839878159982,
+          "steps": 101,
+          "elapsed_s": 10.099999999998545,
+          "propulsion_energy": 5.342839878159982
+        }
+      }
+    },
+    {
+      "tool": "run_scenario",
+      "input": {
+        "scenario_id": "scenario-f408208aded7715b"
+      },
+      "output": {
+        "run_id": "run-592e7ca4-3ba9-445e-bd93-fa7499282570",
+        "success": true,
+        "completion_time_s": 36.80000000000291,
+        "metrics": {
+          "total_energy": 205.45784705479454,
+          "total_sensor_cost": 196.87999999999897,
+          "movement_cost": 8.577847054795566,
+          "steps": 368,
+          "elapsed_s": 36.80000000000291,
+          "propulsion_energy": 8.577847054795566
+        }
+      }
+    }
+  ],
+  "final_answer_text": "Both runs completed successfully. Results:\n\n| Vehicle | Plant | Completion time | Propulsion energy |\n|---|---|---|---|\n| **vehicle-a-otter** | planar3 | 10.1 s (reached waypoint early) | **5.343** |\n| vehicle-c-azimuth | coupled6 | 36.8 s (reached waypoint early) | 8.578 |\n\n**vehicle-a-otter (planar3) used less propulsion energy** — 5.34 vs. 8.58 for vehicle-c-azimuth (coupled6), about 38% less. Note both runs finished the 30 m waypoint mission well before the nominal 60 s duration was up (10.1 s vs 36.8 s elapsed), so the comparison reflects the full mission-completion energy in each case, not a truncated partial run.",
+  "success": true,
+  "detail": "expected vehicle-a-otter to use less propulsion energy"
+}

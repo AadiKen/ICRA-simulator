@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "status": "running",
+  "created_at": "2026-09-10T23:33:52.567231+00:00",
+  "backend": "vrx",
+  "requested_timesteps": 1500000,
+  "timestep_request_semantics": "new-run-total",
+  "resumed_from": null,
+  "seed": 0,
+  "device": "auto",
+  "parallel_environments": 1,
+  "disturbance_mode": "zero",
+  "action_fairness_condition": "topology-native normalized actuators",
+  "checkpoint_frequency_timesteps": 250000,
+  "evaluation": {
+    "episodes": 0,
+    "first_seed": 30000
+  },
+  "aligned_curve_evaluation": {
+    "enabled": true,
+    "frequency_timesteps": 250000,
+    "episodes_per_checkpoint": 50,
+    "first_seed": 30000
+  },
+  "algorithm_provenance": {
+    "config": {
+      "algorithm": "PPO",
+      "policy": "MlpPolicy",
+      "seed": 7319,
+      "n_steps": 512,
+      "batch_size": 512,
+      "n_epochs": 10,
+      "learning_rate": 0.0003,
+      "gamma": 0.99,
+      "gae_lambda": 0.95,
+      "clip_range": 0.2,
+      "policy_kwargs": {
+        "net_arch": [
+          128,
+          128
+        ]
+      },
+      "ent_coef": 0.005
+    },
+    "canonical_sha256": "71c087c9bf30ee2ad10599ba32aad08b36facce12c435f6565da691dd49fd16a",
+    "ent_coef_source": "artifacts/rl-campaign/surveyor/15-field-rerun-preregistration.json",
+    "execution_protocol": "artifacts/rl-campaign/surveyor/portable-feedforward-training-protocol.json",
+    "contract_sha256": "2eff3e87da1c789f048711faf42972d7b66b130a939878a0a80d1b778924bb36"
+  },
+  "git_revision": "959652f36bb07ed0a961b638d2a39a204c3b638e",
+  "command": [
+    "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/.venv/bin/python",
+    "validation/rl-campaign/train_portable_ppo_feedforward.py",
+    "--backend",
+    "vrx",
+    "--runtime-command",
+    "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/.venv/bin/python validation/rl-campaign/ports/vrx_gym_runtime.py",
+    "--final-leg-curriculum",
+    "--timesteps",
+    "1500000",
+    "--n-envs",
+    "1",
+    "--checkpoint-freq",
+    "250000",
+    "--curve-eval-freq",
+    "250000",
+    "--curve-eval-episodes",
+    "50",
+    "--eval-first-seed",
+    "30000",
+    "--output",
+    "/Users/aadikenchammanaold/Desktop/LEADCAT/Website/ICRA27-Sim/sim-v3/artifacts/rl-campaign/training-runs/vrx-path-v2-local-20260910T1722-cdt"
+  ]
+}

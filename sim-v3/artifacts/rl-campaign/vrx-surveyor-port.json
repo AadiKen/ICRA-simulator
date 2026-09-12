@@ -4,7 +4,7 @@
   "status": "smoke-test-passed-gate-7-blocked-invalid-harness",
   "decision_path": "A",
   "source_of_truth": "artifacts/rl-campaign/surveyor-vehicle-model.json",
-  "source_sha256": "d89cf1e266f397009f1f440ae1cc5cab23f43483fc2fdd010c72b590659a05f0",
+  "source_sha256": "8e76f4748ba02ce541722399ec7166840d16d7bfb3456e60a23a648e77e019ac",
   "vrx": {
     "source_ref": "osrf/vrx@fda35961463c2ed8c44d6c646fe8ce773a3eaff1",
     "image": "leadcat/vrx:v3.0.1",
@@ -31,9 +31,7 @@
       "generic_link_parameter": true,
       "accepts_existing_model": true,
       "inputs": [
-        "six diagonal added-mass terms",
-        "six linear drag terms",
-        "six quadratic drag terms"
+        "linear and quadratic drag only; explicit added-mass coefficients remain zero"
       ],
       "hardcoded_wamv_identity": false
     },
@@ -55,6 +53,12 @@
       13.347308666666668,
       17.891219833333338
     ],
+    "fluid_added_mass_planar": [
+      2.615,
+      39.224999999999994,
+      1.431297586666667
+    ],
+    "fluid_added_mass_path": "SDF link/inertial/fluid_added_mass; solved by gz-physics DART spatial inertia",
     "components": [
       {
         "id": "port_pontoon",
@@ -143,6 +147,22 @@
       "rationale": "For waypoint transit, preserving heading correction is required to recover the route; reduced forward speed remains useful progress. This is an explicit controller-allocation design decision, not a manufacturer-specified behavior.",
       "provenance": "Campaign correction after the inherited generic +/-100 N m yaw command bound was shown to clip allocation on 85.2% of a five-episode diagnostic replay."
     },
+    "out_of_plane_vrx_damping": {
+      "zW_n_s_m": 365,
+      "kP_n_m_s_rad": 40,
+      "mQ_n_m_s_rad": 85,
+      "classification": "reviewed engineering estimate; not manufacturer data, measured Surveyor data, or Node planar3 parity data",
+      "method": "Twenty-five percent of linearized critical damping, c = 2*zeta*sqrt(m_eff*k), with zeta=0.25 selected as a conventional moderate-underdamping design assumption before runtime testing.",
+      "derivation": {
+        "heave": "k=10195 N/m from Surface waterplane slope and m=52.3 kg gives c=365 N s/m.",
+        "roll": "k=1112 N m/rad and assembled Ixx=5.375 kg m2 gives c=38.7 N m s/rad, rounded to 40.",
+        "pitch": "The discrete Surface points at +/-L/4 give k=2080 N m/rad, 75% of the continuous-waterplane stiffness because (L/4)^2/(L^2/12)=0.75. With assembled Iyy=13.347 kg m2, c=83.3 N m s/rad, rounded to 85."
+      },
+      "limitations": [
+        "The damping ratio is an engineering design assumption without a Surveyor-specific literature or measurement source.",
+        "Replace these values if free-decay or manufacturer measurements become available."
+      ]
+    },
     "assembly_mass_partition": {
       "total_mass_kg": 52.3,
       "base_link_mass_kg": 51.699999999999996,
@@ -217,7 +237,7 @@
   "files": {
     "model_sdf": "artifacts/rl-campaign/vrx-surveyor-runtime/models/surveyor/model.sdf",
     "world_sdf": "artifacts/rl-campaign/vrx-surveyor-runtime/worlds/surveyor-vrx.sdf",
-    "model_sha256": "1bf02bb7684dc0e9ec546a592070e349813e12022bc8cd690ea91de59723f957",
+    "model_sha256": "19a3b0a89d30fe30c05f91addc00c2f3ae49262def3df2501272b05abdda44d1",
     "world_sha256": "f917a09b75feb30e1e19855a67171b029db72cfd20a77d5f7f110b07a0cf6b74"
   },
   "provenance_statement": "Established hull, mass, inertia, damping, actuator placement, lag and force bounds are serialized from the Surveyor source artifact, never bcod_usv. Only explicitly labeled rotor values are engineering estimates; no WAM-V rotor number is used.",

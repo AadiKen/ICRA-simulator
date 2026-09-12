@@ -20,18 +20,20 @@ from gazebo_gym_runtime import (
     CONTRACT_TICK_S, PHYSICS_STEPS_PER_TICK, ExternalGpsModel, JsonTopic,
     ROOT, Runtime as GazeboRuntime, TerminationMonitor,
 )
+from pose_derived_velocity import PlanarPose, PoseDerivedPlanarVelocity
 
 VRX_IMAGE="leadcat/vrx:surveyor-patched-v3.0.1"
 VRX_PHYSICS_DT_S=.05
-ODOMETRY_YAW_RATE_WARMUP_S=.5
 
 
 class Runtime(GazeboRuntime):
     def update_truth(self):
         super().update_truth()
-        valid_after=getattr(self,"odometry_yaw_rate_valid_after_s",math.inf)
-        self.odometry_yaw_rate_valid=self.sim_time>=valid_after-1e-12
-        if not self.odometry_yaw_rate_valid:self.truth["angular_rate_body_rad_s"][2]=0.
+        north,east,_=self.truth["position_ned_m"]
+        yaw=self.truth["attitude_rad"][2]
+        u,v,r=self.pose_velocity.update(PlanarPose(self.sim_time,north,east,yaw))
+        self.truth["velocity_body_mps"][:2]=[u,v]
+        self.truth["angular_rate_body_rad_s"][2]=r
 
     def _condition_imu_acceleration(self,timestamp_s,values):
         if self.imu_filter_timestamp is not None and timestamp_s<=self.imu_filter_timestamp+1e-12:return self.imu_filter_output
@@ -51,6 +53,7 @@ class Runtime(GazeboRuntime):
 
     def reset(self,config):
         self._stop();self.temp=tempfile.TemporaryDirectory(prefix="bcod-vrx-runtime-")
+        self.pose_velocity=PoseDerivedPlanarVelocity()
         seed=int(config["experiment"]["seed"]);out=self.temp.name
         self.environment_requested=config.get("environment",{})
         environment_scale=0 if all(float(x)==0 for key in ("current_mps","wind_mps") for x in self.environment_requested.get(key,[0,0,0])) else 1
@@ -94,11 +97,6 @@ class Runtime(GazeboRuntime):
         # Drain the final startup clock callback so the public reset epoch is
         # the exact origin used by the first controlled step.
         self.sim_time=self._wait_clock_stable()
-        # OdometryPublisher estimates twist from an internal pose history that
-        # is not reset with the model.  Across multiple seeds its yaw-rate
-        # transient persists for four 0.1 s control steps and settles at the
-        # fifth (0.6 s simulation time for this reset sequence).
-        self.odometry_yaw_rate_valid_after_s=self.sim_time+ODOMETRY_YAW_RATE_WARMUP_S
         return self.response()
 
     def _thrust_topic(self,side):return f"/surveyor/thrusters/{side}/thrust"
@@ -114,7 +112,7 @@ class Runtime(GazeboRuntime):
                              "wind":"episode-local libVrxSurveyorRelativeWind.so SDF wind_enu",
                              "wave":"VRX Surface subscribes to /vrx/wavefield/parameters; common-task protocol has no seeded wave distribution and holds gain at zero"},
                 "locked_to_competition_preset":False}
-            response["odometry_yaw_rate_warmup"]={"valid":self.odometry_yaw_rate_valid,"valid_after_simulation_time_s":self.odometry_yaw_rate_valid_after_s,"duration_s":ODOMETRY_YAW_RATE_WARMUP_S,"invalid_control_steps_after_reset":4,"policy":"zero-fill odometry-derived truth yaw rate; IMU gyro is unaffected"}
+            response["truth_velocity"]={"source":"successive quaternion-derived poses","yaw_delta":"wrapped to [-pi,pi]","odometry_twist_consumed":False}
         return response
 
 

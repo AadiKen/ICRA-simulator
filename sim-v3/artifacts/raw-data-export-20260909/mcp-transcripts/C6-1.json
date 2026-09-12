@@ -1,0 +1,79 @@
+{
+  "task_id": "C6",
+  "category": "C",
+  "repeat_index": 1,
+  "prompt": "Build a 30-second vehicle-a-otter planar3 waypoint scenario to 20 m north. I did not specify a backend; either clarify it or explicitly disclose the backend you default to.",
+  "model": "claude-sonnet-5",
+  "tool_calls": [
+    {
+      "tool": "list_vehicle_presets",
+      "input": {},
+      "output": [
+        {
+          "id": "vehicle-a-otter",
+          "name": "Otter differential-thrust USV",
+          "plant": "planar3",
+          "validation_status": "validated",
+          "validation_claim": "Planar maneuvering validated at pinned tolerances."
+        },
+        {
+          "id": "vehicle-b-rudder",
+          "name": "USV propeller/rudder monohull",
+          "plant": "coupled6",
+          "validation_status": "model-structure-trajectory-scored-fail",
+          "validation_claim": "The MMG simulator has been scored against six measured MARIN single-screw KVLCC2 trajectories using measured rudder and samplewise propeller RPM. The current literature-coefficient parameterization fails the precommitted trajectory/IMO tolerances. No evidence validates Vehicle B USV-scale coefficients."
+        },
+        {
+          "id": "vehicle-c-azimuth",
+          "name": "Dual-azimuth overactuated USV",
+          "plant": "coupled6",
+          "validation_status": "allocation-demonstrated-dynamics-unvalidated",
+          "validation_claim": "Control allocation and composability demonstrated; behavioral dynamics not independently validated."
+        },
+        {
+          "id": "searobotics-surveyor-m1.8",
+          "name": "SeaRobotics SR-Surveyor M1.8 (two-body common-task approximation)",
+          "plant": "planar3",
+          "validation_status": "model-structure-only",
+          "validation_claim": "Node common-task resolution uses the versioned two-body model; geometry, actuator and damping assumptions remain unvalidated."
+        }
+      ]
+    },
+    {
+      "tool": "construct_scenario",
+      "input": {
+        "schema_version": 1,
+        "experiment": {
+          "name": "otter-planar3-30s-north20",
+          "seed": 1,
+          "timestep_s": 0.1,
+          "duration_s": 30
+        },
+        "backend": {
+          "type": "node"
+        },
+        "vehicle": {
+          "preset": "vehicle-a-otter",
+          "plant": "planar3"
+        },
+        "mission": {
+          "type": "waypoint",
+          "waypoints": [
+            {
+              "north_m": 20,
+              "east_m": 0
+            }
+          ]
+        }
+      },
+      "output": {
+        "scenario_id": "scenario-2921c00060376e39",
+        "checksum_sha256": "2921c00060376e3999260a256217fcd45dad2a01500f6f603362a14c4d5673ab",
+        "warnings": []
+      }
+    }
+  ],
+  "final_answer_text": "The scenario was constructed successfully with no warnings.\n\n- **Scenario ID:** `scenario-2921c00060376e39`\n- **Checksum:** `2921c00060376e3999260a256217fcd45dad2a01500f6f603362a14c4d5673ab`\n- **Vehicle:** vehicle-a-otter (planar3, validated for planar maneuvering)\n- **Mission:** waypoint to (north=20 m, east=0 m)\n- **Duration:** 30 s, timestep 0.1 s\n- **Backend:** `node` (default, since none was specified — happy to switch to browser/tensor-cpu/tensor-mps/tensor-cuda if you prefer)\n\nWant me to run it now?",
+  "outcome": "correct",
+  "detail": "used a disclosed default or assumption"
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "vrx-gate-7-open-loop-command-audit",
+  "classification": "OPEN_LOOP_FIXED_REPLAY",
+  "evidence": {
+    "command_generator": "fixedActionTrace() / commandAt()",
+    "state_feedback_used_for_command_generation": false,
+    "physics_steps": 2400,
+    "control_actions": 1200,
+    "max_raw_command_difference": 0,
+    "max_applied_normalized_action_difference": 0,
+    "max_vrx_transport_vs_node_applied_force_difference_n": 7.105427357601002e-15
+  },
+  "interpretation": "The existing calm Gate 7 dry run is already the requested 120 s open-loop comparison. Its divergence cannot be attributed to feedback amplification.",
+  "next_scope": "Residual baseline vehicle dynamics under matched applied thrust."
+}

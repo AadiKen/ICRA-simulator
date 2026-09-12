@@ -1,0 +1,691 @@
+{
+  "schema_version": 1,
+  "artifact_kind": "historical-archive-adapter-fidelity",
+  "generated_at": "2026-09-11T10:07:25.138043Z",
+  "window": "2026-07-13/2026-07-15 UTC",
+  "cells": [
+    {
+      "source": "ndbc",
+      "site": "san-francisco",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "source_value": {
+        "wind_direction_deg": 311.0,
+        "wind_speed_mps": 5.2,
+        "gust_mps": 6.6,
+        "wave_height_m": null,
+        "dominant_wave_period_s": null,
+        "mean_wave_direction_deg": null,
+        "pressure_pa": 101400.0,
+        "air_temperature_c": null,
+        "water_temperature_c": 13.0
+      },
+      "adapter_parsed_value": {
+        "wind_direction_deg": 311.0,
+        "wind_speed_mps": 5.2,
+        "gust_mps": 6.6,
+        "wave_height_m": null,
+        "dominant_wave_period_s": null,
+        "mean_wave_direction_deg": null,
+        "pressure_pa": 101400.0,
+        "air_temperature_c": null,
+        "water_temperature_c": 13.0
+      },
+      "delta": {
+        "wind_direction_deg": 0.0,
+        "wind_speed_mps": 0.0,
+        "gust_mps": 0.0,
+        "wave_height_m": null,
+        "dominant_wave_period_s": null,
+        "mean_wave_direction_deg": null,
+        "pressure_pa": 0.0,
+        "air_temperature_c": null,
+        "water_temperature_c": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://www.ndbc.noaa.gov/data/stdmet/Jul/46026.txt",
+        "checksum_sha256": "ef42c12cae7da15101102778ba4d6afa6800eb44ee4f4ed6a873da441f2033a3",
+        "retrieved_at": "2026-09-09T09:28:18.390669Z",
+        "native_grid_cell": null
+      },
+      "notes": [
+        "Source missing sentinels and corrected production-parser output are both normalized to explicit no-data."
+      ]
+    },
+    {
+      "source": "ndbc",
+      "site": "honolulu",
+      "timestamp": "2026-07-15T11:56:00Z",
+      "source_value": {
+        "wind_direction_deg": null,
+        "wind_speed_mps": null,
+        "gust_mps": null,
+        "wave_height_m": 1.46,
+        "dominant_wave_period_s": 7.69,
+        "mean_wave_direction_deg": 50.0,
+        "pressure_pa": null,
+        "air_temperature_c": null,
+        "water_temperature_c": 26.4
+      },
+      "adapter_parsed_value": {
+        "wind_direction_deg": null,
+        "wind_speed_mps": null,
+        "gust_mps": null,
+        "wave_height_m": 1.46,
+        "dominant_wave_period_s": 7.69,
+        "mean_wave_direction_deg": 50.0,
+        "pressure_pa": null,
+        "air_temperature_c": null,
+        "water_temperature_c": 26.4
+      },
+      "delta": {
+        "wind_direction_deg": null,
+        "wind_speed_mps": null,
+        "gust_mps": null,
+        "wave_height_m": 0.0,
+        "dominant_wave_period_s": 0.0,
+        "mean_wave_direction_deg": 0.0,
+        "pressure_pa": null,
+        "air_temperature_c": null,
+        "water_temperature_c": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://www.ndbc.noaa.gov/data/stdmet/Jul/51202.txt",
+        "checksum_sha256": "85216576ecfe09a22945b2cbbbd0efa61ba90503a3613cf0739db08e62a05caf",
+        "retrieved_at": "2026-09-09T09:28:18.441387Z",
+        "native_grid_cell": null
+      },
+      "notes": [
+        "Source missing sentinels and corrected production-parser output are both normalized to explicit no-data."
+      ]
+    },
+    {
+      "source": "ndbc",
+      "site": "miami",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "source_value": {
+        "wind_direction_deg": null,
+        "wind_speed_mps": null,
+        "gust_mps": null,
+        "wave_height_m": 0.94,
+        "dominant_wave_period_s": 4.88,
+        "mean_wave_direction_deg": 112.0,
+        "pressure_pa": null,
+        "air_temperature_c": 29.9,
+        "water_temperature_c": 30.1
+      },
+      "adapter_parsed_value": {
+        "wind_direction_deg": null,
+        "wind_speed_mps": null,
+        "gust_mps": null,
+        "wave_height_m": 0.94,
+        "dominant_wave_period_s": 4.88,
+        "mean_wave_direction_deg": 112.0,
+        "pressure_pa": null,
+        "air_temperature_c": 29.9,
+        "water_temperature_c": 30.1
+      },
+      "delta": {
+        "wind_direction_deg": null,
+        "wind_speed_mps": null,
+        "gust_mps": null,
+        "wave_height_m": 0.0,
+        "dominant_wave_period_s": 0.0,
+        "mean_wave_direction_deg": 0.0,
+        "pressure_pa": null,
+        "air_temperature_c": 0.0,
+        "water_temperature_c": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://www.ndbc.noaa.gov/data/stdmet/Jul/42095.txt",
+        "checksum_sha256": "c6620591e222e10f1d79559505d700cb3bbc5ee1963427bb156c1cbe2048b156",
+        "retrieved_at": "2026-09-09T09:28:18.495838Z",
+        "native_grid_cell": null
+      },
+      "notes": [
+        "Source missing sentinels and corrected production-parser output are both normalized to explicit no-data."
+      ]
+    },
+    {
+      "source": "ndbc",
+      "site": "boston",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "source_value": {
+        "wind_direction_deg": 242.0,
+        "wind_speed_mps": 4.2,
+        "gust_mps": 5.1,
+        "wave_height_m": null,
+        "dominant_wave_period_s": null,
+        "mean_wave_direction_deg": null,
+        "pressure_pa": 100650.0,
+        "air_temperature_c": 22.4,
+        "water_temperature_c": 19.7
+      },
+      "adapter_parsed_value": {
+        "wind_direction_deg": 242.0,
+        "wind_speed_mps": 4.2,
+        "gust_mps": 5.1,
+        "wave_height_m": null,
+        "dominant_wave_period_s": null,
+        "mean_wave_direction_deg": null,
+        "pressure_pa": 100650.0,
+        "air_temperature_c": 22.4,
+        "water_temperature_c": 19.7
+      },
+      "delta": {
+        "wind_direction_deg": 0.0,
+        "wind_speed_mps": 0.0,
+        "gust_mps": 0.0,
+        "wave_height_m": null,
+        "dominant_wave_period_s": null,
+        "mean_wave_direction_deg": null,
+        "pressure_pa": 0.0,
+        "air_temperature_c": 0.0,
+        "water_temperature_c": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://www.ndbc.noaa.gov/data/stdmet/Jul/44013.txt",
+        "checksum_sha256": "7e309a762bc528073f7d549edfed5ad127ae653f836bd5a7e116fe123bc07510",
+        "retrieved_at": "2026-09-09T09:28:18.666024Z",
+        "native_grid_cell": null
+      },
+      "notes": [
+        "Source missing sentinels and corrected production-parser output are both normalized to explicit no-data."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "san-francisco",
+      "timestamp": "2026-07-15T23:54Z",
+      "source_value": {
+        "tide_m": 1.197
+      },
+      "adapter_parsed_value": {
+        "tide_m": 1.197
+      },
+      "delta": {
+        "tide_m": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20260715&end_date=20260715&station=9414290&product=water_level&datum=MLLW&time_zone=gmt&units=metric&application=BCOD&format=json",
+        "checksum_sha256": "1eebe4febfecc993cb46c83649ea2575027f3d61c3a9278e38bd4e1c11870101",
+        "retrieved_at": "2026-09-09T09:28:18.913069Z",
+        "native_grid_cell": "9414290"
+      },
+      "notes": [
+        "Timestamp is the day's final complete six-minute observation because CoopsSource selects data.at(-1)."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "honolulu",
+      "timestamp": "2026-07-15T23:54Z",
+      "source_value": {
+        "tide_m": 0.435
+      },
+      "adapter_parsed_value": {
+        "tide_m": 0.435
+      },
+      "delta": {
+        "tide_m": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20260715&end_date=20260715&station=1612340&product=water_level&datum=MLLW&time_zone=gmt&units=metric&application=BCOD&format=json",
+        "checksum_sha256": "0ec66b41e8b34273e52d4c95dbe64328a536421b33420e0cc076c95c19be153b",
+        "retrieved_at": "2026-09-09T09:28:19.143522Z",
+        "native_grid_cell": "1612340"
+      },
+      "notes": [
+        "Timestamp is the day's final complete six-minute observation because CoopsSource selects data.at(-1)."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "miami",
+      "timestamp": "2026-07-15T23:54Z",
+      "source_value": {
+        "tide_m": 0.491
+      },
+      "adapter_parsed_value": {
+        "tide_m": 0.491
+      },
+      "delta": {
+        "tide_m": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20260715&end_date=20260715&station=8723214&product=water_level&datum=MLLW&time_zone=gmt&units=metric&application=BCOD&format=json",
+        "checksum_sha256": "bc20e7edff014c0034a3ac6434e78feeb0225b904d3e73748976ac28ff8f4407",
+        "retrieved_at": "2026-09-09T09:28:19.313730Z",
+        "native_grid_cell": "8723214"
+      },
+      "notes": [
+        "Timestamp is the day's final complete six-minute observation because CoopsSource selects data.at(-1)."
+      ]
+    },
+    {
+      "source": "coops",
+      "site": "boston",
+      "timestamp": "2026-07-15T23:54Z",
+      "source_value": {
+        "tide_m": 0.531
+      },
+      "adapter_parsed_value": {
+        "tide_m": 0.531
+      },
+      "delta": {
+        "tide_m": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20260715&end_date=20260715&station=8443970&product=water_level&datum=MLLW&time_zone=gmt&units=metric&application=BCOD&format=json",
+        "checksum_sha256": "c2afc152204eb671ad71478f0f7698dfe2e8cb755ca7cb3c5bd7b1cbb0aea7e0",
+        "retrieved_at": "2026-09-09T09:28:19.486832Z",
+        "native_grid_cell": "8443970"
+      },
+      "notes": [
+        "Timestamp is the day's final complete six-minute observation because CoopsSource selects data.at(-1)."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "san-francisco",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "source_value": {
+        "current_north_mps": NaN,
+        "current_east_mps": NaN
+      },
+      "adapter_parsed_value": {
+        "current_north_mps": NaN,
+        "current_east_mps": NaN
+      },
+      "delta": {
+        "current_north_mps": NaN,
+        "current_east_mps": NaN
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://noaa-nws-rtofs-pds.s3.amazonaws.com/rtofs.20260716/rtofs_glo_3dz_n012_6hrly_hvr_US_west.nc",
+        "checksum_sha256": "0da37a9762e7a5cc200fda60e2b7f578e14d4ba4a8d9040f8a678dab6e2b60d8",
+        "retrieved_at": "2026-09-09T09:28:20.234261Z",
+        "native_grid_cell": "Y385,X443@(37.796661376953125,-122.47998046875),Depth[0]"
+      },
+      "notes": [
+        "Archived 3dz 6-hourly HVR file, surface Depth index 0; validation ingestion mapping v\u2192north and u\u2192east."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "honolulu",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "source_value": {
+        "current_north_mps": -0.03469830006361008,
+        "current_east_mps": -0.16109901666641235
+      },
+      "adapter_parsed_value": {
+        "current_north_mps": -0.03469830006361008,
+        "current_east_mps": -0.16109901666641235
+      },
+      "delta": {
+        "current_north_mps": 0.0,
+        "current_east_mps": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://noaa-nws-rtofs-pds.s3.amazonaws.com/rtofs.20260716/rtofs_glo_3dz_n012_6hrly_hvr_US_west.nc",
+        "checksum_sha256": "0da37a9762e7a5cc200fda60e2b7f578e14d4ba4a8d9040f8a678dab6e2b60d8",
+        "retrieved_at": "2026-09-09T09:28:20.526997Z",
+        "native_grid_cell": "Y146,X1@(21.25501251220703,-157.8399658203125),Depth[0]"
+      },
+      "notes": [
+        "Archived 3dz 6-hourly HVR file, surface Depth index 0; validation ingestion mapping v\u2192north and u\u2192east."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "miami",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "source_value": {
+        "current_north_mps": NaN,
+        "current_east_mps": NaN
+      },
+      "adapter_parsed_value": {
+        "current_north_mps": NaN,
+        "current_east_mps": NaN
+      },
+      "delta": {
+        "current_north_mps": NaN,
+        "current_east_mps": NaN
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://noaa-nws-rtofs-pds.s3.amazonaws.com/rtofs.20260716/rtofs_glo_3dz_n012_6hrly_hvr_US_east.nc",
+        "checksum_sha256": "e5c077b0f3d8a2518def00d6eab90faca9380e6675f1fa1312b5b056bf7b338c",
+        "retrieved_at": "2026-09-09T09:28:20.809365Z",
+        "native_grid_cell": "Y333,X248@(25.72896957397461,-80.1600341796875),Depth[0]"
+      },
+      "notes": [
+        "Archived 3dz 6-hourly HVR file, surface Depth index 0; validation ingestion mapping v\u2192north and u\u2192east."
+      ]
+    },
+    {
+      "source": "rtofs",
+      "site": "boston",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "source_value": {
+        "current_north_mps": NaN,
+        "current_east_mps": NaN
+      },
+      "adapter_parsed_value": {
+        "current_north_mps": NaN,
+        "current_east_mps": NaN
+      },
+      "delta": {
+        "current_north_mps": NaN,
+        "current_east_mps": NaN
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://noaa-nws-rtofs-pds.s3.amazonaws.com/rtofs.20260716/rtofs_glo_3dz_n012_6hrly_hvr_US_east.nc",
+        "checksum_sha256": "e5c077b0f3d8a2518def00d6eab90faca9380e6675f1fa1312b5b056bf7b338c",
+        "retrieved_at": "2026-09-09T09:28:21.051458Z",
+        "native_grid_cell": "Y585,X363@(42.324764251708984,-70.9599609375),Depth[0]"
+      },
+      "notes": [
+        "Archived 3dz 6-hourly HVR file, surface Depth index 0; validation ingestion mapping v\u2192north and u\u2192east."
+      ]
+    },
+    {
+      "source": "gebco",
+      "site": "san-francisco",
+      "timestamp": null,
+      "source_value": {
+        "elevation_m": -3,
+        "water_depth_m": 3,
+        "tid_code": 11
+      },
+      "adapter_parsed_value": {
+        "elevation_m": -3,
+        "water_depth_m": 3,
+        "tid_code": 11
+      },
+      "delta": {
+        "elevation_m": 0,
+        "water_depth_m": 0,
+        "tid_code": 0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://dap.ceda.ac.uk/thredds/dodsC/bodc/gebco/global/gebco_2026/type_identifier_grid/netcdf/gebco_2026_tid.nc.ascii?lat[30673:1:30673],lon[13808:1:13808],tid[30673:1:30673][13808:1:13808] | https://dap.ceda.ac.uk/thredds/dodsC/bodc/gebco/global/gebco_2026/ice_surface_elevation/netcdf/GEBCO_2026.nc.ascii?lat[30673:1:30673],lon[13808:1:13808],elevation[30673:1:30673][13808:1:13808]",
+        "checksum_sha256": "1430b2e409c48b019566e6b9171a282825078de5e4547f371f84d6c2204484d8",
+        "retrieved_at": "2026-09-09T09:28:21.056418Z",
+        "native_grid_cell": "GEBCO_2026:lat[30673],lon[13808]"
+      },
+      "notes": [
+        "Reused the existing live-confirmatory static-grid result."
+      ]
+    },
+    {
+      "source": "gebco",
+      "site": "honolulu",
+      "timestamp": null,
+      "source_value": {
+        "elevation_m": -12,
+        "water_depth_m": 12,
+        "tid_code": 11
+      },
+      "adapter_parsed_value": {
+        "elevation_m": -12,
+        "water_depth_m": 12,
+        "tid_code": 11
+      },
+      "delta": {
+        "elevation_m": 0,
+        "water_depth_m": 0,
+        "tid_code": 0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://dap.ceda.ac.uk/thredds/dodsC/bodc/gebco/global/gebco_2026/type_identifier_grid/netcdf/gebco_2026_tid.nc.ascii?lat[26709:1:26709],lon[5312:1:5312],tid[26709:1:26709][5312:1:5312] | https://dap.ceda.ac.uk/thredds/dodsC/bodc/gebco/global/gebco_2026/ice_surface_elevation/netcdf/GEBCO_2026.nc.ascii?lat[26709:1:26709],lon[5312:1:5312],elevation[26709:1:26709][5312:1:5312]",
+        "checksum_sha256": "21403afb2d9fd20efd9be1c5dd3fa3d81c1676985b40277432a034dc845455bc",
+        "retrieved_at": "2026-09-09T09:28:21.056456Z",
+        "native_grid_cell": "GEBCO_2026:lat[26709],lon[5312]"
+      },
+      "notes": [
+        "Reused the existing live-confirmatory static-grid result."
+      ]
+    },
+    {
+      "source": "gebco",
+      "site": "miami",
+      "timestamp": null,
+      "source_value": {
+        "elevation_m": -4,
+        "water_depth_m": 4,
+        "tid_code": 16
+      },
+      "adapter_parsed_value": {
+        "elevation_m": -4,
+        "water_depth_m": 4,
+        "tid_code": 16
+      },
+      "delta": {
+        "elevation_m": 0,
+        "water_depth_m": 0,
+        "tid_code": 0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://dap.ceda.ac.uk/thredds/dodsC/bodc/gebco/global/gebco_2026/ice_surface_elevation/netcdf/GEBCO_2026.nc.ascii?lat[27775:1:27775],lon[23961:1:23961],elevation[27775:1:27775][23961:1:23961] | https://dap.ceda.ac.uk/thredds/dodsC/bodc/gebco/global/gebco_2026/type_identifier_grid/netcdf/gebco_2026_tid.nc.ascii?lat[27775:1:27775],lon[23961:1:23961],tid[27775:1:27775][23961:1:23961]",
+        "checksum_sha256": "3f5f145817961cbf8ceabac4ae1a0853be91ce8815c08e69dfba5ec05c7e5963",
+        "retrieved_at": "2026-09-09T09:28:21.056468Z",
+        "native_grid_cell": "GEBCO_2026:lat[27775],lon[23961]"
+      },
+      "notes": [
+        "Reused the existing live-confirmatory static-grid result."
+      ]
+    },
+    {
+      "source": "gebco",
+      "site": "boston",
+      "timestamp": null,
+      "source_value": {
+        "elevation_m": -4,
+        "water_depth_m": 4,
+        "tid_code": 44
+      },
+      "adapter_parsed_value": {
+        "elevation_m": -4,
+        "water_depth_m": 4,
+        "tid_code": 44
+      },
+      "delta": {
+        "elevation_m": 0,
+        "water_depth_m": 0,
+        "tid_code": 0
+      },
+      "success": true,
+      "provenance": {
+        "query": "https://dap.ceda.ac.uk/thredds/dodsC/bodc/gebco/global/gebco_2026/type_identifier_grid/netcdf/gebco_2026_tid.nc.ascii?lat[31764:1:31764],lon[26162:1:26162],tid[31764:1:31764][26162:1:26162] | https://dap.ceda.ac.uk/thredds/dodsC/bodc/gebco/global/gebco_2026/ice_surface_elevation/netcdf/GEBCO_2026.nc.ascii?lat[31764:1:31764],lon[26162:1:26162],elevation[31764:1:31764][26162:1:26162]",
+        "checksum_sha256": "f61905715d763902d4ecdde434c9e106057afa1dff7aff2337c0702d884749f5",
+        "retrieved_at": "2026-09-09T09:28:21.056477Z",
+        "native_grid_cell": "GEBCO_2026:lat[31764],lon[26162]"
+      },
+      "notes": [
+        "Reused the existing live-confirmatory static-grid result."
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "san-francisco",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "source_value": {
+        "wind_east_mps": 2.599395751953125,
+        "wind_north_mps": 0.2854766845703125
+      },
+      "adapter_parsed_value": {
+        "wind_east_mps": 2.599395751953125,
+        "wind_north_mps": 0.2854766845703125
+      },
+      "delta": {
+        "wind_east_mps": 0.0,
+        "wind_north_mps": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "cds://reanalysis-era5-single-levels?date=2026-07-15T12:00:00Z&area=38.306,-122.965,37.306,-121.965&variables=10m_u_component_of_wind,10m_v_component_of_wind",
+        "checksum_sha256": "86a99129032eff46bac89a39a809b9d00a6c138a0b0a266effd508656bc84a4c",
+        "retrieved_at": "2026-09-11T10:05:57.770326Z",
+        "native_grid_cell": "era5@(37.75,-122.5)"
+      },
+      "notes": [
+        "Live CDS retrieval decoded through the validation NetCDF path."
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "honolulu",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "source_value": {
+        "wind_east_mps": -4.708221435546875,
+        "wind_north_mps": -0.5533905029296875
+      },
+      "adapter_parsed_value": {
+        "wind_east_mps": -4.708221435546875,
+        "wind_north_mps": -0.5533905029296875
+      },
+      "delta": {
+        "wind_east_mps": 0.0,
+        "wind_north_mps": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "cds://reanalysis-era5-single-levels?date=2026-07-15T12:00:00Z&area=21.789,-158.365,20.789,-157.365&variables=10m_u_component_of_wind,10m_v_component_of_wind",
+        "checksum_sha256": "3c2f53b124bae49dd2f6fcbec955a1fec13f59ad7b2f9f5212665aa56986d9e2",
+        "retrieved_at": "2026-09-11T10:06:20.267362Z",
+        "native_grid_cell": "era5@(21.25,-157.75)"
+      },
+      "notes": [
+        "Live CDS retrieval decoded through the validation NetCDF path."
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "miami",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "source_value": {
+        "wind_east_mps": -1.832244873046875,
+        "wind_north_mps": -1.8922576904296875
+      },
+      "adapter_parsed_value": {
+        "wind_east_mps": -1.832244873046875,
+        "wind_north_mps": -1.8922576904296875
+      },
+      "delta": {
+        "wind_east_mps": 0.0,
+        "wind_north_mps": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "cds://reanalysis-era5-single-levels?date=2026-07-15T12:00:00Z&area=26.231,-80.662,25.231,-79.662&variables=10m_u_component_of_wind,10m_v_component_of_wind",
+        "checksum_sha256": "2ef5dc21fdbcb736e3bef61c6bf538729418d483f189747639d066c2700aef58",
+        "retrieved_at": "2026-09-11T10:06:47.399632Z",
+        "native_grid_cell": "era5@(25.75,-80.25)"
+      },
+      "notes": [
+        "Live CDS retrieval decoded through the validation NetCDF path."
+      ]
+    },
+    {
+      "source": "era5",
+      "site": "boston",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "source_value": {
+        "wind_east_mps": 4.397247314453125,
+        "wind_north_mps": 0.2171173095703125
+      },
+      "adapter_parsed_value": {
+        "wind_east_mps": 4.397247314453125,
+        "wind_north_mps": 0.2171173095703125
+      },
+      "delta": {
+        "wind_east_mps": 0.0,
+        "wind_north_mps": 0.0
+      },
+      "success": true,
+      "provenance": {
+        "query": "cds://reanalysis-era5-single-levels?date=2026-07-15T12:00:00Z&area=42.854,-71.489,41.854,-70.489&variables=10m_u_component_of_wind,10m_v_component_of_wind",
+        "checksum_sha256": "5d31238732aa0628893f67bf44c8aa6983f0ca725f3a0aa7600b25dee5fed51f",
+        "retrieved_at": "2026-09-11T10:07:25.137980Z",
+        "native_grid_cell": "era5@(42.25,-71.0)"
+      },
+      "notes": [
+        "Live CDS retrieval decoded through the validation NetCDF path."
+      ]
+    }
+  ],
+  "unavailable": [
+    {
+      "source": "nws",
+      "site": "san-francisco",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "success": false,
+      "status": "unverified",
+      "reason": "api.weather.gov exposes current forecast grids but no accessible archive of past forecast-grid output for this adapter."
+    },
+    {
+      "source": "nws",
+      "site": "honolulu",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "success": false,
+      "status": "unverified",
+      "reason": "api.weather.gov exposes current forecast grids but no accessible archive of past forecast-grid output for this adapter."
+    },
+    {
+      "source": "nws",
+      "site": "miami",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "success": false,
+      "status": "unverified",
+      "reason": "api.weather.gov exposes current forecast grids but no accessible archive of past forecast-grid output for this adapter."
+    },
+    {
+      "source": "nws",
+      "site": "boston",
+      "timestamp": "2026-07-15T12:00:00Z",
+      "success": false,
+      "status": "unverified",
+      "reason": "api.weather.gov exposes current forecast grids but no accessible archive of past forecast-grid output for this adapter."
+    }
+  ],
+  "summary": {
+    "planned_cells": 24,
+    "achieved_cells": 20,
+    "passing_cells": 20,
+    "achieved_by_source": {
+      "ndbc": 4,
+      "coops": 4,
+      "rtofs": 4,
+      "era5": 4,
+      "gebco": 4,
+      "nws": 0
+    },
+    "passing_by_source": {
+      "ndbc": 4,
+      "coops": 4,
+      "rtofs": 4,
+      "era5": 4,
+      "gebco": 4,
+      "nws": 0
+    },
+    "all_achieved_deltas_zero": true
+  },
+  "exclusions": [
+    "bathymetry_overlap_agreement and all synthetic bathymetry fixture differences are excluded."
+  ]
+}

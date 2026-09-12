@@ -1,0 +1,19 @@
+{
+  "route_id": "determinism-replay-route-v1",
+  "vehicle": "vehicle-a-otter",
+  "duration_s": 90,
+  "initial_state": {
+    "position_ned_m": [0, 0, 0],
+    "attitude_rad": [0, 0, 0],
+    "body_velocity_mps": [0, 0, 0],
+    "angular_rate_body_rad_s": [0, 0, 0]
+  },
+  "environment": {"current_mps": [0, 0, 0], "wind_mps": [0, 0, 0], "water": "flat"},
+  "segments": [
+    {"start_s": 0, "end_s": 10, "left_thrust_n": 80, "right_thrust_n": 80},
+    {"start_s": 10, "end_s": 35, "left_thrust_n": 40, "right_thrust_n": 90},
+    {"start_s": 35, "end_s": 50, "left_thrust_n": 80, "right_thrust_n": 80},
+    {"start_s": 50, "end_s": 75, "left_thrust_n": 90, "right_thrust_n": 40},
+    {"start_s": 75, "end_s": 90, "left_thrust_n": 40, "right_thrust_n": 40}
+  ]
+}

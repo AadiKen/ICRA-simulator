@@ -35,7 +35,7 @@ def stamp(value):
 
 class JsonTopic:
     def __init__(self,container,topic,native=False,native_env=None):
-        self.topic=topic; self.latest=None; self.items=queue.Queue(); self.stalled=False; self.accepted=[];self.parse_errors=0;self.last_unparsed=None
+        self.topic=topic; self.latest=None; self.items=queue.Queue(); self.sequence=0; self.stalled=False; self.accepted=[];self.parse_errors=0;self.last_unparsed=None
         command=["gz","topic","-e","-t",topic,"--json-output"] if native else ["docker","exec",container,"gz","topic","-e","-t",topic,"--json-output"]
         self.process=subprocess.Popen(command,text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,bufsize=1,env=native_env)
         self.thread=threading.Thread(target=self._read,daemon=True); self.thread.start()
@@ -44,7 +44,7 @@ class JsonTopic:
         for line in self.process.stdout:
             try: value=json.loads(line)
             except json.JSONDecodeError:self.parse_errors+=1;self.last_unparsed=line[:500];continue
-            if not self.stalled: self.latest=value; self.items.put(value); self.accepted.append(value)
+            if not self.stalled: self.latest=value; self.sequence+=1; self.items.put(value); self.accepted.append(value)
     def wait_at_least(self,target,extract,timeout=20):
         deadline=time.monotonic()+timeout
         while time.monotonic()<deadline:
@@ -107,7 +107,10 @@ class Runtime:
     def _wait_service(self):
         deadline=time.monotonic()+30
         while time.monotonic()<deadline:
-            out=self.dexec("gz","service","-l",check=False,timeout=5)
+            try:
+                out=self.dexec("gz","service","-l",check=False,timeout=5)
+            except subprocess.TimeoutExpired:
+                continue
             if self.world+"/control" in out.stdout:return
             time.sleep(.1)
         raise TimeoutError("Gazebo world control service did not appear")
@@ -121,16 +124,20 @@ class Runtime:
         self._stop(); self.temp=tempfile.TemporaryDirectory(prefix="bcod-gazebo-runtime-")
         seed=int(config["experiment"]["seed"]); out=self.temp.name
         self.environment_requested=config.get("environment",{})
-        prepare=["node","--experimental-strip-types",str(ROOT/"validation/rl-campaign/ports/prepare-gazebo-episode.ts"),str(seed),out]
-        if self.idle_mode:prepare.append("--idle-no-sensors")
+        current=list(map(float,self.environment_requested.get("current_mps",[0,0,0])))
+        if len(current)!=3 or not all(math.isfinite(value) for value in current):raise ValueError("current_mps must contain three finite values")
+        duration=float(config.get("experiment",{}).get("duration_s",120.));steps=round(duration/CONTRACT_TICK_S)
+        mode="--idle-no-sensors" if self.idle_mode else "--sensors"
+        prepare=["node","--experimental-strip-types",str(ROOT/"validation/rl-campaign/ports/prepare-gazebo-episode.ts"),str(seed),out,mode,json.dumps(current,separators=(",",":")),str(steps)]
         self.run(prepare)
+        plugin_source=ROOT/"artifacts/rl-campaign/vrx-current-plugin/libVrxCurrentRelativeVelocity.so";plugin_dir=Path(out)/"plugins";plugin_dir.mkdir();shutil.copy(plugin_source,plugin_dir/plugin_source.name)
         shutil.copy(ROOT/"validation/rl-campaign/ports/gazebo_transport_jsonl.py",Path(out)/"gazebo_transport_jsonl.py")
         self.world=f"/world/bcod_parity_gate-{seed}"
         if self.native:
-            native_env=self.native_env.copy();native_env["GZ_SIM_RESOURCE_PATH"]=str(Path(out)/"models")
+            native_env=self.native_env.copy();native_env["GZ_SIM_RESOURCE_PATH"]=str(Path(out)/"models");native_env["GZ_SIM_SYSTEM_PLUGIN_PATH"]=str(plugin_dir)
             self.server=subprocess.Popen(["gz","sim","-s","-r",str(Path(out)/"worlds"/f"gate-{seed}.sdf")],env=native_env,stdout=subprocess.DEVNULL,stderr=subprocess.PIPE,text=True)
         else:
-            self.run(["docker","run","-d","--rm","--platform","linux/amd64","--name",self.container,"-e","GZ_SIM_RESOURCE_PATH=/gate/models","-v",f"{out}:/gate",IMAGE,"gz","sim","-s","-r",f"/gate/worlds/gate-{seed}.sdf"])
+            self.run(["docker","run","-d","--rm","--platform","linux/amd64","--name",self.container,"-e","GZ_SIM_RESOURCE_PATH=/gate/models","-e","GZ_SIM_SYSTEM_PLUGIN_PATH=/gate/plugins","-v",f"{out}:/gate",IMAGE,"gz","sim","-s","-r",f"/gate/worlds/gate-{seed}.sdf"])
         self._wait_service()
         # Every episode gets a fresh container and a world generated with the
         # seeded pose. Do not issue reset-all here: Harmonic removes the
@@ -140,7 +147,7 @@ class Runtime:
         transport_command=["/usr/bin/python3","-u",str(Path(out)/"gazebo_transport_jsonl.py")] if self.native else ["docker","exec","-i",self.container,"python3","-u","/gate/gazebo_transport_jsonl.py"]
         self.transport=subprocess.Popen(transport_command,text=True,stdin=subprocess.PIPE,stdout=subprocess.PIPE,env=self.native_env if self.native else None)
         initial=config["initial_state"]["position_ned_m"]
-        wanted={"clock":self.world+"/clock","odom":"/odometry"}
+        wanted={"clock":self.world+"/clock","stats":self.world+"/stats","odom":"/odometry"}
         if not self.idle_mode:wanted.update({"imu":"/imu","gps":"/gps",**{f"contact{i}":f"/surveyor/contacts/hull_{i}" for i in range(3)}})
         self.topics={name:JsonTopic(self.container,topic,self.native,self.native_env if self.native else None) for name,topic in wanted.items()}
         # Let Gazebo Transport discovery connect the independent echo
@@ -174,6 +181,21 @@ class Runtime:
                 self.sim_time=self._clock_time(self.topics["clock"].latest or {})
         return self.response()
     def _clock_time(self,msg):return stamp(msg.get("sim"))
+    def _stats_iteration(self,msg):return int(msg.get("iterations",-1))
+    def _wait_paused_stats(self,minimum_iteration=-1,after_sequence=-1,timeout=20):
+        """Wait for Gazebo's authoritative paused state and iteration count."""
+        deadline=time.monotonic()+timeout
+        while time.monotonic()<deadline:
+            value=self.topics["stats"].latest or {}
+            iteration=self._stats_iteration(value)
+            if self.topics["stats"].sequence>after_sequence and value.get("paused") is True and iteration>=minimum_iteration:return value
+            try:self.topics["stats"].items.get(timeout=min(.1,max(0,deadline-time.monotonic())))
+            except queue.Empty:pass
+        raise TimeoutError(f"{self.world}/stats did not report paused at iteration >= {minimum_iteration}")
+    def _stats_time(self,msg):
+        value=msg.get("simTime",msg.get("sim_time",msg.get("sim")))
+        if not isinstance(value,dict):raise RuntimeError(f"Gazebo stats omitted simulation time: {msg}")
+        return stamp(value)
     def _header_time(self,msg):return stamp(msg.get("header",{}).get("stamp"))
     def _imu_roll_pitch(self):
         msg=self.topics.get("imu").latest if "imu" in self.topics else None
@@ -192,18 +214,16 @@ class Runtime:
             previous=current;time.sleep(.01)
         raise TimeoutError("/clock did not stabilize while paused")
     def _advance_confirmed(self,iterations):
-        """Batch internal iterations and wait for the paused clock to settle."""
-        # Drain any /clock callback already in flight before taking the start
-        # stamp.  Without this barrier the cached start can lag the paused
-        # world by one 5 ms tick, falsely reporting a 55 ms advance for an
-        # exact 50 ms multi-step request.
-        start=self._wait_clock_stable()
-        target=start+iterations*PHYSICS_DT_S
-        self.service(self.world+"/control","gz.msgs.WorldControl",f"pause: true step: true multi_step: {iterations}")
-        self.topics["clock"].wait_at_least(target,self._clock_time)
-        end=self._wait_clock_stable()
-        if not math.isclose(end-start,iterations*PHYSICS_DT_S,rel_tol=0,abs_tol=1e-9):
-            raise RuntimeError(f"Gazebo advanced {end-start}s; expected {iterations*PHYSICS_DT_S}s")
+        """Advance to an absolute time so delayed or duplicate requests are idempotent."""
+        stats_sequence=self.topics["stats"].sequence
+        before=self._wait_paused_stats(after_sequence=stats_sequence)
+        start=self._stats_time(before)
+        target=round(start+iterations*PHYSICS_DT_S,9)
+        response=self._node_request(self.transport,{"op":"control","service":self.world+"/control","run_to_sim_time_s":target})
+        if not response.get("ok"):raise RuntimeError(f"service {self.world}/control failed through persistent transport")
+        end=self._clock_time(self.topics["clock"].wait_at_least(target,self._clock_time))
+        if not math.isclose(end,target,rel_tol=0,abs_tol=1e-9):
+            raise RuntimeError(f"Gazebo advanced to {end}s; requested absolute time {target}s")
     def _ingest_gps(self):
         if "gps" not in self.topics:return
         msg=self.topics["gps"].latest
@@ -241,7 +261,6 @@ class Runtime:
         self.update_truth();return {"ok":True,"observations":[self.observation()],"truth":self.truth,**extra}
     def _thrust_topic(self,side):return f"/model/surveyor/joint/{side}_joint/cmd_thrust"
     def step(self,action):
-        previous_imu_stamp=self._header_time(self.topics["imu"].latest or {})
         previous_odom_stamp=self._header_time(self.topics["odom"].latest or {})
         effectors=action["actuators"]["effectors"]; normalized=[effectors["port"]["command"],effectors["starboard"]["command"],0,0]
         thrust=self._node_request(self.actuator,{"op":"step","action":normalized,"dt_s":CONTRACT_TICK_S})["thrust_newtons"]
@@ -252,9 +271,9 @@ class Runtime:
         self._advance_confirmed(PHYSICS_STEPS_PER_TICK)
         self.sim_time=self._clock_time(self.topics["clock"].wait_at_least(target,self._clock_time))
         self.topics["odom"].wait_after(previous_odom_stamp,self._header_time)
-        # IMU is expected every physics iteration; blocking here prevents a
-        # previous callback from masquerading as this interval's sample.
-        if not self.topics["imu"].stalled:self.topics["imu"].wait_after(previous_imu_stamp,self._header_time)
+        # Gazebo may legitimately omit a scheduled IMU publication. Keep the
+        # latest sample and let CommonWaypointEnv's frozen age limit decide
+        # whether it remains usable or must be zero-filled.
         response=self.response()
         contacts=[self.topics[name].latest for name in self.topics if "contact" in name and self.topics[name].latest]
         imu_roll,imu_pitch=self._imu_roll_pitch()
@@ -269,8 +288,11 @@ class Runtime:
             contacts.append({"collision1":"surveyor::base_link::hull_collision_0","collision2":"test_buoy::collision"})
         if self.diagnostic_termination_override in ("allocation_failure","precedence"):
             achieved_for_monitor=[0.,0.]
-        stop_reason=self.termination.update(dt_s=CONTRACT_TICK_S,roll_rad=imu_roll,pitch_rad=imu_pitch,contact_messages=contacts,commanded_thrust_n=commanded,achieved_thrust_n=achieved_for_monitor)
-        return {**response,"terminated":stop_reason is not None,"truncated":False,"info":{"simulation_time_s":self.sim_time,"commanded_thrust_newtons":commanded,"applied_thrust_newtons":thrust,**({"stop_reason":stop_reason} if stop_reason else {})}}
+        # Allocation health is evaluated after the intentional actuator lag.
+        # Comparing the raw policy target against the lagged command falsely
+        # classifies normal motor dynamics as an allocator failure.
+        stop_reason=self.termination.update(dt_s=CONTRACT_TICK_S,roll_rad=imu_roll,pitch_rad=imu_pitch,contact_messages=contacts,commanded_thrust_n=thrust,achieved_thrust_n=achieved_for_monitor)
+        return {**response,"terminated":stop_reason is not None,"truncated":False,"info":{"simulation_time_s":self.sim_time,"policy_target_thrust_newtons":commanded,"commanded_thrust_newtons":thrust,"applied_thrust_newtons":thrust,**({"stop_reason":stop_reason} if stop_reason else {})}}
     def handle(self,request):
         op=request.get("op")
         if op=="reset":return self.reset(request["config"])
@@ -302,7 +324,7 @@ class Runtime:
                     "held_source_timestamp_s":None if self.gps_model.held is None else self.gps_model.held["timestamp_s"],
                     "held_valid":None if self.gps_model.held is None else self.gps_model.held["valid"],
                     "last_ingest_diagnostic":self.gps_model.last_diagnostic,
-                    "held_diagnostic":None if self.gps_model.held is None else self.gps_model.held.get("diagnostic")},"environment":{"requested":self.environment_requested,"applied":{"current_mps":[0,0,0],"wind_mps":[0,0,0]},"mechanism":"No Gazebo wind/current plugin is loaded; the running world is still water."}}
+                    "held_diagnostic":None if self.gps_model.held is None else self.gps_model.held.get("diagnostic")},"environment":{"requested":self.environment_requested,"applied":{"current_mps":self.environment_requested.get("current_mps",[0,0,0]),"wind_mps":[0,0,0]},"mechanism":{"current":"episode-local libVrxCurrentRelativeVelocity.so with NED-to-ENU conversion","wind":"not loaded"}}}
         if op=="diagnostic_termination_override":
             kind=request.get("kind")
             if kind not in (None,"instability","grounding","object_collision","allocation_failure","precedence"):raise ValueError("invalid diagnostic termination override")
