@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "figure": "fig1_vessels",
+  "git_sha": "2b27f0859e170a12560c27eb5da6707625436846",
+  "contract_hash": null,
+  "render_resources": {
+    "embedded_font": "Minecraft.ttf",
+    "sha256": "bd47314d301e50ff4d109bff28dfcf637cb7eb13945480259878b848875acc65"
+  },
+  "sources": [
+    {
+      "path": "artifacts/gazebo/vehicle-a/open-loop-trajectory-comparison.json",
+      "sha256": "1fc28c063dee9ee9d2d7db88f99ff1ce44287d74cac94e86895120da2d50e89c"
+    },
+    {
+      "path": "artifacts/gazebo/vehicle-c/open-loop-trajectory-comparison-thrust-corrected.json",
+      "sha256": "718327f7267a04bc9b1849e54a9482d525b7a05a4901fb00e4a4fa7adeebd1b3"
+    },
+    {
+      "path": "artifacts/gazebo/vehicle-c-generic/comparison.json",
+      "sha256": "af30721318170c020f93ff6c397e25948189b1463418fe174f0e1250475ceded"
+    },
+    {
+      "path": "artifacts/gazebo/vehicle-c/rotation-in-place-diagnostic.json",
+      "sha256": "66a1ed03f80ac2e1d9720d6a3f1a30912a145d88bf19c4f8f8acdcdd9b96bd75"
+    }
+  ],
+  "render_decisions": {
+    "axis_scaling": "natural per panel; full trace extent with 12% padding",
+    "expanded_battery_worst_callout": {
+      "enabled": true,
+      "maneuver": "vehicle-c zig-zag",
+      "max_divergence_m": 3.581482750752226
+    },
+    "rotation_in_place_annotation": "neutral under-investigation note",
+    "aligned_maneuvers": [
+      "straight-ahead/constant-thrust",
+      "turning-circle",
+      "yaw-turn",
+      "zig-zag",
+      "coast-down"
+    ],
+    "vehicle_c_current_drift": "dropped because matched Gazebo current forcing was unavailable",
+    "row_subtitles": "omitted pending explicit author approval"
+  },
+  "worst_case_attribution": {
+    "original_vehicle_c_suite": {
+      "horizontal_position_error": {
+        "maneuver": "straight-ahead",
+        "value_cm": 28.418
+      },
+      "heading_error": {
+        "maneuver": "pure-lateral",
+        "value_deg": 2.9135
+      }
+    },
+    "expanded_generic_battery": {
+      "horizontal_position_error": {
+        "maneuver": "zig-zag",
+        "value_m": 3.581482750752226
+      }
+    }
+  },
+  "rotation_in_place_diagnostic": {
+    "units": "meters",
+    "classification": "real cross-model dynamics difference; root cause not isolated",
+    "known_drift_signature_match": false,
+    "shared_actuator_pairing_root_cause_ruled_out": false,
+    "command_interpretation": "exactly opposed +/-40.215182 N pod thrust at zero azimuth; zero net force and 65.148595 N m yaw torque",
+    "max_horizontal_position_error_cm": 3.2786510022220057,
+    "bcod_sim": {
+      "samples": 120,
+      "sha256": "cd0290a15dcec5bbae897e3fd03ee7aa1853728ee849048690c994580a8b210e",
+      "east_span_m": 0.030359624837728916,
+      "north_span_m": 0.02089886843896238
+    },
+    "gazebo_harmonic": {
+      "samples": 120,
+      "sha256": "3c5a6c0b1e6fafd64243883d4e851ebdbd151b5569cf91a0d7c666fe3771398f",
+      "east_span_m": 0.0014305677562528128,
+      "north_span_m": 0.0029192281977456496
+    },
+    "long_horizon_bcod": "60 s diagnostic ends 3.64 cm from origin after an 8.12 cm maximum east excursion; the startup bowl does not settle to zero",
+    "comparison": "Gazebo also moves toward negative north at millimeter scale, but its east component has the opposite sign. The models share only part of the drift direction."
+  },
+  "vehicle_c_mixed_provenance": {
+    "analytically_sign_corrected_pre_fix_captures": [
+      "straight-ahead",
+      "pure-lateral",
+      "rotation-in-place"
+    ],
+    "physically_rerun": [
+      "allocation-chirp",
+      "turning-circle",
+      "yaw-turn",
+      "zig-zag",
+      "coast-down"
+    ],
+    "note": "The original three symmetric/rotation traces retain pre-fix captures with source-declared analytical normalization. Allocation Chirp and all four generic-battery Gazebo traces were physically run against the corrected SDF."
+  }
+}
